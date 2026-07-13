@@ -1,0 +1,242 @@
+{
+  "name": "immer",
+  "version": "11.1.11",
+  "lang": "ja",
+  "generator": "yakudoc@0.1.0",
+  "entries": {
+    "53582631": {
+      "original": "- function that receives a proxy of the base state as first argument and which can be freely modified",
+      "translated": "- ベースとなる状態のプロキシを第 1 引数として受け取り、自由に変更できる関数",
+      "symbol": "immer/dist/immer.d.ts#IProduce",
+      "lang": "ja"
+    },
+    "15812baf": {
+      "original": "Apply an array of Immer patches to the first argument.\n\nThis function is a producer, which means copy-on-write is in effect.",
+      "translated": "Immer パッチの配列を第 1 引数に適用します。\n\nこの関数はプロデューサーであり、コピーオンライトが有効になります。",
+      "symbol": "immer/dist/immer.d.ts#applyPatches",
+      "lang": "ja"
+    },
+    "e3bf8524": {
+      "original": "Object types that should never be mapped",
+      "translated": "決してマップすべきでないオブジェクト型",
+      "symbol": "immer/dist/immer.d.ts#AtomicObject",
+      "lang": "ja"
+    },
+    "21ab11ae": {
+      "original": "This function is actually a no-op, but can be used to cast an immutable type\nto an draft type and make TypeScript happy",
+      "translated": "この関数は実際には何もしませんが、イミュータブルな型をドラフト型にキャストして TypeScript を満足させるために使えます。",
+      "symbol": "immer/dist/immer.d.ts#castDraft",
+      "lang": "ja"
+    },
+    "4375b385": {
+      "original": "This function is actually a no-op, but can be used to cast a mutable type\nto an immutable type and make TypeScript happy",
+      "translated": "この関数は実際には何もしませんが、ミュータブルな型をイミュータブルな型にキャストして TypeScript を満足させるために使えます。",
+      "symbol": "immer/dist/immer.d.ts#castImmutable",
+      "lang": "ja"
+    },
+    "87747cd9": {
+      "original": "Create an Immer draft from the given base state, which may be a draft itself.\nThe draft can be modified until you finalize it with the `finishDraft` function.",
+      "translated": "指定したベース状態(それ自体がドラフトでもかまいません)から Immer のドラフトを作成します。\nドラフトは `finishDraft` 関数で確定するまで変更できます。",
+      "symbol": "immer/dist/immer.d.ts#createDraft",
+      "lang": "ja"
+    },
+    "669fb1fb": {
+      "original": "Takes a snapshot of the current state of a draft and finalizes it (but without freezing). This is a great utility to print the current state during debugging (no Proxies in the way). The output of current can also be safely leaked outside the producer.",
+      "translated": "ドラフトの現在の状態のスナップショットを取得して確定します(ただしフリーズはしません)。デバッグ中に現在の状態を出力するのに便利です(プロキシが邪魔しません)。current の出力はプロデューサーの外へ安全に持ち出せます。",
+      "symbol": "immer/dist/immer.d.ts#current",
+      "lang": "ja"
+    },
+    "68c713b4": {
+      "original": "Convert a readonly type into a mutable type, if possible",
+      "translated": "可能であれば、読み取り専用の型をミュータブルな型に変換します。",
+      "symbol": "immer/dist/immer.d.ts#Draft",
+      "lang": "ja"
+    },
+    "7230e274": {
+      "original": "To let Immer treat your class instances as plain immutable objects\n(albeit with a custom prototype), you must define either an instance property\nor a static property on each of your custom classes.\n\nOtherwise, your class instance will never be drafted, which means it won't be\nsafe to mutate in a produce callback.",
+      "translated": "Immer に自作クラスのインスタンスを(カスタムプロトタイプを持つとはいえ)プレーンなイミュータブルオブジェクトとして扱わせるには、各カスタムクラスにインスタンスプロパティか静的プロパティのどちらかを定義する必要があります。\n\nそうしないと、クラスインスタンスはドラフト化されず、produce のコールバック内で安全に変更できなくなります。",
+      "symbol": "immer/dist/immer.d.ts#DRAFTABLE",
+      "lang": "ja"
+    },
+    "2fe9cc4a": {
+      "original": "Enables optimized array method handling for Immer drafts.\n\nThis plugin overrides array methods to avoid unnecessary Proxy creation during iteration,\nsignificantly improving performance for array-heavy operations.\n\n**Mutating methods** (push, pop, shift, unshift, splice, sort, reverse):\nOperate directly on the copy without creating per-element proxies.\n\n**Non-mutating methods** fall into categories:\n- **Subset operations** (filter, slice, find, findLast): Return draft proxies - mutations track\n- **Transform operations** (concat, flat): Return base values - mutations don't track\n- **Primitive-returning** (indexOf, includes, some, every, etc.): Return primitives\n\n**Important**: Callbacks for overridden methods receive base values, not drafts.\nThis is the core performance optimization.",
+      "translated": "Immer のドラフト向けに最適化された配列メソッド処理を有効にします。\n\nこのプラグインは配列メソッドをオーバーライドし、反復処理中の不要なプロキシ生成を避けることで、配列を多用する処理のパフォーマンスを大きく改善します。\n\n**変更を伴うメソッド**(push, pop, shift, unshift, splice, sort, reverse):\n要素ごとのプロキシを作らず、コピーに対して直接操作します。\n\n**変更を伴わないメソッド**は次のカテゴリに分かれます:\n- **部分集合を返す操作**(filter, slice, find, findLast): ドラフトのプロキシを返し、変更が追跡されます\n- **変換操作**(concat, flat): ベースの値を返し、変更は追跡されません\n- **プリミティブを返す操作**(indexOf, includes, some, every など): プリミティブを返します\n\n**重要**: オーバーライドされたメソッドのコールバックは、ドラフトではなくベースの値を受け取ります。\nこれがパフォーマンス最適化の要です。",
+      "symbol": "immer/dist/immer.d.ts#enableArrayMethods",
+      "lang": "ja"
+    },
+    "1f6e8651": {
+      "original": "Finalize an Immer draft from a `createDraft` call, returning the base state\n(if no changes were made) or a modified copy. The draft must *not* be\nmutated afterwards.\n\nPass a function as the 2nd argument to generate Immer patches based on the\nchanges that were made.",
+      "translated": "`createDraft` 呼び出しで得た Immer のドラフトを確定し、(変更がなければ)ベース状態を、変更があれば変更後のコピーを返します。ドラフトはその後 *変更してはいけません*。\n\n第 2 引数に関数を渡すと、加えられた変更をもとに Immer パッチを生成できます。",
+      "symbol": "immer/dist/immer.d.ts#finishDraft",
+      "lang": "ja"
+    },
+    "eab3c40f": {
+      "original": "Freezes draftable objects. Returns the original object.\nBy default freezes shallowly, but if the second argument is `true` it will freeze recursively.",
+      "translated": "ドラフト化可能なオブジェクトをフリーズし、元のオブジェクトを返します。\n既定では浅くフリーズしますが、第 2 引数が `true` の場合は再帰的にフリーズします。",
+      "symbol": "immer/dist/immer.d.ts#freeze",
+      "lang": "ja"
+    },
+    "326f3ed7": {
+      "original": "If the lib \"ES2015.Collection\" is not included in tsconfig.json,\ntypes like ReadonlyArray, WeakMap etc. fall back to `any` (specified nowhere)\nor `{}` (from the node types), in both cases entering an infinite recursion in\npattern matching type mappings\nThis type can be used to cast these types to `void` in these cases.",
+      "translated": "tsconfig.json に lib \"ES2015.Collection\" が含まれていない場合、ReadonlyArray や WeakMap などの型は `any`(どこにも指定なし)または `{}`(node の型由来)にフォールバックし、いずれの場合もパターンマッチング型マッピングで無限再帰に陥ります。\nこの型は、そうした場合にこれらの型を `void` にキャストするために使えます。",
+      "symbol": "immer/dist/immer.d.ts#IfAvailable",
+      "lang": "ja"
+    },
+    "322956be": {
+      "original": "Pass true to automatically freeze all copies created by Immer.\n\nBy default, auto-freezing is enabled.",
+      "translated": "true を渡すと、Immer が作成するすべてのコピーを自動的にフリーズします。\n\n既定では自動フリーズは有効です。",
+      "symbol": "immer/dist/immer.d.ts#Immer.setAutoFreeze",
+      "lang": "ja"
+    },
+    "b4cd42d8": {
+      "original": "Pass false to use faster iteration that skips non-enumerable properties\nbut still handles symbols for compatibility.\n\nBy default, strict iteration is enabled (includes all own properties).",
+      "translated": "false を渡すと、列挙不可能なプロパティをスキップしつつ、互換性のためにシンボルは扱う、より高速な反復処理を使います。\n\n既定では厳密な反復処理が有効です(すべての自身のプロパティを含みます)。",
+      "symbol": "immer/dist/immer.d.ts#Immer.setUseStrictIteration",
+      "lang": "ja"
+    },
+    "5b7ba2f3": {
+      "original": "Pass true to enable strict shallow copy.\n\nBy default, immer does not copy the object descriptors such as getter, setter and non-enumrable properties.",
+      "translated": "true を渡すと厳密な浅いコピーを有効にします。\n\n既定では、immer はゲッター・セッター・列挙不可能なプロパティといったオブジェクトディスクリプタをコピーしません。",
+      "symbol": "immer/dist/immer.d.ts#Immer.setUseStrictShallowCopy",
+      "lang": "ja"
+    },
+    "09abbb65": {
+      "original": "Convert a mutable type into a readonly type",
+      "translated": "ミュータブルな型を読み取り専用の型に変換します。",
+      "symbol": "immer/dist/immer.d.ts#Immutable",
+      "lang": "ja"
+    },
+    "951b75bc": {
+      "original": "Core Producer inference",
+      "translated": "コアとなるプロデューサーの型推論",
+      "symbol": "immer/dist/immer.d.ts#InferRecipeFromCurried",
+      "lang": "ja"
+    },
+    "9ea68ac9": {
+      "original": "- optional function that will be called with all the patches produced here",
+      "translated": "- ここで生成されたすべてのパッチを引数に呼び出される、省略可能な関数",
+      "symbol": "immer/dist/immer.d.ts#IProduce",
+      "lang": "ja"
+    },
+    "6c48a0ad": {
+      "original": "- the initial state",
+      "translated": "- 初期状態",
+      "symbol": "immer/dist/immer.d.ts#IProduce",
+      "lang": "ja"
+    },
+    "970eab87": {
+      "original": "a new state, or the initial state if nothing was modified",
+      "translated": "新しい状態。何も変更されなかった場合は初期状態",
+      "symbol": "immer/dist/immer.d.ts#IProduce",
+      "lang": "ja"
+    },
+    "740b2f05": {
+      "original": "Curried producer that infers curried from the recipe",
+      "translated": "レシピからカリー化を推論する、カリー化されたプロデューサー",
+      "symbol": "immer/dist/immer.d.ts#IProduce",
+      "lang": "ja"
+    },
+    "9a29fe97": {
+      "original": "Curried producer that infers curried from the State generic, which is explicitly passed in.",
+      "translated": "明示的に渡された State ジェネリックからカリー化を推論する、カリー化されたプロデューサー",
+      "symbol": "immer/dist/immer.d.ts#IProduce",
+      "lang": "ja"
+    },
+    "741328c0": {
+      "original": "Curried producer that infers the recipe from the curried output function (e.g. when passing to setState)",
+      "translated": "カリー化された出力関数からレシピを推論する、カリー化されたプロデューサー(例: setState に渡す場合)",
+      "symbol": "immer/dist/immer.d.ts#IProduce",
+      "lang": "ja"
+    },
+    "daf9dfd4": {
+      "original": "Curried producer with initial state, infers recipe from initial state",
+      "translated": "初期状態を持つカリー化されたプロデューサー。初期状態からレシピを推論します",
+      "symbol": "immer/dist/immer.d.ts#IProduce",
+      "lang": "ja"
+    },
+    "9219851f": {
+      "original": "Normal producer",
+      "translated": "通常のプロデューサー",
+      "symbol": "immer/dist/immer.d.ts#IProduce",
+      "lang": "ja"
+    },
+    "fb92d983": {
+      "original": "The `produce` function takes a value and a \"recipe function\" (whose\nreturn value often depends on the base state). The recipe function is\nfree to mutate its first argument however it wants. All mutations are\nonly ever applied to a __copy__ of the base state.\n\nPass only a function to create a \"curried producer\" which relieves you\nfrom passing the recipe function every time.\n\nOnly plain objects and arrays are made mutable. All other objects are\nconsidered uncopyable.\n\nNote: This function is __bound__ to its `Immer` instance.",
+      "translated": "`produce` 関数は、値と「レシピ関数」(その戻り値はしばしばベース状態に依存します)を受け取ります。レシピ関数は第 1 引数を好きなように変更できます。変更はすべて、ベース状態の __コピー__ にのみ適用されます。\n\n関数だけを渡すと「カリー化されたプロデューサー」が作られ、毎回レシピ関数を渡す手間がなくなります。\n\nミュータブルになるのはプレーンなオブジェクトと配列だけです。その他のオブジェクトはコピー不可とみなされます。\n\n注意: この関数は自身の `Immer` インスタンスに __バインド__ されています。",
+      "symbol": "immer/dist/immer.d.ts#IProduce",
+      "lang": "ja"
+    },
+    "68b841d7": {
+      "original": "Like `produce`, but instead of just returning the new state,\na tuple is returned with [nextState, patches, inversePatches]\n\nLike produce, this function supports currying",
+      "translated": "`produce` と同様ですが、新しい状態だけを返すのではなく、[nextState, patches, inversePatches] のタプルを返します。\n\nproduce と同じく、この関数もカリー化に対応しています。",
+      "symbol": "immer/dist/immer.d.ts#IProduceWithPatches",
+      "lang": "ja"
+    },
+    "abafbae3": {
+      "original": "Returns true if the given value is an Immer draft",
+      "translated": "指定した値が Immer のドラフトであれば true を返します。",
+      "symbol": "immer/dist/immer.d.ts#isDraft",
+      "lang": "ja"
+    },
+    "5a469e27": {
+      "original": "Returns true if the given value can be drafted by Immer",
+      "translated": "指定した値が Immer でドラフト化できる場合に true を返します。",
+      "symbol": "immer/dist/immer.d.ts#isDraftable",
+      "lang": "ja"
+    },
+    "29248aa8": {
+      "original": "Distinguishes plain array types (`number[]`, `readonly string[]`, etc.) from\ntuple types — including variadic tuples like `[boolean, ...number[]]` — whose\n`length` is also `number` but must not be widened to `Element[]`.",
+      "translated": "プレーンな配列型(`number[]`、`readonly string[]` など)を、タプル型(`[boolean, ...number[]]` のような可変長タプルを含む)と区別します。タプル型の `length` も `number` ですが、`Element[]` に広げてはいけません。",
+      "symbol": "immer/dist/immer.d.ts#IsPlainArray",
+      "lang": "ja"
+    },
+    "65e7887f": {
+      "original": "The sentinel value returned by producers to replace the draft with undefined.",
+      "translated": "ドラフトを undefined に置き換えるためにプロデューサーが返す番兵値。",
+      "symbol": "immer/dist/immer.d.ts#NOTHING",
+      "lang": "ja"
+    },
+    "e5babf7a": {
+      "original": "Get the underlying object that is represented by the given draft",
+      "translated": "指定したドラフトが表している、元となるオブジェクトを取得します。",
+      "symbol": "immer/dist/immer.d.ts#original",
+      "lang": "ja"
+    },
+    "48a018dc": {
+      "original": "Utility types",
+      "translated": "ユーティリティ型",
+      "symbol": "immer/dist/immer.d.ts#PatchesTuple",
+      "lang": "ja"
+    },
+    "3ac710aa": {
+      "original": "The type for `recipe function`",
+      "translated": "`recipe function` の型",
+      "symbol": "immer/dist/immer.d.ts#Producer",
+      "lang": "ja"
+    },
+    "1b69e7b6": {
+      "original": "Like `produce`, but `produceWithPatches` always returns a tuple\n[nextState, patches, inversePatches] (instead of just the next state)",
+      "translated": "`produce` と同様ですが、`produceWithPatches` は常に(次の状態だけでなく)[nextState, patches, inversePatches] のタプルを返します。",
+      "symbol": "immer/dist/immer.d.ts#produceWithPatches",
+      "lang": "ja"
+    },
+    "a531990c": {
+      "original": "Pass true to automatically freeze all copies created by Immer.\n\nAlways freeze by default, even in production mode",
+      "translated": "true を渡すと、Immer が作成するすべてのコピーを自動的にフリーズします。\n\n既定では、本番モードでも常にフリーズします。",
+      "symbol": "immer/dist/immer.d.ts#setAutoFreeze",
+      "lang": "ja"
+    },
+    "b5bb52e0": {
+      "original": "Pass false to use loose iteration that only processes enumerable string properties.\nThis skips symbols and non-enumerable properties for maximum performance.\n\nBy default, strict iteration is enabled (includes all own properties).",
+      "translated": "false を渡すと、列挙可能な文字列プロパティだけを処理する緩い反復処理を使います。\nこれはパフォーマンスを最大化するために、シンボルと列挙不可能なプロパティをスキップします。\n\n既定では厳密な反復処理が有効です(すべての自身のプロパティを含みます)。",
+      "symbol": "immer/dist/immer.d.ts#setUseStrictIteration",
+      "lang": "ja"
+    },
+    "f24bd6ed": {
+      "original": "These should also never be mapped but must be tested after regular Map and\nSet",
+      "translated": "これらも決してマップすべきではありませんが、通常の Map と Set の後に判定する必要があります。",
+      "symbol": "immer/dist/immer.d.ts#WeakReferences",
+      "lang": "ja"
+    }
+  }
+}

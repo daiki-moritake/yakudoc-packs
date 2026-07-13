@@ -1,0 +1,116 @@
+{
+  "name": "p-retry",
+  "version": "8.0.0",
+  "lang": "ja",
+  "generator": "yakudoc@0.1.0",
+  "entries": {
+    "1fef6b4a": {
+      "original": "- An error message or a custom error.",
+      "translated": "- エラーメッセージ、またはカスタムエラー。",
+      "symbol": "p-retry/index.d.ts#AbortError",
+      "lang": "ja"
+    },
+    "7293ae7d": {
+      "original": "Abort retrying and reject the promise. No callback functions will be called.",
+      "translated": "リトライを中止して Promise を拒否します。コールバック関数は呼び出されません。",
+      "symbol": "p-retry/index.d.ts#AbortError",
+      "lang": "ja"
+    },
+    "8ab2902a": {
+      "original": "Wrap a function so that each call is automatically retried on failure.",
+      "translated": "関数をラップし、呼び出しごとに失敗時に自動でリトライされるようにします。",
+      "symbol": "p-retry/index.d.ts#makeRetriable",
+      "lang": "ja"
+    },
+    "d5a22794": {
+      "original": "The exponential factor to use.",
+      "translated": "使用する指数関数の係数。",
+      "symbol": "p-retry/index.d.ts#Options.factor",
+      "lang": "ja"
+    },
+    "ab0f1896": {
+      "original": "The maximum time (in milliseconds) that the retried operation is allowed to run.",
+      "translated": "リトライ対象の処理の実行が許される最大時間(ミリ秒)。",
+      "symbol": "p-retry/index.d.ts#Options.maxRetryTime",
+      "lang": "ja"
+    },
+    "1a30537b": {
+      "original": "The maximum number of milliseconds between two retries.",
+      "translated": "2 回のリトライの間隔の最大ミリ秒数。",
+      "symbol": "p-retry/index.d.ts#Options.maxTimeout",
+      "lang": "ja"
+    },
+    "d1b22a79": {
+      "original": "The number of milliseconds before starting the first retry.\n\nSet this to `0` to retry immediately with no delay.",
+      "translated": "最初のリトライを開始するまでのミリ秒数。\n\n遅延なしで直ちにリトライするには `0` を設定します。",
+      "symbol": "p-retry/index.d.ts#Options.minTimeout",
+      "lang": "ja"
+    },
+    "06116939": {
+      "original": "Callback invoked on each failure. Receives a context object containing the error and retry state information.\n\nThe function is called after `shouldConsumeRetry` and before `shouldRetry`, for all errors except `AbortError`.\n\nThe function is not called on `AbortError`.",
+      "translated": "失敗のたびに呼び出されるコールバック。エラーとリトライ状態の情報を含むコンテキストオブジェクトを受け取ります。\n\nこの関数は、`AbortError` を除くすべてのエラーについて、`shouldConsumeRetry` の後・`shouldRetry` の前に呼び出されます。\n\n`AbortError` のときは呼び出されません。",
+      "symbol": "p-retry/index.d.ts#Options.onFailedAttempt",
+      "lang": "ja"
+    },
+    "b82e6d90": {
+      "original": "Randomizes the timeouts by multiplying with a factor between 1 and 2.",
+      "translated": "1 から 2 の間の係数を掛けて、タイムアウトをランダム化します。",
+      "symbol": "p-retry/index.d.ts#Options.randomize",
+      "lang": "ja"
+    },
+    "7e131fda": {
+      "original": "The maximum amount of times to retry the operation.",
+      "translated": "処理をリトライする最大回数。",
+      "symbol": "p-retry/index.d.ts#Options.retries",
+      "lang": "ja"
+    },
+    "2c6a67a9": {
+      "original": "Decide if this failure should consume a retry from the `retries` budget.\n\nWhen `false` is returned, the failure will not consume a retry or increment backoff values, but is still subject to `maxRetryTime`.\n\nThe function is called before `onFailedAttempt` and `shouldRetry`.\n\nThe function is not called on `AbortError`.",
+      "translated": "この失敗が `retries` の残り回数を消費すべきかどうかを決めます。\n\n`false` を返した場合、その失敗はリトライ回数を消費せず、バックオフの値も増やしませんが、`maxRetryTime` の対象にはなります。\n\nこの関数は `onFailedAttempt` と `shouldRetry` の前に呼び出されます。\n\n`AbortError` のときは呼び出されません。",
+      "symbol": "p-retry/index.d.ts#Options.shouldConsumeRetry",
+      "lang": "ja"
+    },
+    "5df9c585": {
+      "original": "Decide if a retry should occur based on the context. Returning true triggers a retry, false aborts with the error.\n\nThe function is called after `onFailedAttempt` and `shouldConsumeRetry`.\n\nThe function is not called on `AbortError`, `TypeError` (except network errors), or if `retries` or `maxRetryTime` are exhausted.",
+      "translated": "コンテキストにもとづいてリトライすべきかどうかを決めます。true を返すとリトライし、false を返すとそのエラーで中止します。\n\nこの関数は `onFailedAttempt` と `shouldConsumeRetry` の後に呼び出されます。\n\n`AbortError` や `TypeError`(ネットワークエラーを除く)のとき、または `retries` や `maxRetryTime` を使い切ったときは呼び出されません。",
+      "symbol": "p-retry/index.d.ts#Options.shouldRetry",
+      "lang": "ja"
+    },
+    "4edede10": {
+      "original": "You can abort retrying using [`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController).\n\n```\nimport pRetry from 'p-retry';\n\nconst run = async () => { … };\nconst controller = new AbortController();\n\ncancelButton.addEventListener('click', () => {\n\tcontroller.abort(new Error('User clicked cancel button'));\n});\n\ntry {\n\tawait pRetry(run, {signal: controller.signal});\n} catch (error) {\n\tconsole.log(error.message);\n\t//=> 'User clicked cancel button'\n}\n```",
+      "translated": "[`AbortController`](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) を使ってリトライを中止できます。\n\n```\nimport pRetry from 'p-retry';\n\nconst run = async () => { … };\nconst controller = new AbortController();\n\ncancelButton.addEventListener('click', () => {\n\tcontroller.abort(new Error('User clicked cancel button'));\n});\n\ntry {\n\tawait pRetry(run, {signal: controller.signal});\n} catch (error) {\n\tconsole.log(error.message);\n\t//=> 'User clicked cancel button'\n}\n```",
+      "symbol": "p-retry/index.d.ts#Options.signal",
+      "lang": "ja"
+    },
+    "77476a4a": {
+      "original": "Prevents retry timeouts from keeping the process alive.\n\nOnly affects platforms with a `.unref()` method on timeouts, such as Node.js.",
+      "translated": "リトライのタイムアウトがプロセスを生かし続けるのを防ぎます。\n\nNode.js のように、タイムアウトに `.unref()` メソッドがあるプラットフォームでのみ効果があります。",
+      "symbol": "p-retry/index.d.ts#Options.unref",
+      "lang": "ja"
+    },
+    "80bff732": {
+      "original": "- Options for configuring the retry behavior.",
+      "translated": "- リトライの挙動を設定するためのオプション。",
+      "symbol": "p-retry/index.d.ts#pRetry",
+      "lang": "ja"
+    },
+    "1da3b698": {
+      "original": "- Receives the number of attempts as the first argument and is expected to return a `Promise` or any value.",
+      "translated": "- 試行回数を第 1 引数として受け取り、`Promise` または任意の値を返すことが期待されます。",
+      "symbol": "p-retry/index.d.ts#pRetry",
+      "lang": "ja"
+    },
+    "5f65aef0": {
+      "original": "Returns a `Promise` that is fulfilled when calling `input` returns a fulfilled promise. If calling `input` returns a rejected promise, `input` is called again until the max retries are reached, it then rejects with the last rejection reason.\n\nDoes not retry on most `TypeErrors`, with the exception of network errors. This is done on a best case basis as different browsers have different [messages](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful) to indicate this. See [whatwg/fetch#526 (comment)](https://github.com/whatwg/fetch/issues/526#issuecomment-554604080)\n\nNon-network `TypeError`s always abort retries, even if `shouldConsumeRetry` or `shouldRetry` would otherwise allow another attempt.",
+      "translated": "`input` の呼び出しが解決済みの Promise を返したときに解決される `Promise` を返します。`input` の呼び出しが拒否された Promise を返した場合、最大リトライ回数に達するまで `input` が再度呼び出され、その後は最後の拒否理由で拒否されます。\n\nネットワークエラーを除き、ほとんどの `TypeErrors` ではリトライしません。ブラウザによってこれを示す[メッセージ](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Checking_that_the_fetch_was_successful)が異なるため、これはベストエフォートで行われます。[whatwg/fetch#526 (comment)](https://github.com/whatwg/fetch/issues/526#issuecomment-554604080) を参照してください。\n\nネットワーク以外の `TypeError` は、`shouldConsumeRetry` や `shouldRetry` がもう一度試行を許すはずの場合でも、常にリトライを中止します。",
+      "symbol": "p-retry/index.d.ts#pRetry",
+      "lang": "ja"
+    },
+    "6227efe2": {
+      "original": "The delay in milliseconds before the next retry attempt.\n\nThis is calculated based on `minTimeout`, `factor`, `maxTimeout`, and `randomize` options.\n\nNote: The actual delay may be shorter if it would exceed `maxRetryTime`.\nThis is `0` when the retry is skipped or when no retry will occur based on the checks completed before the current callback runs.",
+      "translated": "次のリトライ試行までの遅延(ミリ秒)。\n\nこれは `minTimeout`、`factor`、`maxTimeout`、`randomize` のオプションにもとづいて計算されます。\n\n注意: `maxRetryTime` を超える場合、実際の遅延はより短くなることがあります。\nリトライがスキップされた場合や、現在のコールバックが実行される前に完了したチェックによってリトライが発生しないと分かっている場合は、この値は `0` になります。",
+      "symbol": "p-retry/index.d.ts#RetryContext.retryDelay",
+      "lang": "ja"
+    }
+  }
+}

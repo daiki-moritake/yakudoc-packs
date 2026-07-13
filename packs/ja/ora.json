@@ -1,0 +1,308 @@
+{
+  "name": "ora",
+  "version": "9.4.1",
+  "lang": "ja",
+  "generator": "yakudoc@0.1.0",
+  "entries": {
+    "57499305": {
+      "original": "Manually render a new frame.",
+      "translated": "新しいフレームを手動で描画します。",
+      "symbol": "ora/index.d.ts#Ora.render",
+      "lang": "ja"
+    },
+    "cd336c0b": {
+      "original": "The color of the spinner.\n\nSet to `false` to disable the color.",
+      "translated": "スピナーの色。\n\n色を無効にするには `false` を設定します。",
+      "symbol": "ora/index.d.ts#Options.color",
+      "lang": "ja"
+    },
+    "e094a6d2": {
+      "original": "Discard stdin input (except Ctrl+C) while running if it's TTY. This prevents the spinner from twitching on input, outputting broken lines on `Enter` key presses, and prevents buffering of input while the spinner is running.\n\nThis has no effect on Windows as there is no good way to implement discarding stdin properly there.\n\nNote: `discardStdin` puts stdin into raw mode. In raw mode, `Ctrl+C` no longer generates `SIGINT` from the terminal. Ora re-emits `Ctrl+C` from stdin input, but if your code blocks the event loop with synchronous work, `Ctrl+C` handling is delayed until the blocking work ends. Use async APIs, a worker thread, or a child process to keep `Ctrl+C` responsive, or set `discardStdin` to `false`.",
+      "translated": "実行中に TTY であれば、標準入力(`Enter` を除く)を破棄します。これにより、入力でスピナーがちらついたり、`Enter` キーの押下で行が崩れて出力されたりするのを防ぎ、スピナー実行中の入力バッファリングも防ぎます。\n\nWindows では標準入力の破棄を適切に実装する良い方法がないため、効果はありません。\n\n注意: `discardStdin` は標準入力を raw モードにします。raw モードでは、`Ctrl+C` はもうターミナルから `SIGINT` を生成しません。Ora は標準入力から `Ctrl+C` を再送出しますが、コードが同期処理でイベントループをブロックすると、`Ctrl+C` の処理はブロックが終わるまで遅延します。`Ctrl+C` の応答性を保つには、非同期 API・ワーカースレッド・子プロセスを使うか、`discardStdin` を `false` に設定してください。",
+      "symbol": "ora/index.d.ts#Options.discardStdin",
+      "lang": "ja"
+    },
+    "aee06aeb": {
+      "original": "Set to `false` to stop Ora from hiding the cursor.",
+      "translated": "Ora がカーソルを隠さないようにするには `false` を設定します。",
+      "symbol": "ora/index.d.ts#Options.hideCursor",
+      "lang": "ja"
+    },
+    "f6df1300": {
+      "original": "Indent the spinner with the given number of spaces.",
+      "translated": "指定した数のスペースでスピナーをインデントします。",
+      "symbol": "ora/index.d.ts#Options.indent",
+      "lang": "ja"
+    },
+    "2e35fd8f": {
+      "original": "Interval between each frame.\n\nSpinners provide their own recommended interval, so you don't really need to specify this.\n\nDefault: Provided by the spinner or `100`.",
+      "translated": "各フレームの間隔。\n\nスピナーは推奨の間隔を自身で提供するので、通常これを指定する必要はありません。\n\n既定値: スピナーが提供する値、または `100`。",
+      "symbol": "ora/index.d.ts#Options.interval",
+      "lang": "ja"
+    },
+    "43f81de7": {
+      "original": "Force enable/disable the spinner. If not specified, the spinner will be enabled if the `stream` is being run inside a TTY context (not spawned or piped) and/or not in a CI environment.\n\nNote that `{isEnabled: false}` doesn't mean it won't output anything. It just means it won't output the spinner, colors, and other ansi escape codes. It will still log text.",
+      "translated": "スピナーの有効・無効を強制します。指定しない場合、`stream` が TTY コンテキスト内(spawn やパイプでない)で実行され、かつ CI 環境でないときにスピナーが有効になります。\n\n`{isEnabled: false}` でも何も出力されなくなるわけではない点に注意してください。スピナー・色・その他の ANSI エスケープコードを出力しなくなるだけで、テキストのログは出力されます。",
+      "symbol": "ora/index.d.ts#Options.isEnabled",
+      "lang": "ja"
+    },
+    "2820bbd0": {
+      "original": "Disable the spinner and all log text. All output is suppressed and `isEnabled` will be considered `false`.",
+      "translated": "スピナーとすべてのログテキストを無効にします。すべての出力が抑制され、`isEnabled` は `false` とみなされます。",
+      "symbol": "ora/index.d.ts#Options.isSilent",
+      "lang": "ja"
+    },
+    "c4ea3ebd": {
+      "original": "Text or a function that returns text to display before the spinner. No prefix text will be displayed if set to an empty string.",
+      "translated": "スピナーの前に表示するテキスト、またはテキストを返す関数。空文字列を設定すると接頭テキストは表示されません。",
+      "symbol": "ora/index.d.ts#Options.prefixText",
+      "lang": "ja"
+    },
+    "08a110b0": {
+      "original": "The name of one of the provided spinners. See `example.js` in this repo if you want to test out different spinners. On Windows (except for Windows Terminal), it will always use the line spinner as the Windows command-line doesn't have proper Unicode support.",
+      "translated": "用意されたスピナーのいずれかの名前。別のスピナーを試したい場合は、このリポジトリの `example.js` を参照してください。Windows(Windows Terminal を除く)では、コマンドラインが適切な Unicode に対応していないため、常に line スピナーが使われます。",
+      "symbol": "ora/index.d.ts#Options.spinner",
+      "lang": "ja"
+    },
+    "7a0c4ee9": {
+      "original": "Stream to write the output.\n\nYou could for example set this to `process.stdout` instead.",
+      "translated": "出力を書き込むストリーム。\n\nたとえば、代わりに `process.stdout` を設定できます。",
+      "symbol": "ora/index.d.ts#Options.stream",
+      "lang": "ja"
+    },
+    "ee144d25": {
+      "original": "Text or a function that returns text to display after the spinner text. No suffix text will be displayed if set to an empty string.",
+      "translated": "スピナーのテキストの後に表示するテキスト、またはテキストを返す関数。空文字列を設定すると接尾テキストは表示されません。",
+      "symbol": "ora/index.d.ts#Options.suffixText",
+      "lang": "ja"
+    },
+    "2c404bfa": {
+      "original": "The text to display next to the spinner.",
+      "translated": "スピナーの横に表示するテキスト。",
+      "symbol": "ora/index.d.ts#Options.text",
+      "lang": "ja"
+    },
+    "2b601af1": {
+      "original": "- If a string is provided, it is treated as a shortcut for `options.text`.",
+      "translated": "- 文字列を渡した場合は、`options.text` の短縮指定として扱われます。",
+      "symbol": "ora/index.d.ts#ora",
+      "lang": "ja"
+    },
+    "1710be72": {
+      "original": "Elegant terminal spinner.",
+      "translated": "洗練されたターミナルスピナー。",
+      "symbol": "ora/index.d.ts#ora",
+      "lang": "ja"
+    },
+    "4dfef534": {
+      "original": "Clear the spinner.",
+      "translated": "スピナーを消去します。",
+      "symbol": "ora/index.d.ts#Ora.clear",
+      "lang": "ja"
+    },
+    "1f927102": {
+      "original": "Change the spinner color.\n\nSet to `false` to disable the color.",
+      "translated": "スピナーの色を変更します。\n\n色を無効にするには `false` を設定します。",
+      "symbol": "ora/index.d.ts#Ora.color",
+      "lang": "ja"
+    },
+    "a8cd8a19": {
+      "original": "Stop the spinner, change it to a red `✖` and persist the current text, or `text` if provided.",
+      "translated": "スピナーを停止し、赤い `✖` に変えて現在のテキスト(指定があれば `text`)を残します。",
+      "symbol": "ora/index.d.ts#Ora.fail",
+      "lang": "ja"
+    },
+    "b68f0774": {
+      "original": "Get a new frame.",
+      "translated": "新しいフレームを取得します。",
+      "symbol": "ora/index.d.ts#Ora.frame",
+      "lang": "ja"
+    },
+    "a8ad330e": {
+      "original": "The rendered frame text.",
+      "translated": "描画されたフレームのテキスト。",
+      "symbol": "ora/index.d.ts#Ora.frame",
+      "lang": "ja"
+    },
+    "85ecf7fd": {
+      "original": "Change the spinner indent.",
+      "translated": "スピナーのインデントを変更します。",
+      "symbol": "ora/index.d.ts#Ora.indent",
+      "lang": "ja"
+    },
+    "fd3e79ff": {
+      "original": "Stop the spinner, change it to a blue `ℹ` and persist the current text, or `text` if provided.",
+      "translated": "スピナーを停止し、青い `ℹ` に変えて現在のテキスト(指定があれば `text`)を残します。",
+      "symbol": "ora/index.d.ts#Ora.info",
+      "lang": "ja"
+    },
+    "9f0c4fe4": {
+      "original": "The interval between each frame.\n\nThe interval is decided by the chosen spinner.",
+      "translated": "各フレームの間隔。\n\n間隔は選択したスピナーによって決まります。",
+      "symbol": "ora/index.d.ts#Ora.interval",
+      "lang": "ja"
+    },
+    "378ddf40": {
+      "original": "A boolean indicating whether the spinner and log text are enabled.",
+      "translated": "スピナーとログテキストが有効かどうかを示す真偽値。",
+      "symbol": "ora/index.d.ts#Ora.isEnabled",
+      "lang": "ja"
+    },
+    "5a9fcb3b": {
+      "original": "A boolean indicating whether all output is suppressed.",
+      "translated": "すべての出力が抑制されているかどうかを示す真偽値。",
+      "symbol": "ora/index.d.ts#Ora.isSilent",
+      "lang": "ja"
+    },
+    "d05b3e4b": {
+      "original": "A boolean indicating whether the instance is currently spinning.",
+      "translated": "インスタンスが現在回転中かどうかを示す真偽値。",
+      "symbol": "ora/index.d.ts#Ora.isSpinning",
+      "lang": "ja"
+    },
+    "cb88f591": {
+      "original": "Change the text or function that returns text before the spinner.\n\nNo prefix text will be displayed if set to an empty string.",
+      "translated": "スピナーの前のテキスト、またはテキストを返す関数を変更します。\n\n空文字列を設定すると接頭テキストは表示されません。",
+      "symbol": "ora/index.d.ts#Ora.prefixText",
+      "lang": "ja"
+    },
+    "bab33c63": {
+      "original": "Get the spinner.",
+      "translated": "スピナーを取得します。",
+      "symbol": "ora/index.d.ts#Ora.spinner",
+      "lang": "ja"
+    },
+    "fe4cd443": {
+      "original": "Set the spinner.",
+      "translated": "スピナーを設定します。",
+      "symbol": "ora/index.d.ts#Ora.spinner",
+      "lang": "ja"
+    },
+    "2c4589e3": {
+      "original": "- Set the current text.",
+      "translated": "- 現在のテキストを設定します。",
+      "symbol": "ora/index.d.ts#Ora.start",
+      "lang": "ja"
+    },
+    "4f7597dc": {
+      "original": "Start the spinner.",
+      "translated": "スピナーを開始します。",
+      "symbol": "ora/index.d.ts#Ora.start",
+      "lang": "ja"
+    },
+    "1816b394": {
+      "original": "The spinner instance.",
+      "translated": "スピナーのインスタンス。",
+      "symbol": "ora/index.d.ts#Ora.start",
+      "lang": "ja"
+    },
+    "d0c0e773": {
+      "original": "Stop and clear the spinner.",
+      "translated": "スピナーを停止して消去します。",
+      "symbol": "ora/index.d.ts#Ora.stop",
+      "lang": "ja"
+    },
+    "b155e3fd": {
+      "original": "Stop the spinner and change the symbol or text.",
+      "translated": "スピナーを停止し、シンボルまたはテキストを変更します。",
+      "symbol": "ora/index.d.ts#Ora.stopAndPersist",
+      "lang": "ja"
+    },
+    "17e98012": {
+      "original": "- Will persist text if provided.",
+      "translated": "- 指定した場合はテキストを残します。",
+      "symbol": "ora/index.d.ts#Ora.succeed",
+      "lang": "ja"
+    },
+    "71a66e05": {
+      "original": "Stop the spinner, change it to a green `✔` and persist the current text, or `text` if provided.",
+      "translated": "スピナーを停止し、緑の `✔` に変えて現在のテキスト(指定があれば `text`)を残します。",
+      "symbol": "ora/index.d.ts#Ora.succeed",
+      "lang": "ja"
+    },
+    "d1d5c225": {
+      "original": "Change the text or function that returns text after the spinner text.\n\nNo suffix text will be displayed if set to an empty string.",
+      "translated": "スピナーのテキストの後のテキスト、またはテキストを返す関数を変更します。\n\n空文字列を設定すると接尾テキストは表示されません。",
+      "symbol": "ora/index.d.ts#Ora.suffixText",
+      "lang": "ja"
+    },
+    "0da6365d": {
+      "original": "Change the text after the spinner.",
+      "translated": "スピナーの後のテキストを変更します。",
+      "symbol": "ora/index.d.ts#Ora.text",
+      "lang": "ja"
+    },
+    "7c2c091a": {
+      "original": "Stop the spinner, change it to a yellow `⚠` and persist the current text, or `text` if provided.",
+      "translated": "スピナーを停止し、黄色い `⚠` に変えて現在のテキスト(指定があれば `text`)を残します。",
+      "symbol": "ora/index.d.ts#Ora.warn",
+      "lang": "ja"
+    },
+    "6e30cd18": {
+      "original": "- The promise to start the spinner for or a promise-returning function.",
+      "translated": "- スピナーを開始する対象の Promise、または Promise を返す関数。",
+      "symbol": "ora/index.d.ts#oraPromise",
+      "lang": "ja"
+    },
+    "01c1ba47": {
+      "original": "Starts a spinner for a promise or promise-returning function. The spinner is stopped with `.succeed()` if the promise fulfills or with `.fail()` if it rejects.",
+      "translated": "Promise または Promise を返す関数に対してスピナーを開始します。Promise が解決したら `.succeed()` で、拒否されたら `.fail()` でスピナーが停止します。",
+      "symbol": "ora/index.d.ts#oraPromise",
+      "lang": "ja"
+    },
+    "e71dbc05": {
+      "original": "The given promise.",
+      "translated": "渡された Promise。",
+      "symbol": "ora/index.d.ts#oraPromise",
+      "lang": "ja"
+    },
+    "5c85feeb": {
+      "original": "Text or a function that returns text to be persisted before the symbol. No prefix text will be displayed if set to an empty string.\n\nDefault: Current `prefixText`.",
+      "translated": "シンボルの前に残すテキスト、またはテキストを返す関数。空文字列を設定すると接頭テキストは表示されません。\n\n既定値: 現在の `prefixText`。",
+      "symbol": "ora/index.d.ts#PersistOptions.prefixText",
+      "lang": "ja"
+    },
+    "d3b8f0fd": {
+      "original": "Text or a function that returns text to be persisted after the text after the symbol. No suffix text will be displayed if set to an empty string.\n\nDefault: Current `suffixText`.",
+      "translated": "シンボルの後のテキストの、さらに後に残すテキスト、またはテキストを返す関数。空文字列を設定すると接尾テキストは表示されません。\n\n既定値: 現在の `suffixText`。",
+      "symbol": "ora/index.d.ts#PersistOptions.suffixText",
+      "lang": "ja"
+    },
+    "cd934033": {
+      "original": "Symbol to replace the spinner with.",
+      "translated": "スピナーと置き換えるシンボル。",
+      "symbol": "ora/index.d.ts#PersistOptions.symbol",
+      "lang": "ja"
+    },
+    "6c125dcc": {
+      "original": "Text to be persisted after the symbol.\n\nDefault: Current `text`.",
+      "translated": "シンボルの後に残すテキスト。\n\n既定値: 現在の `text`。",
+      "symbol": "ora/index.d.ts#PersistOptions.text",
+      "lang": "ja"
+    },
+    "69e03576": {
+      "original": "The symbol to use when the promise is rejected, instead of the default failure symbol.\n\nUseful if you want to customize or disable the symbol.\n\nUses the default failure symbol if `undefined`.",
+      "translated": "Promise が拒否されたときに、既定の失敗シンボルの代わりに使うシンボル。\n\nシンボルをカスタマイズまたは無効にしたい場合に便利です。\n\n`undefined` の場合は既定の失敗シンボルを使います。",
+      "symbol": "ora/index.d.ts#PromiseOptions.failSymbol",
+      "lang": "ja"
+    },
+    "7d2f98b7": {
+      "original": "The new text of the spinner when the promise is rejected.\n\nKeeps the existing text if `undefined`.",
+      "translated": "Promise が拒否されたときのスピナーの新しいテキスト。\n\n`undefined` の場合は既存のテキストを保持します。",
+      "symbol": "ora/index.d.ts#PromiseOptions.failText",
+      "lang": "ja"
+    },
+    "629b3c61": {
+      "original": "The symbol to use when the promise is resolved, instead of the default success symbol.\n\nUseful if you want to customize or disable the symbol.\n\nUses the default success symbol if `undefined`.",
+      "translated": "Promise が解決したときに、既定の成功シンボルの代わりに使うシンボル。\n\nシンボルをカスタマイズまたは無効にしたい場合に便利です。\n\n`undefined` の場合は既定の成功シンボルを使います。",
+      "symbol": "ora/index.d.ts#PromiseOptions.successSymbol",
+      "lang": "ja"
+    },
+    "f7d806bb": {
+      "original": "The new text of the spinner when the promise is resolved.\n\nKeeps the existing text if `undefined`.",
+      "translated": "Promise が解決したときのスピナーの新しいテキスト。\n\n`undefined` の場合は既存のテキストを保持します。",
+      "symbol": "ora/index.d.ts#PromiseOptions.successText",
+      "lang": "ja"
+    }
+  }
+}

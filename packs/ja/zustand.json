@@ -1,0 +1,62 @@
+{
+  "name": "zustand",
+  "version": "5.0.14",
+  "lang": "ja",
+  "generator": "yakudoc@0.1.0",
+  "entries": {
+    "8c45d89e": {
+      "original": "A function to perform custom hydration merges when combining the stored state with the current one.\nBy default, this function does a shallow merge.",
+      "translated": "保存された状態を現在の状態と結合する際に、カスタムなハイドレーションのマージを行う関数。\n既定では、この関数は浅いマージを行います。",
+      "symbol": "zustand/esm/middleware/persist.d.mts#PersistOptions.merge",
+      "lang": "ja"
+    },
+    "d2149707": {
+      "original": "A function to perform persisted state migration.\nThis function will be called when persisted state versions mismatch with the one specified here.",
+      "translated": "永続化された状態のマイグレーションを行う関数。\nこの関数は、永続化された状態のバージョンがここで指定したものと一致しないときに呼び出されます。",
+      "symbol": "zustand/esm/middleware/persist.d.mts#PersistOptions.migrate",
+      "lang": "ja"
+    },
+    "87d2530c": {
+      "original": "Name of the storage (must be unique)",
+      "translated": "ストレージの名前(一意である必要があります)",
+      "symbol": "zustand/esm/middleware/persist.d.mts#PersistOptions.name",
+      "lang": "ja"
+    },
+    "27d20b4c": {
+      "original": "A function returning another (optional) function.\nThe main function will be called before the state rehydration.\nThe returned function will be called after the state rehydration or when an error occurred.",
+      "translated": "別の(省略可能な)関数を返す関数。\nメインの関数は状態の再ハイドレーションの前に呼び出されます。\n返された関数は、状態の再ハイドレーションの後、またはエラーが発生したときに呼び出されます。",
+      "symbol": "zustand/esm/middleware/persist.d.mts#PersistOptions.onRehydrateStorage",
+      "lang": "ja"
+    },
+    "f8635073": {
+      "original": "Filter the persisted value.",
+      "translated": "永続化する値をフィルタリングします。",
+      "symbol": "zustand/esm/middleware/persist.d.mts#PersistOptions.partialize",
+      "lang": "ja"
+    },
+    "89f543b6": {
+      "original": "state The state's value",
+      "translated": "state 状態の値",
+      "symbol": "zustand/esm/middleware/persist.d.mts#PersistOptions.partialize",
+      "lang": "ja"
+    },
+    "13013a0e": {
+      "original": "An optional boolean that will prevent the persist middleware from triggering hydration on initialization,\nThis allows you to call `rehydrate()` at a specific point in your apps rendering life-cycle.\n\nThis is useful in SSR application.",
+      "translated": "初期化時に persist ミドルウェアがハイドレーションを起動しないようにする、省略可能な真偽値。\nこれにより、アプリのレンダリングライフサイクルの特定の時点で `rehydrate()` を呼び出せます。\n\nSSR アプリケーションで便利です。",
+      "symbol": "zustand/esm/middleware/persist.d.mts#PersistOptions.skipHydration",
+      "lang": "ja"
+    },
+    "694641b2": {
+      "original": "Use a custom persist storage.\n\nCombining `createJSONStorage` helps creating a persist storage\nwith JSON.parse and JSON.stringify.",
+      "translated": "カスタムの永続化ストレージを使います。\n\n`createJSONStorage` と組み合わせると、JSON.parse と JSON.stringify を使う永続化ストレージを作りやすくなります。",
+      "symbol": "zustand/esm/middleware/persist.d.mts#PersistOptions.storage",
+      "lang": "ja"
+    },
+    "4e798f6a": {
+      "original": "If the stored state's version mismatch the one specified here, the storage will not be used.\nThis is useful when adding a breaking change to your store.",
+      "translated": "保存された状態のバージョンがここで指定したものと一致しない場合、そのストレージは使われません。\nストアに破壊的変更を加えるときに便利です。",
+      "symbol": "zustand/esm/middleware/persist.d.mts#PersistOptions.version",
+      "lang": "ja"
+    }
+  }
+}

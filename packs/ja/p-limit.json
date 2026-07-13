@@ -1,0 +1,110 @@
+{
+  "name": "p-limit",
+  "version": "7.3.0",
+  "lang": "ja",
+  "generator": "yakudoc@0.1.0",
+  "entries": {
+    "86640293": {
+      "original": "The promise returned by calling `fn(...arguments)`.",
+      "translated": "`fn(...arguments)` を呼び出したときに返される Promise。",
+      "symbol": "p-limit/index.d.ts#LimitFunction",
+      "lang": "ja"
+    },
+    "8c570852": {
+      "original": "Function with limited concurrency.",
+      "translated": "同時実行数を制限した関数。",
+      "symbol": "p-limit/index.d.ts#limitFunction",
+      "lang": "ja"
+    },
+    "c7c3c3ad": {
+      "original": "Returns a function with limited concurrency.\n\nThe returned function manages its own concurrent executions, allowing you to call it multiple times without exceeding the specified concurrency limit.\n\nIdeal for scenarios where you need to control the number of simultaneous executions of a single function, rather than managing concurrency across multiple functions.",
+      "translated": "同時実行数を制限した関数を返します。\n\n返された関数は自身の同時実行を管理し、指定した同時実行数の上限を超えることなく何度でも呼び出せます。\n\n複数の関数にまたがって同時実行数を管理するのではなく、単一の関数の同時実行数を制御したい場面に最適です。",
+      "symbol": "p-limit/index.d.ts#limitFunction",
+      "lang": "ja"
+    },
+    "59a465b0": {
+      "original": "- Any arguments to pass through to `fn`. Support for passing arguments on to the `fn` is provided in order to be able to avoid creating unnecessary closures. You probably don't need this optimization unless you're pushing a *lot* of functions.\n\nWarning: Avoid calling the same `limit` function inside a function that is already limited by it. This can create a deadlock where inner tasks never run. Use a separate limiter for inner tasks.",
+      "translated": "- `fn` にそのまま渡す任意の引数。不要なクロージャの生成を避けられるよう、`fn` への引数の受け渡しに対応しています。*大量の* 関数を投入するのでなければ、この最適化はおそらく必要ありません。\n\n警告: すでに `limit` で制限されている関数の内部で、同じ `limit` 関数を呼び出すのは避けてください。内部のタスクが決して実行されないデッドロックを招くことがあります。内部のタスクには別のリミッターを使ってください。",
+      "symbol": "p-limit/index.d.ts#LimitFunction",
+      "lang": "ja"
+    },
+    "2ee4ca3c": {
+      "original": "The number of promises that are currently running.",
+      "translated": "現在実行中の Promise の数。",
+      "symbol": "p-limit/index.d.ts#LimitFunction.activeCount",
+      "lang": "ja"
+    },
+    "4e3884bc": {
+      "original": "Discard pending promises that are waiting to run.\n\nThis might be useful if you want to teardown the queue at the end of your program's lifecycle or discard any function calls referencing an intermediary state of your app.\n\nNote: This does not cancel promises that are already running.\n\nWhen `rejectOnClear` is enabled, pending promises are rejected with an `AbortError`.\nThis is recommended if you await the returned promises, for example with `Promise.all`, so pending tasks do not remain unresolved after `clearQueue()`.",
+      "translated": "実行待ちの保留中の Promise を破棄します。\n\nプログラムのライフサイクルの終わりにキューを片付けたい場合や、アプリの中間状態を参照する関数呼び出しを破棄したい場合に便利です。\n\n注意: すでに実行中の Promise はキャンセルしません。\n\n`rejectOnClear` が有効な場合、保留中の Promise は `AbortError` で拒否されます。\n返された Promise を(たとえば `Promise.all` で)await する場合は、`clearQueue()` の後に保留中のタスクが未解決のまま残らないよう、これを推奨します。",
+      "symbol": "p-limit/index.d.ts#LimitFunction.clearQueue",
+      "lang": "ja"
+    },
+    "f570abcd": {
+      "original": "Get or set the concurrency limit.",
+      "translated": "同時実行数の上限を取得または設定します。",
+      "symbol": "p-limit/index.d.ts#LimitFunction.concurrency",
+      "lang": "ja"
+    },
+    "99983c4f": {
+      "original": "- An iterable containing an argument for the given function.",
+      "translated": "- 指定した関数への引数を含むイテラブル。",
+      "symbol": "p-limit/index.d.ts#LimitFunction.map",
+      "lang": "ja"
+    },
+    "6aa6068e": {
+      "original": "- Promise-returning/async function.",
+      "translated": "- Promise を返す関数、または async 関数。",
+      "symbol": "p-limit/index.d.ts#LimitFunction.map",
+      "lang": "ja"
+    },
+    "a95693d2": {
+      "original": "A promise equivalent to `Promise.all(Array.from(iterable, (item, index) => limit(mapperFunction, item, index)))`.",
+      "translated": "`Promise.all(Array.from(iterable, (item, index) => limit(mapperFunction, item, index)))` と等価な Promise。",
+      "symbol": "p-limit/index.d.ts#LimitFunction.map",
+      "lang": "ja"
+    },
+    "459e4144": {
+      "original": "Process an iterable of inputs with limited concurrency.\n\nThe mapper function receives the item value and its index.\n\nThis is a convenience function for processing inputs that arrive in batches. For more complex use cases, see [p-map](https://github.com/sindresorhus/p-map).",
+      "translated": "入力のイテラブルを、同時実行数を制限しながら処理します。\n\nマッパー関数は要素の値とそのインデックスを受け取ります。\n\nこれはバッチで届く入力を処理するための便利関数です。より複雑なユースケースについては [p-map](https://github.com/sindresorhus/p-map) を参照してください。",
+      "symbol": "p-limit/index.d.ts#LimitFunction.map",
+      "lang": "ja"
+    },
+    "28d2dd69": {
+      "original": "The number of promises that are waiting to run (i.e. their internal `fn` was not called yet).",
+      "translated": "実行待ちの Promise の数(つまり内部の `fn` がまだ呼ばれていないもの)。",
+      "symbol": "p-limit/index.d.ts#LimitFunction.pendingCount",
+      "lang": "ja"
+    },
+    "96b5420c": {
+      "original": "Concurrency limit.\n\nMinimum: `1`.",
+      "translated": "同時実行数の上限。\n\n最小値: `1`。",
+      "symbol": "p-limit/index.d.ts#Options.concurrency",
+      "lang": "ja"
+    },
+    "7c878389": {
+      "original": "Reject pending promises with an `AbortError` when `clearQueue()` is called.\n\nDefault: `false`.\n\nThis is recommended if you await the returned promises, for example with `Promise.all`, so pending tasks do not remain unresolved after `clearQueue()`.",
+      "translated": "`clearQueue()` が呼ばれたときに、保留中の Promise を `AbortError` で拒否します。\n\n既定値: `false`。\n\n返された Promise を(たとえば `Promise.all` で)await する場合は、`clearQueue()` の後に保留中のタスクが未解決のまま残らないよう、これを推奨します。",
+      "symbol": "p-limit/index.d.ts#Options.rejectOnClear",
+      "lang": "ja"
+    },
+    "db30abdb": {
+      "original": "- Concurrency limit. Minimum: `1`. You can pass a number or an options object with a `concurrency` property.",
+      "translated": "- 同時実行数の上限。最小値: `1`。数値、または `concurrency` プロパティを持つオプションオブジェクトを渡せます。",
+      "symbol": "p-limit/index.d.ts#pLimit",
+      "lang": "ja"
+    },
+    "06212fd1": {
+      "original": "A `limit` function.",
+      "translated": "`limit` 関数。",
+      "symbol": "p-limit/index.d.ts#pLimit",
+      "lang": "ja"
+    },
+    "c40674cc": {
+      "original": "Run multiple promise-returning & async functions with limited concurrency.",
+      "translated": "複数の Promise を返す関数・async 関数を、同時実行数を制限して実行します。",
+      "symbol": "p-limit/index.d.ts#pLimit",
+      "lang": "ja"
+    }
+  }
+}

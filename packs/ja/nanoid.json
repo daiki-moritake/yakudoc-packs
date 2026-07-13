@@ -1,0 +1,134 @@
+{
+  "name": "nanoid",
+  "version": "5.1.16",
+  "lang": "ja",
+  "generator": "yakudoc@0.1.0",
+  "entries": {
+    "f404cfa3": {
+      "original": "A random string generator.\n\n```js\nimport { customAlphabet } from 'nanoid'\nconst nanoid = customAlphabet('0123456789абвгдеё', 5)\nnanoid() //=> \"8ё56а\"\n```",
+      "translated": "ランダムな文字列を生成する関数。\n\n```js\nimport { customAlphabet } from 'nanoid'\nconst nanoid = customAlphabet('0123456789абвгдеё', 5)\nnanoid() //=> \"8ё56а\"\n```",
+      "symbol": "nanoid/index.d.ts#customAlphabet",
+      "lang": "ja"
+    },
+    "2db96fac": {
+      "original": "Alphabet used to generate the ID.",
+      "translated": "ID の生成に使う文字集合(アルファベット)。",
+      "symbol": "nanoid/index.d.ts#customAlphabet",
+      "lang": "ja"
+    },
+    "e0245855": {
+      "original": "Generate secure unique ID with custom alphabet.\n\nAlphabet must contain 256 symbols or less. Otherwise, the generator\nwill not be secure.",
+      "translated": "カスタムの文字集合で、安全で一意な ID を生成します。\n\n文字集合は 256 文字以下でなければなりません。そうでない場合、生成器は安全ではなくなります。",
+      "symbol": "nanoid/index.d.ts#customAlphabet",
+      "lang": "ja"
+    },
+    "272f170f": {
+      "original": "A random bytes generator.",
+      "translated": "ランダムなバイト列を生成する関数。",
+      "symbol": "nanoid/index.d.ts#customRandom",
+      "lang": "ja"
+    },
+    "e2c35550": {
+      "original": "A random string generator.",
+      "translated": "ランダムな文字列を生成する関数。",
+      "symbol": "nanoid/index.d.ts#customRandom",
+      "lang": "ja"
+    },
+    "c8e306fd": {
+      "original": "Alphabet used to generate a random string.",
+      "translated": "ランダムな文字列の生成に使う文字集合(アルファベット)。",
+      "symbol": "nanoid/index.d.ts#customRandom",
+      "lang": "ja"
+    },
+    "f5c747eb": {
+      "original": "Generate unique ID with custom random generator and alphabet.\n\nAlphabet must contain 256 symbols or less. Otherwise, the generator\nwill not be secure.\n\n```js\nimport { customRandom } from 'nanoid'\n\nconst nanoid = customRandom('abcdef', 5, size => {\n  const random = []\n  for (let i = 0; i < size; i++) {\n    random.push(randomByte())\n  }\n  return random\n})\n\nnanoid() //=> \"fbaef\"\n```",
+      "translated": "カスタムの乱数生成器と文字集合で、一意な ID を生成します。\n\n文字集合は 256 文字以下でなければなりません。そうでない場合、生成器は安全ではなくなります。\n\n```js\nimport { customRandom } from 'nanoid'\n\nconst nanoid = customRandom('abcdef', 5, size => {\n  const random = []\n  for (let i = 0; i < size; i++) {\n    random.push(randomByte())\n  }\n  return random\n})\n\nnanoid() //=> \"fbaef\"\n```",
+      "symbol": "nanoid/index.d.ts#customRandom",
+      "lang": "ja"
+    },
+    "edf4c28b": {
+      "original": "Size of the random string.",
+      "translated": "生成するランダムな文字列の長さ。",
+      "symbol": "nanoid/index.d.ts#customRandom",
+      "lang": "ja"
+    },
+    "43ca342b": {
+      "original": "A random string.",
+      "translated": "ランダムな文字列。",
+      "symbol": "nanoid/index.d.ts#nanoid",
+      "lang": "ja"
+    },
+    "0c10cb09": {
+      "original": "A tiny, secure, URL-friendly, unique string ID generator for JavaScript\nwith hardware random generator.\n\n```js\nimport { nanoid } from 'nanoid'\nmodel.id = nanoid() //=> \"V1StGXR8_Z5jdHi6B-myT\"\n```",
+      "translated": "ハードウェア乱数生成器を使う、小さく安全で URL に適した、JavaScript 向けの一意な文字列 ID 生成器。\n\n```js\nimport { nanoid } from 'nanoid'\nmodel.id = nanoid() //=> \"V1StGXR8_Z5jdHi6B-myT\"\n```",
+      "symbol": "nanoid/index.d.ts#nanoid",
+      "lang": "ja"
+    },
+    "67de3692": {
+      "original": "Generate secure URL-friendly unique ID.\n\nBy default, the ID will have 21 symbols to have a collision probability\nsimilar to UUID v4.\n\n```js\nimport { nanoid } from 'nanoid'\nmodel.id = nanoid() //=> \"Uakgb_J5m9g-0JDMbcJqL\"\n```",
+      "translated": "安全で URL に適した一意な ID を生成します。\n\n既定では、UUID v4 と同程度の衝突確率になるよう、ID は 21 文字になります。\n\n```js\nimport { nanoid } from 'nanoid'\nmodel.id = nanoid() //=> \"Uakgb_J5m9g-0JDMbcJqL\"\n```",
+      "symbol": "nanoid/index.d.ts#nanoid",
+      "lang": "ja"
+    },
+    "d714be73": {
+      "original": "Size of the ID. The default size is 21.",
+      "translated": "ID の長さ。既定値は 21 です。",
+      "symbol": "nanoid/index.d.ts#nanoid",
+      "lang": "ja"
+    },
+    "a45b5c9d": {
+      "original": "Type The ID type to replace `string` with some opaque type.",
+      "translated": "Type `string` を独自の不透明型に置き換えるための ID の型。",
+      "symbol": "nanoid/index.d.ts#nanoid",
+      "lang": "ja"
+    },
+    "950a1c2e": {
+      "original": "An array of random bytes.",
+      "translated": "ランダムなバイトの配列。",
+      "symbol": "nanoid/index.d.ts#random",
+      "lang": "ja"
+    },
+    "6f73dbc9": {
+      "original": "Generate an array of random bytes collected from hardware noise.\n\n```js\nimport { customRandom, random } from 'nanoid'\nconst nanoid = customRandom(\"abcdef\", 5, random)\n```",
+      "translated": "ハードウェアのノイズから収集したランダムなバイトの配列を生成します。\n\n```js\nimport { customRandom, random } from 'nanoid'\nconst nanoid = customRandom(\"abcdef\", 5, random)\n```",
+      "symbol": "nanoid/index.d.ts#random",
+      "lang": "ja"
+    },
+    "55d60add": {
+      "original": "Size of the array.",
+      "translated": "配列の長さ。",
+      "symbol": "nanoid/index.d.ts#random",
+      "lang": "ja"
+    },
+    "68bb23ab": {
+      "original": "URL safe symbols.\n\n```js\nimport { urlAlphabet } from 'nanoid'\nconst nanoid = customAlphabet(urlAlphabet, 10)\nnanoid() //=> \"Uakgb_J5m9\"\n```",
+      "translated": "URL で安全に使える文字。\n\n```js\nimport { urlAlphabet } from 'nanoid'\nconst nanoid = customAlphabet(urlAlphabet, 10)\nnanoid() //=> \"Uakgb_J5m9\"\n```",
+      "symbol": "nanoid/index.d.ts#urlAlphabet",
+      "lang": "ja"
+    },
+    "05006359": {
+      "original": "A random string generator.\n\n```js\nimport { customAlphabet } from 'nanoid/non-secure'\nconst nanoid = customAlphabet('0123456789абвгдеё', 5)\nmodel.id = nanoid() //=> \"8ё56а\"\n```",
+      "translated": "ランダムな文字列を生成する関数。\n\n```js\nimport { customAlphabet } from 'nanoid/non-secure'\nconst nanoid = customAlphabet('0123456789абвгдеё', 5)\nmodel.id = nanoid() //=> \"8ё56а\"\n```",
+      "symbol": "nanoid/non-secure/index.d.ts#customAlphabet",
+      "lang": "ja"
+    },
+    "14e6ad16": {
+      "original": "Generate a unique ID based on a custom alphabet.\nThis method uses the non-secure predictable random generator\nwith bigger collision probability.",
+      "translated": "カスタムの文字集合をもとに一意な ID を生成します。\nこのメソッドは、衝突確率が高い、安全でない予測可能な乱数生成器を使います。",
+      "symbol": "nanoid/non-secure/index.d.ts#customAlphabet",
+      "lang": "ja"
+    },
+    "242ea77a": {
+      "original": "By default, Nano ID uses hardware random bytes generation for security\nand low collision probability. If you are not so concerned with security,\nyou can use it for environments without hardware random generators.\n\n```js\nimport { nanoid } from 'nanoid/non-secure'\nconst id = nanoid() //=> \"Uakgb_J5m9g-0JDMbcJqLJ\"\n```",
+      "translated": "既定では、Nano ID は安全性と低い衝突確率のためにハードウェアによるランダムバイト生成を使います。安全性をそれほど重視しない場合は、ハードウェア乱数生成器のない環境でこちらを使えます。\n\n```js\nimport { nanoid } from 'nanoid/non-secure'\nconst id = nanoid() //=> \"Uakgb_J5m9g-0JDMbcJqLJ\"\n```",
+      "symbol": "nanoid/non-secure/index.d.ts#nanoid",
+      "lang": "ja"
+    },
+    "e28a4ff7": {
+      "original": "Generate URL-friendly unique ID. This method uses the non-secure\npredictable random generator with bigger collision probability.\n\n```js\nimport { nanoid } from 'nanoid/non-secure'\nmodel.id = nanoid() //=> \"Uakgb_J5m9g-0JDMbcJqL\"\n```",
+      "translated": "URL に適した一意な ID を生成します。このメソッドは、衝突確率が高い、安全でない予測可能な乱数生成器を使います。\n\n```js\nimport { nanoid } from 'nanoid/non-secure'\nmodel.id = nanoid() //=> \"Uakgb_J5m9g-0JDMbcJqL\"\n```",
+      "symbol": "nanoid/non-secure/index.d.ts#nanoid",
+      "lang": "ja"
+    }
+  }
+}
