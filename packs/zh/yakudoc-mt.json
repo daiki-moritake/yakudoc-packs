@@ -1,0 +1,158 @@
+{
+  "name": "yakudoc-mt",
+  "version": "0.1.1",
+  "lang": "zh",
+  "generator": "yakudoc@0.1.1",
+  "entries": {
+    "72904475": {
+      "original": "保護済みテキストの配列を受け取り、同じ順序で訳文を返す",
+      "translated": "接收受保护文本的数组,按相同顺序返回译文",
+      "symbol": "yakudoc-mt/dist/engine.d.ts#TranslateFn",
+      "lang": "zh"
+    },
+    "d47b9c48": {
+      "original": "ダウンロード進捗イベントを人間向けの行に間引いて整形する。\n\n初回のモデル取得は数百 MB〜1GB 超あり、無反応だとフリーズと\n誤解されて中断されがちなので、1MB 以上のファイルについて\n10% 刻みで進捗を emit する。キャッシュ済みなら何も出ない。",
+      "translated": "将下载进度事件抽稀并整理为便于阅读的行。\n\n首次获取模型有数百 MB 至 1GB 以上,若无反应容易被误认为卡死而被中断,\n因此对 1MB 以上的文件以 10% 为步长 emit 进度。若已缓存则不输出任何内容。",
+      "symbol": "yakudoc-mt/dist/downloadProgress.d.ts#createProgressRenderer",
+      "lang": "zh"
+    },
+    "c58a7cad": {
+      "original": "transformers.js の progress_callback が送ってくるイベント(の使う部分)。\n公開型が無いため必要なフィールドだけ緩く受ける。",
+      "translated": "transformers.js 的 progress_callback 发来的事件(所使用的部分)。\n由于没有公开类型,仅松散地接收所需字段。",
+      "symbol": "yakudoc-mt/dist/downloadProgress.d.ts#DownloadProgressEvent",
+      "lang": "zh"
+    },
+    "f0f4f6ed": {
+      "original": "0〜100 のパーセント値",
+      "translated": "0〜100 的百分比值",
+      "symbol": "yakudoc-mt/dist/downloadProgress.d.ts#DownloadProgressEvent.progress",
+      "lang": "zh"
+    },
+    "bfa5da6e": {
+      "original": "訳文を書き込めたエントリ数",
+      "translated": "成功写入译文的条目数",
+      "symbol": "yakudoc-mt/dist/engine.d.ts#MtSummary.applied",
+      "lang": "zh"
+    },
+    "94c88436": {
+      "original": "翻訳待ちだったエントリ数(原文ハッシュで重複排除済み)",
+      "translated": "曾处于待翻译状态的条目数(已按原文哈希去重)",
+      "symbol": "yakudoc-mt/dist/engine.d.ts#MtSummary.pending",
+      "lang": "zh"
+    },
+    "c47c14eb": {
+      "original": "採用しなかったエントリとその理由",
+      "translated": "未采用的条目及其原因",
+      "symbol": "yakudoc-mt/dist/engine.d.ts#MtSummary.skipped",
+      "lang": "zh"
+    },
+    "0adca631": {
+      "original": "翻訳待ちエントリを translate 関数で翻訳して書き戻す。\n\n対象は複数ファイル(translations.json と依存パッケージの翻訳パック)。\n同じ原文が複数ファイルにあっても翻訳は 1 回で済ませ、全ファイルへ書き戻す。\n\n- 原文はプレースホルダー保護してからモデルに渡す\n- 保護トークンが訳文から消えたエントリは採用せず、翻訳待ちのまま残す\n- 書き込んだ訳文には言語タグ(lang)を付与する。翻訳先言語と異なる\n  言語タグを持つ既存の訳は「翻訳待ち」として翻訳し直す\n- バッチごとに書き込むのではなく、全件処理後に一度だけ書き込む",
+      "translated": "用 translate 函数翻译待翻译条目并写回。\n\n对象为多个文件(translations.json 和依赖包的翻译包)。\n即使同一原文存在于多个文件中,也只翻译 1 次并写回所有文件。\n\n- 原文先做占位符保护再传给模型\n- 保护标记从译文中消失的条目不予采用,保持待翻译状态\n- 写入的译文会附加语言标签(lang);语言标签与目标语言不同的\n  既有译文会作为「待翻译」重新翻译\n- 不逐批写入,而是在全部处理完后一次性写入",
+      "symbol": "yakudoc-mt/dist/engine.d.ts#translatePending",
+      "lang": "zh"
+    },
+    "c4767836": {
+      "original": "`yakudoc translate --engine local` のエントリポイント。\n\nモデルは次の優先順位で決まる:\n  --model / YAKUDOC_MT_MODEL(明示) >\n  --model-size / YAKUDOC_MT_MODEL_SIZE(small|large|auto) >\n  auto(搭載メモリから判定)",
+      "translated": "`yakudoc translate --engine local` 的入口点。\n\n模型按以下优先级决定:\n  --model / YAKUDOC_MT_MODEL(显式) >\n  --model-size / YAKUDOC_MT_MODEL_SIZE(small|large|auto) >\n  auto(根据安装内存判定)",
+      "symbol": "yakudoc-mt/dist/index.d.ts#run",
+      "lang": "zh"
+    },
+    "b41d73df": {
+      "original": "機械翻訳(NLLB)の日本語出力を読みやすく整える後処理。\n\nNLLB は日本語文でも ASCII の \",\" \".\" を出すことがある。日本語文字に\n隣接する ASCII 句読点だけを全角(、。)へ変換し、句読点直後の余分な\n空白を詰める。小数点(1.5)や英字・保護トークン直後の \".\" は\n「直前が日本語文字」の条件で除外され、変換されない。\n\n保護トークン(<ph0> など)を復元する前に適用する前提。コード片や\nURL の中身には触れない。",
+      "translated": "将机器翻译(NLLB)的日语输出整理得更易读的后处理。\n\nNLLB 有时在日语句子中也会输出 ASCII 的 \",\" \".\"。仅将与日语字符相邻的\nASCII 标点转换为全角(、。),并压缩标点紧后多余的空白。小数点(1.5),\n以及英文字母、保护标记紧后的 \".\",因「前一个字符为日语字符」的条件\n被排除,不予转换。\n\n前提是在还原保护标记(如 <ph0>)之前应用。不触碰代码片段或 URL 的内容。",
+      "symbol": "yakudoc-mt/dist/postprocess.d.ts#normalizeJapaneseOutput",
+      "lang": "zh"
+    },
+    "b66cd28f": {
+      "original": "翻訳先言語に応じた後処理を返す。\n\n句読点の全角化は日本語専用(中国語も CJK 文字を使うが ASCII カンマの\n変換先が異なる)。日本語以外はトリムのみ行う。\n他言語の後処理を足す場合は、分岐を増やすのではなく LanguageSpec\n(yakudoc/src/languages.ts)にデータとして持たせること。",
+      "translated": "返回与目标语言相应的后处理。\n\n标点的全角化仅限日语(中文虽也使用 CJK 字符,但 ASCII 逗号的转换目标\n不同)。日语以外仅做去除首尾空白。\n为其他语言添加后处理时,不要增加分支,而应作为数据放到 LanguageSpec\n(yakudoc/src/languages.ts)中。",
+      "symbol": "yakudoc-mt/dist/postprocess.d.ts#postprocessFor",
+      "lang": "zh"
+    },
+    "3cb5bdd3": {
+      "original": "auto で large を選ぶ搭載メモリの下限(GiB)",
+      "translated": "auto 选择 large 所需的安装内存下限(GiB)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#AUTO_LARGE_MIN_GB",
+      "lang": "zh"
+    },
+    "79074af5": {
+      "original": "リソース階層ごとの既定モデル。\n- small: 速くて軽い(既定)。NLLB-200 蒸留 600M\n- large: より高品質だがメモリ・時間を要する。mBART-50\n\nsrcLang / tgtLang は既定言語(ja)のもの。resolveModel は翻訳先言語に\n合わせて上書きするため、直接使う場合のみこの既定値が効く。",
+      "translated": "各资源层级的默认模型。\n- small: 快速轻量(默认)。NLLB-200 蒸馏 600M\n- large: 质量更高但需要更多内存和时间。mBART-50\n\nsrcLang / tgtLang 为默认语言(ja)的取值。由于 resolveModel 会按目标语言\n覆盖它们,因此仅在直接使用时该默认值才生效。",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#MODEL_TIERS",
+      "lang": "zh"
+    },
+    "95e3fdd7": {
+      "original": "ログ表示用の説明",
+      "translated": "用于日志显示的说明",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ModelSpec.label",
+      "lang": "zh"
+    },
+    "867013c5": {
+      "original": "Hugging Face のモデル id",
+      "translated": "Hugging Face 的模型 id",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ModelSpec.model",
+      "lang": "zh"
+    },
+    "41faf154": {
+      "original": "translation パイプラインに渡す言語コード(opus 系など不要なモデルは undefined)",
+      "translated": "传给 translation 流水线的语言代码(opus 系列等不需要的模型为 undefined)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ModelSpec.srcLang",
+      "lang": "zh"
+    },
+    "5f0f25ec": {
+      "original": "選択理由(ログ用)",
+      "translated": "选择理由(用于日志)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolvedModel.reason",
+      "lang": "zh"
+    },
+    "6c48b611": {
+      "original": "翻訳先の言語コード(解決済み)",
+      "translated": "目标语言代码(已解析)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolvedModel.targetLang",
+      "lang": "zh"
+    },
+    "b790c9be": {
+      "original": "ユーザーに伝えるべき注意事項(あれば CLI が表示する)",
+      "translated": "应告知用户的注意事项(若有,CLI 会显示)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolvedModel.warning",
+      "lang": "zh"
+    },
+    "3c91cdc4": {
+      "original": "モデルの明示指定(HF id)。指定時は size より優先",
+      "translated": "模型的显式指定(HF id)。指定时优先于 size",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolveInput.explicitModel",
+      "lang": "zh"
+    },
+    "d518db2a": {
+      "original": "small | large | auto(未指定は auto)",
+      "translated": "small | large | auto(未指定为 auto)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolveInput.size",
+      "lang": "zh"
+    },
+    "b4ed10c9": {
+      "original": "翻訳先の言語コード(未指定は ja)",
+      "translated": "目标语言代码(未指定为 ja)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolveInput.targetLang",
+      "lang": "zh"
+    },
+    "fb3f681e": {
+      "original": "入力(明示指定 / サイズ / 翻訳先言語 / 搭載メモリ)から使用モデルを決める。\n\n優先順位: 明示モデル > サイズ指定(small|large)> auto(メモリから判定)。\ntotalMemBytes はテスト用に注入可能。",
+      "translated": "根据输入(显式指定 / 大小 / 目标语言 / 安装内存)决定所使用的模型。\n\n优先级: 显式模型 > 大小指定(small|large) > auto(根据内存判定)。\ntotalMemBytes 可用于测试注入。",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#resolveModel",
+      "lang": "zh"
+    },
+    "a7d658f3": {
+      "original": "transformers.js の翻訳パイプラインを起動して TranslateFn を返す。\n初回はモデルのダウンロードが走る(small で数百 MB、large は 1GB 超)。\n\n言語コード(srcLang/tgtLang)はモデルのアーキテクチャで異なるため\nModelSpec で受け取る(NLLB: eng_Latn/jpn_Jpan、mBART: en_XX/ja_XX)。",
+      "translated": "启动 transformers.js 的翻译流水线并返回 TranslateFn。\n首次运行会下载模型(small 为数百 MB,large 超过 1GB)。\n\n由于语言代码(srcLang/tgtLang)因模型架构而异,故通过 ModelSpec 接收\n(NLLB: eng_Latn/jpn_Jpan,mBART: en_XX/ja_XX)。",
+      "symbol": "yakudoc-mt/dist/translator.d.ts#createLocalTranslator",
+      "lang": "zh"
+    },
+    "a313f906": {
+      "original": "既定の小モデル(後方互換のため公開)",
+      "translated": "默认的小模型(为向后兼容而导出)",
+      "symbol": "yakudoc-mt/dist/translator.d.ts#DEFAULT_MODEL",
+      "lang": "zh"
+    }
+  }
+}

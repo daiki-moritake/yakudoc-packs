@@ -1,0 +1,830 @@
+{
+  "name": "yakudoc",
+  "version": "0.1.1",
+  "lang": "en",
+  "generator": "yakudoc@0.1.1",
+  "entries": {
+    "31239933": {
+      "original": "yakudoc で使う言語コード(ISO 639-1)",
+      "translated": "The language code used by yakudoc (ISO 639-1)",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.code",
+      "lang": "en"
+    },
+    "61379765": {
+      "original": "config.json を書き出す(ディレクトリが無ければ作る)",
+      "translated": "Writes config.json (creating the directory if it does not exist)",
+      "symbol": "yakudoc/dist/config.d.ts#writeConfig",
+      "lang": "en"
+    },
+    "3af1d008": {
+      "original": "依存パッケージの翻訳パックを作成・更新する(`yakudoc add` の本体)。\n\n1. インストール済みパッケージの型定義から JSDoc を抽出する\n2. 既存パックとマージする(訳文はハッシュが一致する限り保持される)\n3. コミュニティパックを取得し、翻訳待ちのエントリにだけ訳文を重ねる\n   (取得失敗は警告相当。オフラインでも 1〜2 は成立する)\n4. `.yakudoc/packs/<パッケージ名>.json` に書き出す",
+      "translated": "Creates or updates a dependency's translation pack (the core of `yakudoc add`).\n\n1. extract JSDoc from the installed package's type definitions\n2. merge with the existing pack (translations are kept as long as the hash matches)\n3. fetch the community pack and overlay translations onto pending entries only\n   (a fetch failure is treated as a warning; steps 1-2 hold even offline)\n4. write to `.yakudoc/packs/<package-name>.json`",
+      "symbol": "yakudoc/dist/addPack.d.ts#addPackage",
+      "lang": "en"
+    },
+    "a56588f5": {
+      "original": "config.json に保存されたレジストリ URL",
+      "translated": "The registry URL saved in config.json",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.configRegistryUrl",
+      "lang": "en"
+    },
+    "b4dd53c1": {
+      "original": "テスト用: fetch の差し替え",
+      "translated": "For testing: a replacement for fetch",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.fetchImpl",
+      "lang": "en"
+    },
+    "ec0f83d6": {
+      "original": "パックの generator に記録する文字列(例: \"yakudoc@0.2.0\")",
+      "translated": "The string to record in the pack's generator (e.g. \"yakudoc@0.2.0\")",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.generator",
+      "lang": "en"
+    },
+    "6041118d": {
+      "original": "コミュニティパックを取得しない(オフライン運用)",
+      "translated": "Do not fetch the community pack (offline operation)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.noFetch",
+      "lang": "en"
+    },
+    "8a79bfc8": {
+      "original": "ソースから消えた原文のエントリを削除する(既定: 残す)",
+      "translated": "Delete entries whose source text has disappeared from the source (default: keep)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.prune",
+      "lang": "en"
+    },
+    "1482366c": {
+      "original": "レジストリのベース URL(--registry。未指定なら env / config / 既定)",
+      "translated": "The registry base URL (--registry; if unspecified, env / config / default)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.registryUrl",
+      "lang": "en"
+    },
+    "0694f26f": {
+      "original": "翻訳先言語(解決済みコード)",
+      "translated": "The target language (a resolved code)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.targetLang",
+      "lang": "en"
+    },
+    "c6d2c75e": {
+      "original": "translations.json のパス(packs/ の場所を導出するために使う)",
+      "translated": "The path to translations.json (used to derive the location of packs/)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.translationsPath",
+      "lang": "en"
+    },
+    "80c8640e": {
+      "original": "コミュニティパック取得の結果(スキップした場合は undefined)",
+      "translated": "The result of fetching the community pack (undefined if skipped)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.fetchResult",
+      "lang": "en"
+    },
+    "7ff24ac0": {
+      "original": "走査した型定義ファイル数",
+      "translated": "The number of type-definition files scanned",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.fileCount",
+      "lang": "en"
+    },
+    "f530ffac": {
+      "original": "今回コミュニティパックから採用した訳文の数",
+      "translated": "The number of translations adopted from the community pack this time",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.fromCommunity",
+      "lang": "en"
+    },
+    "2afa2525": {
+      "original": "パックの総エントリ数(stale 含む)",
+      "translated": "The total number of entries in the pack (including stale ones)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.total",
+      "lang": "en"
+    },
+    "25b66569": {
+      "original": "翻訳済みエントリ数",
+      "translated": "The number of translated entries",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.translated",
+      "lang": "en"
+    },
+    "a79e84a2": {
+      "original": "翻訳待ちエントリ数",
+      "translated": "The number of pending entries",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.untranslated",
+      "lang": "en"
+    },
+    "79ffdb6f": {
+      "original": "コミュニティパックの訳文を、翻訳待ちのエントリへだけ重ねる。\nローカルで付けた訳(手動編集や自前の翻訳)は上書きしない。\n採用した件数を返す。",
+      "translated": "Overlays the community pack's translations onto pending entries only.\nDoes not overwrite translations added locally (manual edits or your own translations).\nReturns the number adopted.",
+      "symbol": "yakudoc/dist/addPack.d.ts#overlayCommunityPack",
+      "lang": "en"
+    },
+    "2b1c9183": {
+      "original": "プロジェクトの config.json のパス。\ntranslations.json の --out には追従しない固定の場所(projectDir/.yakudoc/config.json)。\n--out に追従させると、後で --out 無しで実行したときに設定が見つからず\n黙って既定言語に戻ってしまうため。",
+      "translated": "The path to the project's config.json.\nA fixed location that does not follow translations.json's --out (projectDir/.yakudoc/config.json).\nIf it followed --out, a later run without --out would fail to find the settings and\nsilently revert to the default language.",
+      "symbol": "yakudoc/dist/config.d.ts#configPathFor",
+      "lang": "en"
+    },
+    "b8b55a20": {
+      "original": "config.json を読み込む。存在しなければ空の設定を返す。\n存在するのに読めない・解釈できない場合は黙って無視せず、案内付きのエラーにする\n(保存済みの --lang が黙って無効になるのを防ぐため)。",
+      "translated": "Reads config.json. Returns an empty configuration if it does not exist.\nIf it exists but cannot be read or parsed, it does not silently ignore it but raises\nan error with guidance (to prevent a saved --lang from silently becoming ineffective).",
+      "symbol": "yakudoc/dist/config.d.ts#readConfig",
+      "lang": "en"
+    },
+    "4501fb14": {
+      "original": "翻訳先言語を決める。優先順位: CLI の --lang > config.json > 既定(ja)。\nどこから来たコードでも検証し、未対応ならエラーにする。",
+      "translated": "Decides the target language. Priority: CLI --lang > config.json > default (ja).\nValidates the code regardless of its source, and errors if unsupported.",
+      "symbol": "yakudoc/dist/config.d.ts#resolveTargetLang",
+      "lang": "en"
+    },
+    "ad7c54ee": {
+      "original": ".yakudoc/config.json の形式",
+      "translated": "The format of .yakudoc/config.json",
+      "symbol": "yakudoc/dist/config.d.ts#YakudocConfig",
+      "lang": "en"
+    },
+    "7cad2a14": {
+      "original": "コミュニティ翻訳パックの取得元 URL(省略時: 既定のレジストリ)",
+      "translated": "The URL to fetch community translation packs from (default: the built-in registry)",
+      "symbol": "yakudoc/dist/config.d.ts#YakudocConfig.registry",
+      "lang": "en"
+    },
+    "69e29f16": {
+      "original": "翻訳先の言語コード(省略時: ja)",
+      "translated": "The target language code (default: ja)",
+      "symbol": "yakudoc/dist/config.d.ts#YakudocConfig.targetLang",
+      "lang": "en"
+    },
+    "b3530b72": {
+      "original": "パッケージディレクトリ内の型定義ファイル(.d.ts / .d.mts / .d.cts)を\n再帰的に集める。入れ子の node_modules は対象外。パス順に整列して返す\n(抽出結果の順序を安定させるため)。",
+      "translated": "Recursively collects the type-definition files (.d.ts / .d.mts / .d.cts) inside a\npackage directory. Nested node_modules are excluded. Returns them sorted by path\n(to keep the order of extraction results stable).",
+      "symbol": "yakudoc/dist/depExtract.d.ts#collectDeclarationFiles",
+      "lang": "en"
+    },
+    "6d123db3": {
+      "original": "インストール済みパッケージの型定義から JSDoc を抽出する。\n\nsymbol は \"zod/lib/types.d.ts#ZodType.parse\" のように\nパッケージ名からの相対パスで記録する(status の一覧や共有パックを\n見たときに、どのパッケージのどの API か分かるようにするため)。",
+      "translated": "Extracts JSDoc from an installed package's type definitions.\n\nsymbol is recorded as a path relative to the package name, like\n\"zod/lib/types.d.ts#ZodType.parse\" (so that when viewing the status list or a shared\npack, you can tell which API of which package it is).",
+      "symbol": "yakudoc/dist/depExtract.d.ts#extractInstalledPackage",
+      "lang": "en"
+    },
+    "df9721e3": {
+      "original": "インストール済みパッケージの所在とバージョン",
+      "translated": "The location and version of an installed package",
+      "symbol": "yakudoc/dist/depExtract.d.ts#InstalledPackageInfo",
+      "lang": "en"
+    },
+    "5411250c": {
+      "original": "projectDir から Node の解決規則でパッケージを見つけ、package.json の\nバージョンを読む。見つからなければ案内付きのエラー。",
+      "translated": "Finds a package from projectDir using Node's resolution rules and reads its version\nfrom package.json. Errors with guidance if not found.",
+      "symbol": "yakudoc/dist/depExtract.d.ts#resolveInstalledPackageInfo",
+      "lang": "en"
+    },
+    "4436229d": {
+      "original": "現在の状態の説明",
+      "translated": "A description of the current state",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorCheck.detail",
+      "lang": "en"
+    },
+    "f0e24b1a": {
+      "original": "ok 以外のときの対処方法。複数行は \\n 区切り",
+      "translated": "How to address it when not ok. Multiple lines are separated by \\n",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorCheck.hint",
+      "lang": "en"
+    },
+    "902f4854": {
+      "original": "検査項目名(表示用)",
+      "translated": "The name of the check item (for display)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorCheck.label",
+      "lang": "en"
+    },
+    "5914de68": {
+      "original": "translations.json のパス(既定: .yakudoc/translations.json)",
+      "translated": "The path to translations.json (default: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorOptions.outPath",
+      "lang": "en"
+    },
+    "b1a94868": {
+      "original": "プロジェクトルート。tsconfig 探索と出力パスの基準",
+      "translated": "The project root. The basis for tsconfig discovery and output paths",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorOptions.projectDir",
+      "lang": "en"
+    },
+    "4d8a4804": {
+      "original": "tsconfig.json のパス(既定: projectDir から探索)",
+      "translated": "The path to tsconfig.json (default: searched from projectDir)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorOptions.tsconfigPath",
+      "lang": "en"
+    },
+    "c966f7b4": {
+      "original": "導入状態を診断する。「init はしたのにホバーが変わらない」の原因を\nユーザー自身が特定できるよう、失敗しやすい箇所を順に検査する:\n\n1. tsconfig.json にプラグインが登録されているか(extends 解決込み)\n2. yakudoc-ts-plugin が node_modules から解決できるか\n3. translations.json が存在するか(あれば進捗も表示)\n4. 翻訳先言語の設定が壊れていないか\n5. 翻訳エンジン(yakudoc-mt / yakudoc-ai-prep)が入っているか\n\n検査はどれも読み取り専用で、ファイルを書き換えない。",
+      "translated": "Diagnoses the setup state. To let users pinpoint the cause of \"I ran init but the\nhover doesn't change\" themselves, it checks the failure-prone spots in order:\n\n1. whether the plugin is registered in tsconfig.json (including extends resolution)\n2. whether yakudoc-ts-plugin can be resolved from node_modules\n3. whether translations.json exists (and shows progress if so)\n4. whether the target-language setting is intact\n5. whether a translation engine (yakudoc-mt / yakudoc-ai-prep) is installed\n\nAll checks are read-only and do not modify any files.",
+      "symbol": "yakudoc/dist/doctor.d.ts#doctorProject",
+      "lang": "en"
+    },
+    "9361a51c": {
+      "original": "error が 1 件でもあれば 1(スクリプトや CI 用)",
+      "translated": "1 if there is even one error (for scripts and CI)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorReport.exitCode",
+      "lang": "en"
+    },
+    "3f340241": {
+      "original": "translate のエンジン名 → 実装パッケージ",
+      "translated": "translate engine name → implementation package",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#ENGINE_PACKAGES",
+      "lang": "en"
+    },
+    "7e870ce0": {
+      "original": "エンジン名(prep | local)",
+      "translated": "The engine name (prep | local)",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#EngineSelection.engine",
+      "lang": "en"
+    },
+    "8dad86e2": {
+      "original": "自動選択したときの説明(CLI が表示する)",
+      "translated": "An explanation when auto-selected (displayed by the CLI)",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#EngineSelection.note",
+      "lang": "en"
+    },
+    "9a84c432": {
+      "original": "実装パッケージ名",
+      "translated": "The implementation package name",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#EngineSelection.packageName",
+      "lang": "en"
+    },
+    "af20aa54": {
+      "original": "translate で使うエンジンを決める。\n\n- --engine 指定があればそれ(不明な名前はエラー)\n- --apply 指定は prep 専用の操作なので prep に確定する\n- どちらも無ければインストール済みのエンジンを探し、1 つだけなら\n  それを自動選択する(0 or 2 つなら案内付きのエラー)",
+      "translated": "Decides the engine to use for translate.\n\n- if --engine is given, use it (an unknown name is an error)\n- --apply is a prep-only operation, so it settles on prep\n- if neither is given, it looks for installed engines and, if there is exactly one,\n  auto-selects it (0 or 2 gives an error with guidance)",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#selectEngine",
+      "lang": "en"
+    },
+    "76ac659a": {
+      "original": "1 ファイル分の JSDoc から翻訳対象テキストを抽出する。\n\n抽出単位は「説明文」と「各タグの説明文」。tsserver がホバーで返す\ndocumentation / tags の text 部分と対応しており、プラグイン側は\n同じ hashText で照合する。",
+      "translated": "Extracts translatable text from a single file's JSDoc.\n\nThe unit of extraction is the \"description\" and \"the description of each tag\". These\ncorrespond to the text parts of documentation / tags that tsserver returns in the\nhover, and the plugin matches them with the same hashText.",
+      "symbol": "yakudoc/dist/extract.d.ts#extractFromSourceFile",
+      "lang": "en"
+    },
+    "1a5452ec": {
+      "original": "出力先(既定: .yakudoc/translations.json)",
+      "translated": "The output destination (default: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/extract.d.ts#ExtractOptions.outPath",
+      "lang": "en"
+    },
+    "998de0ed": {
+      "original": "tsconfig.json のファイル一覧を走査して JSDoc を抽出し、\n既存の translations.json とマージして書き出す。\n\n差分翻訳の要: 既存エントリの訳文はハッシュが一致する限り保持され、\n原文が変わったコメントは新しいハッシュの「翻訳待ち」エントリになる。",
+      "translated": "Scans the file list of tsconfig.json to extract JSDoc, then merges with the existing\ntranslations.json and writes it out.\n\nThe crux of incremental translation: an existing entry's translation is kept as long\nas the hash matches, and a comment whose source text changed becomes a new-hash\n\"pending\" entry.",
+      "symbol": "yakudoc/dist/extract.d.ts#extractProject",
+      "lang": "en"
+    },
+    "45840eba": {
+      "original": "tsconfig.json(JSONC)のテキストに compilerOptions.plugins エントリを追加する。\nコメントや既存のフォーマットは保持する。登録済みなら何もしない。\n\neffectivePlugins には extends 解決後の実効 plugins を渡す。tsconfig が\nextends 先から plugins を継承している場合、ローカルに plugins を新設すると\nTypeScript のマージ規則(キー単位の置換)で継承分が丸ごと消えるため、\n実効 plugins を種にしてローカル配列を組み立てる。\n\n注意: この実装は packages/yakudoc-vscode/src/tsconfigRegistration.ts の\naddYakudocPlugin と対で保守する(拡張側は typescript 非依存のため共有していない)。",
+      "translated": "Adds a compilerOptions.plugins entry to the text of tsconfig.json (JSONC).\nComments and existing formatting are preserved. Does nothing if already registered.\n\nPass the effective plugins after extends resolution as effectivePlugins. If the tsconfig\ninherits plugins from its extends target, newly creating a local plugins would, by\nTypeScript's merge rule (key-wise replacement), wipe out the inherited ones entirely,\nso the local array is built using the effective plugins as a seed.\n\nNote: keep this implementation in sync with addYakudocPlugin in\npackages/yakudoc-vscode/src/tsconfigRegistration.ts (the extension side is not\ntypescript-dependent, so it is not shared).",
+      "symbol": "yakudoc/dist/init.d.ts#addPluginToTsconfig",
+      "lang": "en"
+    },
+    "a1fac90a": {
+      "original": "extends を解決した後の実効 compilerOptions.plugins を返す。\n解決できない場合(tsconfig が壊れている等)は undefined。",
+      "translated": "Returns the effective compilerOptions.plugins after resolving extends.\nundefined if it cannot be resolved (e.g. a broken tsconfig).",
+      "symbol": "yakudoc/dist/init.d.ts#effectivePluginsOf",
+      "lang": "en"
+    },
+    "f3e1ad4d": {
+      "original": "translations.json の出力先(既定: .yakudoc/translations.json)",
+      "translated": "The output destination for translations.json (default: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/init.d.ts#InitOptions.outPath",
+      "lang": "en"
+    },
+    "e7aac049": {
+      "original": "翻訳先の言語コード。指定すると .yakudoc/config.json に保存される",
+      "translated": "The target language code. If specified, it is saved to .yakudoc/config.json",
+      "symbol": "yakudoc/dist/init.d.ts#InitOptions.targetLang",
+      "lang": "en"
+    },
+    "1e98a15d": {
+      "original": "yakudoc の導入を一括で行う。\n\n1. tsconfig.json に yakudoc-ts-plugin を登録する(登録済みなら何もしない)\n2. extract を実行して .yakudoc/translations.json を生成する\n3. targetLang 指定時は .yakudoc/config.json に翻訳先言語を保存する\n\nいずれの手順も冪等で、既存の訳文や tsconfig のコメントは保持される。",
+      "translated": "Performs yakudoc setup all at once.\n\n1. register yakudoc-ts-plugin in tsconfig.json (does nothing if already registered)\n2. run extract to generate .yakudoc/translations.json\n3. if targetLang is given, save the target language to .yakudoc/config.json\n\nEvery step is idempotent, and existing translations and tsconfig comments are preserved.",
+      "symbol": "yakudoc/dist/init.d.ts#initProject",
+      "lang": "en"
+    },
+    "0a3f4b2c": {
+      "original": "config.json の絶対パス(表示用)",
+      "translated": "The absolute path of config.json (for display)",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.configPath",
+      "lang": "en"
+    },
+    "4cee9b57": {
+      "original": "今回 config.json に翻訳先言語を保存したか",
+      "translated": "Whether the target language was saved to config.json this time",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.configWritten",
+      "lang": "en"
+    },
+    "aa1381d5": {
+      "original": "初回 extract の結果",
+      "translated": "The result of the initial extract",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.extract",
+      "lang": "en"
+    },
+    "e949b7f8": {
+      "original": "yakudoc-ts-plugin が projectDir から解決できるか。\ntsserver は解決できないプラグインを黙って無視するため、false のまま\n使い始めると「登録したのに表示が変わらない」状態になる(CLI が警告する)。",
+      "translated": "Whether yakudoc-ts-plugin can be resolved from projectDir.\nSince tsserver silently ignores plugins it cannot resolve, starting to use it while\nthis is false leads to a \"registered but the display doesn't change\" state (the CLI warns).",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.pluginInstalled",
+      "lang": "en"
+    },
+    "bc741168": {
+      "original": "今回プラグインを追記したか(既に登録済みなら false)",
+      "translated": "Whether the plugin was appended this time (false if already registered)",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.pluginRegistered",
+      "lang": "en"
+    },
+    "413423e2": {
+      "original": "有効な翻訳先言語コード(--lang > config.json > 既定 ja)",
+      "translated": "The effective target language code (--lang > config.json > default ja)",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.targetLang",
+      "lang": "en"
+    },
+    "04ef4518": {
+      "original": "登録対象になった tsconfig.json の絶対パス",
+      "translated": "The absolute path of the tsconfig.json that was the registration target",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.tsconfigPath",
+      "lang": "en"
+    },
+    "6c04708b": {
+      "original": "パッケージが projectDir から Node の解決規則で見つかるかを調べ、\n見つかればその場所(パッケージディレクトリ)を返す。見つからなければ undefined。\n\ntsserver も compilerOptions.plugins のプラグインを node_modules の\n上方向探索で解決するため、この結果が「プラグインが実際に読み込めるか」の\n近似になる。main(dist/)が未ビルドでも存在だけは検知できるよう、\npackage.json → main の順で解決を試みる。",
+      "translated": "Checks whether a package can be found from projectDir by Node's resolution rules and,\nif found, returns its location (the package directory). undefined if not found.\n\nSince tsserver also resolves compilerOptions.plugins plugins by searching node_modules\nupward, this result approximates \"whether the plugin can actually be loaded\". To detect\nmere existence even when main (dist/) is not built yet, it tries resolution in the order\npackage.json → main.",
+      "symbol": "yakudoc/dist/installed.d.ts#resolveInstalledPackage",
+      "lang": "en"
+    },
+    "b6b632db": {
+      "original": "翻訳先言語のレジストリ。\n\nyakudoc の翻訳先はここに載っている言語コードで指定する(既定: ja)。\n内蔵モデル(yakudoc-mt)はモデルのアーキテクチャごとに独自の言語コード\n体系を持つため、NLLB-200 / mBART-50 双方のコードをここで対応付ける。\n掲載言語は両モデルが対応しているものに限る。",
+      "translated": "The registry of target languages.\n\nyakudoc's target language is specified by one of the language codes listed here\n(default: ja). Because the built-in models (yakudoc-mt) each have their own language-code\nsystem per model architecture, both the NLLB-200 and mBART-50 codes are mapped here.\nOnly languages supported by both models are listed.",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec",
+      "lang": "en"
+    },
+    "20562e79": {
+      "original": "mBART-50 の言語コード",
+      "translated": "The mBART-50 language code",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.mbart",
+      "lang": "en"
+    },
+    "1a79e309": {
+      "original": "英語の言語名。LLM への依頼文やログ表示に使う",
+      "translated": "The English language name. Used in requests to the LLM and in log display",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.name",
+      "lang": "en"
+    },
+    "bbcc4398": {
+      "original": "NLLB-200 の言語コード(FLORES-200 形式)",
+      "translated": "The NLLB-200 language code (FLORES-200 form)",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.nllb",
+      "lang": "en"
+    },
+    "a4abbbe8": {
+      "original": "言語コードから LanguageSpec を引く(大文字小文字は区別しない)。\n未対応のコードはエラーにする。",
+      "translated": "Looks up a LanguageSpec from a language code (case-insensitive).\nAn unsupported code is an error.",
+      "symbol": "yakudoc/dist/languages.d.ts#resolveLanguage",
+      "lang": "en"
+    },
+    "3ff3615e": {
+      "original": "対応している言語コードの一覧(エラーメッセージやヘルプ表示用)",
+      "translated": "The list of supported language codes (for error messages and help display)",
+      "symbol": "yakudoc/dist/languages.d.ts#supportedLanguageCodes",
+      "lang": "en"
+    },
+    "b2d11903": {
+      "original": "翻訳エントリのキー。正規化した原文の SHA-256 先頭 8 桁(hex)。",
+      "translated": "The key of a translation entry. The first 8 hex digits of the SHA-256 of the normalized source text.",
+      "symbol": "yakudoc/dist/normalize.d.ts#hashText",
+      "lang": "en"
+    },
+    "f72dcf45": {
+      "original": "翻訳キーの照合に使う正規化。\n\ntsserver が返す documentation テキストと、extractor がソースの JSDoc から\n抽出したテキストは、改行コードや行頭のインデントが微妙に異なることがある。\n双方をこの関数に通した結果が一致すれば「同じ原文」とみなす。\n\n規約(extractor 側も必ずこれに従うこと):\n- 改行は \"\\n\" に統一する\n- 各行の前後の空白を取り除く\n- 3 行以上連続する空行は 1 つの空行に潰す\n- 全体の前後の空白を取り除く",
+      "translated": "Normalization used to match translation keys.\n\nThe documentation text returned by tsserver and the text the extractor pulls\nfrom the source JSDoc can differ slightly in newline codes and leading\nindentation. If passing both through this function yields the same result,\nthey are treated as \"the same source text\".\n\nConventions (the extractor must follow these too):\n- normalize newlines to \"\\n\"\n- strip leading/trailing whitespace on each line\n- collapse 3 or more consecutive blank lines into a single blank line\n- strip leading/trailing whitespace of the whole text",
+      "symbol": "yakudoc/dist/normalize.d.ts#normalizeText",
+      "lang": "en"
+    },
+    "44a6aa92": {
+      "original": "packs/ ディレクトリのパックを name 順で一覧する。\nディレクトリが無ければ空配列。壊れたファイルは読み飛ばす。",
+      "translated": "Lists the packs in the packs/ directory in name order.\nAn empty array if the directory does not exist. Broken files are skipped.",
+      "symbol": "yakudoc/dist/packs.d.ts#listPacks",
+      "lang": "en"
+    },
+    "ba81d0dc": {
+      "original": "読み込んだパックとその場所",
+      "translated": "A loaded pack and its location",
+      "symbol": "yakudoc/dist/packs.d.ts#LoadedPack",
+      "lang": "en"
+    },
+    "83ed656b": {
+      "original": "packFileNameFor の逆変換(一覧表示でファイル名からパッケージ名を推定する)",
+      "translated": "The inverse of packFileNameFor (infers the package name from the file name in listings)",
+      "symbol": "yakudoc/dist/packs.d.ts#packageNameFromFileName",
+      "lang": "en"
+    },
+    "6b8f1048": {
+      "original": "依存パッケージ 1 つ分の翻訳パック。\n\n`.yakudoc/packs/<パッケージ名>.json` に保存されるファイルの形式そのものが\n共有可能なパックの形式でもある(ローカルのパック = 配布物)。entries の\nキーは translations.json と同じ「正規化した原文のハッシュ」なので、\nパッケージのバージョンが変わっても原文が同じエントリはそのまま生きる。",
+      "translated": "A translation pack for a single dependency.\n\nThe very format of the file saved at `.yakudoc/packs/<package-name>.json` is also the\nshareable pack format (a local pack = the distributable). The keys of entries are the\nsame \"hash of the normalized source text\" as translations.json, so even if the\npackage's version changes, entries whose source text is unchanged stay valid.",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile",
+      "lang": "en"
+    },
+    "c32da3d2": {
+      "original": "翻訳エントリ。translations.json と同じ形式",
+      "translated": "Translation entries. The same format as translations.json",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.entries",
+      "lang": "en"
+    },
+    "fb03d18a": {
+      "original": "生成元ツールとバージョン(例: \"yakudoc@0.2.0\")。無くてもよい",
+      "translated": "The generating tool and version (e.g. \"yakudoc@0.2.0\"). Optional",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.generator",
+      "lang": "en"
+    },
+    "759b0cc0": {
+      "original": "このパックの翻訳先言語コード(例: \"ja\")",
+      "translated": "The target language code of this pack (e.g. \"ja\")",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.lang",
+      "lang": "en"
+    },
+    "0dfcdb40": {
+      "original": "npm パッケージ名(例: \"zod\"、\"@types/node\")",
+      "translated": "The npm package name (e.g. \"zod\", \"@types/node\")",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.name",
+      "lang": "en"
+    },
+    "6c8ab57d": {
+      "original": "抽出元にしたインストール済みバージョン",
+      "translated": "The installed version used as the extraction source",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.version",
+      "lang": "en"
+    },
+    "e3a7db71": {
+      "original": "パックのファイル名。スコープ区切りの \"/\" はファイル名に使えないため\n\"__\" に置き換える(例: \"@types/node\" → \"@types__node.json\")。",
+      "translated": "The pack's file name. Since the scope separator \"/\" cannot be used in a file name,\nit is replaced with \"__\" (e.g. \"@types/node\" → \"@types__node.json\").",
+      "symbol": "yakudoc/dist/packs.d.ts#packFileNameFor",
+      "lang": "en"
+    },
+    "5ca37eda": {
+      "original": "特定パッケージのパックファイルのパス",
+      "translated": "The path to a specific package's pack file",
+      "symbol": "yakudoc/dist/packs.d.ts#packPathFor",
+      "lang": "en"
+    },
+    "e3582c4f": {
+      "original": ".yakudoc/ 直下のパック置き場のディレクトリ名",
+      "translated": "The directory name of the pack store directly under .yakudoc/",
+      "symbol": "yakudoc/dist/packs.d.ts#PACKS_DIR_NAME",
+      "lang": "en"
+    },
+    "b1d014a8": {
+      "original": "JSON 文字列(またはパース済みの値)をパックとして解釈する。\n\n正規の形式は { name, version, lang, entries } だが、entries を持たない\n素の translations.json 形式(ハッシュ → エントリ)も受け付ける。\nコミュニティ配布のファイルを手で packs/ に置いた場合や、レジストリの\n形式差異に対して寛容にするため。解釈できなければ undefined。",
+      "translated": "Interprets a JSON string (or an already-parsed value) as a pack.\n\nThe canonical form is { name, version, lang, entries }, but the bare translations.json\nform without entries (hash → entry) is also accepted. This is to be tolerant of\ncommunity-distributed files placed by hand into packs/, and of format differences in\nthe registry. undefined if it cannot be interpreted.",
+      "symbol": "yakudoc/dist/packs.d.ts#parsePack",
+      "lang": "en"
+    },
+    "a17b7c9b": {
+      "original": "パックファイルを読み込む。存在しない・解釈できない場合は undefined",
+      "translated": "Reads a pack file. undefined if it does not exist or cannot be interpreted",
+      "symbol": "yakudoc/dist/packs.d.ts#readPack",
+      "lang": "en"
+    },
+    "19295e74": {
+      "original": "パックファイルを削除する。削除したら true、元々存在しなければ false。",
+      "translated": "Deletes a pack file. true if deleted, false if it did not exist to begin with.",
+      "symbol": "yakudoc/dist/packs.d.ts#removePack",
+      "lang": "en"
+    },
+    "ce2f8d6e": {
+      "original": "パック置き場のディレクトリを解決する。translations.json と同じ\n`.yakudoc/` ディレクトリの下に置く(--out で translations.json を\n動かした場合はそれに追従する)。",
+      "translated": "Resolves the pack store directory. It is placed under the same `.yakudoc/` directory\nas translations.json (and follows translations.json if it was moved with --out).",
+      "symbol": "yakudoc/dist/packs.d.ts#resolvePacksDir",
+      "lang": "en"
+    },
+    "73f15af4": {
+      "original": "symbol → original 順に entries を整列して書き出す(diff を安定させるため)",
+      "translated": "Sorts entries in symbol → original order and writes them out (to keep diffs stable)",
+      "symbol": "yakudoc/dist/packs.d.ts#writePack",
+      "lang": "en"
+    },
+    "6f367054": {
+      "original": "n 番目の保護トークン。エラー報告などの表示にも使う",
+      "translated": "The n-th protection token. Also used for display such as error reports",
+      "symbol": "yakudoc/dist/placeholders.d.ts#placeholderToken",
+      "lang": "en"
+    },
+    "3ed0186b": {
+      "original": "翻訳してはいけない断片(コード片・インラインタグ・URL)を\n<phN> 形式のトークンに置き換えて保護する。\n\n翻訳エンジン(LLM / 機械翻訳モデル)にはトークン入りのテキストを渡し、\n訳文の対応する位置にトークンをそのまま残してもらう。書き戻し時に\nrestoreText で復元する。\n\nトークン形式は NLLB-200(yakudoc-mt の既定モデル)で生存確認済みのもの。\n⟦n⟧ や [[n]] は機械翻訳モデルに壊されることがあり使えない。",
+      "translated": "Protects fragments that must not be translated (code spans, inline tags, URLs) by\nreplacing them with tokens in the <phN> form.\n\nThe translation engine (an LLM / machine-translation model) is given the tokenized text\nand asked to leave the tokens in place at the corresponding positions in the translation.\nThey are restored with restoreText when writing back.\n\nThe token form is one verified to survive NLLB-200 (yakudoc-mt's default model).\n⟦n⟧ and [[n]] can be broken by machine-translation models and are unusable.",
+      "symbol": "yakudoc/dist/placeholders.d.ts#placeholderToken",
+      "lang": "en"
+    },
+    "7854fd54": {
+      "original": "トークン番号 → 元の断片",
+      "translated": "Token number → original fragment",
+      "symbol": "yakudoc/dist/placeholders.d.ts#ProtectedText.placeholders",
+      "lang": "en"
+    },
+    "0ded5d9b": {
+      "original": "トークンに置き換え済みのテキスト",
+      "translated": "Text in which fragments have already been replaced by tokens",
+      "symbol": "yakudoc/dist/placeholders.d.ts#ProtectedText.text",
+      "lang": "en"
+    },
+    "68db164e": {
+      "original": "訳文中に見つからなかったトークン番号。1 つでもあれば訳文は採用しない",
+      "translated": "Token numbers that were not found in the translation. If even one is missing, the translation is rejected",
+      "symbol": "yakudoc/dist/placeholders.d.ts#RestoredText.missing",
+      "lang": "en"
+    },
+    "56d82f4d": {
+      "original": "コミュニティ翻訳パックの既定の取得元。\nGitHub リポジトリの raw URL で、`packs/<言語コード>/<パッケージ名>.json` を\n直接取りに行く(専用サーバー不要)。",
+      "translated": "The default source for community translation packs.\nA GitHub repository raw URL, fetching `packs/<language-code>/<package-name>.json`\ndirectly (no dedicated server needed).",
+      "symbol": "yakudoc/dist/registry.d.ts#DEFAULT_REGISTRY_URL",
+      "lang": "en"
+    },
+    "c71d3a7d": {
+      "original": "コミュニティ翻訳パックを取得する。\n\nネットワークは失敗して当たり前の前提で、例外は投げず結果を status で\n返す(add はオフラインでも成立する操作なので、呼び出し側は error を\n警告表示に留めて処理を続行する)。",
+      "translated": "Fetches a community translation pack.\n\nOn the premise that the network is expected to fail, it does not throw but returns the\nresult via status (since add is an operation that holds even offline, the caller keeps\nan error to a warning display and continues processing).",
+      "symbol": "yakudoc/dist/registry.d.ts#fetchCommunityPack",
+      "lang": "en"
+    },
+    "73be3c3c": {
+      "original": "fetch の差し替え用の最小インターフェース(テストで注入する)",
+      "translated": "A minimal interface for replacing fetch (injected in tests)",
+      "symbol": "yakudoc/dist/registry.d.ts#FetchLike",
+      "lang": "en"
+    },
+    "1a0f9280": {
+      "original": "コミュニティ翻訳パックのリポジトリ(export コマンドが PR 先として案内する)",
+      "translated": "The community translation pack repository (the export command guides you to it as the PR target)",
+      "symbol": "yakudoc/dist/registry.d.ts#PACKS_REPO_URL",
+      "lang": "en"
+    },
+    "1ea02850": {
+      "original": "パッケージのパックを取りに行く URL を組み立てる",
+      "translated": "Builds the URL for fetching a package's pack",
+      "symbol": "yakudoc/dist/registry.d.ts#packUrlFor",
+      "lang": "en"
+    },
+    "827ce814": {
+      "original": "レジストリ URL を上書きする環境変数名",
+      "translated": "The name of the environment variable that overrides the registry URL",
+      "symbol": "yakudoc/dist/registry.d.ts#REGISTRY_ENV_VAR",
+      "lang": "en"
+    },
+    "49040b12": {
+      "original": "レジストリのベース URL を決める。\n優先順位: CLI の --registry > 環境変数 > config.json の registry > 既定。",
+      "translated": "Decides the registry base URL.\nPriority: CLI --registry > environment variable > config.json registry > default.",
+      "symbol": "yakudoc/dist/registry.d.ts#resolveRegistryUrl",
+      "lang": "en"
+    },
+    "1c59fbd0": {
+      "original": "translations.json の内容から進捗を集計する(純粋関数・ファイル I/O なし)。\n\nextract と違いソースの再走査は行わないため stale は数えない。\n訳文が空、または訳文の言語が targetLang と異なるエントリを\n「翻訳待ち」として集計・列挙する(言語を切り替えた場合、旧言語の訳は\n完了扱いにならない)。",
+      "translated": "Aggregates progress from the contents of translations.json (a pure function, no file I/O).\n\nUnlike extract, it does not re-scan the source, so it does not count stale. Entries whose\ntranslation is empty, or whose translation language differs from targetLang, are aggregated\nand listed as \"pending\" (when the language is switched, translations in the old language\nare not treated as done).",
+      "symbol": "yakudoc/dist/status.d.ts#computeStatus",
+      "lang": "en"
+    },
+    "7b393cd6": {
+      "original": "翻訳パック 1 つ分の進捗",
+      "translated": "The progress of a single translation pack",
+      "symbol": "yakudoc/dist/status.d.ts#PackStatus",
+      "lang": "en"
+    },
+    "c8025992": {
+      "original": "翻訳待ちの 1 エントリ。status の一覧表示に使う",
+      "translated": "A single pending entry. Used in the status listing",
+      "symbol": "yakudoc/dist/status.d.ts#PendingEntry",
+      "lang": "en"
+    },
+    "0b3840be": {
+      "original": "翻訳待ちエントリ(symbol → original 順)。translated が空のものだけ",
+      "translated": "Pending entries (in symbol → original order). Only those whose translated is empty",
+      "symbol": "yakudoc/dist/status.d.ts#StatusCounts.pending",
+      "lang": "en"
+    },
+    "5b21f0ba": {
+      "original": "status の終了コードを決める(純粋関数)。\n--fail-on-pending 指定時に翻訳待ちが残っていれば 1(CI の失敗ゲート用)。\nそれ以外は 0。",
+      "translated": "Decides the exit code of status (a pure function).\n1 if pending entries remain when --fail-on-pending is given (for a CI failure gate).\n0 otherwise.",
+      "symbol": "yakudoc/dist/status.d.ts#statusExitCode",
+      "lang": "en"
+    },
+    "1de2e91e": {
+      "original": "プロジェクトルート。出力パスの基準",
+      "translated": "The project root. The basis for output paths",
+      "symbol": "yakudoc/dist/status.d.ts#StatusOptions.projectDir",
+      "lang": "en"
+    },
+    "a4e83ba3": {
+      "original": "translations.json と .yakudoc/packs/ 以下の翻訳パックを読み込んで\n進捗を集計する。翻訳先言語は .yakudoc/config.json から解決する。\nどのファイルも存在しなければ undefined(CLI 側で導入手順を案内する)。",
+      "translated": "Loads translations.json and the translation packs under .yakudoc/packs/ and aggregates\nprogress. The target language is resolved from .yakudoc/config.json. undefined if none of\nthe files exist (the CLI then guides the setup steps).",
+      "symbol": "yakudoc/dist/status.d.ts#statusProject",
+      "lang": "en"
+    },
+    "05e037f1": {
+      "original": "プロジェクト全体の進捗。total / translated / untranslated / pending は\ntranslations.json と全パックを合算した値(pending は原文ハッシュで\n重複排除済み)。project / packs に内訳を持つ。",
+      "translated": "The progress of the whole project. total / translated / untranslated / pending are the\nsums of translations.json and all packs (pending is deduplicated by source-text hash).\nThe breakdown is held in project / packs.",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary",
+      "lang": "en"
+    },
+    "db0d00a8": {
+      "original": "依存パッケージの翻訳パックの内訳(name 順)",
+      "translated": "The breakdown of the dependencies' translation packs (in name order)",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary.packs",
+      "lang": "en"
+    },
+    "9719c7cf": {
+      "original": "translations.json の内訳(ファイルが無ければ undefined)",
+      "translated": "The breakdown of translations.json (undefined if the file does not exist)",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary.project",
+      "lang": "en"
+    },
+    "b88c0d8c": {
+      "original": "集計に使った翻訳先言語(config.json から解決)",
+      "translated": "The target language used for aggregation (resolved from config.json)",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary.targetLang",
+      "lang": "en"
+    },
+    "54d37e93": {
+      "original": "訳文をハッシュの一致する全ソースへ書き込む(メモリ上)。\n書き込んだソース数を返す(0 ならどこにも該当が無い)。",
+      "translated": "Writes the translation to all sources whose hash matches (in memory).\nReturns the number of sources written (0 means no match anywhere).",
+      "symbol": "yakudoc/dist/translationSet.d.ts#applyTranslation",
+      "lang": "en"
+    },
+    "00f808ad": {
+      "original": "全ソースの翻訳待ちエントリをハッシュで重複排除して集める。\n同じ原文がプロジェクトとパックの両方にある場合も翻訳は 1 回で済み、\napplyTranslation が両方へ書き戻す。",
+      "translated": "Collects pending entries from all sources, deduplicated by hash.\nEven when the same source text is in both the project and a pack, it is translated only\nonce, and applyTranslation writes it back to both.",
+      "symbol": "yakudoc/dist/translationSet.d.ts#collectPending",
+      "lang": "en"
+    },
+    "c605f8f2": {
+      "original": "プロジェクトの翻訳対象ファイル一式を読み込む。\ntranslations.json(存在すれば)+ packs/ 以下の全パック。\npackages を指定するとそのパックだけに絞る(プロジェクト分は含めない)。",
+      "translated": "Loads the full set of the project's translation-target files.\ntranslations.json (if it exists) + all packs under packs/.\nSpecifying packages narrows to just those packs (the project's own is not included).",
+      "symbol": "yakudoc/dist/translationSet.d.ts#loadProjectSources",
+      "lang": "en"
+    },
+    "4883e090": {
+      "original": "パスの一覧から翻訳対象ファイルを読み込む(翻訳エンジン用)。\n各ファイルはパック形式か素の translations.json 形式かを内容で判定する。\n存在しないファイルは読み飛ばす。",
+      "translated": "Loads translation-target files from a list of paths (for translation engines).\nEach file is judged by its content to be either the pack form or the bare\ntranslations.json form. Nonexistent files are skipped.",
+      "symbol": "yakudoc/dist/translationSet.d.ts#loadSourcesAt",
+      "lang": "en"
+    },
+    "fe937e8d": {
+      "original": "翻訳待ちの 1 件(横断集計用)。symbol は最初に見つかったものを使う",
+      "translated": "A single pending item (for cross-source aggregation). symbol uses the first one found",
+      "symbol": "yakudoc/dist/translationSet.d.ts#PendingItem",
+      "lang": "en"
+    },
+    "87bd001b": {
+      "original": "翻訳エントリを持つファイル 1 つ分(プロジェクトの translations.json、\nまたは依存パッケージの翻訳パック)。translate / status はこの配列を\n横断して処理する。",
+      "translated": "A single file holding translation entries (the project's translations.json, or a\ndependency's translation pack). translate / status process across this array.",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource",
+      "lang": "en"
+    },
+    "ffecabac": {
+      "original": "applyTranslation で書き換えられたか(writeSources が書き出す対象)",
+      "translated": "Whether it was modified by applyTranslation (the target that writeSources writes out)",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource.dirty",
+      "lang": "en"
+    },
+    "b3dbb7eb": {
+      "original": "表示用ラベル(project: \"translations.json\"、pack: パッケージ名)",
+      "translated": "A display label (project: \"translations.json\", pack: the package name)",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource.label",
+      "lang": "en"
+    },
+    "007b20bd": {
+      "original": "kind === \"pack\" のときのメタデータ(書き戻しに使う)",
+      "translated": "Metadata for when kind === \"pack\" (used for writing back)",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource.pack",
+      "lang": "en"
+    },
+    "dbbacbcf": {
+      "original": "applyTranslation で変更のあったソースだけをファイルへ書き出す",
+      "translated": "Writes out only the sources changed by applyTranslation to files",
+      "symbol": "yakudoc/dist/translationSet.d.ts#writeSources",
+      "lang": "en"
+    },
+    "4d6c3fde": {
+      "original": "今回の抽出に現れなかった既存エントリ数",
+      "translated": "The number of existing entries that did not appear in this extraction",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#MergeStats.stale",
+      "lang": "en"
+    },
+    "17786fac": {
+      "original": "訳文を保持できたエントリ数",
+      "translated": "The number of entries whose translation could be kept",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#MergeStats.translated",
+      "lang": "en"
+    },
+    "19782fcf": {
+      "original": "翻訳待ちのエントリ数",
+      "translated": "The number of pending entries",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#MergeStats.untranslated",
+      "lang": "en"
+    },
+    "0cc66d12": {
+      "original": "抽出結果を既存ファイルへマージする。\n\n- ハッシュが一致する既存エントリの訳文は保持する(差分翻訳)\n- 新規の原文は translated: \"\" の「翻訳待ち」として追加する\n- ソースから消えた原文は既定では残す(抽出漏れで訳を失わないため)。\n  prune: true で削除する",
+      "translated": "Merges the extraction result into the existing file.\n\n- keeps the translation of existing entries whose hash matches (incremental translation)\n- adds new source text as \"pending\" with translated: \"\"\n- source text that disappeared from the source is kept by default (so translations are\n  not lost to an extraction miss); delete it with prune: true",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#mergeTranslations",
+      "lang": "en"
+    },
+    "1b111125": {
+      "original": "エントリが「翻訳待ち」かを判定する(status・翻訳エンジン共通)。\n訳文が空、または訳文の言語が現在の翻訳先と異なる場合に翻訳待ちとなる。\nlang が無いエントリは現在の翻訳先の訳とみなす(既存ファイルの互換のため)。",
+      "translated": "Determines whether an entry is \"pending\" (common to status and translation engines).\nIt is pending when the translation is empty, or its translation language differs from the\ncurrent target. An entry without lang is treated as a translation in the current target\n(for compatibility with existing files).",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#needsTranslation",
+      "lang": "en"
+    },
+    "f2a70dc7": {
+      "original": "translations.json を読み込む。存在しなければ undefined",
+      "translated": "Reads translations.json. undefined if it does not exist",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#readTranslations",
+      "lang": "en"
+    },
+    "f9d745c5": {
+      "original": "translations.json のパスを解決する(全コマンド・全エンジン共通)。\noutPath 未指定なら projectDir/.yakudoc/translations.json。",
+      "translated": "Resolves the path to translations.json (common to all commands and engines).\nprojectDir/.yakudoc/translations.json if outPath is unspecified.",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#resolveTranslationsPath",
+      "lang": "en"
+    },
+    "ea9ec255": {
+      "original": "translations.json の既定の相対パス",
+      "translated": "The default relative path of translations.json",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#TRANSLATIONS_RELATIVE_PATH",
+      "lang": "en"
+    },
+    "d98ece8a": {
+      "original": "symbol → original の順で整列して書き出す(diff を安定させるため)",
+      "translated": "Sorts in symbol → original order and writes out (to keep diffs stable)",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#writeTranslations",
+      "lang": "en"
+    },
+    "489312f8": {
+      "original": "`yakudoc translate --engine <name>` が翻訳エンジンパッケージ\n(yakudoc-ai-prep / yakudoc-mt)に渡すオプション。\nエンジン側は `run(options: EngineRunOptions): Promise<void>` を公開する。",
+      "translated": "The options that `yakudoc translate --engine <name>` passes to a translation-engine\npackage (yakudoc-ai-prep / yakudoc-mt). The engine side exposes\n`run(options: EngineRunOptions): Promise<void>`.",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions",
+      "lang": "en"
+    },
+    "97bd6b79": {
+      "original": "翻訳結果 JSON を書き戻す場合、そのファイルのパス",
+      "translated": "When writing back the translation result JSON, the path to that file",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.applyPath",
+      "lang": "en"
+    },
+    "3418cc0e": {
+      "original": "yakudoc-mt: 使用するモデルの HF id を明示する(modelSize より優先)",
+      "translated": "yakudoc-mt: explicitly specify the HF id of the model to use (takes priority over modelSize)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.model",
+      "lang": "en"
+    },
+    "91dea51f": {
+      "original": "yakudoc-mt: モデルの大きさ。small | large | auto(既定は auto)",
+      "translated": "yakudoc-mt: the model size. small | large | auto (default is auto)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.modelSize",
+      "lang": "en"
+    },
+    "5c9f814c": {
+      "original": "プロジェクトルート(CLI 実行時のカレントディレクトリ)",
+      "translated": "The project root (the current directory when the CLI is run)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.projectDir",
+      "lang": "en"
+    },
+    "b962e7b5": {
+      "original": "翻訳先の言語コード(languages.ts で解決済み。省略時: ja)",
+      "translated": "The target language code (already resolved in languages.ts; default: ja)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.targetLang",
+      "lang": "en"
+    },
+    "7384bd7c": {
+      "original": "translations.json のパス(省略時: .yakudoc/translations.json)",
+      "translated": "The path to translations.json (default: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.translationsPath",
+      "lang": "en"
+    },
+    "8feb2f53": {
+      "original": "翻訳対象ファイルの一覧(translations.json と .yakudoc/packs/ 以下の\n翻訳パック)。CLI が解決して渡す。省略時はエンジン側が\ntranslationsPath(またはその既定)1 ファイルのみを対象にする。",
+      "translated": "The list of translation-target files (translations.json and the translation packs under\n.yakudoc/packs/). The CLI resolves and passes them. If omitted, the engine targets only\nthe single translationsPath file (or its default).",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.translationsPaths",
+      "lang": "en"
+    },
+    "08c37238": {
+      "original": "訳文の言語コード。翻訳エンジンが書き込み時に付与する。\n無いエントリ(手動編集・旧バージョンのファイル)は現在の翻訳先言語と\nみなす(アップグレードで既存の訳が失効しないようにするため)。",
+      "translated": "The translation's language code. The translation engine adds it when writing.\nAn entry without it (manual edits, files from an old version) is treated as being in the\ncurrent target language (so that existing translations do not expire on upgrade).",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.lang",
+      "lang": "en"
+    },
+    "bd8f71f9": {
+      "original": "抽出した原文(トリム済み)",
+      "translated": "The extracted source text (trimmed)",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.original",
+      "lang": "en"
+    },
+    "37f00084": {
+      "original": "補助情報。リネーム検出用の \"src/api/user.ts#fetchUser\" 形式",
+      "translated": "Auxiliary information. The \"src/api/user.ts#fetchUser\" form for rename detection",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.symbol",
+      "lang": "en"
+    },
+    "7906d4e4": {
+      "original": "訳文。空文字列は「翻訳待ち」を意味する",
+      "translated": "The translation. An empty string means \"pending\"",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.translated",
+      "lang": "en"
+    },
+    "c5b3e221": {
+      "original": ".yakudoc/translations.json 全体。キーは正規化した原文のハッシュ",
+      "translated": "The entire .yakudoc/translations.json. The key is the hash of the normalized source text",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationsFile",
+      "lang": "en"
+    }
+  }
+}

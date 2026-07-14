@@ -1,0 +1,98 @@
+{
+  "name": "yakudoc-ts-plugin",
+  "version": "0.1.1",
+  "lang": "en",
+  "generator": "yakudoc@0.1.1",
+  "entries": {
+    "d7ce906e": {
+      "original": "false にすると原文表示に戻す(既定: true)。VSCode 拡張のトグルが configurePlugin 経由で送る",
+      "translated": "Set to false to revert to showing the original text (default: true). The VSCode extension's toggle sends this via configurePlugin",
+      "symbol": "yakudoc-ts-plugin/dist/index.d.ts#YakudocPluginConfig.enabled",
+      "lang": "en"
+    },
+    "01cafd96": {
+      "original": "translations.json の場所を明示する場合に指定(既定: プロジェクトルートから上方向に .yakudoc/translations.json を探索)",
+      "translated": "Specify this to state the location of translations.json explicitly (default: search upward from the project root for .yakudoc/translations.json)",
+      "symbol": "yakudoc-ts-plugin/dist/index.d.ts#YakudocPluginConfig.translationsPath",
+      "lang": "en"
+    },
+    "b2d11903": {
+      "original": "翻訳エントリのキー。正規化した原文の SHA-256 先頭 8 桁(hex)。",
+      "translated": "The key of a translation entry. The first 8 hex digits of the SHA-256 of the normalized source text.",
+      "symbol": "yakudoc-ts-plugin/dist/normalize.d.ts#hashText",
+      "lang": "en"
+    },
+    "f72dcf45": {
+      "original": "翻訳キーの照合に使う正規化。\n\ntsserver が返す documentation テキストと、extractor がソースの JSDoc から\n抽出したテキストは、改行コードや行頭のインデントが微妙に異なることがある。\n双方をこの関数に通した結果が一致すれば「同じ原文」とみなす。\n\n規約(extractor 側も必ずこれに従うこと):\n- 改行は \"\\n\" に統一する\n- 各行の前後の空白を取り除く\n- 3 行以上連続する空行は 1 つの空行に潰す\n- 全体の前後の空白を取り除く",
+      "translated": "Normalization used to match translation keys.\n\nThe documentation text returned by tsserver and the text the extractor pulls\nfrom the source JSDoc can differ slightly in newline codes and leading\nindentation. If passing both through this function yields the same result,\nthey are treated as \"the same source text\".\n\nConventions (the extractor must follow these too):\n- normalize newlines to \"\\n\"\n- strip leading/trailing whitespace on each line\n- collapse 3 or more consecutive blank lines into a single blank line\n- strip leading/trailing whitespace of the whole text",
+      "symbol": "yakudoc-ts-plugin/dist/normalize.d.ts#normalizeText",
+      "lang": "en"
+    },
+    "568fbf7b": {
+      "original": "補完候補の詳細(getCompletionEntryDetails)",
+      "translated": "Details of a completion candidate (getCompletionEntryDetails)",
+      "symbol": "yakudoc-ts-plugin/dist/rewrite.d.ts#rewriteCompletionEntryDetails",
+      "lang": "en"
+    },
+    "c05c62eb": {
+      "original": "SymbolDisplayPart の列を訳文に差し替える。\n\n2 段階で照合する:\n1. 全パーツを連結したテキスト全体で照合(通常の説明文はこれで当たる)\n2. 外れた場合、kind === \"text\" のパーツを個別に照合\n   (@param タグの text は [parameterName, space, text] の列になるため、\n    説明部分だけがエントリとして登録されているケースを拾う)",
+      "translated": "Replaces a sequence of SymbolDisplayPart with the translation.\n\nMatches in two stages:\n1. match against the whole text of all parts concatenated (ordinary descriptions hit here)\n2. if that misses, match parts with kind === \"text\" individually\n   (the text of an @param tag becomes the sequence [parameterName, space, text],\n    so this picks up cases where only the description part is registered as an entry)",
+      "symbol": "yakudoc-ts-plugin/dist/rewrite.d.ts#rewriteDisplayParts",
+      "lang": "en"
+    },
+    "df2e3f8d": {
+      "original": "ホバー表示(getQuickInfoAtPosition)",
+      "translated": "Hover display (getQuickInfoAtPosition)",
+      "symbol": "yakudoc-ts-plugin/dist/rewrite.d.ts#rewriteQuickInfo",
+      "lang": "en"
+    },
+    "87c5fc0c": {
+      "original": "シグネチャヘルプ(getSignatureHelpItems)",
+      "translated": "Signature help (getSignatureHelpItems)",
+      "symbol": "yakudoc-ts-plugin/dist/rewrite.d.ts#rewriteSignatureHelpItems",
+      "lang": "en"
+    },
+    "b5053042": {
+      "original": "原文テキストを受け取り、訳文か undefined(訳なし)を返す",
+      "translated": "Takes the source text and returns the translation, or undefined (no translation)",
+      "symbol": "yakudoc-ts-plugin/dist/rewrite.d.ts#Translate",
+      "lang": "en"
+    },
+    "cf84042b": {
+      "original": "`.yakudoc/translations.json` と `.yakudoc/packs/*.json`(依存パッケージの\n翻訳パック)を読み込み、原文テキストから訳文を引くストア。\n\n- `.yakudoc/` はプロジェクトルートから上方向に探索する(モノレポ対応)\n- tsserver は長時間生きるプロセスなので、各ファイルの mtime とパックの\n  増減を監視して変更があれば自動で再読み込みする(stat はスロットリングする)\n- ファイルがまだ存在しない場合も、後から作成されれば拾う\n- 同じ原文がプロジェクトとパックの両方にある場合はプロジェクトの訳を優先する",
+      "translated": "A store that loads `.yakudoc/translations.json` and `.yakudoc/packs/*.json`\n(the dependencies' translation packs) and looks up translations from source text.\n\n- `.yakudoc/` is searched upward from the project root (monorepo-friendly)\n- since tsserver is a long-lived process, it watches each file's mtime and the\n  addition/removal of packs, reloading automatically on change (stat is throttled)\n- files that do not exist yet are also picked up once they are created later\n- when the same source text exists in both the project and a pack, the project's translation wins",
+      "symbol": "yakudoc-ts-plugin/dist/translationStore.d.ts#TranslationStore",
+      "lang": "en"
+    },
+    "2d541b9d": {
+      "original": "ログ表示用の現在の読み込み状態",
+      "translated": "The current load state, for log display",
+      "symbol": "yakudoc-ts-plugin/dist/translationStore.d.ts#TranslationStore.describe",
+      "lang": "en"
+    },
+    "61fe5272": {
+      "original": "読み込むべきファイルの一覧(translations.json → パックの順)",
+      "translated": "The list of files to load (translations.json first, then packs)",
+      "symbol": "yakudoc-ts-plugin/dist/translationStore.d.ts#TranslationStore.listFiles",
+      "lang": "en"
+    },
+    "8348e69f": {
+      "original": "1 ファイル分のエントリを読む。translations.json 形式(ハッシュ → エントリ)\nとパック形式({ entries: ... })の両方を受け付ける。壊れていれば undefined。",
+      "translated": "Reads the entries of a single file. Accepts both the translations.json form\n(hash → entry) and the pack form ({ entries: ... }). Returns undefined if broken.",
+      "symbol": "yakudoc-ts-plugin/dist/translationStore.d.ts#TranslationStore.readEntries",
+      "lang": "en"
+    },
+    "aa105f37": {
+      "original": "監視対象を解決する。明示パスがあればそのファイルと隣の packs/。\n無ければ projectRoot から上方向に、translations.json か packs/ を含む\n`.yakudoc/` ディレクトリを探す。",
+      "translated": "Resolves what to watch. If an explicit path is given, that file and the packs/ next to it.\nOtherwise, searches upward from projectRoot for a `.yakudoc/` directory that\ncontains translations.json or packs/.",
+      "symbol": "yakudoc-ts-plugin/dist/translationStore.d.ts#TranslationStore.resolveFiles",
+      "lang": "en"
+    },
+    "5328976f": {
+      "original": "原文テキストに対応する訳文を返す。未訳・未登録なら undefined。",
+      "translated": "Returns the translation for the source text. Returns undefined if untranslated or unregistered.",
+      "symbol": "yakudoc-ts-plugin/dist/translationStore.d.ts#TranslationStore.translate",
+      "lang": "en"
+    }
+  }
+}

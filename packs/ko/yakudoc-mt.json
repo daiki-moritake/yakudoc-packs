@@ -1,0 +1,158 @@
+{
+  "name": "yakudoc-mt",
+  "version": "0.1.1",
+  "lang": "ko",
+  "generator": "yakudoc@0.1.1",
+  "entries": {
+    "72904475": {
+      "original": "保護済みテキストの配列を受け取り、同じ順序で訳文を返す",
+      "translated": "보호된 텍스트의 배열을 받아 같은 순서로 번역문을 반환한다",
+      "symbol": "yakudoc-mt/dist/engine.d.ts#TranslateFn",
+      "lang": "ko"
+    },
+    "d47b9c48": {
+      "original": "ダウンロード進捗イベントを人間向けの行に間引いて整形する。\n\n初回のモデル取得は数百 MB〜1GB 超あり、無反応だとフリーズと\n誤解されて中断されがちなので、1MB 以上のファイルについて\n10% 刻みで進捗を emit する。キャッシュ済みなら何も出ない。",
+      "translated": "다운로드 진행 이벤트를 사람이 읽기 쉬운 행으로 솎아 정리한다.\n\n최초 모델 취득은 수백 MB〜1GB 이상이며, 반응이 없으면 멈춘 것으로\n오해되어 중단되기 쉬우므로, 1MB 이상의 파일에 대해 10% 단위로\n진행 상황을 emit한다. 이미 캐시되어 있으면 아무것도 출력하지 않는다.",
+      "symbol": "yakudoc-mt/dist/downloadProgress.d.ts#createProgressRenderer",
+      "lang": "ko"
+    },
+    "c58a7cad": {
+      "original": "transformers.js の progress_callback が送ってくるイベント(の使う部分)。\n公開型が無いため必要なフィールドだけ緩く受ける。",
+      "translated": "transformers.js의 progress_callback이 보내오는 이벤트(중 사용하는 부분).\n공개 타입이 없어 필요한 필드만 느슨하게 받는다.",
+      "symbol": "yakudoc-mt/dist/downloadProgress.d.ts#DownloadProgressEvent",
+      "lang": "ko"
+    },
+    "f0f4f6ed": {
+      "original": "0〜100 のパーセント値",
+      "translated": "0〜100의 퍼센트 값",
+      "symbol": "yakudoc-mt/dist/downloadProgress.d.ts#DownloadProgressEvent.progress",
+      "lang": "ko"
+    },
+    "bfa5da6e": {
+      "original": "訳文を書き込めたエントリ数",
+      "translated": "번역문을 기록할 수 있었던 엔트리 수",
+      "symbol": "yakudoc-mt/dist/engine.d.ts#MtSummary.applied",
+      "lang": "ko"
+    },
+    "94c88436": {
+      "original": "翻訳待ちだったエントリ数(原文ハッシュで重複排除済み)",
+      "translated": "번역 대기였던 엔트리 수(원문 해시로 중복 제거됨)",
+      "symbol": "yakudoc-mt/dist/engine.d.ts#MtSummary.pending",
+      "lang": "ko"
+    },
+    "c47c14eb": {
+      "original": "採用しなかったエントリとその理由",
+      "translated": "채택하지 않은 엔트리와 그 이유",
+      "symbol": "yakudoc-mt/dist/engine.d.ts#MtSummary.skipped",
+      "lang": "ko"
+    },
+    "0adca631": {
+      "original": "翻訳待ちエントリを translate 関数で翻訳して書き戻す。\n\n対象は複数ファイル(translations.json と依存パッケージの翻訳パック)。\n同じ原文が複数ファイルにあっても翻訳は 1 回で済ませ、全ファイルへ書き戻す。\n\n- 原文はプレースホルダー保護してからモデルに渡す\n- 保護トークンが訳文から消えたエントリは採用せず、翻訳待ちのまま残す\n- 書き込んだ訳文には言語タグ(lang)を付与する。翻訳先言語と異なる\n  言語タグを持つ既存の訳は「翻訳待ち」として翻訳し直す\n- バッチごとに書き込むのではなく、全件処理後に一度だけ書き込む",
+      "translated": "번역 대기 엔트리를 translate 함수로 번역하여 되쓴다.\n\n대상은 여러 파일(translations.json과 의존 패키지의 번역 팩)이다.\n같은 원문이 여러 파일에 있어도 번역은 1회로 끝내고 모든 파일에 되쓴다.\n\n- 원문은 플레이스홀더 보호를 한 뒤 모델에 넘긴다\n- 보호 토큰이 번역문에서 사라진 엔트리는 채택하지 않고 번역 대기로 남긴다\n- 기록한 번역문에는 언어 태그(lang)를 부여한다. 번역 대상 언어와 다른\n  언어 태그를 가진 기존 번역은 「번역 대기」로 다시 번역한다\n- 배치마다 기록하지 않고, 전건 처리 후 한 번만 기록한다",
+      "symbol": "yakudoc-mt/dist/engine.d.ts#translatePending",
+      "lang": "ko"
+    },
+    "c4767836": {
+      "original": "`yakudoc translate --engine local` のエントリポイント。\n\nモデルは次の優先順位で決まる:\n  --model / YAKUDOC_MT_MODEL(明示) >\n  --model-size / YAKUDOC_MT_MODEL_SIZE(small|large|auto) >\n  auto(搭載メモリから判定)",
+      "translated": "`yakudoc translate --engine local`의 진입점.\n\n모델은 다음 우선순위로 정해진다:\n  --model / YAKUDOC_MT_MODEL(명시) >\n  --model-size / YAKUDOC_MT_MODEL_SIZE(small|large|auto) >\n  auto(탑재 메모리로 판정)",
+      "symbol": "yakudoc-mt/dist/index.d.ts#run",
+      "lang": "ko"
+    },
+    "b41d73df": {
+      "original": "機械翻訳(NLLB)の日本語出力を読みやすく整える後処理。\n\nNLLB は日本語文でも ASCII の \",\" \".\" を出すことがある。日本語文字に\n隣接する ASCII 句読点だけを全角(、。)へ変換し、句読点直後の余分な\n空白を詰める。小数点(1.5)や英字・保護トークン直後の \".\" は\n「直前が日本語文字」の条件で除外され、変換されない。\n\n保護トークン(<ph0> など)を復元する前に適用する前提。コード片や\nURL の中身には触れない。",
+      "translated": "기계 번역(NLLB)의 일본어 출력을 읽기 쉽게 다듬는 후처리.\n\nNLLB는 일본어 문장에서도 ASCII의 \",\" \".\"을 낼 때가 있다. 일본어 문자에\n인접한 ASCII 구두점만 전각(、。)으로 변환하고, 구두점 직후의 불필요한\n공백을 없앤다. 소수점(1.5)이나 영문자·보호 토큰 직후의 \".\"은\n「직전이 일본어 문자」라는 조건으로 제외되어 변환되지 않는다.\n\n보호 토큰(<ph0> 등)을 복원하기 전에 적용하는 전제. 코드 조각이나\nURL의 내용에는 손대지 않는다.",
+      "symbol": "yakudoc-mt/dist/postprocess.d.ts#normalizeJapaneseOutput",
+      "lang": "ko"
+    },
+    "b66cd28f": {
+      "original": "翻訳先言語に応じた後処理を返す。\n\n句読点の全角化は日本語専用(中国語も CJK 文字を使うが ASCII カンマの\n変換先が異なる)。日本語以外はトリムのみ行う。\n他言語の後処理を足す場合は、分岐を増やすのではなく LanguageSpec\n(yakudoc/src/languages.ts)にデータとして持たせること。",
+      "translated": "번역 대상 언어에 맞는 후처리를 반환한다.\n\n구두점의 전각화는 일본어 전용(중국어도 CJK 문자를 쓰지만 ASCII 쉼표의\n변환 대상이 다르다). 일본어 이외는 트리밍만 한다.\n다른 언어의 후처리를 추가할 때는 분기를 늘리지 말고 LanguageSpec\n(yakudoc/src/languages.ts)에 데이터로 갖게 할 것.",
+      "symbol": "yakudoc-mt/dist/postprocess.d.ts#postprocessFor",
+      "lang": "ko"
+    },
+    "3cb5bdd3": {
+      "original": "auto で large を選ぶ搭載メモリの下限(GiB)",
+      "translated": "auto에서 large를 선택하는 탑재 메모리의 하한(GiB)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#AUTO_LARGE_MIN_GB",
+      "lang": "ko"
+    },
+    "79074af5": {
+      "original": "リソース階層ごとの既定モデル。\n- small: 速くて軽い(既定)。NLLB-200 蒸留 600M\n- large: より高品質だがメモリ・時間を要する。mBART-50\n\nsrcLang / tgtLang は既定言語(ja)のもの。resolveModel は翻訳先言語に\n合わせて上書きするため、直接使う場合のみこの既定値が効く。",
+      "translated": "리소스 계층별 기본 모델.\n- small: 빠르고 가볍다(기본). NLLB-200 증류 600M\n- large: 더 고품질이지만 메모리·시간을 요한다. mBART-50\n\nsrcLang / tgtLang은 기본 언어(ja)의 것이다. resolveModel이 번역 대상 언어에\n맞춰 덮어쓰므로, 직접 사용할 때만 이 기본값이 효력을 가진다.",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#MODEL_TIERS",
+      "lang": "ko"
+    },
+    "95e3fdd7": {
+      "original": "ログ表示用の説明",
+      "translated": "로그 표시용 설명",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ModelSpec.label",
+      "lang": "ko"
+    },
+    "867013c5": {
+      "original": "Hugging Face のモデル id",
+      "translated": "Hugging Face의 모델 id",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ModelSpec.model",
+      "lang": "ko"
+    },
+    "41faf154": {
+      "original": "translation パイプラインに渡す言語コード(opus 系など不要なモデルは undefined)",
+      "translated": "translation 파이프라인에 넘기는 언어 코드(opus 계열 등 불필요한 모델은 undefined)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ModelSpec.srcLang",
+      "lang": "ko"
+    },
+    "5f0f25ec": {
+      "original": "選択理由(ログ用)",
+      "translated": "선택 이유(로그용)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolvedModel.reason",
+      "lang": "ko"
+    },
+    "6c48b611": {
+      "original": "翻訳先の言語コード(解決済み)",
+      "translated": "번역 대상 언어 코드(해결됨)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolvedModel.targetLang",
+      "lang": "ko"
+    },
+    "b790c9be": {
+      "original": "ユーザーに伝えるべき注意事項(あれば CLI が表示する)",
+      "translated": "사용자에게 전달해야 할 주의 사항(있으면 CLI가 표시한다)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolvedModel.warning",
+      "lang": "ko"
+    },
+    "3c91cdc4": {
+      "original": "モデルの明示指定(HF id)。指定時は size より優先",
+      "translated": "모델의 명시 지정(HF id). 지정 시 size보다 우선",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolveInput.explicitModel",
+      "lang": "ko"
+    },
+    "d518db2a": {
+      "original": "small | large | auto(未指定は auto)",
+      "translated": "small | large | auto(미지정은 auto)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolveInput.size",
+      "lang": "ko"
+    },
+    "b4ed10c9": {
+      "original": "翻訳先の言語コード(未指定は ja)",
+      "translated": "번역 대상 언어 코드(미지정은 ja)",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#ResolveInput.targetLang",
+      "lang": "ko"
+    },
+    "fb3f681e": {
+      "original": "入力(明示指定 / サイズ / 翻訳先言語 / 搭載メモリ)から使用モデルを決める。\n\n優先順位: 明示モデル > サイズ指定(small|large)> auto(メモリから判定)。\ntotalMemBytes はテスト用に注入可能。",
+      "translated": "입력(명시 지정 / 크기 / 번역 대상 언어 / 탑재 메모리)으로부터 사용할 모델을 정한다.\n\n우선순위: 명시 모델 > 크기 지정(small|large) > auto(메모리로 판정).\ntotalMemBytes는 테스트용으로 주입 가능하다.",
+      "symbol": "yakudoc-mt/dist/resolveModel.d.ts#resolveModel",
+      "lang": "ko"
+    },
+    "a7d658f3": {
+      "original": "transformers.js の翻訳パイプラインを起動して TranslateFn を返す。\n初回はモデルのダウンロードが走る(small で数百 MB、large は 1GB 超)。\n\n言語コード(srcLang/tgtLang)はモデルのアーキテクチャで異なるため\nModelSpec で受け取る(NLLB: eng_Latn/jpn_Jpan、mBART: en_XX/ja_XX)。",
+      "translated": "transformers.js의 번역 파이프라인을 기동하여 TranslateFn을 반환한다.\n최초에는 모델 다운로드가 실행된다(small은 수백 MB, large는 1GB 이상).\n\n언어 코드(srcLang/tgtLang)는 모델 아키텍처에 따라 다르므로 ModelSpec으로\n받는다(NLLB: eng_Latn/jpn_Jpan, mBART: en_XX/ja_XX).",
+      "symbol": "yakudoc-mt/dist/translator.d.ts#createLocalTranslator",
+      "lang": "ko"
+    },
+    "a313f906": {
+      "original": "既定の小モデル(後方互換のため公開)",
+      "translated": "기본 소형 모델(하위 호환을 위해 공개)",
+      "symbol": "yakudoc-mt/dist/translator.d.ts#DEFAULT_MODEL",
+      "lang": "ko"
+    }
+  }
+}
