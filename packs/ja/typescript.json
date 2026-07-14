@@ -1,0 +1,3116 @@
+{
+  "name": "typescript",
+  "version": "5.9.3",
+  "lang": "ja",
+  "generator": "yakudoc@0.1.1",
+  "entries": {
+    "14961509": {
+      "original": "Attaches callbacks for the resolution and/or rejection of the Promise.",
+      "translated": "Promise の解決時・拒否時に実行するコールバックを登録する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#PromiseLike.then",
+      "lang": "ja"
+    },
+    "21043239": {
+      "original": "Symbol to find the key for.",
+      "translated": "キーを探す対象の Symbol。",
+      "symbol": "typescript/lib/lib.es2015.symbol.d.ts#SymbolConstructor.keyFor",
+      "lang": "ja"
+    },
+    "33986995": {
+      "original": "value to fill array section with",
+      "translated": "配列の範囲を埋める値",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.fill",
+      "lang": "ja"
+    },
+    "38936047": {
+      "original": "A numeric value representing the number of elapsed milliseconds since midnight, January 1, 1970 GMT.",
+      "translated": "1970 年 1 月 1 日午前 0 時(GMT)からの経過ミリ秒数を表す数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setTime",
+      "lang": "ja"
+    },
+    "52600858": {
+      "original": "Sorts an array.",
+      "translated": "配列を並べ替える。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Int8Array.sort",
+      "lang": "ja"
+    },
+    "55484178": {
+      "original": "Returns a `<blink>` HTML element",
+      "translated": "`<blink>` HTML 要素を返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.blink",
+      "lang": "ja"
+    },
+    "69602940": {
+      "original": "Returns a pseudorandom number between 0 and 1.",
+      "translated": "0 以上 1 未満の疑似乱数を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.random",
+      "lang": "ja"
+    },
+    "75841073": {
+      "original": "Gets the hours value in a Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトの時(hours)を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getUTCHours",
+      "lang": "ja"
+    },
+    "76915886": {
+      "original": "Returns a Boolean value indicating the state of the multiline flag (m) used with a regular expression. Default is false. Read-only.",
+      "translated": "正規表現で使われる multiline フラグ(m)の状態を示す真偽値を返す。既定は false。読み取り専用。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExp.multiline",
+      "lang": "ja"
+    },
+    "97284090": {
+      "original": "The array index at which to begin the search. If fromIndex is omitted, the search starts at the last index in the array.",
+      "translated": "検索を開始する配列のインデックス。fromIndex を省略した場合、検索は配列の最後のインデックスから始まる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.lastIndexOf",
+      "lang": "ja"
+    },
+    "97963294": {
+      "original": "Returns the character at the specified index.",
+      "translated": "指定したインデックスの文字を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.charAt",
+      "lang": "ja"
+    },
+    "e299cc8d": {
+      "original": "true if an element in the Map existed and has been removed, or false if the element does not exist.",
+      "translated": "Map に要素が存在して削除された場合は true、要素が存在しない場合は false。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Map.delete",
+      "lang": "ja"
+    },
+    "4933a89c": {
+      "original": "Executes a provided function once per each key/value pair in the Map, in insertion order.",
+      "translated": "Map の各キー/値ペアに対して、挿入順に、指定した関数を 1 回ずつ実行する。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Map.forEach",
+      "lang": "ja"
+    },
+    "9ef5b0bf": {
+      "original": "Returns a specified element from the Map object. If the value that is associated to the provided key is an object, then you will get a reference to that object and any change made to that object will effectively modify it inside the Map.",
+      "translated": "Map オブジェクトから指定した要素を返す。指定したキーに関連付けられた値がオブジェクトの場合、\nそのオブジェクトへの参照が得られ、そのオブジェクトに加えた変更は Map 内のそれを実質的に変更する。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Map.get",
+      "lang": "ja"
+    },
+    "6804c527": {
+      "original": "Returns the element associated with the specified key. If no element is associated with the specified key, undefined is returned.",
+      "translated": "指定したキーに関連付けられた要素を返す。指定したキーに要素が関連付けられていない場合は undefined が返される。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Map.get",
+      "lang": "ja"
+    },
+    "51b16ef0": {
+      "original": "boolean indicating whether an element with the specified key exists or not.",
+      "translated": "指定したキーを持つ要素が存在するかどうかを示す真偽値。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Map.has",
+      "lang": "ja"
+    },
+    "8f055264": {
+      "original": "Adds a new element with a specified key and value to the Map. If an element with the same key already exists, the element will be updated.",
+      "translated": "指定したキーと値を持つ新しい要素を Map に追加する。同じキーを持つ要素がすでに存在する場合、その要素は更新される。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Map.set",
+      "lang": "ja"
+    },
+    "b2988331": {
+      "original": "the number of elements in the Map.",
+      "translated": "Map 内の要素数。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Map.size",
+      "lang": "ja"
+    },
+    "93e5c0e1": {
+      "original": "Appends a new element with a specified value to the end of the Set.",
+      "translated": "指定した値を持つ新しい要素を Set の末尾に追加する。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Set.add",
+      "lang": "ja"
+    },
+    "fe4aeca4": {
+      "original": "Removes a specified value from the Set.",
+      "translated": "指定した値を Set から取り除く。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Set.delete",
+      "lang": "ja"
+    },
+    "da5a6267": {
+      "original": "Returns true if an element in the Set existed and has been removed, or false if the element does not exist.",
+      "translated": "Set に要素が存在して削除された場合は true、要素が存在しない場合は false を返す。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Set.delete",
+      "lang": "ja"
+    },
+    "11a0fbfa": {
+      "original": "Executes a provided function once per each value in the Set object, in insertion order.",
+      "translated": "Set オブジェクトの各値に対して、挿入順に、指定した関数を 1 回ずつ実行する。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Set.forEach",
+      "lang": "ja"
+    },
+    "037234a9": {
+      "original": "a boolean indicating whether an element with the specified value exists in the Set or not.",
+      "translated": "指定した値を持つ要素が Set に存在するかどうかを示す真偽値。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Set.has",
+      "lang": "ja"
+    },
+    "6d91391f": {
+      "original": "the number of (unique) elements in Set.",
+      "translated": "Set 内の(一意な)要素数。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#Set.size",
+      "lang": "ja"
+    },
+    "d3a1b135": {
+      "original": "Removes the specified element from the WeakMap.",
+      "translated": "指定した要素を WeakMap から取り除く。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#WeakMap.delete",
+      "lang": "ja"
+    },
+    "71c66314": {
+      "original": "true if the element was successfully removed, or false if it was not present.",
+      "translated": "要素が正常に削除された場合は true、存在しなかった場合は false。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#WeakMap.delete",
+      "lang": "ja"
+    },
+    "9339fbfe": {
+      "original": "a specified element.",
+      "translated": "指定した要素。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#WeakMap.get",
+      "lang": "ja"
+    },
+    "4123ee1c": {
+      "original": "a boolean indicating whether an element with the specified key exists or not.",
+      "translated": "指定したキーを持つ要素が存在するかどうかを示す真偽値。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#WeakMap.has",
+      "lang": "ja"
+    },
+    "9aa0820a": {
+      "original": "Adds a new element with a specified key and value.",
+      "translated": "指定したキーと値を持つ新しい要素を追加する。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#WeakMap.set",
+      "lang": "ja"
+    },
+    "87f9a7dd": {
+      "original": "Must be an object or symbol.",
+      "translated": "オブジェクトまたはシンボルでなければならない。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#WeakMap.set",
+      "lang": "ja"
+    },
+    "71b45cd8": {
+      "original": "Appends a new value to the end of the WeakSet.",
+      "translated": "新しい値を WeakSet の末尾に追加する。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#WeakSet.add",
+      "lang": "ja"
+    },
+    "fe360ccb": {
+      "original": "Removes the specified element from the WeakSet.",
+      "translated": "指定した要素を WeakSet から取り除く。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#WeakSet.delete",
+      "lang": "ja"
+    },
+    "504be4d5": {
+      "original": "Returns true if the element existed and has been removed, or false if the element does not exist.",
+      "translated": "要素が存在して削除された場合は true、要素が存在しない場合は false を返す。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#WeakSet.delete",
+      "lang": "ja"
+    },
+    "5243c266": {
+      "original": "a boolean indicating whether a value exists in the WeakSet or not.",
+      "translated": "値が WeakSet に存在するかどうかを示す真偽値。",
+      "symbol": "typescript/lib/lib.es2015.collection.d.ts#WeakSet.has",
+      "lang": "ja"
+    },
+    "c32238a1": {
+      "original": "If not specified, length of the this object is used as its default value.",
+      "translated": "指定しない場合、this オブジェクトの length が既定値として使われる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.copyWithin",
+      "lang": "ja"
+    },
+    "2158ec45": {
+      "original": "If start is negative, it is treated as length+start. If end is negative, it\nis treated as length+end.",
+      "translated": "start が負の場合は length+start として扱われる。end が負の場合は length+end として扱われる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.copyWithin",
+      "lang": "ja"
+    },
+    "f6990720": {
+      "original": "If target is negative, it is treated as length+target where length is the\nlength of the array.",
+      "translated": "target が負の場合は length+target として扱われる(length は配列の長さ)。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.copyWithin",
+      "lang": "ja"
+    },
+    "c1a4c826": {
+      "original": "Returns the this object after copying a section of the array identified by start and end\nto the same array starting at position target",
+      "translated": "start と end で指定した配列の一部を、同じ配列の位置 target からコピーした後、this オブジェクトを返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.copyWithin",
+      "lang": "ja"
+    },
+    "e70bc835": {
+      "original": "Changes all array elements from `start` to `end` index to a static `value` and returns the modified array",
+      "translated": "配列の `start` から `end` インデックスまでのすべての要素を固定値 `value` に変更し、変更後の配列を返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.fill",
+      "lang": "ja"
+    },
+    "10afc65b": {
+      "original": "index to start filling the array at. If start is negative, it is treated as\nlength+start where length is the length of the array.",
+      "translated": "配列を埋め始めるインデックス。start が負の場合は length+start として扱われる(length は配列の長さ)。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.fill",
+      "lang": "ja"
+    },
+    "46096fc1": {
+      "original": "index to stop filling the array at. If end is negative, it is treated as\nlength+end.",
+      "translated": "配列を埋め終えるインデックス。end が負の場合は length+end として扱われる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.fill",
+      "lang": "ja"
+    },
+    "23922e55": {
+      "original": "find calls predicate once for each element of the array, in ascending\norder, until it finds one where predicate returns true. If such an element is found, find\nimmediately returns that element value. Otherwise, find returns undefined.",
+      "translated": "find は、predicate が true を返す要素が見つかるまで、配列の各要素に対して昇順に 1 回ずつ predicate を呼び出す。\nそのような要素が見つかった場合、find はただちにその要素の値を返す。見つからなければ find は undefined を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.find",
+      "lang": "ja"
+    },
+    "b3284750": {
+      "original": "If provided, it will be used as the this value for each invocation of\npredicate. If it is not provided, undefined is used instead.",
+      "translated": "指定した場合、predicate の各呼び出しで this 値として使われる。指定しない場合は代わりに undefined が使われる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.find",
+      "lang": "ja"
+    },
+    "ca28a53f": {
+      "original": "Returns the value of the first element in the array where predicate is true, and undefined\notherwise.",
+      "translated": "配列内で predicate が true になる最初の要素の値を返す。それ以外の場合は undefined を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.find",
+      "lang": "ja"
+    },
+    "ce99f1fe": {
+      "original": "find calls predicate once for each element of the array, in ascending\norder, until it finds one where predicate returns true. If such an element is found,\nfindIndex immediately returns that element index. Otherwise, findIndex returns -1.",
+      "translated": "findIndex は、predicate が true を返す要素が見つかるまで、配列の各要素に対して昇順に 1 回ずつ predicate を呼び出す。\nそのような要素が見つかった場合、findIndex はただちにその要素のインデックスを返す。見つからなければ findIndex は -1 を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.findIndex",
+      "lang": "ja"
+    },
+    "6cdea827": {
+      "original": "Returns the index of the first element in the array where predicate is true, and -1\notherwise.",
+      "translated": "配列内で predicate が true になる最初の要素のインデックスを返す。それ以外の場合は -1 を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Array.findIndex",
+      "lang": "ja"
+    },
+    "6754c830": {
+      "original": "A mapping function to call on every element of the array.",
+      "translated": "配列のすべての要素に対して呼び出すマッピング関数。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ArrayConstructor.from",
+      "lang": "ja"
+    },
+    "f66efdff": {
+      "original": "An array-like object to convert to an array.",
+      "translated": "配列に変換する配列風(array-like)オブジェクト。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ArrayConstructor.from",
+      "lang": "ja"
+    },
+    "ef66460e": {
+      "original": "Creates an array from an array-like object.",
+      "translated": "配列風(array-like)オブジェクトから配列を作成する。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ArrayConstructor.from",
+      "lang": "ja"
+    },
+    "05a4f722": {
+      "original": "Creates an array from an iterable object.",
+      "translated": "反復可能(iterable)オブジェクトから配列を作成する。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ArrayConstructor.from",
+      "lang": "ja"
+    },
+    "312d945c": {
+      "original": "Value of 'this' used to invoke the mapfn.",
+      "translated": "mapfn を呼び出す際に使う 'this' の値。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ArrayConstructor.from",
+      "lang": "ja"
+    },
+    "492bb378": {
+      "original": "A set of elements to include in the new array object.",
+      "translated": "新しい配列オブジェクトに含める要素の集合。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ArrayConstructor.of",
+      "lang": "ja"
+    },
+    "4fc53736": {
+      "original": "Returns a new array from a set of elements.",
+      "translated": "要素の集合から新しい配列を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ArrayConstructor.of",
+      "lang": "ja"
+    },
+    "6ed5343e": {
+      "original": "Returns the name of the function. Function names are read-only and can not be changed.",
+      "translated": "関数の名前を返す。関数名は読み取り専用であり、変更できない。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Function.name",
+      "lang": "ja"
+    },
+    "94777a85": {
+      "original": "Returns the inverse hyperbolic cosine of a number.",
+      "translated": "数値の逆双曲線余弦(逆ハイパボリックコサイン)を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.acosh",
+      "lang": "ja"
+    },
+    "4cb68616": {
+      "original": "Returns the inverse hyperbolic sine of a number.",
+      "translated": "数値の逆双曲線正弦(逆ハイパボリックサイン)を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.asinh",
+      "lang": "ja"
+    },
+    "7d3ce91d": {
+      "original": "Returns the inverse hyperbolic tangent of a number.",
+      "translated": "数値の逆双曲線正接(逆ハイパボリックタンジェント)を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.atanh",
+      "lang": "ja"
+    },
+    "b8189c67": {
+      "original": "Returns an implementation-dependent approximation to the cube root of number.",
+      "translated": "数値の立方根の、実装依存の近似値を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.cbrt",
+      "lang": "ja"
+    },
+    "8beba036": {
+      "original": "A numeric expression.",
+      "translated": "数値式。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.clz32",
+      "lang": "ja"
+    },
+    "d9346495": {
+      "original": "Returns the number of leading zero bits in the 32-bit binary representation of a number.",
+      "translated": "数値の 32 ビット 2 進表現における先頭の 0 ビットの数を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.clz32",
+      "lang": "ja"
+    },
+    "10fdef3e": {
+      "original": "A numeric expression that contains an angle measured in radians.",
+      "translated": "ラジアンで測った角度を含む数値式。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.cosh",
+      "lang": "ja"
+    },
+    "d8f8f657": {
+      "original": "Returns the hyperbolic cosine of a number.",
+      "translated": "数値の双曲線余弦(ハイパボリックコサイン)を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.cosh",
+      "lang": "ja"
+    },
+    "1d183d2b": {
+      "original": "Returns the result of (e^x - 1), which is an implementation-dependent approximation to\nsubtracting 1 from the exponential function of x (e raised to the power of x, where e\nis the base of the natural logarithms).",
+      "translated": "(e^x - 1) の結果を返す。これは x の指数関数(自然対数の底 e を x で累乗した値)から\n1 を引いた値の、実装依存の近似である。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.expm1",
+      "lang": "ja"
+    },
+    "a53ba97d": {
+      "original": "Returns the nearest single precision float representation of a number.",
+      "translated": "数値に最も近い単精度浮動小数点表現を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.fround",
+      "lang": "ja"
+    },
+    "fac44a28": {
+      "original": "Returns the square root of the sum of squares of its arguments.",
+      "translated": "引数の二乗和の平方根を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.hypot",
+      "lang": "ja"
+    },
+    "4b678249": {
+      "original": "Values to compute the square root for.\nIf no arguments are passed, the result is +0.\nIf there is only one argument, the result is the absolute value.\nIf any argument is +Infinity or -Infinity, the result is +Infinity.\nIf any argument is NaN, the result is NaN.\nIf all arguments are either +0 or −0, the result is +0.",
+      "translated": "平方根を計算する対象の値。\n引数が渡されない場合、結果は +0 になる。\n引数が 1 つだけの場合、結果はその絶対値になる。\nいずれかの引数が +Infinity または -Infinity の場合、結果は +Infinity になる。\nいずれかの引数が NaN の場合、結果は NaN になる。\nすべての引数が +0 または −0 の場合、結果は +0 になる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.hypot",
+      "lang": "ja"
+    },
+    "4d238256": {
+      "original": "First number",
+      "translated": "1 つ目の数値",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.imul",
+      "lang": "ja"
+    },
+    "eb5d685d": {
+      "original": "Returns the result of 32-bit multiplication of two numbers.",
+      "translated": "2 つの数値の 32 ビット乗算の結果を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.imul",
+      "lang": "ja"
+    },
+    "c079e978": {
+      "original": "Second number",
+      "translated": "2 つ目の数値",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.imul",
+      "lang": "ja"
+    },
+    "6934443f": {
+      "original": "Returns the base 10 logarithm of a number.",
+      "translated": "数値の常用対数(底 10)を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.log10",
+      "lang": "ja"
+    },
+    "986e4e5f": {
+      "original": "Returns the natural logarithm of 1 + x.",
+      "translated": "1 + x の自然対数を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.log1p",
+      "lang": "ja"
+    },
+    "4462d119": {
+      "original": "Returns the base 2 logarithm of a number.",
+      "translated": "数値の底 2 の対数を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.log2",
+      "lang": "ja"
+    },
+    "1784680d": {
+      "original": "Returns the sign of the x, indicating whether x is positive, negative or zero.",
+      "translated": "x の符号を返す。x が正・負・0 のいずれであるかを示す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.sign",
+      "lang": "ja"
+    },
+    "7740656c": {
+      "original": "The numeric expression to test",
+      "translated": "判定対象の数値式",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.sign",
+      "lang": "ja"
+    },
+    "81e97544": {
+      "original": "Returns the hyperbolic sine of a number.",
+      "translated": "数値の双曲線正弦(ハイパボリックサイン)を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.sinh",
+      "lang": "ja"
+    },
+    "97df70c1": {
+      "original": "Returns the hyperbolic tangent of a number.",
+      "translated": "数値の双曲線正接(ハイパボリックタンジェント)を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.tanh",
+      "lang": "ja"
+    },
+    "977051c1": {
+      "original": "Returns the integral part of the a numeric expression, x, removing any fractional digits.\nIf x is already an integer, the result is x.",
+      "translated": "数値式 x の整数部分を、小数部分を取り除いて返す。\nx がすでに整数の場合、結果は x になる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#Math.trunc",
+      "lang": "ja"
+    },
+    "83e12600": {
+      "original": "The value of Number.EPSILON is the difference between 1 and the smallest value greater than 1\nthat is representable as a Number value, which is approximately:\n2.2204460492503130808472633361816 x 10‍−‍16.",
+      "translated": "Number.EPSILON の値は、1 と、Number 値として表現可能な 1 より大きい最小の値との差である。\nおおよそ次の値になる: 2.2204460492503130808472633361816 × 10⁻¹⁶。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.EPSILON",
+      "lang": "ja"
+    },
+    "b417cdb2": {
+      "original": "A numeric value.",
+      "translated": "数値。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.isFinite",
+      "lang": "ja"
+    },
+    "4cca6950": {
+      "original": "Returns true if passed value is finite.\nUnlike the global isFinite, Number.isFinite doesn't forcibly convert the parameter to a\nnumber. Only finite values of the type number, result in true.",
+      "translated": "渡された値が有限の場合に true を返す。\nグローバルの isFinite と異なり、Number.isFinite は引数を強制的に数値へ変換しない。\nnumber 型の有限な値のみが true になる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.isFinite",
+      "lang": "ja"
+    },
+    "65d6b83a": {
+      "original": "Returns true if the value passed is an integer, false otherwise.",
+      "translated": "渡された値が整数の場合に true を、それ以外の場合に false を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.isInteger",
+      "lang": "ja"
+    },
+    "ccd803a2": {
+      "original": "Returns a Boolean value that indicates whether a value is the reserved value NaN (not a\nnumber). Unlike the global isNaN(), Number.isNaN() doesn't forcefully convert the parameter\nto a number. Only values of the type number, that are also NaN, result in true.",
+      "translated": "値が予約値 NaN(非数)かどうかを示す真偽値を返す。グローバルの isNaN() と異なり、Number.isNaN() は\n引数を強制的に数値へ変換しない。number 型でかつ NaN である値のみが true になる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.isNaN",
+      "lang": "ja"
+    },
+    "98343cac": {
+      "original": "Returns true if the value passed is a safe integer.",
+      "translated": "渡された値が安全な整数(safe integer)の場合に true を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.isSafeInteger",
+      "lang": "ja"
+    },
+    "ab5d453d": {
+      "original": "The value of the largest integer n such that n and n + 1 are both exactly representable as\na Number value.\nThe value of Number.MAX_SAFE_INTEGER is 9007199254740991 2^53 − 1.",
+      "translated": "n と n + 1 の両方が Number 値として正確に表現できる、最大の整数 n の値。\nNumber.MAX_SAFE_INTEGER の値は 9007199254740991(2^53 − 1)である。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.MAX_SAFE_INTEGER",
+      "lang": "ja"
+    },
+    "58fc47eb": {
+      "original": "The value of the smallest integer n such that n and n − 1 are both exactly representable as\na Number value.\nThe value of Number.MIN_SAFE_INTEGER is −9007199254740991 (−(2^53 − 1)).",
+      "translated": "n と n − 1 の両方が Number 値として正確に表現できる、最小の整数 n の値。\nNumber.MIN_SAFE_INTEGER の値は −9007199254740991(−(2^53 − 1))である。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.MIN_SAFE_INTEGER",
+      "lang": "ja"
+    },
+    "4d781950": {
+      "original": "A string that contains a floating-point number.",
+      "translated": "浮動小数点数を含む文字列。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.parseFloat",
+      "lang": "ja"
+    },
+    "9c20a48e": {
+      "original": "Converts a string to a floating-point number.",
+      "translated": "文字列を浮動小数点数に変換する。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.parseFloat",
+      "lang": "ja"
+    },
+    "4bf0bc54": {
+      "original": "A string to convert into a number.",
+      "translated": "数値に変換する文字列。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.parseInt",
+      "lang": "ja"
+    },
+    "8694ae7b": {
+      "original": "A value between 2 and 36 that specifies the base of the number in `string`.\nIf this argument is not supplied, strings with a prefix of '0x' are considered hexadecimal.\nAll other strings are considered decimal.",
+      "translated": "`string` 内の数値の基数を指定する、2〜36 の値。\nこの引数を指定しない場合、'0x' で始まる文字列は 16 進数とみなされる。\nそれ以外の文字列は 10 進数とみなされる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.parseInt",
+      "lang": "ja"
+    },
+    "3ea6dc70": {
+      "original": "Converts A string to an integer.",
+      "translated": "文字列を整数に変換する。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#NumberConstructor.parseInt",
+      "lang": "ja"
+    },
+    "f8f3d1c5": {
+      "original": "Copy the values of all of the enumerable own properties from one or more source objects to a\ntarget object. Returns the target object.",
+      "translated": "1 つ以上のソースオブジェクトから、列挙可能な自身のプロパティ(own property)のすべての値を、\nターゲットオブジェクトにコピーする。ターゲットオブジェクトを返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.assign",
+      "lang": "ja"
+    },
+    "688b760a": {
+      "original": "One or more source objects from which to copy properties",
+      "translated": "プロパティのコピー元となる 1 つ以上のソースオブジェクト",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.assign",
+      "lang": "ja"
+    },
+    "c93f26e5": {
+      "original": "The first source object from which to copy properties.",
+      "translated": "プロパティのコピー元となる 1 つ目のソースオブジェクト。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.assign",
+      "lang": "ja"
+    },
+    "7cc2f6a3": {
+      "original": "The second source object from which to copy properties.",
+      "translated": "プロパティのコピー元となる 2 つ目のソースオブジェクト。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.assign",
+      "lang": "ja"
+    },
+    "2a98fa1c": {
+      "original": "The source object from which to copy properties.",
+      "translated": "プロパティのコピー元となるソースオブジェクト。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.assign",
+      "lang": "ja"
+    },
+    "182b86ac": {
+      "original": "The target object to copy to.",
+      "translated": "コピー先となるターゲットオブジェクト。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.assign",
+      "lang": "ja"
+    },
+    "db275c5b": {
+      "original": "The third source object from which to copy properties.",
+      "translated": "プロパティのコピー元となる 3 つ目のソースオブジェクト。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.assign",
+      "lang": "ja"
+    },
+    "fa981a3f": {
+      "original": "Object to retrieve the symbols from.",
+      "translated": "シンボルを取得する対象のオブジェクト。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.getOwnPropertySymbols",
+      "lang": "ja"
+    },
+    "d11f9014": {
+      "original": "Returns an array of all symbol properties found directly on object o.",
+      "translated": "オブジェクト o に直接見つかるすべてのシンボルプロパティの配列を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.getOwnPropertySymbols",
+      "lang": "ja"
+    },
+    "be60a6a1": {
+      "original": "Returns true if the values are the same value, false otherwise.",
+      "translated": "2 つの値が同じ値の場合に true を、それ以外の場合に false を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.is",
+      "lang": "ja"
+    },
+    "48baca0e": {
+      "original": "The first value.",
+      "translated": "1 つ目の値。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.is",
+      "lang": "ja"
+    },
+    "d098e121": {
+      "original": "The second value.",
+      "translated": "2 つ目の値。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.is",
+      "lang": "ja"
+    },
+    "2490a139": {
+      "original": "Object that contains the properties and methods. This can be an object that you created or an existing Document Object Model (DOM) object.",
+      "translated": "プロパティとメソッドを含むオブジェクト。自分で作成したオブジェクトでも、既存の Document Object Model(DOM)オブジェクトでもよい。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.keys",
+      "lang": "ja"
+    },
+    "94af123f": {
+      "original": "Returns the names of the enumerable string properties and methods of an object.",
+      "translated": "オブジェクトの列挙可能な文字列プロパティおよびメソッドの名前を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.keys",
+      "lang": "ja"
+    },
+    "34a35ec9": {
+      "original": "Sets the prototype of a specified object o to object proto or null. Returns the object o.",
+      "translated": "指定したオブジェクト o のプロトタイプを、オブジェクト proto または null に設定する。オブジェクト o を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.setPrototypeOf",
+      "lang": "ja"
+    },
+    "eea61bd1": {
+      "original": "The object to change its prototype.",
+      "translated": "プロトタイプを変更する対象のオブジェクト。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.setPrototypeOf",
+      "lang": "ja"
+    },
+    "dd966a35": {
+      "original": "The value of the new prototype or null.",
+      "translated": "新しいプロトタイプの値、または null。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#ObjectConstructor.setPrototypeOf",
+      "lang": "ja"
+    },
+    "c4d8bddc": {
+      "original": "Returns a string indicating the flags of the regular expression in question. This field is read-only.\nThe characters in this string are sequenced and concatenated in the following order:\n\n   - \"g\" for global\n   - \"i\" for ignoreCase\n   - \"m\" for multiline\n   - \"u\" for unicode\n   - \"y\" for sticky\n\nIf no flags are set, the value is the empty string.",
+      "translated": "対象の正規表現のフラグを示す文字列を返す。このフィールドは読み取り専用である。\nこの文字列内の文字は、次の順序で並べて連結される:\n\n   - global を表す \"g\"\n   - ignoreCase を表す \"i\"\n   - multiline を表す \"m\"\n   - unicode を表す \"u\"\n   - sticky を表す \"y\"\n\nフラグが 1 つも設定されていない場合、値は空文字列になる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#RegExp.flags",
+      "lang": "ja"
+    },
+    "08619533": {
+      "original": "Returns a Boolean value indicating the state of the sticky flag (y) used with a regular\nexpression. Default is false. Read-only.",
+      "translated": "正規表現で使われる sticky フラグ(y)の状態を示す真偽値を返す。既定は false。読み取り専用。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#RegExp.sticky",
+      "lang": "ja"
+    },
+    "01b7dae1": {
+      "original": "Returns a Boolean value indicating the state of the Unicode flag (u) used with a regular\nexpression. Default is false. Read-only.",
+      "translated": "正規表現で使われる Unicode フラグ(u)の状態を示す真偽値を返す。既定は false。読み取り専用。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#RegExp.unicode",
+      "lang": "ja"
+    },
+    "aa49cdae": {
+      "original": "A legacy feature for browser compatibility",
+      "translated": "ブラウザー互換性のためのレガシー機能",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.anchor",
+      "lang": "ja"
+    },
+    "85e2a313": {
+      "original": "Returns an `<a>` HTML anchor element and sets the name attribute to the text value",
+      "translated": "`<a>` HTML アンカー要素を返し、name 属性をテキストの値に設定する",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.anchor",
+      "lang": "ja"
+    },
+    "54ab2cfb": {
+      "original": "Returns a `<big>` HTML element",
+      "translated": "`<big>` HTML 要素を返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.big",
+      "lang": "ja"
+    },
+    "7af42e43": {
+      "original": "Returns a `<b>` HTML element",
+      "translated": "`<b>` HTML 要素を返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.bold",
+      "lang": "ja"
+    },
+    "53599aa5": {
+      "original": "Returns a nonnegative integer Number less than 1114112 (0x110000) that is the code point\nvalue of the UTF-16 encoded code point starting at the string element at position pos in\nthe String resulting from converting this object to a String.\nIf there is no element at that position, the result is undefined.\nIf a valid UTF-16 surrogate pair does not begin at pos, the result is the code unit at pos.",
+      "translated": "この オブジェクトを String に変換した結果の、位置 pos の文字要素から始まる UTF-16 エンコードの\nコードポイントの値である、1114112(0x110000)未満の非負整数の Number を返す。\nその位置に要素がない場合、結果は undefined になる。\npos から有効な UTF-16 サロゲートペアが始まっていない場合、結果は pos のコード単位になる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.codePointAt",
+      "lang": "ja"
+    },
+    "01a3486f": {
+      "original": "Returns true if the sequence of elements of searchString converted to a String is the\nsame as the corresponding elements of this object (converted to a String) starting at\nendPosition – length(this). Otherwise returns false.",
+      "translated": "searchString を String に変換した要素の並びが、この オブジェクト(String に変換したもの)の\nendPosition – length(this) から始まる対応する要素と同じ場合に true を返す。それ以外の場合は false を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.endsWith",
+      "lang": "ja"
+    },
+    "1dd9f48b": {
+      "original": "Returns a `<tt>` HTML element",
+      "translated": "`<tt>` HTML 要素を返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.fixed",
+      "lang": "ja"
+    },
+    "d976d74a": {
+      "original": "Returns a `<font>` HTML element and sets the color attribute value",
+      "translated": "`<font>` HTML 要素を返し、color 属性の値を設定する",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.fontcolor",
+      "lang": "ja"
+    },
+    "84db8c63": {
+      "original": "Returns a `<font>` HTML element and sets the size attribute value",
+      "translated": "`<font>` HTML 要素を返し、size 属性の値を設定する",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.fontsize",
+      "lang": "ja"
+    },
+    "7850b465": {
+      "original": "If position is undefined, 0 is assumed, so as to search all of the String.",
+      "translated": "position が undefined の場合、String 全体を検索するために 0 とみなされる。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.includes",
+      "lang": "ja"
+    },
+    "0f8c0004": {
+      "original": "Returns true if searchString appears as a substring of the result of converting this\nobject to a String, at one or more positions that are\ngreater than or equal to position; otherwise, returns false.",
+      "translated": "この オブジェクトを String に変換した結果の中で、searchString が position 以上の\n1 つ以上の位置に部分文字列として現れる場合に true を返す。それ以外の場合は false を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.includes",
+      "lang": "ja"
+    },
+    "93eabbf6": {
+      "original": "search string",
+      "translated": "検索文字列",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.includes",
+      "lang": "ja"
+    },
+    "647fee7a": {
+      "original": "Returns an `<i>` HTML element",
+      "translated": "`<i>` HTML 要素を返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.italics",
+      "lang": "ja"
+    },
+    "431fd7c2": {
+      "original": "Returns an `<a>` HTML element and sets the href attribute value",
+      "translated": "`<a>` HTML 要素を返し、href 属性の値を設定する",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.link",
+      "lang": "ja"
+    },
+    "58ea8a50": {
+      "original": "Applicable values: \"NFC\", \"NFD\", \"NFKC\", or \"NFKD\", If not specified default\nis \"NFC\"",
+      "translated": "指定できる値: \"NFC\"、\"NFD\"、\"NFKC\"、\"NFKD\"。指定しない場合の既定は \"NFC\"。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.normalize",
+      "lang": "ja"
+    },
+    "fe486fca": {
+      "original": "Returns the String value result of normalizing the string into the normalization form\nnamed by form as specified in Unicode Standard Annex #15, Unicode Normalization Forms.",
+      "translated": "Unicode Standard Annex #15「Unicode Normalization Forms」で規定される、form で指定した\n正規化形式に文字列を正規化した結果の String 値を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.normalize",
+      "lang": "ja"
+    },
+    "2660ce65": {
+      "original": "number of copies to append",
+      "translated": "連結するコピーの数",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.repeat",
+      "lang": "ja"
+    },
+    "04a3385c": {
+      "original": "Returns a String value that is made from count copies appended together. If count is 0,\nthe empty string is returned.",
+      "translated": "count 個のコピーを連結して作った String 値を返す。count が 0 の場合、空文字列が返される。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.repeat",
+      "lang": "ja"
+    },
+    "923bae41": {
+      "original": "Returns a `<small>` HTML element",
+      "translated": "`<small>` HTML 要素を返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.small",
+      "lang": "ja"
+    },
+    "0fb6666c": {
+      "original": "Returns true if the sequence of elements of searchString converted to a String is the\nsame as the corresponding elements of this object (converted to a String) starting at\nposition. Otherwise returns false.",
+      "translated": "searchString を String に変換した要素の並びが、この オブジェクト(String に変換したもの)の\nposition から始まる対応する要素と同じ場合に true を返す。それ以外の場合は false を返す。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.startsWith",
+      "lang": "ja"
+    },
+    "4af1d890": {
+      "original": "Returns a `<strike>` HTML element",
+      "translated": "`<strike>` HTML 要素を返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.strike",
+      "lang": "ja"
+    },
+    "b5c734bb": {
+      "original": "Returns a `<sub>` HTML element",
+      "translated": "`<sub>` HTML 要素を返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.sub",
+      "lang": "ja"
+    },
+    "d847fd0b": {
+      "original": "Returns a `<sup>` HTML element",
+      "translated": "`<sup>` HTML 要素を返す",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#String.sup",
+      "lang": "ja"
+    },
+    "0343c50d": {
+      "original": "Return the String value whose elements are, in order, the elements in the List elements.\nIf length is 0, the empty string is returned.",
+      "translated": "要素が、順に、リスト elements の要素である String 値を返す。length が 0 の場合、空文字列が返される。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#StringConstructor.fromCodePoint",
+      "lang": "ja"
+    },
+    "6c751c0f": {
+      "original": "A set of substitution values.",
+      "translated": "置換値の集合。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#StringConstructor.raw",
+      "lang": "ja"
+    },
+    "51a99fb6": {
+      "original": "A well-formed template string call site representation.",
+      "translated": "整形式のテンプレート文字列の呼び出し箇所(call site)表現。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#StringConstructor.raw",
+      "lang": "ja"
+    },
+    "14e23a95": {
+      "original": "String.raw is usually used as a tag function of a Tagged Template String. When called as\nsuch, the first argument will be a well formed template call site object and the rest\nparameter will contain the substitution values. It can also be called directly, for example,\nto interleave strings and values from your own tag function, and in this case the only thing\nit needs from the first argument is the raw property.",
+      "translated": "String.raw は通常、タグ付きテンプレート文字列(Tagged Template String)のタグ関数として使われる。\nそのように呼ばれる場合、第 1 引数は整形式のテンプレート呼び出し箇所オブジェクトになり、残余引数に置換値が含まれる。\n直接呼び出すこともでき、たとえば自作のタグ関数から文字列と値を交互に差し込む用途に使える。\nこの場合、第 1 引数から必要なのは raw プロパティだけである。",
+      "symbol": "typescript/lib/lib.es2015.core.d.ts#StringConstructor.raw",
+      "lang": "ja"
+    },
+    "3271843d": {
+      "original": "A list of arguments the function accepts.",
+      "translated": "関数が受け取る引数のリスト。",
+      "symbol": "typescript/lib/lib.es2015.generator.d.ts#GeneratorFunction",
+      "lang": "ja"
+    },
+    "5503e8d0": {
+      "original": "Creates a new Generator object.",
+      "translated": "新しい Generator オブジェクトを作成する。",
+      "symbol": "typescript/lib/lib.es2015.generator.d.ts#GeneratorFunction",
+      "lang": "ja"
+    },
+    "4634c255": {
+      "original": "The length of the arguments.",
+      "translated": "引数の数(length)。",
+      "symbol": "typescript/lib/lib.es2015.generator.d.ts#GeneratorFunction.length",
+      "lang": "ja"
+    },
+    "8920ff38": {
+      "original": "Returns the name of the function.",
+      "translated": "関数の名前を返す。",
+      "symbol": "typescript/lib/lib.es2015.generator.d.ts#GeneratorFunction.name",
+      "lang": "ja"
+    },
+    "b3d8c96d": {
+      "original": "A reference to the prototype.",
+      "translated": "プロトタイプへの参照。",
+      "symbol": "typescript/lib/lib.es2015.generator.d.ts#GeneratorFunction.prototype",
+      "lang": "ja"
+    },
+    "cd38ff27": {
+      "original": "Creates a new Generator function.",
+      "translated": "新しい Generator 関数を作成する。",
+      "symbol": "typescript/lib/lib.es2015.generator.d.ts#GeneratorFunctionConstructor",
+      "lang": "ja"
+    },
+    "b0b04852": {
+      "original": "Iterator",
+      "translated": "イテレーター",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Array.[Symbol.iterator]",
+      "lang": "ja"
+    },
+    "cb7dd2c3": {
+      "original": "Returns an iterable of key, value pairs for every entry in the array",
+      "translated": "配列のすべてのエントリについて、キーと値のペアの反復可能オブジェクト(iterable)を返す",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Array.entries",
+      "lang": "ja"
+    },
+    "97a1c2b2": {
+      "original": "Returns an iterable of keys in the array",
+      "translated": "配列のキーの反復可能オブジェクト(iterable)を返す",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Array.keys",
+      "lang": "ja"
+    },
+    "3475cd7c": {
+      "original": "Returns an iterable of values in the array",
+      "translated": "配列の値の反復可能オブジェクト(iterable)を返す",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Array.values",
+      "lang": "ja"
+    },
+    "9ffc0dc1": {
+      "original": "An iterable object to convert to an array.",
+      "translated": "配列に変換する反復可能(iterable)オブジェクト。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#ArrayConstructor.from",
+      "lang": "ja"
+    },
+    "c6584507": {
+      "original": "Defines the `TReturn` type used for built-in iterators produced by `Array`, `Map`, `Set`, and others.\nThis is `undefined` when `strictBuiltInIteratorReturn` is `true`; otherwise, this is `any`.",
+      "translated": "`Array`・`Map`・`Set` などが生成する組み込みイテレーターで使われる `TReturn` 型を定義する。\n`strictBuiltInIteratorReturn` が `true` のときは `undefined`、そうでなければ `any` になる。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#BuiltinIteratorReturn",
+      "lang": "ja"
+    },
+    "cf107616": {
+      "original": "Returns an array of key, value pairs for every entry in the array",
+      "translated": "配列のすべてのエントリについて、キーと値のペアの配列を返す",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Int8Array.entries",
+      "lang": "ja"
+    },
+    "877e3e65": {
+      "original": "Returns an list of keys in the array",
+      "translated": "配列のキーのリストを返す",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Int8Array.keys",
+      "lang": "ja"
+    },
+    "a588877e": {
+      "original": "Returns an list of values in the array",
+      "translated": "配列の値のリストを返す",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Int8Array.values",
+      "lang": "ja"
+    },
+    "9e67f848": {
+      "original": "Creates an array from an array-like or iterable object.",
+      "translated": "配列風(array-like)または反復可能(iterable)オブジェクトから配列を作成する。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Int8ArrayConstructor.from",
+      "lang": "ja"
+    },
+    "a2f7d785": {
+      "original": "Describes a user-defined {@link Iterator} that is also iterable.",
+      "translated": "反復可能でもあるユーザー定義の {@link Iterator} を表す。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#IterableIterator",
+      "lang": "ja"
+    },
+    "9790eba1": {
+      "original": "Describes an {@link Iterator} produced by the runtime that inherits from the intrinsic `Iterator.prototype`.",
+      "translated": "組み込みの `Iterator.prototype` を継承した、ランタイムが生成する {@link Iterator} を表す。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#IteratorObject",
+      "lang": "ja"
+    },
+    "d71cd548": {
+      "original": "Returns an iterable of entries in the map.",
+      "translated": "マップのエントリの反復可能オブジェクト(iterable)を返す。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Map.[Symbol.iterator]",
+      "lang": "ja"
+    },
+    "9e652b4d": {
+      "original": "Returns an iterable of key, value pairs for every entry in the map.",
+      "translated": "マップのすべてのエントリについて、キーと値のペアの反復可能オブジェクト(iterable)を返す。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Map.entries",
+      "lang": "ja"
+    },
+    "986e33d5": {
+      "original": "Returns an iterable of keys in the map",
+      "translated": "マップのキーの反復可能オブジェクト(iterable)を返す",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Map.keys",
+      "lang": "ja"
+    },
+    "34e5c4d9": {
+      "original": "Returns an iterable of values in the map",
+      "translated": "マップの値の反復可能オブジェクト(iterable)を返す",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Map.values",
+      "lang": "ja"
+    },
+    "f11a07b4": {
+      "original": "A new Promise.",
+      "translated": "新しい Promise。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#PromiseConstructor.all",
+      "lang": "ja"
+    },
+    "66ed9870": {
+      "original": "An iterable of Promises.",
+      "translated": "Promise の反復可能オブジェクト(iterable)。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#PromiseConstructor.all",
+      "lang": "ja"
+    },
+    "8355c9d9": {
+      "original": "Creates a Promise that is resolved with an array of results when all of the provided Promises\nresolve, or rejected when any Promise is rejected.",
+      "translated": "指定したすべての Promise が解決されたときに結果の配列で解決され、\nいずれかの Promise が拒否されたときに拒否される Promise を作成する。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#PromiseConstructor.all",
+      "lang": "ja"
+    },
+    "a4e18f59": {
+      "original": "Creates a Promise that is resolved or rejected when any of the provided Promises are resolved\nor rejected.",
+      "translated": "指定した Promise のいずれかが解決または拒否されたときに、解決または拒否される Promise を作成する。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#PromiseConstructor.race",
+      "lang": "ja"
+    },
+    "d1b5ac08": {
+      "original": "Iterator of values in the array.",
+      "translated": "配列の値のイテレーター。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#ReadonlyArray.[Symbol.iterator]",
+      "lang": "ja"
+    },
+    "4ac1d66d": {
+      "original": "Iterates over values in the set.",
+      "translated": "セット内の値を反復処理する。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Set.[Symbol.iterator]",
+      "lang": "ja"
+    },
+    "c6d1f2ea": {
+      "original": "Returns an iterable of [v,v] pairs for every value `v` in the set.",
+      "translated": "セット内のすべての値 `v` について、[v,v] のペアの反復可能オブジェクト(iterable)を返す。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Set.entries",
+      "lang": "ja"
+    },
+    "ce384d72": {
+      "original": "Despite its name, returns an iterable of the values in the set.",
+      "translated": "名前に反して、セット内の値の反復可能オブジェクト(iterable)を返す。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Set.keys",
+      "lang": "ja"
+    },
+    "abba2069": {
+      "original": "Returns an iterable of values in the set.",
+      "translated": "セット内の値の反復可能オブジェクト(iterable)を返す。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#Set.values",
+      "lang": "ja"
+    },
+    "29353e5a": {
+      "original": "A method that returns the default iterator for an object. Called by the semantics of the\nfor-of statement.",
+      "translated": "オブジェクトの既定のイテレーターを返すメソッド。for-of 文のセマンティクスによって呼び出される。",
+      "symbol": "typescript/lib/lib.es2015.iterable.d.ts#SymbolConstructor.iterator",
+      "lang": "ja"
+    },
+    "e57760e2": {
+      "original": "A callback used to initialize the promise. This callback is passed two arguments:\na resolve callback used to resolve the promise with a value or the result of another promise,\nand a reject callback used to reject the promise with a provided reason or error.",
+      "translated": "Promise を初期化するために使うコールバック。このコールバックには 2 つの引数が渡される:\n値または別の Promise の結果で Promise を解決する resolve コールバックと、\n指定した理由やエラーで Promise を拒否する reject コールバック。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor",
+      "lang": "ja"
+    },
+    "2968d967": {
+      "original": "Creates a new Promise.",
+      "translated": "新しい Promise を作成する。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor",
+      "lang": "ja"
+    },
+    "dbc5e962": {
+      "original": "An array of Promises.",
+      "translated": "Promise の配列。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor.all",
+      "lang": "ja"
+    },
+    "1544f3c9": {
+      "original": "A new rejected Promise.",
+      "translated": "新しい拒否済みの Promise。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor.reject",
+      "lang": "ja"
+    },
+    "e92720f3": {
+      "original": "Creates a new rejected promise for the provided reason.",
+      "translated": "指定した理由で拒否された新しい Promise を作成する。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor.reject",
+      "lang": "ja"
+    },
+    "def020f9": {
+      "original": "The reason the promise was rejected.",
+      "translated": "Promise が拒否された理由。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor.reject",
+      "lang": "ja"
+    },
+    "086142f2": {
+      "original": "A promise whose internal state matches the provided promise.",
+      "translated": "指定した Promise と内部状態が一致する Promise。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor.resolve",
+      "lang": "ja"
+    },
+    "fdc2f463": {
+      "original": "A promise.",
+      "translated": "Promise。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor.resolve",
+      "lang": "ja"
+    },
+    "42e7cf94": {
+      "original": "A resolved promise.",
+      "translated": "解決済みの Promise。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor.resolve",
+      "lang": "ja"
+    },
+    "947cbb50": {
+      "original": "Creates a new resolved promise for the provided value.",
+      "translated": "指定した値で解決された新しい Promise を作成する。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor.resolve",
+      "lang": "ja"
+    },
+    "947955e3": {
+      "original": "Creates a new resolved promise.",
+      "translated": "新しい解決済みの Promise を作成する。",
+      "symbol": "typescript/lib/lib.es2015.promise.d.ts#PromiseConstructor.resolve",
+      "lang": "ja"
+    },
+    "b5dfad4a": {
+      "original": "Description of the new Symbol object.",
+      "translated": "新しい Symbol オブジェクトの説明。",
+      "symbol": "typescript/lib/lib.es2015.symbol.d.ts#SymbolConstructor",
+      "lang": "ja"
+    },
+    "5a9924ca": {
+      "original": "Returns a new unique Symbol value.",
+      "translated": "新しい一意な Symbol 値を返す。",
+      "symbol": "typescript/lib/lib.es2015.symbol.d.ts#SymbolConstructor",
+      "lang": "ja"
+    },
+    "df5f2521": {
+      "original": "key to search for.",
+      "translated": "検索するキー。",
+      "symbol": "typescript/lib/lib.es2015.symbol.d.ts#SymbolConstructor.for",
+      "lang": "ja"
+    },
+    "96fd7ace": {
+      "original": "Returns a Symbol object from the global symbol registry matching the given key if found.\nOtherwise, returns a new symbol with this key.",
+      "translated": "グローバルシンボルレジストリから、指定したキーに一致する Symbol オブジェクトが見つかればそれを返す。\n見つからなければ、このキーを持つ新しいシンボルを返す。",
+      "symbol": "typescript/lib/lib.es2015.symbol.d.ts#SymbolConstructor.for",
+      "lang": "ja"
+    },
+    "db0db133": {
+      "original": "Returns a key from the global symbol registry matching the given Symbol if found.\nOtherwise, returns a undefined.",
+      "translated": "グローバルシンボルレジストリから、指定した Symbol に一致するキーが見つかればそれを返す。\n見つからなければ undefined を返す。",
+      "symbol": "typescript/lib/lib.es2015.symbol.d.ts#SymbolConstructor.keyFor",
+      "lang": "ja"
+    },
+    "dfb2705b": {
+      "original": "Additional arrays and/or items to add to the end of the array.",
+      "translated": "配列の末尾に追加する配列や要素。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.concat",
+      "lang": "ja"
+    },
+    "2c39af52": {
+      "original": "Combines two or more arrays.\nThis method returns a new array without modifying any existing arrays.",
+      "translated": "2 つ以上の配列を結合する。\nこのメソッドは既存の配列を変更せず、新しい配列を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.concat",
+      "lang": "ja"
+    },
+    "3ea9734b": {
+      "original": "Returns the index of the first occurrence of a value in an array, or -1 if it is not present.",
+      "translated": "配列内で値が最初に現れるインデックスを返す。存在しない場合は -1 を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.indexOf",
+      "lang": "ja"
+    },
+    "e32895fe": {
+      "original": "A string used to separate one element of the array from the next in the resulting string. If omitted, the array elements are separated with a comma.",
+      "translated": "生成される文字列で、配列の各要素を次の要素と区切るために使う文字列。省略した場合、要素はカンマで区切られる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.join",
+      "lang": "ja"
+    },
+    "6563d07d": {
+      "original": "Adds all the elements of an array into a string, separated by the specified separator string.",
+      "translated": "配列のすべての要素を、指定した区切り文字列で区切って 1 つの文字列に連結する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.join",
+      "lang": "ja"
+    },
+    "8564b0e4": {
+      "original": "Returns the index of the last occurrence of a specified value in an array, or -1 if it is not present.",
+      "translated": "配列内で指定した値が最後に現れるインデックスを返す。存在しない場合は -1 を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.lastIndexOf",
+      "lang": "ja"
+    },
+    "54e48c63": {
+      "original": "The array index at which to begin searching backward. If fromIndex is omitted, the search starts at the last index in the array.",
+      "translated": "後方への検索を開始する配列のインデックス。fromIndex を省略した場合、検索は配列の最後のインデックスから始まる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.lastIndexOf",
+      "lang": "ja"
+    },
+    "397a7759": {
+      "original": "Gets or sets the length of the array. This is a number one higher than the highest index in the array.",
+      "translated": "配列の長さを取得または設定する。これは配列の最大インデックスより 1 だけ大きい数値である。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.length",
+      "lang": "ja"
+    },
+    "74d121ec": {
+      "original": "Removes the last element from an array and returns it.\nIf the array is empty, undefined is returned and the array is not modified.",
+      "translated": "配列から最後の要素を取り除いて返す。\n配列が空の場合は undefined を返し、配列は変更されない。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.pop",
+      "lang": "ja"
+    },
+    "f9601a5c": {
+      "original": "Appends new elements to the end of an array, and returns the new length of the array.",
+      "translated": "配列の末尾に新しい要素を追加し、配列の新しい長さを返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.push",
+      "lang": "ja"
+    },
+    "b1b93aee": {
+      "original": "New elements to add to the array.",
+      "translated": "配列に追加する新しい要素。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.push",
+      "lang": "ja"
+    },
+    "20de61f1": {
+      "original": "Reverses the elements in an array in place.\nThis method mutates the array and returns a reference to the same array.",
+      "translated": "配列の要素をその場で(破壊的に)逆順にする。\nこのメソッドは配列を変更し、同じ配列への参照を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.reverse",
+      "lang": "ja"
+    },
+    "1cf27e8d": {
+      "original": "Removes the first element from an array and returns it.\nIf the array is empty, undefined is returned and the array is not modified.",
+      "translated": "配列から最初の要素を取り除いて返す。\n配列が空の場合は undefined を返し、配列は変更されない。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.shift",
+      "lang": "ja"
+    },
+    "3b284608": {
+      "original": "Returns a copy of a section of an array.\nFor both start and end, a negative index can be used to indicate an offset from the end of the array.\nFor example, -2 refers to the second to last element of the array.",
+      "translated": "配列の一部分のコピーを返す。\nstart と end のどちらも、負のインデックスを指定すると配列の末尾からのオフセットを表せる。\nたとえば -2 は配列の末尾から 2 番目の要素を指す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.slice",
+      "lang": "ja"
+    },
+    "87a4b661": {
+      "original": "The beginning index of the specified portion of the array.\nIf start is undefined, then the slice begins at index 0.",
+      "translated": "配列の指定範囲の開始インデックス。\nstart が undefined の場合、スライスはインデックス 0 から始まる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.slice",
+      "lang": "ja"
+    },
+    "0d1a22e9": {
+      "original": "The end index of the specified portion of the array. This is exclusive of the element at the index 'end'.\nIf end is undefined, then the slice extends to the end of the array.",
+      "translated": "配列の指定範囲の終了インデックス。インデックス 'end' の要素は含まれない。\nend が undefined の場合、スライスは配列の末尾まで及ぶ。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.slice",
+      "lang": "ja"
+    },
+    "cc60e3d8": {
+      "original": "Function used to determine the order of the elements. It is expected to return\na negative value if the first argument is less than the second argument, zero if they're equal, and a positive\nvalue otherwise. If omitted, the elements are sorted in ascending, UTF-16 code unit order.\n```ts\n[11,2,22,1].sort((a, b) => a - b)\n```",
+      "translated": "要素の順序を決めるために使う関数。第 1 引数が第 2 引数より小さい場合は負の値、\n等しい場合は 0、それ以外の場合は正の値を返すことが期待される。省略した場合、要素は昇順の\nUTF-16 コード単位順に並べ替えられる。\n```ts\n[11,2,22,1].sort((a, b) => a - b)\n```",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.sort",
+      "lang": "ja"
+    },
+    "e1ddd092": {
+      "original": "Sorts an array in place.\nThis method mutates the array and returns a reference to the same array.",
+      "translated": "配列をその場で(破壊的に)並べ替える。\nこのメソッドは配列を変更し、同じ配列への参照を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.sort",
+      "lang": "ja"
+    },
+    "da987e29": {
+      "original": "An array containing the elements that were deleted.",
+      "translated": "削除された要素を格納した配列。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.splice",
+      "lang": "ja"
+    },
+    "0d09981c": {
+      "original": "Elements to insert into the array in place of the deleted elements.",
+      "translated": "削除された要素の代わりに配列へ挿入する要素。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.splice",
+      "lang": "ja"
+    },
+    "6efa63ab": {
+      "original": "Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.",
+      "translated": "配列から要素を削除し、必要に応じてその場所に新しい要素を挿入して、削除した要素を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.splice",
+      "lang": "ja"
+    },
+    "ea49a200": {
+      "original": "The number of elements to remove. If value of this argument is either a negative number, zero,\nundefined, or a type that cannot be converted to an integer, the function will evaluate the argument as zero and\nnot remove any elements.",
+      "translated": "削除する要素の数。この引数の値が負の数・0・undefined・整数に変換できない型のいずれかの場合、\n関数はこの引数を 0 とみなし、要素を削除しない。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.splice",
+      "lang": "ja"
+    },
+    "fdaffb73": {
+      "original": "The number of elements to remove. Omitting this argument will remove all elements from the start\nparamater location to end of the array. If value of this argument is either a negative number, zero, undefined, or a type\nthat cannot be converted to an integer, the function will evaluate the argument as zero and not remove any elements.",
+      "translated": "削除する要素の数。この引数を省略すると、start 引数の位置から配列の末尾までのすべての要素が削除される。\nこの引数の値が負の数・0・undefined・整数に変換できない型のいずれかの場合、関数はこの引数を 0 とみなし、\n要素を削除しない。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.splice",
+      "lang": "ja"
+    },
+    "6edaf913": {
+      "original": "Elements to insert at the start of the array.",
+      "translated": "配列の先頭に挿入する要素。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.unshift",
+      "lang": "ja"
+    },
+    "814806cd": {
+      "original": "Inserts new elements at the start of an array, and returns the new length of the array.",
+      "translated": "配列の先頭に新しい要素を挿入し、配列の新しい長さを返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Array.unshift",
+      "lang": "ja"
+    },
+    "3468e4be": {
+      "original": "Represents a raw buffer of binary data, which is used to store data for the\ndifferent typed arrays. ArrayBuffers cannot be read from or written to directly,\nbut can be passed to a typed array or DataView Object to interpret the raw\nbuffer as needed.",
+      "translated": "各種の型付き配列(typed array)がデータを格納するために使う、バイナリデータの生のバッファを表す。\nArrayBuffer は直接読み書きできないが、型付き配列や DataView オブジェクトに渡すことで、\n生のバッファを必要に応じて解釈できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ArrayBuffer",
+      "lang": "ja"
+    },
+    "c41cc85e": {
+      "original": "Returns a section of an ArrayBuffer.",
+      "translated": "ArrayBuffer の一部分を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ArrayBuffer.slice",
+      "lang": "ja"
+    },
+    "21d1c9af": {
+      "original": "Allowed ArrayBuffer types for the buffer of an ArrayBufferView and related Typed Arrays.",
+      "translated": "ArrayBufferView や関連する型付き配列のバッファとして許可される ArrayBuffer 型。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ArrayBufferTypes",
+      "lang": "ja"
+    },
+    "6ca126e1": {
+      "original": "Recursively unwraps the \"awaited type\" of a type. Non-promise \"thenables\" should resolve to `never`. This emulates the behavior of `await`.",
+      "translated": "型の「await された型(awaited type)」を再帰的に取り出す。Promise ではない「thenable」は `never` に解決される。これは `await` の挙動を模倣したものである。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Awaited",
+      "lang": "ja"
+    },
+    "dc04b519": {
+      "original": "Calls the function with the specified object as the this value and the elements of specified array as the arguments.",
+      "translated": "指定したオブジェクトを this 値、指定した配列の要素を引数として、関数を呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#CallableFunction.apply",
+      "lang": "ja"
+    },
+    "38f53b2a": {
+      "original": "Arguments to bind to the parameters of the function.",
+      "translated": "関数の引数にバインドする値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#CallableFunction.bind",
+      "lang": "ja"
+    },
+    "e9ca63ec": {
+      "original": "Argument values to be passed to the function.",
+      "translated": "関数に渡す引数の値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#CallableFunction.call",
+      "lang": "ja"
+    },
+    "ff6413d7": {
+      "original": "Calls the function with the specified object as the this value and the specified rest arguments as the arguments.",
+      "translated": "指定したオブジェクトを this 値、指定した残余引数を引数として、関数を呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#CallableFunction.call",
+      "lang": "ja"
+    },
+    "ca3c8799": {
+      "original": "Convert first character of string literal type to uppercase",
+      "translated": "文字列リテラル型の先頭文字を大文字に変換する",
+      "symbol": "typescript/lib/lib.es5.d.ts#Capitalize",
+      "lang": "ja"
+    },
+    "03a96f90": {
+      "original": "Obtain the parameters of a constructor function type in a tuple",
+      "translated": "コンストラクター関数型の引数をタプルとして取得する",
+      "symbol": "typescript/lib/lib.es5.d.ts#ConstructorParameters",
+      "lang": "ja"
+    },
+    "a3c09359": {
+      "original": "Gets the Float32 value at the specified byte offset from the start of the view. There is\nno alignment constraint; multi-byte values may be fetched from any offset.",
+      "translated": "ビューの先頭から指定したバイトオフセットにある Float32 値を取得する。アラインメントの\n制約はなく、マルチバイト値は任意のオフセットから取得できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.getFloat32",
+      "lang": "ja"
+    },
+    "856b51b3": {
+      "original": "Gets the Float64 value at the specified byte offset from the start of the view. There is\nno alignment constraint; multi-byte values may be fetched from any offset.",
+      "translated": "ビューの先頭から指定したバイトオフセットにある Float64 値を取得する。アラインメントの\n制約はなく、マルチバイト値は任意のオフセットから取得できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.getFloat64",
+      "lang": "ja"
+    },
+    "d7a67a0c": {
+      "original": "Gets the Int16 value at the specified byte offset from the start of the view. There is\nno alignment constraint; multi-byte values may be fetched from any offset.",
+      "translated": "ビューの先頭から指定したバイトオフセットにある Int16 値を取得する。アラインメントの\n制約はなく、マルチバイト値は任意のオフセットから取得できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.getInt16",
+      "lang": "ja"
+    },
+    "17627e06": {
+      "original": "Gets the Int32 value at the specified byte offset from the start of the view. There is\nno alignment constraint; multi-byte values may be fetched from any offset.",
+      "translated": "ビューの先頭から指定したバイトオフセットにある Int32 値を取得する。アラインメントの\n制約はなく、マルチバイト値は任意のオフセットから取得できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.getInt32",
+      "lang": "ja"
+    },
+    "3bfcb8e9": {
+      "original": "Gets the Int8 value at the specified byte offset from the start of the view. There is\nno alignment constraint; multi-byte values may be fetched from any offset.",
+      "translated": "ビューの先頭から指定したバイトオフセットにある Int8 値を取得する。アラインメントの\n制約はなく、マルチバイト値は任意のオフセットから取得できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.getInt8",
+      "lang": "ja"
+    },
+    "6640d7e3": {
+      "original": "Gets the Uint16 value at the specified byte offset from the start of the view. There is\nno alignment constraint; multi-byte values may be fetched from any offset.",
+      "translated": "ビューの先頭から指定したバイトオフセットにある Uint16 値を取得する。アラインメントの\n制約はなく、マルチバイト値は任意のオフセットから取得できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.getUint16",
+      "lang": "ja"
+    },
+    "60b41908": {
+      "original": "Gets the Uint32 value at the specified byte offset from the start of the view. There is\nno alignment constraint; multi-byte values may be fetched from any offset.",
+      "translated": "ビューの先頭から指定したバイトオフセットにある Uint32 値を取得する。アラインメントの\n制約はなく、マルチバイト値は任意のオフセットから取得できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.getUint32",
+      "lang": "ja"
+    },
+    "0de9d493": {
+      "original": "Gets the Uint8 value at the specified byte offset from the start of the view. There is\nno alignment constraint; multi-byte values may be fetched from any offset.",
+      "translated": "ビューの先頭から指定したバイトオフセットにある Uint8 値を取得する。アラインメントの\n制約はなく、マルチバイト値は任意のオフセットから取得できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.getUint8",
+      "lang": "ja"
+    },
+    "e31451d1": {
+      "original": "Stores an Float32 value at the specified byte offset from the start of the view.",
+      "translated": "ビューの先頭から指定したバイトオフセットに Float32 値を格納する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.setFloat32",
+      "lang": "ja"
+    },
+    "741c75bb": {
+      "original": "Stores an Float64 value at the specified byte offset from the start of the view.",
+      "translated": "ビューの先頭から指定したバイトオフセットに Float64 値を格納する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.setFloat64",
+      "lang": "ja"
+    },
+    "2fca4717": {
+      "original": "Stores an Int16 value at the specified byte offset from the start of the view.",
+      "translated": "ビューの先頭から指定したバイトオフセットに Int16 値を格納する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.setInt16",
+      "lang": "ja"
+    },
+    "742b9e8e": {
+      "original": "Stores an Int32 value at the specified byte offset from the start of the view.",
+      "translated": "ビューの先頭から指定したバイトオフセットに Int32 値を格納する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.setInt32",
+      "lang": "ja"
+    },
+    "29988cfc": {
+      "original": "Stores an Int8 value at the specified byte offset from the start of the view.",
+      "translated": "ビューの先頭から指定したバイトオフセットに Int8 値を格納する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.setInt8",
+      "lang": "ja"
+    },
+    "0a0f892f": {
+      "original": "Stores an Uint16 value at the specified byte offset from the start of the view.",
+      "translated": "ビューの先頭から指定したバイトオフセットに Uint16 値を格納する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.setUint16",
+      "lang": "ja"
+    },
+    "7c2027f4": {
+      "original": "Stores an Uint32 value at the specified byte offset from the start of the view.",
+      "translated": "ビューの先頭から指定したバイトオフセットに Uint32 値を格納する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.setUint32",
+      "lang": "ja"
+    },
+    "2dece2be": {
+      "original": "Stores an Uint8 value at the specified byte offset from the start of the view.",
+      "translated": "ビューの先頭から指定したバイトオフセットに Uint8 値を格納する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DataView.setUint8",
+      "lang": "ja"
+    },
+    "96c357d5": {
+      "original": "Enables basic storage and retrieval of dates and times.",
+      "translated": "日付と時刻の基本的な保存と取得を可能にする。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date",
+      "lang": "ja"
+    },
+    "db02edc9": {
+      "original": "Gets the day-of-the-month, using local time.",
+      "translated": "ローカル時刻で、月の日(何日か)を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getDate",
+      "lang": "ja"
+    },
+    "fe700c2c": {
+      "original": "Gets the day of the week, using local time.",
+      "translated": "ローカル時刻で、曜日を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getDay",
+      "lang": "ja"
+    },
+    "4b1c12d1": {
+      "original": "Gets the year, using local time.",
+      "translated": "ローカル時刻で、年を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getFullYear",
+      "lang": "ja"
+    },
+    "3420c2c4": {
+      "original": "Gets the hours in a date, using local time.",
+      "translated": "ローカル時刻で、日付の時(hours)を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getHours",
+      "lang": "ja"
+    },
+    "add2b382": {
+      "original": "Gets the milliseconds of a Date, using local time.",
+      "translated": "ローカル時刻で、Date のミリ秒を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getMilliseconds",
+      "lang": "ja"
+    },
+    "4d53eb13": {
+      "original": "Gets the minutes of a Date object, using local time.",
+      "translated": "ローカル時刻で、Date オブジェクトの分を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getMinutes",
+      "lang": "ja"
+    },
+    "524e2bbd": {
+      "original": "Gets the month, using local time.",
+      "translated": "ローカル時刻で、月を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getMonth",
+      "lang": "ja"
+    },
+    "c8311b21": {
+      "original": "Gets the seconds of a Date object, using local time.",
+      "translated": "ローカル時刻で、Date オブジェクトの秒を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getSeconds",
+      "lang": "ja"
+    },
+    "ae1f6044": {
+      "original": "Gets the difference in minutes between Universal Coordinated Time (UTC) and the time on the local computer.",
+      "translated": "協定世界時(UTC)とローカルコンピューターの時刻との差を分単位で取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getTimezoneOffset",
+      "lang": "ja"
+    },
+    "a34fc833": {
+      "original": "Gets the day-of-the-month, using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、月の日(何日か)を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getUTCDate",
+      "lang": "ja"
+    },
+    "0e6fc9eb": {
+      "original": "Gets the day of the week using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、曜日を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getUTCDay",
+      "lang": "ja"
+    },
+    "23c82de2": {
+      "original": "Gets the year using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、年を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getUTCFullYear",
+      "lang": "ja"
+    },
+    "8d627808": {
+      "original": "Gets the milliseconds of a Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトのミリ秒を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getUTCMilliseconds",
+      "lang": "ja"
+    },
+    "090cef43": {
+      "original": "Gets the minutes of a Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトの分を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getUTCMinutes",
+      "lang": "ja"
+    },
+    "1b6bb4dd": {
+      "original": "Gets the month of a Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトの月を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getUTCMonth",
+      "lang": "ja"
+    },
+    "65434c5e": {
+      "original": "Gets the seconds of a Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトの秒を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.getUTCSeconds",
+      "lang": "ja"
+    },
+    "9b6df405": {
+      "original": "A numeric value equal to the day of the month.",
+      "translated": "月の日(何日か)に等しい数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setDate",
+      "lang": "ja"
+    },
+    "4bb0cccd": {
+      "original": "Sets the numeric day-of-the-month value of the Date object using local time.",
+      "translated": "ローカル時刻で、Date オブジェクトの月の日(何日か)の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setDate",
+      "lang": "ja"
+    },
+    "9eb00ec2": {
+      "original": "A numeric value equal for the day of the month.",
+      "translated": "月の日(何日か)に等しい数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setFullYear",
+      "lang": "ja"
+    },
+    "a17de628": {
+      "original": "A numeric value for the year.",
+      "translated": "年を表す数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setFullYear",
+      "lang": "ja"
+    },
+    "ddef3ee3": {
+      "original": "A zero-based numeric value for the month (0 for January, 11 for December). Must be specified if numDate is specified.",
+      "translated": "月を表す 0 始まりの数値(1 月が 0、12 月が 11)。numDate を指定する場合は必須。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setFullYear",
+      "lang": "ja"
+    },
+    "94a147b2": {
+      "original": "Sets the year of the Date object using local time.",
+      "translated": "ローカル時刻で、Date オブジェクトの年を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setFullYear",
+      "lang": "ja"
+    },
+    "c2969f98": {
+      "original": "A numeric value equal to the hours value.",
+      "translated": "時(hours)の値に等しい数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setHours",
+      "lang": "ja"
+    },
+    "22e95752": {
+      "original": "Sets the hour value in the Date object using local time.",
+      "translated": "ローカル時刻で、Date オブジェクトの時(hour)の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setHours",
+      "lang": "ja"
+    },
+    "da6eacc0": {
+      "original": "A numeric value equal to the millisecond value.",
+      "translated": "ミリ秒の値に等しい数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setMilliseconds",
+      "lang": "ja"
+    },
+    "e1177864": {
+      "original": "Sets the milliseconds value in the Date object using local time.",
+      "translated": "ローカル時刻で、Date オブジェクトのミリ秒の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setMilliseconds",
+      "lang": "ja"
+    },
+    "6d403814": {
+      "original": "A numeric value equal to the minutes value.",
+      "translated": "分の値に等しい数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setMinutes",
+      "lang": "ja"
+    },
+    "2affd9f3": {
+      "original": "Sets the minutes value in the Date object using local time.",
+      "translated": "ローカル時刻で、Date オブジェクトの分の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setMinutes",
+      "lang": "ja"
+    },
+    "68f7acf9": {
+      "original": "A numeric value equal to the month. The value for January is 0, and other month values follow consecutively.",
+      "translated": "月に等しい数値。1 月の値は 0 で、以降の月の値は連続する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setMonth",
+      "lang": "ja"
+    },
+    "4c1d5a4f": {
+      "original": "A numeric value representing the day of the month. If this value is not supplied, the value from a call to the getDate method is used.",
+      "translated": "月の日(何日か)を表す数値。この値を指定しない場合、getDate メソッドの呼び出し結果の値が使われる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setMonth",
+      "lang": "ja"
+    },
+    "8360a01a": {
+      "original": "Sets the month value in the Date object using local time.",
+      "translated": "ローカル時刻で、Date オブジェクトの月の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setMonth",
+      "lang": "ja"
+    },
+    "a26d2f4e": {
+      "original": "A numeric value equal to the milliseconds value.",
+      "translated": "ミリ秒の値に等しい数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setSeconds",
+      "lang": "ja"
+    },
+    "4941087b": {
+      "original": "A numeric value equal to the seconds value.",
+      "translated": "秒の値に等しい数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setSeconds",
+      "lang": "ja"
+    },
+    "7b2ee1b1": {
+      "original": "Sets the seconds value in the Date object using local time.",
+      "translated": "ローカル時刻で、Date オブジェクトの秒の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setSeconds",
+      "lang": "ja"
+    },
+    "0e6037b7": {
+      "original": "Sets the date and time value in the Date object.",
+      "translated": "Date オブジェクトの日付と時刻の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setTime",
+      "lang": "ja"
+    },
+    "c6e09de1": {
+      "original": "Sets the numeric day of the month in the Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトの月の日(何日か)の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setUTCDate",
+      "lang": "ja"
+    },
+    "55648b66": {
+      "original": "A numeric value equal to the month. The value for January is 0, and other month values follow consecutively. Must be supplied if numDate is supplied.",
+      "translated": "月に等しい数値。1 月の値は 0 で、以降の月の値は連続する。numDate を指定する場合は必須。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setUTCFullYear",
+      "lang": "ja"
+    },
+    "5ee66cf3": {
+      "original": "A numeric value equal to the year.",
+      "translated": "年に等しい数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setUTCFullYear",
+      "lang": "ja"
+    },
+    "7615c231": {
+      "original": "Sets the year value in the Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトの年の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setUTCFullYear",
+      "lang": "ja"
+    },
+    "76032e18": {
+      "original": "Sets the hours value in the Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトの時(hours)の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setUTCHours",
+      "lang": "ja"
+    },
+    "2cbbeb01": {
+      "original": "Sets the milliseconds value in the Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトのミリ秒の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setUTCMilliseconds",
+      "lang": "ja"
+    },
+    "38ab2bcc": {
+      "original": "Sets the minutes value in the Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトの分の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setUTCMinutes",
+      "lang": "ja"
+    },
+    "2a2a1ede": {
+      "original": "A numeric value representing the day of the month. If it is not supplied, the value from a call to the getUTCDate method is used.",
+      "translated": "月の日(何日か)を表す数値。指定しない場合、getUTCDate メソッドの呼び出し結果の値が使われる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setUTCMonth",
+      "lang": "ja"
+    },
+    "b5ec5618": {
+      "original": "Sets the month value in the Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトの月の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setUTCMonth",
+      "lang": "ja"
+    },
+    "ed82cc1e": {
+      "original": "Sets the seconds value in the Date object using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)で、Date オブジェクトの秒の値を設定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.setUTCSeconds",
+      "lang": "ja"
+    },
+    "1e612f9c": {
+      "original": "Returns a date as a string value.",
+      "translated": "日付を文字列値として返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.toDateString",
+      "lang": "ja"
+    },
+    "5eeb2ee0": {
+      "original": "Returns a date as a string value in ISO format.",
+      "translated": "日付を ISO 形式の文字列値として返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.toISOString",
+      "lang": "ja"
+    },
+    "2fbd6de5": {
+      "original": "Used by the JSON.stringify method to enable the transformation of an object's data for JavaScript Object Notation (JSON) serialization.",
+      "translated": "JSON.stringify メソッドが、JavaScript Object Notation(JSON)へのシリアライズのために\nオブジェクトのデータを変換できるようにするために使われる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.toJSON",
+      "lang": "ja"
+    },
+    "fd101d7b": {
+      "original": "Returns a date as a string value appropriate to the host environment's current locale.",
+      "translated": "ホスト環境の現在のロケールに適した文字列値として日付を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.toLocaleDateString",
+      "lang": "ja"
+    },
+    "e185b294": {
+      "original": "Returns a value as a string value appropriate to the host environment's current locale.",
+      "translated": "ホスト環境の現在のロケールに適した文字列値として値を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.toLocaleString",
+      "lang": "ja"
+    },
+    "87be6960": {
+      "original": "Returns a time as a string value appropriate to the host environment's current locale.",
+      "translated": "ホスト環境の現在のロケールに適した文字列値として時刻を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.toLocaleTimeString",
+      "lang": "ja"
+    },
+    "d6707919": {
+      "original": "Returns a string representation of a date. The format of the string depends on the locale.",
+      "translated": "日付の文字列表現を返す。文字列の形式はロケールに依存する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.toString",
+      "lang": "ja"
+    },
+    "764a3a94": {
+      "original": "Returns a time as a string value.",
+      "translated": "時刻を文字列値として返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.toTimeString",
+      "lang": "ja"
+    },
+    "3c8dc872": {
+      "original": "Returns a date converted to a string using Universal Coordinated Time (UTC).",
+      "translated": "協定世界時(UTC)を使って文字列に変換した日付を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.toUTCString",
+      "lang": "ja"
+    },
+    "a915dc9e": {
+      "original": "Returns the stored time value in milliseconds since midnight, January 1, 1970 UTC.",
+      "translated": "1970 年 1 月 1 日午前 0 時(UTC)からのミリ秒単位で、保持している時刻の値を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Date.valueOf",
+      "lang": "ja"
+    },
+    "f1fcd1fb": {
+      "original": "Creates a new Date.",
+      "translated": "新しい Date を作成する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DateConstructor",
+      "lang": "ja"
+    },
+    "3418a163": {
+      "original": "Returns the number of milliseconds elapsed since midnight, January 1, 1970 Universal Coordinated Time (UTC).",
+      "translated": "1970 年 1 月 1 日午前 0 時(協定世界時、UTC)からの経過ミリ秒数を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DateConstructor.now",
+      "lang": "ja"
+    },
+    "7a840323": {
+      "original": "A date string",
+      "translated": "日付文字列。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DateConstructor.parse",
+      "lang": "ja"
+    },
+    "9c4348a4": {
+      "original": "Parses a string containing a date, and returns the number of milliseconds between that date and midnight, January 1, 1970.",
+      "translated": "日付を含む文字列を解析し、その日付と 1970 年 1 月 1 日午前 0 時との間のミリ秒数を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#DateConstructor.parse",
+      "lang": "ja"
+    },
+    "a673172d": {
+      "original": "A value representing an encoded URI.",
+      "translated": "エンコードされた URI を表す値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#decodeURI",
+      "lang": "ja"
+    },
+    "e62cd01c": {
+      "original": "Gets the unencoded version of an encoded Uniform Resource Identifier (URI).",
+      "translated": "エンコードされた URI(Uniform Resource Identifier)のデコード済みの文字列を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#decodeURI",
+      "lang": "ja"
+    },
+    "577885a0": {
+      "original": "A value representing an encoded URI component.",
+      "translated": "エンコードされた URI コンポーネントを表す値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#decodeURIComponent",
+      "lang": "ja"
+    },
+    "0e2b8487": {
+      "original": "Gets the unencoded version of an encoded component of a Uniform Resource Identifier (URI).",
+      "translated": "エンコードされた URI(Uniform Resource Identifier)のコンポーネントのデコード済みの文字列を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#decodeURIComponent",
+      "lang": "ja"
+    },
+    "85db2d5b": {
+      "original": "A value representing an unencoded URI.",
+      "translated": "エンコードされていない URI を表す値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#encodeURI",
+      "lang": "ja"
+    },
+    "3f3130ed": {
+      "original": "Encodes a text string as a valid Uniform Resource Identifier (URI)",
+      "translated": "テキスト文字列を、有効な URI(Uniform Resource Identifier)としてエンコードする",
+      "symbol": "typescript/lib/lib.es5.d.ts#encodeURI",
+      "lang": "ja"
+    },
+    "d164ebe1": {
+      "original": "A value representing an unencoded URI component.",
+      "translated": "エンコードされていない URI コンポーネントを表す値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#encodeURIComponent",
+      "lang": "ja"
+    },
+    "f8a38b51": {
+      "original": "Encodes a text string as a valid component of a Uniform Resource Identifier (URI).",
+      "translated": "テキスト文字列を、有効な URI(Uniform Resource Identifier)のコンポーネントとしてエンコードする。",
+      "symbol": "typescript/lib/lib.es5.d.ts#encodeURIComponent",
+      "lang": "ja"
+    },
+    "67fa8855": {
+      "original": "A string value",
+      "translated": "文字列値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#escape",
+      "lang": "ja"
+    },
+    "fd862fc3": {
+      "original": "Computes a new string in which certain characters have been replaced by a hexadecimal escape sequence.",
+      "translated": "特定の文字を 16 進のエスケープシーケンスに置き換えた新しい文字列を求める。",
+      "symbol": "typescript/lib/lib.es5.d.ts#escape",
+      "lang": "ja"
+    },
+    "6a26260f": {
+      "original": "A String value that contains valid JavaScript code.",
+      "translated": "有効な JavaScript コードを含む文字列値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#eval",
+      "lang": "ja"
+    },
+    "60f6529e": {
+      "original": "Evaluates JavaScript code and executes it.",
+      "translated": "JavaScript コードを評価して実行する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#eval",
+      "lang": "ja"
+    },
+    "f5f1314f": {
+      "original": "Exclude from T those types that are assignable to U",
+      "translated": "T のうち、U に代入可能な型を除外する",
+      "symbol": "typescript/lib/lib.es5.d.ts#Exclude",
+      "lang": "ja"
+    },
+    "d1cfe811": {
+      "original": "Extract from T those types that are assignable to U",
+      "translated": "T のうち、U に代入可能な型を抽出する",
+      "symbol": "typescript/lib/lib.es5.d.ts#Extract",
+      "lang": "ja"
+    },
+    "fff7f821": {
+      "original": "A typed array of 32-bit float values. The contents are initialized to 0. If the requested number\nof bytes could not be allocated an exception is raised.",
+      "translated": "32 ビット浮動小数点値の型付き配列。内容は 0 で初期化される。要求されたバイト数を\n割り当てられなかった場合は例外が発生する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Float32Array",
+      "lang": "ja"
+    },
+    "52ca3b90": {
+      "original": "Gets a new Float32Array view of the ArrayBuffer store for this array, referencing the elements\nat begin, inclusive, up to end, exclusive.",
+      "translated": "この配列の ArrayBuffer ストアに対する新しい Float32Array ビューを取得する。\nbegin(含む)から end(含まない)までの要素を参照する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Float32Array.subarray",
+      "lang": "ja"
+    },
+    "192e9d8b": {
+      "original": "A typed array of 64-bit float values. The contents are initialized to 0. If the requested\nnumber of bytes could not be allocated an exception is raised.",
+      "translated": "64 ビット浮動小数点値の型付き配列。内容は 0 で初期化される。要求されたバイト数を\n割り当てられなかった場合は例外が発生する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Float64Array",
+      "lang": "ja"
+    },
+    "7b012840": {
+      "original": "Gets a new Float64Array view of the ArrayBuffer store for this array, referencing the elements\nat begin, inclusive, up to end, exclusive.",
+      "translated": "この配列の ArrayBuffer ストアに対する新しい Float64Array ビューを取得する。\nbegin(含む)から end(含まない)までの要素を参照する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Float64Array.subarray",
+      "lang": "ja"
+    },
+    "6537b9ce": {
+      "original": "Creates a new function.",
+      "translated": "新しい関数を作成する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Function",
+      "lang": "ja"
+    },
+    "c3630242": {
+      "original": "A set of arguments to be passed to the function.",
+      "translated": "関数に渡す引数の集合。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Function.apply",
+      "lang": "ja"
+    },
+    "14ed0c3a": {
+      "original": "Calls the function, substituting the specified object for the this value of the function, and the specified array for the arguments of the function.",
+      "translated": "関数の this 値を指定したオブジェクトに、関数の引数を指定した配列に置き換えて、関数を呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Function.apply",
+      "lang": "ja"
+    },
+    "3218949e": {
+      "original": "A list of arguments to be passed to the new function.",
+      "translated": "新しい関数に渡す引数のリスト。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Function.bind",
+      "lang": "ja"
+    },
+    "b115a696": {
+      "original": "An object to which the this keyword can refer inside the new function.",
+      "translated": "新しい関数の内部で this キーワードが参照できるオブジェクト。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Function.bind",
+      "lang": "ja"
+    },
+    "719e2c0c": {
+      "original": "For a given function, creates a bound function that has the same body as the original function.\nThe this object of the bound function is associated with the specified object, and has the specified initial parameters.",
+      "translated": "指定した関数について、元の関数と同じ本体を持つバインド済み関数を作成する。\nバインド済み関数の this オブジェクトは指定したオブジェクトに関連付けられ、指定した初期引数を持つ。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Function.bind",
+      "lang": "ja"
+    },
+    "6c4b7531": {
+      "original": "A list of arguments to be passed to the method.",
+      "translated": "メソッドに渡す引数のリスト。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Function.call",
+      "lang": "ja"
+    },
+    "239d6821": {
+      "original": "Calls a method of an object, substituting another object for the current object.",
+      "translated": "現在のオブジェクトを別のオブジェクトに置き換えて、オブジェクトのメソッドを呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Function.call",
+      "lang": "ja"
+    },
+    "0f7d10fa": {
+      "original": "The object to be used as the current object.",
+      "translated": "現在のオブジェクトとして使うオブジェクト。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Function.call",
+      "lang": "ja"
+    },
+    "f6a0a283": {
+      "original": "Returns a string representation of a function.",
+      "translated": "関数の文字列表現を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Function.toString",
+      "lang": "ja"
+    },
+    "4623ef08": {
+      "original": "The type for the `assert` property of the optional second argument to `import()`.",
+      "translated": "`import()` の省略可能な第 2 引数の `assert` プロパティの型。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ImportAssertions",
+      "lang": "ja"
+    },
+    "d50217f8": {
+      "original": "The type for the `with` property of the optional second argument to `import()`.",
+      "translated": "`import()` の省略可能な第 2 引数の `with` プロパティの型。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ImportAttributes",
+      "lang": "ja"
+    },
+    "d099a0d6": {
+      "original": "The type for the optional second argument to `import()`.\n\nIf your host environment supports additional options, this type may be\naugmented via interface merging.",
+      "translated": "`import()` の省略可能な第 2 引数の型。\n\nホスト環境が追加のオプションをサポートする場合、この型はインターフェースのマージによって拡張できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ImportCallOptions",
+      "lang": "ja"
+    },
+    "4d4083f0": {
+      "original": "The type of `import.meta`.\n\nIf you need to declare that a given property exists on `import.meta`,\nthis type may be augmented via interface merging.",
+      "translated": "`import.meta` の型。\n\n`import.meta` に特定のプロパティが存在することを宣言する必要がある場合、\nこの型はインターフェースのマージによって拡張できる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ImportMeta",
+      "lang": "ja"
+    },
+    "9b018f4c": {
+      "original": "Obtain the return type of a constructor function type",
+      "translated": "コンストラクター関数型の戻り値の型を取得する",
+      "symbol": "typescript/lib/lib.es5.d.ts#InstanceType",
+      "lang": "ja"
+    },
+    "5710c1e8": {
+      "original": "A typed array of 16-bit signed integer values. The contents are initialized to 0. If the\nrequested number of bytes could not be allocated an exception is raised.",
+      "translated": "16 ビット符号付き整数値の型付き配列。内容は 0 で初期化される。要求されたバイト数を\n割り当てられなかった場合は例外が発生する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Int16Array",
+      "lang": "ja"
+    },
+    "2c754e48": {
+      "original": "Gets a new Int16Array view of the ArrayBuffer store for this array, referencing the elements\nat begin, inclusive, up to end, exclusive.",
+      "translated": "この配列の ArrayBuffer ストアに対する新しい Int16Array ビューを取得する。\nbegin(含む)から end(含まない)までの要素を参照する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Int16Array.subarray",
+      "lang": "ja"
+    },
+    "134c5be6": {
+      "original": "A typed array of 32-bit signed integer values. The contents are initialized to 0. If the\nrequested number of bytes could not be allocated an exception is raised.",
+      "translated": "32 ビット符号付き整数値の型付き配列。内容は 0 で初期化される。要求されたバイト数を\n割り当てられなかった場合は例外が発生する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Int32Array",
+      "lang": "ja"
+    },
+    "03472dea": {
+      "original": "Gets a new Int32Array view of the ArrayBuffer store for this array, referencing the elements\nat begin, inclusive, up to end, exclusive.",
+      "translated": "この配列の ArrayBuffer ストアに対する新しい Int32Array ビューを取得する。\nbegin(含む)から end(含まない)までの要素を参照する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Int32Array.subarray",
+      "lang": "ja"
+    },
+    "862fc226": {
+      "original": "A typed array of 8-bit integer values. The contents are initialized to 0. If the requested\nnumber of bytes could not be allocated an exception is raised.",
+      "translated": "8 ビット整数値の型付き配列。内容は 0 で初期化される。要求されたバイト数を\n割り当てられなかった場合は例外が発生する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Int8Array",
+      "lang": "ja"
+    },
+    "c4e63c29": {
+      "original": "Reverses the elements in an Array.",
+      "translated": "配列の要素を逆順にする。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Int8Array.reverse",
+      "lang": "ja"
+    },
+    "fcb69d23": {
+      "original": "Function used to determine the order of the elements. It is expected to return\na negative value if first argument is less than second argument, zero if they're equal and a positive\nvalue otherwise. If omitted, the elements are sorted in ascending order.\n```ts\n[11,2,22,1].sort((a, b) => a - b)\n```",
+      "translated": "要素の順序を決めるために使う関数。第 1 引数が第 2 引数より小さい場合は負の値、\n等しい場合は 0、それ以外の場合は正の値を返すことが期待される。省略した場合、要素は昇順に\n並べ替えられる。\n```ts\n[11,2,22,1].sort((a, b) => a - b)\n```",
+      "symbol": "typescript/lib/lib.es5.d.ts#Int8Array.sort",
+      "lang": "ja"
+    },
+    "cce73410": {
+      "original": "Gets a new Int8Array view of the ArrayBuffer store for this array, referencing the elements\nat begin, inclusive, up to end, exclusive.",
+      "translated": "この配列の ArrayBuffer ストアに対する新しい Int8Array ビューを取得する。\nbegin(含む)から end(含まない)までの要素を参照する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Int8Array.subarray",
+      "lang": "ja"
+    },
+    "e3bb5cd2": {
+      "original": "Converts a number to a string by using the current locale.",
+      "translated": "現在のロケールを使って数値を文字列に変換する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Int8Array.toLocaleString",
+      "lang": "ja"
+    },
+    "3276341a": {
+      "original": "Any numeric value.",
+      "translated": "任意の数値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#isFinite",
+      "lang": "ja"
+    },
+    "0b1a9141": {
+      "original": "Determines whether a supplied number is finite.",
+      "translated": "指定した数値が有限かどうかを判定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#isFinite",
+      "lang": "ja"
+    },
+    "c61e1ce8": {
+      "original": "Returns a Boolean value that indicates whether a value is the reserved value NaN (not a number).",
+      "translated": "値が予約値 NaN(非数)かどうかを示す真偽値を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#isNaN",
+      "lang": "ja"
+    },
+    "01239a0d": {
+      "original": "An intrinsic object that provides functions to convert JavaScript values to and from the JavaScript Object Notation (JSON) format.",
+      "translated": "JavaScript の値を JavaScript Object Notation(JSON)形式に、またはその逆に変換する関数を提供する組み込みオブジェクト。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON",
+      "lang": "ja"
+    },
+    "e23d7d62": {
+      "original": "A function that transforms the results. This function is called for each member of the object.\nIf a member contains nested objects, the nested objects are transformed before the parent object is.",
+      "translated": "結果を変換する関数。この関数はオブジェクトの各メンバーに対して呼ばれる。\nメンバーが入れ子のオブジェクトを含む場合、入れ子のオブジェクトは親オブジェクトより先に変換される。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON.parse",
+      "lang": "ja"
+    },
+    "5eef0936": {
+      "original": "A valid JSON string.",
+      "translated": "有効な JSON 文字列。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON.parse",
+      "lang": "ja"
+    },
+    "7953a874": {
+      "original": "Converts a JavaScript Object Notation (JSON) string into an object.",
+      "translated": "JavaScript Object Notation(JSON)文字列をオブジェクトに変換する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON.parse",
+      "lang": "ja"
+    },
+    "314eb935": {
+      "original": "If `text` is not valid JSON.",
+      "translated": "`text` が有効な JSON でない場合。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON.parse",
+      "lang": "ja"
+    },
+    "d18a2dd5": {
+      "original": "A function that transforms the results.",
+      "translated": "結果を変換する関数。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON.stringify",
+      "lang": "ja"
+    },
+    "5f850db1": {
+      "original": "A JavaScript value, usually an object or array, to be converted.",
+      "translated": "変換対象の JavaScript の値。通常はオブジェクトまたは配列。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON.stringify",
+      "lang": "ja"
+    },
+    "269dbe5f": {
+      "original": "Adds indentation, white space, and line break characters to the return-value JSON text to make it easier to read.",
+      "translated": "戻り値の JSON テキストにインデント・空白・改行文字を追加し、読みやすくする。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON.stringify",
+      "lang": "ja"
+    },
+    "e8fd967a": {
+      "original": "An array of strings and numbers that acts as an approved list for selecting the object properties that will be stringified.",
+      "translated": "文字列化するオブジェクトのプロパティを選ぶための許可リストとして機能する、文字列と数値の配列。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON.stringify",
+      "lang": "ja"
+    },
+    "fa26263c": {
+      "original": "Converts a JavaScript value to a JavaScript Object Notation (JSON) string.",
+      "translated": "JavaScript の値を JavaScript Object Notation(JSON)文字列に変換する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON.stringify",
+      "lang": "ja"
+    },
+    "a7af4246": {
+      "original": "If a circular reference or a BigInt value is found.",
+      "translated": "循環参照または BigInt 値が見つかった場合。",
+      "symbol": "typescript/lib/lib.es5.d.ts#JSON.stringify",
+      "lang": "ja"
+    },
+    "fecd540f": {
+      "original": "Convert string literal type to lowercase",
+      "translated": "文字列リテラル型を小文字に変換する",
+      "symbol": "typescript/lib/lib.es5.d.ts#Lowercase",
+      "lang": "ja"
+    },
+    "c9262f15": {
+      "original": "An intrinsic object that provides basic mathematics functionality and constants.",
+      "translated": "基本的な数学の機能と定数を提供する組み込みオブジェクト。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math",
+      "lang": "ja"
+    },
+    "ce84072d": {
+      "original": "A numeric expression for which the absolute value is needed.",
+      "translated": "絶対値を求める対象の数値式。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.abs",
+      "lang": "ja"
+    },
+    "7e9bc61a": {
+      "original": "Returns the absolute value of a number (the value without regard to whether it is positive or negative).\nFor example, the absolute value of -5 is the same as the absolute value of 5.",
+      "translated": "数値の絶対値(正か負かにかかわらない値)を返す。\nたとえば -5 の絶対値は 5 の絶対値と同じである。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.abs",
+      "lang": "ja"
+    },
+    "a291ef69": {
+      "original": "Returns the arc cosine (or inverse cosine) of a number.",
+      "translated": "数値の逆余弦(アークコサイン)を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.acos",
+      "lang": "ja"
+    },
+    "9f146db3": {
+      "original": "Returns the arcsine of a number.",
+      "translated": "数値の逆正弦(アークサイン)を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.asin",
+      "lang": "ja"
+    },
+    "ae838d3f": {
+      "original": "A numeric expression for which the arctangent is needed.",
+      "translated": "逆正接(アークタンジェント)を求める対象の数値式。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.atan",
+      "lang": "ja"
+    },
+    "a6131b8e": {
+      "original": "Returns the arctangent of a number.",
+      "translated": "数値の逆正接(アークタンジェント)を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.atan",
+      "lang": "ja"
+    },
+    "05ca2021": {
+      "original": "A numeric expression representing the cartesian x-coordinate.",
+      "translated": "デカルト座標の x 座標を表す数値式。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.atan2",
+      "lang": "ja"
+    },
+    "6bcf1d3c": {
+      "original": "A numeric expression representing the cartesian y-coordinate.",
+      "translated": "デカルト座標の y 座標を表す数値式。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.atan2",
+      "lang": "ja"
+    },
+    "51e216be": {
+      "original": "Returns the angle (in radians) between the X axis and the line going through both the origin and the given point.",
+      "translated": "X 軸と、原点および指定した点の両方を通る直線との間の角度(ラジアン)を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.atan2",
+      "lang": "ja"
+    },
+    "5691c9cb": {
+      "original": "Returns the smallest integer greater than or equal to its numeric argument.",
+      "translated": "数値引数以上で最小の整数を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.ceil",
+      "lang": "ja"
+    },
+    "399816c2": {
+      "original": "Returns the cosine of a number.",
+      "translated": "数値の余弦(コサイン)を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.cos",
+      "lang": "ja"
+    },
+    "33c644e1": {
+      "original": "The mathematical constant e. This is Euler's number, the base of natural logarithms.",
+      "translated": "数学定数 e。これはネイピア数(オイラー数)であり、自然対数の底である。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.E",
+      "lang": "ja"
+    },
+    "17709fea": {
+      "original": "A numeric expression representing the power of e.",
+      "translated": "e の指数を表す数値式。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.exp",
+      "lang": "ja"
+    },
+    "5c5d9dcf": {
+      "original": "Returns e (the base of natural logarithms) raised to a power.",
+      "translated": "e(自然対数の底)を指定した指数で累乗した値を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.exp",
+      "lang": "ja"
+    },
+    "84c8bdd1": {
+      "original": "Returns the greatest integer less than or equal to its numeric argument.",
+      "translated": "数値引数以下で最大の整数を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.floor",
+      "lang": "ja"
+    },
+    "45e96597": {
+      "original": "The natural logarithm of 10.",
+      "translated": "10 の自然対数。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.LN10",
+      "lang": "ja"
+    },
+    "3cf20cc3": {
+      "original": "The natural logarithm of 2.",
+      "translated": "2 の自然対数。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.LN2",
+      "lang": "ja"
+    },
+    "3eae4963": {
+      "original": "Returns the natural logarithm (base e) of a number.",
+      "translated": "数値の自然対数(底 e)を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.log",
+      "lang": "ja"
+    },
+    "17c36863": {
+      "original": "The base-10 logarithm of e.",
+      "translated": "e の常用対数(底 10)。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.LOG10E",
+      "lang": "ja"
+    },
+    "5ddebf86": {
+      "original": "The base-2 logarithm of e.",
+      "translated": "e の底 2 の対数。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.LOG2E",
+      "lang": "ja"
+    },
+    "52a44747": {
+      "original": "Numeric expressions to be evaluated.",
+      "translated": "評価対象の数値式。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.max",
+      "lang": "ja"
+    },
+    "cf0bcb1f": {
+      "original": "Returns the larger of a set of supplied numeric expressions.",
+      "translated": "指定した数値式の集合のうち、大きい方を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.max",
+      "lang": "ja"
+    },
+    "fef1959c": {
+      "original": "Returns the smaller of a set of supplied numeric expressions.",
+      "translated": "指定した数値式の集合のうち、小さい方を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.min",
+      "lang": "ja"
+    },
+    "2ef5edbf": {
+      "original": "Pi. This is the ratio of the circumference of a circle to its diameter.",
+      "translated": "円周率 π。これは円の円周と直径の比である。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.PI",
+      "lang": "ja"
+    },
+    "802eec33": {
+      "original": "Returns the value of a base expression taken to a specified power.",
+      "translated": "底の式を指定した指数で累乗した値を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.pow",
+      "lang": "ja"
+    },
+    "7000bff0": {
+      "original": "The base value of the expression.",
+      "translated": "式の底の値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.pow",
+      "lang": "ja"
+    },
+    "5b3b2294": {
+      "original": "The exponent value of the expression.",
+      "translated": "式の指数の値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.pow",
+      "lang": "ja"
+    },
+    "8ac15cef": {
+      "original": "Returns a supplied numeric expression rounded to the nearest integer.",
+      "translated": "指定した数値式を最も近い整数に丸めて返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.round",
+      "lang": "ja"
+    },
+    "e32ff874": {
+      "original": "The value to be rounded to the nearest integer.",
+      "translated": "最も近い整数に丸める対象の値。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.round",
+      "lang": "ja"
+    },
+    "47e98787": {
+      "original": "Returns the sine of a number.",
+      "translated": "数値の正弦(サイン)を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.sin",
+      "lang": "ja"
+    },
+    "61764bbc": {
+      "original": "Returns the square root of a number.",
+      "translated": "数値の平方根を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.sqrt",
+      "lang": "ja"
+    },
+    "de849f17": {
+      "original": "The square root of 0.5, or, equivalently, one divided by the square root of 2.",
+      "translated": "0.5 の平方根。言い換えると、2 の平方根の逆数。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.SQRT1_2",
+      "lang": "ja"
+    },
+    "f04113e3": {
+      "original": "The square root of 2.",
+      "translated": "2 の平方根。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.SQRT2",
+      "lang": "ja"
+    },
+    "de0ec812": {
+      "original": "Returns the tangent of a number.",
+      "translated": "数値の正接(タンジェント)を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Math.tan",
+      "lang": "ja"
+    },
+    "628d8979": {
+      "original": "Marker for non-inference type position",
+      "translated": "推論を行わない型位置のためのマーカー",
+      "symbol": "typescript/lib/lib.es5.d.ts#NoInfer",
+      "lang": "ja"
+    },
+    "01400045": {
+      "original": "Exclude null and undefined from T",
+      "translated": "T から null と undefined を除外する",
+      "symbol": "typescript/lib/lib.es5.d.ts#NonNullable",
+      "lang": "ja"
+    },
+    "02baf8e9": {
+      "original": "An object that represents a number of any kind. All JavaScript numbers are 64-bit floating-point numbers.",
+      "translated": "あらゆる種類の数値を表すオブジェクト。JavaScript の数値はすべて 64 ビット浮動小数点数である。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Number",
+      "lang": "ja"
+    },
+    "e16c6ae4": {
+      "original": "Returns a string containing a number represented in exponential notation.",
+      "translated": "指数表記で表した数値を含む文字列を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Number.toExponential",
+      "lang": "ja"
+    },
+    "49e662d7": {
+      "original": "Number of digits after the decimal point. Must be in the range 0 - 20, inclusive.",
+      "translated": "小数点以下の桁数。0〜20 の範囲(両端を含む)でなければならない。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Number.toFixed",
+      "lang": "ja"
+    },
+    "344c5dd6": {
+      "original": "Returns a string representing a number in fixed-point notation.",
+      "translated": "固定小数点表記で数値を表した文字列を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Number.toFixed",
+      "lang": "ja"
+    },
+    "6946e774": {
+      "original": "A locale string or array of locale strings that contain one or more language or locale tags. If you include more than one locale string, list them in descending order of priority so that the first entry is the preferred locale. If you omit this parameter, the default locale of the JavaScript runtime is used.",
+      "translated": "1 つ以上の言語タグまたはロケールタグを含むロケール文字列、またはその配列。複数のロケール文字列を指定する場合は、優先度の高い順に並べ、先頭の項目が優先されるロケールになるようにする。このパラメーターを省略すると、JavaScript ランタイムの既定のロケールが使われる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Number.toLocaleString",
+      "lang": "ja"
+    },
+    "c6787b29": {
+      "original": "Number of significant digits. Must be in the range 1 - 21, inclusive.",
+      "translated": "有効数字の桁数。1〜21 の範囲(両端を含む)でなければならない。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Number.toPrecision",
+      "lang": "ja"
+    },
+    "38caf0bb": {
+      "original": "Returns a string containing a number represented either in exponential or fixed-point notation with a specified number of digits.",
+      "translated": "指定した桁数で、指数表記または固定小数点表記のいずれかで表した数値を含む文字列を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Number.toPrecision",
+      "lang": "ja"
+    },
+    "3668a1e3": {
+      "original": "Specifies a radix for converting numeric values to strings. This value is only used for numbers.",
+      "translated": "数値を文字列に変換する際の基数(radix)を指定する。この値は数値に対してのみ使われる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Number.toString",
+      "lang": "ja"
+    },
+    "c5ce305c": {
+      "original": "The largest number that can be represented in JavaScript. Equal to approximately 1.79E+308.",
+      "translated": "JavaScript で表せる最大の数値。おおよそ 1.79E+308 に等しい。",
+      "symbol": "typescript/lib/lib.es5.d.ts#NumberConstructor.MAX_VALUE",
+      "lang": "ja"
+    },
+    "cbe78db1": {
+      "original": "The closest number to zero that can be represented in JavaScript. Equal to approximately 5.00E-324.",
+      "translated": "JavaScript で表せる、0 に最も近い数値。おおよそ 5.00E-324 に等しい。",
+      "symbol": "typescript/lib/lib.es5.d.ts#NumberConstructor.MIN_VALUE",
+      "lang": "ja"
+    },
+    "4f4b8de8": {
+      "original": "A value that is not a number.\nIn equality comparisons, NaN does not equal any value, including itself. To test whether a value is equivalent to NaN, use the isNaN function.",
+      "translated": "数値ではない値(非数)。\n等価比較では、NaN は自分自身を含むどの値とも等しくならない。ある値が NaN と等しいかを判定するには isNaN 関数を使う。",
+      "symbol": "typescript/lib/lib.es5.d.ts#NumberConstructor.NaN",
+      "lang": "ja"
+    },
+    "fe1cdcfb": {
+      "original": "A value that is less than the largest negative number that can be represented in JavaScript.\nJavaScript displays NEGATIVE_INFINITY values as -infinity.",
+      "translated": "JavaScript で表せる最大の負の数よりも小さい値。\nJavaScript は NEGATIVE_INFINITY の値を -infinity として表示する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#NumberConstructor.NEGATIVE_INFINITY",
+      "lang": "ja"
+    },
+    "a9822114": {
+      "original": "A value greater than the largest number that can be represented in JavaScript.\nJavaScript displays POSITIVE_INFINITY values as infinity.",
+      "translated": "JavaScript で表せる最大の数値よりも大きい値。\nJavaScript は POSITIVE_INFINITY の値を infinity として表示する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#NumberConstructor.POSITIVE_INFINITY",
+      "lang": "ja"
+    },
+    "27a4e95a": {
+      "original": "Provides functionality common to all JavaScript objects.",
+      "translated": "すべての JavaScript オブジェクトに共通する機能を提供する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Object",
+      "lang": "ja"
+    },
+    "db9242a7": {
+      "original": "The initial value of Object.prototype.constructor is the standard built-in Object constructor.",
+      "translated": "Object.prototype.constructor の初期値は、標準の組み込み Object コンストラクターである。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Object.constructor",
+      "lang": "ja"
+    },
+    "aa3c76b8": {
+      "original": "Another object whose prototype chain is to be checked.",
+      "translated": "プロトタイプチェーンを調べる対象となる別のオブジェクト。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Object.isPrototypeOf",
+      "lang": "ja"
+    },
+    "371b8ff0": {
+      "original": "Determines whether an object exists in another object's prototype chain.",
+      "translated": "あるオブジェクトが別のオブジェクトのプロトタイプチェーンに存在するかどうかを判定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Object.isPrototypeOf",
+      "lang": "ja"
+    },
+    "c1b2df0f": {
+      "original": "Determines whether a specified property is enumerable.",
+      "translated": "指定したプロパティが列挙可能(enumerable)かどうかを判定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Object.propertyIsEnumerable",
+      "lang": "ja"
+    },
+    "4e0d3621": {
+      "original": "Returns a date converted to a string using the current locale.",
+      "translated": "現在のロケールを使って文字列に変換した日付を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Object.toLocaleString",
+      "lang": "ja"
+    },
+    "7e07be28": {
+      "original": "Creates an object that has the specified prototype or that has null prototype.",
+      "translated": "指定したプロトタイプ、または null プロトタイプを持つオブジェクトを作成する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.create",
+      "lang": "ja"
+    },
+    "888d88c9": {
+      "original": "Creates an object that has the specified prototype, and that optionally contains specified properties.",
+      "translated": "指定したプロトタイプを持ち、必要に応じて指定したプロパティを含むオブジェクトを作成する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.create",
+      "lang": "ja"
+    },
+    "6eb819a5": {
+      "original": "JavaScript object that contains one or more property descriptors.",
+      "translated": "1 つ以上のプロパティ記述子(descriptor)を含む JavaScript オブジェクト。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.create",
+      "lang": "ja"
+    },
+    "f3200c56": {
+      "original": "Object to use as a prototype. May be null",
+      "translated": "プロトタイプとして使うオブジェクト。null でもよい",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.create",
+      "lang": "ja"
+    },
+    "4e60c23e": {
+      "original": "Object to use as a prototype. May be null.",
+      "translated": "プロトタイプとして使うオブジェクト。null でもよい。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.create",
+      "lang": "ja"
+    },
+    "c65b9561": {
+      "original": "Adds one or more properties to an object, and/or modifies attributes of existing properties.",
+      "translated": "オブジェクトに 1 つ以上のプロパティを追加する、または既存のプロパティの属性を変更する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.defineProperties",
+      "lang": "ja"
+    },
+    "e60c5458": {
+      "original": "JavaScript object that contains one or more descriptor objects. Each descriptor object describes a data property or an accessor property.",
+      "translated": "1 つ以上の記述子(descriptor)オブジェクトを含む JavaScript オブジェクト。各記述子オブジェクトは、データプロパティまたはアクセサープロパティを記述する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.defineProperties",
+      "lang": "ja"
+    },
+    "bca6002e": {
+      "original": "Object on which to add or modify the properties. This can be a native JavaScript object or a DOM object.",
+      "translated": "プロパティを追加または変更する対象のオブジェクト。ネイティブの JavaScript オブジェクトでも DOM オブジェクトでもよい。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.defineProperties",
+      "lang": "ja"
+    },
+    "85ed6608": {
+      "original": "Object on which to add or modify the property. This can be a native JavaScript object (that is, a user-defined object or a built in object) or a DOM object.",
+      "translated": "プロパティを追加または変更する対象のオブジェクト。ネイティブの JavaScript オブジェクト(すなわちユーザー定義オブジェクトや組み込みオブジェクト)でも DOM オブジェクトでもよい。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.defineProperty",
+      "lang": "ja"
+    },
+    "59a8e833": {
+      "original": "Prevents the modification of existing property attributes and values, and prevents the addition of new properties.",
+      "translated": "既存のプロパティの属性と値の変更を防ぎ、新しいプロパティの追加も防ぐ。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.freeze",
+      "lang": "ja"
+    },
+    "d57d9e9d": {
+      "original": "Returns the names of the own properties of an object. The own properties of an object are those that are defined directly\non that object, and are not inherited from the object's prototype. The properties of an object include both fields (objects) and functions.",
+      "translated": "オブジェクトの自身のプロパティ(own property)の名前を返す。オブジェクトの自身のプロパティとは、そのオブジェクトに直接定義されており、\nオブジェクトのプロトタイプから継承していないものを指す。オブジェクトのプロパティにはフィールド(オブジェクト)と関数の両方が含まれる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.getOwnPropertyNames",
+      "lang": "ja"
+    },
+    "296d3598": {
+      "original": "Returns true if existing property attributes and values cannot be modified in an object, and new properties cannot be added to the object.",
+      "translated": "オブジェクトの既存のプロパティの属性と値が変更できず、かつ新しいプロパティを追加できない場合に true を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.isFrozen",
+      "lang": "ja"
+    },
+    "91616bb6": {
+      "original": "Returns true if existing property attributes cannot be modified in an object and new properties cannot be added to the object.",
+      "translated": "オブジェクトの既存のプロパティの属性が変更できず、かつ新しいプロパティを追加できない場合に true を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.isSealed",
+      "lang": "ja"
+    },
+    "1500dbd8": {
+      "original": "A reference to the prototype for a class of objects.",
+      "translated": "あるオブジェクトのクラスのプロトタイプへの参照。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.prototype",
+      "lang": "ja"
+    },
+    "ca55a71c": {
+      "original": "Object on which to lock the attributes.",
+      "translated": "属性をロックする対象のオブジェクト。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.seal",
+      "lang": "ja"
+    },
+    "b12d44bc": {
+      "original": "Prevents the modification of attributes of existing properties, and prevents the addition of new properties.",
+      "translated": "既存のプロパティの属性の変更を防ぎ、新しいプロパティの追加も防ぐ。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ObjectConstructor.seal",
+      "lang": "ja"
+    },
+    "67387c14": {
+      "original": "Construct a type with the properties of T except for those in type K.",
+      "translated": "型 K に含まれるものを除いた、T のプロパティを持つ型を構築する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Omit",
+      "lang": "ja"
+    },
+    "9e18670b": {
+      "original": "Removes the 'this' parameter from a function type.",
+      "translated": "関数型から 'this' 引数を取り除く。",
+      "symbol": "typescript/lib/lib.es5.d.ts#OmitThisParameter",
+      "lang": "ja"
+    },
+    "4b3b69f8": {
+      "original": "Obtain the parameters of a function type in a tuple",
+      "translated": "関数型の引数をタプルとして取得する",
+      "symbol": "typescript/lib/lib.es5.d.ts#Parameters",
+      "lang": "ja"
+    },
+    "3f1a731c": {
+      "original": "Converts a string to an integer.",
+      "translated": "文字列を整数に変換する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#parseInt",
+      "lang": "ja"
+    },
+    "daffa1c0": {
+      "original": "Make all properties in T optional",
+      "translated": "T のすべてのプロパティを省略可能(optional)にする",
+      "symbol": "typescript/lib/lib.es5.d.ts#Partial",
+      "lang": "ja"
+    },
+    "6b181d19": {
+      "original": "From T, pick a set of properties whose keys are in the union K",
+      "translated": "T から、キーがユニオン K に含まれるプロパティの集合を取り出す",
+      "symbol": "typescript/lib/lib.es5.d.ts#Pick",
+      "lang": "ja"
+    },
+    "09eb2bb3": {
+      "original": "Attaches a callback for only the rejection of the Promise.",
+      "translated": "Promise の拒否時にのみ実行するコールバックを登録する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Promise.catch",
+      "lang": "ja"
+    },
+    "b030b84d": {
+      "original": "A Promise for the completion of which ever callback is executed.",
+      "translated": "実行された方のコールバックの完了を表す Promise。",
+      "symbol": "typescript/lib/lib.es5.d.ts#PromiseLike.then",
+      "lang": "ja"
+    },
+    "faa3a365": {
+      "original": "The callback to execute when the Promise is rejected.",
+      "translated": "Promise が拒否されたときに実行するコールバック。",
+      "symbol": "typescript/lib/lib.es5.d.ts#PromiseLike.then",
+      "lang": "ja"
+    },
+    "a2968435": {
+      "original": "The callback to execute when the Promise is resolved.",
+      "translated": "Promise が解決されたときに実行するコールバック。",
+      "symbol": "typescript/lib/lib.es5.d.ts#PromiseLike.then",
+      "lang": "ja"
+    },
+    "4a1d5d1e": {
+      "original": "Make all properties in T readonly",
+      "translated": "T のすべてのプロパティを読み取り専用(readonly)にする",
+      "symbol": "typescript/lib/lib.es5.d.ts#Readonly",
+      "lang": "ja"
+    },
+    "7857e6db": {
+      "original": "Additional items to add to the end of array1.",
+      "translated": "array1 の末尾に追加する要素。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.concat",
+      "lang": "ja"
+    },
+    "229d6cda": {
+      "original": "Combines two or more arrays.",
+      "translated": "2 つ以上の配列を結合する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.concat",
+      "lang": "ja"
+    },
+    "d903000c": {
+      "original": "A function that accepts up to three arguments. The every method calls\nthe predicate function for each element in the array until the predicate returns a value\nwhich is coercible to the Boolean value false, or until the end of the array.",
+      "translated": "最大 3 つの引数を受け取る関数。every メソッドは、predicate が真偽値 false に変換可能な値を返すまで、\nまたは配列の末尾に達するまで、配列の各要素に対して predicate 関数を呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.every",
+      "lang": "ja"
+    },
+    "29d4bab7": {
+      "original": "A function that accepts up to three arguments. The filter method calls the predicate function one time for each element in the array.",
+      "translated": "最大 3 つの引数を受け取る関数。filter メソッドは、配列の各要素に対して 1 回ずつ predicate 関数を呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.filter",
+      "lang": "ja"
+    },
+    "ae8524f1": {
+      "original": "An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value.",
+      "translated": "predicate 関数の中で this キーワードが参照できるオブジェクト。thisArg を省略した場合、this 値として undefined が使われる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.filter",
+      "lang": "ja"
+    },
+    "ed8ae879": {
+      "original": "A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array.",
+      "translated": "最大 3 つの引数を受け取る関数。forEach は、配列の各要素に対して 1 回ずつ callbackfn 関数を呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.forEach",
+      "lang": "ja"
+    },
+    "61a8a0e0": {
+      "original": "An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.",
+      "translated": "callbackfn 関数の中で this キーワードが参照できるオブジェクト。thisArg を省略した場合、this 値として undefined が使われる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.forEach",
+      "lang": "ja"
+    },
+    "fe89decb": {
+      "original": "The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.",
+      "translated": "検索を開始する配列のインデックス。fromIndex を省略した場合、検索はインデックス 0 から始まる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.indexOf",
+      "lang": "ja"
+    },
+    "ff0a3b84": {
+      "original": "A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma.",
+      "translated": "生成される文字列で、配列の各要素を次の要素と区切るために使う文字列。省略した場合、要素はカンマで区切られる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.join",
+      "lang": "ja"
+    },
+    "d1ffa099": {
+      "original": "Returns the index of the last occurrence of a specified value in an array.",
+      "translated": "配列内で指定した値が最後に現れるインデックスを返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.lastIndexOf",
+      "lang": "ja"
+    },
+    "31344cbf": {
+      "original": "Gets the length of the array. This is a number one higher than the highest element defined in an array.",
+      "translated": "配列の長さを取得する。これは配列に定義された最大の要素より 1 だけ大きい数値である。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.length",
+      "lang": "ja"
+    },
+    "6ce7b500": {
+      "original": "A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.",
+      "translated": "最大 3 つの引数を受け取る関数。map メソッドは、配列の各要素に対して 1 回ずつ callbackfn 関数を呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.map",
+      "lang": "ja"
+    },
+    "eec83d65": {
+      "original": "Calls a defined callback function on each element of an array, and returns an array that contains the results.",
+      "translated": "配列の各要素に対して、定義したコールバック関数を呼び出し、その結果を格納した配列を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.map",
+      "lang": "ja"
+    },
+    "5d0773de": {
+      "original": "A function that accepts up to four arguments. The reduce method calls the callbackfn function one time for each element in the array.",
+      "translated": "最大 4 つの引数を受け取る関数。reduce メソッドは、配列の各要素に対して 1 回ずつ callbackfn 関数を呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.reduce",
+      "lang": "ja"
+    },
+    "c108d960": {
+      "original": "Calls the specified callback function for all the elements in an array. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.",
+      "translated": "配列のすべての要素に対して、指定したコールバック関数を呼び出す。コールバック関数の戻り値は累積結果であり、\n次のコールバック関数の呼び出しに引数として渡される。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.reduce",
+      "lang": "ja"
+    },
+    "6b457ed6": {
+      "original": "If initialValue is specified, it is used as the initial value to start the accumulation. The first call to the callbackfn function provides this value as an argument instead of an array value.",
+      "translated": "initialValue を指定した場合、累積を開始する初期値として使われる。callbackfn 関数の最初の呼び出しでは、\n配列の値の代わりにこの値が引数として渡される。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.reduce",
+      "lang": "ja"
+    },
+    "81b46f03": {
+      "original": "A function that accepts up to four arguments. The reduceRight method calls the callbackfn function one time for each element in the array.",
+      "translated": "最大 4 つの引数を受け取る関数。reduceRight メソッドは、配列の各要素に対して 1 回ずつ callbackfn 関数を呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.reduceRight",
+      "lang": "ja"
+    },
+    "b439fb30": {
+      "original": "Calls the specified callback function for all the elements in an array, in descending order. The return value of the callback function is the accumulated result, and is provided as an argument in the next call to the callback function.",
+      "translated": "配列のすべての要素に対して、降順で指定したコールバック関数を呼び出す。コールバック関数の戻り値は累積結果であり、\n次のコールバック関数の呼び出しに引数として渡される。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.reduceRight",
+      "lang": "ja"
+    },
+    "3b6d180b": {
+      "original": "The end of the specified portion of the array. This is exclusive of the element at the index 'end'.",
+      "translated": "配列の指定範囲の終了位置。インデックス 'end' の要素は含まれない。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.slice",
+      "lang": "ja"
+    },
+    "1004dfdc": {
+      "original": "A function that accepts up to three arguments. The some method calls\nthe predicate function for each element in the array until the predicate returns a value\nwhich is coercible to the Boolean value true, or until the end of the array.",
+      "translated": "最大 3 つの引数を受け取る関数。some メソッドは、predicate が真偽値 true に変換可能な値を返すまで、\nまたは配列の末尾に達するまで、配列の各要素に対して predicate 関数を呼び出す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.some",
+      "lang": "ja"
+    },
+    "a2ef2091": {
+      "original": "Returns a string representation of an array. The elements are converted to string using their toLocaleString methods.",
+      "translated": "配列の文字列表現を返す。各要素は、それぞれの toLocaleString メソッドを使って文字列に変換される。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.toLocaleString",
+      "lang": "ja"
+    },
+    "8e07e38a": {
+      "original": "Returns a string representation of an array.",
+      "translated": "配列の文字列表現を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReadonlyArray.toString",
+      "lang": "ja"
+    },
+    "86aec5d1": {
+      "original": "Construct a type with a set of properties K of type T",
+      "translated": "型 T のプロパティ集合 K を持つ型を構築する",
+      "symbol": "typescript/lib/lib.es5.d.ts#Record",
+      "lang": "ja"
+    },
+    "f6eb18f4": {
+      "original": "Executes a search on a string using a regular expression pattern, and returns an array containing the results of that search.",
+      "translated": "正規表現パターンを使って文字列を検索し、その検索結果を格納した配列を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExp.exec",
+      "lang": "ja"
+    },
+    "f7aca557": {
+      "original": "The String object or string literal on which to perform the search.",
+      "translated": "検索を実行する対象の String オブジェクトまたは文字列リテラル。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExp.exec",
+      "lang": "ja"
+    },
+    "a0d361fe": {
+      "original": "Returns a Boolean value indicating the state of the global flag (g) used with a regular expression. Default is false. Read-only.",
+      "translated": "正規表現で使われる global フラグ(g)の状態を示す真偽値を返す。既定は false。読み取り専用。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExp.global",
+      "lang": "ja"
+    },
+    "bb0ea5ab": {
+      "original": "Returns a Boolean value indicating the state of the ignoreCase flag (i) used with a regular expression. Default is false. Read-only.",
+      "translated": "正規表現で使われる ignoreCase フラグ(i)の状態を示す真偽値を返す。既定は false。読み取り専用。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExp.ignoreCase",
+      "lang": "ja"
+    },
+    "bcd4c7ad": {
+      "original": "Returns a copy of the text of the regular expression pattern. Read-only. The regExp argument is a Regular expression object. It can be a variable name or a literal.",
+      "translated": "正規表現パターンのテキストのコピーを返す。読み取り専用。regExp 引数は正規表現オブジェクトである。変数名でもリテラルでもよい。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExp.source",
+      "lang": "ja"
+    },
+    "7e28930c": {
+      "original": "Returns a Boolean value that indicates whether or not a pattern exists in a searched string.",
+      "translated": "検索対象の文字列にパターンが存在するかどうかを示す真偽値を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExp.test",
+      "lang": "ja"
+    },
+    "c7f68d78": {
+      "original": "String on which to perform the search.",
+      "translated": "検索を実行する対象の文字列。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExp.test",
+      "lang": "ja"
+    },
+    "56db8efc": {
+      "original": "The first match. This will always be present because `null` will be returned if there are no matches.",
+      "translated": "最初のマッチ。マッチがない場合は `null` が返されるため、これは常に存在する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExpMatchArray.0",
+      "lang": "ja"
+    },
+    "68dac66a": {
+      "original": "The index of the search at which the result was found.",
+      "translated": "検索において結果が見つかったインデックス。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExpMatchArray.index",
+      "lang": "ja"
+    },
+    "f22f3dbe": {
+      "original": "A copy of the search string.",
+      "translated": "検索対象の文字列のコピー。",
+      "symbol": "typescript/lib/lib.es5.d.ts#RegExpMatchArray.input",
+      "lang": "ja"
+    },
+    "3601ce29": {
+      "original": "Make all properties in T required",
+      "translated": "T のすべてのプロパティを必須(required)にする",
+      "symbol": "typescript/lib/lib.es5.d.ts#Required",
+      "lang": "ja"
+    },
+    "7a60fc29": {
+      "original": "Obtain the return type of a function type",
+      "translated": "関数型の戻り値の型を取得する",
+      "symbol": "typescript/lib/lib.es5.d.ts#ReturnType",
+      "lang": "ja"
+    },
+    "ace165e8": {
+      "original": "Allows manipulation and formatting of text strings and determination and location of substrings within strings.",
+      "translated": "テキスト文字列の操作や整形、文字列内の部分文字列の判定や位置の特定を可能にする。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String",
+      "lang": "ja"
+    },
+    "07bf91e4": {
+      "original": "The zero-based index of the desired character.",
+      "translated": "取得したい文字の 0 始まりのインデックス。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.charAt",
+      "lang": "ja"
+    },
+    "70781cf1": {
+      "original": "Returns the Unicode value of the character at the specified location.",
+      "translated": "指定した位置の文字の Unicode 値を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.charCodeAt",
+      "lang": "ja"
+    },
+    "15f1c36d": {
+      "original": "The zero-based index of the desired character. If there is no character at the specified index, NaN is returned.",
+      "translated": "取得したい文字の 0 始まりのインデックス。指定したインデックスに文字がない場合は NaN が返される。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.charCodeAt",
+      "lang": "ja"
+    },
+    "eb37591d": {
+      "original": "Returns a string that contains the concatenation of two or more strings.",
+      "translated": "2 つ以上の文字列を連結した文字列を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.concat",
+      "lang": "ja"
+    },
+    "31fb0846": {
+      "original": "The strings to append to the end of the string.",
+      "translated": "文字列の末尾に追加する文字列。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.concat",
+      "lang": "ja"
+    },
+    "b4ce24a3": {
+      "original": "Returns the position of the first occurrence of a substring.",
+      "translated": "部分文字列が最初に現れる位置を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.indexOf",
+      "lang": "ja"
+    },
+    "8f0f8406": {
+      "original": "The index at which to begin searching the String object. If omitted, search starts at the beginning of the string.",
+      "translated": "String オブジェクトの検索を開始するインデックス。省略した場合、検索は文字列の先頭から始まる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.indexOf",
+      "lang": "ja"
+    },
+    "2a2d0dda": {
+      "original": "The substring to search for in the string",
+      "translated": "文字列内で検索する部分文字列",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.indexOf",
+      "lang": "ja"
+    },
+    "9a8b7f09": {
+      "original": "Returns the last occurrence of a substring in the string.",
+      "translated": "文字列内で部分文字列が最後に現れる位置を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.lastIndexOf",
+      "lang": "ja"
+    },
+    "ba52c019": {
+      "original": "The index at which to begin searching. If omitted, the search begins at the end of the string.",
+      "translated": "検索を開始するインデックス。省略した場合、検索は文字列の末尾から始まる。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.lastIndexOf",
+      "lang": "ja"
+    },
+    "3054b741": {
+      "original": "The substring to search for.",
+      "translated": "検索する部分文字列。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.lastIndexOf",
+      "lang": "ja"
+    },
+    "cd6bdbfa": {
+      "original": "Returns the length of a String object.",
+      "translated": "String オブジェクトの長さを返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.length",
+      "lang": "ja"
+    },
+    "17e53d21": {
+      "original": "Determines whether two strings are equivalent in the current locale.",
+      "translated": "2 つの文字列が現在のロケールで等価かどうかを判定する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.localeCompare",
+      "lang": "ja"
+    },
+    "b7970071": {
+      "original": "Matches a string with a regular expression, and returns an array containing the results of that search.",
+      "translated": "文字列を正規表現でマッチし、その検索結果を格納した配列を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.match",
+      "lang": "ja"
+    },
+    "56d0a538": {
+      "original": "A string containing the text to replace. When the {@linkcode searchValue} is a `RegExp`, all matches are replaced if the `g` flag is set (or only those matches at the beginning, if the `y` flag is also present). Otherwise, only the first match of {@linkcode searchValue} is replaced.",
+      "translated": "置換後のテキストを含む文字列。{@linkcode searchValue} が `RegExp` の場合、`g` フラグが設定されていればすべてのマッチが置換される(さらに `y` フラグもある場合は先頭のマッチのみ)。それ以外の場合は、{@linkcode searchValue} の最初のマッチのみが置換される。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.replace",
+      "lang": "ja"
+    },
+    "46040f11": {
+      "original": "A string or regular expression to search for.",
+      "translated": "検索する文字列または正規表現。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.replace",
+      "lang": "ja"
+    },
+    "6f9c4233": {
+      "original": "Replaces text in a string, using a regular expression or search string.",
+      "translated": "正規表現または検索文字列を使って、文字列内のテキストを置換する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.replace",
+      "lang": "ja"
+    },
+    "c1ef4243": {
+      "original": "The regular expression pattern and applicable flags.",
+      "translated": "正規表現パターンと、適用するフラグ。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.search",
+      "lang": "ja"
+    },
+    "6d4ed187": {
+      "original": "Returns a section of a string.",
+      "translated": "文字列の一部分を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.slice",
+      "lang": "ja"
+    },
+    "2401e083": {
+      "original": "The index to the beginning of the specified portion of stringObj.",
+      "translated": "stringObj の指定範囲の開始インデックス。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.slice",
+      "lang": "ja"
+    },
+    "dfcceb6b": {
+      "original": "The index to the end of the specified portion of stringObj. The substring includes the characters up to, but not including, the character indicated by end.\nIf this value is not specified, the substring continues to the end of stringObj.",
+      "translated": "stringObj の指定範囲の終了インデックス。部分文字列には end が示す文字の直前までの文字が含まれ、end の文字自体は含まれない。\nこの値を指定しない場合、部分文字列は stringObj の末尾まで続く。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.slice",
+      "lang": "ja"
+    },
+    "dc4d3227": {
+      "original": "A string that identifies character or characters to use in separating the string. If omitted, a single-element array containing the entire string is returned.",
+      "translated": "文字列を分割する際に使う 1 つ以上の文字を指定する文字列。省略した場合、文字列全体を含む要素 1 つの配列が返される。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.split",
+      "lang": "ja"
+    },
+    "2f3128ea": {
+      "original": "Gets a substring beginning at the specified location and having the specified length.",
+      "translated": "指定した位置から始まり、指定した長さを持つ部分文字列を取得する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.substr",
+      "lang": "ja"
+    },
+    "1741e8eb": {
+      "original": "The number of characters to include in the returned substring.",
+      "translated": "返す部分文字列に含める文字数。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.substr",
+      "lang": "ja"
+    },
+    "c1ac93f1": {
+      "original": "The starting position of the desired substring. The index of the first character in the string is zero.",
+      "translated": "取得したい部分文字列の開始位置。文字列の最初の文字のインデックスは 0 である。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.substr",
+      "lang": "ja"
+    },
+    "6534b0e8": {
+      "original": "Returns the substring at the specified location within a String object.",
+      "translated": "String オブジェクト内の指定した位置の部分文字列を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.substring",
+      "lang": "ja"
+    },
+    "e665f243": {
+      "original": "The zero-based index number indicating the beginning of the substring.",
+      "translated": "部分文字列の開始を示す 0 始まりのインデックス番号。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.substring",
+      "lang": "ja"
+    },
+    "92cab244": {
+      "original": "Zero-based index number indicating the end of the substring. The substring includes the characters up to, but not including, the character indicated by end.\nIf end is omitted, the characters from start through the end of the original string are returned.",
+      "translated": "部分文字列の終了を示す 0 始まりのインデックス番号。部分文字列には end が示す文字の直前までの文字が含まれ、end の文字自体は含まれない。\nend を省略した場合、start から元の文字列の末尾までの文字が返される。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.substring",
+      "lang": "ja"
+    },
+    "da132f3c": {
+      "original": "Converts all the alphabetic characters in a string to lowercase.",
+      "translated": "文字列内のすべての英字を小文字に変換する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.toLowerCase",
+      "lang": "ja"
+    },
+    "572f44a8": {
+      "original": "Returns a string representation of a string.",
+      "translated": "文字列の文字列表現を返す。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.toString",
+      "lang": "ja"
+    },
+    "9e63c7b7": {
+      "original": "Converts all the alphabetic characters in a string to uppercase.",
+      "translated": "文字列内のすべての英字を大文字に変換する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.toUpperCase",
+      "lang": "ja"
+    },
+    "c9058956": {
+      "original": "Removes the leading and trailing white space and line terminator characters from a string.",
+      "translated": "文字列の先頭と末尾から、空白文字と行終端文字を取り除く。",
+      "symbol": "typescript/lib/lib.es5.d.ts#String.trim",
+      "lang": "ja"
+    },
+    "4a3e4090": {
+      "original": "Extracts the type of the 'this' parameter of a function type, or 'unknown' if the function type has no 'this' parameter.",
+      "translated": "関数型の 'this' 引数の型を取り出す。関数型に 'this' 引数がない場合は 'unknown'。",
+      "symbol": "typescript/lib/lib.es5.d.ts#ThisParameterType",
+      "lang": "ja"
+    },
+    "3472e52a": {
+      "original": "Marker for contextual 'this' type",
+      "translated": "文脈上の 'this' 型のためのマーカー",
+      "symbol": "typescript/lib/lib.es5.d.ts#ThisType",
+      "lang": "ja"
+    },
+    "8ed6dcf2": {
+      "original": "A typed array of 16-bit unsigned integer values. The contents are initialized to 0. If the\nrequested number of bytes could not be allocated an exception is raised.",
+      "translated": "16 ビット符号なし整数値の型付き配列。内容は 0 で初期化される。要求されたバイト数を\n割り当てられなかった場合は例外が発生する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Uint16Array",
+      "lang": "ja"
+    },
+    "d4bd2c4b": {
+      "original": "Gets a new Uint16Array view of the ArrayBuffer store for this array, referencing the elements\nat begin, inclusive, up to end, exclusive.",
+      "translated": "この配列の ArrayBuffer ストアに対する新しい Uint16Array ビューを取得する。\nbegin(含む)から end(含まない)までの要素を参照する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Uint16Array.subarray",
+      "lang": "ja"
+    },
+    "e5e1349e": {
+      "original": "A typed array of 32-bit unsigned integer values. The contents are initialized to 0. If the\nrequested number of bytes could not be allocated an exception is raised.",
+      "translated": "32 ビット符号なし整数値の型付き配列。内容は 0 で初期化される。要求されたバイト数を\n割り当てられなかった場合は例外が発生する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Uint32Array",
+      "lang": "ja"
+    },
+    "17e9b3cb": {
+      "original": "Gets a new Uint32Array view of the ArrayBuffer store for this array, referencing the elements\nat begin, inclusive, up to end, exclusive.",
+      "translated": "この配列の ArrayBuffer ストアに対する新しい Uint32Array ビューを取得する。\nbegin(含む)から end(含まない)までの要素を参照する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Uint32Array.subarray",
+      "lang": "ja"
+    },
+    "4f9c725d": {
+      "original": "A typed array of 8-bit unsigned integer values. The contents are initialized to 0. If the\nrequested number of bytes could not be allocated an exception is raised.",
+      "translated": "8 ビット符号なし整数値の型付き配列。内容は 0 で初期化される。要求されたバイト数を\n割り当てられなかった場合は例外が発生する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Uint8Array",
+      "lang": "ja"
+    },
+    "ce011def": {
+      "original": "Gets a new Uint8Array view of the ArrayBuffer store for this array, referencing the elements\nat begin, inclusive, up to end, exclusive.",
+      "translated": "この配列の ArrayBuffer ストアに対する新しい Uint8Array ビューを取得する。\nbegin(含む)から end(含まない)までの要素を参照する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Uint8Array.subarray",
+      "lang": "ja"
+    },
+    "591a0851": {
+      "original": "A typed array of 8-bit unsigned integer (clamped) values. The contents are initialized to 0.\nIf the requested number of bytes could not be allocated an exception is raised.",
+      "translated": "8 ビット符号なし整数(クランプ)値の型付き配列。内容は 0 で初期化される。\n要求されたバイト数を割り当てられなかった場合は例外が発生する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Uint8ClampedArray",
+      "lang": "ja"
+    },
+    "eb7c9ea3": {
+      "original": "Gets a new Uint8ClampedArray view of the ArrayBuffer store for this array, referencing the elements\nat begin, inclusive, up to end, exclusive.",
+      "translated": "この配列の ArrayBuffer ストアに対する新しい Uint8ClampedArray ビューを取得する。\nbegin(含む)から end(含まない)までの要素を参照する。",
+      "symbol": "typescript/lib/lib.es5.d.ts#Uint8ClampedArray.subarray",
+      "lang": "ja"
+    },
+    "0d486e0e": {
+      "original": "Convert first character of string literal type to lowercase",
+      "translated": "文字列リテラル型の先頭文字を小文字に変換する",
+      "symbol": "typescript/lib/lib.es5.d.ts#Uncapitalize",
+      "lang": "ja"
+    },
+    "0e778c42": {
+      "original": "Computes a new string in which hexadecimal escape sequences are replaced with the character that it represents.",
+      "translated": "16 進のエスケープシーケンスを、それが表す文字に置き換えた新しい文字列を求める。",
+      "symbol": "typescript/lib/lib.es5.d.ts#unescape",
+      "lang": "ja"
+    },
+    "3069d37d": {
+      "original": "Convert string literal type to uppercase",
+      "translated": "文字列リテラル型を大文字に変換する",
+      "symbol": "typescript/lib/lib.es5.d.ts#Uppercase",
+      "lang": "ja"
+    },
+    "44d1dffc": {
+      "original": "Stores types to be used with WeakSet, WeakMap, WeakRef, and FinalizationRegistry",
+      "translated": "WeakSet、WeakMap、WeakRef、FinalizationRegistry で使う型を保持する",
+      "symbol": "typescript/lib/lib.es5.d.ts#WeakKeyTypes",
+      "lang": "ja"
+    }
+  }
+}
