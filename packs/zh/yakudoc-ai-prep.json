@@ -1,0 +1,80 @@
+{
+  "name": "yakudoc-ai-prep",
+  "version": "0.1.1",
+  "lang": "zh",
+  "generator": "yakudoc@0.1.1",
+  "entries": {
+    "628f3b4a": {
+      "original": "LLM から返ってきた翻訳結果 JSON({ hash: 訳文 })を書き戻す。\n対象は translations.json と翻訳パックの全ファイルで、ハッシュの一致する\nすべてのファイルへ反映する。プレースホルダーを復元し、トークンが欠けた\n訳文は採用しない。",
+      "translated": "将 LLM 返回的翻译结果 JSON({ hash: 译文 })写回。\n对象为 translations.json 和翻译包的所有文件,写入所有哈希匹配的\n文件。恢复占位符,缺少标记的译文不予采用。",
+      "symbol": "yakudoc-ai-prep/dist/apply.d.ts#applyResponse",
+      "lang": "zh"
+    },
+    "67fd8f58": {
+      "original": "`yakudoc translate --engine prep` のエントリポイント。\n--apply 付きなら翻訳結果の書き戻し、無ければ下準備ファイルの生成を行う。",
+      "translated": "`yakudoc translate --engine prep` 的入口点。\n带 --apply 时写回翻译结果,否则生成预处理文件。",
+      "symbol": "yakudoc-ai-prep/dist/index.d.ts#run",
+      "lang": "zh"
+    },
+    "2d987ff1": {
+      "original": "翻訳してはいけない断片(コード片・インラインタグ・URL)を\n⟦n⟧ 形式のトークンに置き換えて保護する。\n\nLLM にはトークン入りのテキストを渡し、訳文の対応する位置に\nトークンをそのまま残してもらう。書き戻し時に restoreText で復元する。",
+      "translated": "将不可翻译的片段(代码片段、内联标签、URL)\n替换为 ⟦n⟧ 形式的标记加以保护。\n\n向 LLM 传入含标记的文本,要求其在译文的对应位置\n原样保留标记。写回时用 restoreText 还原。",
+      "symbol": "yakudoc-ai-prep/dist/placeholders.d.ts#ProtectedText",
+      "lang": "zh"
+    },
+    "7854fd54": {
+      "original": "トークン番号 → 元の断片",
+      "translated": "标记编号 → 原始片段",
+      "symbol": "yakudoc-ai-prep/dist/placeholders.d.ts#ProtectedText.placeholders",
+      "lang": "zh"
+    },
+    "0ded5d9b": {
+      "original": "トークンに置き換え済みのテキスト",
+      "translated": "已替换为标记的文本",
+      "symbol": "yakudoc-ai-prep/dist/placeholders.d.ts#ProtectedText.text",
+      "lang": "zh"
+    },
+    "68db164e": {
+      "original": "訳文中に見つからなかったトークン番号。1 つでもあれば訳文は採用しない",
+      "translated": "在译文中未找到的标记编号。只要缺少一个,就不采用该译文",
+      "symbol": "yakudoc-ai-prep/dist/placeholders.d.ts#RestoredText.missing",
+      "lang": "zh"
+    },
+    "8fa2e966": {
+      "original": "翻訳待ちエントリから LLM 向けの下準備ファイル一式を生成する。\n\n対象は translations.json と依存パッケージの翻訳パックの全ファイル。\n同じ原文が複数ファイルにあっても依頼は 1 件にまとまる(書き戻し時に\n全ファイルへ反映される)。\n\n- .yakudoc/ai/request.json  保護済み原文とプレースホルダー対応表\n- .yakudoc/ai/prompt.md     そのまま LLM に貼れる依頼文(用語集込み)\n- .yakudoc/glossary.json    用語集(無ければ空で作成。ユーザーが育てる)",
+      "translated": "从待翻译条目为 LLM 生成整套预处理文件。\n\n对象为 translations.json 和依赖包的全部翻译包文件。\n即使同一原文出现在多个文件中,请求也会合并为 1 条(写回时\n反映到所有文件)。\n\n- .yakudoc/ai/request.json  受保护的原文与占位符对照表\n- .yakudoc/ai/prompt.md     可直接粘贴给 LLM 的请求文(含术语表)\n- .yakudoc/glossary.json    术语表(不存在则创建为空,由用户逐步完善)",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#prepare",
+      "lang": "zh"
+    },
+    "e79064cd": {
+      "original": ".yakudoc/ai/request.json の形式",
+      "translated": ".yakudoc/ai/request.json 的格式",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#RequestFile",
+      "lang": "zh"
+    },
+    "66339da8": {
+      "original": "<phN> トークン → 元の断片(apply 時の復元に使う)",
+      "translated": "<phN> 标记 → 原始片段(apply 时用于还原)",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#RequestFile.entries.placeholders",
+      "lang": "zh"
+    },
+    "0099fcdb": {
+      "original": "プレースホルダー保護済みの原文",
+      "translated": "已用占位符保护的原文",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#RequestFile.entries.source",
+      "lang": "zh"
+    },
+    "0c2352ab": {
+      "original": "翻訳先の言語コード(例: \"ja\")",
+      "translated": "目标语言代码(例如 \"ja\")",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#RequestFile.targetLanguage",
+      "lang": "zh"
+    },
+    "c2eb8b0d": {
+      "original": "翻訳対象ファイルの一覧。CLI が渡す translationsPaths\n(translations.json + 翻訳パック)を優先し、無ければ従来どおり\ntranslations.json 1 ファイル。",
+      "translated": "待翻译文件列表。优先使用 CLI 传入的 translationsPaths\n(translations.json + 翻译包);若无,则如以往仅使用\ntranslations.json 单个文件。",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#resolveTargetPaths",
+      "lang": "zh"
+    }
+  }
+}

@@ -1,0 +1,830 @@
+{
+  "name": "yakudoc",
+  "version": "0.1.1",
+  "lang": "zh",
+  "generator": "yakudoc@0.1.1",
+  "entries": {
+    "31239933": {
+      "original": "yakudoc で使う言語コード(ISO 639-1)",
+      "translated": "yakudoc 使用的语言代码(ISO 639-1)",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.code",
+      "lang": "zh"
+    },
+    "61379765": {
+      "original": "config.json を書き出す(ディレクトリが無ければ作る)",
+      "translated": "写出 config.json(目录不存在则创建)",
+      "symbol": "yakudoc/dist/config.d.ts#writeConfig",
+      "lang": "zh"
+    },
+    "3af1d008": {
+      "original": "依存パッケージの翻訳パックを作成・更新する(`yakudoc add` の本体)。\n\n1. インストール済みパッケージの型定義から JSDoc を抽出する\n2. 既存パックとマージする(訳文はハッシュが一致する限り保持される)\n3. コミュニティパックを取得し、翻訳待ちのエントリにだけ訳文を重ねる\n   (取得失敗は警告相当。オフラインでも 1〜2 は成立する)\n4. `.yakudoc/packs/<パッケージ名>.json` に書き出す",
+      "translated": "创建或更新依赖包的翻译包(`yakudoc add` 的主体)。\n\n1. 从已安装包的类型定义中抽取 JSDoc\n2. 与既有翻译包合并(只要哈希一致,译文即予保留)\n3. 获取社区翻译包,仅将译文叠加到待翻译条目上\n   (获取失败视为警告;离线时第 1-2 步仍可成立)\n4. 写出到 `.yakudoc/packs/<包名>.json`",
+      "symbol": "yakudoc/dist/addPack.d.ts#addPackage",
+      "lang": "zh"
+    },
+    "a56588f5": {
+      "original": "config.json に保存されたレジストリ URL",
+      "translated": "保存在 config.json 中的 registry URL",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.configRegistryUrl",
+      "lang": "zh"
+    },
+    "b4dd53c1": {
+      "original": "テスト用: fetch の差し替え",
+      "translated": "测试用: 替换 fetch",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.fetchImpl",
+      "lang": "zh"
+    },
+    "ec0f83d6": {
+      "original": "パックの generator に記録する文字列(例: \"yakudoc@0.2.0\")",
+      "translated": "记录到翻译包 generator 的字符串(例如 \"yakudoc@0.2.0\")",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.generator",
+      "lang": "zh"
+    },
+    "6041118d": {
+      "original": "コミュニティパックを取得しない(オフライン運用)",
+      "translated": "不获取社区翻译包(离线运行)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.noFetch",
+      "lang": "zh"
+    },
+    "8a79bfc8": {
+      "original": "ソースから消えた原文のエントリを削除する(既定: 残す)",
+      "translated": "删除原文已从源码中消失的条目(默认: 保留)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.prune",
+      "lang": "zh"
+    },
+    "1482366c": {
+      "original": "レジストリのベース URL(--registry。未指定なら env / config / 既定)",
+      "translated": "registry 的基础 URL(--registry;未指定则 env / config / 默认)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.registryUrl",
+      "lang": "zh"
+    },
+    "0694f26f": {
+      "original": "翻訳先言語(解決済みコード)",
+      "translated": "目标语言(已解析的代码)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.targetLang",
+      "lang": "zh"
+    },
+    "c6d2c75e": {
+      "original": "translations.json のパス(packs/ の場所を導出するために使う)",
+      "translated": "translations.json 的路径(用于推导 packs/ 的位置)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.translationsPath",
+      "lang": "zh"
+    },
+    "80c8640e": {
+      "original": "コミュニティパック取得の結果(スキップした場合は undefined)",
+      "translated": "获取社区翻译包的结果(若跳过则为 undefined)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.fetchResult",
+      "lang": "zh"
+    },
+    "7ff24ac0": {
+      "original": "走査した型定義ファイル数",
+      "translated": "扫描的类型定义文件数",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.fileCount",
+      "lang": "zh"
+    },
+    "f530ffac": {
+      "original": "今回コミュニティパックから採用した訳文の数",
+      "translated": "本次从社区翻译包采用的译文数",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.fromCommunity",
+      "lang": "zh"
+    },
+    "2afa2525": {
+      "original": "パックの総エントリ数(stale 含む)",
+      "translated": "翻译包的条目总数(含 stale)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.total",
+      "lang": "zh"
+    },
+    "25b66569": {
+      "original": "翻訳済みエントリ数",
+      "translated": "已翻译的条目数",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.translated",
+      "lang": "zh"
+    },
+    "a79e84a2": {
+      "original": "翻訳待ちエントリ数",
+      "translated": "待翻译的条目数",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.untranslated",
+      "lang": "zh"
+    },
+    "79ffdb6f": {
+      "original": "コミュニティパックの訳文を、翻訳待ちのエントリへだけ重ねる。\nローカルで付けた訳(手動編集や自前の翻訳)は上書きしない。\n採用した件数を返す。",
+      "translated": "仅将社区翻译包的译文叠加到待翻译条目上。\n不覆盖本地添加的译文(手动编辑或自有翻译)。\n返回采用的条数。",
+      "symbol": "yakudoc/dist/addPack.d.ts#overlayCommunityPack",
+      "lang": "zh"
+    },
+    "2b1c9183": {
+      "original": "プロジェクトの config.json のパス。\ntranslations.json の --out には追従しない固定の場所(projectDir/.yakudoc/config.json)。\n--out に追従させると、後で --out 無しで実行したときに設定が見つからず\n黙って既定言語に戻ってしまうため。",
+      "translated": "项目 config.json 的路径。\n不跟随 translations.json 的 --out 的固定位置(projectDir/.yakudoc/config.json)。\n若跟随 --out,之后不带 --out 运行时会找不到设置而\n悄悄退回默认语言。",
+      "symbol": "yakudoc/dist/config.d.ts#configPathFor",
+      "lang": "zh"
+    },
+    "b8b55a20": {
+      "original": "config.json を読み込む。存在しなければ空の設定を返す。\n存在するのに読めない・解釈できない場合は黙って無視せず、案内付きのエラーにする\n(保存済みの --lang が黙って無効になるのを防ぐため)。",
+      "translated": "读取 config.json。若不存在则返回空配置。\n若存在却无法读取或解析,则不静默忽略,而是抛出带指引的错误\n(以防已保存的 --lang 悄悄失效)。",
+      "symbol": "yakudoc/dist/config.d.ts#readConfig",
+      "lang": "zh"
+    },
+    "4501fb14": {
+      "original": "翻訳先言語を決める。優先順位: CLI の --lang > config.json > 既定(ja)。\nどこから来たコードでも検証し、未対応ならエラーにする。",
+      "translated": "决定目标语言。优先级: CLI 的 --lang > config.json > 默认(ja)。\n无论代码来自何处都会校验,不支持则报错。",
+      "symbol": "yakudoc/dist/config.d.ts#resolveTargetLang",
+      "lang": "zh"
+    },
+    "ad7c54ee": {
+      "original": ".yakudoc/config.json の形式",
+      "translated": ".yakudoc/config.json 的格式",
+      "symbol": "yakudoc/dist/config.d.ts#YakudocConfig",
+      "lang": "zh"
+    },
+    "7cad2a14": {
+      "original": "コミュニティ翻訳パックの取得元 URL(省略時: 既定のレジストリ)",
+      "translated": "获取社区翻译包的来源 URL(省略时: 默认 registry)",
+      "symbol": "yakudoc/dist/config.d.ts#YakudocConfig.registry",
+      "lang": "zh"
+    },
+    "69e29f16": {
+      "original": "翻訳先の言語コード(省略時: ja)",
+      "translated": "目标语言代码(省略时: ja)",
+      "symbol": "yakudoc/dist/config.d.ts#YakudocConfig.targetLang",
+      "lang": "zh"
+    },
+    "b3530b72": {
+      "original": "パッケージディレクトリ内の型定義ファイル(.d.ts / .d.mts / .d.cts)を\n再帰的に集める。入れ子の node_modules は対象外。パス順に整列して返す\n(抽出結果の順序を安定させるため)。",
+      "translated": "递归收集包目录内的类型定义文件(.d.ts / .d.mts / .d.cts)。\n嵌套的 node_modules 不在对象内。按路径排序后返回\n(以保持抽取结果的顺序稳定)。",
+      "symbol": "yakudoc/dist/depExtract.d.ts#collectDeclarationFiles",
+      "lang": "zh"
+    },
+    "6d123db3": {
+      "original": "インストール済みパッケージの型定義から JSDoc を抽出する。\n\nsymbol は \"zod/lib/types.d.ts#ZodType.parse\" のように\nパッケージ名からの相対パスで記録する(status の一覧や共有パックを\n見たときに、どのパッケージのどの API か分かるようにするため)。",
+      "translated": "从已安装包的类型定义中抽取 JSDoc。\n\nsymbol 以相对于包名的路径记录,如 \"zod/lib/types.d.ts#ZodType.parse\"\n(以便查看 status 列表或共享翻译包时,能分辨是哪个包的哪个 API)。",
+      "symbol": "yakudoc/dist/depExtract.d.ts#extractInstalledPackage",
+      "lang": "zh"
+    },
+    "df9721e3": {
+      "original": "インストール済みパッケージの所在とバージョン",
+      "translated": "已安装包的所在位置与版本",
+      "symbol": "yakudoc/dist/depExtract.d.ts#InstalledPackageInfo",
+      "lang": "zh"
+    },
+    "5411250c": {
+      "original": "projectDir から Node の解決規則でパッケージを見つけ、package.json の\nバージョンを読む。見つからなければ案内付きのエラー。",
+      "translated": "从 projectDir 按 Node 的解析规则查找包,并读取 package.json 中的\n版本。找不到则抛出带指引的错误。",
+      "symbol": "yakudoc/dist/depExtract.d.ts#resolveInstalledPackageInfo",
+      "lang": "zh"
+    },
+    "4436229d": {
+      "original": "現在の状態の説明",
+      "translated": "当前状态的说明",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorCheck.detail",
+      "lang": "zh"
+    },
+    "f0e24b1a": {
+      "original": "ok 以外のときの対処方法。複数行は \\n 区切り",
+      "translated": "非 ok 时的处理方法。多行以 \\n 分隔",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorCheck.hint",
+      "lang": "zh"
+    },
+    "902f4854": {
+      "original": "検査項目名(表示用)",
+      "translated": "检查项名称(用于显示)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorCheck.label",
+      "lang": "zh"
+    },
+    "5914de68": {
+      "original": "translations.json のパス(既定: .yakudoc/translations.json)",
+      "translated": "translations.json 的路径(默认: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorOptions.outPath",
+      "lang": "zh"
+    },
+    "b1a94868": {
+      "original": "プロジェクトルート。tsconfig 探索と出力パスの基準",
+      "translated": "项目根目录。tsconfig 查找与输出路径的基准",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorOptions.projectDir",
+      "lang": "zh"
+    },
+    "4d8a4804": {
+      "original": "tsconfig.json のパス(既定: projectDir から探索)",
+      "translated": "tsconfig.json 的路径(默认: 从 projectDir 查找)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorOptions.tsconfigPath",
+      "lang": "zh"
+    },
+    "c966f7b4": {
+      "original": "導入状態を診断する。「init はしたのにホバーが変わらない」の原因を\nユーザー自身が特定できるよう、失敗しやすい箇所を順に検査する:\n\n1. tsconfig.json にプラグインが登録されているか(extends 解決込み)\n2. yakudoc-ts-plugin が node_modules から解決できるか\n3. translations.json が存在するか(あれば進捗も表示)\n4. 翻訳先言語の設定が壊れていないか\n5. 翻訳エンジン(yakudoc-mt / yakudoc-ai-prep)が入っているか\n\n検査はどれも読み取り専用で、ファイルを書き換えない。",
+      "translated": "诊断接入状态。为让用户自行定位「init 了但悬停没变化」的原因,\n按顺序检查易出错的环节:\n\n1. tsconfig.json 中是否已注册插件(含 extends 解析)\n2. yakudoc-ts-plugin 能否从 node_modules 解析到\n3. translations.json 是否存在(存在则一并显示进度)\n4. 目标语言设置是否损坏\n5. 是否安装了翻译引擎(yakudoc-mt / yakudoc-ai-prep)\n\n所有检查均为只读,不修改任何文件。",
+      "symbol": "yakudoc/dist/doctor.d.ts#doctorProject",
+      "lang": "zh"
+    },
+    "9361a51c": {
+      "original": "error が 1 件でもあれば 1(スクリプトや CI 用)",
+      "translated": "只要有 1 个 error 就为 1(用于脚本或 CI)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorReport.exitCode",
+      "lang": "zh"
+    },
+    "3f340241": {
+      "original": "translate のエンジン名 → 実装パッケージ",
+      "translated": "translate 的引擎名 → 实现包",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#ENGINE_PACKAGES",
+      "lang": "zh"
+    },
+    "7e870ce0": {
+      "original": "エンジン名(prep | local)",
+      "translated": "引擎名(prep | local)",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#EngineSelection.engine",
+      "lang": "zh"
+    },
+    "8dad86e2": {
+      "original": "自動選択したときの説明(CLI が表示する)",
+      "translated": "自动选择时的说明(由 CLI 显示)",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#EngineSelection.note",
+      "lang": "zh"
+    },
+    "9a84c432": {
+      "original": "実装パッケージ名",
+      "translated": "实现包名",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#EngineSelection.packageName",
+      "lang": "zh"
+    },
+    "af20aa54": {
+      "original": "translate で使うエンジンを決める。\n\n- --engine 指定があればそれ(不明な名前はエラー)\n- --apply 指定は prep 専用の操作なので prep に確定する\n- どちらも無ければインストール済みのエンジンを探し、1 つだけなら\n  それを自動選択する(0 or 2 つなら案内付きのエラー)",
+      "translated": "决定 translate 使用的引擎。\n\n- 若指定了 --engine 则用它(未知名称报错)\n- --apply 是 prep 专用操作,因此确定为 prep\n- 两者都没有时,查找已安装的引擎,若只有 1 个\n  则自动选择它(0 个或 2 个则抛出带指引的错误)",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#selectEngine",
+      "lang": "zh"
+    },
+    "76ac659a": {
+      "original": "1 ファイル分の JSDoc から翻訳対象テキストを抽出する。\n\n抽出単位は「説明文」と「各タグの説明文」。tsserver がホバーで返す\ndocumentation / tags の text 部分と対応しており、プラグイン側は\n同じ hashText で照合する。",
+      "translated": "从单个文件的 JSDoc 中抽取待翻译文本。\n\n抽取单位是「说明文」和「各标签的说明文」。它们与 tsserver 在悬停中返回的\ndocumentation / tags 的 text 部分相对应,插件一侧\n用相同的 hashText 进行对照。",
+      "symbol": "yakudoc/dist/extract.d.ts#extractFromSourceFile",
+      "lang": "zh"
+    },
+    "1a5452ec": {
+      "original": "出力先(既定: .yakudoc/translations.json)",
+      "translated": "输出目标(默认: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/extract.d.ts#ExtractOptions.outPath",
+      "lang": "zh"
+    },
+    "998de0ed": {
+      "original": "tsconfig.json のファイル一覧を走査して JSDoc を抽出し、\n既存の translations.json とマージして書き出す。\n\n差分翻訳の要: 既存エントリの訳文はハッシュが一致する限り保持され、\n原文が変わったコメントは新しいハッシュの「翻訳待ち」エントリになる。",
+      "translated": "扫描 tsconfig.json 的文件列表以抽取 JSDoc,\n再与既有的 translations.json 合并后写出。\n\n增量翻译的关键: 既有条目的译文只要哈希一致即予保留,\n原文发生变化的注释会成为新哈希的「待翻译」条目。",
+      "symbol": "yakudoc/dist/extract.d.ts#extractProject",
+      "lang": "zh"
+    },
+    "45840eba": {
+      "original": "tsconfig.json(JSONC)のテキストに compilerOptions.plugins エントリを追加する。\nコメントや既存のフォーマットは保持する。登録済みなら何もしない。\n\neffectivePlugins には extends 解決後の実効 plugins を渡す。tsconfig が\nextends 先から plugins を継承している場合、ローカルに plugins を新設すると\nTypeScript のマージ規則(キー単位の置換)で継承分が丸ごと消えるため、\n実効 plugins を種にしてローカル配列を組み立てる。\n\n注意: この実装は packages/yakudoc-vscode/src/tsconfigRegistration.ts の\naddYakudocPlugin と対で保守する(拡張側は typescript 非依存のため共有していない)。",
+      "translated": "向 tsconfig.json(JSONC)的文本中添加 compilerOptions.plugins 条目。\n保留注释和既有格式。若已注册则不做任何事。\n\neffectivePlugins 传入 extends 解析后的实际生效 plugins。若 tsconfig\n从 extends 目标继承了 plugins,则在本地新建 plugins 时,\nTypeScript 的合并规则(按键替换)会将继承部分整体抹去,\n因此以实际生效的 plugins 为种子来构建本地数组。\n\n注意: 此实现需与 packages/yakudoc-vscode/src/tsconfigRegistration.ts 的\naddYakudocPlugin 成对维护(扩展一侧不依赖 typescript,故未共享)。",
+      "symbol": "yakudoc/dist/init.d.ts#addPluginToTsconfig",
+      "lang": "zh"
+    },
+    "a1fac90a": {
+      "original": "extends を解決した後の実効 compilerOptions.plugins を返す。\n解決できない場合(tsconfig が壊れている等)は undefined。",
+      "translated": "返回解析 extends 之后实际生效的 compilerOptions.plugins。\n无法解析时(如 tsconfig 损坏)返回 undefined。",
+      "symbol": "yakudoc/dist/init.d.ts#effectivePluginsOf",
+      "lang": "zh"
+    },
+    "f3e1ad4d": {
+      "original": "translations.json の出力先(既定: .yakudoc/translations.json)",
+      "translated": "translations.json 的输出目标(默认: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/init.d.ts#InitOptions.outPath",
+      "lang": "zh"
+    },
+    "e7aac049": {
+      "original": "翻訳先の言語コード。指定すると .yakudoc/config.json に保存される",
+      "translated": "目标语言代码。指定后会保存到 .yakudoc/config.json",
+      "symbol": "yakudoc/dist/init.d.ts#InitOptions.targetLang",
+      "lang": "zh"
+    },
+    "1e98a15d": {
+      "original": "yakudoc の導入を一括で行う。\n\n1. tsconfig.json に yakudoc-ts-plugin を登録する(登録済みなら何もしない)\n2. extract を実行して .yakudoc/translations.json を生成する\n3. targetLang 指定時は .yakudoc/config.json に翻訳先言語を保存する\n\nいずれの手順も冪等で、既存の訳文や tsconfig のコメントは保持される。",
+      "translated": "一次性完成 yakudoc 的接入。\n\n1. 在 tsconfig.json 中注册 yakudoc-ts-plugin(已注册则不做任何事)\n2. 执行 extract 以生成 .yakudoc/translations.json\n3. 指定 targetLang 时,将目标语言保存到 .yakudoc/config.json\n\n每个步骤都是幂等的,既有译文和 tsconfig 注释都会被保留。",
+      "symbol": "yakudoc/dist/init.d.ts#initProject",
+      "lang": "zh"
+    },
+    "0a3f4b2c": {
+      "original": "config.json の絶対パス(表示用)",
+      "translated": "config.json 的绝对路径(用于显示)",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.configPath",
+      "lang": "zh"
+    },
+    "4cee9b57": {
+      "original": "今回 config.json に翻訳先言語を保存したか",
+      "translated": "本次是否已将目标语言保存到 config.json",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.configWritten",
+      "lang": "zh"
+    },
+    "aa1381d5": {
+      "original": "初回 extract の結果",
+      "translated": "首次 extract 的结果",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.extract",
+      "lang": "zh"
+    },
+    "e949b7f8": {
+      "original": "yakudoc-ts-plugin が projectDir から解決できるか。\ntsserver は解決できないプラグインを黙って無視するため、false のまま\n使い始めると「登録したのに表示が変わらない」状態になる(CLI が警告する)。",
+      "translated": "yakudoc-ts-plugin 能否从 projectDir 解析到。\n由于 tsserver 会静默忽略无法解析的插件,若在此为 false 时\n就开始使用,会陷入「已注册但显示不变化」的状态(CLI 会警告)。",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.pluginInstalled",
+      "lang": "zh"
+    },
+    "bc741168": {
+      "original": "今回プラグインを追記したか(既に登録済みなら false)",
+      "translated": "本次是否追加了插件(若已注册则为 false)",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.pluginRegistered",
+      "lang": "zh"
+    },
+    "413423e2": {
+      "original": "有効な翻訳先言語コード(--lang > config.json > 既定 ja)",
+      "translated": "生效的目标语言代码(--lang > config.json > 默认 ja)",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.targetLang",
+      "lang": "zh"
+    },
+    "04ef4518": {
+      "original": "登録対象になった tsconfig.json の絶対パス",
+      "translated": "作为注册目标的 tsconfig.json 的绝对路径",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.tsconfigPath",
+      "lang": "zh"
+    },
+    "6c04708b": {
+      "original": "パッケージが projectDir から Node の解決規則で見つかるかを調べ、\n見つかればその場所(パッケージディレクトリ)を返す。見つからなければ undefined。\n\ntsserver も compilerOptions.plugins のプラグインを node_modules の\n上方向探索で解決するため、この結果が「プラグインが実際に読み込めるか」の\n近似になる。main(dist/)が未ビルドでも存在だけは検知できるよう、\npackage.json → main の順で解決を試みる。",
+      "translated": "检查某个包能否从 projectDir 按 Node 的解析规则找到,\n若找到则返回其位置(包目录)。找不到则返回 undefined。\n\n由于 tsserver 也是通过向上搜索 node_modules 来解析 compilerOptions.plugins\n中的插件,因此该结果可近似表示「插件是否真的能被加载」。为使 main(dist/)\n尚未构建时也能检测到其存在,按 package.json → main 的顺序尝试解析。",
+      "symbol": "yakudoc/dist/installed.d.ts#resolveInstalledPackage",
+      "lang": "zh"
+    },
+    "b6b632db": {
+      "original": "翻訳先言語のレジストリ。\n\nyakudoc の翻訳先はここに載っている言語コードで指定する(既定: ja)。\n内蔵モデル(yakudoc-mt)はモデルのアーキテクチャごとに独自の言語コード\n体系を持つため、NLLB-200 / mBART-50 双方のコードをここで対応付ける。\n掲載言語は両モデルが対応しているものに限る。",
+      "translated": "目标语言的注册表。\n\nyakudoc 的目标语言以此处列出的语言代码指定(默认: ja)。\n由于内置模型(yakudoc-mt)因模型架构不同而各自拥有独立的语言代码\n体系,故在此同时映射 NLLB-200 与 mBART-50 两者的代码。\n所列语言仅限两个模型都支持的语言。",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec",
+      "lang": "zh"
+    },
+    "20562e79": {
+      "original": "mBART-50 の言語コード",
+      "translated": "mBART-50 的语言代码",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.mbart",
+      "lang": "zh"
+    },
+    "1a79e309": {
+      "original": "英語の言語名。LLM への依頼文やログ表示に使う",
+      "translated": "英文语言名。用于对 LLM 的请求文和日志显示",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.name",
+      "lang": "zh"
+    },
+    "bbcc4398": {
+      "original": "NLLB-200 の言語コード(FLORES-200 形式)",
+      "translated": "NLLB-200 的语言代码(FLORES-200 形式)",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.nllb",
+      "lang": "zh"
+    },
+    "a4abbbe8": {
+      "original": "言語コードから LanguageSpec を引く(大文字小文字は区別しない)。\n未対応のコードはエラーにする。",
+      "translated": "根据语言代码查找 LanguageSpec(不区分大小写)。\n不支持的代码将报错。",
+      "symbol": "yakudoc/dist/languages.d.ts#resolveLanguage",
+      "lang": "zh"
+    },
+    "3ff3615e": {
+      "original": "対応している言語コードの一覧(エラーメッセージやヘルプ表示用)",
+      "translated": "支持的语言代码列表(用于错误消息和帮助显示)",
+      "symbol": "yakudoc/dist/languages.d.ts#supportedLanguageCodes",
+      "lang": "zh"
+    },
+    "b2d11903": {
+      "original": "翻訳エントリのキー。正規化した原文の SHA-256 先頭 8 桁(hex)。",
+      "translated": "翻译条目的键。规范化后原文的 SHA-256 前 8 位(hex)。",
+      "symbol": "yakudoc/dist/normalize.d.ts#hashText",
+      "lang": "zh"
+    },
+    "f72dcf45": {
+      "original": "翻訳キーの照合に使う正規化。\n\ntsserver が返す documentation テキストと、extractor がソースの JSDoc から\n抽出したテキストは、改行コードや行頭のインデントが微妙に異なることがある。\n双方をこの関数に通した結果が一致すれば「同じ原文」とみなす。\n\n規約(extractor 側も必ずこれに従うこと):\n- 改行は \"\\n\" に統一する\n- 各行の前後の空白を取り除く\n- 3 行以上連続する空行は 1 つの空行に潰す\n- 全体の前後の空白を取り除く",
+      "translated": "用于对照翻译键的规范化。\n\ntsserver 返回的 documentation 文本与 extractor 从源码 JSDoc 中抽取的\n文本,在换行符和行首缩进上可能存在细微差异。若将两者都通过此函数\n处理后结果一致,则视为「同一原文」。\n\n约定(extractor 一侧也必须遵循):\n- 换行统一为 \"\\n\"\n- 去除每行首尾的空白\n- 将连续 3 行以上的空行压缩为 1 个空行\n- 去除整体首尾的空白",
+      "symbol": "yakudoc/dist/normalize.d.ts#normalizeText",
+      "lang": "zh"
+    },
+    "44a6aa92": {
+      "original": "packs/ ディレクトリのパックを name 順で一覧する。\nディレクトリが無ければ空配列。壊れたファイルは読み飛ばす。",
+      "translated": "按 name 顺序列出 packs/ 目录中的翻译包。\n目录不存在则为空数组。损坏的文件会被跳过。",
+      "symbol": "yakudoc/dist/packs.d.ts#listPacks",
+      "lang": "zh"
+    },
+    "ba81d0dc": {
+      "original": "読み込んだパックとその場所",
+      "translated": "已加载的翻译包及其位置",
+      "symbol": "yakudoc/dist/packs.d.ts#LoadedPack",
+      "lang": "zh"
+    },
+    "83ed656b": {
+      "original": "packFileNameFor の逆変換(一覧表示でファイル名からパッケージ名を推定する)",
+      "translated": "packFileNameFor 的逆变换(在列表显示中从文件名推断包名)",
+      "symbol": "yakudoc/dist/packs.d.ts#packageNameFromFileName",
+      "lang": "zh"
+    },
+    "6b8f1048": {
+      "original": "依存パッケージ 1 つ分の翻訳パック。\n\n`.yakudoc/packs/<パッケージ名>.json` に保存されるファイルの形式そのものが\n共有可能なパックの形式でもある(ローカルのパック = 配布物)。entries の\nキーは translations.json と同じ「正規化した原文のハッシュ」なので、\nパッケージのバージョンが変わっても原文が同じエントリはそのまま生きる。",
+      "translated": "单个依赖包的翻译包。\n\n保存于 `.yakudoc/packs/<包名>.json` 的文件格式本身\n也就是可共享的翻译包格式(本地翻译包 = 分发物)。entries 的\n键与 translations.json 相同,为「规范化后原文的哈希」,因此\n即使包版本变化,原文相同的条目仍然有效。",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile",
+      "lang": "zh"
+    },
+    "c32da3d2": {
+      "original": "翻訳エントリ。translations.json と同じ形式",
+      "translated": "翻译条目。与 translations.json 相同的格式",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.entries",
+      "lang": "zh"
+    },
+    "fb03d18a": {
+      "original": "生成元ツールとバージョン(例: \"yakudoc@0.2.0\")。無くてもよい",
+      "translated": "生成工具与版本(例如 \"yakudoc@0.2.0\")。可以没有",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.generator",
+      "lang": "zh"
+    },
+    "759b0cc0": {
+      "original": "このパックの翻訳先言語コード(例: \"ja\")",
+      "translated": "该翻译包的目标语言代码(例如 \"ja\")",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.lang",
+      "lang": "zh"
+    },
+    "0dfcdb40": {
+      "original": "npm パッケージ名(例: \"zod\"、\"@types/node\")",
+      "translated": "npm 包名(例如 \"zod\"、\"@types/node\")",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.name",
+      "lang": "zh"
+    },
+    "6c8ab57d": {
+      "original": "抽出元にしたインストール済みバージョン",
+      "translated": "作为抽取来源的已安装版本",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.version",
+      "lang": "zh"
+    },
+    "e3a7db71": {
+      "original": "パックのファイル名。スコープ区切りの \"/\" はファイル名に使えないため\n\"__\" に置き換える(例: \"@types/node\" → \"@types__node.json\")。",
+      "translated": "翻译包的文件名。由于作用域分隔符 \"/\" 不能用于文件名,\n因此替换为 \"__\"(例如 \"@types/node\" → \"@types__node.json\")。",
+      "symbol": "yakudoc/dist/packs.d.ts#packFileNameFor",
+      "lang": "zh"
+    },
+    "5ca37eda": {
+      "original": "特定パッケージのパックファイルのパス",
+      "translated": "特定包的翻译包文件路径",
+      "symbol": "yakudoc/dist/packs.d.ts#packPathFor",
+      "lang": "zh"
+    },
+    "e3582c4f": {
+      "original": ".yakudoc/ 直下のパック置き場のディレクトリ名",
+      "translated": ".yakudoc/ 直下的翻译包存放目录名",
+      "symbol": "yakudoc/dist/packs.d.ts#PACKS_DIR_NAME",
+      "lang": "zh"
+    },
+    "b1d014a8": {
+      "original": "JSON 文字列(またはパース済みの値)をパックとして解釈する。\n\n正規の形式は { name, version, lang, entries } だが、entries を持たない\n素の translations.json 形式(ハッシュ → エントリ)も受け付ける。\nコミュニティ配布のファイルを手で packs/ に置いた場合や、レジストリの\n形式差異に対して寛容にするため。解釈できなければ undefined。",
+      "translated": "将 JSON 字符串(或已解析的值)解释为翻译包。\n\n规范形式为 { name, version, lang, entries },但也接受不含 entries\n的裸 translations.json 形式(哈希 → 条目)。这是为了对手工放入 packs/\n的社区分发文件,以及 registry 的格式差异保持宽容。若无法解释则返回 undefined。",
+      "symbol": "yakudoc/dist/packs.d.ts#parsePack",
+      "lang": "zh"
+    },
+    "a17b7c9b": {
+      "original": "パックファイルを読み込む。存在しない・解釈できない場合は undefined",
+      "translated": "读取翻译包文件。不存在或无法解释时返回 undefined",
+      "symbol": "yakudoc/dist/packs.d.ts#readPack",
+      "lang": "zh"
+    },
+    "19295e74": {
+      "original": "パックファイルを削除する。削除したら true、元々存在しなければ false。",
+      "translated": "删除翻译包文件。删除成功返回 true,原本就不存在则返回 false。",
+      "symbol": "yakudoc/dist/packs.d.ts#removePack",
+      "lang": "zh"
+    },
+    "ce2f8d6e": {
+      "original": "パック置き場のディレクトリを解決する。translations.json と同じ\n`.yakudoc/` ディレクトリの下に置く(--out で translations.json を\n動かした場合はそれに追従する)。",
+      "translated": "解析翻译包存放目录。将其置于与 translations.json 相同的\n`.yakudoc/` 目录下(若用 --out 移动了 translations.json 则随之跟随)。",
+      "symbol": "yakudoc/dist/packs.d.ts#resolvePacksDir",
+      "lang": "zh"
+    },
+    "73f15af4": {
+      "original": "symbol → original 順に entries を整列して書き出す(diff を安定させるため)",
+      "translated": "按 symbol → original 顺序对 entries 排序后写出(以保持 diff 稳定)",
+      "symbol": "yakudoc/dist/packs.d.ts#writePack",
+      "lang": "zh"
+    },
+    "6f367054": {
+      "original": "n 番目の保護トークン。エラー報告などの表示にも使う",
+      "translated": "第 n 个保护标记。也用于错误报告等显示",
+      "symbol": "yakudoc/dist/placeholders.d.ts#placeholderToken",
+      "lang": "zh"
+    },
+    "3ed0186b": {
+      "original": "翻訳してはいけない断片(コード片・インラインタグ・URL)を\n<phN> 形式のトークンに置き換えて保護する。\n\n翻訳エンジン(LLM / 機械翻訳モデル)にはトークン入りのテキストを渡し、\n訳文の対応する位置にトークンをそのまま残してもらう。書き戻し時に\nrestoreText で復元する。\n\nトークン形式は NLLB-200(yakudoc-mt の既定モデル)で生存確認済みのもの。\n⟦n⟧ や [[n]] は機械翻訳モデルに壊されることがあり使えない。",
+      "translated": "将不可翻译的片段(代码片段、内联标签、URL)\n替换为 <phN> 形式的标记加以保护。\n\n向翻译引擎(LLM / 机器翻译模型)传入含标记的文本,\n要求其在译文的对应位置原样保留标记。写回时\n用 restoreText 还原。\n\n标记形式为已在 NLLB-200(yakudoc-mt 的默认模型)上验证可存活者。\n⟦n⟧ 和 [[n]] 可能被机器翻译模型破坏,不可使用。",
+      "symbol": "yakudoc/dist/placeholders.d.ts#placeholderToken",
+      "lang": "zh"
+    },
+    "7854fd54": {
+      "original": "トークン番号 → 元の断片",
+      "translated": "标记编号 → 原始片段",
+      "symbol": "yakudoc/dist/placeholders.d.ts#ProtectedText.placeholders",
+      "lang": "zh"
+    },
+    "0ded5d9b": {
+      "original": "トークンに置き換え済みのテキスト",
+      "translated": "已替换为标记的文本",
+      "symbol": "yakudoc/dist/placeholders.d.ts#ProtectedText.text",
+      "lang": "zh"
+    },
+    "68db164e": {
+      "original": "訳文中に見つからなかったトークン番号。1 つでもあれば訳文は採用しない",
+      "translated": "在译文中未找到的标记编号。只要缺少一个,就不采用该译文",
+      "symbol": "yakudoc/dist/placeholders.d.ts#RestoredText.missing",
+      "lang": "zh"
+    },
+    "56d82f4d": {
+      "original": "コミュニティ翻訳パックの既定の取得元。\nGitHub リポジトリの raw URL で、`packs/<言語コード>/<パッケージ名>.json` を\n直接取りに行く(専用サーバー不要)。",
+      "translated": "社区翻译包的默认来源。\n为 GitHub 仓库的 raw URL,直接获取 `packs/<语言代码>/<包名>.json`\n(无需专用服务器)。",
+      "symbol": "yakudoc/dist/registry.d.ts#DEFAULT_REGISTRY_URL",
+      "lang": "zh"
+    },
+    "c71d3a7d": {
+      "original": "コミュニティ翻訳パックを取得する。\n\nネットワークは失敗して当たり前の前提で、例外は投げず結果を status で\n返す(add はオフラインでも成立する操作なので、呼び出し側は error を\n警告表示に留めて処理を続行する)。",
+      "translated": "获取社区翻译包。\n\n以网络本就可能失败为前提,不抛出异常而通过 status 返回结果\n(由于 add 是离线也能成立的操作,调用方将 error 仅作为警告显示\n并继续处理)。",
+      "symbol": "yakudoc/dist/registry.d.ts#fetchCommunityPack",
+      "lang": "zh"
+    },
+    "73be3c3c": {
+      "original": "fetch の差し替え用の最小インターフェース(テストで注入する)",
+      "translated": "用于替换 fetch 的最小接口(在测试中注入)",
+      "symbol": "yakudoc/dist/registry.d.ts#FetchLike",
+      "lang": "zh"
+    },
+    "1a0f9280": {
+      "original": "コミュニティ翻訳パックのリポジトリ(export コマンドが PR 先として案内する)",
+      "translated": "社区翻译包的仓库(export 命令会将其作为 PR 目标进行引导)",
+      "symbol": "yakudoc/dist/registry.d.ts#PACKS_REPO_URL",
+      "lang": "zh"
+    },
+    "1ea02850": {
+      "original": "パッケージのパックを取りに行く URL を組み立てる",
+      "translated": "构建用于获取某个包的翻译包的 URL",
+      "symbol": "yakudoc/dist/registry.d.ts#packUrlFor",
+      "lang": "zh"
+    },
+    "827ce814": {
+      "original": "レジストリ URL を上書きする環境変数名",
+      "translated": "覆盖 registry URL 的环境变量名",
+      "symbol": "yakudoc/dist/registry.d.ts#REGISTRY_ENV_VAR",
+      "lang": "zh"
+    },
+    "49040b12": {
+      "original": "レジストリのベース URL を決める。\n優先順位: CLI の --registry > 環境変数 > config.json の registry > 既定。",
+      "translated": "决定 registry 的基础 URL。\n优先级: CLI 的 --registry > 环境变量 > config.json 的 registry > 默认。",
+      "symbol": "yakudoc/dist/registry.d.ts#resolveRegistryUrl",
+      "lang": "zh"
+    },
+    "1c59fbd0": {
+      "original": "translations.json の内容から進捗を集計する(純粋関数・ファイル I/O なし)。\n\nextract と違いソースの再走査は行わないため stale は数えない。\n訳文が空、または訳文の言語が targetLang と異なるエントリを\n「翻訳待ち」として集計・列挙する(言語を切り替えた場合、旧言語の訳は\n完了扱いにならない)。",
+      "translated": "根据 translations.json 的内容汇总进度(纯函数,无文件 I/O)。\n\n与 extract 不同,它不重新扫描源码,因此不统计 stale。将译文为空,\n或译文语言与 targetLang 不同的条目汇总并列举为「待翻译」\n(切换语言后,旧语言的译文不作为完成处理)。",
+      "symbol": "yakudoc/dist/status.d.ts#computeStatus",
+      "lang": "zh"
+    },
+    "7b393cd6": {
+      "original": "翻訳パック 1 つ分の進捗",
+      "translated": "单个翻译包的进度",
+      "symbol": "yakudoc/dist/status.d.ts#PackStatus",
+      "lang": "zh"
+    },
+    "c8025992": {
+      "original": "翻訳待ちの 1 エントリ。status の一覧表示に使う",
+      "translated": "一个待翻译条目。用于 status 的列表显示",
+      "symbol": "yakudoc/dist/status.d.ts#PendingEntry",
+      "lang": "zh"
+    },
+    "0b3840be": {
+      "original": "翻訳待ちエントリ(symbol → original 順)。translated が空のものだけ",
+      "translated": "待翻译条目(按 symbol → original 顺序)。仅 translated 为空者",
+      "symbol": "yakudoc/dist/status.d.ts#StatusCounts.pending",
+      "lang": "zh"
+    },
+    "5b21f0ba": {
+      "original": "status の終了コードを決める(純粋関数)。\n--fail-on-pending 指定時に翻訳待ちが残っていれば 1(CI の失敗ゲート用)。\nそれ以外は 0。",
+      "translated": "决定 status 的退出码(纯函数)。\n指定 --fail-on-pending 时若仍有待翻译则为 1(用于 CI 的失败门禁)。\n否则为 0。",
+      "symbol": "yakudoc/dist/status.d.ts#statusExitCode",
+      "lang": "zh"
+    },
+    "1de2e91e": {
+      "original": "プロジェクトルート。出力パスの基準",
+      "translated": "项目根目录。输出路径的基准",
+      "symbol": "yakudoc/dist/status.d.ts#StatusOptions.projectDir",
+      "lang": "zh"
+    },
+    "a4e83ba3": {
+      "original": "translations.json と .yakudoc/packs/ 以下の翻訳パックを読み込んで\n進捗を集計する。翻訳先言語は .yakudoc/config.json から解決する。\nどのファイルも存在しなければ undefined(CLI 側で導入手順を案内する)。",
+      "translated": "读取 translations.json 和 .yakudoc/packs/ 下的翻译包并\n汇总进度。目标语言从 .yakudoc/config.json 解析。\n若任何文件都不存在则返回 undefined(由 CLI 一侧引导接入步骤)。",
+      "symbol": "yakudoc/dist/status.d.ts#statusProject",
+      "lang": "zh"
+    },
+    "05e037f1": {
+      "original": "プロジェクト全体の進捗。total / translated / untranslated / pending は\ntranslations.json と全パックを合算した値(pending は原文ハッシュで\n重複排除済み)。project / packs に内訳を持つ。",
+      "translated": "整个项目的进度。total / translated / untranslated / pending 是\ntranslations.json 与所有翻译包的合计值(pending 已按原文哈希去重)。\n明细保存在 project / packs 中。",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary",
+      "lang": "zh"
+    },
+    "db0d00a8": {
+      "original": "依存パッケージの翻訳パックの内訳(name 順)",
+      "translated": "依赖包翻译包的明细(按 name 顺序)",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary.packs",
+      "lang": "zh"
+    },
+    "9719c7cf": {
+      "original": "translations.json の内訳(ファイルが無ければ undefined)",
+      "translated": "translations.json 的明细(文件不存在则为 undefined)",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary.project",
+      "lang": "zh"
+    },
+    "b88c0d8c": {
+      "original": "集計に使った翻訳先言語(config.json から解決)",
+      "translated": "用于汇总的目标语言(从 config.json 解析)",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary.targetLang",
+      "lang": "zh"
+    },
+    "54d37e93": {
+      "original": "訳文をハッシュの一致する全ソースへ書き込む(メモリ上)。\n書き込んだソース数を返す(0 ならどこにも該当が無い)。",
+      "translated": "将译文写入所有哈希匹配的源(在内存中)。\n返回写入的源数量(为 0 表示无处匹配)。",
+      "symbol": "yakudoc/dist/translationSet.d.ts#applyTranslation",
+      "lang": "zh"
+    },
+    "00f808ad": {
+      "original": "全ソースの翻訳待ちエントリをハッシュで重複排除して集める。\n同じ原文がプロジェクトとパックの両方にある場合も翻訳は 1 回で済み、\napplyTranslation が両方へ書き戻す。",
+      "translated": "将所有源的待翻译条目按哈希去重后收集。\n即使同一原文同时存在于项目和翻译包中,也只翻译 1 次,\n由 applyTranslation 写回两者。",
+      "symbol": "yakudoc/dist/translationSet.d.ts#collectPending",
+      "lang": "zh"
+    },
+    "c605f8f2": {
+      "original": "プロジェクトの翻訳対象ファイル一式を読み込む。\ntranslations.json(存在すれば)+ packs/ 以下の全パック。\npackages を指定するとそのパックだけに絞る(プロジェクト分は含めない)。",
+      "translated": "读取项目全部待翻译目标文件。\ntranslations.json(若存在)+ packs/ 下的所有翻译包。\n指定 packages 时仅限那些翻译包(不含项目自身部分)。",
+      "symbol": "yakudoc/dist/translationSet.d.ts#loadProjectSources",
+      "lang": "zh"
+    },
+    "4883e090": {
+      "original": "パスの一覧から翻訳対象ファイルを読み込む(翻訳エンジン用)。\n各ファイルはパック形式か素の translations.json 形式かを内容で判定する。\n存在しないファイルは読み飛ばす。",
+      "translated": "从路径列表读取待翻译目标文件(供翻译引擎使用)。\n各文件根据内容判定是翻译包形式还是裸 translations.json 形式。\n不存在的文件会被跳过。",
+      "symbol": "yakudoc/dist/translationSet.d.ts#loadSourcesAt",
+      "lang": "zh"
+    },
+    "fe937e8d": {
+      "original": "翻訳待ちの 1 件(横断集計用)。symbol は最初に見つかったものを使う",
+      "translated": "一个待翻译项(用于跨源汇总)。symbol 使用最先找到的那个",
+      "symbol": "yakudoc/dist/translationSet.d.ts#PendingItem",
+      "lang": "zh"
+    },
+    "87bd001b": {
+      "original": "翻訳エントリを持つファイル 1 つ分(プロジェクトの translations.json、\nまたは依存パッケージの翻訳パック)。translate / status はこの配列を\n横断して処理する。",
+      "translated": "持有翻译条目的单个文件(项目的 translations.json,\n或依赖包的翻译包)。translate / status 会横跨该数组进行处理。",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource",
+      "lang": "zh"
+    },
+    "ffecabac": {
+      "original": "applyTranslation で書き換えられたか(writeSources が書き出す対象)",
+      "translated": "是否被 applyTranslation 修改过(writeSources 写出的对象)",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource.dirty",
+      "lang": "zh"
+    },
+    "b3dbb7eb": {
+      "original": "表示用ラベル(project: \"translations.json\"、pack: パッケージ名)",
+      "translated": "用于显示的标签(project: \"translations.json\",pack: 包名)",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource.label",
+      "lang": "zh"
+    },
+    "007b20bd": {
+      "original": "kind === \"pack\" のときのメタデータ(書き戻しに使う)",
+      "translated": "kind === \"pack\" 时的元数据(用于写回)",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource.pack",
+      "lang": "zh"
+    },
+    "dbbacbcf": {
+      "original": "applyTranslation で変更のあったソースだけをファイルへ書き出す",
+      "translated": "仅将被 applyTranslation 更改过的源写出到文件",
+      "symbol": "yakudoc/dist/translationSet.d.ts#writeSources",
+      "lang": "zh"
+    },
+    "4d6c3fde": {
+      "original": "今回の抽出に現れなかった既存エントリ数",
+      "translated": "本次抽取中未出现的既有条目数",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#MergeStats.stale",
+      "lang": "zh"
+    },
+    "17786fac": {
+      "original": "訳文を保持できたエントリ数",
+      "translated": "得以保留译文的条目数",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#MergeStats.translated",
+      "lang": "zh"
+    },
+    "19782fcf": {
+      "original": "翻訳待ちのエントリ数",
+      "translated": "待翻译的条目数",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#MergeStats.untranslated",
+      "lang": "zh"
+    },
+    "0cc66d12": {
+      "original": "抽出結果を既存ファイルへマージする。\n\n- ハッシュが一致する既存エントリの訳文は保持する(差分翻訳)\n- 新規の原文は translated: \"\" の「翻訳待ち」として追加する\n- ソースから消えた原文は既定では残す(抽出漏れで訳を失わないため)。\n  prune: true で削除する",
+      "translated": "将抽取结果合并到既有文件中。\n\n- 保留哈希一致的既有条目的译文(增量翻译)\n- 新的原文以 translated: \"\" 的「待翻译」形式添加\n- 从源码中消失的原文默认予以保留(以免因抽取遗漏而丢失译文);\n  用 prune: true 删除",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#mergeTranslations",
+      "lang": "zh"
+    },
+    "1b111125": {
+      "original": "エントリが「翻訳待ち」かを判定する(status・翻訳エンジン共通)。\n訳文が空、または訳文の言語が現在の翻訳先と異なる場合に翻訳待ちとなる。\nlang が無いエントリは現在の翻訳先の訳とみなす(既存ファイルの互換のため)。",
+      "translated": "判定条目是否为「待翻译」(status 与翻译引擎通用)。\n当译文为空,或译文语言与当前目标不同时即为待翻译。\n没有 lang 的条目视为当前目标语言的译文(为兼容既有文件)。",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#needsTranslation",
+      "lang": "zh"
+    },
+    "f2a70dc7": {
+      "original": "translations.json を読み込む。存在しなければ undefined",
+      "translated": "读取 translations.json。不存在则返回 undefined",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#readTranslations",
+      "lang": "zh"
+    },
+    "f9d745c5": {
+      "original": "translations.json のパスを解決する(全コマンド・全エンジン共通)。\noutPath 未指定なら projectDir/.yakudoc/translations.json。",
+      "translated": "解析 translations.json 的路径(所有命令、所有引擎通用)。\n未指定 outPath 时为 projectDir/.yakudoc/translations.json。",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#resolveTranslationsPath",
+      "lang": "zh"
+    },
+    "ea9ec255": {
+      "original": "translations.json の既定の相対パス",
+      "translated": "translations.json 的默认相对路径",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#TRANSLATIONS_RELATIVE_PATH",
+      "lang": "zh"
+    },
+    "d98ece8a": {
+      "original": "symbol → original の順で整列して書き出す(diff を安定させるため)",
+      "translated": "按 symbol → original 顺序排序后写出(以保持 diff 稳定)",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#writeTranslations",
+      "lang": "zh"
+    },
+    "489312f8": {
+      "original": "`yakudoc translate --engine <name>` が翻訳エンジンパッケージ\n(yakudoc-ai-prep / yakudoc-mt)に渡すオプション。\nエンジン側は `run(options: EngineRunOptions): Promise<void>` を公開する。",
+      "translated": "`yakudoc translate --engine <name>` 传给翻译引擎包\n(yakudoc-ai-prep / yakudoc-mt)的选项。\n引擎一侧公开 `run(options: EngineRunOptions): Promise<void>`。",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions",
+      "lang": "zh"
+    },
+    "97bd6b79": {
+      "original": "翻訳結果 JSON を書き戻す場合、そのファイルのパス",
+      "translated": "写回翻译结果 JSON 时,该文件的路径",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.applyPath",
+      "lang": "zh"
+    },
+    "3418cc0e": {
+      "original": "yakudoc-mt: 使用するモデルの HF id を明示する(modelSize より優先)",
+      "translated": "yakudoc-mt: 显式指定要使用模型的 HF id(优先于 modelSize)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.model",
+      "lang": "zh"
+    },
+    "91dea51f": {
+      "original": "yakudoc-mt: モデルの大きさ。small | large | auto(既定は auto)",
+      "translated": "yakudoc-mt: 模型大小。small | large | auto(默认为 auto)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.modelSize",
+      "lang": "zh"
+    },
+    "5c9f814c": {
+      "original": "プロジェクトルート(CLI 実行時のカレントディレクトリ)",
+      "translated": "项目根目录(运行 CLI 时的当前目录)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.projectDir",
+      "lang": "zh"
+    },
+    "b962e7b5": {
+      "original": "翻訳先の言語コード(languages.ts で解決済み。省略時: ja)",
+      "translated": "目标语言代码(已在 languages.ts 中解析;省略时: ja)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.targetLang",
+      "lang": "zh"
+    },
+    "7384bd7c": {
+      "original": "translations.json のパス(省略時: .yakudoc/translations.json)",
+      "translated": "translations.json 的路径(省略时: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.translationsPath",
+      "lang": "zh"
+    },
+    "8feb2f53": {
+      "original": "翻訳対象ファイルの一覧(translations.json と .yakudoc/packs/ 以下の\n翻訳パック)。CLI が解決して渡す。省略時はエンジン側が\ntranslationsPath(またはその既定)1 ファイルのみを対象にする。",
+      "translated": "待翻译目标文件列表(translations.json 和 .yakudoc/packs/ 下的\n翻译包)。由 CLI 解析并传入。省略时,引擎一侧仅以\ntranslationsPath(或其默认值)单个文件为对象。",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.translationsPaths",
+      "lang": "zh"
+    },
+    "08c37238": {
+      "original": "訳文の言語コード。翻訳エンジンが書き込み時に付与する。\n無いエントリ(手動編集・旧バージョンのファイル)は現在の翻訳先言語と\nみなす(アップグレードで既存の訳が失効しないようにするため)。",
+      "translated": "译文的语言代码。由翻译引擎在写入时附加。\n没有它的条目(手动编辑、旧版本文件)视为处于当前目标语言\n(以免既有译文在升级时失效)。",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.lang",
+      "lang": "zh"
+    },
+    "bd8f71f9": {
+      "original": "抽出した原文(トリム済み)",
+      "translated": "抽取的原文(已去除首尾空白)",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.original",
+      "lang": "zh"
+    },
+    "37f00084": {
+      "original": "補助情報。リネーム検出用の \"src/api/user.ts#fetchUser\" 形式",
+      "translated": "辅助信息。用于重命名检测的 \"src/api/user.ts#fetchUser\" 形式",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.symbol",
+      "lang": "zh"
+    },
+    "7906d4e4": {
+      "original": "訳文。空文字列は「翻訳待ち」を意味する",
+      "translated": "译文。空字符串表示「待翻译」",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.translated",
+      "lang": "zh"
+    },
+    "c5b3e221": {
+      "original": ".yakudoc/translations.json 全体。キーは正規化した原文のハッシュ",
+      "translated": "整个 .yakudoc/translations.json。键为规范化后原文的哈希",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationsFile",
+      "lang": "zh"
+    }
+  }
+}

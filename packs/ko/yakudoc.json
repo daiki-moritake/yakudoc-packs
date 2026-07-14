@@ -1,0 +1,830 @@
+{
+  "name": "yakudoc",
+  "version": "0.1.1",
+  "lang": "ko",
+  "generator": "yakudoc@0.1.1",
+  "entries": {
+    "31239933": {
+      "original": "yakudoc で使う言語コード(ISO 639-1)",
+      "translated": "yakudoc에서 사용하는 언어 코드(ISO 639-1)",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.code",
+      "lang": "ko"
+    },
+    "61379765": {
+      "original": "config.json を書き出す(ディレクトリが無ければ作る)",
+      "translated": "config.json을 기록한다(디렉터리가 없으면 만든다)",
+      "symbol": "yakudoc/dist/config.d.ts#writeConfig",
+      "lang": "ko"
+    },
+    "3af1d008": {
+      "original": "依存パッケージの翻訳パックを作成・更新する(`yakudoc add` の本体)。\n\n1. インストール済みパッケージの型定義から JSDoc を抽出する\n2. 既存パックとマージする(訳文はハッシュが一致する限り保持される)\n3. コミュニティパックを取得し、翻訳待ちのエントリにだけ訳文を重ねる\n   (取得失敗は警告相当。オフラインでも 1〜2 は成立する)\n4. `.yakudoc/packs/<パッケージ名>.json` に書き出す",
+      "translated": "의존 패키지의 번역 팩을 생성·갱신한다(`yakudoc add`의 본체).\n\n1. 설치된 패키지의 타입 정의에서 JSDoc을 추출한다\n2. 기존 팩과 병합한다(번역문은 해시가 일치하는 한 유지된다)\n3. 커뮤니티 팩을 가져와 번역 대기 엔트리에만 번역문을 덧씌운다\n   (가져오기 실패는 경고에 해당. 오프라인에서도 1-2는 성립한다)\n4. `.yakudoc/packs/<패키지명>.json`에 기록한다",
+      "symbol": "yakudoc/dist/addPack.d.ts#addPackage",
+      "lang": "ko"
+    },
+    "a56588f5": {
+      "original": "config.json に保存されたレジストリ URL",
+      "translated": "config.json에 저장된 레지스트리 URL",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.configRegistryUrl",
+      "lang": "ko"
+    },
+    "b4dd53c1": {
+      "original": "テスト用: fetch の差し替え",
+      "translated": "테스트용: fetch 교체",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.fetchImpl",
+      "lang": "ko"
+    },
+    "ec0f83d6": {
+      "original": "パックの generator に記録する文字列(例: \"yakudoc@0.2.0\")",
+      "translated": "팩의 generator에 기록할 문자열(예: \"yakudoc@0.2.0\")",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.generator",
+      "lang": "ko"
+    },
+    "6041118d": {
+      "original": "コミュニティパックを取得しない(オフライン運用)",
+      "translated": "커뮤니티 팩을 가져오지 않는다(오프라인 운용)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.noFetch",
+      "lang": "ko"
+    },
+    "8a79bfc8": {
+      "original": "ソースから消えた原文のエントリを削除する(既定: 残す)",
+      "translated": "소스에서 사라진 원문의 엔트리를 삭제한다(기본: 남긴다)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.prune",
+      "lang": "ko"
+    },
+    "1482366c": {
+      "original": "レジストリのベース URL(--registry。未指定なら env / config / 既定)",
+      "translated": "레지스트리의 베이스 URL(--registry. 미지정이면 env / config / 기본)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.registryUrl",
+      "lang": "ko"
+    },
+    "0694f26f": {
+      "original": "翻訳先言語(解決済みコード)",
+      "translated": "번역 대상 언어(해결된 코드)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.targetLang",
+      "lang": "ko"
+    },
+    "c6d2c75e": {
+      "original": "translations.json のパス(packs/ の場所を導出するために使う)",
+      "translated": "translations.json의 경로(packs/의 위치를 도출하는 데 사용)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageOptions.translationsPath",
+      "lang": "ko"
+    },
+    "80c8640e": {
+      "original": "コミュニティパック取得の結果(スキップした場合は undefined)",
+      "translated": "커뮤니티 팩 가져오기 결과(건너뛴 경우 undefined)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.fetchResult",
+      "lang": "ko"
+    },
+    "7ff24ac0": {
+      "original": "走査した型定義ファイル数",
+      "translated": "주사한 타입 정의 파일 수",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.fileCount",
+      "lang": "ko"
+    },
+    "f530ffac": {
+      "original": "今回コミュニティパックから採用した訳文の数",
+      "translated": "이번에 커뮤니티 팩에서 채택한 번역문 수",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.fromCommunity",
+      "lang": "ko"
+    },
+    "2afa2525": {
+      "original": "パックの総エントリ数(stale 含む)",
+      "translated": "팩의 총 엔트리 수(stale 포함)",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.total",
+      "lang": "ko"
+    },
+    "25b66569": {
+      "original": "翻訳済みエントリ数",
+      "translated": "번역 완료된 엔트리 수",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.translated",
+      "lang": "ko"
+    },
+    "a79e84a2": {
+      "original": "翻訳待ちエントリ数",
+      "translated": "번역 대기 엔트리 수",
+      "symbol": "yakudoc/dist/addPack.d.ts#AddPackageSummary.untranslated",
+      "lang": "ko"
+    },
+    "79ffdb6f": {
+      "original": "コミュニティパックの訳文を、翻訳待ちのエントリへだけ重ねる。\nローカルで付けた訳(手動編集や自前の翻訳)は上書きしない。\n採用した件数を返す。",
+      "translated": "커뮤니티 팩의 번역문을 번역 대기 엔트리에만 덧씌운다.\n로컬에서 붙인 번역(수동 편집이나 자체 번역)은 덮어쓰지 않는다.\n채택한 건수를 반환한다.",
+      "symbol": "yakudoc/dist/addPack.d.ts#overlayCommunityPack",
+      "lang": "ko"
+    },
+    "2b1c9183": {
+      "original": "プロジェクトの config.json のパス。\ntranslations.json の --out には追従しない固定の場所(projectDir/.yakudoc/config.json)。\n--out に追従させると、後で --out 無しで実行したときに設定が見つからず\n黙って既定言語に戻ってしまうため。",
+      "translated": "프로젝트의 config.json 경로.\ntranslations.json의 --out을 따라가지 않는 고정 위치(projectDir/.yakudoc/config.json).\n--out을 따라가게 하면, 나중에 --out 없이 실행했을 때 설정을 찾지 못해\n조용히 기본 언어로 되돌아가 버리기 때문이다.",
+      "symbol": "yakudoc/dist/config.d.ts#configPathFor",
+      "lang": "ko"
+    },
+    "b8b55a20": {
+      "original": "config.json を読み込む。存在しなければ空の設定を返す。\n存在するのに読めない・解釈できない場合は黙って無視せず、案内付きのエラーにする\n(保存済みの --lang が黙って無効になるのを防ぐため)。",
+      "translated": "config.json을 읽는다. 존재하지 않으면 빈 설정을 반환한다.\n존재하는데 읽거나 해석할 수 없는 경우 조용히 무시하지 않고 안내가 있는 오류로 만든다\n(저장된 --lang이 조용히 무효가 되는 것을 막기 위해).",
+      "symbol": "yakudoc/dist/config.d.ts#readConfig",
+      "lang": "ko"
+    },
+    "4501fb14": {
+      "original": "翻訳先言語を決める。優先順位: CLI の --lang > config.json > 既定(ja)。\nどこから来たコードでも検証し、未対応ならエラーにする。",
+      "translated": "번역 대상 언어를 정한다. 우선순위: CLI의 --lang > config.json > 기본(ja).\n어디서 온 코드든 검증하고, 미지원이면 오류로 만든다.",
+      "symbol": "yakudoc/dist/config.d.ts#resolveTargetLang",
+      "lang": "ko"
+    },
+    "ad7c54ee": {
+      "original": ".yakudoc/config.json の形式",
+      "translated": ".yakudoc/config.json의 형식",
+      "symbol": "yakudoc/dist/config.d.ts#YakudocConfig",
+      "lang": "ko"
+    },
+    "7cad2a14": {
+      "original": "コミュニティ翻訳パックの取得元 URL(省略時: 既定のレジストリ)",
+      "translated": "커뮤니티 번역 팩의 취득처 URL(생략 시: 기본 레지스트리)",
+      "symbol": "yakudoc/dist/config.d.ts#YakudocConfig.registry",
+      "lang": "ko"
+    },
+    "69e29f16": {
+      "original": "翻訳先の言語コード(省略時: ja)",
+      "translated": "번역 대상 언어 코드(생략 시: ja)",
+      "symbol": "yakudoc/dist/config.d.ts#YakudocConfig.targetLang",
+      "lang": "ko"
+    },
+    "b3530b72": {
+      "original": "パッケージディレクトリ内の型定義ファイル(.d.ts / .d.mts / .d.cts)を\n再帰的に集める。入れ子の node_modules は対象外。パス順に整列して返す\n(抽出結果の順序を安定させるため)。",
+      "translated": "패키지 디렉터리 내의 타입 정의 파일(.d.ts / .d.mts / .d.cts)을\n재귀적으로 모은다. 중첩된 node_modules는 대상 외. 경로 순으로 정렬해 반환한다\n(추출 결과의 순서를 안정시키기 위해).",
+      "symbol": "yakudoc/dist/depExtract.d.ts#collectDeclarationFiles",
+      "lang": "ko"
+    },
+    "6d123db3": {
+      "original": "インストール済みパッケージの型定義から JSDoc を抽出する。\n\nsymbol は \"zod/lib/types.d.ts#ZodType.parse\" のように\nパッケージ名からの相対パスで記録する(status の一覧や共有パックを\n見たときに、どのパッケージのどの API か分かるようにするため)。",
+      "translated": "설치된 패키지의 타입 정의에서 JSDoc을 추출한다.\n\nsymbol은 \"zod/lib/types.d.ts#ZodType.parse\"처럼\n패키지명으로부터의 상대 경로로 기록한다(status 목록이나 공유 팩을\n볼 때, 어느 패키지의 어느 API인지 알 수 있도록 하기 위해).",
+      "symbol": "yakudoc/dist/depExtract.d.ts#extractInstalledPackage",
+      "lang": "ko"
+    },
+    "df9721e3": {
+      "original": "インストール済みパッケージの所在とバージョン",
+      "translated": "설치된 패키지의 소재와 버전",
+      "symbol": "yakudoc/dist/depExtract.d.ts#InstalledPackageInfo",
+      "lang": "ko"
+    },
+    "5411250c": {
+      "original": "projectDir から Node の解決規則でパッケージを見つけ、package.json の\nバージョンを読む。見つからなければ案内付きのエラー。",
+      "translated": "projectDir에서 Node의 해석 규칙으로 패키지를 찾아 package.json의\n버전을 읽는다. 찾지 못하면 안내가 있는 오류.",
+      "symbol": "yakudoc/dist/depExtract.d.ts#resolveInstalledPackageInfo",
+      "lang": "ko"
+    },
+    "4436229d": {
+      "original": "現在の状態の説明",
+      "translated": "현재 상태의 설명",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorCheck.detail",
+      "lang": "ko"
+    },
+    "f0e24b1a": {
+      "original": "ok 以外のときの対処方法。複数行は \\n 区切り",
+      "translated": "ok가 아닐 때의 대처 방법. 여러 줄은 \\n 구분",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorCheck.hint",
+      "lang": "ko"
+    },
+    "902f4854": {
+      "original": "検査項目名(表示用)",
+      "translated": "검사 항목명(표시용)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorCheck.label",
+      "lang": "ko"
+    },
+    "5914de68": {
+      "original": "translations.json のパス(既定: .yakudoc/translations.json)",
+      "translated": "translations.json의 경로(기본: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorOptions.outPath",
+      "lang": "ko"
+    },
+    "b1a94868": {
+      "original": "プロジェクトルート。tsconfig 探索と出力パスの基準",
+      "translated": "프로젝트 루트. tsconfig 탐색과 출력 경로의 기준",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorOptions.projectDir",
+      "lang": "ko"
+    },
+    "4d8a4804": {
+      "original": "tsconfig.json のパス(既定: projectDir から探索)",
+      "translated": "tsconfig.json의 경로(기본: projectDir에서 탐색)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorOptions.tsconfigPath",
+      "lang": "ko"
+    },
+    "c966f7b4": {
+      "original": "導入状態を診断する。「init はしたのにホバーが変わらない」の原因を\nユーザー自身が特定できるよう、失敗しやすい箇所を順に検査する:\n\n1. tsconfig.json にプラグインが登録されているか(extends 解決込み)\n2. yakudoc-ts-plugin が node_modules から解決できるか\n3. translations.json が存在するか(あれば進捗も表示)\n4. 翻訳先言語の設定が壊れていないか\n5. 翻訳エンジン(yakudoc-mt / yakudoc-ai-prep)が入っているか\n\n検査はどれも読み取り専用で、ファイルを書き換えない。",
+      "translated": "도입 상태를 진단한다. 「init은 했는데 호버가 바뀌지 않는다」의 원인을\n사용자 스스로 특정할 수 있도록, 실패하기 쉬운 곳을 순서대로 검사한다:\n\n1. tsconfig.json에 플러그인이 등록되어 있는지(extends 해석 포함)\n2. yakudoc-ts-plugin이 node_modules에서 해석되는지\n3. translations.json이 존재하는지(있으면 진행 상황도 표시)\n4. 번역 대상 언어 설정이 손상되지 않았는지\n5. 번역 엔진(yakudoc-mt / yakudoc-ai-prep)이 설치되어 있는지\n\n검사는 모두 읽기 전용이며 파일을 수정하지 않는다.",
+      "symbol": "yakudoc/dist/doctor.d.ts#doctorProject",
+      "lang": "ko"
+    },
+    "9361a51c": {
+      "original": "error が 1 件でもあれば 1(スクリプトや CI 用)",
+      "translated": "error가 하나라도 있으면 1(스크립트나 CI용)",
+      "symbol": "yakudoc/dist/doctor.d.ts#DoctorReport.exitCode",
+      "lang": "ko"
+    },
+    "3f340241": {
+      "original": "translate のエンジン名 → 実装パッケージ",
+      "translated": "translate의 엔진명 → 구현 패키지",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#ENGINE_PACKAGES",
+      "lang": "ko"
+    },
+    "7e870ce0": {
+      "original": "エンジン名(prep | local)",
+      "translated": "엔진명(prep | local)",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#EngineSelection.engine",
+      "lang": "ko"
+    },
+    "8dad86e2": {
+      "original": "自動選択したときの説明(CLI が表示する)",
+      "translated": "자동 선택했을 때의 설명(CLI가 표시한다)",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#EngineSelection.note",
+      "lang": "ko"
+    },
+    "9a84c432": {
+      "original": "実装パッケージ名",
+      "translated": "구현 패키지명",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#EngineSelection.packageName",
+      "lang": "ko"
+    },
+    "af20aa54": {
+      "original": "translate で使うエンジンを決める。\n\n- --engine 指定があればそれ(不明な名前はエラー)\n- --apply 指定は prep 専用の操作なので prep に確定する\n- どちらも無ければインストール済みのエンジンを探し、1 つだけなら\n  それを自動選択する(0 or 2 つなら案内付きのエラー)",
+      "translated": "translate에서 사용할 엔진을 정한다.\n\n- --engine 지정이 있으면 그것(알 수 없는 이름은 오류)\n- --apply 지정은 prep 전용 조작이므로 prep으로 확정한다\n- 둘 다 없으면 설치된 엔진을 찾아, 1개뿐이면\n  그것을 자동 선택한다(0개 또는 2개면 안내가 있는 오류)",
+      "symbol": "yakudoc/dist/engineSelect.d.ts#selectEngine",
+      "lang": "ko"
+    },
+    "76ac659a": {
+      "original": "1 ファイル分の JSDoc から翻訳対象テキストを抽出する。\n\n抽出単位は「説明文」と「各タグの説明文」。tsserver がホバーで返す\ndocumentation / tags の text 部分と対応しており、プラグイン側は\n同じ hashText で照合する。",
+      "translated": "1개 파일분의 JSDoc에서 번역 대상 텍스트를 추출한다.\n\n추출 단위는 「설명문」과 「각 태그의 설명문」이다. tsserver가 호버에서 반환하는\ndocumentation / tags의 text 부분과 대응하며, 플러그인 쪽은\n같은 hashText로 대조한다.",
+      "symbol": "yakudoc/dist/extract.d.ts#extractFromSourceFile",
+      "lang": "ko"
+    },
+    "1a5452ec": {
+      "original": "出力先(既定: .yakudoc/translations.json)",
+      "translated": "출력 대상(기본: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/extract.d.ts#ExtractOptions.outPath",
+      "lang": "ko"
+    },
+    "998de0ed": {
+      "original": "tsconfig.json のファイル一覧を走査して JSDoc を抽出し、\n既存の translations.json とマージして書き出す。\n\n差分翻訳の要: 既存エントリの訳文はハッシュが一致する限り保持され、\n原文が変わったコメントは新しいハッシュの「翻訳待ち」エントリになる。",
+      "translated": "tsconfig.json의 파일 목록을 주사하여 JSDoc을 추출하고,\n기존 translations.json과 병합하여 기록한다.\n\n차분 번역의 핵심: 기존 엔트리의 번역문은 해시가 일치하는 한 유지되며,\n원문이 바뀐 주석은 새 해시의 「번역 대기」 엔트리가 된다.",
+      "symbol": "yakudoc/dist/extract.d.ts#extractProject",
+      "lang": "ko"
+    },
+    "45840eba": {
+      "original": "tsconfig.json(JSONC)のテキストに compilerOptions.plugins エントリを追加する。\nコメントや既存のフォーマットは保持する。登録済みなら何もしない。\n\neffectivePlugins には extends 解決後の実効 plugins を渡す。tsconfig が\nextends 先から plugins を継承している場合、ローカルに plugins を新設すると\nTypeScript のマージ規則(キー単位の置換)で継承分が丸ごと消えるため、\n実効 plugins を種にしてローカル配列を組み立てる。\n\n注意: この実装は packages/yakudoc-vscode/src/tsconfigRegistration.ts の\naddYakudocPlugin と対で保守する(拡張側は typescript 非依存のため共有していない)。",
+      "translated": "tsconfig.json(JSONC)의 텍스트에 compilerOptions.plugins 엔트리를 추가한다.\n주석이나 기존 포맷은 유지한다. 이미 등록되어 있으면 아무것도 하지 않는다.\n\neffectivePlugins에는 extends 해석 후의 실효 plugins를 넘긴다. tsconfig가\nextends 대상에서 plugins를 상속하고 있는 경우, 로컬에 plugins를 새로 만들면\nTypeScript의 병합 규칙(키 단위 치환)으로 상속분이 통째로 사라지므로,\n실효 plugins를 씨앗으로 삼아 로컬 배열을 구성한다.\n\n주의: 이 구현은 packages/yakudoc-vscode/src/tsconfigRegistration.ts의\naddYakudocPlugin과 짝으로 유지보수한다(확장 쪽은 typescript 비의존이라 공유하지 않는다).",
+      "symbol": "yakudoc/dist/init.d.ts#addPluginToTsconfig",
+      "lang": "ko"
+    },
+    "a1fac90a": {
+      "original": "extends を解決した後の実効 compilerOptions.plugins を返す。\n解決できない場合(tsconfig が壊れている等)は undefined。",
+      "translated": "extends를 해석한 후의 실효 compilerOptions.plugins를 반환한다.\n해석할 수 없는 경우(tsconfig가 손상된 경우 등)는 undefined.",
+      "symbol": "yakudoc/dist/init.d.ts#effectivePluginsOf",
+      "lang": "ko"
+    },
+    "f3e1ad4d": {
+      "original": "translations.json の出力先(既定: .yakudoc/translations.json)",
+      "translated": "translations.json의 출력 대상(기본: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/init.d.ts#InitOptions.outPath",
+      "lang": "ko"
+    },
+    "e7aac049": {
+      "original": "翻訳先の言語コード。指定すると .yakudoc/config.json に保存される",
+      "translated": "번역 대상 언어 코드. 지정하면 .yakudoc/config.json에 저장된다",
+      "symbol": "yakudoc/dist/init.d.ts#InitOptions.targetLang",
+      "lang": "ko"
+    },
+    "1e98a15d": {
+      "original": "yakudoc の導入を一括で行う。\n\n1. tsconfig.json に yakudoc-ts-plugin を登録する(登録済みなら何もしない)\n2. extract を実行して .yakudoc/translations.json を生成する\n3. targetLang 指定時は .yakudoc/config.json に翻訳先言語を保存する\n\nいずれの手順も冪等で、既存の訳文や tsconfig のコメントは保持される。",
+      "translated": "yakudoc 도입을 일괄로 수행한다.\n\n1. tsconfig.json에 yakudoc-ts-plugin을 등록한다(등록되어 있으면 아무것도 하지 않는다)\n2. extract를 실행하여 .yakudoc/translations.json을 생성한다\n3. targetLang 지정 시 .yakudoc/config.json에 번역 대상 언어를 저장한다\n\n모든 단계는 멱등이며, 기존 번역문이나 tsconfig 주석은 유지된다.",
+      "symbol": "yakudoc/dist/init.d.ts#initProject",
+      "lang": "ko"
+    },
+    "0a3f4b2c": {
+      "original": "config.json の絶対パス(表示用)",
+      "translated": "config.json의 절대 경로(표시용)",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.configPath",
+      "lang": "ko"
+    },
+    "4cee9b57": {
+      "original": "今回 config.json に翻訳先言語を保存したか",
+      "translated": "이번에 config.json에 번역 대상 언어를 저장했는지",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.configWritten",
+      "lang": "ko"
+    },
+    "aa1381d5": {
+      "original": "初回 extract の結果",
+      "translated": "최초 extract의 결과",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.extract",
+      "lang": "ko"
+    },
+    "e949b7f8": {
+      "original": "yakudoc-ts-plugin が projectDir から解決できるか。\ntsserver は解決できないプラグインを黙って無視するため、false のまま\n使い始めると「登録したのに表示が変わらない」状態になる(CLI が警告する)。",
+      "translated": "yakudoc-ts-plugin이 projectDir에서 해석되는지.\ntsserver는 해석할 수 없는 플러그인을 조용히 무시하므로, false인 채로\n사용을 시작하면 「등록했는데 표시가 바뀌지 않는」 상태가 된다(CLI가 경고한다).",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.pluginInstalled",
+      "lang": "ko"
+    },
+    "bc741168": {
+      "original": "今回プラグインを追記したか(既に登録済みなら false)",
+      "translated": "이번에 플러그인을 추가 기재했는지(이미 등록되어 있으면 false)",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.pluginRegistered",
+      "lang": "ko"
+    },
+    "413423e2": {
+      "original": "有効な翻訳先言語コード(--lang > config.json > 既定 ja)",
+      "translated": "유효한 번역 대상 언어 코드(--lang > config.json > 기본 ja)",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.targetLang",
+      "lang": "ko"
+    },
+    "04ef4518": {
+      "original": "登録対象になった tsconfig.json の絶対パス",
+      "translated": "등록 대상이 된 tsconfig.json의 절대 경로",
+      "symbol": "yakudoc/dist/init.d.ts#InitSummary.tsconfigPath",
+      "lang": "ko"
+    },
+    "6c04708b": {
+      "original": "パッケージが projectDir から Node の解決規則で見つかるかを調べ、\n見つかればその場所(パッケージディレクトリ)を返す。見つからなければ undefined。\n\ntsserver も compilerOptions.plugins のプラグインを node_modules の\n上方向探索で解決するため、この結果が「プラグインが実際に読み込めるか」の\n近似になる。main(dist/)が未ビルドでも存在だけは検知できるよう、\npackage.json → main の順で解決を試みる。",
+      "translated": "패키지가 projectDir에서 Node의 해석 규칙으로 발견되는지 조사하고,\n발견되면 그 위치(패키지 디렉터리)를 반환한다. 발견되지 않으면 undefined.\n\ntsserver도 compilerOptions.plugins의 플러그인을 node_modules의\n위쪽 탐색으로 해석하므로, 이 결과가 「플러그인을 실제로 읽을 수 있는지」의\n근사가 된다. main(dist/)이 빌드되지 않아도 존재만은 감지할 수 있도록,\npackage.json → main 순으로 해석을 시도한다.",
+      "symbol": "yakudoc/dist/installed.d.ts#resolveInstalledPackage",
+      "lang": "ko"
+    },
+    "b6b632db": {
+      "original": "翻訳先言語のレジストリ。\n\nyakudoc の翻訳先はここに載っている言語コードで指定する(既定: ja)。\n内蔵モデル(yakudoc-mt)はモデルのアーキテクチャごとに独自の言語コード\n体系を持つため、NLLB-200 / mBART-50 双方のコードをここで対応付ける。\n掲載言語は両モデルが対応しているものに限る。",
+      "translated": "번역 대상 언어의 레지스트리.\n\nyakudoc의 번역 대상은 여기에 실린 언어 코드로 지정한다(기본: ja).\n내장 모델(yakudoc-mt)은 모델 아키텍처마다 고유한 언어 코드 체계를\n가지므로, NLLB-200 / mBART-50 양쪽의 코드를 여기서 대응시킨다.\n게재 언어는 두 모델이 모두 지원하는 것으로 한정한다.",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec",
+      "lang": "ko"
+    },
+    "20562e79": {
+      "original": "mBART-50 の言語コード",
+      "translated": "mBART-50의 언어 코드",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.mbart",
+      "lang": "ko"
+    },
+    "1a79e309": {
+      "original": "英語の言語名。LLM への依頼文やログ表示に使う",
+      "translated": "영어 언어명. LLM에 대한 요청문이나 로그 표시에 사용",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.name",
+      "lang": "ko"
+    },
+    "bbcc4398": {
+      "original": "NLLB-200 の言語コード(FLORES-200 形式)",
+      "translated": "NLLB-200의 언어 코드(FLORES-200 형식)",
+      "symbol": "yakudoc/dist/languages.d.ts#LanguageSpec.nllb",
+      "lang": "ko"
+    },
+    "a4abbbe8": {
+      "original": "言語コードから LanguageSpec を引く(大文字小文字は区別しない)。\n未対応のコードはエラーにする。",
+      "translated": "언어 코드로부터 LanguageSpec을 조회한다(대소문자 구분 없음).\n미지원 코드는 오류로 만든다.",
+      "symbol": "yakudoc/dist/languages.d.ts#resolveLanguage",
+      "lang": "ko"
+    },
+    "3ff3615e": {
+      "original": "対応している言語コードの一覧(エラーメッセージやヘルプ表示用)",
+      "translated": "지원하는 언어 코드 목록(오류 메시지나 도움말 표시용)",
+      "symbol": "yakudoc/dist/languages.d.ts#supportedLanguageCodes",
+      "lang": "ko"
+    },
+    "b2d11903": {
+      "original": "翻訳エントリのキー。正規化した原文の SHA-256 先頭 8 桁(hex)。",
+      "translated": "번역 엔트리의 키. 정규화한 원문의 SHA-256 앞 8자리(hex).",
+      "symbol": "yakudoc/dist/normalize.d.ts#hashText",
+      "lang": "ko"
+    },
+    "f72dcf45": {
+      "original": "翻訳キーの照合に使う正規化。\n\ntsserver が返す documentation テキストと、extractor がソースの JSDoc から\n抽出したテキストは、改行コードや行頭のインデントが微妙に異なることがある。\n双方をこの関数に通した結果が一致すれば「同じ原文」とみなす。\n\n規約(extractor 側も必ずこれに従うこと):\n- 改行は \"\\n\" に統一する\n- 各行の前後の空白を取り除く\n- 3 行以上連続する空行は 1 つの空行に潰す\n- 全体の前後の空白を取り除く",
+      "translated": "번역 키 대조에 사용하는 정규화.\n\ntsserver가 반환하는 documentation 텍스트와 extractor가 소스의 JSDoc에서\n추출한 텍스트는 줄바꿈 코드나 행 앞 들여쓰기가 미묘하게 다를 수 있다.\n둘을 이 함수에 통과시킨 결과가 일치하면 「같은 원문」으로 간주한다.\n\n규약(extractor 쪽도 반드시 이를 따를 것):\n- 줄바꿈은 \"\\n\"으로 통일한다\n- 각 행의 앞뒤 공백을 제거한다\n- 3행 이상 연속된 빈 행은 1개의 빈 행으로 줄인다\n- 전체의 앞뒤 공백을 제거한다",
+      "symbol": "yakudoc/dist/normalize.d.ts#normalizeText",
+      "lang": "ko"
+    },
+    "44a6aa92": {
+      "original": "packs/ ディレクトリのパックを name 順で一覧する。\nディレクトリが無ければ空配列。壊れたファイルは読み飛ばす。",
+      "translated": "packs/ 디렉터리의 팩을 name 순으로 나열한다.\n디렉터리가 없으면 빈 배열. 손상된 파일은 건너뛴다.",
+      "symbol": "yakudoc/dist/packs.d.ts#listPacks",
+      "lang": "ko"
+    },
+    "ba81d0dc": {
+      "original": "読み込んだパックとその場所",
+      "translated": "읽어들인 팩과 그 위치",
+      "symbol": "yakudoc/dist/packs.d.ts#LoadedPack",
+      "lang": "ko"
+    },
+    "83ed656b": {
+      "original": "packFileNameFor の逆変換(一覧表示でファイル名からパッケージ名を推定する)",
+      "translated": "packFileNameFor의 역변환(목록 표시에서 파일명으로부터 패키지명을 추정한다)",
+      "symbol": "yakudoc/dist/packs.d.ts#packageNameFromFileName",
+      "lang": "ko"
+    },
+    "6b8f1048": {
+      "original": "依存パッケージ 1 つ分の翻訳パック。\n\n`.yakudoc/packs/<パッケージ名>.json` に保存されるファイルの形式そのものが\n共有可能なパックの形式でもある(ローカルのパック = 配布物)。entries の\nキーは translations.json と同じ「正規化した原文のハッシュ」なので、\nパッケージのバージョンが変わっても原文が同じエントリはそのまま生きる。",
+      "translated": "의존 패키지 1개분의 번역 팩.\n\n`.yakudoc/packs/<패키지명>.json`에 저장되는 파일의 형식 그 자체가\n공유 가능한 팩의 형식이기도 하다(로컬 팩 = 배포물). entries의\n키는 translations.json과 같은 「정규화한 원문의 해시」이므로,\n패키지 버전이 바뀌어도 원문이 같은 엔트리는 그대로 유효하다.",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile",
+      "lang": "ko"
+    },
+    "c32da3d2": {
+      "original": "翻訳エントリ。translations.json と同じ形式",
+      "translated": "번역 엔트리. translations.json과 같은 형식",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.entries",
+      "lang": "ko"
+    },
+    "fb03d18a": {
+      "original": "生成元ツールとバージョン(例: \"yakudoc@0.2.0\")。無くてもよい",
+      "translated": "생성 도구와 버전(예: \"yakudoc@0.2.0\"). 없어도 된다",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.generator",
+      "lang": "ko"
+    },
+    "759b0cc0": {
+      "original": "このパックの翻訳先言語コード(例: \"ja\")",
+      "translated": "이 팩의 번역 대상 언어 코드(예: \"ja\")",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.lang",
+      "lang": "ko"
+    },
+    "0dfcdb40": {
+      "original": "npm パッケージ名(例: \"zod\"、\"@types/node\")",
+      "translated": "npm 패키지명(예: \"zod\", \"@types/node\")",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.name",
+      "lang": "ko"
+    },
+    "6c8ab57d": {
+      "original": "抽出元にしたインストール済みバージョン",
+      "translated": "추출 원본으로 삼은 설치 버전",
+      "symbol": "yakudoc/dist/packs.d.ts#PackFile.version",
+      "lang": "ko"
+    },
+    "e3a7db71": {
+      "original": "パックのファイル名。スコープ区切りの \"/\" はファイル名に使えないため\n\"__\" に置き換える(例: \"@types/node\" → \"@types__node.json\")。",
+      "translated": "팩의 파일명. 스코프 구분자 \"/\"는 파일명에 쓸 수 없으므로\n\"__\"로 치환한다(예: \"@types/node\" → \"@types__node.json\").",
+      "symbol": "yakudoc/dist/packs.d.ts#packFileNameFor",
+      "lang": "ko"
+    },
+    "5ca37eda": {
+      "original": "特定パッケージのパックファイルのパス",
+      "translated": "특정 패키지의 팩 파일 경로",
+      "symbol": "yakudoc/dist/packs.d.ts#packPathFor",
+      "lang": "ko"
+    },
+    "e3582c4f": {
+      "original": ".yakudoc/ 直下のパック置き場のディレクトリ名",
+      "translated": ".yakudoc/ 바로 아래 팩 저장소의 디렉터리명",
+      "symbol": "yakudoc/dist/packs.d.ts#PACKS_DIR_NAME",
+      "lang": "ko"
+    },
+    "b1d014a8": {
+      "original": "JSON 文字列(またはパース済みの値)をパックとして解釈する。\n\n正規の形式は { name, version, lang, entries } だが、entries を持たない\n素の translations.json 形式(ハッシュ → エントリ)も受け付ける。\nコミュニティ配布のファイルを手で packs/ に置いた場合や、レジストリの\n形式差異に対して寛容にするため。解釈できなければ undefined。",
+      "translated": "JSON 문자열(또는 파싱된 값)을 팩으로 해석한다.\n\n정규 형식은 { name, version, lang, entries }이지만, entries가 없는\n순수 translations.json 형식(해시 → 엔트리)도 받아들인다.\n커뮤니티 배포 파일을 손으로 packs/에 둔 경우나, 레지스트리의\n형식 차이에 관대하게 대응하기 위해서다. 해석할 수 없으면 undefined.",
+      "symbol": "yakudoc/dist/packs.d.ts#parsePack",
+      "lang": "ko"
+    },
+    "a17b7c9b": {
+      "original": "パックファイルを読み込む。存在しない・解釈できない場合は undefined",
+      "translated": "팩 파일을 읽는다. 존재하지 않거나 해석할 수 없는 경우 undefined",
+      "symbol": "yakudoc/dist/packs.d.ts#readPack",
+      "lang": "ko"
+    },
+    "19295e74": {
+      "original": "パックファイルを削除する。削除したら true、元々存在しなければ false。",
+      "translated": "팩 파일을 삭제한다. 삭제하면 true, 원래 존재하지 않으면 false.",
+      "symbol": "yakudoc/dist/packs.d.ts#removePack",
+      "lang": "ko"
+    },
+    "ce2f8d6e": {
+      "original": "パック置き場のディレクトリを解決する。translations.json と同じ\n`.yakudoc/` ディレクトリの下に置く(--out で translations.json を\n動かした場合はそれに追従する)。",
+      "translated": "팩 저장소 디렉터리를 해결한다. translations.json과 같은\n`.yakudoc/` 디렉터리 아래에 둔다(--out으로 translations.json을\n옮긴 경우 그것을 따라간다).",
+      "symbol": "yakudoc/dist/packs.d.ts#resolvePacksDir",
+      "lang": "ko"
+    },
+    "73f15af4": {
+      "original": "symbol → original 順に entries を整列して書き出す(diff を安定させるため)",
+      "translated": "symbol → original 순으로 entries를 정렬하여 기록한다(diff를 안정시키기 위해)",
+      "symbol": "yakudoc/dist/packs.d.ts#writePack",
+      "lang": "ko"
+    },
+    "6f367054": {
+      "original": "n 番目の保護トークン。エラー報告などの表示にも使う",
+      "translated": "n번째 보호 토큰. 오류 보고 등의 표시에도 사용",
+      "symbol": "yakudoc/dist/placeholders.d.ts#placeholderToken",
+      "lang": "ko"
+    },
+    "3ed0186b": {
+      "original": "翻訳してはいけない断片(コード片・インラインタグ・URL)を\n<phN> 形式のトークンに置き換えて保護する。\n\n翻訳エンジン(LLM / 機械翻訳モデル)にはトークン入りのテキストを渡し、\n訳文の対応する位置にトークンをそのまま残してもらう。書き戻し時に\nrestoreText で復元する。\n\nトークン形式は NLLB-200(yakudoc-mt の既定モデル)で生存確認済みのもの。\n⟦n⟧ や [[n]] は機械翻訳モデルに壊されることがあり使えない。",
+      "translated": "번역하면 안 되는 조각(코드 조각·인라인 태그·URL)을\n<phN> 형식의 토큰으로 치환하여 보호한다.\n\n번역 엔진(LLM / 기계 번역 모델)에는 토큰이 들어간 텍스트를 넘기고,\n번역문의 대응 위치에 토큰을 그대로 남기게 한다. 되쓸 때\nrestoreText로 복원한다.\n\n토큰 형식은 NLLB-200(yakudoc-mt의 기본 모델)에서 생존이 확인된 것이다.\n⟦n⟧이나 [[n]]은 기계 번역 모델에 의해 깨질 수 있어 쓸 수 없다.",
+      "symbol": "yakudoc/dist/placeholders.d.ts#placeholderToken",
+      "lang": "ko"
+    },
+    "7854fd54": {
+      "original": "トークン番号 → 元の断片",
+      "translated": "토큰 번호 → 원래 조각",
+      "symbol": "yakudoc/dist/placeholders.d.ts#ProtectedText.placeholders",
+      "lang": "ko"
+    },
+    "0ded5d9b": {
+      "original": "トークンに置き換え済みのテキスト",
+      "translated": "토큰으로 치환이 끝난 텍스트",
+      "symbol": "yakudoc/dist/placeholders.d.ts#ProtectedText.text",
+      "lang": "ko"
+    },
+    "68db164e": {
+      "original": "訳文中に見つからなかったトークン番号。1 つでもあれば訳文は採用しない",
+      "translated": "번역문에서 찾지 못한 토큰 번호. 하나라도 있으면 번역문을 채택하지 않는다",
+      "symbol": "yakudoc/dist/placeholders.d.ts#RestoredText.missing",
+      "lang": "ko"
+    },
+    "56d82f4d": {
+      "original": "コミュニティ翻訳パックの既定の取得元。\nGitHub リポジトリの raw URL で、`packs/<言語コード>/<パッケージ名>.json` を\n直接取りに行く(専用サーバー不要)。",
+      "translated": "커뮤니티 번역 팩의 기본 취득처.\nGitHub 저장소의 raw URL이며, `packs/<언어 코드>/<패키지명>.json`을\n직접 가져온다(전용 서버 불필요).",
+      "symbol": "yakudoc/dist/registry.d.ts#DEFAULT_REGISTRY_URL",
+      "lang": "ko"
+    },
+    "c71d3a7d": {
+      "original": "コミュニティ翻訳パックを取得する。\n\nネットワークは失敗して当たり前の前提で、例外は投げず結果を status で\n返す(add はオフラインでも成立する操作なので、呼び出し側は error を\n警告表示に留めて処理を続行する)。",
+      "translated": "커뮤니티 번역 팩을 가져온다.\n\n네트워크는 실패하는 것이 당연하다는 전제로, 예외를 던지지 않고 결과를 status로\n반환한다(add는 오프라인에서도 성립하는 조작이므로, 호출 측은 error를\n경고 표시에 그치고 처리를 계속한다).",
+      "symbol": "yakudoc/dist/registry.d.ts#fetchCommunityPack",
+      "lang": "ko"
+    },
+    "73be3c3c": {
+      "original": "fetch の差し替え用の最小インターフェース(テストで注入する)",
+      "translated": "fetch 교체용의 최소 인터페이스(테스트에서 주입한다)",
+      "symbol": "yakudoc/dist/registry.d.ts#FetchLike",
+      "lang": "ko"
+    },
+    "1a0f9280": {
+      "original": "コミュニティ翻訳パックのリポジトリ(export コマンドが PR 先として案内する)",
+      "translated": "커뮤니티 번역 팩의 저장소(export 명령이 PR 대상으로 안내한다)",
+      "symbol": "yakudoc/dist/registry.d.ts#PACKS_REPO_URL",
+      "lang": "ko"
+    },
+    "1ea02850": {
+      "original": "パッケージのパックを取りに行く URL を組み立てる",
+      "translated": "패키지의 팩을 가져올 URL을 조립한다",
+      "symbol": "yakudoc/dist/registry.d.ts#packUrlFor",
+      "lang": "ko"
+    },
+    "827ce814": {
+      "original": "レジストリ URL を上書きする環境変数名",
+      "translated": "레지스트리 URL을 덮어쓰는 환경 변수명",
+      "symbol": "yakudoc/dist/registry.d.ts#REGISTRY_ENV_VAR",
+      "lang": "ko"
+    },
+    "49040b12": {
+      "original": "レジストリのベース URL を決める。\n優先順位: CLI の --registry > 環境変数 > config.json の registry > 既定。",
+      "translated": "레지스트리의 베이스 URL을 정한다.\n우선순위: CLI의 --registry > 환경 변수 > config.json의 registry > 기본.",
+      "symbol": "yakudoc/dist/registry.d.ts#resolveRegistryUrl",
+      "lang": "ko"
+    },
+    "1c59fbd0": {
+      "original": "translations.json の内容から進捗を集計する(純粋関数・ファイル I/O なし)。\n\nextract と違いソースの再走査は行わないため stale は数えない。\n訳文が空、または訳文の言語が targetLang と異なるエントリを\n「翻訳待ち」として集計・列挙する(言語を切り替えた場合、旧言語の訳は\n完了扱いにならない)。",
+      "translated": "translations.json의 내용으로부터 진행 상황을 집계한다(순수 함수·파일 I/O 없음).\n\nextract와 달리 소스를 다시 주사하지 않으므로 stale은 세지 않는다.\n번역문이 비었거나, 번역문의 언어가 targetLang과 다른 엔트리를\n「번역 대기」로 집계·열거한다(언어를 전환한 경우, 이전 언어의 번역은\n완료로 취급되지 않는다).",
+      "symbol": "yakudoc/dist/status.d.ts#computeStatus",
+      "lang": "ko"
+    },
+    "7b393cd6": {
+      "original": "翻訳パック 1 つ分の進捗",
+      "translated": "번역 팩 1개분의 진행 상황",
+      "symbol": "yakudoc/dist/status.d.ts#PackStatus",
+      "lang": "ko"
+    },
+    "c8025992": {
+      "original": "翻訳待ちの 1 エントリ。status の一覧表示に使う",
+      "translated": "번역 대기의 1개 엔트리. status 목록 표시에 사용",
+      "symbol": "yakudoc/dist/status.d.ts#PendingEntry",
+      "lang": "ko"
+    },
+    "0b3840be": {
+      "original": "翻訳待ちエントリ(symbol → original 順)。translated が空のものだけ",
+      "translated": "번역 대기 엔트리(symbol → original 순). translated가 빈 것만",
+      "symbol": "yakudoc/dist/status.d.ts#StatusCounts.pending",
+      "lang": "ko"
+    },
+    "5b21f0ba": {
+      "original": "status の終了コードを決める(純粋関数)。\n--fail-on-pending 指定時に翻訳待ちが残っていれば 1(CI の失敗ゲート用)。\nそれ以外は 0。",
+      "translated": "status의 종료 코드를 정한다(순수 함수).\n--fail-on-pending 지정 시 번역 대기가 남아 있으면 1(CI의 실패 게이트용).\n그 외에는 0.",
+      "symbol": "yakudoc/dist/status.d.ts#statusExitCode",
+      "lang": "ko"
+    },
+    "1de2e91e": {
+      "original": "プロジェクトルート。出力パスの基準",
+      "translated": "프로젝트 루트. 출력 경로의 기준",
+      "symbol": "yakudoc/dist/status.d.ts#StatusOptions.projectDir",
+      "lang": "ko"
+    },
+    "a4e83ba3": {
+      "original": "translations.json と .yakudoc/packs/ 以下の翻訳パックを読み込んで\n進捗を集計する。翻訳先言語は .yakudoc/config.json から解決する。\nどのファイルも存在しなければ undefined(CLI 側で導入手順を案内する)。",
+      "translated": "translations.json과 .yakudoc/packs/ 아래의 번역 팩을 읽어\n진행 상황을 집계한다. 번역 대상 언어는 .yakudoc/config.json에서 해결한다.\n어느 파일도 존재하지 않으면 undefined(CLI 쪽에서 도입 절차를 안내한다).",
+      "symbol": "yakudoc/dist/status.d.ts#statusProject",
+      "lang": "ko"
+    },
+    "05e037f1": {
+      "original": "プロジェクト全体の進捗。total / translated / untranslated / pending は\ntranslations.json と全パックを合算した値(pending は原文ハッシュで\n重複排除済み)。project / packs に内訳を持つ。",
+      "translated": "프로젝트 전체의 진행 상황. total / translated / untranslated / pending은\ntranslations.json과 모든 팩을 합산한 값(pending은 원문 해시로\n중복 제거됨). project / packs에 내역을 가진다.",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary",
+      "lang": "ko"
+    },
+    "db0d00a8": {
+      "original": "依存パッケージの翻訳パックの内訳(name 順)",
+      "translated": "의존 패키지의 번역 팩 내역(name 순)",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary.packs",
+      "lang": "ko"
+    },
+    "9719c7cf": {
+      "original": "translations.json の内訳(ファイルが無ければ undefined)",
+      "translated": "translations.json의 내역(파일이 없으면 undefined)",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary.project",
+      "lang": "ko"
+    },
+    "b88c0d8c": {
+      "original": "集計に使った翻訳先言語(config.json から解決)",
+      "translated": "집계에 사용한 번역 대상 언어(config.json에서 해결)",
+      "symbol": "yakudoc/dist/status.d.ts#StatusSummary.targetLang",
+      "lang": "ko"
+    },
+    "54d37e93": {
+      "original": "訳文をハッシュの一致する全ソースへ書き込む(メモリ上)。\n書き込んだソース数を返す(0 ならどこにも該当が無い)。",
+      "translated": "번역문을 해시가 일치하는 모든 소스에 기록한다(메모리 상).\n기록한 소스 수를 반환한다(0이면 어디에도 해당이 없다).",
+      "symbol": "yakudoc/dist/translationSet.d.ts#applyTranslation",
+      "lang": "ko"
+    },
+    "00f808ad": {
+      "original": "全ソースの翻訳待ちエントリをハッシュで重複排除して集める。\n同じ原文がプロジェクトとパックの両方にある場合も翻訳は 1 回で済み、\napplyTranslation が両方へ書き戻す。",
+      "translated": "모든 소스의 번역 대기 엔트리를 해시로 중복 제거하여 모은다.\n같은 원문이 프로젝트와 팩 양쪽에 있어도 번역은 1회로 끝나고,\napplyTranslation이 양쪽에 되쓴다.",
+      "symbol": "yakudoc/dist/translationSet.d.ts#collectPending",
+      "lang": "ko"
+    },
+    "c605f8f2": {
+      "original": "プロジェクトの翻訳対象ファイル一式を読み込む。\ntranslations.json(存在すれば)+ packs/ 以下の全パック。\npackages を指定するとそのパックだけに絞る(プロジェクト分は含めない)。",
+      "translated": "프로젝트의 번역 대상 파일 일체를 읽는다.\ntranslations.json(존재하면) + packs/ 아래의 모든 팩.\npackages를 지정하면 그 팩만으로 좁힌다(프로젝트분은 포함하지 않는다).",
+      "symbol": "yakudoc/dist/translationSet.d.ts#loadProjectSources",
+      "lang": "ko"
+    },
+    "4883e090": {
+      "original": "パスの一覧から翻訳対象ファイルを読み込む(翻訳エンジン用)。\n各ファイルはパック形式か素の translations.json 形式かを内容で判定する。\n存在しないファイルは読み飛ばす。",
+      "translated": "경로 목록으로부터 번역 대상 파일을 읽는다(번역 엔진용).\n각 파일이 팩 형식인지 순수 translations.json 형식인지 내용으로 판정한다.\n존재하지 않는 파일은 건너뛴다.",
+      "symbol": "yakudoc/dist/translationSet.d.ts#loadSourcesAt",
+      "lang": "ko"
+    },
+    "fe937e8d": {
+      "original": "翻訳待ちの 1 件(横断集計用)。symbol は最初に見つかったものを使う",
+      "translated": "번역 대기의 1건(횡단 집계용). symbol은 처음 발견한 것을 사용",
+      "symbol": "yakudoc/dist/translationSet.d.ts#PendingItem",
+      "lang": "ko"
+    },
+    "87bd001b": {
+      "original": "翻訳エントリを持つファイル 1 つ分(プロジェクトの translations.json、\nまたは依存パッケージの翻訳パック)。translate / status はこの配列を\n横断して処理する。",
+      "translated": "번역 엔트리를 가진 파일 1개분(프로젝트의 translations.json,\n또는 의존 패키지의 번역 팩). translate / status는 이 배열을\n횡단하여 처리한다.",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource",
+      "lang": "ko"
+    },
+    "ffecabac": {
+      "original": "applyTranslation で書き換えられたか(writeSources が書き出す対象)",
+      "translated": "applyTranslation으로 수정되었는지(writeSources가 기록하는 대상)",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource.dirty",
+      "lang": "ko"
+    },
+    "b3dbb7eb": {
+      "original": "表示用ラベル(project: \"translations.json\"、pack: パッケージ名)",
+      "translated": "표시용 라벨(project: \"translations.json\", pack: 패키지명)",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource.label",
+      "lang": "ko"
+    },
+    "007b20bd": {
+      "original": "kind === \"pack\" のときのメタデータ(書き戻しに使う)",
+      "translated": "kind === \"pack\"일 때의 메타데이터(되쓰기에 사용)",
+      "symbol": "yakudoc/dist/translationSet.d.ts#TranslationSource.pack",
+      "lang": "ko"
+    },
+    "dbbacbcf": {
+      "original": "applyTranslation で変更のあったソースだけをファイルへ書き出す",
+      "translated": "applyTranslation으로 변경이 있었던 소스만 파일로 기록한다",
+      "symbol": "yakudoc/dist/translationSet.d.ts#writeSources",
+      "lang": "ko"
+    },
+    "4d6c3fde": {
+      "original": "今回の抽出に現れなかった既存エントリ数",
+      "translated": "이번 추출에 나타나지 않은 기존 엔트리 수",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#MergeStats.stale",
+      "lang": "ko"
+    },
+    "17786fac": {
+      "original": "訳文を保持できたエントリ数",
+      "translated": "번역문을 유지할 수 있었던 엔트리 수",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#MergeStats.translated",
+      "lang": "ko"
+    },
+    "19782fcf": {
+      "original": "翻訳待ちのエントリ数",
+      "translated": "번역 대기 엔트리 수",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#MergeStats.untranslated",
+      "lang": "ko"
+    },
+    "0cc66d12": {
+      "original": "抽出結果を既存ファイルへマージする。\n\n- ハッシュが一致する既存エントリの訳文は保持する(差分翻訳)\n- 新規の原文は translated: \"\" の「翻訳待ち」として追加する\n- ソースから消えた原文は既定では残す(抽出漏れで訳を失わないため)。\n  prune: true で削除する",
+      "translated": "추출 결과를 기존 파일에 병합한다.\n\n- 해시가 일치하는 기존 엔트리의 번역문은 유지한다(차분 번역)\n- 새로운 원문은 translated: \"\"의 「번역 대기」로 추가한다\n- 소스에서 사라진 원문은 기본적으로 남긴다(추출 누락으로 번역을 잃지 않기 위해).\n  prune: true로 삭제한다",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#mergeTranslations",
+      "lang": "ko"
+    },
+    "1b111125": {
+      "original": "エントリが「翻訳待ち」かを判定する(status・翻訳エンジン共通)。\n訳文が空、または訳文の言語が現在の翻訳先と異なる場合に翻訳待ちとなる。\nlang が無いエントリは現在の翻訳先の訳とみなす(既存ファイルの互換のため)。",
+      "translated": "엔트리가 「번역 대기」인지 판정한다(status·번역 엔진 공통).\n번역문이 비었거나, 번역문의 언어가 현재 번역 대상과 다른 경우 번역 대기가 된다.\nlang이 없는 엔트리는 현재 번역 대상의 번역으로 간주한다(기존 파일 호환을 위해).",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#needsTranslation",
+      "lang": "ko"
+    },
+    "f2a70dc7": {
+      "original": "translations.json を読み込む。存在しなければ undefined",
+      "translated": "translations.json을 읽는다. 존재하지 않으면 undefined",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#readTranslations",
+      "lang": "ko"
+    },
+    "f9d745c5": {
+      "original": "translations.json のパスを解決する(全コマンド・全エンジン共通)。\noutPath 未指定なら projectDir/.yakudoc/translations.json。",
+      "translated": "translations.json의 경로를 해결한다(모든 명령·모든 엔진 공통).\noutPath 미지정이면 projectDir/.yakudoc/translations.json.",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#resolveTranslationsPath",
+      "lang": "ko"
+    },
+    "ea9ec255": {
+      "original": "translations.json の既定の相対パス",
+      "translated": "translations.json의 기본 상대 경로",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#TRANSLATIONS_RELATIVE_PATH",
+      "lang": "ko"
+    },
+    "d98ece8a": {
+      "original": "symbol → original の順で整列して書き出す(diff を安定させるため)",
+      "translated": "symbol → original 순으로 정렬하여 기록한다(diff를 안정시키기 위해)",
+      "symbol": "yakudoc/dist/translationsFile.d.ts#writeTranslations",
+      "lang": "ko"
+    },
+    "489312f8": {
+      "original": "`yakudoc translate --engine <name>` が翻訳エンジンパッケージ\n(yakudoc-ai-prep / yakudoc-mt)に渡すオプション。\nエンジン側は `run(options: EngineRunOptions): Promise<void>` を公開する。",
+      "translated": "`yakudoc translate --engine <name>`이 번역 엔진 패키지\n(yakudoc-ai-prep / yakudoc-mt)에 넘기는 옵션.\n엔진 쪽은 `run(options: EngineRunOptions): Promise<void>`를 공개한다.",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions",
+      "lang": "ko"
+    },
+    "97bd6b79": {
+      "original": "翻訳結果 JSON を書き戻す場合、そのファイルのパス",
+      "translated": "번역 결과 JSON을 되쓸 경우, 그 파일의 경로",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.applyPath",
+      "lang": "ko"
+    },
+    "3418cc0e": {
+      "original": "yakudoc-mt: 使用するモデルの HF id を明示する(modelSize より優先)",
+      "translated": "yakudoc-mt: 사용할 모델의 HF id를 명시한다(modelSize보다 우선)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.model",
+      "lang": "ko"
+    },
+    "91dea51f": {
+      "original": "yakudoc-mt: モデルの大きさ。small | large | auto(既定は auto)",
+      "translated": "yakudoc-mt: 모델의 크기. small | large | auto(기본은 auto)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.modelSize",
+      "lang": "ko"
+    },
+    "5c9f814c": {
+      "original": "プロジェクトルート(CLI 実行時のカレントディレクトリ)",
+      "translated": "프로젝트 루트(CLI 실행 시의 현재 디렉터리)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.projectDir",
+      "lang": "ko"
+    },
+    "b962e7b5": {
+      "original": "翻訳先の言語コード(languages.ts で解決済み。省略時: ja)",
+      "translated": "번역 대상 언어 코드(languages.ts에서 해결됨. 생략 시: ja)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.targetLang",
+      "lang": "ko"
+    },
+    "7384bd7c": {
+      "original": "translations.json のパス(省略時: .yakudoc/translations.json)",
+      "translated": "translations.json의 경로(생략 시: .yakudoc/translations.json)",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.translationsPath",
+      "lang": "ko"
+    },
+    "8feb2f53": {
+      "original": "翻訳対象ファイルの一覧(translations.json と .yakudoc/packs/ 以下の\n翻訳パック)。CLI が解決して渡す。省略時はエンジン側が\ntranslationsPath(またはその既定)1 ファイルのみを対象にする。",
+      "translated": "번역 대상 파일 목록(translations.json과 .yakudoc/packs/ 아래의\n번역 팩). CLI가 해결하여 넘긴다. 생략 시 엔진 쪽이\ntranslationsPath(또는 그 기본값) 1개 파일만 대상으로 한다.",
+      "symbol": "yakudoc/dist/types.d.ts#EngineRunOptions.translationsPaths",
+      "lang": "ko"
+    },
+    "08c37238": {
+      "original": "訳文の言語コード。翻訳エンジンが書き込み時に付与する。\n無いエントリ(手動編集・旧バージョンのファイル)は現在の翻訳先言語と\nみなす(アップグレードで既存の訳が失効しないようにするため)。",
+      "translated": "번역문의 언어 코드. 번역 엔진이 기록 시 부여한다.\n없는 엔트리(수동 편집·구버전 파일)는 현재 번역 대상 언어로\n간주한다(업그레이드로 기존 번역이 실효되지 않도록).",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.lang",
+      "lang": "ko"
+    },
+    "bd8f71f9": {
+      "original": "抽出した原文(トリム済み)",
+      "translated": "추출한 원문(트림 완료)",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.original",
+      "lang": "ko"
+    },
+    "37f00084": {
+      "original": "補助情報。リネーム検出用の \"src/api/user.ts#fetchUser\" 形式",
+      "translated": "보조 정보. 리네임 감지용의 \"src/api/user.ts#fetchUser\" 형식",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.symbol",
+      "lang": "ko"
+    },
+    "7906d4e4": {
+      "original": "訳文。空文字列は「翻訳待ち」を意味する",
+      "translated": "번역문. 빈 문자열은 「번역 대기」를 의미한다",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationEntry.translated",
+      "lang": "ko"
+    },
+    "c5b3e221": {
+      "original": ".yakudoc/translations.json 全体。キーは正規化した原文のハッシュ",
+      "translated": ".yakudoc/translations.json 전체. 키는 정규화한 원문의 해시",
+      "symbol": "yakudoc/dist/types.d.ts#TranslationsFile",
+      "lang": "ko"
+    }
+  }
+}

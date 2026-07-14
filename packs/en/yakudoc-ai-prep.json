@@ -1,0 +1,80 @@
+{
+  "name": "yakudoc-ai-prep",
+  "version": "0.1.1",
+  "lang": "en",
+  "generator": "yakudoc@0.1.1",
+  "entries": {
+    "628f3b4a": {
+      "original": "LLM から返ってきた翻訳結果 JSON({ hash: 訳文 })を書き戻す。\n対象は translations.json と翻訳パックの全ファイルで、ハッシュの一致する\nすべてのファイルへ反映する。プレースホルダーを復元し、トークンが欠けた\n訳文は採用しない。",
+      "translated": "Writes back the translation result JSON ({ hash: translation }) returned by the LLM.\nApplies to translations.json and all translation pack files, propagating to\nevery file whose hash matches. Restores placeholders and rejects any\ntranslation that is missing tokens.",
+      "symbol": "yakudoc-ai-prep/dist/apply.d.ts#applyResponse",
+      "lang": "en"
+    },
+    "67fd8f58": {
+      "original": "`yakudoc translate --engine prep` のエントリポイント。\n--apply 付きなら翻訳結果の書き戻し、無ければ下準備ファイルの生成を行う。",
+      "translated": "Entry point for `yakudoc translate --engine prep`.\nWith --apply it writes the translation results back; without it, it generates the preparation files.",
+      "symbol": "yakudoc-ai-prep/dist/index.d.ts#run",
+      "lang": "en"
+    },
+    "2d987ff1": {
+      "original": "翻訳してはいけない断片(コード片・インラインタグ・URL)を\n⟦n⟧ 形式のトークンに置き換えて保護する。\n\nLLM にはトークン入りのテキストを渡し、訳文の対応する位置に\nトークンをそのまま残してもらう。書き戻し時に restoreText で復元する。",
+      "translated": "Protects fragments that must not be translated (code spans, inline tags, URLs)\nby replacing them with tokens in the ⟦n⟧ form.\n\nThe LLM is given the tokenized text and asked to leave the tokens in place\nat the corresponding positions in the translation. They are restored with\nrestoreText when writing back.",
+      "symbol": "yakudoc-ai-prep/dist/placeholders.d.ts#ProtectedText",
+      "lang": "en"
+    },
+    "7854fd54": {
+      "original": "トークン番号 → 元の断片",
+      "translated": "Token number → original fragment",
+      "symbol": "yakudoc-ai-prep/dist/placeholders.d.ts#ProtectedText.placeholders",
+      "lang": "en"
+    },
+    "0ded5d9b": {
+      "original": "トークンに置き換え済みのテキスト",
+      "translated": "Text in which fragments have already been replaced by tokens",
+      "symbol": "yakudoc-ai-prep/dist/placeholders.d.ts#ProtectedText.text",
+      "lang": "en"
+    },
+    "68db164e": {
+      "original": "訳文中に見つからなかったトークン番号。1 つでもあれば訳文は採用しない",
+      "translated": "Token numbers that were not found in the translation. If even one is missing, the translation is rejected",
+      "symbol": "yakudoc-ai-prep/dist/placeholders.d.ts#RestoredText.missing",
+      "lang": "en"
+    },
+    "8fa2e966": {
+      "original": "翻訳待ちエントリから LLM 向けの下準備ファイル一式を生成する。\n\n対象は translations.json と依存パッケージの翻訳パックの全ファイル。\n同じ原文が複数ファイルにあっても依頼は 1 件にまとまる(書き戻し時に\n全ファイルへ反映される)。\n\n- .yakudoc/ai/request.json  保護済み原文とプレースホルダー対応表\n- .yakudoc/ai/prompt.md     そのまま LLM に貼れる依頼文(用語集込み)\n- .yakudoc/glossary.json    用語集(無ければ空で作成。ユーザーが育てる)",
+      "translated": "Generates the full set of preparation files for the LLM from the pending entries.\n\nCovers translations.json and all translation pack files of the dependencies.\nEven if the same source text appears in several files, it is bundled into a single\nrequest (and propagated to every file when writing back).\n\n- .yakudoc/ai/request.json  protected source text and the placeholder mapping\n- .yakudoc/ai/prompt.md     a request ready to paste into the LLM (glossary included)\n- .yakudoc/glossary.json    the glossary (created empty if absent; grown by the user)",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#prepare",
+      "lang": "en"
+    },
+    "e79064cd": {
+      "original": ".yakudoc/ai/request.json の形式",
+      "translated": "The format of .yakudoc/ai/request.json",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#RequestFile",
+      "lang": "en"
+    },
+    "66339da8": {
+      "original": "<phN> トークン → 元の断片(apply 時の復元に使う)",
+      "translated": "<phN> token → original fragment (used for restoration during apply)",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#RequestFile.entries.placeholders",
+      "lang": "en"
+    },
+    "0099fcdb": {
+      "original": "プレースホルダー保護済みの原文",
+      "translated": "Source text with placeholders already protected",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#RequestFile.entries.source",
+      "lang": "en"
+    },
+    "0c2352ab": {
+      "original": "翻訳先の言語コード(例: \"ja\")",
+      "translated": "Target language code (e.g. \"ja\")",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#RequestFile.targetLanguage",
+      "lang": "en"
+    },
+    "c2eb8b0d": {
+      "original": "翻訳対象ファイルの一覧。CLI が渡す translationsPaths\n(translations.json + 翻訳パック)を優先し、無ければ従来どおり\ntranslations.json 1 ファイル。",
+      "translated": "The list of files to translate. Prefers the translationsPaths passed by the CLI\n(translations.json + translation packs); if absent, falls back as before to the\nsingle translations.json file.",
+      "symbol": "yakudoc-ai-prep/dist/prep.d.ts#resolveTargetPaths",
+      "lang": "en"
+    }
+  }
+}
