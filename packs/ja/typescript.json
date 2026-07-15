@@ -22,6 +22,12 @@
       "symbol": "typescript/lib/typescript.d.ts#ts.LanguageService.getQuickInfoAtPosition",
       "lang": "ja"
     },
+    "22253882": {
+      "original": "If present, tab settings apply only to this file.",
+      "translated": "存在する場合、タブ設定はこのファイルにのみ適用される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigureRequestArguments.file",
+      "lang": "ja"
+    },
     "24763527": {
       "original": "- Reuses an old program structure.",
       "translated": "- 古いプログラム構造を再利用する。",
@@ -34,6 +40,12 @@
       "symbol": "typescript/lib/typescript.d.ts#ts.LanguageService.getSyntacticDiagnostics",
       "lang": "ja"
     },
+    "25498193": {
+      "original": "Project name",
+      "translated": "プロジェクト名",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalProject.projectFileName",
+      "lang": "ja"
+    },
     "27061769": {
       "original": "Gets the own property descriptor of the specified object.\nAn own property descriptor is one that is defined directly on the object and is not inherited from the object's prototype.",
       "translated": "指定したオブジェクトの自身のプロパティ記述子(own property descriptor)を取得する。\n自身のプロパティ記述子とは、オブジェクトに直接定義されており、オブジェクトのプロトタイプから継承していないものを指す。",
@@ -44,6 +56,12 @@
       "original": "Gets the property of target, equivalent to `target[propertyKey]` when `receiver === target`.",
       "translated": "target のプロパティを取得する。`receiver === target` のとき `target[propertyKey]` と同等。",
       "symbol": "typescript/lib/lib.es2015.reflect.d.ts#Reflect.get",
+      "lang": "ja"
+    },
+    "29272142": {
+      "original": "projects built from openFileRoots",
+      "translated": "openFileRoots から構築されたプロジェクト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.inferredProjects",
       "lang": "ja"
     },
     "31886128": {
@@ -62,6 +80,12 @@
       "original": "Context provided to a class field decorator.",
       "translated": "クラスフィールドデコレーターに提供されるコンテキスト。",
       "symbol": "typescript/lib/lib.decorators.d.ts#ClassFieldDecoratorContext",
+      "lang": "ja"
+    },
+    "37975739": {
+      "original": "Replace the span defined above with this string (may be\nthe empty string).",
+      "translated": "上で定義したスパンをこの文字列で置き換える(空文字列でもよい)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeEdit.newText",
       "lang": "ja"
     },
     "38936047": {
@@ -88,6 +112,12 @@
       "symbol": "typescript/lib/typescript.d.ts#ts.DocumentRegistry.acquireDocument",
       "lang": "ja"
     },
+    "49224484": {
+      "original": "May store more in future. For now, this will simply be `true` to indicate when a diagnostic is an unused-identifier diagnostic.",
+      "translated": "将来はより多くを保持するかもしれない。現時点では、診断が未使用識別子の診断であることを示すために単に `true` になる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticWithLinePosition.reportsUnnecessary",
+      "lang": "ja"
+    },
     "52600858": {
       "original": "Sorts an array.",
       "translated": "配列を並べ替える。",
@@ -110,6 +140,12 @@
       "original": "Returns a `<blink>` HTML element",
       "translated": "`<blink>` HTML 要素を返す",
       "symbol": "typescript/lib/lib.es2015.core.d.ts#String.blink",
+      "lang": "ja"
+    },
+    "60212764": {
+      "original": "NavTree request; value of command field is \"navtree\".\nReturn response giving the navigation tree of the requested file.",
+      "translated": "NavTree リクエスト。command フィールドの値は \"navtree\"。要求したファイルのナビゲーションツリーを返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavTreeRequest",
       "lang": "ja"
     },
     "62620708": {
@@ -136,6 +172,12 @@
       "symbol": "typescript/lib/lib.es5.d.ts#Math.random",
       "lang": "ja"
     },
+    "72647775": {
+      "original": "Request refactorings at a given position post pasting text from some other location.",
+      "translated": "他の場所からテキストを貼り付けた後の、指定した位置でのリファクタリングを要求する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetPasteEditsRequest",
+      "lang": "ja"
+    },
     "72965626": {
       "original": "Paths used to compute primary types search locations",
       "translated": "主要な型(types)の検索場所を計算するために使うパス",
@@ -160,6 +202,12 @@
       "symbol": "typescript/lib/lib.es5.d.ts#RegExp.multiline",
       "lang": "ja"
     },
+    "80099900": {
+      "original": "A request to get codes of supported code fixes.",
+      "translated": "サポートされるコード修正のコードを取得するリクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetSupportedCodeFixesRequest",
+      "lang": "ja"
+    },
     "84124826": {
       "original": "The region of the world (usually a country) associated with the locale. Possible values are region codes as defined by ISO 3166-1.",
       "translated": "ロケールに関連付けられた世界の地域(通常は国)。指定できる値は ISO 3166-1 で定義される地域コード。",
@@ -176,6 +224,12 @@
       "original": "The `resolvedOptions()` method of `Intl.Segmenter` instances returns a new object with properties reflecting the options computed during initialization of this `Segmenter` object.\n\n[MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/resolvedOptions)",
       "translated": "`Intl.Segmenter` インスタンスの `resolvedOptions()` メソッドは、この `Segmenter` オブジェクトの初期化時に計算されたオプションを反映したプロパティを持つ新しいオブジェクトを返す。\n\n[MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/resolvedOptions)",
       "symbol": "typescript/lib/lib.es2022.intl.d.ts#Intl.Segmenter.resolvedOptions",
+      "lang": "ja"
+    },
+    "92764511": {
+      "original": "The number of columns the indent should be at relative to the position's column.",
+      "translated": "position の列を基準に、インデントを置くべき列数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.IndentationResult.indentation",
       "lang": "ja"
     },
     "97284090": {
@@ -8990,6 +9044,1752 @@
       "original": "This gets the script info for the normalized path. If the path is not rooted disk path then the open script info with project root context is preferred",
       "translated": "正規化されたパスのスクリプト情報を取得する。パスがディスクのルート付きパスでない場合、プロジェクトルートの文脈を持つ open script info が優先される",
       "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.getScriptInfoForNormalizedPath",
+      "lang": "ja"
+    },
+    "851d0ce1": {
+      "original": "is a known version of the file content that is more up to date than the one on disk",
+      "translated": "ディスク上のものより新しい、既知のバージョンのファイル内容",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.openClientFile",
+      "lang": "ja"
+    },
+    "2bf45384": {
+      "original": "is absolute pathname",
+      "translated": "絶対パス名である",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.openClientFile",
+      "lang": "ja"
+    },
+    "8447ae17": {
+      "original": "Open file whose contents is managed by the client",
+      "translated": "内容がクライアントによって管理されるファイルを開く",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.openClientFile",
+      "lang": "ja"
+    },
+    "92d17ef8": {
+      "original": "Open files: with value being project root path, and key being Path of the file that is open",
+      "translated": "開いているファイル。値はプロジェクトルートのパス、キーは開いているファイルの Path",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.openFiles",
+      "lang": "ja"
+    },
+    "64c0b0aa": {
+      "original": "This function rebuilds the project for every file opened by the client\nThis does not reload contents of open files from disk. But we could do that if needed",
+      "translated": "この関数は、クライアントが開いたすべてのファイルについてプロジェクトを再構築する。\nこれは、開いているファイルの内容をディスクから再読み込みはしない。ただし必要なら再読み込みも可能である",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.reloadProjects",
+      "lang": "ja"
+    },
+    "91b66f70": {
+      "original": "May also be an array of commands.",
+      "translated": "コマンドの配列でもよい。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ApplyCodeActionCommandRequestArgs.command",
+      "lang": "ja"
+    },
+    "66b46b4d": {
+      "original": "Request to get brace completion for a location in the file.",
+      "translated": "ファイル内のある位置について brace completion を取得するリクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.BraceCompletionRequest",
+      "lang": "ja"
+    },
+    "55621d5f": {
+      "original": "Argument for BraceCompletionRequest request.",
+      "translated": "BraceCompletionRequest リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.BraceCompletionRequestArgs",
+      "lang": "ja"
+    },
+    "0f40273a": {
+      "original": "Kind of opening brace",
+      "translated": "開き括弧の種類",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.BraceCompletionRequestArgs.openingBrace",
+      "lang": "ja"
+    },
+    "281b0717": {
+      "original": "Brace matching request; value of command field is \"brace\".\nReturn response giving the file locations of matching braces\nfound in file at location line, offset.",
+      "translated": "括弧の対応付けリクエスト。command フィールドの値は \"brace\"。\nファイル内の位置 line, offset で見つかった、対応する括弧のファイル位置を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.BraceRequest",
+      "lang": "ja"
+    },
+    "7dd9f557": {
+      "original": "Response to \"brace\" request.",
+      "translated": "\"brace\" リクエストへのレスポンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.BraceResponse",
+      "lang": "ja"
+    },
+    "7fd3145b": {
+      "original": "Change request message; value of command field is \"change\".\nUpdate the server's view of the file named by argument 'file'.\nServer does not currently send a response to a change request.",
+      "translated": "変更リクエストメッセージ。command フィールドの値は \"change\"。\n引数 'file' で指定したファイルについて、サーバーの見方(view)を更新する。\nサーバーは現在、変更リクエストにレスポンスを送らない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ChangeRequest",
+      "lang": "ja"
+    },
+    "926969df": {
+      "original": "Arguments for change request message.",
+      "translated": "変更リクエストメッセージの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ChangeRequestArgs",
+      "lang": "ja"
+    },
+    "cd0506c7": {
+      "original": "Optional string to insert at location (file, line, offset).",
+      "translated": "位置(file, line, offset)に挿入する省略可能な文字列。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ChangeRequestArgs.insertString",
+      "lang": "ja"
+    },
+    "8232f9d6": {
+      "original": "Request to close external project.",
+      "translated": "外部プロジェクトを閉じるリクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CloseExternalProjectRequest",
+      "lang": "ja"
+    },
+    "d0cddfa2": {
+      "original": "Arguments to CloseExternalProjectRequest request",
+      "translated": "CloseExternalProjectRequest リクエストの引数",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CloseExternalProjectRequestArgs",
+      "lang": "ja"
+    },
+    "f9adf38d": {
+      "original": "Name of the project to close",
+      "translated": "閉じるプロジェクトの名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CloseExternalProjectRequestArgs.projectFileName",
+      "lang": "ja"
+    },
+    "6e4cfe49": {
+      "original": "Response to CloseExternalProjectRequest request. This is just an acknowledgement, so\nno body field is required.",
+      "translated": "CloseExternalProjectRequest リクエストへのレスポンス。これは単なる確認応答なので、\nbody フィールドは不要である。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CloseExternalProjectResponse",
+      "lang": "ja"
+    },
+    "a611fdb0": {
+      "original": "Close request; value of command field is \"close\". Notify the\nserver that the client has closed a previously open file.  If\nfile is still referenced by open files, the server will resume\nmonitoring the filesystem for changes to file.  Server does not\ncurrently send a response to a close request.",
+      "translated": "クローズリクエスト。command フィールドの値は \"close\"。以前に開いていたファイルをクライアントが閉じたことをサーバーに通知する。ファイルがまだ開いているファイルから参照されている場合、サーバーはそのファイルの変更についてファイルシステムの監視を再開する。サーバーは現在、クローズリクエストにレスポンスを送らない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CloseRequest",
+      "lang": "ja"
+    },
+    "88aad2ec": {
+      "original": "Text changes to apply to each file as part of the code action",
+      "translated": "コードアクションの一部として各ファイルに適用するテキスト変更",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeAction.changes",
+      "lang": "ja"
+    },
+    "fdf9f46c": {
+      "original": "A command is an opaque object that should be passed to `ApplyCodeActionCommandRequestArgs` without modification.",
+      "translated": "コマンドは不透明(opaque)なオブジェクトで、変更せずに `ApplyCodeActionCommandRequestArgs` に渡すべきものである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeAction.commands",
+      "lang": "ja"
+    },
+    "410603f1": {
+      "original": "Description of the code action to display in the UI of the editor",
+      "translated": "エディターの UI に表示するコードアクションの説明",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeAction.description",
+      "lang": "ja"
+    },
+    "1ee01946": {
+      "original": "Object found in response messages defining an editing\ninstruction for a span of text in source code.  The effect of\nthis instruction is to replace the text starting at start and\nending one character before end with newText. For an insertion,\nthe text span is empty.  For a deletion, newText is empty.",
+      "translated": "ソースコード内のテキストのスパンに対する編集命令を定義する、レスポンスメッセージ内のオブジェクト。この命令の効果は、start から始まり end の 1 文字前で終わるテキストを newText に置き換えることである。挿入の場合、テキストのスパンは空である。削除の場合、newText は空である。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeEdit",
+      "lang": "ja"
+    },
+    "620b2835": {
+      "original": "One character past last character of the text span to edit.",
+      "translated": "編集するテキストスパンの最後の文字の 1 つ先。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeEdit.end",
+      "lang": "ja"
+    },
+    "1d0bb580": {
+      "original": "First character of the text span to edit.",
+      "translated": "編集するテキストスパンの最初の文字。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeEdit.start",
+      "lang": "ja"
+    },
+    "1b374be5": {
+      "original": "Should be present if and only if 'fixId' is.",
+      "translated": "'fixId' が存在する場合に限り存在すべきである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeFixAction.fixAllDescription",
+      "lang": "ja"
+    },
+    "84be2be5": {
+      "original": "If present, one may call 'getCombinedCodeFix' with this fixId.\nThis may be omitted to indicate that the code fix can't be applied in a group.",
+      "translated": "存在する場合、この fixId で 'getCombinedCodeFix' を呼べる。\nコード修正をグループで適用できないことを示すために省略できる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeFixAction.fixId",
+      "lang": "ja"
+    },
+    "e49e8f70": {
+      "original": "Short name to identify the fix, for use by telemetry.",
+      "translated": "修正を識別する短い名前。テレメトリで使う。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeFixAction.fixName",
+      "lang": "ja"
+    },
+    "6b5a5dec": {
+      "original": "Request for the available codefixes at a specific position.",
+      "translated": "特定の位置で利用可能なコード修正のリクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeFixRequest",
+      "lang": "ja"
+    },
+    "8e7f0ff1": {
+      "original": "Instances of this interface specify errorcodes on a specific location in a sourcefile.",
+      "translated": "このインターフェースのインスタンスは、ソースファイル内の特定の位置のエラーコードを指定する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeFixRequestArgs",
+      "lang": "ja"
+    },
+    "ecdc49f8": {
+      "original": "Errorcodes we want to get the fixes for.",
+      "translated": "修正を取得したいエラーコード。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeFixRequestArgs.errorCodes",
+      "lang": "ja"
+    },
+    "8b9de41c": {
+      "original": "The code actions that are available",
+      "translated": "利用可能なコードアクション",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CodeFixResponse.body",
+      "lang": "ja"
+    },
+    "d8dede02": {
+      "original": "Prefer CompletionInfo -- see comment on CompletionsResponse",
+      "translated": "CompletionInfo が望ましい -- CompletionsResponse のコメントを参照",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CommandTypes.Completions",
+      "lang": "ja"
+    },
+    "b5dff259": {
+      "original": "Request to obtain the list of files that should be regenerated if target file is recompiled.\nNOTE: this us query-only operation and does not generate any output on disk.",
+      "translated": "対象ファイルが再コンパイルされた場合に再生成すべきファイルのリストを取得するリクエスト。\n注: これは問い合わせのみの操作で、ディスク上に出力を生成しない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompileOnSaveAffectedFileListRequest",
+      "lang": "ja"
+    },
+    "8d2c520d": {
+      "original": "Response for CompileOnSaveAffectedFileListRequest request;",
+      "translated": "CompileOnSaveAffectedFileListRequest リクエストへのレスポンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompileOnSaveAffectedFileListResponse",
+      "lang": "ja"
+    },
+    "a220ffe3": {
+      "original": "Contains a list of files that should be regenerated in a project",
+      "translated": "プロジェクトで再生成すべきファイルのリストを含む",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompileOnSaveAffectedFileListSingleProject",
+      "lang": "ja"
+    },
+    "e9bf5ae3": {
+      "original": "List of files names that should be recompiled",
+      "translated": "再コンパイルすべきファイル名のリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompileOnSaveAffectedFileListSingleProject.fileNames",
+      "lang": "ja"
+    },
+    "ddd2e565": {
+      "original": "true if project uses outFile or out compiler option",
+      "translated": "プロジェクトが outFile または out コンパイラオプションを使う場合は true",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompileOnSaveAffectedFileListSingleProject.projectUsesOutFile",
+      "lang": "ja"
+    },
+    "6bb239ea": {
+      "original": "Request to recompile the file. All generated outputs (.js, .d.ts or .js.map files) is written on disk.",
+      "translated": "ファイルを再コンパイルするリクエスト。生成されたすべての出力(.js、.d.ts、.js.map ファイル)がディスクに書き込まれる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompileOnSaveEmitFileRequest",
+      "lang": "ja"
+    },
+    "d400c301": {
+      "original": "Arguments for CompileOnSaveEmitFileRequest",
+      "translated": "CompileOnSaveEmitFileRequest の引数",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompileOnSaveEmitFileRequestArgs",
+      "lang": "ja"
+    },
+    "0f4a3bab": {
+      "original": "if true - then file should be recompiled even if it does not have any changes.",
+      "translated": "true の場合、変更がなくてもファイルを再コンパイルすべきである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompileOnSaveEmitFileRequestArgs.forced",
+      "lang": "ja"
+    },
+    "b8768911": {
+      "original": "if true - return response as object with emitSkipped and diagnostics",
+      "translated": "true の場合、emitSkipped と diagnostics を持つオブジェクトとしてレスポンスを返す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompileOnSaveEmitFileRequestArgs.richResponse",
+      "lang": "ja"
+    },
+    "8ec6a1ba": {
+      "original": "If compile on save is enabled for the project",
+      "translated": "プロジェクトで compile on save が有効かどうか",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompileOnSaveMixin.compileOnSave",
+      "lang": "ja"
+    },
+    "003bc9fc": {
+      "original": "A request to retrieve compiler options diagnostics for a project",
+      "translated": "プロジェクトのコンパイラオプション診断を取得するリクエスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompilerOptionsDiagnosticsRequest",
+      "lang": "ja"
+    },
+    "c68fa885": {
+      "original": "Arguments for CompilerOptionsDiagnosticsRequest request.",
+      "translated": "CompilerOptionsDiagnosticsRequest リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompilerOptionsDiagnosticsRequestArgs",
+      "lang": "ja"
+    },
+    "f97576ee": {
+      "original": "Name of the project to retrieve compiler options diagnostics.",
+      "translated": "コンパイラオプション診断を取得するプロジェクトの名前。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompilerOptionsDiagnosticsRequestArgs.projectFileName",
+      "lang": "ja"
+    },
+    "b37b348e": {
+      "original": "Completion entry details request; value of command field is\n\"completionEntryDetails\".  Given a file location (file, line,\ncol) and an array of completion entry names return more\ndetailed information for each completion entry.",
+      "translated": "補完エントリ詳細リクエスト。command フィールドの値は \"completionEntryDetails\"。ファイル位置(file, line, col)と補完エントリ名の配列を与えると、各補完エントリについてより詳細な情報を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionDetailsRequest",
+      "lang": "ja"
+    },
+    "7a71a119": {
+      "original": "Arguments for completion details request.",
+      "translated": "補完詳細リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionDetailsRequestArgs",
+      "lang": "ja"
+    },
+    "60c35c51": {
+      "original": "Names of one or more entries for which to obtain details.",
+      "translated": "詳細を取得する 1 つ以上のエントリの名前。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionDetailsRequestArgs.entryNames",
+      "lang": "ja"
+    },
+    "00e7146d": {
+      "original": "Additional completion entry details, available on demand",
+      "translated": "オンデマンドで利用可能な、補完エントリの追加の詳細",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionEntryDetails",
+      "lang": "ja"
+    },
+    "98619cf6": {
+      "original": "Completions request; value of command field is \"completions\".\nGiven a file location (file, line, col) and a prefix (which may\nbe the empty string), return the possible completions that\nbegin with prefix.",
+      "translated": "補完リクエスト。command フィールドの値は \"completions\"。ファイル位置(file, line, col)と接頭辞(空文字列でもよい)を与えると、その接頭辞で始まる可能性のある補完を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionsRequest",
+      "lang": "ja"
+    },
+    "03de8395": {
+      "original": "Arguments for completions messages.",
+      "translated": "補完メッセージの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionsRequestArgs",
+      "lang": "ja"
+    },
+    "beb7f615": {
+      "original": "Use UserPreferences.includeCompletionsForModuleExports",
+      "translated": "UserPreferences.includeCompletionsForModuleExports を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionsRequestArgs.includeExternalModuleExports",
+      "lang": "ja"
+    },
+    "ff17bdf5": {
+      "original": "Use UserPreferences.includeCompletionsWithInsertText",
+      "translated": "UserPreferences.includeCompletionsWithInsertText を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionsRequestArgs.includeInsertTextCompletions",
+      "lang": "ja"
+    },
+    "20292f62": {
+      "original": "Optional prefix to apply to possible completions.",
+      "translated": "候補の補完に適用する省略可能な接頭辞。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionsRequestArgs.prefix",
+      "lang": "ja"
+    },
+    "cac9a538": {
+      "original": "Character that was responsible for triggering completion.\nShould be `undefined` if a user manually requested completion.",
+      "translated": "補完のトリガーとなった文字。\nユーザーが手動で補完を要求した場合は `undefined` にすべきである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionsRequestArgs.triggerCharacter",
+      "lang": "ja"
+    },
+    "5813bead": {
+      "original": "Prefer CompletionInfoResponse, which supports several top-level fields in addition to the array of entries.",
+      "translated": "CompletionInfoResponse が望ましい。これはエントリの配列に加えていくつかのトップレベルフィールドをサポートする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.CompletionsResponse",
+      "lang": "ja"
+    },
+    "c9ad3f95": {
+      "original": "Event message for \"configFileDiag\" event type.\nThis event provides errors for a found config file.",
+      "translated": "\"configFileDiag\" イベントタイプのイベントメッセージ。\nこのイベントは、見つかった config ファイルのエラーを提供する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigFileDiagnosticEvent",
+      "lang": "ja"
+    },
+    "b77ccc62": {
+      "original": "The name of the found config file.",
+      "translated": "見つかった config ファイルの名前。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigFileDiagnosticEventBody.configFile",
+      "lang": "ja"
+    },
+    "e3c8d101": {
+      "original": "An arry of diagnostic information items for the found config file.",
+      "translated": "見つかった config ファイルの診断情報項目の配列。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigFileDiagnosticEventBody.diagnostics",
+      "lang": "ja"
+    },
+    "868c2e52": {
+      "original": "The file which trigged the searching and error-checking of the config file",
+      "translated": "config ファイルの検索とエラーチェックのきっかけとなったファイル",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigFileDiagnosticEventBody.triggerFile",
+      "lang": "ja"
+    },
+    "763dea71": {
+      "original": "Configure request; value of command field is \"configure\".  Specifies\nhost information, such as host type, tab size, and indent size.",
+      "translated": "設定リクエスト。command フィールドの値は \"configure\"。ホストタイプ・タブサイズ・インデントサイズなどのホスト情報を指定する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigureRequest",
+      "lang": "ja"
+    },
+    "460956f0": {
+      "original": "Information found in a configure request.",
+      "translated": "設定リクエストに含まれる情報。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigureRequestArguments",
+      "lang": "ja"
+    },
+    "4b468be0": {
+      "original": "The host's additional supported .js file extensions",
+      "translated": "ホストが追加でサポートする .js ファイルの拡張子",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigureRequestArguments.extraFileExtensions",
+      "lang": "ja"
+    },
+    "f42e5c11": {
+      "original": "The format options to use during formatting and other code editing features.",
+      "translated": "整形やその他のコード編集機能で使う整形オプション。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigureRequestArguments.formatOptions",
+      "lang": "ja"
+    },
+    "21649e1d": {
+      "original": "Information about the host, for example 'Emacs 24.4' or\n'Sublime Text version 3075'",
+      "translated": "ホストについての情報。たとえば 'Emacs 24.4' や 'Sublime Text version 3075' など",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigureRequestArguments.hostInfo",
+      "lang": "ja"
+    },
+    "5e962dda": {
+      "original": "Response to \"configure\" request.  This is just an acknowledgement, so\nno body field is required.",
+      "translated": "\"configure\" リクエストへのレスポンス。これは単なる確認応答なので、body フィールドは不要である。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ConfigureResponse",
+      "lang": "ja"
+    },
+    "e9d39f28": {
+      "original": "Details about the default project for the file if tsconfig file is found",
+      "translated": "tsconfig ファイルが見つかった場合の、ファイルの既定プロジェクトについての詳細",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DefaultConfiguredProjectInfo",
+      "lang": "ja"
+    },
+    "f3e9dd29": {
+      "original": "Configured project used as default",
+      "translated": "既定として使われる ConfiguredProject",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DefaultConfiguredProjectInfo.defaultProject",
+      "lang": "ja"
+    },
+    "1f8a70a4": {
+      "original": "List of projects which were loaded but file was not part of the project or is file from referenced project",
+      "translated": "読み込まれたが、ファイルがそのプロジェクトの一部でなかった、または参照先プロジェクトのファイルだったプロジェクトのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DefaultConfiguredProjectInfo.notInProject",
+      "lang": "ja"
+    },
+    "68f26d6c": {
+      "original": "List of config files looked and did not match because file was not part of root file names",
+      "translated": "調べたが、ファイルがルートファイル名の一部でなかったため一致しなかった config ファイルのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DefaultConfiguredProjectInfo.notMatchedByConfig",
+      "lang": "ja"
+    },
+    "990882ba": {
+      "original": "When true, the file may or may not exist.",
+      "translated": "true の場合、ファイルは存在するとは限らない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DefinitionInfo.unverified",
+      "lang": "ja"
+    },
+    "ac2d43ba": {
+      "original": "Use `DefinitionInfoAndBoundSpanResponse` instead.",
+      "translated": "代わりに `DefinitionInfoAndBoundSpanResponse` を使うこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DefinitionInfoAndBoundSpanReponse",
+      "lang": "ja"
+    },
+    "fdbdc993": {
+      "original": "Go to definition request; value of command field is\n\"definition\". Return response giving the file locations that\ndefine the symbol found in file at location line, col.",
+      "translated": "定義へ移動リクエスト。command フィールドの値は \"definition\"。ファイル内の位置 line, col で見つかったシンボルを定義するファイル位置を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DefinitionRequest",
+      "lang": "ja"
+    },
+    "1328aebb": {
+      "original": "Definition response message.  Gives text range for definition.",
+      "translated": "定義レスポンスメッセージ。定義のテキスト範囲を与える。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DefinitionResponse",
+      "lang": "ja"
+    },
+    "f6991503": {
+      "original": "Item of diagnostic information found in a DiagnosticEvent message.",
+      "translated": "DiagnosticEvent メッセージに含まれる診断情報の項目。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Diagnostic",
+      "lang": "ja"
+    },
+    "9e71a8fb": {
+      "original": "The category of the diagnostic message, e.g. \"error\", \"warning\", or \"suggestion\".",
+      "translated": "診断メッセージのカテゴリ。例: \"error\"、\"warning\"、\"suggestion\"。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Diagnostic.category",
+      "lang": "ja"
+    },
+    "280ed4ca": {
+      "original": "The error code of the diagnostic message.",
+      "translated": "診断メッセージのエラーコード。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Diagnostic.code",
+      "lang": "ja"
+    },
+    "01ee6c16": {
+      "original": "The last file location at which the text applies.",
+      "translated": "テキストが適用される最後のファイル位置。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Diagnostic.end",
+      "lang": "ja"
+    },
+    "697d9837": {
+      "original": "Any related spans the diagnostic may have, such as other locations relevant to an error, such as declarartion sites",
+      "translated": "診断が持ち得る関連スパン。たとえばエラーに関連する他の位置(宣言箇所など)",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Diagnostic.relatedInformation",
+      "lang": "ja"
+    },
+    "b5732869": {
+      "original": "The name of the plugin reporting the message.",
+      "translated": "メッセージを報告しているプラグインの名前。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Diagnostic.source",
+      "lang": "ja"
+    },
+    "d4b54ab0": {
+      "original": "Starting file location at which text applies.",
+      "translated": "テキストが適用される開始ファイル位置。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Diagnostic.start",
+      "lang": "ja"
+    },
+    "96e288a6": {
+      "original": "Text of diagnostic message.",
+      "translated": "診断メッセージのテキスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Diagnostic.text",
+      "lang": "ja"
+    },
+    "5fc1be29": {
+      "original": "Event message for DiagnosticEventKind event types.\nThese events provide syntactic and semantic errors for a file.",
+      "translated": "DiagnosticEventKind イベントタイプのイベントメッセージ。\nこれらのイベントは、ファイルの構文エラーと意味エラーを提供する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticEvent",
+      "lang": "ja"
+    },
+    "1baeb631": {
+      "original": "An array of diagnostic information items.",
+      "translated": "診断情報項目の配列。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticEventBody.diagnostics",
+      "lang": "ja"
+    },
+    "b0655867": {
+      "original": "The file for which diagnostic information is reported.",
+      "translated": "診断情報が報告される対象のファイル。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticEventBody.file",
+      "lang": "ja"
+    },
+    "92fa97ee": {
+      "original": "Spans where the region diagnostic was requested, if this is a region semantic diagnostic event.",
+      "translated": "これが region の意味診断イベントである場合、region 診断が要求されたスパン。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticEventBody.spans",
+      "lang": "ja"
+    },
+    "794302d7": {
+      "original": "Time spent computing each kind of diagnostics, in milliseconds.",
+      "translated": "各種の診断の計算に費やした時間(ミリ秒)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticPerformanceData",
+      "lang": "ja"
+    },
+    "05dc1b7c": {
+      "original": "Represents additional spans returned with a diagnostic which are relevant to it",
+      "translated": "診断とともに返される、それに関連する追加のスパンを表す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticRelatedInformation",
+      "lang": "ja"
+    },
+    "b67b898a": {
+      "original": "The category of the related information message, e.g. \"error\", \"warning\", or \"suggestion\".",
+      "translated": "関連情報メッセージのカテゴリ。例: \"error\"、\"warning\"、\"suggestion\"。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticRelatedInformation.category",
+      "lang": "ja"
+    },
+    "9587f768": {
+      "original": "The code used ot identify the related information",
+      "translated": "関連情報を識別するために使うコード",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticRelatedInformation.code",
+      "lang": "ja"
+    },
+    "47236fec": {
+      "original": "Text of related or additional information.",
+      "translated": "関連情報または追加情報のテキスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticRelatedInformation.message",
+      "lang": "ja"
+    },
+    "e84474f0": {
+      "original": "Associated location",
+      "translated": "関連付けられた位置",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticRelatedInformation.span",
+      "lang": "ja"
+    },
+    "9d929b62": {
+      "original": "Name of the file the diagnostic is in",
+      "translated": "診断が含まれるファイルの名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticWithFileName.fileName",
+      "lang": "ja"
+    },
+    "e161ed20": {
+      "original": "Represents diagnostic info that includes location of diagnostic in two forms\n- start position and length of the error span\n- startLocation and endLocation - a pair of Location objects that store start/end line and offset of the error span.",
+      "translated": "診断の位置を 2 つの形式で含む診断情報を表す\n- エラースパンの開始位置と長さ\n- startLocation と endLocation - エラースパンの開始/終了の行とオフセットを保持する Location オブジェクトのペア。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DiagnosticWithLinePosition",
+      "lang": "ja"
+    },
+    "eba3ddbe": {
+      "original": "Response to DocCommentTemplateRequest",
+      "translated": "DocCommentTemplateRequest へのレスポンス",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DocCommandTemplateResponse",
+      "lang": "ja"
+    },
+    "00807a07": {
+      "original": "Requests a JS Doc comment template for a given position",
+      "translated": "指定した位置について JSDoc コメントテンプレートを要求する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DocCommentTemplateRequest",
+      "lang": "ja"
+    },
+    "9bb11857": {
+      "original": "Represents a set of highligh spans for a give name",
+      "translated": "指定した名前についてのハイライトスパンの集合を表す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DocumentHighlightsItem",
+      "lang": "ja"
+    },
+    "6a5f036b": {
+      "original": "File containing highlight spans.",
+      "translated": "ハイライトスパンを含むファイル。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DocumentHighlightsItem.file",
+      "lang": "ja"
+    },
+    "3ac3ecba": {
+      "original": "Spans to highlight in file.",
+      "translated": "ファイル内でハイライトするスパン。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DocumentHighlightsItem.highlightSpans",
+      "lang": "ja"
+    },
+    "9be86813": {
+      "original": "Get document highlights request; value of command field is\n\"documentHighlights\". Return response giving spans that are relevant\nin the file at a given line and column.",
+      "translated": "ドキュメントハイライト取得リクエスト。command フィールドの値は \"documentHighlights\"。指定した行と列でファイル内の関連するスパンを返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DocumentHighlightsRequest",
+      "lang": "ja"
+    },
+    "8a500606": {
+      "original": "Arguments in document highlight request; include: filesToSearch, file,\nline, offset.",
+      "translated": "ドキュメントハイライトリクエストの引数。filesToSearch、file、line、offset を含む。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DocumentHighlightsRequestArgs",
+      "lang": "ja"
+    },
+    "5a719420": {
+      "original": "List of files to search for document highlights.",
+      "translated": "ドキュメントハイライトを検索するファイルのリスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DocumentHighlightsRequestArgs.filesToSearch",
+      "lang": "ja"
+    },
+    "f33cf2c5": {
+      "original": "Response for a DocumentHighlightsRequest request.",
+      "translated": "DocumentHighlightsRequest リクエストへのレスポンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.DocumentHighlightsResponse",
+      "lang": "ja"
+    },
+    "95b64783": {
+      "original": "A request to get encoded semantic classifications for a span in the file",
+      "translated": "ファイル内のスパンについてエンコード済みの意味的分類を取得するリクエスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.EncodedSemanticClassificationsRequest",
+      "lang": "ja"
+    },
+    "4b4b99ab": {
+      "original": "Arguments for EncodedSemanticClassificationsRequest request.",
+      "translated": "EncodedSemanticClassificationsRequest リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.EncodedSemanticClassificationsRequestArgs",
+      "lang": "ja"
+    },
+    "4eb97adf": {
+      "original": "Optional parameter for the semantic highlighting response, if absent it\ndefaults to \"original\".",
+      "translated": "意味的ハイライトのレスポンス用の省略可能なパラメーター。ない場合は既定で \"original\"。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.EncodedSemanticClassificationsRequestArgs.format",
+      "lang": "ja"
+    },
+    "dd1e986d": {
+      "original": "Length of the span.",
+      "translated": "スパンの長さ。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.EncodedSemanticClassificationsRequestArgs.length",
+      "lang": "ja"
+    },
+    "338ee160": {
+      "original": "Start position of the span.",
+      "translated": "スパンの開始位置。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.EncodedSemanticClassificationsRequestArgs.start",
+      "lang": "ja"
+    },
+    "2e1a590f": {
+      "original": "The response for a EncodedSemanticClassificationsRequest",
+      "translated": "EncodedSemanticClassificationsRequest へのレスポンス",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.EncodedSemanticClassificationsResponse",
+      "lang": "ja"
+    },
+    "6df9b14f": {
+      "original": "Implementation response message. Gives series of text spans depending on the format ar.",
+      "translated": "実装レスポンスメッセージ。format 引数に応じた一連のテキストスパンを与える。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.EncodedSemanticClassificationsResponseBody",
+      "lang": "ja"
+    },
+    "c60cf330": {
+      "original": "true if installation succeeded, otherwise false",
+      "translated": "インストールが成功した場合は true、そうでなければ false",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.EndInstallTypesEventBody.success",
+      "lang": "ja"
+    },
+    "e6ae1912": {
+      "original": "Server-initiated event message",
+      "translated": "サーバー起点のイベントメッセージ",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Event",
+      "lang": "ja"
+    },
+    "a1930418": {
+      "original": "Event-specific information",
+      "translated": "イベント固有の情報",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Event.body",
+      "lang": "ja"
+    },
+    "8f9f3d83": {
+      "original": "Name of event",
+      "translated": "イベントの名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Event.event",
+      "lang": "ja"
+    },
+    "5f3401de": {
+      "original": "Exit request; value of command field is \"exit\".  Ask the server process\nto exit.",
+      "translated": "終了リクエスト。command フィールドの値は \"exit\"。サーバープロセスに終了を要求する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExitRequest",
+      "lang": "ja"
+    },
+    "1751a0be": {
+      "original": "Represents a file in external project.\nExternal project is project whose set of files, compilation options and open\\close state\nis maintained by the client (i.e. if all this data come from .csproj file in Visual Studio).\nExternal project will exist even if all files in it are closed and should be closed explicitly.\nIf external project includes one or more tsconfig.json/jsconfig.json files then tsserver will\ncreate configured project for every config file but will maintain a link that these projects were created\nas a result of opening external project so they should be removed once external project is closed.",
+      "translated": "外部プロジェクト内のファイルを表す。\n外部プロジェクトとは、ファイルの集合・コンパイルオプション・開閉状態がクライアントによって維持されるプロジェクトである(すなわち、これらのデータがすべて Visual Studio の .csproj ファイルから来る場合など)。\n外部プロジェクトは、その中のすべてのファイルが閉じていても存在し、明示的に閉じる必要がある。\n外部プロジェクトが 1 つ以上の tsconfig.json/jsconfig.json ファイルを含む場合、tsserver は各 config ファイルについて ConfiguredProject を作成するが、それらのプロジェクトが外部プロジェクトを開いた結果として作成されたというリンクを維持するため、外部プロジェクトが閉じられたら削除されるべきである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalFile",
+      "lang": "ja"
+    },
+    "651936dc": {
+      "original": "Content of the file",
+      "translated": "ファイルの内容",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalFile.content",
+      "lang": "ja"
+    },
+    "dab5dbda": {
+      "original": "Name of file file",
+      "translated": "ファイルの名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalFile.fileName",
+      "lang": "ja"
+    },
+    "4722579c": {
+      "original": "Whether file has mixed content (i.e. .cshtml file that combines html markup with C#/JavaScript)",
+      "translated": "ファイルが混在した内容を持つかどうか(すなわち、HTML マークアップと C#/JavaScript を組み合わせた .cshtml ファイルなど)",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalFile.hasMixedContent",
+      "lang": "ja"
+    },
+    "da5e0ec8": {
+      "original": "Script kind of the file",
+      "translated": "ファイルのスクリプト種別(script kind)",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalFile.scriptKind",
+      "lang": "ja"
+    },
+    "9ae4ff16": {
+      "original": "Represent an external project",
+      "translated": "外部プロジェクトを表す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalProject",
+      "lang": "ja"
+    },
+    "db0506d7": {
+      "original": "Compiler options for the project",
+      "translated": "プロジェクトのコンパイラオプション",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalProject.options",
+      "lang": "ja"
+    },
+    "fb6d77d9": {
+      "original": "List of root files in project",
+      "translated": "プロジェクト内のルートファイルのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalProject.rootFiles",
+      "lang": "ja"
+    },
+    "c87f64eb": {
+      "original": "Explicitly specified type acquisition for the project",
+      "translated": "プロジェクトに対して明示的に指定された type acquisition",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalProject.typeAcquisition",
+      "lang": "ja"
+    },
+    "e22e9b44": {
+      "original": "For external projects, some of the project settings are sent together with\ncompiler settings.",
+      "translated": "外部プロジェクトでは、プロジェクト設定の一部がコンパイラ設定とともに送られる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ExternalProjectCompilerOptions",
+      "lang": "ja"
+    },
+    "85b9564b": {
+      "original": "The file for which the performance data is reported.",
+      "translated": "パフォーマンスデータが報告される対象のファイル。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileDiagnosticPerformanceData.file",
+      "lang": "ja"
+    },
+    "e2ca3fb4": {
+      "original": "A request whose arguments specify a file location (file, line, col).",
+      "translated": "引数がファイル位置(file, line, col)を指定するリクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileLocationRequest",
+      "lang": "ja"
+    },
+    "f1260500": {
+      "original": "Instances of this interface specify a location in a source file:\n(file, line, character offset), where line and character offset are 1-based.",
+      "translated": "このインターフェースのインスタンスは、ソースファイル内の位置を指定する:\n(file, line, character offset)。line と character offset は 1 始まりである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileLocationRequestArgs",
+      "lang": "ja"
+    },
+    "ffaf1c80": {
+      "original": "The line number for the request (1-based).",
+      "translated": "リクエストの行番号(1 始まり)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileLocationRequestArgs.line",
+      "lang": "ja"
+    },
+    "5dddb7d9": {
+      "original": "The character offset (on the line) for the request (1-based).",
+      "translated": "リクエストの(行内の)文字オフセット(1 始まり)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileLocationRequestArgs.offset",
+      "lang": "ja"
+    },
+    "1ef786e4": {
+      "original": "Request whose sole parameter is a file name.",
+      "translated": "唯一のパラメーターがファイル名であるリクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileRequest",
+      "lang": "ja"
+    },
+    "8c1f0658": {
+      "original": "Arguments for FileRequest messages.",
+      "translated": "FileRequest メッセージの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileRequestArgs",
+      "lang": "ja"
+    },
+    "d0a81f88": {
+      "original": "The file for the request (absolute pathname required).",
+      "translated": "リクエストの対象のファイル(絶対パス名が必要)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileRequestArgs.file",
+      "lang": "ja"
+    },
+    "9aa6416a": {
+      "original": "Object found in response messages defining a span of text in a specific source file.",
+      "translated": "特定のソースファイル内のテキストのスパンを定義する、レスポンスメッセージ内のオブジェクト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileSpan",
+      "lang": "ja"
+    },
+    "1999cfc7": {
+      "original": "File containing text span.",
+      "translated": "テキストスパンを含むファイル。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileSpan.file",
+      "lang": "ja"
+    },
+    "d0ff67ea": {
+      "original": "Name of file",
+      "translated": "ファイルの名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileWithProjectReferenceRedirectInfo.fileName",
+      "lang": "ja"
+    },
+    "75accabc": {
+      "original": "True if the file is primarily included in a referenced project",
+      "translated": "ファイルが主に参照先プロジェクトに含まれる場合は true",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FileWithProjectReferenceRedirectInfo.isSourceOfProjectReferenceRedirect",
+      "lang": "ja"
+    },
+    "ee8593fc": {
+      "original": "Format on key request; value of command field is\n\"formatonkey\". Given file location and key typed (as string),\nreturn response giving zero or more edit instructions.  The\nedit instructions will be sorted in file order.  Applying the\nedit instructions in reverse to file will result in correctly\nreformatted text.",
+      "translated": "キー入力時整形リクエスト。command フィールドの値は \"formatonkey\"。ファイル位置と入力されたキー(文字列として)を与えると、0 個以上の編集命令を返す。編集命令はファイル順に並べられる。編集命令を逆順にファイルへ適用すると、正しく再整形されたテキストになる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FormatOnKeyRequest",
+      "lang": "ja"
+    },
+    "ae8aed0c": {
+      "original": "Arguments for format on key messages.",
+      "translated": "キー入力時整形メッセージの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FormatOnKeyRequestArgs",
+      "lang": "ja"
+    },
+    "852a1dd4": {
+      "original": "Key pressed (';', '\\n', or '}').",
+      "translated": "押されたキー(';'、'\\n'、'}')。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FormatOnKeyRequestArgs.key",
+      "lang": "ja"
+    },
+    "bb2e802d": {
+      "original": "Format request; value of command field is \"format\".  Return\nresponse giving zero or more edit instructions.  The edit\ninstructions will be sorted in file order.  Applying the edit\ninstructions in reverse to file will result in correctly\nreformatted text.",
+      "translated": "整形リクエスト。command フィールドの値は \"format\"。0 個以上の編集命令を返す。編集命令はファイル順に並べられる。編集命令を逆順にファイルへ適用すると、正しく再整形されたテキストになる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FormatRequest",
+      "lang": "ja"
+    },
+    "f9248542": {
+      "original": "Arguments for format messages.",
+      "translated": "整形メッセージの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FormatRequestArgs",
+      "lang": "ja"
+    },
+    "38f73c08": {
+      "original": "Last line of range for which to format text in file.",
+      "translated": "ファイル内でテキストを整形する範囲の最後の行。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FormatRequestArgs.endLine",
+      "lang": "ja"
+    },
+    "7a25be79": {
+      "original": "Character offset on last line of range for which to format text in file.",
+      "translated": "ファイル内でテキストを整形する範囲の最後の行の文字オフセット。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FormatRequestArgs.endOffset",
+      "lang": "ja"
+    },
+    "a86dc7f5": {
+      "original": "Format options to be used.",
+      "translated": "使う整形オプション。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FormatRequestArgs.options",
+      "lang": "ja"
+    },
+    "89d6795c": {
+      "original": "Format and format on key response message.",
+      "translated": "整形およびキー入力時整形のレスポンスメッセージ。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.FormatResponse",
+      "lang": "ja"
+    },
+    "bf8e68c7": {
+      "original": "Request refactorings at a given position or selection area.",
+      "translated": "指定した位置または選択範囲でのリファクタリングを要求する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetApplicableRefactorsRequest",
+      "lang": "ja"
+    },
+    "1e25f2f5": {
+      "original": "Include refactor actions that require additional arguments to be passed when\ncalling 'GetEditsForRefactor'. When true, clients should inspect the\n`isInteractive` property of each returned `RefactorActionInfo`\nand ensure they are able to collect the appropriate arguments for any\ninteractive refactor before offering it.",
+      "translated": "'GetEditsForRefactor' を呼び出すときに追加の引数が必要なリファクタリングアクションを含める。true の場合、クライアントは返された各 `RefactorActionInfo` の `isInteractive` プロパティを調べ、対話的なリファクタリングを提供する前に適切な引数を収集できることを確認すべきである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetApplicableRefactorsRequestArgs.includeInteractiveActions",
+      "lang": "ja"
+    },
+    "3c39f6a3": {
+      "original": "Response is a list of available refactorings.\nEach refactoring exposes one or more \"Actions\"; a user selects one action to invoke a refactoring",
+      "translated": "レスポンスは利用可能なリファクタリングのリストである。\n各リファクタリングは 1 つ以上の \"Action\" を公開する。ユーザーが 1 つのアクションを選ぶとリファクタリングが呼び出される",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetApplicableRefactorsResponse",
+      "lang": "ja"
+    },
+    "425a48d8": {
+      "original": "Response for GetCodeFixes request.",
+      "translated": "GetCodeFixes リクエストへのレスポンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetCodeFixesResponse",
+      "lang": "ja"
+    },
+    "ccacd00c": {
+      "original": "Note: Paths may also be directories.",
+      "translated": "注: パスはディレクトリでもよい。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetEditsForFileRenameRequestArgs",
+      "lang": "ja"
+    },
+    "9080b54a": {
+      "original": "Request the edits that a particular refactoring action produces.\nCallers must specify the name of the refactor and the name of the action.",
+      "translated": "特定のリファクタリングアクションが生成する編集を要求する。\n呼び出し側は、リファクタリングの名前とアクションの名前を指定しなければならない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetEditsForRefactorRequestArgs",
+      "lang": "ja"
+    },
+    "03145982": {
+      "original": "GeterrForProjectRequest request; value of command field is\n\"geterrForProject\". It works similarly with 'Geterr', only\nit request for every file in this project.",
+      "translated": "GeterrForProjectRequest リクエスト。command フィールドの値は \"geterrForProject\"。'Geterr' と同様に動作するが、このプロジェクト内のすべてのファイルについて要求する点が異なる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GeterrForProjectRequest",
+      "lang": "ja"
+    },
+    "cfe8f71c": {
+      "original": "Arguments for GeterrForProject request.",
+      "translated": "GeterrForProject リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GeterrForProjectRequestArgs",
+      "lang": "ja"
+    },
+    "9fb25839": {
+      "original": "Delay in milliseconds to wait before starting to compute\nerrors for the files in the file list",
+      "translated": "ファイルリスト内のファイルのエラー計算を開始する前に待機する遅延(ミリ秒)",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GeterrForProjectRequestArgs.delay",
+      "lang": "ja"
+    },
+    "a3857114": {
+      "original": "the file requesting project error list",
+      "translated": "プロジェクトのエラーリストを要求するファイル",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GeterrForProjectRequestArgs.file",
+      "lang": "ja"
+    },
+    "b8373bdd": {
+      "original": "Geterr request; value of command field is \"geterr\". Wait for\ndelay milliseconds and then, if during the wait no change or\nreload messages have arrived for the first file in the files\nlist, get the syntactic errors for the file, field requests,\nand then get the semantic errors for the file.  Repeat with a\nsmaller delay for each subsequent file on the files list.  Best\npractice for an editor is to send a file list containing each\nfile that is currently visible, in most-recently-used order.",
+      "translated": "Geterr リクエスト。command フィールドの値は \"geterr\"。delay ミリ秒待機し、その待機中に files リストの最初のファイルについて変更やリロードのメッセージが届かなければ、そのファイルの構文エラーを取得してリクエストに応答し、次にそのファイルの意味エラーを取得する。files リストの以降の各ファイルについて、より短い遅延で繰り返す。エディターのベストプラクティスは、現在表示されている各ファイルを、最近使用した順に含むファイルリストを送ることである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GeterrRequest",
+      "lang": "ja"
+    },
+    "752dc9e8": {
+      "original": "Arguments for geterr messages.",
+      "translated": "geterr メッセージの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GeterrRequestArgs",
+      "lang": "ja"
+    },
+    "d5b1137f": {
+      "original": "List of file names for which to compute compiler errors.\nThe files will be checked in list order.",
+      "translated": "コンパイラエラーを計算するファイル名のリスト。\nファイルはリストの順にチェックされる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GeterrRequestArgs.files",
+      "lang": "ja"
+    },
+    "799310f7": {
+      "original": "Response is a list of available files.\nEach refactoring exposes one or more \"Actions\"; a user selects one action to invoke a refactoring",
+      "translated": "レスポンスは利用可能なファイルのリストである。\n各リファクタリングは 1 つ以上の \"Action\" を公開する。ユーザーが 1 つのアクションを選ぶとリファクタリングが呼び出される",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetMoveToRefactoringFileSuggestions",
+      "lang": "ja"
+    },
+    "505f6d43": {
+      "original": "Request refactorings at a given position or selection area to move to an existing file.",
+      "translated": "指定した位置または選択範囲について、既存のファイルへ移動するためのリファクタリングを要求する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetMoveToRefactoringFileSuggestionsRequest",
+      "lang": "ja"
+    },
+    "bbbbdd3e": {
+      "original": "The source location of each `pastedText`. If present, the length of `spans` must be equal to the length of `pastedText`.",
+      "translated": "各 `pastedText` のコピー元の位置。存在する場合、`spans` の長さは `pastedText` の長さと等しくなければならない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetPasteEditsRequestArgs.copiedFrom",
+      "lang": "ja"
+    },
+    "e9dedc5c": {
+      "original": "The text that gets pasted in a file.",
+      "translated": "ファイルに貼り付けられるテキスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetPasteEditsRequestArgs.pastedText",
+      "lang": "ja"
+    },
+    "9ccf2d56": {
+      "original": "Locations of where the `pastedText` gets added in a file. If the length of the `pastedText` and `pastedLocations` are not the same,\nthen the `pastedText` is combined into one and added at all the `pastedLocations`.",
+      "translated": "`pastedText` がファイル内で追加される位置。`pastedText` と `pastedLocations` の長さが同じでない場合、`pastedText` は 1 つにまとめられ、すべての `pastedLocations` に追加される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetPasteEditsRequestArgs.pasteLocations",
+      "lang": "ja"
+    },
+    "cbe5a94b": {
+      "original": "A response for GetSupportedCodeFixesRequest request.",
+      "translated": "GetSupportedCodeFixesRequest リクエストへのレスポンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetSupportedCodeFixesResponse",
+      "lang": "ja"
+    },
+    "1fa36f68": {
+      "original": "List of error codes supported by the server.",
+      "translated": "サーバーがサポートするエラーコードのリスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.GetSupportedCodeFixesResponse.body",
+      "lang": "ja"
+    },
+    "c922f97a": {
+      "original": "Span augmented with extra information that denotes the kind of the highlighting to be used for span.",
+      "translated": "スパンに使うハイライトの種類を示す追加情報を付加したスパン。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.HighlightSpan",
+      "lang": "ja"
+    },
+    "0b4917fb": {
+      "original": "Go to implementation request; value of command field is\n\"implementation\". Return response giving the file locations that\nimplement the symbol found in file at location line, col.",
+      "translated": "実装へ移動リクエスト。command フィールドの値は \"implementation\"。ファイル内の位置 line, col で見つかったシンボルを実装するファイル位置を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ImplementationRequest",
+      "lang": "ja"
+    },
+    "01a40022": {
+      "original": "Implementation response message.  Gives text range for implementations.",
+      "translated": "実装レスポンスメッセージ。実装のテキスト範囲を与える。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ImplementationResponse",
+      "lang": "ja"
+    },
+    "2c7ee181": {
+      "original": "A request to get indentation for a location in file",
+      "translated": "ファイル内のある位置のインデントを取得するリクエスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.IndentationRequest",
+      "lang": "ja"
+    },
+    "0cbbc6be": {
+      "original": "Arguments for IndentationRequest request.",
+      "translated": "IndentationRequest リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.IndentationRequestArgs",
+      "lang": "ja"
+    },
+    "77f3a41e": {
+      "original": "An optional set of settings to be used when computing indentation.\nIf argument is omitted - then it will use settings for file that were previously set via 'configure' request or global settings.",
+      "translated": "インデント計算時に使う省略可能な設定の集合。\n引数を省略した場合、以前 'configure' リクエストで設定されたファイルの設定、またはグローバル設定を使う。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.IndentationRequestArgs.options",
+      "lang": "ja"
+    },
+    "a6a68da3": {
+      "original": "Response for IndentationRequest request.",
+      "translated": "IndentationRequest リクエストへのレスポンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.IndentationResponse",
+      "lang": "ja"
+    },
+    "98c4976c": {
+      "original": "Indentation result representing where indentation should be placed",
+      "translated": "インデントをどこに置くべきかを表すインデント結果",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.IndentationResult",
+      "lang": "ja"
+    },
+    "1586c822": {
+      "original": "The base position in the document that the indent should be relative to",
+      "translated": "インデントの基準とすべき、ドキュメント内の基準位置",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.IndentationResult.position",
+      "lang": "ja"
+    },
+    "3cb33b55": {
+      "original": "External projects have a typeAcquisition option so they need to be added separately to compiler options for inferred projects.",
+      "translated": "外部プロジェクトは typeAcquisition オプションを持つため、推論プロジェクト用のコンパイラオプションには別途追加する必要がある。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.InferredProjectCompilerOptions",
+      "lang": "ja"
+    },
+    "57dc713d": {
+      "original": "correlation id to match begin and end events",
+      "translated": "開始イベントと終了イベントを対応付ける相関 id",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.InstallTypesEventBody.eventId",
+      "lang": "ja"
+    },
+    "24b950bf": {
+      "original": "list of packages to install",
+      "translated": "インストールするパッケージのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.InstallTypesEventBody.packages",
+      "lang": "ja"
+    },
+    "03e74b8e": {
+      "original": "A part of a symbol description that links from a jsdoc",
+      "translated": "jsdoc からリンクする、シンボル説明の一部",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.JSDocLinkDisplayPart",
+      "lang": "ja"
+    },
+    "1efec3b5": {
+      "original": "The location of the declaration that the",
+      "translated": "宣言の位置。その宣言が",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.JSDocLinkDisplayPart.target",
+      "lang": "ja"
+    },
+    "dba2f6f2": {
+      "original": "Name of the JSDoc tag",
+      "translated": "JSDoc タグの名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.JSDocTagInfo.name",
+      "lang": "ja"
+    },
+    "f71f1881": {
+      "original": "Comment text after the JSDoc tag -- the text after the tag name until the next tag or end of comment\nDisplay parts when UserPreferences.displayPartsForJSDoc is true, flattened to string otherwise.",
+      "translated": "JSDoc タグの後のコメントテキスト -- タグ名の後から、次のタグまたはコメントの終わりまでのテキスト。\nUserPreferences.displayPartsForJSDoc が true のときは表示パーツ(display parts)、そうでなければ文字列に平坦化される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.JSDocTagInfo.text",
+      "lang": "ja"
+    },
+    "025a0d51": {
+      "original": "name of the large file being loaded",
+      "translated": "読み込まれている大きなファイルの名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.LargeFileReferencedEventBody.file",
+      "lang": "ja"
+    },
+    "081a994b": {
+      "original": "size of the file",
+      "translated": "ファイルのサイズ",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.LargeFileReferencedEventBody.fileSize",
+      "lang": "ja"
+    },
+    "7d879ce3": {
+      "original": "max file size allowed on the server",
+      "translated": "サーバーで許可される最大ファイルサイズ",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.LargeFileReferencedEventBody.maxFileSize",
+      "lang": "ja"
+    },
+    "c1931a95": {
+      "original": "Location in source code expressed as (one-based) line and (one-based) column offset.",
+      "translated": "(1 始まりの)行と(1 始まりの)列オフセットで表される、ソースコード内の位置。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Location",
+      "lang": "ja"
+    },
+    "2a315cf1": {
+      "original": "The files and changes to try and apply/map.",
+      "translated": "適用/マッピングを試みるファイルと変更。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.MapCodeRequestArgs.mapping",
+      "lang": "ja"
+    },
+    "321049be": {
+      "original": "The specific code to map/insert/replace in the file.",
+      "translated": "ファイル内でマッピング/挿入/置換する具体的なコード。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.MapCodeRequestDocumentMapping.contents",
+      "lang": "ja"
+    },
+    "e67b02c2": {
+      "original": "Areas of \"focus\" to inform the code mapper with. For example, cursor\nlocation, current selection, viewport, etc. Nested arrays denote\npriority: toplevel arrays are more important than inner arrays, and\ninner array priorities are based on items within that array. Items\nearlier in the arrays have higher priority.",
+      "translated": "コードマッパーに伝える「フォーカス」の領域。たとえばカーソル位置・現在の選択・ビューポートなど。入れ子の配列は優先度を表す。トップレベルの配列は内側の配列より重要であり、内側の配列の優先度はその配列内の項目に基づく。配列内で前にある項目ほど優先度が高い。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.MapCodeRequestDocumentMapping.focusLocations",
+      "lang": "ja"
+    },
+    "8fd8082e": {
+      "original": "A TypeScript Server message",
+      "translated": "TypeScript Server のメッセージ",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Message",
+      "lang": "ja"
+    },
+    "66c9fdb9": {
+      "original": "Sequence number of the message",
+      "translated": "メッセージのシーケンス番号",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Message.seq",
+      "lang": "ja"
+    },
+    "e68623f7": {
+      "original": "One of \"request\", \"response\", or \"event\"",
+      "translated": "\"request\"、\"response\"、\"event\" のいずれか",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Message.type",
+      "lang": "ja"
+    },
+    "e57a7c0f": {
+      "original": "Renamed to `Node10`",
+      "translated": "`Node10` に改名された",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ModuleResolutionKind.Node",
+      "lang": "ja"
+    },
+    "907c3a59": {
+      "original": "NavBar items request; value of command field is \"navbar\".\nReturn response giving the list of navigation bar entries\nextracted from the requested file.",
+      "translated": "NavBar 項目リクエスト。command フィールドの値は \"navbar\"。要求したファイルから抽出したナビゲーションバーのエントリのリストを返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavBarRequest",
+      "lang": "ja"
+    },
+    "783574d0": {
+      "original": "Optional children.",
+      "translated": "省略可能な子項目。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavigationBarItem.childItems",
+      "lang": "ja"
+    },
+    "4c2e45d6": {
+      "original": "Number of levels deep this item should appear.",
+      "translated": "この項目が現れるべき深さのレベル数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavigationBarItem.indent",
+      "lang": "ja"
+    },
+    "7b0d530a": {
+      "original": "The definition locations of the item.",
+      "translated": "項目の定義位置。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavigationBarItem.spans",
+      "lang": "ja"
+    },
+    "9904c5eb": {
+      "original": "The item's display text.",
+      "translated": "項目の表示テキスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavigationBarItem.text",
+      "lang": "ja"
+    },
+    "f19fd0a4": {
+      "original": "protocol.NavigationTree is identical to ts.NavigationTree, except using protocol.TextSpan instead of ts.TextSpan",
+      "translated": "protocol.NavigationTree は、ts.TextSpan の代わりに protocol.TextSpan を使う点を除いて ts.NavigationTree と同一である",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavigationTree",
+      "lang": "ja"
+    },
+    "54aa5300": {
+      "original": "An item found in a navto response.",
+      "translated": "navto レスポンスに含まれる項目。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoItem",
+      "lang": "ja"
+    },
+    "c257ff3b": {
+      "original": "Kind of symbol's container symbol (if any).",
+      "translated": "シンボルのコンテナシンボル(あれば)の種類。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoItem.containerKind",
+      "lang": "ja"
+    },
+    "08218aff": {
+      "original": "Name of symbol's container symbol (if any); for example,\nthe class name if symbol is a class member.",
+      "translated": "シンボルのコンテナシンボル(あれば)の名前。たとえば、シンボルがクラスメンバーの場合はクラス名。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoItem.containerName",
+      "lang": "ja"
+    },
+    "ba13de97": {
+      "original": "If this was a case sensitive or insensitive match.",
+      "translated": "これが大文字小文字を区別する一致だったか、区別しない一致だったか。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoItem.isCaseSensitive",
+      "lang": "ja"
+    },
+    "a46a0275": {
+      "original": "The symbol's kind (such as 'className' or 'parameterName').",
+      "translated": "シンボルの種類('className' や 'parameterName' など)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoItem.kind",
+      "lang": "ja"
+    },
+    "496b720d": {
+      "original": "exact, substring, or prefix.",
+      "translated": "exact、substring、prefix のいずれか。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoItem.matchKind",
+      "lang": "ja"
+    },
+    "cfa46be5": {
+      "original": "The symbol's name.",
+      "translated": "シンボルの名前。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoItem.name",
+      "lang": "ja"
+    },
+    "e03391ee": {
+      "original": "Navto request message; value of command field is \"navto\".\nReturn list of objects giving file locations and symbols that\nmatch the search term given in argument 'searchTerm'.  The\ncontext for the search is given by the named file.",
+      "translated": "Navto リクエストメッセージ。command フィールドの値は \"navto\"。引数 'searchTerm' で与えた検索語に一致するファイル位置とシンボルを与えるオブジェクトのリストを返す。検索の文脈は、指定したファイルによって与えられる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoRequest",
+      "lang": "ja"
+    },
+    "b0e4d53c": {
+      "original": "Arguments for navto request message.",
+      "translated": "navto リクエストメッセージの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoRequestArgs",
+      "lang": "ja"
+    },
+    "fe9027e8": {
+      "original": "Optional flag to indicate we want results for just the current file\nor the entire project.",
+      "translated": "現在のファイルだけの結果が欲しいか、プロジェクト全体の結果が欲しいかを示す省略可能なフラグ。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoRequestArgs.currentFileOnly",
+      "lang": "ja"
+    },
+    "b11a6e26": {
+      "original": "Optional limit on the number of items to return.",
+      "translated": "返す項目数の省略可能な上限。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoRequestArgs.maxResultCount",
+      "lang": "ja"
+    },
+    "d97dfba8": {
+      "original": "Search term to navigate to from current location; term can\nbe '.*' or an identifier prefix.",
+      "translated": "現在の位置から移動する先の検索語。語は '.*' または識別子の接頭辞にできる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoRequestArgs.searchValue",
+      "lang": "ja"
+    },
+    "5a4ad6cb": {
+      "original": "Navto response message. Body is an array of navto items.  Each\nitem gives a symbol that matched the search term.",
+      "translated": "Navto レスポンスメッセージ。body は navto 項目の配列である。各項目は、検索語に一致したシンボルを与える。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.NavtoResponse",
+      "lang": "ja"
+    },
+    "e2ae4552": {
+      "original": "Arguments to OpenExternalProjectRequest request",
+      "translated": "OpenExternalProjectRequest リクエストの引数",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenExternalProjectArgs",
+      "lang": "ja"
+    },
+    "b6ff360d": {
+      "original": "Request to open or update external project",
+      "translated": "外部プロジェクトを開く、または更新するリクエスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenExternalProjectRequest",
+      "lang": "ja"
+    },
+    "b534a493": {
+      "original": "Response to OpenExternalProjectRequest request. This is just an acknowledgement, so\nno body field is required.",
+      "translated": "OpenExternalProjectRequest リクエストへのレスポンス。これは単なる確認応答なので、body フィールドは不要である。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenExternalProjectResponse",
+      "lang": "ja"
+    },
+    "ce7905a4": {
+      "original": "Arguments to OpenExternalProjectsRequest",
+      "translated": "OpenExternalProjectsRequest リクエストの引数",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenExternalProjectsArgs",
+      "lang": "ja"
+    },
+    "87f9ef20": {
+      "original": "List of external projects to open or update",
+      "translated": "開く、または更新する外部プロジェクトのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenExternalProjectsArgs.projects",
+      "lang": "ja"
+    },
+    "52ecac81": {
+      "original": "Request to open multiple external projects",
+      "translated": "複数の外部プロジェクトを開くリクエスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenExternalProjectsRequest",
+      "lang": "ja"
+    },
+    "da261303": {
+      "original": "Response to OpenExternalProjectsRequest request. This is just an acknowledgement, so\nno body field is required.",
+      "translated": "OpenExternalProjectsRequest リクエストへのレスポンス。これは単なる確認応答なので、body フィールドは不要である。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenExternalProjectsResponse",
+      "lang": "ja"
+    },
+    "ec0031d9": {
+      "original": "Open request; value of command field is \"open\". Notify the\nserver that the client has file open.  The server will not\nmonitor the filesystem for changes in this file and will assume\nthat the client is updating the server (using the change and/or\nreload messages) when the file changes. Server does not currently\nsend a response to an open request.",
+      "translated": "オープンリクエスト。command フィールドの値は \"open\"。クライアントがファイルを開いたことをサーバーに通知する。サーバーはこのファイルの変更についてファイルシステムを監視せず、ファイルが変わったときはクライアントが(change やリロードのメッセージを使って)サーバーを更新すると仮定する。サーバーは現在、オープンリクエストにレスポンスを送らない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenRequest",
+      "lang": "ja"
+    },
+    "2222a9c8": {
+      "original": "Information found in an \"open\" request.",
+      "translated": "\"open\" リクエストに含まれる情報。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenRequestArgs",
+      "lang": "ja"
+    },
+    "55a044d5": {
+      "original": "Used when a version of the file content is known to be more up to date than the one on disk.\nThen the known content will be used upon opening instead of the disk copy",
+      "translated": "ファイル内容のあるバージョンが、ディスク上のものより新しいと分かっている場合に使う。\nその場合、開くときにディスクのコピーの代わりにその既知の内容が使われる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenRequestArgs.fileContent",
+      "lang": "ja"
+    },
+    "36fe73a7": {
+      "original": "Used to limit the searching for project config file. If given the searching will stop at this\nroot path; otherwise it will go all the way up to the dist root path.",
+      "translated": "プロジェクトの config ファイルの検索を制限するために使う。指定した場合、検索はこのルートパスで止まる。そうでなければディスクのルートパスまで遡る。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenRequestArgs.projectRootPath",
+      "lang": "ja"
+    },
+    "2fe58add": {
+      "original": "Used to specify the script kind of the file explicitly. It could be one of the following:\n     \"TS\", \"JS\", \"TSX\", \"JSX\"",
+      "translated": "ファイルのスクリプト種別を明示的に指定するために使う。次のいずれかにできる:\n     \"TS\"、\"JS\"、\"TSX\"、\"JSX\"",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OpenRequestArgs.scriptKindName",
+      "lang": "ja"
+    },
+    "5eab27f1": {
+      "original": "Organize imports by:\n  1) Removing unused imports\n  2) Coalescing imports from the same module\n  3) Sorting imports",
+      "translated": "次の方法で import を整理する:\n  1) 未使用の import を削除する\n  2) 同じモジュールからの import をまとめる\n  3) import を並べ替える",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OrganizeImportsRequest",
+      "lang": "ja"
+    },
+    "39b3bfea": {
+      "original": "Use `mode` instead",
+      "translated": "代わりに `mode` を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OrganizeImportsRequestArgs.skipDestructiveCodeActions",
+      "lang": "ja"
+    },
+    "1d39f209": {
+      "original": "Request to obtain outlining spans in file.",
+      "translated": "ファイル内のアウトラインスパンを取得するリクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OutliningSpansRequest",
+      "lang": "ja"
+    },
+    "8100b32d": {
+      "original": "Response to OutliningSpansRequest request.",
+      "translated": "OutliningSpansRequest リクエストへのレスポンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.OutliningSpansResponse",
+      "lang": "ja"
+    },
+    "c00f73e1": {
+      "original": "The time spent creating or updating the auto-import program, in milliseconds.",
+      "translated": "自動インポートプログラムの作成または更新に費やした時間(ミリ秒)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.PerformanceData.createAutoImportProviderProgramDurationMs",
+      "lang": "ja"
+    },
+    "716839f2": {
+      "original": "The time spent computing diagnostics, in milliseconds.",
+      "translated": "診断の計算に費やした時間(ミリ秒)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.PerformanceData.diagnosticsDuration",
+      "lang": "ja"
+    },
+    "1225c680": {
+      "original": "Time spent updating the program graph, in milliseconds.",
+      "translated": "プログラムグラフの更新に費やした時間(ミリ秒)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.PerformanceData.updateGraphDurationMs",
+      "lang": "ja"
+    },
+    "735e77ed": {
+      "original": "Request to check if `pasteEdits` should be provided for a given location post copying text from that location.",
+      "translated": "その場所からテキストをコピーした後、指定した位置に対して `pasteEdits` を提供すべきかどうかを確認するリクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.PreparePasteEditsRequest",
+      "lang": "ja"
+    },
+    "578e36cd": {
+      "original": "Represents a set of changes that happen in project",
+      "translated": "プロジェクトで発生する変更の集合を表す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectChanges",
+      "lang": "ja"
+    },
+    "3bd602a8": {
+      "original": "List of added files",
+      "translated": "追加されたファイルのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectChanges.added",
+      "lang": "ja"
+    },
+    "63cc3bc9": {
+      "original": "List of removed files",
+      "translated": "削除されたファイルのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectChanges.removed",
+      "lang": "ja"
+    },
+    "1788176b": {
+      "original": "List of updated files",
+      "translated": "更新されたファイルのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectChanges.updated",
+      "lang": "ja"
+    },
+    "0028f93b": {
+      "original": "List of files that have had their project reference redirect status updated\nOnly provided when the synchronizeProjectList request has includeProjectReferenceRedirectInfo set to true",
+      "translated": "プロジェクト参照のリダイレクト状態が更新されたファイルのリスト。\nsynchronizeProjectList リクエストで includeProjectReferenceRedirectInfo が true に設定されている場合にのみ提供される",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectChanges.updatedRedirects",
+      "lang": "ja"
+    },
+    "4089506a": {
+      "original": "Response message body for \"projectInfo\" request",
+      "translated": "\"projectInfo\" リクエストのレスポンスメッセージ body",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectInfo",
+      "lang": "ja"
+    },
+    "be773beb": {
+      "original": "For configured project, this is the normalized path of the 'tsconfig.json' file\nFor inferred project, this is undefined",
+      "translated": "ConfiguredProject の場合、これは 'tsconfig.json' ファイルの正規化されたパスである。\nInferredProject の場合、これは undefined である",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectInfo.configFileName",
+      "lang": "ja"
+    },
+    "54c740d5": {
+      "original": "Information about default project",
+      "translated": "既定プロジェクトについての情報",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectInfo.configuredProjectInfo",
+      "lang": "ja"
+    },
+    "aced3579": {
+      "original": "The list of normalized file name in the project, including 'lib.d.ts'",
+      "translated": "プロジェクト内の正規化されたファイル名のリスト('lib.d.ts' を含む)",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectInfo.fileNames",
+      "lang": "ja"
+    },
+    "63018e3d": {
+      "original": "Indicates if the project has a active language service instance",
+      "translated": "プロジェクトがアクティブな言語サービスインスタンスを持つかどうかを示す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectInfo.languageServiceDisabled",
+      "lang": "ja"
+    },
+    "1d4a5a5c": {
+      "original": "A request to get the project information of the current file.",
+      "translated": "現在のファイルのプロジェクト情報を取得するリクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectInfoRequest",
+      "lang": "ja"
+    },
+    "581391ef": {
+      "original": "Arguments for ProjectInfoRequest request.",
+      "translated": "ProjectInfoRequest リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectInfoRequestArgs",
+      "lang": "ja"
+    },
+    "695004d0": {
+      "original": "if true returns details about default configured project calculation",
+      "translated": "true の場合、既定の ConfiguredProject の計算についての詳細を返す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectInfoRequestArgs.needDefaultConfiguredProjectInfo",
+      "lang": "ja"
+    },
+    "d12a6041": {
+      "original": "Indicate if the file name list of the project is needed",
+      "translated": "プロジェクトのファイル名リストが必要かどうかを示す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectInfoRequestArgs.needFileNameList",
+      "lang": "ja"
+    },
+    "baaef5fb": {
+      "original": "Response message for \"projectInfo\" request",
+      "translated": "\"projectInfo\" リクエストのレスポンスメッセージ",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectInfoResponse",
+      "lang": "ja"
+    },
+    "7ed3cb5d": {
+      "original": "True if language service state switched from disabled to enabled\nand false otherwise.",
+      "translated": "言語サービスの状態が無効から有効に切り替わった場合は true、そうでなければ false。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectLanguageServiceStateEventBody.languageServiceEnabled",
+      "lang": "ja"
+    },
+    "ed308224": {
+      "original": "Project name that has changes in the state of language service.\nFor configured projects this will be the config file path.\nFor external projects this will be the name of the projects specified when project was open.\nFor inferred projects this event is not raised.",
+      "translated": "言語サービスの状態に変化があったプロジェクト名。\nConfiguredProject の場合、これは config ファイルのパスになる。\n外部プロジェクトの場合、これはプロジェクトを開いたときに指定したプロジェクトの名前になる。\nInferredProject の場合、このイベントは発生しない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectLanguageServiceStateEventBody.projectName",
+      "lang": "ja"
+    },
+    "9531f05d": {
+      "original": "name of the project",
+      "translated": "プロジェクトの名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectLoadingStartEventBody.projectName",
+      "lang": "ja"
+    },
+    "c6aafb3c": {
+      "original": "reason for loading",
+      "translated": "読み込みの理由",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectLoadingStartEventBody.reason",
+      "lang": "ja"
+    },
+    "bb77fa2b": {
+      "original": "Current set of open files",
+      "translated": "現在の開いているファイルの集合",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ProjectsUpdatedInBackgroundEventBody.openFiles",
+      "lang": "ja"
+    },
+    "6caaa10d": {
+      "original": "Quickinfo request; value of command field is\n\"quickinfo\". Return response giving a quick type and\ndocumentation string for the symbol found in file at location\nline, col.",
+      "translated": "クイック情報リクエスト。command フィールドの値は \"quickinfo\"。ファイル内の位置 line, col で見つかったシンボルについて、簡潔な型とドキュメント文字列を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoRequest",
+      "lang": "ja"
+    },
+    "d86cf17f": {
+      "original": "This controls how many levels of definitions will be expanded in the quick info response.\nThe default value is 0.",
+      "translated": "クイック情報のレスポンスで、定義を何レベルまで展開するかを制御する。\n既定値は 0。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoRequestArgs.verbosityLevel",
+      "lang": "ja"
+    },
+    "1bb2486d": {
+      "original": "Quickinfo response message.",
+      "translated": "クイック情報レスポンスメッセージ。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoResponse",
+      "lang": "ja"
+    },
+    "6e35e54d": {
+      "original": "Body of QuickInfoResponse.",
+      "translated": "QuickInfoResponse の body。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoResponseBody",
+      "lang": "ja"
+    },
+    "08811e16": {
+      "original": "Whether the verbosity level can be increased for this quick info response.",
+      "translated": "このクイック情報レスポンスについて verbosity レベルを上げられるかどうか。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoResponseBody.canIncreaseVerbosityLevel",
+      "lang": "ja"
+    },
+    "fb383f5f": {
+      "original": "Type and kind of symbol.",
+      "translated": "シンボルの型と種類。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoResponseBody.displayString",
+      "lang": "ja"
+    },
+    "011439b0": {
+      "original": "Documentation associated with symbol.\nDisplay parts when UserPreferences.displayPartsForJSDoc is true, flattened to string otherwise.",
+      "translated": "シンボルに関連付けられたドキュメント。\nUserPreferences.displayPartsForJSDoc が true のときは表示パーツ(display parts)、そうでなければ文字列に平坦化される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoResponseBody.documentation",
+      "lang": "ja"
+    },
+    "cb69125c": {
+      "original": "One past last character of symbol.",
+      "translated": "シンボルの最後の文字の 1 つ先。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoResponseBody.end",
+      "lang": "ja"
+    },
+    "cf4413bf": {
+      "original": "The symbol's kind (such as 'className' or 'parameterName' or plain 'text').",
+      "translated": "シンボルの種類('className'、'parameterName'、単なる 'text' など)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoResponseBody.kind",
+      "lang": "ja"
+    },
+    "51081ead": {
+      "original": "Optional modifiers for the kind (such as 'public').",
+      "translated": "種類の省略可能な修飾子('public' など)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoResponseBody.kindModifiers",
+      "lang": "ja"
+    },
+    "e14bbfee": {
+      "original": "Starting file location of symbol.",
+      "translated": "シンボルの開始ファイル位置。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoResponseBody.start",
+      "lang": "ja"
+    },
+    "a0534997": {
+      "original": "JSDoc tags associated with symbol.",
+      "translated": "シンボルに関連付けられた JSDoc タグ。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.QuickInfoResponseBody.tags",
+      "lang": "ja"
+    },
+    "58d88991": {
+      "original": "An optional location where the editor should start a rename operation once\nthe refactoring edits have been applied",
+      "translated": "リファクタリングの編集が適用された後、エディターがリネーム操作を開始すべき省略可能な位置",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.RefactorEditInfo.renameLocation",
+      "lang": "ja"
+    },
+    "ef22ecce": {
+      "original": "Find references request; value of command field is\n\"references\". Return response giving the file locations that\nreference the symbol found in file at location line, col.",
+      "translated": "参照検索リクエスト。command フィールドの値は \"references\"。ファイル内の位置 line, col で見つかったシンボルを参照するファイル位置を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReferencesRequest",
+      "lang": "ja"
+    },
+    "b67dbf56": {
+      "original": "Response to \"references\" request.",
+      "translated": "\"references\" リクエストへのレスポンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReferencesResponse",
+      "lang": "ja"
+    },
+    "ceb57f6b": {
+      "original": "The body of a \"references\" response message.",
+      "translated": "\"references\" レスポンスメッセージの body。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReferencesResponseBody",
+      "lang": "ja"
+    },
+    "9803419b": {
+      "original": "The file locations referencing the symbol.",
+      "translated": "シンボルを参照するファイル位置。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReferencesResponseBody.refs",
+      "lang": "ja"
+    },
+    "03f7c6b2": {
+      "original": "The full display name of the symbol.",
+      "translated": "シンボルの完全な表示名。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReferencesResponseBody.symbolDisplayString",
+      "lang": "ja"
+    },
+    "5a3661e7": {
+      "original": "The name of the symbol.",
+      "translated": "シンボルの名前。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReferencesResponseBody.symbolName",
+      "lang": "ja"
+    },
+    "b1afa752": {
+      "original": "The start character offset of the symbol (on the line provided by the references request).",
+      "translated": "シンボルの開始文字オフセット(references リクエストで与えられた行上)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReferencesResponseBody.symbolStartOffset",
+      "lang": "ja"
+    },
+    "e1194b05": {
+      "original": "Present only if the search was triggered from a declaration.\nTrue indicates that the references refers to the same symbol\n(i.e. has the same meaning) as the declaration that began the\nsearch.",
+      "translated": "検索が宣言からトリガーされた場合にのみ存在する。\ntrue は、その参照が、検索を開始した宣言と同じシンボル(すなわち同じ意味)を指すことを示す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReferencesResponseItem.isDefinition",
+      "lang": "ja"
+    },
+    "88e35f53": {
+      "original": "True if reference is a write location, false otherwise.",
+      "translated": "参照が書き込み位置の場合は true、そうでなければ false。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReferencesResponseItem.isWriteAccess",
+      "lang": "ja"
+    },
+    "b0260699": {
+      "original": "Text of line containing the reference. Including this\nwith the response avoids latency of editor loading files\nto show text of reference line (the server already has loaded the referencing files).\n\nIf {@link UserPreferences.disableLineTextInReferences} is enabled, the property won't be filled",
+      "translated": "参照を含む行のテキスト。これをレスポンスに含めることで、参照行のテキストを表示するためにエディターがファイルを読み込む遅延を避けられる(サーバーはすでに参照元ファイルを読み込んでいる)。\n\n{@link UserPreferences.disableLineTextInReferences} が有効な場合、このプロパティは埋められない",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReferencesResponseItem.lineText",
+      "lang": "ja"
+    },
+    "9740ecb2": {
+      "original": "Request to reload the project structure for all the opened files",
+      "translated": "開いているすべてのファイルについてプロジェクト構造を再読み込みするリクエスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReloadProjectsRequest",
+      "lang": "ja"
+    },
+    "737aa0c4": {
+      "original": "Reload request message; value of command field is \"reload\".\nReload contents of file with name given by the 'file' argument\nfrom temporary file with name given by the 'tmpfile' argument.\nThe two names can be identical.",
+      "translated": "リロードリクエストメッセージ。command フィールドの値は \"reload\"。'file' 引数で指定した名前のファイルの内容を、'tmpfile' 引数で指定した名前の一時ファイルから再読み込みする。2 つの名前は同一でもよい。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReloadRequest",
+      "lang": "ja"
+    },
+    "368c486a": {
+      "original": "Arguments for reload request.",
+      "translated": "リロードリクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReloadRequestArgs",
+      "lang": "ja"
+    },
+    "50f4ef2d": {
+      "original": "Name of temporary file from which to reload file\ncontents. May be same as file.",
+      "translated": "ファイル内容を再読み込みする元の一時ファイルの名前。file と同じでもよい。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReloadRequestArgs.tmpfile",
+      "lang": "ja"
+    },
+    "7ec6cf1b": {
+      "original": "Response to \"reload\" request. This is just an acknowledgement, so\nno body field is required.",
+      "translated": "\"reload\" リクエストへのレスポンス。これは単なる確認応答なので、body フィールドは不要である。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.ReloadResponse",
+      "lang": "ja"
+    },
+    "e56b9dc1": {
+      "original": "Information about the item to be renamed.",
+      "translated": "リネーム対象の項目についての情報。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.RenameInfo",
+      "lang": "ja"
+    },
+    "4243b7cd": {
+      "original": "Rename request; value of command field is \"rename\". Return\nresponse giving the file locations that reference the symbol\nfound in file at location line, col. Also return full display\nname of the symbol so that client can print it unambiguously.",
+      "translated": "リネームリクエスト。command フィールドの値は \"rename\"。ファイル内の位置 line, col で見つかったシンボルを参照するファイル位置を返す。また、クライアントが曖昧さなく表示できるよう、シンボルの完全な表示名も返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.RenameRequest",
+      "lang": "ja"
+    },
+    "ed38aa3a": {
+      "original": "Argument for RenameRequest request.",
+      "translated": "RenameRequest リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.RenameRequestArgs",
+      "lang": "ja"
+    },
+    "282b647a": {
+      "original": "Should text at specified location be found/changed in comments?",
+      "translated": "指定した位置のテキストを、コメント内でも検索/変更すべきか?",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.RenameRequestArgs.findInComments",
+      "lang": "ja"
+    },
+    "61d47fb4": {
+      "original": "Should text at specified location be found/changed in strings?",
+      "translated": "指定した位置のテキストを、文字列内でも検索/変更すべきか?",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.RenameRequestArgs.findInStrings",
+      "lang": "ja"
+    },
+    "4fae7567": {
+      "original": "Rename response message.",
+      "translated": "リネームレスポンスメッセージ。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.RenameResponse",
+      "lang": "ja"
+    },
+    "9f8050b5": {
+      "original": "An array of span groups (one per file) that refer to the item to be renamed.",
+      "translated": "リネーム対象の項目を参照する、スパングループの配列(ファイルごとに 1 つ)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.RenameResponseBody.locs",
+      "lang": "ja"
+    },
+    "d71685ea": {
+      "original": "Client-initiated request message",
+      "translated": "クライアント起点のリクエストメッセージ",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Request",
+      "lang": "ja"
+    },
+    "e6700c70": {
+      "original": "Object containing arguments for the command",
+      "translated": "コマンドの引数を含むオブジェクト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Request.arguments",
+      "lang": "ja"
+    },
+    "0c002e50": {
+      "original": "The command to execute",
+      "translated": "実行するコマンド",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Request.command",
       "lang": "ja"
     }
   }
