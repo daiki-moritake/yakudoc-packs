@@ -10,6 +10,12 @@
       "symbol": "typescript/lib/lib.es5.d.ts#PromiseLike.then",
       "lang": "ja"
     },
+    "17978026": {
+      "original": "Text of an item describing the symbol.",
+      "translated": "シンボルを説明する項目のテキスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SymbolDisplayPart.text",
+      "lang": "ja"
+    },
     "21043239": {
       "original": "Symbol to find the key for.",
       "translated": "キーを探す対象の Symbol。",
@@ -98,6 +104,18 @@
       "original": "Returns a section of an SharedArrayBuffer.",
       "translated": "SharedArrayBuffer の一部分を返す。",
       "symbol": "typescript/lib/lib.es2017.sharedmemory.d.ts#SharedArrayBuffer.slice",
+      "lang": "ja"
+    },
+    "44442162": {
+      "original": "Only the JSDoc scanner produces BacktickToken. The normal scanner produces NoSubstitutionTemplateLiteral and related kinds.",
+      "translated": "BacktickToken は JSDoc スキャナーのみが生成する。通常のスキャナーは NoSubstitutionTemplateLiteral と関連する種別を生成する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SyntaxKind.BacktickToken",
+      "lang": "ja"
+    },
+    "46283173": {
+      "original": "Indicates whether {@link CompletionEntry.labelDetails completion entry label details} are supported.\nIf not, contents of `labelDetails` may be included in the {@link CompletionEntry.name} property.",
+      "translated": "{@link CompletionEntry.labelDetails 補完エントリのラベル詳細} がサポートされるかどうかを示す。\nサポートされない場合、`labelDetails` の内容は {@link CompletionEntry.name} プロパティに含められることがある。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.useLabelDetailsInCompletionEntries",
       "lang": "ja"
     },
     "48817216": {
@@ -224,6 +242,12 @@
       "original": "The `resolvedOptions()` method of `Intl.Segmenter` instances returns a new object with properties reflecting the options computed during initialization of this `Segmenter` object.\n\n[MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/resolvedOptions)",
       "translated": "`Intl.Segmenter` インスタンスの `resolvedOptions()` メソッドは、この `Segmenter` オブジェクトの初期化時に計算されたオプションを反映したプロパティを持つ新しいオブジェクトを返す。\n\n[MDN](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl/Segmenter/resolvedOptions)",
       "symbol": "typescript/lib/lib.es2022.intl.d.ts#Intl.Segmenter.resolvedOptions",
+      "lang": "ja"
+    },
+    "91882300": {
+      "original": "Indicates whether upper case or lower case should sort first. When `false`, the default order for the locale\nspecified in {@link organizeImportsCollationLocale} is used.\n\nThis preference is ignored if {@link organizeImportsCollation} is not `\"unicode\"`. This preference is also\nignored if we are using case-insensitive sorting, which occurs when {@link organizeImportsIgnoreCase} is `true`,\nor if {@link organizeImportsIgnoreCase} is `\"auto\"` and the auto-detected case sensitivity is determined to be\ncase-insensitive.\n\nDefault: `false`",
+      "translated": "大文字と小文字のどちらを先に並べるべきかを示す。`false` の場合、{@link organizeImportsCollationLocale} で指定されたロケールの既定順序が使われる。\n\n{@link organizeImportsCollation} が `\"unicode\"` でない場合、この設定は無視される。また、大文字小文字を区別しない並べ替えを使っている場合({@link organizeImportsIgnoreCase} が `true`、または `\"auto\"` で自動検出された大文字小文字の区別が区別しないと判定された場合)も無視される。\n\n既定: `false`",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.organizeImportsCaseFirst",
       "lang": "ja"
     },
     "92764511": {
@@ -10790,6 +10814,1254 @@
       "original": "The command to execute",
       "translated": "実行するコマンド",
       "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Request.command",
+      "lang": "ja"
+    },
+    "205fff7a": {
+      "original": "Event that is sent when server have finished processing request with specified id.",
+      "translated": "指定した id のリクエストの処理をサーバーが完了したときに送られるイベント。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.RequestCompletedEvent",
+      "lang": "ja"
+    },
+    "8b01d044": {
+      "original": "Response by server to client request message.",
+      "translated": "クライアントのリクエストメッセージに対する、サーバーからのレスポンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Response",
+      "lang": "ja"
+    },
+    "0d317d16": {
+      "original": "Contains message body if success === true.",
+      "translated": "success === true の場合、メッセージ body を含む。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Response.body",
+      "lang": "ja"
+    },
+    "ec929f79": {
+      "original": "The command requested.",
+      "translated": "要求されたコマンド。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Response.command",
+      "lang": "ja"
+    },
+    "794281c4": {
+      "original": "If success === false, this should always be provided.\nOtherwise, may (or may not) contain a success message.",
+      "translated": "success === false の場合、これは常に提供されるべきである。\nそうでない場合、成功メッセージを含むことも含まないこともある。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Response.message",
+      "lang": "ja"
+    },
+    "8cd8fb46": {
+      "original": "Contains extra information that plugin can include to be passed on",
+      "translated": "プラグインが渡すために含められる追加情報を含む",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Response.metadata",
+      "lang": "ja"
+    },
+    "5a0012d7": {
+      "original": "Exposes information about the performance of this request-response pair.",
+      "translated": "このリクエスト・レスポンスのペアのパフォーマンスに関する情報を公開する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Response.performanceData",
+      "lang": "ja"
+    },
+    "d325073a": {
+      "original": "Sequence number of the request message.",
+      "translated": "リクエストメッセージのシーケンス番号。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Response.request_seq",
+      "lang": "ja"
+    },
+    "623addb2": {
+      "original": "Outcome of the request.",
+      "translated": "リクエストの結果。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.Response.success",
+      "lang": "ja"
+    },
+    "93e2c5f5": {
+      "original": "Saveto request message; value of command field is \"saveto\".\nFor debugging purposes, save to a temporaryfile (named by\nargument 'tmpfile') the contents of file named by argument\n'file'.  The server does not currently send a response to a\n\"saveto\" request.",
+      "translated": "Saveto リクエストメッセージ。command フィールドの値は \"saveto\"。デバッグ目的で、引数 'file' で指定した名前のファイルの内容を、一時ファイル(引数 'tmpfile' で指定)に保存する。サーバーは現在、\"saveto\" リクエストにレスポンスを送らない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SavetoRequest",
+      "lang": "ja"
+    },
+    "8359bf90": {
+      "original": "Arguments for saveto request.",
+      "translated": "saveto リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SavetoRequestArgs",
+      "lang": "ja"
+    },
+    "26b8f076": {
+      "original": "Name of temporary file into which to save server's view of\nfile contents.",
+      "translated": "サーバーが持つファイル内容の見方(view)を保存する一時ファイルの名前。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SavetoRequestArgs.tmpfile",
+      "lang": "ja"
+    },
+    "ac8d8e41": {
+      "original": "Synchronous request for semantic diagnostics of one file.",
+      "translated": "1 ファイルの意味診断の同期リクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SemanticDiagnosticsSyncRequest",
+      "lang": "ja"
+    },
+    "f5c0ee08": {
+      "original": "Response object for synchronous sematic diagnostics request.",
+      "translated": "同期の意味診断リクエストのレスポンスオブジェクト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SemanticDiagnosticsSyncResponse",
+      "lang": "ja"
+    },
+    "29ae8244": {
+      "original": "Argument for SetCompilerOptionsForInferredProjectsRequest request.",
+      "translated": "SetCompilerOptionsForInferredProjectsRequest リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SetCompilerOptionsForInferredProjectsArgs",
+      "lang": "ja"
+    },
+    "4a843617": {
+      "original": "Compiler options to be used with inferred projects.",
+      "translated": "推論プロジェクトで使うコンパイラオプション。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SetCompilerOptionsForInferredProjectsArgs.options",
+      "lang": "ja"
+    },
+    "f4a7ce8f": {
+      "original": "Specifies the project root path used to scope compiler options.\nIt is an error to provide this property if the server has not been started with\n`useInferredProjectPerProjectRoot` enabled.",
+      "translated": "コンパイラオプションのスコープに使うプロジェクトルートパスを指定する。\nサーバーが `useInferredProjectPerProjectRoot` を有効にして起動されていない場合にこのプロパティを指定するとエラーになる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SetCompilerOptionsForInferredProjectsArgs.projectRootPath",
+      "lang": "ja"
+    },
+    "3fd2c002": {
+      "original": "Request to set compiler options for inferred projects.\nExternal projects are opened / closed explicitly.\nConfigured projects are opened when user opens loose file that has 'tsconfig.json' or 'jsconfig.json' anywhere in one of containing folders.\nThis configuration file will be used to obtain a list of files and configuration settings for the project.\nInferred projects are created when user opens a loose file that is not the part of external project\nor configured project and will contain only open file and transitive closure of referenced files if 'useOneInferredProject' is false,\nor all open loose files and its transitive closure of referenced files if 'useOneInferredProject' is true.",
+      "translated": "推論プロジェクトのコンパイラオプションを設定するリクエスト。\n外部プロジェクトは明示的に開く/閉じる。\nConfiguredProject は、'tsconfig.json' または 'jsconfig.json' を含むフォルダーのいずれかに含まれるルーズファイルをユーザーが開いたときに開かれる。\nこの設定ファイルは、プロジェクトのファイル一覧と設定を取得するために使われる。\nInferredProject は、外部プロジェクトにも ConfiguredProject にも属さないルーズファイルをユーザーが開いたときに作成され、'useOneInferredProject' が false なら開いたファイルとその参照ファイルの推移的閉包のみを、true ならすべての開いたルーズファイルとその参照ファイルの推移的閉包を含む。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SetCompilerOptionsForInferredProjectsRequest",
+      "lang": "ja"
+    },
+    "01cf5fc9": {
+      "original": "Response to SetCompilerOptionsForInferredProjectsResponse request. This is just an acknowledgement, so\nno body field is required.",
+      "translated": "SetCompilerOptionsForInferredProjectsResponse リクエストへのレスポンス。これは単なる確認応答なので、body フィールドは不要である。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SetCompilerOptionsForInferredProjectsResponse",
+      "lang": "ja"
+    },
+    "aae84b2e": {
+      "original": "Represents a single signature to show in signature help.",
+      "translated": "シグネチャヘルプに表示する 1 つのシグネチャを表す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpItem",
+      "lang": "ja"
+    },
+    "12a1d105": {
+      "original": "Signature help items found in the response of a signature help request.",
+      "translated": "シグネチャヘルプリクエストのレスポンスに含まれるシグネチャヘルプ項目。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpItems",
+      "lang": "ja"
+    },
+    "fec5e09d": {
+      "original": "The span for which signature help should appear on a signature",
+      "translated": "シグネチャヘルプがシグネチャ上に表示されるべきスパン",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpItems.applicableSpan",
+      "lang": "ja"
+    },
+    "91e891a6": {
+      "original": "The argument count",
+      "translated": "引数の数",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpItems.argumentCount",
+      "lang": "ja"
+    },
+    "c1d8a9ca": {
+      "original": "The argument selected in the set of parameters.",
+      "translated": "パラメーターの集合の中で選択された引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpItems.argumentIndex",
+      "lang": "ja"
+    },
+    "f86444c4": {
+      "original": "The signature help items.",
+      "translated": "シグネチャヘルプ項目。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpItems.items",
+      "lang": "ja"
+    },
+    "201757ab": {
+      "original": "The item selected in the set of available help items.",
+      "translated": "利用可能なヘルプ項目の集合の中で選択された項目。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpItems.selectedItemIndex",
+      "lang": "ja"
+    },
+    "109fa64e": {
+      "original": "Signature help request; value of command field is \"signatureHelp\".\nGiven a file location (file, line, col), return the signature\nhelp.",
+      "translated": "シグネチャヘルプリクエスト。command フィールドの値は \"signatureHelp\"。ファイル位置(file, line, col)を与えると、シグネチャヘルプを返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpRequest",
+      "lang": "ja"
+    },
+    "179bc59d": {
+      "original": "Arguments of a signature help request.",
+      "translated": "シグネチャヘルプリクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpRequestArgs",
+      "lang": "ja"
+    },
+    "0e3763f7": {
+      "original": "Reason why signature help was invoked.\nSee each individual possible",
+      "translated": "シグネチャヘルプが呼び出された理由。\n個々の可能な値を参照",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpRequestArgs.triggerReason",
+      "lang": "ja"
+    },
+    "0cb1497c": {
+      "original": "Response object for a SignatureHelpRequest.",
+      "translated": "SignatureHelpRequest のレスポンスオブジェクト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SignatureHelpResponse",
+      "lang": "ja"
+    },
+    "6caf9eed": {
+      "original": "A group of text spans, all in 'file'.",
+      "translated": "すべて 'file' 内にあるテキストスパンのグループ。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SpanGroup",
+      "lang": "ja"
+    },
+    "0d6a211a": {
+      "original": "The file to which the spans apply",
+      "translated": "スパンが適用されるファイル",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SpanGroup.file",
+      "lang": "ja"
+    },
+    "81fc2a95": {
+      "original": "The text spans in this group",
+      "translated": "このグループ内のテキストスパン",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SpanGroup.locs",
+      "lang": "ja"
+    },
+    "7a256f33": {
+      "original": "A request to determine if the caret is inside a comment.",
+      "translated": "キャレットがコメント内にあるかどうかを判定するリクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SpanOfEnclosingCommentRequest",
+      "lang": "ja"
+    },
+    "adb60a2f": {
+      "original": "Requires that the enclosing span be a multi-line comment, or else the request returns undefined.",
+      "translated": "囲むスパンが複数行コメントであることを要求する。そうでなければリクエストは undefined を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SpanOfEnclosingCommentRequestArgs.onlyMultiLine",
+      "lang": "ja"
+    },
+    "f10d50e8": {
+      "original": "Response to StatusRequest",
+      "translated": "StatusRequest へのレスポンス",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.StatusResponse",
+      "lang": "ja"
+    },
+    "99e6ddfa": {
+      "original": "The TypeScript version (`ts.version`).",
+      "translated": "TypeScript のバージョン(`ts.version`)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.StatusResponseBody.version",
+      "lang": "ja"
+    },
+    "428b9d59": {
+      "original": "Name of the survey. This is an internal machine- and programmer-friendly name",
+      "translated": "アンケートの名前。これは内部的な、機械・プログラマー向けの名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SurveyReadyEventBody.surveyId",
+      "lang": "ja"
+    },
+    "707c79c6": {
+      "original": "Synchronous request for syntactic diagnostics of one file.",
+      "translated": "1 ファイルの構文診断の同期リクエスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SyntacticDiagnosticsSyncRequest",
+      "lang": "ja"
+    },
+    "63530dd7": {
+      "original": "Response object for synchronous syntactic diagnostics request.",
+      "translated": "同期の構文診断リクエストのレスポンスオブジェクト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.SyntacticDiagnosticsSyncResponse",
+      "lang": "ja"
+    },
+    "cd9b87cb": {
+      "original": "Object found in response messages defining a span of text in source code.",
+      "translated": "ソースコード内のテキストのスパンを定義する、レスポンスメッセージ内のオブジェクト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TextSpan",
+      "lang": "ja"
+    },
+    "b2b6b3be": {
+      "original": "One character past last character of the definition.",
+      "translated": "定義の最後の文字の 1 つ先。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TextSpan.end",
+      "lang": "ja"
+    },
+    "bd9a50ec": {
+      "original": "First character of the definition.",
+      "translated": "定義の最初の文字。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TextSpan.start",
+      "lang": "ja"
+    },
+    "3e15d995": {
+      "original": "A request to get TODO comments from the file",
+      "translated": "ファイルから TODO コメントを取得するリクエスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TodoCommentRequest",
+      "lang": "ja"
+    },
+    "c3b9e8a8": {
+      "original": "Arguments for TodoCommentRequest request.",
+      "translated": "TodoCommentRequest リクエストの引数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TodoCommentRequestArgs",
+      "lang": "ja"
+    },
+    "b75670be": {
+      "original": "Array of target TodoCommentDescriptors that describes TODO comments to be found",
+      "translated": "見つける TODO コメントを記述する、対象の TodoCommentDescriptor の配列",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TodoCommentRequestArgs.descriptors",
+      "lang": "ja"
+    },
+    "cff8684e": {
+      "original": "Response for TodoCommentRequest request.",
+      "translated": "TodoCommentRequest リクエストへのレスポンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TodoCommentsResponse",
+      "lang": "ja"
+    },
+    "666742b1": {
+      "original": "Go to type request; value of command field is\n\"typeDefinition\". Return response giving the file locations that\ndefine the type for the symbol found in file at location line, col.",
+      "translated": "型へ移動リクエスト。command フィールドの値は \"typeDefinition\"。ファイル内の位置 line, col で見つかったシンボルの型を定義するファイル位置を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TypeDefinitionRequest",
+      "lang": "ja"
+    },
+    "205059f9": {
+      "original": "Comma separated list of installed typing packages",
+      "translated": "インストールされた typing パッケージのカンマ区切りリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TypingsInstalledTelemetryEventPayload.installedPackages",
+      "lang": "ja"
+    },
+    "77bdf9eb": {
+      "original": "true if install request succeeded, otherwise - false",
+      "translated": "インストールリクエストが成功した場合は true、そうでなければ false",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TypingsInstalledTelemetryEventPayload.installSuccess",
+      "lang": "ja"
+    },
+    "9034d03d": {
+      "original": "version of typings installer",
+      "translated": "typings installer のバージョン",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.TypingsInstalledTelemetryEventPayload.typingsInstallerVersion",
+      "lang": "ja"
+    },
+    "5da7c359": {
+      "original": "Request to synchronize list of open files with the client",
+      "translated": "開いているファイルのリストをクライアントと同期するリクエスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.UpdateOpenRequest",
+      "lang": "ja"
+    },
+    "5eb9ec4d": {
+      "original": "Arguments to UpdateOpenRequest",
+      "translated": "UpdateOpenRequest リクエストの引数",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.UpdateOpenRequestArgs",
+      "lang": "ja"
+    },
+    "99e05a65": {
+      "original": "List of open files files that were changes",
+      "translated": "変更された、開いているファイルのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.UpdateOpenRequestArgs.changedFiles",
+      "lang": "ja"
+    },
+    "42d9ce6f": {
+      "original": "List of files that were closed",
+      "translated": "閉じられたファイルのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.UpdateOpenRequestArgs.closedFiles",
+      "lang": "ja"
+    },
+    "ba0e7d69": {
+      "original": "List of newly open files",
+      "translated": "新しく開かれたファイルのリスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.protocol.UpdateOpenRequestArgs.openFiles",
+      "lang": "ja"
+    },
+    "0e3303aa": {
+      "original": "Use {@link ModuleImportResult} instead.",
+      "translated": "代わりに {@link ModuleImportResult} を使うこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.RequireResult",
+      "lang": "ja"
+    },
+    "2468c841": {
+      "original": "All projects that include this file",
+      "translated": "このファイルを含むすべてのプロジェクト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ScriptInfo.containingProjects",
+      "lang": "ja"
+    },
+    "fe24e02f": {
+      "original": "1 based index",
+      "translated": "1 始まりのインデックス",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ScriptInfo.lineToTextSpan",
+      "lang": "ja"
+    },
+    "1193632a": {
+      "original": "If falsy, all events are suppressed.",
+      "translated": "falsy の場合、すべてのイベントが抑制される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.SessionOptions.canUseEvents",
+      "lang": "ja"
+    },
+    "bf0b6a74": {
+      "original": "Has no effect if eventHandler is also specified.",
+      "translated": "eventHandler も指定されている場合は効果がない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.SessionOptions.suppressDiagnosticEvents",
+      "lang": "ja"
+    },
+    "a96bccce": {
+      "original": "if files is undefined, retain same set of watchers",
+      "translated": "files が undefined の場合、同じ watcher の集合を保持する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.WatchTypingLocations.files",
+      "lang": "ja"
+    },
+    "44c08682": {
+      "original": "The version of the language service API",
+      "translated": "言語サービス API のバージョン",
+      "symbol": "typescript/lib/typescript.d.ts#ts.servicesVersion",
+      "lang": "ja"
+    },
+    "9aec53d6": {
+      "original": "Sets a custom text range to use when emitting comments.",
+      "translated": "コメントの出力時に使うカスタムのテキスト範囲を設定する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.setCommentRange",
+      "lang": "ja"
+    },
+    "62bb18ce": {
+      "original": "Sets the constant value to emit for an expression.",
+      "translated": "式に対して出力する定数値を設定する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.setConstantValue",
+      "lang": "ja"
+    },
+    "8d4f31c5": {
+      "original": "Sets flags that control emit behavior of a node.",
+      "translated": "ノードの出力挙動を制御するフラグを設定する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.setEmitFlags",
+      "lang": "ja"
+    },
+    "00d72014": {
+      "original": "Sets a custom text range to use when emitting source maps.",
+      "translated": "ソースマップの出力時に使うカスタムのテキスト範囲を設定する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.setSourceMapRange",
+      "lang": "ja"
+    },
+    "0b11c156": {
+      "original": "Sets the TextRange to use for source maps for a token of a node.",
+      "translated": "ノードのトークンについて、ソースマップに使う TextRange を設定する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.setTokenSourceMapRange",
+      "lang": "ja"
+    },
+    "2443fe92": {
+      "original": "Signals that the signature help request came from a user typing a character.\nDepending on the character and the syntactic context, the request may or may not be served a result.",
+      "translated": "シグネチャヘルプリクエストが、ユーザーが文字を入力したことに由来することを示す。\n文字と構文的文脈に応じて、リクエストに結果が返されることも返されないこともある。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SignatureHelpCharacterTypedReason",
+      "lang": "ja"
+    },
+    "cfb27558": {
+      "original": "Character that was responsible for triggering signature help.",
+      "translated": "シグネチャヘルプのトリガーとなった文字。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SignatureHelpCharacterTypedReason.triggerCharacter",
+      "lang": "ja"
+    },
+    "d91dd33e": {
+      "original": "Signals that the user manually requested signature help.\nThe language service will unconditionally attempt to provide a result.",
+      "translated": "ユーザーが手動でシグネチャヘルプを要求したことを示す。\n言語サービスは無条件に結果を提供しようとする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SignatureHelpInvokedReason",
+      "lang": "ja"
+    },
+    "0cef1871": {
+      "original": "Represents a single signature to show in signature help.\nThe id is used for subsequent calls into the language service to ask questions about the\nsignature help item in the context of any documents that have been updated.  i.e. after\nan edit has happened, while signature help is still active, the host can ask important\nquestions like 'what parameter is the user currently contained within?'.",
+      "translated": "シグネチャヘルプに表示する 1 つのシグネチャを表す。\nid は、更新されたドキュメントの文脈でシグネチャヘルプ項目について問い合わせるために、言語サービスへの以降の呼び出しで使われる。すなわち、編集が起きた後もシグネチャヘルプがまだアクティブな間、ホストは「ユーザーは現在どのパラメーターの中にいるか?」といった重要な問い合わせができる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SignatureHelpItem",
+      "lang": "ja"
+    },
+    "23186e31": {
+      "original": "Represents a set of signature help items, and the preferred item that should be selected.",
+      "translated": "シグネチャヘルプ項目の集合と、選択されるべき推奨項目を表す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SignatureHelpItems",
+      "lang": "ja"
+    },
+    "c046aa34": {
+      "original": "Signature help information for a single parameter",
+      "translated": "1 つのパラメーターについてのシグネチャヘルプ情報",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SignatureHelpParameter",
+      "lang": "ja"
+    },
+    "e98b4e01": {
+      "original": "Signals that this signature help request came from typing a character or moving the cursor.\nThis should only occur if a signature help session was already active and the editor needs to see if it should adjust.\nThe language service will unconditionally attempt to provide a result.\n`triggerCharacter` can be `undefined` for a retrigger caused by a cursor move.",
+      "translated": "このシグネチャヘルプリクエストが、文字の入力またはカーソルの移動に由来することを示す。\nこれは、シグネチャヘルプのセッションがすでにアクティブで、エディターが調整すべきかどうかを確認する必要がある場合にのみ起こるべきである。\n言語サービスは無条件に結果を提供しようとする。\nカーソル移動による再トリガーの場合、`triggerCharacter` は `undefined` になり得る。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SignatureHelpRetriggeredReason",
+      "lang": "ja"
+    },
+    "5182c80d": {
+      "original": "Should provide create directory and writeFile if done of invalidatedProjects is not invoked with\nwriteFileCallback",
+      "translated": "invalidatedProjects の done が writeFileCallback とともに呼ばれない場合、ディレクトリ作成と writeFile を提供すべきである",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SolutionBuilderHostBase.writeFile",
+      "lang": "ja"
+    },
+    "5b9aaefa": {
+      "original": "lib.d.ts should have a reference comment like\n\n /// <reference no-default-lib=\"true\"/>\n\nIf any other file has this comment, it signals not to include lib.d.ts\nbecause this containing file is intended to act as a default library.",
+      "translated": "lib.d.ts は次のような参照コメントを持つべきである\n\n /// <reference no-default-lib=\"true\"/>\n\n他のファイルがこのコメントを持つ場合、それはこの含むファイルが既定ライブラリとして振る舞うことを意図しているため、lib.d.ts を含めないことを示す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SourceFile.hasNoDefaultLib",
+      "lang": "ja"
+    },
+    "0105c71f": {
+      "original": "When `module` is `Node16` or `NodeNext`, this field controls whether the\nsource file in question is an ESNext-output-format file, or a CommonJS-output-format\nmodule. This is derived by the module resolver as it looks up the file, since\nit is derived from either the file extension of the module, or the containing\n`package.json` context, and affects both checking and emit.\n\nIt is _public_ so that (pre)transformers can set this field,\nsince it switches the builtin `node` module transform. Generally speaking, if unset,\nthe field is treated as though it is `ModuleKind.CommonJS`.\n\nNote that this field is only set by the module resolution process when\n`moduleResolution` is `Node16` or `NodeNext`, which is implied by the `module` setting\nof `Node16` or `NodeNext`, respectively, but may be overriden (eg, by a `moduleResolution`\nof `node`). If so, this field will be unset and source files will be considered to be\nCommonJS-output-format by the node module transformer and type checker, regardless of extension or context.",
+      "translated": "`module` が `Node16` または `NodeNext` のとき、このフィールドは、当該ソースファイルが ESNext 出力形式のファイルか、CommonJS 出力形式のモジュールかを制御する。これはモジュールリゾルバがファイルをルックアップする際に導出され、モジュールのファイル拡張子または含む `package.json` の文脈から導かれるため、チェックと出力の両方に影響する。\n\nこのフィールドは _public_ であり、(pre)transformer がこのフィールドを設定できる。組み込みの `node` モジュール変換を切り替えるためである。一般に、未設定の場合、このフィールドは `ModuleKind.CommonJS` として扱われる。\n\nこのフィールドは、`moduleResolution` が `Node16` または `NodeNext` のとき(それぞれ `module` 設定 `Node16` または `NodeNext` によって暗示される)にのみモジュール解決プロセスによって設定されるが、上書きされることがある(例: `moduleResolution` が `node` の場合)。その場合、このフィールドは未設定になり、拡張子や文脈にかかわらず、ソースファイルは node モジュール変換器と型チェッカーによって CommonJS 出力形式とみなされる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SourceFile.impliedNodeFormat",
+      "lang": "ja"
+    },
+    "1b7fe1f1": {
+      "original": "Subset of properties from SourceFile that are used in multiple utility functions",
+      "translated": "複数のユーティリティ関数で使われる、SourceFile のプロパティの部分集合",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SourceFileLike",
+      "lang": "ja"
+    },
+    "a1b67f1f": {
+      "original": "Column number in the .js file.",
+      "translated": ".js ファイル内の列番号。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SourceMapSpan.emittedColumn",
+      "lang": "ja"
+    },
+    "45431c4c": {
+      "original": "Line number in the .js file.",
+      "translated": ".js ファイル内の行番号。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SourceMapSpan.emittedLine",
+      "lang": "ja"
+    },
+    "3a3e51fe": {
+      "original": "Optional name (index into names array) associated with this span.",
+      "translated": "このスパンに関連付けられた省略可能な名前(names 配列へのインデックス)。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SourceMapSpan.nameIndex",
+      "lang": "ja"
+    },
+    "1a4f5240": {
+      "original": "Column number in the .ts file.",
+      "translated": ".ts ファイル内の列番号。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SourceMapSpan.sourceColumn",
+      "lang": "ja"
+    },
+    "7639b141": {
+      "original": ".ts file (index into sources array) associated with this span",
+      "translated": "このスパンに関連付けられた .ts ファイル(sources 配列へのインデックス)",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SourceMapSpan.sourceIndex",
+      "lang": "ja"
+    },
+    "051dee7c": {
+      "original": "Line number in the .ts file.",
+      "translated": ".ts ファイル内の行番号。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SourceMapSpan.sourceLine",
+      "lang": "ja"
+    },
+    "33cdc7c6": {
+      "original": "SymbolTable based on ES6 Map interface.",
+      "translated": "ES6 の Map インターフェースに基づく SymbolTable。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SymbolTable",
+      "lang": "ja"
+    },
+    "736a1329": {
+      "original": "Only the JSDoc scanner produces HashToken. The normal scanner produces PrivateIdentifier.",
+      "translated": "HashToken は JSDoc スキャナーのみが生成する。通常のスキャナーは PrivateIdentifier を生成する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SyntaxKind.HashToken",
+      "lang": "ja"
+    },
+    "9199bd22": {
+      "original": "Use SyntaxKind.JSDoc",
+      "translated": "SyntaxKind.JSDoc を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SyntaxKind.JSDocComment",
+      "lang": "ja"
+    },
+    "dc9b1924": {
+      "original": "A good implementation is node.js' `crypto.createHash`. (https://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm)",
+      "translated": "良い実装は node.js の `crypto.createHash` である。(https://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm)",
+      "symbol": "typescript/lib/typescript.d.ts#ts.System.createHash",
+      "lang": "ja"
+    },
+    "079cea83": {
+      "original": "This must be cryptographically secure. Only implement this method using `crypto.createHash(\"sha256\")`.",
+      "translated": "これは暗号学的に安全でなければならない。このメソッドは `crypto.createHash(\"sha256\")` を使ってのみ実装すること。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.System.createSHA256Hash",
+      "lang": "ja"
+    },
+    "2e3782bd": {
+      "original": "- this parameter is used in polling-based watchers and ignored in watchers that\nuse native OS file watching",
+      "translated": "- このパラメーターはポーリングベースの watcher で使われ、OS ネイティブのファイル監視を使う watcher では無視される",
+      "symbol": "typescript/lib/typescript.d.ts#ts.System.watchFile",
+      "lang": "ja"
+    },
+    "d1616b98": {
+      "original": "The position in newText the caret should point to after the insertion.",
+      "translated": "挿入後にキャレットが指すべき newText 内の位置。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TextInsertion.caretOffset",
+      "lang": "ja"
+    },
+    "6b36a830": {
+      "original": "A single `Node` or an array of `Node` objects.",
+      "translated": "単一の `Node`、または `Node` オブジェクトの配列。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.transform",
+      "lang": "ja"
+    },
+    "011ad808": {
+      "original": "An array of `TransformerFactory` callbacks used to process the transformation.",
+      "translated": "変換の処理に使う `TransformerFactory` コールバックの配列。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.transform",
+      "lang": "ja"
+    },
+    "b2db4b4f": {
+      "original": "Optional compiler options.",
+      "translated": "省略可能なコンパイラオプション。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.transform",
+      "lang": "ja"
+    },
+    "0a11f809": {
+      "original": "Transform one or more nodes using the supplied transformers.",
+      "translated": "指定したトランスフォーマーを使って 1 つ以上のノードを変換する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.transform",
+      "lang": "ja"
+    },
+    "7f3b0fea": {
+      "original": "Enables before/after emit notifications in the pretty printer for the provided\nSyntaxKind.",
+      "translated": "指定した SyntaxKind について、プリティプリンターでの出力前後の通知を有効にする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationContext.enableEmitNotification",
+      "lang": "ja"
+    },
+    "716b18e7": {
+      "original": "Enables expression substitutions in the pretty printer for the provided SyntaxKind.",
+      "translated": "指定した SyntaxKind について、プリティプリンターでの式の置換を有効にする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationContext.enableSubstitution",
+      "lang": "ja"
+    },
+    "eeb78af9": {
+      "original": "Determines whether before/after emit notifications should be raised in the pretty\nprinter when it emits a node.",
+      "translated": "プリティプリンターがノードを出力するときに、出力前後の通知を発生させるべきかどうかを判定する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationContext.isEmitNotificationEnabled",
+      "lang": "ja"
+    },
+    "b22473dd": {
+      "original": "Determines whether expression substitutions are enabled for the provided node.",
+      "translated": "指定したノードについて式の置換が有効かどうかを判定する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationContext.isSubstitutionEnabled",
+      "lang": "ja"
+    },
+    "a148935c": {
+      "original": "Hook used to allow transformers to capture state before or after\nthe printer emits a node.\n\nNOTE: Transformation hooks should only be modified during `Transformer` initialization,\nbefore returning the `NodeTransformer` callback.",
+      "translated": "プリンターがノードを出力する前後で、トランスフォーマーが状態を捕捉できるようにするために使うフック。\n\n注: 変換フックは、`NodeTransformer` コールバックを返す前の `Transformer` の初期化中にのみ変更すべきである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationContext.onEmitNode",
+      "lang": "ja"
+    },
+    "66fe4d0b": {
+      "original": "Hook used by transformers to substitute expressions just before they\nare emitted by the pretty printer.\n\nNOTE: Transformation hooks should only be modified during `Transformer` initialization,\nbefore returning the `NodeTransformer` callback.",
+      "translated": "式がプリティプリンターによって出力される直前に、トランスフォーマーが式を置換するために使うフック。\n\n注: 変換フックは、`NodeTransformer` コールバックを返す前の `Transformer` の初期化中にのみ変更すべきである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationContext.onSubstituteNode",
+      "lang": "ja"
+    },
+    "d835a601": {
+      "original": "Gets and resets the requested non-scoped emit helpers.",
+      "translated": "要求された非スコープの emit ヘルパーを取得してリセットする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationContext.readEmitHelpers",
+      "lang": "ja"
+    },
+    "026d9173": {
+      "original": "Records a request for a non-scoped emit helper in the current context.",
+      "translated": "現在の文脈で非スコープの emit ヘルパーの要求を記録する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationContext.requestEmitHelper",
+      "lang": "ja"
+    },
+    "c36c81fb": {
+      "original": "Gets diagnostics for the transformation.",
+      "translated": "変換の診断を取得する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationResult.diagnostics",
+      "lang": "ja"
+    },
+    "639de733": {
+      "original": "Clean up EmitNode entries on any parse-tree nodes.",
+      "translated": "パースツリーのノードの EmitNode エントリをクリーンアップする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationResult.dispose",
+      "lang": "ja"
+    },
+    "7a19b628": {
+      "original": "A callback used to emit the node.",
+      "translated": "ノードを出力するために使うコールバック。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationResult.emitNodeWithNotification",
+      "lang": "ja"
+    },
+    "447fecef": {
+      "original": "Emits a node with possible notification.",
+      "translated": "通知の可能性を伴ってノードを出力する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationResult.emitNodeWithNotification",
+      "lang": "ja"
+    },
+    "39ece82f": {
+      "original": "The node to emit.",
+      "translated": "出力するノード。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationResult.emitNodeWithNotification",
+      "lang": "ja"
+    },
+    "eb765a75": {
+      "original": "Indicates if a given node needs an emit notification",
+      "translated": "指定したノードが emit 通知を必要とするかどうかを示す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationResult.isEmitNotificationEnabled",
+      "lang": "ja"
+    },
+    "ce8d2368": {
+      "original": "A hint as to the intended usage of the node.",
+      "translated": "ノードの意図された用途のヒント。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationResult.substituteNode",
+      "lang": "ja"
+    },
+    "ef67e6b9": {
+      "original": "Gets a substitute for a node, if one is available; otherwise, returns the original node.",
+      "translated": "利用可能であればノードの代替を取得する。そうでなければ元のノードを返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationResult.substituteNode",
+      "lang": "ja"
+    },
+    "bd7752a9": {
+      "original": "The node to substitute.",
+      "translated": "置換するノード。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationResult.substituteNode",
+      "lang": "ja"
+    },
+    "99926b97": {
+      "original": "Gets the transformed source files.",
+      "translated": "変換されたソースファイルを取得する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformationResult.transformed",
+      "lang": "ja"
+    },
+    "cdc43cf7": {
+      "original": "A function that transforms a node.",
+      "translated": "ノードを変換する関数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Transformer",
+      "lang": "ja"
+    },
+    "f9deb1d8": {
+      "original": "A function that is used to initialize and return a `Transformer` callback, which in turn\nwill be used to transform one or more nodes.",
+      "translated": "`Transformer` コールバックを初期化して返すために使う関数。そのコールバックは、1 つ以上のノードを変換するために使われる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TransformerFactory",
+      "lang": "ja"
+    },
+    "fe11994a": {
+      "original": "Number of initial required or optional elements",
+      "translated": "先頭の必須または省略可能な要素の数",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TupleType.fixedLength",
+      "lang": "ja"
+    },
+    "64333d0c": {
+      "original": "True if tuple has any rest or variadic elements",
+      "translated": "タプルが rest または可変長(variadic)要素を持つ場合は true",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TupleType.hasRestElement",
+      "lang": "ja"
+    },
+    "e14fae69": {
+      "original": "Use `.combinedFlags & ElementFlags.Variable` instead",
+      "translated": "代わりに `.combinedFlags & ElementFlags.Variable` を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TupleType.hasRestElement",
+      "lang": "ja"
+    },
+    "e44bf672": {
+      "original": "Number of required or variadic elements",
+      "translated": "必須または可変長(variadic)要素の数",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TupleType.minLength",
+      "lang": "ja"
+    },
+    "2d48b4f6": {
+      "original": "Follow all aliases to get the original symbol.",
+      "translated": "すべてのエイリアスをたどって元のシンボルを取得する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getAliasedSymbol",
+      "lang": "ja"
+    },
+    "d54f5ee7": {
+      "original": "Gets the intrinsic `any` type. There are multiple types that act as `any` used internally in the compiler,\nso the type returned by this function should not be used in equality checks to determine if another type\nis `any`. Instead, use `type.flags & TypeFlags.Any`.",
+      "translated": "組み込みの `any` 型を取得する。コンパイラ内部では `any` として振る舞う型が複数あるため、この関数が返す型を、別の型が `any` かどうかを判定する等価比較に使うべきではない。代わりに `type.flags & TypeFlags.Any` を使うこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getAnyType",
+      "lang": "ja"
+    },
+    "cabcd667": {
+      "original": "Gets the \"awaited type\" of a type.\n\nIf an expression has a Promise-like type, the \"awaited type\" of the expression is\nderived from the type of the first argument of the fulfillment callback for that\nPromise's `then` method. If the \"awaited type\" is itself a Promise-like, it is\nrecursively unwrapped in the same manner until a non-promise type is found.\n\nIf an expression does not have a Promise-like type, its \"awaited type\" is the type\nof the expression.\n\nIf the resulting \"awaited type\" is a generic object type, then it is wrapped in\nan `Awaited<T>`.\n\nIn the event the \"awaited type\" circularly references itself, or is a non-Promise\nobject-type with a callable `then()` method, an \"awaited type\" cannot be determined\nand the value `undefined` will be returned.\n\nThis is used to reflect the runtime behavior of the `await` keyword.",
+      "translated": "型の「await された型(awaited type)」を取得する。\n\n式が Promise ライクな型を持つ場合、その式の「await された型」は、その Promise の `then` メソッドの履行コールバックの第 1 引数の型から導かれる。「await された型」自体が Promise ライクな場合、非 Promise 型が見つかるまで同様に再帰的に取り出される。\n\n式が Promise ライクな型を持たない場合、その「await された型」はその式の型である。\n\n結果の「await された型」がジェネリックなオブジェクト型の場合、`Awaited<T>` でラップされる。\n\n「await された型」が自身を循環参照する場合、または呼び出し可能な `then()` メソッドを持つ非 Promise のオブジェクト型の場合、「await された型」は決定できず、値 `undefined` が返される。\n\nこれは `await` キーワードの実行時の挙動を反映するために使われる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getAwaitedType",
+      "lang": "ja"
+    },
+    "a9a0af98": {
+      "original": "If a symbol is a local symbol with an associated exported symbol, returns the exported symbol.\nOtherwise returns its input.\nFor example, at `export type T = number;`:\n    - `getSymbolAtLocation` at the location `T` will return the exported symbol for `T`.\n    - But the result of `getSymbolsInScope` will contain the *local* symbol for `T`, not the exported symbol.\n    - Calling `getExportSymbolOfSymbol` on that local symbol will return the exported symbol.",
+      "translated": "シンボルが、関連付けられたエクスポート済みシンボルを持つローカルシンボルの場合、そのエクスポート済みシンボルを返す。\nそうでなければ入力をそのまま返す。\nたとえば `export type T = number;` において:\n    - 位置 `T` での `getSymbolAtLocation` は、`T` のエクスポート済みシンボルを返す。\n    - しかし `getSymbolsInScope` の結果には、エクスポート済みシンボルではなく `T` の*ローカル*シンボルが含まれる。\n    - そのローカルシンボルに対して `getExportSymbolOfSymbol` を呼ぶと、エクスポート済みシンボルが返る。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getExportSymbolOfSymbol",
+      "lang": "ja"
+    },
+    "b3ba64ce": {
+      "original": "Follow a *single* alias to get the immediately aliased symbol.",
+      "translated": "*単一*のエイリアスをたどって、直接エイリアスされたシンボルを取得する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getImmediateAliasedSymbol",
+      "lang": "ja"
+    },
+    "597f5188": {
+      "original": "Gets the intrinsic `never` type. There are multiple types that act as `never` used internally in the compiler,\nso the type returned by this function should not be used in equality checks to determine if another type\nis `never`. Instead, use `type.flags & TypeFlags.Never`.",
+      "translated": "組み込みの `never` 型を取得する。コンパイラ内部では `never` として振る舞う型が複数あるため、この関数が返す型を、別の型が `never` かどうかを判定する等価比較に使うべきではない。代わりに `type.flags & TypeFlags.Never` を使うこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getNeverType",
+      "lang": "ja"
+    },
+    "34b7a3cd": {
+      "original": "Gets the intrinsic `object` type.",
+      "translated": "組み込みの `object` 型を取得する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getNonPrimitiveType",
+      "lang": "ja"
+    },
+    "a62cbf7b": {
+      "original": "Gets the intrinsic `null` type. There are multiple types that act as `null` used internally in the compiler,\nso the type returned by this function should not be used in equality checks to determine if another type\nis `null`. Instead, use `type.flags & TypeFlags.Null`.",
+      "translated": "組み込みの `null` 型を取得する。コンパイラ内部では `null` として振る舞う型が複数あるため、この関数が返す型を、別の型が `null` かどうかを判定する等価比較に使うべきではない。代わりに `type.flags & TypeFlags.Null` を使うこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getNullType",
+      "lang": "ja"
+    },
+    "c6b651ed": {
+      "original": "Apparent number of arguments, passed in case of a possibly incomplete call. This should come from an ArgumentListInfo. See `signatureHelp.ts`.",
+      "translated": "不完全な可能性のある呼び出しの場合に渡される、見かけ上の引数の数。これは ArgumentListInfo から来るべきである。`signatureHelp.ts` を参照。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getResolvedSignature",
+      "lang": "ja"
+    },
+    "ee92f6ed": {
+      "original": "returns unknownSignature in the case of an error.\nreturns undefined if the node is not valid.",
+      "translated": "エラーの場合は unknownSignature を返す。\nノードが有効でない場合は undefined を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getResolvedSignature",
+      "lang": "ja"
+    },
+    "5e37eaf6": {
+      "original": "The function returns the value (local variable) symbol of an identifier in the short-hand property assignment.\nThis is necessary as an identifier in short-hand property assignment can contains two meaning: property name and property value.",
+      "translated": "この関数は、短縮プロパティ代入(short-hand property assignment)における識別子の値(ローカル変数)シンボルを返す。短縮プロパティ代入の識別子はプロパティ名とプロパティ値の 2 つの意味を持ち得るため、これが必要である。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getShorthandAssignmentValueSymbol",
+      "lang": "ja"
+    },
+    "129a2ed4": {
+      "original": "Gets the intrinsic `undefined` type. There are multiple types that act as `undefined` used internally in the compiler\ndepending on compiler options, so the type returned by this function should not be used in equality checks to determine\nif another type is `undefined`. Instead, use `type.flags & TypeFlags.Undefined`.",
+      "translated": "組み込みの `undefined` 型を取得する。コンパイラオプションに応じて、コンパイラ内部では `undefined` として振る舞う型が複数あるため、この関数が返す型を、別の型が `undefined` かどうかを判定する等価比較に使うべきではない。代わりに `type.flags & TypeFlags.Undefined` を使うこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.getUndefinedType",
+      "lang": "ja"
+    },
+    "bd001a1d": {
+      "original": "True if this type is assignable to `ReadonlyArray<any>`.",
+      "translated": "この型が `ReadonlyArray<any>` に代入可能な場合は true。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.isArrayLikeType",
+      "lang": "ja"
+    },
+    "c75babee": {
+      "original": "True if this type is the `Array` or `ReadonlyArray` type from lib.d.ts.\nThis function will _not_ return true if passed a type which\nextends `Array` (for example, the TypeScript AST's `NodeArray` type).",
+      "translated": "この型が lib.d.ts の `Array` または `ReadonlyArray` 型の場合は true。\n`Array` を継承する型(たとえば TypeScript AST の `NodeArray` 型)を渡した場合、この関数は true を*返さない*。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.isArrayType",
+      "lang": "ja"
+    },
+    "46e360b6": {
+      "original": "True if this type is a tuple type. This function will _not_ return true if\npassed a type which extends from a tuple.",
+      "translated": "この型がタプル型の場合は true。タプルを継承する型を渡した場合、この関数は true を*返さない*。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.isTupleType",
+      "lang": "ja"
+    },
+    "45a0aef0": {
+      "original": "Returns true if the \"source\" type is assignable to the \"target\" type.\n\n```ts\ndeclare const abcLiteral: ts.Type; // Type of \"abc\"\ndeclare const stringType: ts.Type; // Type of string\n\nisTypeAssignableTo(abcLiteral, abcLiteral); // true; \"abc\" is assignable to \"abc\"\nisTypeAssignableTo(abcLiteral, stringType); // true; \"abc\" is assignable to string\nisTypeAssignableTo(stringType, abcLiteral); // false; string is not assignable to \"abc\"\nisTypeAssignableTo(stringType, stringType); // true; string is assignable to string\n```",
+      "translated": "「source」型が「target」型に代入可能な場合に true を返す。\n\n```ts\ndeclare const abcLiteral: ts.Type; // Type of \"abc\"\ndeclare const stringType: ts.Type; // Type of string\n\nisTypeAssignableTo(abcLiteral, abcLiteral); // true; \"abc\" is assignable to \"abc\"\nisTypeAssignableTo(abcLiteral, stringType); // true; \"abc\" is assignable to string\nisTypeAssignableTo(stringType, abcLiteral); // false; string is not assignable to \"abc\"\nisTypeAssignableTo(stringType, stringType); // true; string is assignable to string\n```",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.isTypeAssignableTo",
+      "lang": "ja"
+    },
+    "5d85b11b": {
+      "original": "Depending on the operation performed, it may be appropriate to throw away the checker\nif the cancellation token is triggered. Typically, if it is used for error checking\nand the operation is cancelled, then it should be discarded, otherwise it is safe to keep.",
+      "translated": "実行する操作によっては、キャンセルトークンがトリガーされた場合にチェッカーを破棄するのが適切なことがある。通常、エラーチェックに使っていて操作がキャンセルされた場合は破棄すべきである。そうでなければ保持しても安全である。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.runWithCancellationToken",
+      "lang": "ja"
+    },
+    "4b744452": {
+      "original": "Note that the resulting nodes cannot be checked.",
+      "translated": "結果として得られるノードはチェックできない点に注意。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeChecker.typeToTypeNode",
+      "lang": "ja"
+    },
+    "c986035c": {
+      "original": "Note: Consider calling `getEffectiveConstraintOfTypeParameter`",
+      "translated": "注: `getEffectiveConstraintOfTypeParameter` の呼び出しを検討すること",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeParameterDeclaration.constraint",
+      "lang": "ja"
+    },
+    "df4850b2": {
+      "original": "Type references (ObjectFlags.Reference). When a class or interface has type parameters or\na \"this\" type, references to the class or interface are made using type references. The\ntypeArguments property specifies the types to substitute for the type parameters of the\nclass or interface and optionally includes an extra element that specifies the type to\nsubstitute for \"this\" in the resulting instantiation. When no extra argument is present,\nthe type reference itself is substituted for \"this\". The typeArguments property is undefined\nif the class or interface has no type parameters and the reference isn't specifying an\nexplicit \"this\" argument.",
+      "translated": "型参照(ObjectFlags.Reference)。クラスまたはインターフェースが型パラメーターや \"this\" 型を持つ場合、そのクラスやインターフェースへの参照は型参照を使って行われる。typeArguments プロパティは、クラスやインターフェースの型パラメーターに代入する型を指定し、任意で、結果のインスタンス化における \"this\" に代入する型を指定する追加要素を含む。追加引数がない場合、型参照自体が \"this\" に代入される。クラスやインターフェースが型パラメーターを持たず、参照が明示的な \"this\" 引数を指定していない場合、typeArguments プロパティは undefined である。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.TypeReference",
+      "lang": "ja"
+    },
+    "39080c76": {
+      "original": "Use Map<__String, T> instead.",
+      "translated": "代わりに Map<__String, T> を使うこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UnderscoreEscapedMap",
+      "lang": "ja"
+    },
+    "4cef08d3": {
+      "original": "Remove extra underscore from escaped identifier text content.",
+      "translated": "エスケープされた識別子のテキスト内容から余分なアンダースコアを取り除く。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.unescapeLeadingUnderscores",
+      "lang": "ja"
+    },
+    "6b98e956": {
+      "original": "The escaped identifier text.",
+      "translated": "エスケープされた識別子のテキスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.unescapeLeadingUnderscores",
+      "lang": "ja"
+    },
+    "fdf33298": {
+      "original": "The unescaped identifier text.",
+      "translated": "エスケープを解除した識別子のテキスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.unescapeLeadingUnderscores",
+      "lang": "ja"
+    },
+    "0bd5f7a1": {
+      "original": "Indicates whether to exclude standard library and node_modules file symbols from navTo results.",
+      "translated": "navTo の結果から標準ライブラリと node_modules のファイルのシンボルを除外するかどうかを示す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.excludeLibrarySymbolsInNavTo",
+      "lang": "ja"
+    },
+    "69479fc6": {
+      "original": "Determines whether we import `foo/index.ts` as \"foo\", \"foo/index\", or \"foo/index.js\"",
+      "translated": "`foo/index.ts` を \"foo\"、\"foo/index\"、\"foo/index.js\" のどれとして import するかを決める",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.importModuleSpecifierEnding",
+      "lang": "ja"
+    },
+    "38704dbe": {
+      "original": "Unless this option is `false`, or `includeCompletionsWithInsertText` is not enabled,\nmember completion lists triggered with `.` will include entries on potentially-null and potentially-undefined\nvalues, with insertion text to replace preceding `.` tokens with `?.`.",
+      "translated": "このオプションが `false` であるか、`includeCompletionsWithInsertText` が有効でない場合を除き、`.` でトリガーされたメンバー補完リストには、null になり得る値・undefined になり得る値のエントリが含まれ、先行する `.` トークンを `?.` に置き換える挿入テキストが付く。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.includeAutomaticOptionalChainCompletions",
+      "lang": "ja"
+    },
+    "21373cb6": {
+      "original": "Enables auto-import-style completions on partially-typed import statements. E.g., allows\n`import write|` to be completed to `import { writeFile } from \"fs\"`.",
+      "translated": "部分的に入力された import 文で自動インポート形式の補完を有効にする。たとえば `import write|` を `import { writeFile } from \"fs\"` に補完できるようにする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.includeCompletionsForImportStatements",
+      "lang": "ja"
+    },
+    "52d1a79e": {
+      "original": "If enabled, TypeScript will search through all external modules' exports and add them to the completions list.\nThis affects lone identifier completions but not completions on the right hand side of `obj.`.",
+      "translated": "有効な場合、TypeScript はすべての外部モジュールのエクスポートを検索し、補完リストに追加する。これは単独の識別子の補完に影響するが、`obj.` の右側の補完には影響しない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.includeCompletionsForModuleExports",
+      "lang": "ja"
+    },
+    "7ba60579": {
+      "original": "If enabled, completions for class members (e.g. methods and properties) will include\na whole declaration for the member.\nE.g., `class A { f| }` could be completed to `class A { foo(): number {} }`, instead of\n`class A { foo }`.",
+      "translated": "有効な場合、クラスメンバー(メソッドやプロパティなど)の補完に、そのメンバーの宣言全体が含まれる。たとえば `class A { f| }` を `class A { foo }` ではなく `class A { foo(): number {} }` に補完できる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.includeCompletionsWithClassMemberSnippets",
+      "lang": "ja"
+    },
+    "2657c3ad": {
+      "original": "If enabled, the completion list will include completions with invalid identifier names.\nFor those entries, The `insertText` and `replacementSpan` properties will be set to change from `.x` property access to `[\"x\"]`.",
+      "translated": "有効な場合、補完リストに無効な識別子名の補完が含まれる。それらのエントリでは、`insertText` と `replacementSpan` プロパティが設定され、`.x` プロパティアクセスから `[\"x\"]` に変更される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.includeCompletionsWithInsertText",
+      "lang": "ja"
+    },
+    "8fddc1e4": {
+      "original": "If enabled, object literal methods will have a method declaration completion entry in addition\nto the regular completion entry containing just the method name.\nE.g., `const objectLiteral: T = { f| }` could be completed to `const objectLiteral: T = { foo(): void {} }`,\nin addition to `const objectLiteral: T = { foo }`.",
+      "translated": "有効な場合、オブジェクトリテラルのメソッドは、メソッド名だけを含む通常の補完エントリに加えて、メソッド宣言の補完エントリを持つ。たとえば `const objectLiteral: T = { f| }` を、`const objectLiteral: T = { foo }` に加えて `const objectLiteral: T = { foo(): void {} }` に補完できる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.includeCompletionsWithObjectLiteralMethodSnippets",
+      "lang": "ja"
+    },
+    "fe5a0df1": {
+      "original": "Allows completions to be formatted with snippet text, indicated by `CompletionItem[\"isSnippet\"]`.",
+      "translated": "`CompletionItem[\"isSnippet\"]` で示される、スニペットテキストとして整形された補完を許可する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.includeCompletionsWithSnippetText",
+      "lang": "ja"
+    },
+    "63053cc6": {
+      "original": "A positive integer indicating the maximum length of a hover text before it is truncated.\n\nDefault: `500`",
+      "translated": "ホバーテキストが切り詰められるまでの最大の長さを示す正の整数。\n\n既定: `500`",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.maximumHoverLength",
+      "lang": "ja"
+    },
+    "9759ed5a": {
+      "original": "Indicates whether accents and other diacritic marks are considered unequal for the purpose of collation. When\n`true`, characters with accents and other diacritics will be collated in the order defined by the locale specified\nin {@link organizeImportsCollationLocale}.\n\nThis preference is ignored if {@link organizeImportsCollation} is not `\"unicode\"`.\n\nDefault: `true`",
+      "translated": "照合(collation)の目的で、アクセントやその他の発音区別記号を等しくないとみなすかどうかを示す。`true` の場合、アクセントやその他の発音区別記号を持つ文字は、{@link organizeImportsCollationLocale} で指定されたロケールで定義された順序で照合される。\n\n{@link organizeImportsCollation} が `\"unicode\"` でない場合、この設定は無視される。\n\n既定: `true`",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.organizeImportsAccentCollation",
+      "lang": "ja"
+    },
+    "fb32209f": {
+      "original": "Indicates whether imports should be organized via an \"ordinal\" (binary) comparison using the numeric value\nof their code points, or via \"unicode\" collation (via the\n[Unicode Collation Algorithm](https://unicode.org/reports/tr10/#Scope)) using rules associated with the locale\nspecified in {@link organizeImportsCollationLocale}.\n\nDefault: `\"ordinal\"`.",
+      "translated": "import を、コードポイントの数値を使った \"ordinal\"(バイナリ)比較で整理するか、{@link organizeImportsCollationLocale} で指定されたロケールに関連する規則を使った \"unicode\" 照合([Unicode Collation Algorithm](https://unicode.org/reports/tr10/#Scope) 経由)で整理するかを示す。\n\n既定: `\"ordinal\"`。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.organizeImportsCollation",
+      "lang": "ja"
+    },
+    "c5738bd5": {
+      "original": "Indicates whether imports should be organized in a case-insensitive manner.",
+      "translated": "import を大文字小文字を区別しない方法で整理するかどうかを示す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.organizeImportsIgnoreCase",
+      "lang": "ja"
+    },
+    "53366ccd": {
+      "original": "Indicates the locale to use for \"unicode\" collation. If not specified, the locale `\"en\"` is used as an invariant\nfor the sake of consistent sorting. Use `\"auto\"` to use the detected UI locale.\n\nThis preference is ignored if {@link organizeImportsCollation} is not `\"unicode\"`.\n\nDefault: `\"en\"`",
+      "translated": "\"unicode\" 照合に使うロケールを示す。指定しない場合、一貫した並べ替えのための不変値としてロケール `\"en\"` が使われる。検出された UI ロケールを使うには `\"auto\"` を使う。\n\n{@link organizeImportsCollation} が `\"unicode\"` でない場合、この設定は無視される。\n\n既定: `\"en\"`",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.organizeImportsLocale",
+      "lang": "ja"
+    },
+    "ce964c56": {
+      "original": "Indicates whether numeric collation should be used for digit sequences in strings. When `true`, will collate\nstrings such that `a1z < a2z < a100z`. When `false`, will collate strings such that `a1z < a100z < a2z`.\n\nThis preference is ignored if {@link organizeImportsCollation} is not `\"unicode\"`.\n\nDefault: `false`",
+      "translated": "文字列内の数字の並びに数値照合を使うべきかどうかを示す。`true` の場合、`a1z < a2z < a100z` となるように文字列を照合する。`false` の場合、`a1z < a100z < a2z` となるように照合する。\n\n{@link organizeImportsCollation} が `\"unicode\"` でない場合、この設定は無視される。\n\n既定: `false`",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.organizeImportsNumericCollation",
+      "lang": "ja"
+    },
+    "b02f5564": {
+      "original": "Indicates where named type-only imports should sort. \"inline\" sorts named imports without regard to if the import is\ntype-only.\n\nDefault: `last`",
+      "translated": "名前付きの type-only import をどこに並べるべきかを示す。\"inline\" は、import が type-only かどうかにかかわらず名前付き import を並べる。\n\n既定: `last`",
+      "symbol": "typescript/lib/typescript.d.ts#ts.UserPreferences.organizeImportsTypeOrder",
+      "lang": "ja"
+    },
+    "108e936c": {
+      "original": "Checks to see if the locale is in the appropriate format,\nand if it is, attempts to set the appropriate language.",
+      "translated": "ロケールが適切な形式かどうかを確認し、そうであれば適切な言語を設定しようとする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.validateLocaleAndSetLanguage",
+      "lang": "ja"
+    },
+    "8e44b18e": {
+      "original": "The version of the TypeScript compiler release",
+      "translated": "TypeScript コンパイラのリリースのバージョン",
+      "symbol": "typescript/lib/typescript.d.ts#ts.version",
+      "lang": "ja"
+    },
+    "b0f4d6f1": {
+      "original": "The visitor to use when visiting expressions whose result will be discarded at runtime. Defaults to {@link visitor}.",
+      "translated": "結果が実行時に破棄される式を訪問するときに使う visitor。既定は {@link visitor}。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitCommaListElements",
+      "lang": "ja"
+    },
+    "409ea743": {
+      "original": "The visitor to use when visiting expressions whose result will not be discarded at runtime.",
+      "translated": "結果が実行時に破棄されない式を訪問するときに使う visitor。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitCommaListElements",
+      "lang": "ja"
+    },
+    "2863b0db": {
+      "original": "Visits the elements of a {@link CommaListExpression}.",
+      "translated": "{@link CommaListExpression} の要素を訪問する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitCommaListElements",
+      "lang": "ja"
+    },
+    "2b82c777": {
+      "original": "A lexical environment context for the visitor.",
+      "translated": "visitor のための字句環境の文脈。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitEachChild",
+      "lang": "ja"
+    },
+    "8b0ab7bf": {
+      "original": "The callback used to visit each child.",
+      "translated": "各子を訪問するために使うコールバック。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitEachChild",
+      "lang": "ja"
+    },
+    "081edeba": {
+      "original": "The Node whose children will be visited.",
+      "translated": "子が訪問される対象の Node。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitEachChild",
+      "lang": "ja"
+    },
+    "f5354c2d": {
+      "original": "Visits each child of a Node using the supplied visitor, possibly returning a new Node of the same kind in its place.",
+      "translated": "指定した visitor を使って Node の各子を訪問し、その場所に同じ種別の新しい Node を返すことがある。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitEachChild",
+      "lang": "ja"
+    },
+    "37d5726d": {
+      "original": "Resumes a suspended lexical environment and visits a concise body, ending the lexical\nenvironment and merging hoisted declarations upon completion.",
+      "translated": "中断した字句環境を再開して簡潔本体(concise body)を訪問し、完了時に字句環境を終了して巻き上げられた宣言をマージする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitFunctionBody",
+      "lang": "ja"
+    },
+    "0093de5c": {
+      "original": "Resumes a suspended lexical environment and visits a function body, ending the lexical\nenvironment and merging hoisted declarations upon completion.",
+      "translated": "中断した字句環境を再開して関数本体を訪問し、完了時に字句環境を終了して巻き上げられた宣言をマージする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitFunctionBody",
+      "lang": "ja"
+    },
+    "e68f10e0": {
+      "original": "Visits an iteration body, adding any block-scoped variables required by the transformation.",
+      "translated": "反復本体(iteration body)を訪問し、変換に必要なブロックスコープ変数を追加する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitIterationBody",
+      "lang": "ja"
+    },
+    "68837ce7": {
+      "original": "Starts a new lexical environment and visits a statement list, ending the lexical environment\nand merging hoisted declarations upon completion.",
+      "translated": "新しい字句環境を開始して文のリストを訪問し、完了時に字句環境を終了して巻き上げられた宣言をマージする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitLexicalEnvironment",
+      "lang": "ja"
+    },
+    "5331accc": {
+      "original": "A callback to execute to verify the Node is valid.",
+      "translated": "Node が有効であることを検証するために実行するコールバック。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNode",
+      "lang": "ja"
+    },
+    "bf0e22d4": {
+      "original": "An optional callback to execute to lift a NodeArray into a valid Node.",
+      "translated": "NodeArray を有効な Node へ引き上げるために実行する省略可能なコールバック。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNode",
+      "lang": "ja"
+    },
+    "8b0ab9c8": {
+      "original": "The callback used to visit the Node.",
+      "translated": "Node を訪問するために使うコールバック。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNode",
+      "lang": "ja"
+    },
+    "3f79f72e": {
+      "original": "The Node to visit.",
+      "translated": "訪問する Node。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNode",
+      "lang": "ja"
+    },
+    "e0858604": {
+      "original": "Visits a Node using the supplied visitor, possibly returning a new Node in its place.\n\n- If the input node is undefined, then the output is undefined.\n- If the visitor returns undefined, then the output is undefined.\n- If the output node is not undefined, then it will satisfy the test function.\n- In order to obtain a return type that is more specific than `Node`, a test\n  function _must_ be provided, and that function must be a type predicate.",
+      "translated": "指定した visitor を使って Node を訪問し、その場所に新しい Node を返すことがある。\n\n- 入力のノードが undefined の場合、出力は undefined。\n- visitor が undefined を返す場合、出力は undefined。\n- 出力のノードが undefined でない場合、それはテスト関数を満たす。\n- `Node` より具体的な戻り値の型を得るには、テスト関数を*必ず*指定し、その関数は型述語(type predicate)でなければならない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNode",
+      "lang": "ja"
+    },
+    "ea106372": {
+      "original": "A node test to execute for each node.",
+      "translated": "各ノードに対して実行するノードテスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNodes",
+      "lang": "ja"
+    },
+    "1129e8d9": {
+      "original": "An optional value indicating the maximum number of nodes to visit.",
+      "translated": "訪問するノードの最大数を示す省略可能な値。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNodes",
+      "lang": "ja"
+    },
+    "5ceb62b0": {
+      "original": "An optional value indicating the starting offset at which to start visiting.",
+      "translated": "訪問を開始する開始オフセットを示す省略可能な値。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNodes",
+      "lang": "ja"
+    },
+    "ae6715dc": {
+      "original": "The callback used to visit a Node.",
+      "translated": "Node を訪問するために使うコールバック。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNodes",
+      "lang": "ja"
+    },
+    "0a587a11": {
+      "original": "The NodeArray to visit.",
+      "translated": "訪問する NodeArray。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNodes",
+      "lang": "ja"
+    },
+    "837203fc": {
+      "original": "Visits a NodeArray using the supplied visitor, possibly returning a new NodeArray in its place.\n\n- If the input node array is undefined, the output is undefined.\n- If the visitor can return undefined, the node it visits in the array will be reused.\n- If the output node array is not undefined, then its contents will satisfy the test.\n- In order to obtain a return type that is more specific than `NodeArray<Node>`, a test\n  function _must_ be provided, and that function must be a type predicate.",
+      "translated": "指定した visitor を使って NodeArray を訪問し、その場所に新しい NodeArray を返すことがある。\n\n- 入力のノード配列が undefined の場合、出力は undefined。\n- visitor が undefined を返せる場合、配列内で訪問したノードは再利用される。\n- 出力のノード配列が undefined でない場合、その内容はテストを満たす。\n- `NodeArray<Node>` より具体的な戻り値の型を得るには、テスト関数を*必ず*指定し、その関数は型述語(type predicate)でなければならない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitNodes",
+      "lang": "ja"
+    },
+    "d64f24bf": {
+      "original": "A function that accepts and possibly transforms a node.",
+      "translated": "ノードを受け取り、場合によっては変換する関数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Visitor",
+      "lang": "ja"
+    },
+    "2dc86571": {
+      "original": "Starts a new lexical environment and visits a parameter list, suspending the lexical\nenvironment upon completion.",
+      "translated": "新しい字句環境を開始してパラメーターリストを訪問し、完了時に字句環境を中断する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.visitParameterList",
+      "lang": "ja"
+    },
+    "00154f85": {
+      "original": "Closes the watch",
+      "translated": "watch を閉じる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Watch.close",
+      "lang": "ja"
+    },
+    "3d369e03": {
+      "original": "Synchronize with host and get updated program",
+      "translated": "ホストと同期して更新されたプログラムを取得する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Watch.getProgram",
+      "lang": "ja"
+    },
+    "2a64dcd7": {
+      "original": "If provided, callback to invoke after every new program creation",
+      "translated": "指定した場合、新しいプログラムの作成のたびに呼び出すコールバック",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHost.afterProgramCreate",
+      "lang": "ja"
+    },
+    "09fc6319": {
+      "original": "If provided, use this method to get parsed command lines for referenced projects",
+      "translated": "指定した場合、参照先プロジェクトの解析済みコマンドラインを取得するためにこのメソッドを使う",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHost.getParsedCommandLine",
+      "lang": "ja"
+    },
+    "0f55c345": {
+      "original": "Instead of using output d.ts file from project reference, use its source file",
+      "translated": "プロジェクト参照の出力 d.ts ファイルの代わりに、そのソースファイルを使う",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHost.useSourceOfProjectReferenceRedirect",
+      "lang": "ja"
+    },
+    "27d0d315": {
+      "original": "Host to create watch with config file",
+      "translated": "config ファイルで watch を作成するためのホスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHostOfConfigFile",
+      "lang": "ja"
+    },
+    "b92dfb7b": {
+      "original": "Name of the config file to compile",
+      "translated": "コンパイルする config ファイルの名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHostOfConfigFile.configFileName",
+      "lang": "ja"
+    },
+    "1ca5c01b": {
+      "original": "Options to extend",
+      "translated": "拡張するオプション",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHostOfConfigFile.optionsToExtend",
+      "lang": "ja"
+    },
+    "fc9838d8": {
+      "original": "Used to generate source file names from the config file and its include, exclude, files rules\nand also to cache the directory stucture",
+      "translated": "config ファイルとその include・exclude・files の規則からソースファイル名を生成するために、またディレクトリ構造をキャッシュするために使う",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHostOfConfigFile.readDirectory",
+      "lang": "ja"
+    },
+    "f1103650": {
+      "original": "Host to create watch with root files and options",
+      "translated": "ルートファイルとオプションで watch を作成するためのホスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHostOfFilesAndCompilerOptions",
+      "lang": "ja"
+    },
+    "37ba692f": {
+      "original": "Compiler options",
+      "translated": "コンパイラオプション",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHostOfFilesAndCompilerOptions.options",
+      "lang": "ja"
+    },
+    "fb1dd1d5": {
+      "original": "Project References",
+      "translated": "プロジェクト参照",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHostOfFilesAndCompilerOptions.projectReferences",
+      "lang": "ja"
+    },
+    "d7aed493": {
+      "original": "root files to use to generate program",
+      "translated": "プログラムを生成するために使うルートファイル",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchCompilerHostOfFilesAndCompilerOptions.rootFiles",
+      "lang": "ja"
+    },
+    "9eb4547f": {
+      "original": "Host that has watch functionality used in --watch mode",
+      "translated": "--watch モードで使う watch 機能を持つホスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchHost",
+      "lang": "ja"
+    },
+    "93fef014": {
+      "original": "If provided, will be used to reset existing delayed compilation",
+      "translated": "指定した場合、既存の遅延コンパイルをリセットするために使われる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchHost.clearTimeout",
+      "lang": "ja"
+    },
+    "2e53b20a": {
+      "original": "If provided, called with Diagnostic message that informs about change in watch status",
+      "translated": "指定した場合、watch の状態変化を伝える Diagnostic メッセージとともに呼ばれる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchHost.onWatchStatusChange",
+      "lang": "ja"
+    },
+    "c5479cc3": {
+      "original": "If provided, will be used to set delayed compilation, so that multiple changes in short span are compiled together",
+      "translated": "指定した場合、遅延コンパイルの設定に使われ、短い間隔での複数の変更がまとめてコンパイルされる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchHost.setTimeout",
+      "lang": "ja"
+    },
+    "03137cd8": {
+      "original": "Used to watch resolved module's failed lookup locations, config file specs, type roots where auto type reference directives are added",
+      "translated": "解決されたモジュールの失敗したルックアップ場所、config ファイルの spec、自動の型参照ディレクティブが追加される type ルートを監視するために使う",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchHost.watchDirectory",
+      "lang": "ja"
+    },
+    "cc54a293": {
+      "original": "Used to watch changes in source files, missing files needed to update the program or config file",
+      "translated": "ソースファイルの変更、プログラムや config ファイルの更新に必要な欠落ファイルを監視するために使う",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchHost.watchFile",
+      "lang": "ja"
+    },
+    "0299e261": {
+      "original": "Creates the watch what generates program using the config file",
+      "translated": "config ファイルを使ってプログラムを生成する watch を作成する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchOfConfigFile",
+      "lang": "ja"
+    },
+    "55355bc0": {
+      "original": "Creates the watch that generates program using the root files and compiler options",
+      "translated": "ルートファイルとコンパイラオプションを使ってプログラムを生成する watch を作成する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchOfFilesAndCompilerOptions",
+      "lang": "ja"
+    },
+    "c84b2460": {
+      "original": "Updates the root files in the program, only if this is not config file compilation",
+      "translated": "config ファイルのコンパイルでない場合にのみ、プログラム内のルートファイルを更新する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.WatchOfFilesAndCompilerOptions.updateRootFileNames",
       "lang": "ja"
     }
   }
