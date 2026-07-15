@@ -46,6 +46,12 @@
       "symbol": "typescript/lib/lib.es2015.reflect.d.ts#Reflect.get",
       "lang": "ja"
     },
+    "31886128": {
+      "original": "Contiguous blocks of import declarations",
+      "translated": "連続する import 宣言のブロック",
+      "symbol": "typescript/lib/typescript.d.ts#ts.OutliningSpanKind.Imports",
+      "lang": "ja"
+    },
     "33986995": {
       "original": "value to fill array section with",
       "translated": "配列の範囲を埋める値",
@@ -116,6 +122,12 @@
       "original": "A copy of the original array with the inserted value.",
       "translated": "値を挿入した、元の配列のコピー。",
       "symbol": "typescript/lib/lib.es2023.array.d.ts#ReadonlyArray.with",
+      "lang": "ja"
+    },
+    "63547876": {
+      "original": "True if `resolvedFileName` comes from `node_modules`.",
+      "translated": "`resolvedFileName` が `node_modules` に由来する場合は true。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ResolvedModule.isExternalLibraryImport",
       "lang": "ja"
     },
     "69602940": {
@@ -8204,6 +8216,780 @@
       "original": "Stored map from non-relative module name to a table: directory -> result of module lookup in this directory\nWe support only non-relative module names because resolution of relative module names is usually more deterministic and thus less expensive.",
       "translated": "非相対モジュール名から、テーブル(ディレクトリ → そのディレクトリでのモジュールルックアップの結果)への、保存されたマップ。\n相対モジュール名の解決は通常より決定的でコストが低いため、非相対モジュール名のみをサポートする。",
       "symbol": "typescript/lib/typescript.d.ts#ts.NonRelativeModuleNameResolutionCache",
+      "lang": "ja"
+    },
+    "f1c7fca9": {
+      "original": "Use getOrCreateCacheForNonRelativeName",
+      "translated": "getOrCreateCacheForNonRelativeName を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.NonRelativeModuleNameResolutionCache.getOrCreateCacheForModuleName",
+      "lang": "ja"
+    },
+    "7ed0202f": {
+      "original": "Unlike ObjectLiteralElement, excludes JSXAttribute and JSXSpreadAttribute.",
+      "translated": "ObjectLiteralElement と異なり、JSXAttribute と JSXSpreadAttribute を除外する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ObjectLiteralElementLike",
+      "lang": "ja"
+    },
+    "cc629fc4": {
+      "original": "This interface is a base interface for ObjectLiteralExpression and JSXAttributes to extend from. JSXAttributes is similar to\nObjectLiteralExpression in that it contains array of properties; however, JSXAttributes' properties can only be\nJSXAttribute or JSXSpreadAttribute. ObjectLiteralExpression, on the other hand, can only have properties of type\nObjectLiteralElement (e.g. PropertyAssignment, ShorthandPropertyAssignment etc.)",
+      "translated": "これは ObjectLiteralExpression と JSXAttributes が継承するための基底インターフェースである。JSXAttributes は、プロパティの配列を含む点で ObjectLiteralExpression に似ているが、JSXAttributes のプロパティは JSXAttribute または JSXSpreadAttribute のみである。一方、ObjectLiteralExpression は ObjectLiteralElement 型のプロパティ(例: PropertyAssignment、ShorthandPropertyAssignment など)のみを持てる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ObjectLiteralExpressionBase",
+      "lang": "ja"
+    },
+    "ac70c946": {
+      "original": "Whether or not this region should be automatically collapsed when\nthe 'Collapse to Definitions' command is invoked.",
+      "translated": "'Collapse to Definitions' コマンドが呼ばれたときに、この領域を自動的に折りたたむべきかどうか。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.OutliningSpan.autoCollapse",
+      "lang": "ja"
+    },
+    "8211b536": {
+      "original": "The text to display in the editor for the collapsed region.",
+      "translated": "折りたたまれた領域についてエディターに表示するテキスト。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.OutliningSpan.bannerText",
+      "lang": "ja"
+    },
+    "67aac84c": {
+      "original": "The span of the document to display when the user hovers over the collapsed span.",
+      "translated": "ユーザーが折りたたまれたスパンにホバーしたときに表示する、ドキュメントのスパン。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.OutliningSpan.hintSpan",
+      "lang": "ja"
+    },
+    "761a6810": {
+      "original": "Classification of the contents of the span",
+      "translated": "スパンの内容の分類",
+      "symbol": "typescript/lib/typescript.d.ts#ts.OutliningSpan.kind",
+      "lang": "ja"
+    },
+    "9fb1d974": {
+      "original": "The span of the document to actually collapse.",
+      "translated": "実際に折りたたむドキュメントのスパン。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.OutliningSpan.textSpan",
+      "lang": "ja"
+    },
+    "657075bb": {
+      "original": "Declarations and expressions",
+      "translated": "宣言と式",
+      "symbol": "typescript/lib/typescript.d.ts#ts.OutliningSpanKind.Code",
+      "lang": "ja"
+    },
+    "2c2384c5": {
+      "original": "Single or multi-line comments",
+      "translated": "単一行または複数行のコメント",
+      "symbol": "typescript/lib/typescript.d.ts#ts.OutliningSpanKind.Comment",
+      "lang": "ja"
+    },
+    "c23d541e": {
+      "original": "Sections marked by '// #region' and '// #endregion' comments",
+      "translated": "'// #region' と '// #endregion' コメントで区切られたセクション",
+      "symbol": "typescript/lib/typescript.d.ts#ts.OutliningSpanKind.Region",
+      "lang": "ja"
+    },
+    "24c9e794": {
+      "original": "Unique identifier with a package name and version.\nIf changing this, remember to change `packageIdIsEqual`.",
+      "translated": "パッケージ名とバージョンを持つ一意の識別子。\nこれを変更する場合は、`packageIdIsEqual` も変更することを忘れないこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PackageId",
+      "lang": "ja"
+    },
+    "fd01000f": {
+      "original": "Name of the package.\nShould not include `@types`.\nIf accessing a non-index file, this should include its name e.g. \"foo/bar\".",
+      "translated": "パッケージの名前。\n`@types` は含めるべきではない。\nインデックス以外のファイルにアクセスする場合、これはその名前を含むべきである。例: \"foo/bar\"。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PackageId.name",
+      "lang": "ja"
+    },
+    "2a97ea2d": {
+      "original": "Name of a submodule within this package.\nMay be \"\".",
+      "translated": "このパッケージ内のサブモジュールの名前。\n\"\" になることがある。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PackageId.subModuleName",
+      "lang": "ja"
+    },
+    "c7c93ff5": {
+      "original": "Version of the package, e.g. \"1.2.3\"",
+      "translated": "パッケージのバージョン。例: \"1.2.3\"",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PackageId.version",
+      "lang": "ja"
+    },
+    "9012fdab": {
+      "original": "Interface extending ParseConfigHost to support ParseConfigFile that reads config file and reports errors",
+      "translated": "config ファイルを読み込みエラーを報告する ParseConfigFile をサポートするために、ParseConfigHost を拡張したインターフェース",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ParseConfigFileHost",
+      "lang": "ja"
+    },
+    "72d86523": {
+      "original": "Parse the text of the tsconfig.json file",
+      "translated": "tsconfig.json ファイルのテキストを解析する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.parseConfigFileTextToJson",
+      "lang": "ja"
+    },
+    "1c772443": {
+      "original": "The text of the config file",
+      "translated": "config ファイルのテキスト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.parseConfigFileTextToJson",
+      "lang": "ja"
+    },
+    "0354bca7": {
+      "original": "Gets a value indicating whether the specified path exists and is a file.",
+      "translated": "指定したパスが存在し、かつファイルであるかどうかを示す値を取得する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ParseConfigHost.fileExists",
+      "lang": "ja"
+    },
+    "39cb7217": {
+      "original": "The path to test.",
+      "translated": "判定対象のパス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ParseConfigHost.fileExists",
+      "lang": "ja"
+    },
+    "a8f9c315": {
+      "original": "Parsed command line for build",
+      "translated": "build のために解析されたコマンドライン",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ParsedBuildCommand",
+      "lang": "ja"
+    },
+    "73e70b21": {
+      "original": "Either a parsed command line or a parsed tsconfig.json",
+      "translated": "解析されたコマンドライン、または解析された tsconfig.json のいずれか",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ParsedCommandLine",
+      "lang": "ja"
+    },
+    "8fdabda1": {
+      "original": "Note that the case of the config path has not yet been normalized, as no files have been imported into the project yet",
+      "translated": "まだプロジェクトにファイルがインポートされていないため、config パスの大文字小文字はまだ正規化されていない点に注意",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ParsedTsconfig.extendedConfigPath",
+      "lang": "ja"
+    },
+    "82b3532b": {
+      "original": "A root directory to resolve relative path entries in the config\nfile to. e.g. outDir",
+      "translated": "config ファイル内の相対パスのエントリを解決する基準となるルートディレクトリ。例: outDir",
+      "symbol": "typescript/lib/typescript.d.ts#ts.parseJsonConfigFileContent",
+      "lang": "ja"
+    },
+    "114832e9": {
+      "original": "Instance of ParseConfigHost used to enumerate files in folder.",
+      "translated": "フォルダー内のファイルを列挙するために使う ParseConfigHost のインスタンス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.parseJsonConfigFileContent",
+      "lang": "ja"
+    },
+    "d183fe2f": {
+      "original": "Parse the contents of a config file (tsconfig.json).",
+      "translated": "config ファイル(tsconfig.json)の内容を解析する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.parseJsonConfigFileContent",
+      "lang": "ja"
+    },
+    "8b133e82": {
+      "original": "The contents of the config file to parse",
+      "translated": "解析する config ファイルの内容",
+      "symbol": "typescript/lib/typescript.d.ts#ts.parseJsonConfigFileContent",
+      "lang": "ja"
+    },
+    "0e001dd2": {
+      "original": "Parse json text into SyntaxTree and return node and parse errors if any",
+      "translated": "JSON テキストを SyntaxTree に解析し、ノードと、あれば解析エラーを返す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.parseJsonText",
+      "lang": "ja"
+    },
+    "8cddb7c8": {
+      "original": "Cached resolutions per containing directory.\nThis assumes that any module id will have the same resolution for sibling files located in the same folder.",
+      "translated": "含まれるディレクトリごとにキャッシュされた解決結果。\nこれは、任意のモジュール id が、同じフォルダーにある兄弟ファイルに対して同じ解決結果を持つことを前提とする。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PerDirectoryResolutionCache",
+      "lang": "ja"
+    },
+    "28ee6f6e": {
+      "original": "Updates with the current compilerOptions the cache will operate with.\nThis updates the redirects map as well if needed so module resolutions are cached if they can across the projects",
+      "translated": "キャッシュが動作する現在の compilerOptions で更新する。\n必要に応じて redirects マップも更新し、プロジェクトをまたいでキャッシュできるモジュール解決はキャッシュされるようにする",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PerDirectoryResolutionCache.update",
+      "lang": "ja"
+    },
+    "053ac70b": {
+      "original": "Prints a bundle of source files as-is, without any emit transformations.",
+      "translated": "ソースファイルのバンドルを、出力変換なしでそのまま出力する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Printer.printBundle",
+      "lang": "ja"
+    },
+    "89a056d4": {
+      "original": "Prints a source file as-is, without any emit transformations.",
+      "translated": "ソースファイルを、出力変換なしでそのまま出力する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Printer.printFile",
+      "lang": "ja"
+    },
+    "14d28ee0": {
+      "original": "Prints a list of nodes using the given format flags",
+      "translated": "指定した書式フラグを使ってノードのリストを出力する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Printer.printList",
+      "lang": "ja"
+    },
+    "eb6e7b0f": {
+      "original": "A source file that provides context for the node. The source text of\nthe file is used to emit the original source content for literals and identifiers, while\nthe identifiers of the source file are used when generating unique names to avoid\ncollisions.",
+      "translated": "ノードの文脈を提供するソースファイル。ファイルのソーステキストは、リテラルや識別子について元のソース内容を出力するために使われ、\nファイルの識別子は、衝突を避けるための一意の名前を生成するときに使われる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Printer.printNode",
+      "lang": "ja"
+    },
+    "a2c3507e": {
+      "original": "A value indicating the purpose of a node. This is primarily used to\ndistinguish between an `Identifier` used in an expression position, versus an\n`Identifier` used as an `IdentifierName` as part of a declaration. For most nodes you\nshould just pass `Unspecified`.",
+      "translated": "ノードの目的を示す値。これは主に、式の位置で使われる `Identifier` と、宣言の一部として `IdentifierName` として使われる `Identifier` を区別するために使われる。ほとんどのノードでは `Unspecified` を渡せばよい。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Printer.printNode",
+      "lang": "ja"
+    },
+    "08202dd5": {
+      "original": "Print a node and its subtree as-is, without any emit transformations.",
+      "translated": "ノードとそのサブツリーを、出力変換なしでそのまま出力する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Printer.printNode",
+      "lang": "ja"
+    },
+    "084b5060": {
+      "original": "The node to print. The node and its subtree are printed as-is, without any\nemit transformations.",
+      "translated": "出力するノード。そのノードとサブツリーは、出力変換なしでそのまま出力される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Printer.printNode",
+      "lang": "ja"
+    },
+    "4cb3662b": {
+      "original": "A hook used by the Printer when generating unique names to avoid collisions with\nglobally defined names that exist outside of the current source file.",
+      "translated": "Printer が一意の名前を生成するときに、現在のソースファイルの外に存在するグローバル定義名との衝突を避けるために使うフック。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PrintHandlers.hasGlobalName",
+      "lang": "ja"
+    },
+    "7a66b210": {
+      "original": "A hook used to check if an emit notification is required for a node.",
+      "translated": "ノードに対して emit 通知が必要かどうかを確認するために使うフック。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PrintHandlers.isEmitNotificationEnabled",
+      "lang": "ja"
+    },
+    "647f7978": {
+      "original": "A callback that, when invoked, will emit the node.",
+      "translated": "呼び出されるとノードを出力するコールバック。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PrintHandlers.onEmitNode",
+      "lang": "ja"
+    },
+    "f9325760": {
+      "original": "A hint indicating the intended purpose of the node.",
+      "translated": "ノードの意図された目的を示すヒント。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PrintHandlers.onEmitNode",
+      "lang": "ja"
+    },
+    "a0ff7746": {
+      "original": "A hook used by the Printer to provide notifications prior to emitting a node. A\ncompatible implementation **must** invoke `emitCallback` with the provided `hint` and\n`node` values.",
+      "translated": "Printer がノードを出力する前に通知を提供するために使うフック。互換性のある実装は、指定された `hint` と `node` の値で `emitCallback` を**必ず**呼び出さなければならない。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PrintHandlers.onEmitNode",
+      "lang": "ja"
+    },
+    "0fc17231": {
+      "original": "A hook used by the Printer to perform just-in-time substitution of a node. This is\nprimarily used by node transformations that need to substitute one node for another,\nsuch as replacing `myExportedVar` with `exports.myExportedVar`.",
+      "translated": "Printer がノードのジャストインタイム置換を行うために使うフック。これは主に、`myExportedVar` を `exports.myExportedVar` に置き換えるなど、あるノードを別のノードに置換する必要があるノード変換で使われる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PrintHandlers.substituteNode",
+      "lang": "ja"
+    },
+    "4f402dc9": {
+      "original": "Emits the JavaScript and declaration files.  If targetSourceFile is not specified, then\nthe JavaScript and declaration files will be produced for all the files in this program.\nIf targetSourceFile is specified, then only the JavaScript and declaration for that\nspecific file will be generated.\n\nIf writeFile is not specified then the writeFile callback from the compiler host will be\nused for writing the JavaScript and declaration files.  Otherwise, the writeFile parameter\nwill be invoked when writing the JavaScript and declaration files.",
+      "translated": "JavaScript と宣言ファイルを出力する。targetSourceFile を指定しない場合、このプログラム内のすべてのファイルについて JavaScript と宣言ファイルが生成される。targetSourceFile を指定した場合は、その特定のファイルについてのみ JavaScript と宣言が生成される。\n\nwriteFile を指定しない場合、JavaScript と宣言ファイルの書き込みにはコンパイラホストの writeFile コールバックが使われる。指定した場合は、JavaScript と宣言ファイルの書き込み時に writeFile 引数が呼び出される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Program.emit",
+      "lang": "ja"
+    },
+    "fee354a9": {
+      "original": "Calculates the final resolution mode for an import at some index within a file's `imports` list. This function only returns a result\nwhen module resolution settings allow differing resolution between ESM imports and CJS requires, or when a mode is explicitly provided\nvia import attributes, which cause an `import` or `require` condition to be used during resolution regardless of module resolution\nsettings. In absence of overriding attributes, and in modes that support differing resolution, the result indicates the syntax the\nusage would emit to JavaScript. Some examples:\n\n```ts\n// tsc foo.mts --module nodenext\nimport {} from \"mod\";\n// Result: ESNext - the import emits as ESM due to `impliedNodeFormat` set by .mts file extension\n\n// tsc foo.cts --module nodenext\nimport {} from \"mod\";\n// Result: CommonJS - the import emits as CJS due to `impliedNodeFormat` set by .cts file extension\n\n// tsc foo.ts --module preserve --moduleResolution bundler\nimport {} from \"mod\";\n// Result: ESNext - the import emits as ESM due to `--module preserve` and `--moduleResolution bundler`\n// supports conditional imports/exports\n\n// tsc foo.ts --module preserve --moduleResolution node10\nimport {} from \"mod\";\n// Result: undefined - the import emits as ESM due to `--module preserve`, but `--moduleResolution node10`\n// does not support conditional imports/exports\n\n// tsc foo.ts --module commonjs --moduleResolution node10\nimport type {} from \"mod\" with { \"resolution-mode\": \"import\" };\n// Result: ESNext - conditional imports/exports always supported with \"resolution-mode\" attribute\n```",
+      "translated": "ファイルの `imports` リスト内の、あるインデックスの import について最終的な解決モードを計算する。この関数は、モジュール解決設定が ESM の import と CJS の require で異なる解決を許可する場合、または import attributes 経由でモードが明示的に指定され、モジュール解決設定にかかわらず解決中に `import` または `require` 条件が使われる場合にのみ、結果を返す。上書きの attributes がなく、異なる解決をサポートするモードでは、結果はその使用が JavaScript に出力する構文を示す。いくつかの例:\n\n```ts\n// tsc foo.mts --module nodenext\nimport {} from \"mod\";\n// Result: ESNext - the import emits as ESM due to `impliedNodeFormat` set by .mts file extension\n\n// tsc foo.cts --module nodenext\nimport {} from \"mod\";\n// Result: CommonJS - the import emits as CJS due to `impliedNodeFormat` set by .cts file extension\n\n// tsc foo.ts --module preserve --moduleResolution bundler\nimport {} from \"mod\";\n// Result: ESNext - the import emits as ESM due to `--module preserve` and `--moduleResolution bundler`\n// supports conditional imports/exports\n\n// tsc foo.ts --module preserve --moduleResolution node10\nimport {} from \"mod\";\n// Result: undefined - the import emits as ESM due to `--module preserve`, but `--moduleResolution node10`\n// does not support conditional imports/exports\n\n// tsc foo.ts --module commonjs --moduleResolution node10\nimport type {} from \"mod\" with { \"resolution-mode\": \"import\" };\n// Result: ESNext - conditional imports/exports always supported with \"resolution-mode\" attribute\n```",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Program.getModeForResolutionAtIndex",
+      "lang": "ja"
+    },
+    "0f46caab": {
+      "original": "Calculates the final resolution mode for a given module reference node. This function only returns a result when module resolution\nsettings allow differing resolution between ESM imports and CJS requires, or when a mode is explicitly provided via import attributes,\nwhich cause an `import` or `require` condition to be used during resolution regardless of module resolution settings. In absence of\noverriding attributes, and in modes that support differing resolution, the result indicates the syntax the usage would emit to JavaScript.\nSome examples:\n\n```ts\n// tsc foo.mts --module nodenext\nimport {} from \"mod\";\n// Result: ESNext - the import emits as ESM due to `impliedNodeFormat` set by .mts file extension\n\n// tsc foo.cts --module nodenext\nimport {} from \"mod\";\n// Result: CommonJS - the import emits as CJS due to `impliedNodeFormat` set by .cts file extension\n\n// tsc foo.ts --module preserve --moduleResolution bundler\nimport {} from \"mod\";\n// Result: ESNext - the import emits as ESM due to `--module preserve` and `--moduleResolution bundler`\n// supports conditional imports/exports\n\n// tsc foo.ts --module preserve --moduleResolution node10\nimport {} from \"mod\";\n// Result: undefined - the import emits as ESM due to `--module preserve`, but `--moduleResolution node10`\n// does not support conditional imports/exports\n\n// tsc foo.ts --module commonjs --moduleResolution node10\nimport type {} from \"mod\" with { \"resolution-mode\": \"import\" };\n// Result: ESNext - conditional imports/exports always supported with \"resolution-mode\" attribute\n```",
+      "translated": "指定したモジュール参照ノードについて最終的な解決モードを計算する。この関数は、モジュール解決設定が ESM の import と CJS の require で異なる解決を許可する場合、または import attributes 経由でモードが明示的に指定され、モジュール解決設定にかかわらず解決中に `import` または `require` 条件が使われる場合にのみ、結果を返す。上書きの attributes がなく、異なる解決をサポートするモードでは、結果はその使用が JavaScript に出力する構文を示す。いくつかの例:\n\n```ts\n// tsc foo.mts --module nodenext\nimport {} from \"mod\";\n// Result: ESNext - the import emits as ESM due to `impliedNodeFormat` set by .mts file extension\n\n// tsc foo.cts --module nodenext\nimport {} from \"mod\";\n// Result: CommonJS - the import emits as CJS due to `impliedNodeFormat` set by .cts file extension\n\n// tsc foo.ts --module preserve --moduleResolution bundler\nimport {} from \"mod\";\n// Result: ESNext - the import emits as ESM due to `--module preserve` and `--moduleResolution bundler`\n// supports conditional imports/exports\n\n// tsc foo.ts --module preserve --moduleResolution node10\nimport {} from \"mod\";\n// Result: undefined - the import emits as ESM due to `--module preserve`, but `--moduleResolution node10`\n// does not support conditional imports/exports\n\n// tsc foo.ts --module commonjs --moduleResolution node10\nimport type {} from \"mod\" with { \"resolution-mode\": \"import\" };\n// Result: ESNext - conditional imports/exports always supported with \"resolution-mode\" attribute\n```",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Program.getModeForUsageLocation",
+      "lang": "ja"
+    },
+    "f42671ec": {
+      "original": "Get a list of root file names that were passed to a 'createProgram'",
+      "translated": "'createProgram' に渡されたルートファイル名のリストを取得する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Program.getRootFileNames",
+      "lang": "ja"
+    },
+    "f2300168": {
+      "original": "The first time this is called, it will return global diagnostics (no location).",
+      "translated": "これが最初に呼ばれたとき、(位置を持たない)グローバル診断を返す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Program.getSemanticDiagnostics",
+      "lang": "ja"
+    },
+    "1bc6fbdd": {
+      "original": "Get a list of files in the program",
+      "translated": "プログラム内のファイルのリストを取得する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Program.getSourceFiles",
+      "lang": "ja"
+    },
+    "e40e4244": {
+      "original": "Gets a type checker that can be used to semantically analyze source files in the program.",
+      "translated": "プログラム内のソースファイルを意味的に解析するために使える型チェッカーを取得する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Program.getTypeChecker",
+      "lang": "ja"
+    },
+    "45e37a24": {
+      "original": "Used to create the program when need for program creation or recreation detected",
+      "translated": "プログラムの作成または再作成の必要が検出されたときに、プログラムを作成するために使う",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.createProgram",
+      "lang": "ja"
+    },
+    "41ca0f4a": {
+      "original": "If provided, used for module resolution as well as to handle directory structure",
+      "translated": "指定した場合、モジュール解決とディレクトリ構造の処理に使われる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.directoryExists",
+      "lang": "ja"
+    },
+    "d1524c8f": {
+      "original": "Use to check file presence for source files and\nif resolveModuleNames is not provided (complier is in charge of module resolution) then module files as well",
+      "translated": "ソースファイルの存在確認に使う。resolveModuleNames が指定されない(コンパイラがモジュール解決を担当する)場合は、モジュールファイルの存在確認にも使う",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.fileExists",
+      "lang": "ja"
+    },
+    "e6770f33": {
+      "original": "If provided, used in resolutions as well as handling directory structure",
+      "translated": "指定した場合、解決とディレクトリ構造の処理に使われる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.getDirectories",
+      "lang": "ja"
+    },
+    "2ee2d268": {
+      "original": "If provided is used to get the environment variable",
+      "translated": "指定した場合、環境変数の取得に使われる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.getEnvironmentVariable",
+      "lang": "ja"
+    },
+    "5950a561": {
+      "original": "If provided, used to cache and handle directory structure modifications",
+      "translated": "指定した場合、ディレクトリ構造の変更のキャッシュと処理に使われる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.readDirectory",
+      "lang": "ja"
+    },
+    "e9c2e9af": {
+      "original": "Use to read file text for source files and\nif resolveModuleNames is not provided (complier is in charge of module resolution) then module files as well",
+      "translated": "ソースファイルのテキストを読むために使う。resolveModuleNames が指定されない(コンパイラがモジュール解決を担当する)場合は、モジュールファイルの読み込みにも使う",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.readFile",
+      "lang": "ja"
+    },
+    "006bdfc3": {
+      "original": "Symbol links resolution",
+      "translated": "シンボリックリンクの解決",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.realpath",
+      "lang": "ja"
+    },
+    "cc2b35dd": {
+      "original": "supply resolveModuleNameLiterals instead for resolution that can handle newer resolution modes like nodenext\n\nIf provided, used to resolve the module names, otherwise typescript's default module resolution",
+      "translated": "nodenext のような新しい解決モードを扱える解決には、代わりに resolveModuleNameLiterals を指定すること\n\n指定した場合、モジュール名の解決に使われる。そうでなければ typescript の既定のモジュール解決が使われる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.resolveModuleNames",
+      "lang": "ja"
+    },
+    "6321d372": {
+      "original": "supply resolveTypeReferenceDirectiveReferences instead for resolution that can handle newer resolution modes like nodenext\n\nIf provided, used to resolve type reference directives, otherwise typescript's default resolution",
+      "translated": "nodenext のような新しい解決モードを扱える解決には、代わりに resolveTypeReferenceDirectiveReferences を指定すること\n\n指定した場合、型参照ディレクティブの解決に使われる。そうでなければ typescript の既定の解決が使われる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.resolveTypeReferenceDirectives",
+      "lang": "ja"
+    },
+    "8d617578": {
+      "original": "If provided would be used to write log about compilation",
+      "translated": "指定した場合、コンパイルに関するログの書き込みに使われる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramHost.trace",
+      "lang": "ja"
+    },
+    "b72f82ab": {
+      "original": "Loads program completely, including:\n - re-reading contents of config file from disk\n - calculating root file names for the program\n - Updating the program",
+      "translated": "プログラムを完全に読み込む。以下を含む:\n - config ファイルの内容をディスクから再読み込みする\n - プログラムのルートファイル名を計算する\n - プログラムを更新する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramUpdateLevel.Full",
+      "lang": "ja"
+    },
+    "3e042191": {
+      "original": "Loads program after updating root file names from the disk",
+      "translated": "ディスクからルートファイル名を更新した後、プログラムを読み込む",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramUpdateLevel.RootNamesAndUpdate",
+      "lang": "ja"
+    },
+    "593c1f85": {
+      "original": "Program is updated with same root file names and options",
+      "translated": "同じルートファイル名とオプションでプログラムを更新する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProgramUpdateLevel.Update",
+      "lang": "ja"
+    },
+    "3736181f": {
+      "original": "True if it is intended that this reference form a circularity",
+      "translated": "この参照が循環を形成することが意図されている場合は true",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProjectReference.circular",
+      "lang": "ja"
+    },
+    "fa183a79": {
+      "original": "The path as the user originally wrote it",
+      "translated": "ユーザーが元々書いたとおりのパス",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProjectReference.originalPath",
+      "lang": "ja"
+    },
+    "1c1c26ea": {
+      "original": "A normalized path on disk",
+      "translated": "ディスク上の正規化されたパス",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ProjectReference.path",
+      "lang": "ja"
+    },
+    "b6fe451e": {
+      "original": "Brand for a PropertyAccessExpression which, like a QualifiedName, consists of a sequence of identifiers separated by dots.",
+      "translated": "QualifiedName と同様に、ドットで区切られた識別子の列からなる PropertyAccessExpression のためのブランド。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PropertyAccessEntityNameExpression",
+      "lang": "ja"
+    },
+    "26feb046": {
+      "original": "Represents a bigint literal value without requiring bigint support",
+      "translated": "bigint のサポートを必要とせずに bigint リテラル値を表す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.PseudoBigInt",
+      "lang": "ja"
+    },
+    "eecf1243": {
+      "original": "Read tsconfig.json file",
+      "translated": "tsconfig.json ファイルを読む",
+      "symbol": "typescript/lib/typescript.d.ts#ts.readConfigFile",
+      "lang": "ja"
+    },
+    "a0b75608": {
+      "original": "The path to the config file",
+      "translated": "config ファイルへのパス",
+      "symbol": "typescript/lib/typescript.d.ts#ts.readConfigFile",
+      "lang": "ja"
+    },
+    "1ee5e55c": {
+      "original": "Use ReadonlyMap<__String, T> instead.",
+      "translated": "代わりに ReadonlyMap<__String, T> を使うこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ReadonlyUnderscoreEscapedMap",
+      "lang": "ja"
+    },
+    "4383a9ea": {
+      "original": "Represents a single refactoring action - for example, the \"Extract Method...\" refactor might\noffer several actions, each corresponding to a surround class or closure to extract into.",
+      "translated": "単一のリファクタリングアクションを表す。たとえば、\"Extract Method...\" リファクタリングは、抽出先となる周囲のクラスやクロージャにそれぞれ対応する複数のアクションを提供することがある。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RefactorActionInfo",
+      "lang": "ja"
+    },
+    "44437ccb": {
+      "original": "A description of this refactoring action to show to the user.\nIf the parent refactoring is inlined away, this will be the only text shown,\nso this description should make sense by itself if the parent is inlineable=true",
+      "translated": "ユーザーに表示する、このリファクタリングアクションの説明。\n親リファクタリングがインライン化されて消える場合、これが唯一表示されるテキストになるため、\n親が inlineable=true の場合、この説明はそれ単体で意味が通るべきである",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RefactorActionInfo.description",
+      "lang": "ja"
+    },
+    "5ae02168": {
+      "original": "Indicates that the action requires additional arguments to be passed\nwhen calling `getEditsForRefactor`.",
+      "translated": "`getEditsForRefactor` を呼び出すときに追加の引数を渡す必要があることを示す。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RefactorActionInfo.isInteractive",
+      "lang": "ja"
+    },
+    "ad0d3c0c": {
+      "original": "The hierarchical dotted name of the refactor action.",
+      "translated": "リファクタリングアクションの階層的なドット区切りの名前。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RefactorActionInfo.kind",
+      "lang": "ja"
+    },
+    "79c11f6c": {
+      "original": "The programmatic name of the refactoring action",
+      "translated": "リファクタリングアクションのプログラム上の名前",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RefactorActionInfo.name",
+      "lang": "ja"
+    },
+    "639dc16e": {
+      "original": "A message to show to the user if the refactoring cannot be applied in\nthe current context.",
+      "translated": "現在の文脈でリファクタリングを適用できない場合に、ユーザーに表示するメッセージ。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RefactorActionInfo.notApplicableReason",
+      "lang": "ja"
+    },
+    "2674f74d": {
+      "original": "Range of code the refactoring will be applied to.",
+      "translated": "リファクタリングが適用されるコードの範囲。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RefactorActionInfo.range",
+      "lang": "ja"
+    },
+    "2d4c42ef": {
+      "original": "A set of edits to make in response to a refactor action, plus an optional\nlocation where renaming should be invoked from",
+      "translated": "リファクタリングアクションに応じて行う編集の集合と、リネームを開始すべき省略可能な位置",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RefactorEditInfo",
+      "lang": "ja"
+    },
+    "80e06ecf": {
+      "original": "Removes an EmitHelper from a node.",
+      "translated": "ノードから EmitHelper を取り除く。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.removeEmitHelper",
+      "lang": "ja"
+    },
+    "2623e92a": {
+      "original": "Use `UserPreferences` instead.",
+      "translated": "代わりに `UserPreferences` を使うこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RenameInfoOptions",
+      "lang": "ja"
+    },
+    "fb3ddce3": {
+      "original": "File or directory to rename.\nIf set, `getEditsForFileRename` should be called instead of `findRenameLocations`.",
+      "translated": "リネームするファイルまたはディレクトリ。\n設定されている場合、`findRenameLocations` の代わりに `getEditsForFileRename` を呼ぶべきである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RenameInfoSuccess.fileToRename",
+      "lang": "ja"
+    },
+    "d008b0d7": {
+      "original": "Full display name of item to be renamed.\nIf item to be renamed is a file, then this is the original text of the module specifer",
+      "translated": "リネーム対象の項目の完全な表示名。\nリネーム対象がファイルの場合、これはモジュール指定子の元のテキストである",
+      "symbol": "typescript/lib/typescript.d.ts#ts.RenameInfoSuccess.fullDisplayName",
+      "lang": "ja"
+    },
+    "201c1d00": {
+      "original": "Branded string for keeping track of when we've turned an ambiguous path\nspecified like \"./blah\" to an absolute path to an actual\ntsconfig file, e.g. \"/root/blah/tsconfig.json\"",
+      "translated": "\"./blah\" のように指定された曖昧なパスを、実際の tsconfig ファイルへの絶対パス(例: \"/root/blah/tsconfig.json\")に変換したことを追跡するためのブランド付き文字列",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ResolvedConfigFileName",
+      "lang": "ja"
+    },
+    "cf4988e0": {
+      "original": "Represents the result of module resolution.\nModule resolution will pick up tsx/jsx/js files even if '--jsx' and '--allowJs' are turned off.\nThe Program will then filter results based on these flags.\n\nPrefer to return a `ResolvedModuleFull` so that the file type does not have to be inferred.",
+      "translated": "モジュール解決の結果を表す。\nモジュール解決は、'--jsx' と '--allowJs' がオフでも tsx/jsx/js ファイルを拾う。\nその後 Program がこれらのフラグに基づいて結果をフィルタリングする。\n\nファイルの種類を推論しなくて済むよう、`ResolvedModuleFull` を返すことが望ましい。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ResolvedModule",
+      "lang": "ja"
+    },
+    "13b1600f": {
+      "original": "Path of the file the module was resolved to.",
+      "translated": "モジュールが解決された先のファイルのパス。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ResolvedModule.resolvedFileName",
+      "lang": "ja"
+    },
+    "0a1a1281": {
+      "original": "True if the original module reference used a .ts extension to refer directly to a .ts file,\nwhich should produce an error during checking if emit is enabled.",
+      "translated": "元のモジュール参照が .ts 拡張子を使って .ts ファイルを直接参照していた場合は true。emit が有効な場合、チェック時にエラーになるべきである。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ResolvedModule.resolvedUsingTsExtension",
+      "lang": "ja"
+    },
+    "3d5261d1": {
+      "original": "ResolvedModule with an explicitly provided `extension` property.\nPrefer this over `ResolvedModule`.\nIf changing this, remember to change `moduleResolutionIsEqualTo`.",
+      "translated": "`extension` プロパティが明示的に指定された ResolvedModule。\n`ResolvedModule` よりこちらが望ましい。\nこれを変更する場合は、`moduleResolutionIsEqualTo` も変更することを忘れないこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ResolvedModuleFull",
+      "lang": "ja"
+    },
+    "2d5d6f5a": {
+      "original": "Extension of resolvedFileName. This must match what's at the end of resolvedFileName.\nThis is optional for backwards-compatibility, but will be added if not provided.",
+      "translated": "resolvedFileName の拡張子。これは resolvedFileName の末尾に一致しなければならない。\n後方互換性のため省略可能だが、指定しない場合は追加される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ResolvedModuleFull.extension",
+      "lang": "ja"
+    },
+    "303ff8d5": {
+      "original": "Returns the target config filename of a project reference.\nNote: The file might not exist.",
+      "translated": "プロジェクト参照の対象の config ファイル名を返す。\n注: そのファイルは存在しないことがある。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.resolveProjectReferencePath",
+      "lang": "ja"
+    },
+    "6a7be686": {
+      "original": "- file that contains type reference directive, can be undefined if containing file is unknown.\nThis is possible in case if resolution is performed for directives specified via 'types' parameter. In this case initial path for secondary lookups\nis assumed to be the same as root directory of the project.",
+      "translated": "- 型参照ディレクティブを含むファイル。含むファイルが不明な場合は undefined でもよい。\nこれは、'types' パラメーターで指定されたディレクティブについて解決を行う場合に起こり得る。その場合、二次的なルックアップの初期パスは、プロジェクトのルートディレクトリと同じと仮定される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.resolveTypeReferenceDirective",
+      "lang": "ja"
+    },
+    "6536d382": {
+      "original": "use {@link getTokenFullStart}",
+      "translated": "{@link getTokenFullStart} を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Scanner.getStartPos",
+      "lang": "ja"
+    },
+    "6244bad6": {
+      "original": "use {@link getTokenEnd}",
+      "translated": "{@link getTokenEnd} を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Scanner.getTextPos",
+      "lang": "ja"
+    },
+    "800096e6": {
+      "original": "use {@link getTokenStart}",
+      "translated": "{@link getTokenStart} を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Scanner.getTokenPos",
+      "lang": "ja"
+    },
+    "06869c5d": {
+      "original": "use {@link reScanTemplateToken}(false)",
+      "translated": "{@link reScanTemplateToken}(false) を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Scanner.reScanTemplateHeadOrNoSubstitutionTemplate",
+      "lang": "ja"
+    },
+    "bc22a980": {
+      "original": "use {@link resetTokenState}",
+      "translated": "{@link resetTokenState} を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.Scanner.setTextPos",
+      "lang": "ja"
+    },
+    "d01d7292": {
+      "original": "Inside module and script only\nfunction f() { }",
+      "translated": "module と script の内部でのみ\nfunction f() { }",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ScriptElementKind.functionElement",
+      "lang": "ja"
+    },
+    "a2248c07": {
+      "original": "predefined type (void) or keyword (class)",
+      "translated": "定義済みの型(void)またはキーワード(class)",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ScriptElementKind.keyword",
+      "lang": "ja"
+    },
+    "ca49de00": {
+      "original": "Inside function",
+      "translated": "関数の内部",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ScriptElementKind.localVariableElement",
+      "lang": "ja"
+    },
+    "4351516a": {
+      "original": "top level script node",
+      "translated": "トップレベルのスクリプトノード",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ScriptElementKind.scriptElement",
+      "lang": "ja"
+    },
+    "017a8d01": {
+      "original": "String literal",
+      "translated": "文字列リテラル",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ScriptElementKind.string",
+      "lang": "ja"
+    },
+    "f4b5b45a": {
+      "original": "Inside module and script only\nconst v = ..",
+      "translated": "module と script の内部でのみ\nconst v = ..",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ScriptElementKind.variableElement",
+      "lang": "ja"
+    },
+    "6cbb87c1": {
+      "original": "Used on extensions that doesn't define the ScriptKind but the content defines it.\nDeferred extensions are going to be included in all project contexts.",
+      "translated": "ScriptKind を定義しないが内容がそれを定義する拡張子で使われる。\nDeferred 拡張子は、すべてのプロジェクトコンテキストに含まれる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.ScriptKind.Deferred",
+      "lang": "ja"
+    },
+    "1b4a6236": {
+      "original": "The builder that caches the semantic diagnostics for the program and handles the changed files and affected files",
+      "translated": "プログラムの意味診断をキャッシュし、変更されたファイルと影響を受けたファイルを扱うビルダー",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SemanticDiagnosticsBuilderProgram",
+      "lang": "ja"
+    },
+    "d4a01a6c": {
+      "original": "Gets the semantic diagnostics from the program for the next affected file and caches it\nReturns undefined if the iteration is complete",
+      "translated": "次の影響ファイルについて、プログラムから意味診断を取得してキャッシュする。\n反復が完了した場合は undefined を返す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SemanticDiagnosticsBuilderProgram.getSemanticDiagnosticsOfNextAffectedFile",
+      "lang": "ja"
+    },
+    "cebf72c8": {
+      "original": "For when we encounter a semicolon in a class declaration. ES6 allows these as class elements.",
+      "translated": "クラス宣言でセミコロンに遭遇したときのためのもの。ES6 はこれらをクラス要素として許可する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.SemicolonClassElement",
+      "lang": "ja"
+    },
+    "3741bd83": {
+      "original": "use ts.server.protocol.CommandTypes",
+      "translated": "ts.server.protocol.CommandTypes を使うこと",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.CommandNames",
+      "lang": "ja"
+    },
+    "beae32d1": {
+      "original": "If a file is opened, the server will look for a tsconfig (or jsconfig)\nand if successful create a ConfiguredProject for it.\nOtherwise it will create an InferredProject.",
+      "translated": "ファイルが開かれると、サーバーは tsconfig(または jsconfig)を探し、\n見つかればそれに対する ConfiguredProject を作成する。\nそうでなければ InferredProject を作成する。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ConfiguredProject",
+      "lang": "ja"
+    },
+    "ff7baea2": {
+      "original": "If the project has reload from disk pending, it reloads (and then updates graph as part of that) instead of just updating the graph",
+      "translated": "プロジェクトにディスクからの再読み込みが保留中の場合、グラフを更新するだけでなく、再読み込みする(そしてその一部としてグラフを更新する)",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ConfiguredProject.updateGraph",
+      "lang": "ja"
+    },
+    "ee6bf3b4": {
+      "original": "Project whose configuration is handled externally, such as in a '.csproj'.\nThese are created only if a host explicitly calls `openExternalProject`.",
+      "translated": "'.csproj' などで、構成が外部で扱われるプロジェクト。\nこれらは、ホストが明示的に `openExternalProject` を呼んだ場合にのみ作成される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ExternalProject",
+      "lang": "ja"
+    },
+    "e7e23b57": {
+      "original": "If a file is opened and no tsconfig (or jsconfig) is found,\nthe file and its imports/references are put into an InferredProject.",
+      "translated": "ファイルが開かれ、tsconfig(または jsconfig)が見つからない場合、\nそのファイルとその import/参照は InferredProject に入れられる。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.InferredProject",
+      "lang": "ja"
+    },
+    "9c1506f1": {
+      "original": "this is canonical project root path",
+      "translated": "これは正規のプロジェクトルートパスである",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.InferredProject.projectRootPath",
+      "lang": "ja"
+    },
+    "5e9f9ae9": {
+      "original": "Info that we may send about a file that was just opened.\nInfo about a file will only be sent once per session, even if the file changes in ways that might affect the info.\nCurrently this is only sent for '.js' files.",
+      "translated": "開いたばかりのファイルについて送信することがある情報。\nファイルについての情報は、たとえその情報に影響し得る形でファイルが変化しても、セッションごとに一度だけ送信される。\n現在、これは '.js' ファイルについてのみ送信される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.OpenFileInfoTelemetryEvent",
+      "lang": "ja"
+    },
+    "0503612b": {
+      "original": "Returns true if emit was conducted",
+      "translated": "emit が行われた場合は true を返す",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.Project.emitFile",
+      "lang": "ja"
+    },
+    "096e16d2": {
+      "original": "Get all the project errors",
+      "translated": "すべてのプロジェクトエラーを取得する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.Project.getAllProjectErrors",
+      "lang": "ja"
+    },
+    "b0072eb7": {
+      "original": "Get the errors that dont have any file name associated",
+      "translated": "ファイル名が関連付けられていないエラーを取得する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.Project.getGlobalProjectErrors",
+      "lang": "ja"
+    },
+    "5093179b": {
+      "original": "Starts a new check for diagnostics. Call this if some file has updated that would cause diagnostics to be changed.",
+      "translated": "診断の新しいチェックを開始する。診断が変わる原因となるファイルが更新された場合、これを呼ぶこと。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.Project.refreshDiagnostics",
+      "lang": "ja"
+    },
+    "b43e8ba6": {
+      "original": ": true if set of files in the project stays the same and false - otherwise.",
+      "translated": ": プロジェクト内のファイルの集合が同じままなら true、そうでなければ false。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.Project.updateGraph",
+      "lang": "ja"
+    },
+    "cffef367": {
+      "original": "Updates set of files that contribute to this project",
+      "translated": "このプロジェクトに寄与するファイルの集合を更新する",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.Project.updateGraph",
+      "lang": "ja"
+    },
+    "220521f7": {
+      "original": "This will be converted to the payload of a protocol.TelemetryEvent in session.defaultEventHandler.",
+      "translated": "これは session.defaultEventHandler で protocol.TelemetryEvent のペイロードに変換される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectInfoTelemetryEvent",
+      "lang": "ja"
+    },
+    "57ecef6b": {
+      "original": "Any compiler options that might contain paths will be taken out.\nEnum compiler options will be converted to strings.",
+      "translated": "パスを含む可能性のあるコンパイラオプションは取り除かれる。\nenum のコンパイラオプションは文字列に変換される。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectInfoTelemetryEventData.compilerOptions",
+      "lang": "ja"
+    },
+    "3de78d32": {
+      "original": "Count of file extensions seen in the project.",
+      "translated": "プロジェクトで見られたファイル拡張子の数。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectInfoTelemetryEventData.fileStats",
+      "lang": "ja"
+    },
+    "2bc24805": {
+      "original": "Cryptographically secure hash of project file location.",
+      "translated": "プロジェクトファイルの場所の、暗号学的に安全なハッシュ。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectInfoTelemetryEventData.projectId",
+      "lang": "ja"
+    },
+    "a2598ee8": {
+      "original": "TypeScript version used by the server.",
+      "translated": "サーバーが使う TypeScript のバージョン。",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectInfoTelemetryEventData.version",
+      "lang": "ja"
+    },
+    "50fe96a2": {
+      "original": "Close file whose contents is managed by the client",
+      "translated": "内容がクライアントによって管理されているファイルを閉じる",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.closeClientFile",
+      "lang": "ja"
+    },
+    "6e3495ce": {
+      "original": "projects specified by a tsconfig.json file",
+      "translated": "tsconfig.json ファイルで指定されたプロジェクト",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.configuredProjects",
+      "lang": "ja"
+    },
+    "54ef1f96": {
+      "original": "external projects (configuration and list of root files is not controlled by tsserver)",
+      "translated": "外部プロジェクト(構成とルートファイルのリストは tsserver によって制御されない)",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.externalProjects",
+      "lang": "ja"
+    },
+    "7d0003bd": {
+      "original": "This gets the script info for the normalized path. If the path is not rooted disk path then the open script info with project root context is preferred",
+      "translated": "正規化されたパスのスクリプト情報を取得する。パスがディスクのルート付きパスでない場合、プロジェクトルートの文脈を持つ open script info が優先される",
+      "symbol": "typescript/lib/typescript.d.ts#ts.server.ProjectService.getScriptInfoForNormalizedPath",
       "lang": "ja"
     }
   }
