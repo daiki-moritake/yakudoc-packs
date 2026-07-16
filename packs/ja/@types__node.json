@@ -10,6 +10,246 @@
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.typescript",
       "lang": "ja"
     },
+    "48727216": {
+      "original": "The `blob.bytes()` method returns the byte of the `Blob` object as a `Promise<Uint8Array>`.\n\n```js\nconst blob = new Blob(['hello']);\nblob.bytes().then((bytes) => {\n  console.log(bytes); // Outputs: Uint8Array(5) [ 104, 101, 108, 108, 111 ]\n});\n```",
+      "translated": "`blob.bytes()` メソッドは、`Blob` オブジェクトのバイトを `Promise<Uint8Array>` として返す。\n\n```js\nconst blob = new Blob(['hello']);\nblob.bytes().then((bytes) => {\n  console.log(bytes); // Outputs: Uint8Array(5) [ 104, 101, 108, 108, 111 ]\n});\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob.bytes",
+      "lang": "ja"
+    },
+    "d72894a9": {
+      "original": "`Buffer` objects are used to represent a fixed-length sequence of bytes. Many\nNode.js APIs support `Buffer`s.\n\nThe `Buffer` class is a subclass of JavaScript's [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) class and\nextends it with methods that cover additional use cases. Node.js APIs accept\nplain [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) s wherever `Buffer`s are supported as well.\n\nWhile the `Buffer` class is available within the global scope, it is still\nrecommended to explicitly reference it via an import or require statement.\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Creates a zero-filled Buffer of length 10.\nconst buf1 = Buffer.alloc(10);\n\n// Creates a Buffer of length 10,\n// filled with bytes which all have the value `1`.\nconst buf2 = Buffer.alloc(10, 1);\n\n// Creates an uninitialized buffer of length 10.\n// This is faster than calling Buffer.alloc() but the returned\n// Buffer instance might contain old data that needs to be\n// overwritten using fill(), write(), or other functions that fill the Buffer's\n// contents.\nconst buf3 = Buffer.allocUnsafe(10);\n\n// Creates a Buffer containing the bytes [1, 2, 3].\nconst buf4 = Buffer.from([1, 2, 3]);\n\n// Creates a Buffer containing the bytes [1, 1, 1, 1] – the entries\n// are all truncated using `(value &#x26; 255)` to fit into the range 0–255.\nconst buf5 = Buffer.from([257, 257.5, -255, '1']);\n\n// Creates a Buffer containing the UTF-8-encoded bytes for the string 'tést':\n// [0x74, 0xc3, 0xa9, 0x73, 0x74] (in hexadecimal notation)\n// [116, 195, 169, 115, 116] (in decimal notation)\nconst buf6 = Buffer.from('tést');\n\n// Creates a Buffer containing the Latin-1 bytes [0x74, 0xe9, 0x73, 0x74].\nconst buf7 = Buffer.from('tést', 'latin1');\n```",
+      "translated": "`Buffer` オブジェクトは、固定長のバイト列を表すために使われる。多くの Node.js API が `Buffer` をサポートする。\n\n`Buffer` クラスは JavaScript の [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) クラスのサブクラスで、追加のユースケースをカバーするメソッドで拡張している。Node.js API は、`Buffer` がサポートされる場所ではプレーンな [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) も受け付ける。\n\n`Buffer` クラスはグローバルスコープ内で利用できるが、それでも import または require 文で明示的に参照することが推奨される。\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Creates a zero-filled Buffer of length 10.\nconst buf1 = Buffer.alloc(10);\n\n// Creates a Buffer of length 10,\n// filled with bytes which all have the value `1`.\nconst buf2 = Buffer.alloc(10, 1);\n\n// Creates an uninitialized buffer of length 10.\n// This is faster than calling Buffer.alloc() but the returned\n// Buffer instance might contain old data that needs to be\n// overwritten using fill(), write(), or other functions that fill the Buffer's\n// contents.\nconst buf3 = Buffer.allocUnsafe(10);\n\n// Creates a Buffer containing the bytes [1, 2, 3].\nconst buf4 = Buffer.from([1, 2, 3]);\n\n// Creates a Buffer containing the bytes [1, 1, 1, 1] – the entries\n// are all truncated using `(value &#x26; 255)` to fit into the range 0–255.\nconst buf5 = Buffer.from([257, 257.5, -255, '1']);\n\n// Creates a Buffer containing the UTF-8-encoded bytes for the string 'tést':\n// [0x74, 0xc3, 0xa9, 0x73, 0x74] (in hexadecimal notation)\n// [116, 195, 169, 115, 116] (in decimal notation)\nconst buf6 = Buffer.from('tést');\n\n// Creates a Buffer containing the Latin-1 bytes [0x74, 0xe9, 0x73, 0x74].\nconst buf7 = Buffer.from('tést', 'latin1');\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer",
+      "lang": "ja"
+    },
+    "4b1cac8e": {
+      "original": "A `Blob` encapsulates immutable, raw data that can be safely shared across\nmultiple worker threads.",
+      "translated": "`Blob` は、複数のワーカースレッド間で安全に共有できる、不変の生データをカプセル化する。",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob",
+      "lang": "ja"
+    },
+    "ab4663f4": {
+      "original": "Creates a new `Blob` object containing a concatenation of the given sources.\n\n{ArrayBuffer}, {TypedArray}, {DataView}, and {Buffer} sources are copied into\nthe 'Blob' and can therefore be safely modified after the 'Blob' is created.\n\nString sources are also copied into the `Blob`.",
+      "translated": "指定したソースを連結した内容を含む新しい `Blob` オブジェクトを作成する。\n\n{ArrayBuffer}・{TypedArray}・{DataView}・{Buffer} のソースは 'Blob' にコピーされるため、'Blob' の作成後に安全に変更できる。\n\n文字列のソースも `Blob` にコピーされる。",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob",
+      "lang": "ja"
+    },
+    "a7eecfa8": {
+      "original": "Returns a promise that fulfills with an [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) containing a copy of\nthe `Blob` data.",
+      "translated": "`Blob` データのコピーを含む [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) で履行される promise を返す。",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob.arrayBuffer",
+      "lang": "ja"
+    },
+    "fb54e98f": {
+      "original": "The total size of the `Blob` in bytes.",
+      "translated": "`Blob` の合計サイズ(バイト単位)。",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob.size",
+      "lang": "ja"
+    },
+    "7a1c4828": {
+      "original": "Creates and returns a new `Blob` containing a subset of this `Blob` objects\ndata. The original `Blob` is not altered.",
+      "translated": "この `Blob` オブジェクトのデータの部分集合を含む新しい `Blob` を作成して返す。元の `Blob` は変更されない。",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob.slice",
+      "lang": "ja"
+    },
+    "a46b3019": {
+      "original": "The content-type for the new `Blob`",
+      "translated": "新しい `Blob` の content-type",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob.slice",
+      "lang": "ja"
+    },
+    "70264fe5": {
+      "original": "The ending index.",
+      "translated": "終了インデックス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob.slice",
+      "lang": "ja"
+    },
+    "a36af4b9": {
+      "original": "The starting index.",
+      "translated": "開始インデックス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob.slice",
+      "lang": "ja"
+    },
+    "d8eb4692": {
+      "original": "Returns a new `ReadableStream` that allows the content of the `Blob` to be read.",
+      "translated": "`Blob` の内容を読めるようにする新しい `ReadableStream` を返す。",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob.stream",
+      "lang": "ja"
+    },
+    "2794c9fa": {
+      "original": "Returns a promise that fulfills with the contents of the `Blob` decoded as a\nUTF-8 string.",
+      "translated": "UTF-8 文字列としてデコードした `Blob` の内容で履行される promise を返す。",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob.text",
+      "lang": "ja"
+    },
+    "3aed6625": {
+      "original": "The content-type of the `Blob`.",
+      "translated": "`Blob` の content-type。",
+      "symbol": "@types/node/buffer.d.ts#buffer.Blob.type",
+      "lang": "ja"
+    },
+    "e9aed081": {
+      "original": "One of either `'transparent'` or `'native'`. When set to `'native'`, line endings in string source parts\nwill be converted to the platform native line-ending as specified by `import { EOL } from 'node:os'`.",
+      "translated": "`'transparent'` または `'native'` のいずれか。`'native'` に設定すると、文字列ソース部分の行末は、`import { EOL } from 'node:os'` で指定されるプラットフォームネイティブの行末に変換される。",
+      "symbol": "@types/node/buffer.d.ts#buffer.BlobOptions.endings",
+      "lang": "ja"
+    },
+    "7967fe44": {
+      "original": "The Blob content-type. The intent is for `type` to convey\nthe MIME media type of the data, however no validation of the type format\nis performed.",
+      "translated": "Blob の content-type。`type` はデータの MIME メディアタイプを伝えることを意図しているが、タイプ形式の検証は行われない。",
+      "symbol": "@types/node/buffer.d.ts#buffer.BlobOptions.type",
+      "lang": "ja"
+    },
+    "df82c080": {
+      "original": "A [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File) provides information about files.",
+      "translated": "[`File`](https://developer.mozilla.org/en-US/docs/Web/API/File) はファイルに関する情報を提供する。",
+      "symbol": "@types/node/buffer.d.ts#buffer.File",
+      "lang": "ja"
+    },
+    "1a8aedd4": {
+      "original": "The last modified date of the `File`.",
+      "translated": "`File` の最終更新日。",
+      "symbol": "@types/node/buffer.d.ts#buffer.File.lastModified",
+      "lang": "ja"
+    },
+    "54bd02d2": {
+      "original": "The name of the `File`.",
+      "translated": "`File` の名前。",
+      "symbol": "@types/node/buffer.d.ts#buffer.File.name",
+      "lang": "ja"
+    },
+    "7268288a": {
+      "original": "One of either `'transparent'` or `'native'`. When set to `'native'`, line endings in string source parts will be\nconverted to the platform native line-ending as specified by `import { EOL } from 'node:os'`.",
+      "translated": "`'transparent'` または `'native'` のいずれか。`'native'` に設定すると、文字列ソース部分の行末は、`import { EOL } from 'node:os'` で指定されるプラットフォームネイティブの行末に変換される。",
+      "symbol": "@types/node/buffer.d.ts#buffer.FileOptions.endings",
+      "lang": "ja"
+    },
+    "af669e8f": {
+      "original": "The last modified date of the file. `Default`: Date.now().",
+      "translated": "ファイルの最終更新日。`Default`: Date.now()。",
+      "symbol": "@types/node/buffer.d.ts#buffer.FileOptions.lastModified",
+      "lang": "ja"
+    },
+    "021725da": {
+      "original": "The File content-type.",
+      "translated": "File の content-type。",
+      "symbol": "@types/node/buffer.d.ts#buffer.FileOptions.type",
+      "lang": "ja"
+    },
+    "ac4ac879": {
+      "original": "Decodes a string of Base64-encoded data into bytes, and encodes those bytes\ninto a string using Latin-1 (ISO-8859-1).\n\nThe `data` may be any JavaScript-value that can be coerced into a string.\n\n**This function is only provided for compatibility with legacy web platform APIs**\n**and should never be used in new code, because they use strings to represent**\n**binary data and predate the introduction of typed arrays in JavaScript.**\n**For code running using Node.js APIs, converting between base64-encoded strings**\n**and binary data should be performed using `Buffer.from(str, 'base64')` and `buf.toString('base64')`.**",
+      "translated": "Base64 エンコードされたデータの文字列をバイトにデコードし、そのバイトを Latin-1(ISO-8859-1)を使って文字列にエンコードする。\n\n`data` は文字列に強制変換できる任意の JavaScript 値でよい。\n\n**この関数はレガシーな Web プラットフォーム API との互換性のためだけに提供されており、新しいコードでは決して使うべきではない。これらは文字列でバイナリデータを表現し、JavaScript に型付き配列が導入される前のものだからである。Node.js API を使って実行されるコードでは、base64 エンコードされた文字列とバイナリデータの相互変換は `Buffer.from(str, 'base64')` と `buf.toString('base64')` を使って行うべきである。**",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.atob",
+      "lang": "ja"
+    },
+    "3969c254": {
+      "original": "The Base64-encoded input string.",
+      "translated": "Base64 エンコードされた入力文字列。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.atob",
+      "lang": "ja"
+    },
+    "96bc63b5": {
+      "original": "Use `Buffer.from(data, 'base64')` instead.",
+      "translated": "代わりに `Buffer.from(data, 'base64')` を使うこと。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.atob",
+      "lang": "ja"
+    },
+    "8f436058": {
+      "original": "`Blob` class is a global reference for `import { Blob } from 'node:buffer'`\nhttps://nodejs.org/api/buffer.html#class-blob",
+      "translated": "`Blob` クラスは `import { Blob } from 'node:buffer'` のグローバル参照である\nhttps://nodejs.org/api/buffer.html#class-blob",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Blob",
+      "lang": "ja"
+    },
+    "472603f3": {
+      "original": "An ASCII (Latin1) string.",
+      "translated": "ASCII(Latin1)文字列。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.btoa",
+      "lang": "ja"
+    },
+    "baa392ce": {
+      "original": "Decodes a string into bytes using Latin-1 (ISO-8859), and encodes those bytes\ninto a string using Base64.\n\nThe `data` may be any JavaScript-value that can be coerced into a string.\n\n**This function is only provided for compatibility with legacy web platform APIs**\n**and should never be used in new code, because they use strings to represent**\n**binary data and predate the introduction of typed arrays in JavaScript.**\n**For code running using Node.js APIs, converting between base64-encoded strings**\n**and binary data should be performed using `Buffer.from(str, 'base64')` and `buf.toString('base64')`.**",
+      "translated": "文字列を Latin-1(ISO-8859)を使ってバイトにデコードし、そのバイトを Base64 を使って文字列にエンコードする。\n\n`data` は文字列に強制変換できる任意の JavaScript 値でよい。\n\n**この関数はレガシーな Web プラットフォーム API との互換性のためだけに提供されており、新しいコードでは決して使うべきではない。これらは文字列でバイナリデータを表現し、JavaScript に型付き配列が導入される前のものだからである。Node.js API を使って実行されるコードでは、base64 エンコードされた文字列とバイナリデータの相互変換は `Buffer.from(str, 'base64')` と `buf.toString('base64')` を使って行うべきである。**",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.btoa",
+      "lang": "ja"
+    },
+    "9a1de997": {
+      "original": "Use `buf.toString('base64')` instead.",
+      "translated": "代わりに `buf.toString('base64')` を使うこと。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.btoa",
+      "lang": "ja"
+    },
+    "a61c186d": {
+      "original": "Compares `buf` with `target` and returns a number indicating whether `buf`comes before, after, or is the same as `target` in sort order.\nComparison is based on the actual sequence of bytes in each `Buffer`.\n\n* `0` is returned if `target` is the same as `buf`\n* `1` is returned if `target` should come _before_`buf` when sorted.\n* `-1` is returned if `target` should come _after_`buf` when sorted.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from('ABC');\nconst buf2 = Buffer.from('BCD');\nconst buf3 = Buffer.from('ABCD');\n\nconsole.log(buf1.compare(buf1));\n// Prints: 0\nconsole.log(buf1.compare(buf2));\n// Prints: -1\nconsole.log(buf1.compare(buf3));\n// Prints: -1\nconsole.log(buf2.compare(buf1));\n// Prints: 1\nconsole.log(buf2.compare(buf3));\n// Prints: 1\nconsole.log([buf1, buf2, buf3].sort(Buffer.compare));\n// Prints: [ <Buffer 41 42 43>, <Buffer 41 42 43 44>, <Buffer 42 43 44> ]\n// (This result is equal to: [buf1, buf3, buf2].)\n```\n\nThe optional `targetStart`, `targetEnd`, `sourceStart`, and `sourceEnd` arguments can be used to limit the comparison to specific ranges within `target` and `buf` respectively.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from([1, 2, 3, 4, 5, 6, 7, 8, 9]);\nconst buf2 = Buffer.from([5, 6, 7, 8, 9, 1, 2, 3, 4]);\n\nconsole.log(buf1.compare(buf2, 5, 9, 0, 4));\n// Prints: 0\nconsole.log(buf1.compare(buf2, 0, 6, 4));\n// Prints: -1\nconsole.log(buf1.compare(buf2, 5, 6, 5));\n// Prints: 1\n```\n\n`ERR_OUT_OF_RANGE` is thrown if `targetStart < 0`, `sourceStart < 0`, `targetEnd > target.byteLength`, or `sourceEnd > source.byteLength`.",
+      "translated": "`buf` を `target` と比較し、ソート順で `buf` が `target` より前・後・同じのどれになるかを示す数値を返す。比較は各 `Buffer` の実際のバイト列に基づく。\n\n* `target` が `buf` と同じ場合は `0` が返される\n* ソート時に `target` が `buf` より_前_に来るべき場合は `1` が返される。\n* ソート時に `target` が `buf` より_後_に来るべき場合は `-1` が返される。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from('ABC');\nconst buf2 = Buffer.from('BCD');\nconst buf3 = Buffer.from('ABCD');\n\nconsole.log(buf1.compare(buf1));\n// Prints: 0\nconsole.log(buf1.compare(buf2));\n// Prints: -1\nconsole.log(buf1.compare(buf3));\n// Prints: -1\nconsole.log(buf2.compare(buf1));\n// Prints: 1\nconsole.log(buf2.compare(buf3));\n// Prints: 1\nconsole.log([buf1, buf2, buf3].sort(Buffer.compare));\n// Prints: [ <Buffer 41 42 43>, <Buffer 41 42 43 44>, <Buffer 42 43 44> ]\n// (This result is equal to: [buf1, buf3, buf2].)\n```\n\n省略可能な `targetStart`・`targetEnd`・`sourceStart`・`sourceEnd` 引数を使うと、比較をそれぞれ `target` と `buf` 内の特定の範囲に限定できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from([1, 2, 3, 4, 5, 6, 7, 8, 9]);\nconst buf2 = Buffer.from([5, 6, 7, 8, 9, 1, 2, 3, 4]);\n\nconsole.log(buf1.compare(buf2, 5, 9, 0, 4));\n// Prints: 0\nconsole.log(buf1.compare(buf2, 0, 6, 4));\n// Prints: -1\nconsole.log(buf1.compare(buf2, 5, 6, 5));\n// Prints: 1\n```\n\n`targetStart < 0`、`sourceStart < 0`、`targetEnd > target.byteLength`、`sourceEnd > source.byteLength` の場合、`ERR_OUT_OF_RANGE` が投げられる。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.compare",
+      "lang": "ja"
+    },
+    "16f4b9ae": {
+      "original": "The offset within `buf` at which to begin comparison.",
+      "translated": "`buf` 内で比較を開始するオフセット。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.compare",
+      "lang": "ja"
+    },
+    "0e9b648e": {
+      "original": "The offset within `buf` at which to end comparison (not inclusive).",
+      "translated": "`buf` 内で比較を終了するオフセット(含まない)。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.compare",
+      "lang": "ja"
+    },
+    "54c31475": {
+      "original": "The offset within `target` at which to begin comparison.",
+      "translated": "`target` 内で比較を開始するオフセット。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.compare",
+      "lang": "ja"
+    },
+    "06bd2f61": {
+      "original": "The offset within `target` at which to end comparison (not inclusive).",
+      "translated": "`target` 内で比較を終了するオフセット(含まない)。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.compare",
+      "lang": "ja"
+    },
+    "e88739fc": {
+      "original": "A `Buffer` or {@link Uint8Array} to copy into.",
+      "translated": "コピー先の `Buffer` または {@link Uint8Array}。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.copy",
+      "lang": "ja"
+    },
+    "85a1d267": {
+      "original": "Copies data from a region of `buf` to a region in `target`, even if the `target`memory region overlaps with `buf`.\n\n[`TypedArray.prototype.set()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/set) performs the same operation, and is available\nfor all TypedArrays, including Node.js `Buffer`s, although it takes\ndifferent function arguments.\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Create two `Buffer` instances.\nconst buf1 = Buffer.allocUnsafe(26);\nconst buf2 = Buffer.allocUnsafe(26).fill('!');\n\nfor (let i = 0; i < 26; i++) {\n  // 97 is the decimal ASCII value for 'a'.\n  buf1[i] = i + 97;\n}\n\n// Copy `buf1` bytes 16 through 19 into `buf2` starting at byte 8 of `buf2`.\nbuf1.copy(buf2, 8, 16, 20);\n// This is equivalent to:\n// buf2.set(buf1.subarray(16, 20), 8);\n\nconsole.log(buf2.toString('ascii', 0, 25));\n// Prints: !!!!!!!!qrst!!!!!!!!!!!!!\n```\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Create a `Buffer` and copy data from one region to an overlapping region\n// within the same `Buffer`.\n\nconst buf = Buffer.allocUnsafe(26);\n\nfor (let i = 0; i < 26; i++) {\n  // 97 is the decimal ASCII value for 'a'.\n  buf[i] = i + 97;\n}\n\nbuf.copy(buf, 0, 4, 10);\n\nconsole.log(buf.toString());\n// Prints: efghijghijklmnopqrstuvwxyz\n```",
+      "translated": "`buf` のある領域から `target` のある領域へデータをコピーする。`target` のメモリ領域が `buf` と重なっていてもコピーする。\n\n[`TypedArray.prototype.set()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/set) は同じ操作を行い、Node.js の `Buffer` を含むすべての TypedArray で利用できる。ただし異なる関数引数を取る。\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Create two `Buffer` instances.\nconst buf1 = Buffer.allocUnsafe(26);\nconst buf2 = Buffer.allocUnsafe(26).fill('!');\n\nfor (let i = 0; i < 26; i++) {\n  // 97 is the decimal ASCII value for 'a'.\n  buf1[i] = i + 97;\n}\n\n// Copy `buf1` bytes 16 through 19 into `buf2` starting at byte 8 of `buf2`.\nbuf1.copy(buf2, 8, 16, 20);\n// This is equivalent to:\n// buf2.set(buf1.subarray(16, 20), 8);\n\nconsole.log(buf2.toString('ascii', 0, 25));\n// Prints: !!!!!!!!qrst!!!!!!!!!!!!!\n```\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Create a `Buffer` and copy data from one region to an overlapping region\n// within the same `Buffer`.\n\nconst buf = Buffer.allocUnsafe(26);\n\nfor (let i = 0; i < 26; i++) {\n  // 97 is the decimal ASCII value for 'a'.\n  buf[i] = i + 97;\n}\n\nbuf.copy(buf, 0, 4, 10);\n\nconsole.log(buf.toString());\n// Prints: efghijghijklmnopqrstuvwxyz\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.copy",
+      "lang": "ja"
+    },
+    "6dc077f3": {
+      "original": "The number of bytes copied.",
+      "translated": "コピーされたバイト数。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.copy",
+      "lang": "ja"
+    },
+    "00ef031d": {
+      "original": "The offset within `buf` at which to stop copying (not inclusive).",
+      "translated": "`buf` 内でコピーを停止するオフセット(含まない)。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.copy",
+      "lang": "ja"
+    },
+    "3d47b29a": {
+      "original": "The offset within `buf` from which to begin copying.",
+      "translated": "`buf` 内でコピーを開始するオフセット。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.copy",
+      "lang": "ja"
+    },
+    "e3be288f": {
+      "original": "The offset within `target` at which to begin writing.",
+      "translated": "`target` 内で書き込みを開始するオフセット。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.copy",
+      "lang": "ja"
+    },
+    "deb8346d": {
+      "original": "A `Buffer` or {@link Uint8Array} with which to compare `buf`.",
+      "translated": "`buf` と比較する `Buffer` または {@link Uint8Array}。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.equals",
+      "lang": "ja"
+    },
     "ebe23990": {
       "original": "A unique identifier for the warning instance being emitted.",
       "translated": "発生させる警告インスタンスの一意な識別子。",
