@@ -28,6 +28,12 @@
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.typescript",
       "lang": "ja"
     },
+    "23911876": {
+      "original": "Passing `chunk` as `null` signals the end of the stream (EOF) and behaves the\nsame as `readable.push(null)`, after which no more data can be written. The EOF\nsignal is put at the end of the buffer and any buffered data will still be\nflushed.\n\nThe `readable.unshift()` method pushes a chunk of data back into the internal\nbuffer. This is useful in certain situations where a stream is being consumed by\ncode that needs to \"un-consume\" some amount of data that it has optimistically\npulled out of the source, so that the data can be passed on to some other party.\n\nThe `stream.unshift(chunk)` method cannot be called after the `'end'` event\nhas been emitted or a runtime error will be thrown.\n\nDevelopers using `stream.unshift()` often should consider switching to\nuse of a `Transform` stream instead. See the `API for stream implementers` section for more information.\n\n```js\n// Pull off a header delimited by \\n\\n.\n// Use unshift() if we get too much.\n// Call the callback with (error, header, stream).\nimport { StringDecoder } from 'node:string_decoder';\nfunction parseHeader(stream, callback) {\n  stream.on('error', callback);\n  stream.on('readable', onReadable);\n  const decoder = new StringDecoder('utf8');\n  let header = '';\n  function onReadable() {\n    let chunk;\n    while (null !== (chunk = stream.read())) {\n      const str = decoder.write(chunk);\n      if (str.includes('\\n\\n')) {\n        // Found the header boundary.\n        const split = str.split(/\\n\\n/);\n        header += split.shift();\n        const remaining = split.join('\\n\\n');\n        const buf = Buffer.from(remaining, 'utf8');\n        stream.removeListener('error', callback);\n        // Remove the 'readable' listener before unshifting.\n        stream.removeListener('readable', onReadable);\n        if (buf.length)\n          stream.unshift(buf);\n        // Now the body of the message can be read from the stream.\n        callback(null, header, stream);\n        return;\n      }\n      // Still reading the header.\n      header += str;\n    }\n  }\n}\n```\n\nUnlike {@link push}, `stream.unshift(chunk)` will not\nend the reading process by resetting the internal reading state of the stream.\nThis can cause unexpected results if `readable.unshift()` is called during a\nread (i.e. from within a {@link _read} implementation on a\ncustom stream). Following the call to `readable.unshift()` with an immediate {@link push} will reset the reading state appropriately,\nhowever it is best to simply avoid calling `readable.unshift()` while in the\nprocess of performing a read.",
+      "translated": "`chunk` を `null` として渡すとストリームの終了(EOF)を通知し、`readable.push(null)` と同じように動作する。それ以降はデータを書き込めなくなる。EOF 信号はバッファの末尾に置かれ、バッファリングされたデータはそれでもフラッシュされる。\n\n`readable.unshift()` メソッドは、データのチャンクを内部バッファに戻す。これは、ストリームを消費するコードが、ソースから楽観的に取り出した一定量のデータを「消費し直す(un-consume)」必要があり、そのデータを別の当事者に渡せるようにする特定の状況で役立つ。\n\n`stream.unshift(chunk)` メソッドは、`'end'` イベントが発行された後には呼べない。呼ぶと実行時エラーが投げられる。\n\n`stream.unshift()` を頻繁に使う開発者は、代わりに `Transform` ストリームの使用への切り替えを検討すべきである。詳細は `API for stream implementers` セクションを参照。\n\n```js\n// Pull off a header delimited by \\n\\n.\n// Use unshift() if we get too much.\n// Call the callback with (error, header, stream).\nimport { StringDecoder } from 'node:string_decoder';\nfunction parseHeader(stream, callback) {\n  stream.on('error', callback);\n  stream.on('readable', onReadable);\n  const decoder = new StringDecoder('utf8');\n  let header = '';\n  function onReadable() {\n    let chunk;\n    while (null !== (chunk = stream.read())) {\n      const str = decoder.write(chunk);\n      if (str.includes('\\n\\n')) {\n        // Found the header boundary.\n        const split = str.split(/\\n\\n/);\n        header += split.shift();\n        const remaining = split.join('\\n\\n');\n        const buf = Buffer.from(remaining, 'utf8');\n        stream.removeListener('error', callback);\n        // Remove the 'readable' listener before unshifting.\n        stream.removeListener('readable', onReadable);\n        if (buf.length)\n          stream.unshift(buf);\n        // Now the body of the message can be read from the stream.\n        callback(null, header, stream);\n        return;\n      }\n      // Still reading the header.\n      header += str;\n    }\n  }\n}\n```\n\n{@link push} とは異なり、`stream.unshift(chunk)` はストリームの内部読み取り状態をリセットして読み取り処理を終了させることはない。これは、読み取り中(すなわちカスタムストリームの {@link _read} 実装内)に `readable.unshift()` が呼ばれると予期しない結果を引き起こすことがある。`readable.unshift()` の呼び出しの直後に {@link push} を続けると読み取り状態が適切にリセットされるが、読み取りを実行している最中は単に `readable.unshift()` の呼び出しを避けるのが最善である。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.unshift",
+      "lang": "ja"
+    },
     "26287846": {
       "original": "The value will be `true` if the decoding result will include the byte order\nmark.",
       "translated": "デコード結果にバイトオーダーマークが含まれる場合、値は `true` になる。",
@@ -3062,6 +3068,234 @@
       "original": "A utility method for creating a web `ReadableStream` from a `Readable`.",
       "translated": "`Readable` から web の `ReadableStream` を作成するためのユーティリティメソッド。",
       "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.toWeb",
+      "lang": "ja"
+    },
+    "3cb0eb03": {
+      "original": "Optional specific stream to unpipe",
+      "translated": "unpipe する特定のストリーム(省略可能)",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.unpipe",
+      "lang": "ja"
+    },
+    "7872d3eb": {
+      "original": "The `readable.unpipe()` method detaches a `Writable` stream previously attached\nusing the {@link pipe} method.\n\nIf the `destination` is not specified, then _all_ pipes are detached.\n\nIf the `destination` is specified, but no pipe is set up for it, then\nthe method does nothing.\n\n```js\nimport fs from 'node:fs';\nconst readable = getReadableStreamSomehow();\nconst writable = fs.createWriteStream('file.txt');\n// All the data from readable goes into 'file.txt',\n// but only for the first second.\nreadable.pipe(writable);\nsetTimeout(() => {\n  console.log('Stop writing to file.txt.');\n  readable.unpipe(writable);\n  console.log('Manually close the file stream.');\n  writable.end();\n}, 1000);\n```",
+      "translated": "`readable.unpipe()` メソッドは、以前 {@link pipe} メソッドを使って取り付けた `Writable` ストリームを取り外す。\n\n`destination` が指定されない場合、_すべて_のパイプが取り外される。\n\n`destination` が指定されているが、それに対するパイプが設定されていない場合、このメソッドは何もしない。\n\n```js\nimport fs from 'node:fs';\nconst readable = getReadableStreamSomehow();\nconst writable = fs.createWriteStream('file.txt');\n// All the data from readable goes into 'file.txt',\n// but only for the first second.\nreadable.pipe(writable);\nsetTimeout(() => {\n  console.log('Stop writing to file.txt.');\n  readable.unpipe(writable);\n  console.log('Manually close the file stream.');\n  writable.end();\n}, 1000);\n```",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.unpipe",
+      "lang": "ja"
+    },
+    "0c3c9b83": {
+      "original": "Chunk of data to unshift onto the read queue. For streams not operating in object mode, `chunk` must\nbe a {string}, {Buffer}, {TypedArray}, {DataView} or `null`. For object mode streams, `chunk` may be any JavaScript value.",
+      "translated": "読み取りキューに unshift するデータのチャンク。オブジェクトモードで動作していないストリームでは、`chunk` は {string}・{Buffer}・{TypedArray}・{DataView}・`null` のいずれかでなければならない。オブジェクトモードのストリームでは、`chunk` は任意の JavaScript 値でよい。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.unshift",
+      "lang": "ja"
+    },
+    "638ebe3f": {
+      "original": "Encoding of string chunks. Must be a valid `Buffer` encoding, such as `'utf8'` or `'ascii'`.",
+      "translated": "文字列チャンクのエンコーディング。`'utf8'` や `'ascii'` などの有効な `Buffer` エンコーディングでなければならない。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.unshift",
+      "lang": "ja"
+    },
+    "236835b2": {
+      "original": "An \"old style\" readable stream",
+      "translated": "「旧スタイル」の読み取り可能ストリーム",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.wrap",
+      "lang": "ja"
+    },
+    "acf4872f": {
+      "original": "Prior to Node.js 0.10, streams did not implement the entire `node:stream` module API as it is currently defined. (See `Compatibility` for more\ninformation.)\n\nWhen using an older Node.js library that emits `'data'` events and has a {@link pause} method that is advisory only, the `readable.wrap()` method can be used to create a `Readable`\nstream that uses\nthe old stream as its data source.\n\nIt will rarely be necessary to use `readable.wrap()` but the method has been\nprovided as a convenience for interacting with older Node.js applications and\nlibraries.\n\n```js\nimport { OldReader } from './old-api-module.js';\nimport { Readable } from 'node:stream';\nconst oreader = new OldReader();\nconst myReader = new Readable().wrap(oreader);\n\nmyReader.on('readable', () => {\n  myReader.read(); // etc.\n});\n```",
+      "translated": "Node.js 0.10 より前は、ストリームは現在定義されているような `node:stream` モジュール API 全体を実装していなかった。(詳細は `Compatibility` を参照。)\n\n`'data'` イベントを発行し、勧告的にすぎない {@link pause} メソッドを持つ古い Node.js ライブラリを使う場合、`readable.wrap()` メソッドを使って、その古いストリームをデータソースとして使う `Readable` ストリームを作成できる。\n\n`readable.wrap()` を使う必要があることはめったにないが、古い Node.js アプリケーションやライブラリとやり取りする便宜として提供されている。\n\n```js\nimport { OldReader } from './old-api-module.js';\nimport { Readable } from 'node:stream';\nconst oreader = new OldReader();\nconst myReader = new Readable().wrap(oreader);\n\nmyReader.on('readable', () => {\n  myReader.read(); // etc.\n});\n```",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.wrap",
+      "lang": "ja"
+    },
+    "ebd9d5d0": {
+      "original": "highWaterMark value",
+      "translated": "highWaterMark の値",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.setDefaultHighWaterMark",
+      "lang": "ja"
+    },
+    "fe573274": {
+      "original": "Sets the default highWaterMark used by streams.",
+      "translated": "ストリームが使う既定の highWaterMark を設定する。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.setDefaultHighWaterMark",
+      "lang": "ja"
+    },
+    "a6d7cb8a": {
+      "original": "Transform streams are `Duplex` streams where the output is in some way\nrelated to the input. Like all `Duplex` streams, `Transform` streams\nimplement both the `Readable` and `Writable` interfaces.\n\nExamples of `Transform` streams include:\n\n* `zlib streams`\n* `crypto streams`",
+      "translated": "Transform ストリームは、出力が何らかの形で入力に関連する `Duplex` ストリームである。すべての `Duplex` ストリームと同様に、`Transform` ストリームは `Readable` と `Writable` の両方のインターフェースを実装する。\n\n`Transform` ストリームの例:\n\n* `zlib ストリーム`\n* `crypto ストリーム`",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Transform",
+      "lang": "ja"
+    },
+    "134fa9f2": {
+      "original": "Event emitter\nThe defined events on documents including:\n1. close\n2. drain\n3. error\n4. finish\n5. pipe\n6. unpipe",
+      "translated": "イベント emitter\nドキュメント上で定義されているイベント:\n1. close\n2. drain\n3. error\n4. finish\n5. pipe\n6. unpipe",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.addListener",
+      "lang": "ja"
+    },
+    "95f14458": {
+      "original": "The `writable.cork()` method forces all written data to be buffered in memory.\nThe buffered data will be flushed when either the {@link uncork} or {@link end} methods are called.\n\nThe primary intent of `writable.cork()` is to accommodate a situation in which\nseveral small chunks are written to the stream in rapid succession. Instead of\nimmediately forwarding them to the underlying destination, `writable.cork()` buffers all the chunks until `writable.uncork()` is called, which will pass them\nall to `writable._writev()`, if present. This prevents a head-of-line blocking\nsituation where data is being buffered while waiting for the first small chunk\nto be processed. However, use of `writable.cork()` without implementing `writable._writev()` may have an adverse effect on throughput.\n\nSee also: `writable.uncork()`, `writable._writev()`.",
+      "translated": "`writable.cork()` メソッドは、書き込まれたすべてのデータをメモリにバッファリングさせる。バッファリングされたデータは、{@link uncork} または {@link end} メソッドのいずれかが呼ばれたときにフラッシュされる。\n\n`writable.cork()` の主な意図は、複数の小さなチャンクが立て続けにストリームに書き込まれる状況に対応することである。それらをすぐに元の宛先へ転送する代わりに、`writable.cork()` は `writable.uncork()` が呼ばれるまですべてのチャンクをバッファリングし、`writable._writev()` が存在すればそれらすべてをそこに渡す。これにより、最初の小さなチャンクが処理されるのを待つ間にデータがバッファリングされる head-of-line ブロッキングの状況を防ぐ。ただし、`writable._writev()` を実装せずに `writable.cork()` を使うと、スループットに悪影響を与えることがある。\n\n併せて参照: `writable.uncork()`・`writable._writev()`。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.cork",
+      "lang": "ja"
+    },
+    "4ee00a89": {
+      "original": "Destroy the stream. Optionally emit an `'error'` event, and emit a `'close'` event (unless `emitClose` is set to `false`). After this call, the writable\nstream has ended and subsequent calls to `write()` or `end()` will result in\nan `ERR_STREAM_DESTROYED` error.\nThis is a destructive and immediate way to destroy a stream. Previous calls to `write()` may not have drained, and may trigger an `ERR_STREAM_DESTROYED` error.\nUse `end()` instead of destroy if data should flush before close, or wait for\nthe `'drain'` event before destroying the stream.\n\nOnce `destroy()` has been called any further calls will be a no-op and no\nfurther errors except from `_destroy()` may be emitted as `'error'`.\n\nImplementors should not override this method,\nbut instead implement `writable._destroy()`.",
+      "translated": "ストリームを破棄する。任意で `'error'` イベントを発行し、`'close'` イベントを発行する(`emitClose` が `false` に設定されている場合を除く)。この呼び出しの後、書き込み可能ストリームは終了し、以降の `write()` や `end()` の呼び出しは `ERR_STREAM_DESTROYED` エラーになる。\nこれはストリームを破棄する破壊的で即座な方法である。以前の `write()` の呼び出しがまだ排出されておらず、`ERR_STREAM_DESTROYED` エラーを引き起こすことがある。クローズ前にデータをフラッシュすべき場合は destroy の代わりに `end()` を使うか、ストリームを破棄する前に `'drain'` イベントを待つこと。\n\nいったん `destroy()` が呼ばれると、それ以降の呼び出しは no-op になり、`_destroy()` 由来を除いてそれ以上のエラーは `'error'` として発行されない。\n\n実装者はこのメソッドをオーバーライドせず、代わりに `writable._destroy()` を実装すべきである。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.destroy",
+      "lang": "ja"
+    },
+    "267c7007": {
+      "original": "Optional, an error to emit with `'error'` event.",
+      "translated": "任意で、`'error'` イベントとともに発行するエラー。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.destroy",
+      "lang": "ja"
+    },
+    "a54de34d": {
+      "original": "Is `true` after `writable.destroy()` has been called.",
+      "translated": "`writable.destroy()` が呼ばれた後は `true` になる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.destroyed",
+      "lang": "ja"
+    },
+    "4885b98b": {
+      "original": "Callback for when the stream is finished.",
+      "translated": "ストリームが終了したときのためのコールバック。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.end",
+      "lang": "ja"
+    },
+    "d1b05afe": {
+      "original": "Calling the `writable.end()` method signals that no more data will be written\nto the `Writable`. The optional `chunk` and `encoding` arguments allow one\nfinal additional chunk of data to be written immediately before closing the\nstream.\n\nCalling the {@link write} method after calling {@link end} will raise an error.\n\n```js\n// Write 'hello, ' and then end with 'world!'.\nimport fs from 'node:fs';\nconst file = fs.createWriteStream('example.txt');\nfile.write('hello, ');\nfile.end('world!');\n// Writing more now is not allowed!\n```",
+      "translated": "`writable.end()` メソッドを呼ぶと、`Writable` にそれ以上データが書き込まれないことを通知する。省略可能な `chunk` と `encoding` 引数を使うと、ストリームを閉じる直前に最後にもう 1 つのデータチャンクを書き込める。\n\n{@link end} を呼んだ後に {@link write} メソッドを呼ぶとエラーが発生する。\n\n```js\n// Write 'hello, ' and then end with 'world!'.\nimport fs from 'node:fs';\nconst file = fs.createWriteStream('example.txt');\nfile.write('hello, ');\nfile.end('world!');\n// Writing more now is not allowed!\n```",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.end",
+      "lang": "ja"
+    },
+    "b7cba5d8": {
+      "original": "Signals that no more data will be written, with one final chunk of data.",
+      "translated": "最後のデータチャンクとともに、それ以上データが書き込まれないことを通知する。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.end",
+      "lang": "ja"
+    },
+    "e149a0d5": {
+      "original": "The encoding if `chunk` is a string",
+      "translated": "`chunk` が文字列の場合のエンコーディング",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.end",
+      "lang": "ja"
+    },
+    "f31c1bdc": {
+      "original": "A utility method for creating a `Writable` from a web `WritableStream`.",
+      "translated": "web の `WritableStream` から `Writable` を作成するためのユーティリティメソッド。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.fromWeb",
+      "lang": "ja"
+    },
+    "a6465f76": {
+      "original": "The `writable.setDefaultEncoding()` method sets the default `encoding` for a `Writable` stream.",
+      "translated": "`writable.setDefaultEncoding()` メソッドは、`Writable` ストリームの既定の `encoding` を設定する。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.setDefaultEncoding",
+      "lang": "ja"
+    },
+    "fe4a2455": {
+      "original": "The new default encoding",
+      "translated": "新しい既定のエンコーディング",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.setDefaultEncoding",
+      "lang": "ja"
+    },
+    "b43918bd": {
+      "original": "A utility method for creating a web `WritableStream` from a `Writable`.",
+      "translated": "`Writable` から web の `WritableStream` を作成するためのユーティリティメソッド。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.toWeb",
+      "lang": "ja"
+    },
+    "3eff6da6": {
+      "original": "The `writable.uncork()` method flushes all data buffered since {@link cork} was called.\n\nWhen using `writable.cork()` and `writable.uncork()` to manage the buffering\nof writes to a stream, defer calls to `writable.uncork()` using `process.nextTick()`. Doing so allows batching of all `writable.write()` calls that occur within a given Node.js event\nloop phase.\n\n```js\nstream.cork();\nstream.write('some ');\nstream.write('data ');\nprocess.nextTick(() => stream.uncork());\n```\n\nIf the `writable.cork()` method is called multiple times on a stream, the\nsame number of calls to `writable.uncork()` must be called to flush the buffered\ndata.\n\n```js\nstream.cork();\nstream.write('some ');\nstream.cork();\nstream.write('data ');\nprocess.nextTick(() => {\n  stream.uncork();\n  // The data will not be flushed until uncork() is called a second time.\n  stream.uncork();\n});\n```\n\nSee also: `writable.cork()`.",
+      "translated": "`writable.uncork()` メソッドは、{@link cork} が呼ばれてからバッファリングされたすべてのデータをフラッシュする。\n\n`writable.cork()` と `writable.uncork()` を使ってストリームへの書き込みのバッファリングを管理する場合、`process.nextTick()` を使って `writable.uncork()` の呼び出しを遅延させること。そうすることで、特定の Node.js イベントループフェーズ内で発生するすべての `writable.write()` 呼び出しをバッチ化できる。\n\n```js\nstream.cork();\nstream.write('some ');\nstream.write('data ');\nprocess.nextTick(() => stream.uncork());\n```\n\n`writable.cork()` メソッドがストリームに対して複数回呼ばれた場合、バッファリングされたデータをフラッシュするには同じ回数だけ `writable.uncork()` を呼ばなければならない。\n\n```js\nstream.cork();\nstream.write('some ');\nstream.cork();\nstream.write('data ');\nprocess.nextTick(() => {\n  stream.uncork();\n  // The data will not be flushed until uncork() is called a second time.\n  stream.uncork();\n});\n```\n\n併せて参照: `writable.cork()`。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.uncork",
+      "lang": "ja"
+    },
+    "e849246e": {
+      "original": "Is `true` if it is safe to call `writable.write()`, which means\nthe stream has not been destroyed, errored, or ended.",
+      "translated": "`writable.write()` を呼んでも安全な場合、すなわちストリームが破棄・エラー・終了していない場合は `true` になる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.writable",
+      "lang": "ja"
+    },
+    "5941b362": {
+      "original": "Returns whether the stream was destroyed or errored before emitting `'finish'`.",
+      "translated": "ストリームが `'finish'` を発行する前に破棄されたか、エラーになったかを返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.writableAborted",
+      "lang": "ja"
+    },
+    "a57de0c6": {
+      "original": "Number of times `writable.uncork()` needs to be\ncalled in order to fully uncork the stream.",
+      "translated": "ストリームを完全に uncork するために `writable.uncork()` を呼ぶ必要がある回数。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.writableCorked",
+      "lang": "ja"
+    },
+    "74483aec": {
+      "original": "Is `true` after `writable.end()` has been called. This property\ndoes not indicate whether the data has been flushed, for this use `writable.writableFinished` instead.",
+      "translated": "`writable.end()` が呼ばれた後は `true` になる。このプロパティはデータがフラッシュされたかどうかを示すものではなく、それには代わりに `writable.writableFinished` を使うこと。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.writableEnded",
+      "lang": "ja"
+    },
+    "fc52f2a0": {
+      "original": "Is set to `true` immediately before the `'finish'` event is emitted.",
+      "translated": "`'finish'` イベントが発行される直前に `true` に設定される。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.writableFinished",
+      "lang": "ja"
+    },
+    "919f671f": {
+      "original": "Return the value of `highWaterMark` passed when creating this `Writable`.",
+      "translated": "この `Writable` を作成するときに渡された `highWaterMark` の値を返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.writableHighWaterMark",
+      "lang": "ja"
+    },
+    "ef2b0dde": {
+      "original": "This property contains the number of bytes (or objects) in the queue\nready to be written. The value provides introspection data regarding\nthe status of the `highWaterMark`.",
+      "translated": "このプロパティは、書き込み準備ができてキューにあるバイト(またはオブジェクト)の数を含む。この値は `highWaterMark` の状態に関する内省データを提供する。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.writableLength",
+      "lang": "ja"
+    },
+    "07e6a7b9": {
+      "original": "Is `true` if the stream's buffer has been full and stream will emit `'drain'`.",
+      "translated": "ストリームのバッファが満杯になり、ストリームが `'drain'` を発行する場合は `true` になる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.writableNeedDrain",
+      "lang": "ja"
+    },
+    "72e75ced": {
+      "original": "Getter for the property `objectMode` of a given `Writable` stream.",
+      "translated": "指定した `Writable` ストリームの `objectMode` プロパティのゲッター。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.writableObjectMode",
+      "lang": "ja"
+    },
+    "a2252df1": {
+      "original": "`false` if the stream wishes for the calling code to wait for the `'drain'` event to be emitted before continuing to write additional data; otherwise `true`.",
+      "translated": "追加のデータを書き込み続ける前に、呼び出し側のコードに `'drain'` イベントが発行されるのを待ってほしいとストリームが望む場合は `false`、そうでなければ `true`。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.write",
+      "lang": "ja"
+    },
+    "c51c34fe": {
+      "original": "Callback for when this chunk of data is flushed.",
+      "translated": "このデータチャンクがフラッシュされたときのためのコールバック。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.write",
+      "lang": "ja"
+    },
+    "4e523bbf": {
+      "original": "Optional data to write. For streams not operating in object mode, `chunk` must be a {string}, {Buffer},\n{TypedArray} or {DataView}. For object mode streams, `chunk` may be any JavaScript value other than `null`.",
+      "translated": "書き込む省略可能なデータ。オブジェクトモードで動作していないストリームでは、`chunk` は {string}・{Buffer}・{TypedArray}・{DataView} のいずれかでなければならない。オブジェクトモードのストリームでは、`chunk` は `null` 以外の任意の JavaScript 値でよい。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.write",
+      "lang": "ja"
+    },
+    "3ddf34b6": {
+      "original": "The `writable.write()` method writes some data to the stream, and calls the\nsupplied `callback` once the data has been fully handled. If an error\noccurs, the `callback` will be called with the error as its\nfirst argument. The `callback` is called asynchronously and before `'error'` is\nemitted.\n\nThe return value is `true` if the internal buffer is less than the `highWaterMark` configured when the stream was created after admitting `chunk`.\nIf `false` is returned, further attempts to write data to the stream should\nstop until the `'drain'` event is emitted.\n\nWhile a stream is not draining, calls to `write()` will buffer `chunk`, and\nreturn false. Once all currently buffered chunks are drained (accepted for\ndelivery by the operating system), the `'drain'` event will be emitted.\nOnce `write()` returns false, do not write more chunks\nuntil the `'drain'` event is emitted. While calling `write()` on a stream that\nis not draining is allowed, Node.js will buffer all written chunks until\nmaximum memory usage occurs, at which point it will abort unconditionally.\nEven before it aborts, high memory usage will cause poor garbage collector\nperformance and high RSS (which is not typically released back to the system,\neven after the memory is no longer required). Since TCP sockets may never\ndrain if the remote peer does not read the data, writing a socket that is\nnot draining may lead to a remotely exploitable vulnerability.\n\nWriting data while the stream is not draining is particularly\nproblematic for a `Transform`, because the `Transform` streams are paused\nby default until they are piped or a `'data'` or `'readable'` event handler\nis added.\n\nIf the data to be written can be generated or fetched on demand, it is\nrecommended to encapsulate the logic into a `Readable` and use {@link pipe}. However, if calling `write()` is preferred, it is\npossible to respect backpressure and avoid memory issues using the `'drain'` event:\n\n```js\nfunction write(data, cb) {\n  if (!stream.write(data)) {\n    stream.once('drain', cb);\n  } else {\n    process.nextTick(cb);\n  }\n}\n\n// Wait for cb to be called before doing any other write.\nwrite('hello', () => {\n  console.log('Write completed, do more writes now.');\n});\n```\n\nA `Writable` stream in object mode will always ignore the `encoding` argument.",
+      "translated": "`writable.write()` メソッドは、ストリームにいくらかのデータを書き込み、データが完全に処理されると指定した `callback` を呼ぶ。エラーが発生した場合、`callback` はエラーを第 1 引数として呼ばれる。`callback` は非同期に、かつ `'error'` が発行される前に呼ばれる。\n\n戻り値は、`chunk` を受け入れた後の内部バッファが、ストリーム作成時に設定された `highWaterMark` より小さい場合は `true` である。`false` が返された場合、`'drain'` イベントが発行されるまで、ストリームへのそれ以上のデータ書き込みの試みは停止すべきである。\n\nストリームが排出中でない間、`write()` の呼び出しは `chunk` をバッファリングし、false を返す。現在バッファリングされているすべてのチャンクが排出される(オペレーティングシステムによって配送のために受け入れられる)と、`'drain'` イベントが発行される。`write()` が false を返したら、`'drain'` イベントが発行されるまでそれ以上チャンクを書き込まないこと。排出中でないストリームに対して `write()` を呼ぶことは許可されているが、Node.js は最大メモリ使用量に達するまで書き込まれたすべてのチャンクをバッファリングし、その時点で無条件に中断する。中断する前でも、高いメモリ使用量はガベージコレクターの性能低下と高い RSS を引き起こす(RSS はメモリがもう不要になった後でも、通常システムに返されない)。TCP ソケットはリモートのピアがデータを読まないと決して排出されないことがあるため、排出中でないソケットに書き込むと、リモートから悪用可能な脆弱性につながることがある。\n\nストリームが排出中でない間にデータを書き込むことは、`Transform` にとって特に問題である。`Transform` ストリームは、パイプされるか `'data'` または `'readable'` イベントハンドラが追加されるまで、既定で一時停止されているからである。\n\n書き込むデータをオンデマンドで生成または取得できる場合、そのロジックを `Readable` にカプセル化して {@link pipe} を使うことが推奨される。ただし、`write()` を呼ぶことが望ましい場合は、`'drain'` イベントを使ってバックプレッシャーを尊重し、メモリの問題を回避できる:\n\n```js\nfunction write(data, cb) {\n  if (!stream.write(data)) {\n    stream.once('drain', cb);\n  } else {\n    process.nextTick(cb);\n  }\n}\n\n// Wait for cb to be called before doing any other write.\nwrite('hello', () => {\n  console.log('Write completed, do more writes now.');\n});\n```\n\nオブジェクトモードの `Writable` ストリームは、常に `encoding` 引数を無視する。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.write",
+      "lang": "ja"
+    },
+    "bbb580f7": {
+      "original": "The encoding, if `chunk` is a string.",
+      "translated": "`chunk` が文字列の場合のエンコーディング。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.write",
+      "lang": "ja"
+    },
+    "c9929bc7": {
+      "original": "Writes data to the stream, with an explicit encoding for string data.",
+      "translated": "文字列データに明示的なエンコーディングを指定して、ストリームにデータを書き込む。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.write",
       "lang": "ja"
     },
     "6534767f": {
