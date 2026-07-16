@@ -2524,6 +2524,546 @@
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.UnhandledRejectionListener",
       "lang": "ja"
     },
+    "51babc4a": {
+      "original": "A stream is an abstract interface for working with streaming data in Node.js.\nThe `node:stream` module provides an API for implementing the stream interface.\n\nThere are many stream objects provided by Node.js. For instance, a [request to an HTTP server](https://nodejs.org/docs/latest-v22.x/api/http.html#class-httpincomingmessage)\nand [`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) are both stream instances.\n\nStreams can be readable, writable, or both. All streams are instances of [`EventEmitter`](https://nodejs.org/docs/latest-v22.x/api/events.html#class-eventemitter).\n\nTo access the `node:stream` module:\n\n```js\nimport stream from 'node:stream';\n```\n\nThe `node:stream` module is useful for creating new types of stream instances.\nIt is usually not necessary to use the `node:stream` module to consume streams.",
+      "translated": "ストリームは、Node.js でストリーミングデータを扱うための抽象インターフェースである。`node:stream` モジュールは、ストリームインターフェースを実装するための API を提供する。\n\nNode.js は多くのストリームオブジェクトを提供する。たとえば [HTTP サーバーへのリクエスト](https://nodejs.org/docs/latest-v22.x/api/http.html#class-httpincomingmessage)と [`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) はどちらもストリームインスタンスである。\n\nストリームは、読み取り可能・書き込み可能、またはその両方になり得る。すべてのストリームは [`EventEmitter`](https://nodejs.org/docs/latest-v22.x/api/events.html#class-eventemitter) のインスタンスである。\n\n`node:stream` モジュールにアクセスするには:\n\n```js\nimport stream from 'node:stream';\n```\n\n`node:stream` モジュールは、新しい種類のストリームインスタンスを作成するのに役立つ。ストリームを消費するために `node:stream` モジュールを使う必要は通常ない。",
+      "symbol": "@types/node/stream.d.ts#stream",
+      "lang": "ja"
+    },
+    "9ce47d63": {
+      "original": "A signal representing possible cancellation",
+      "translated": "起こり得るキャンセルを表す signal",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.addAbortSignal",
+      "lang": "ja"
+    },
+    "3f37c89f": {
+      "original": "A stream to attach a signal to.",
+      "translated": "signal を取り付ける対象のストリーム。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.addAbortSignal",
+      "lang": "ja"
+    },
+    "693627f6": {
+      "original": "A stream to attach a signal to.\n\nAttaches an AbortSignal to a readable or writeable stream. This lets code\ncontrol stream destruction using an `AbortController`.\n\nCalling `abort` on the `AbortController` corresponding to the passed `AbortSignal` will behave the same way as calling `.destroy(new AbortError())` on the\nstream, and `controller.error(new AbortError())` for webstreams.\n\n```js\nimport fs from 'node:fs';\n\nconst controller = new AbortController();\nconst read = addAbortSignal(\n  controller.signal,\n  fs.createReadStream(('object.json')),\n);\n// Later, abort the operation closing the stream\ncontroller.abort();\n```\n\nOr using an `AbortSignal` with a readable stream as an async iterable:\n\n```js\nconst controller = new AbortController();\nsetTimeout(() => controller.abort(), 10_000); // set a timeout\nconst stream = addAbortSignal(\n  controller.signal,\n  fs.createReadStream(('object.json')),\n);\n(async () => {\n  try {\n    for await (const chunk of stream) {\n      await process(chunk);\n    }\n  } catch (e) {\n    if (e.name === 'AbortError') {\n      // The operation was cancelled\n    } else {\n      throw e;\n    }\n  }\n})();\n```\n\nOr using an `AbortSignal` with a ReadableStream:\n\n```js\nconst controller = new AbortController();\nconst rs = new ReadableStream({\n  start(controller) {\n    controller.enqueue('hello');\n    controller.enqueue('world');\n    controller.close();\n  },\n});\n\naddAbortSignal(controller.signal, rs);\n\nfinished(rs, (err) => {\n  if (err) {\n    if (err.name === 'AbortError') {\n      // The operation was cancelled\n    }\n  }\n});\n\nconst reader = rs.getReader();\n\nreader.read().then(({ value, done }) => {\n  console.log(value); // hello\n  console.log(done); // false\n  controller.abort();\n});\n```",
+      "translated": "signal を取り付ける対象のストリーム。\n\n読み取り可能または書き込み可能なストリームに AbortSignal を取り付ける。これにより、コードは `AbortController` を使ってストリームの破棄を制御できる。\n\n渡した `AbortSignal` に対応する `AbortController` で `abort` を呼ぶと、ストリームに対して `.destroy(new AbortError())` を呼ぶのと同じように動作する。webstream の場合は `controller.error(new AbortError())` と同じである。\n\n```js\nimport fs from 'node:fs';\n\nconst controller = new AbortController();\nconst read = addAbortSignal(\n  controller.signal,\n  fs.createReadStream(('object.json')),\n);\n// Later, abort the operation closing the stream\ncontroller.abort();\n```\n\nあるいは、読み取り可能なストリームを非同期イテラブルとして `AbortSignal` を使う:\n\n```js\nconst controller = new AbortController();\nsetTimeout(() => controller.abort(), 10_000); // set a timeout\nconst stream = addAbortSignal(\n  controller.signal,\n  fs.createReadStream(('object.json')),\n);\n(async () => {\n  try {\n    for await (const chunk of stream) {\n      await process(chunk);\n    }\n  } catch (e) {\n    if (e.name === 'AbortError') {\n      // The operation was cancelled\n    } else {\n      throw e;\n    }\n  }\n})();\n```\n\nあるいは、ReadableStream で `AbortSignal` を使う:\n\n```js\nconst controller = new AbortController();\nconst rs = new ReadableStream({\n  start(controller) {\n    controller.enqueue('hello');\n    controller.enqueue('world');\n    controller.close();\n  },\n});\n\naddAbortSignal(controller.signal, rs);\n\nfinished(rs, (err) => {\n  if (err) {\n    if (err.name === 'AbortError') {\n      // The operation was cancelled\n    }\n  }\n});\n\nconst reader = rs.getReader();\n\nreader.read().then(({ value, done }) => {\n  console.log(value); // hello\n  console.log(done); // false\n  controller.abort();\n});\n```",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.addAbortSignal",
+      "lang": "ja"
+    },
+    "fac1e82b": {
+      "original": "The maximum concurrent invocations of `fn` to call on the stream at once.",
+      "translated": "ストリームに対して一度に呼び出せる `fn` の同時呼び出しの最大数。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.ArrayOptions.concurrency",
+      "lang": "ja"
+    },
+    "06883d14": {
+      "original": "Allows destroying the stream if the signal is aborted.",
+      "translated": "signal が中断された場合にストリームを破棄できるようにする。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.ArrayOptions.signal",
+      "lang": "ja"
+    },
+    "979cbc2b": {
+      "original": "Duplex streams are streams that implement both the `Readable` and `Writable` interfaces.\n\nExamples of `Duplex` streams include:\n\n* `TCP sockets`\n* `zlib streams`\n* `crypto streams`",
+      "translated": "Duplex ストリームは、`Readable` と `Writable` の両方のインターフェースを実装するストリームである。\n\n`Duplex` ストリームの例:\n\n* `TCP ソケット`\n* `zlib ストリーム`\n* `crypto ストリーム`",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Duplex",
+      "lang": "ja"
+    },
+    "13d2454c": {
+      "original": "Event emitter\nThe defined events on documents including:\n1.  close\n2.  data\n3.  drain\n4.  end\n5.  error\n6.  finish\n7.  pause\n8.  pipe\n9.  readable\n10. resume\n11. unpipe",
+      "translated": "イベント emitter\nドキュメント上で定義されているイベント:\n1.  close\n2.  data\n3.  drain\n4.  end\n5.  error\n6.  finish\n7.  pause\n8.  pipe\n9.  readable\n10. resume\n11. unpipe",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Duplex.addListener",
+      "lang": "ja"
+    },
+    "7785cbdf": {
+      "original": "If `false` then the stream will automatically end the writable side when the\nreadable side ends. Set initially by the `allowHalfOpen` constructor option,\nwhich defaults to `true`.\n\nThis can be changed manually to change the half-open behavior of an existing\n`Duplex` stream instance, but must be changed before the `'end'` event is emitted.",
+      "translated": "`false` の場合、読み取り側が終了するとストリームは書き込み側を自動的に終了させる。初期値は `allowHalfOpen` コンストラクターオプションで設定され、既定値は `true` である。\n\nこれは、既存の `Duplex` ストリームインスタンスの half-open 挙動を変えるために手動で変更できるが、`'end'` イベントが発行される前に変更しなければならない。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Duplex.allowHalfOpen",
+      "lang": "ja"
+    },
+    "c8b255ac": {
+      "original": "A utility method for creating duplex streams.\n\n- `Stream` converts writable stream into writable `Duplex` and readable stream\n  to `Duplex`.\n- `Blob` converts into readable `Duplex`.\n- `string` converts into readable `Duplex`.\n- `ArrayBuffer` converts into readable `Duplex`.\n- `AsyncIterable` converts into a readable `Duplex`. Cannot yield `null`.\n- `AsyncGeneratorFunction` converts into a readable/writable transform\n  `Duplex`. Must take a source `AsyncIterable` as first parameter. Cannot yield\n  `null`.\n- `AsyncFunction` converts into a writable `Duplex`. Must return\n  either `null` or `undefined`\n- `Object ({ writable, readable })` converts `readable` and\n  `writable` into `Stream` and then combines them into `Duplex` where the\n  `Duplex` will write to the `writable` and read from the `readable`.\n- `Promise` converts into readable `Duplex`. Value `null` is ignored.",
+      "translated": "duplex ストリームを作成するためのユーティリティメソッド。\n\n- `Stream` は、書き込み可能ストリームを書き込み可能な `Duplex` に、読み取り可能ストリームを `Duplex` に変換する。\n- `Blob` は読み取り可能な `Duplex` に変換される。\n- `string` は読み取り可能な `Duplex` に変換される。\n- `ArrayBuffer` は読み取り可能な `Duplex` に変換される。\n- `AsyncIterable` は読み取り可能な `Duplex` に変換される。`null` を yield できない。\n- `AsyncGeneratorFunction` は、読み取り/書き込み可能な変換 `Duplex` に変換される。第 1 引数としてソースの `AsyncIterable` を取らなければならない。`null` を yield できない。\n- `AsyncFunction` は書き込み可能な `Duplex` に変換される。`null` または `undefined` のいずれかを返さなければならない。\n- `Object ({ writable, readable })` は、`readable` と `writable` を `Stream` に変換してから、それらを組み合わせて `Duplex` にする。この `Duplex` は `writable` に書き込み、`readable` から読み取る。\n- `Promise` は読み取り可能な `Duplex` に変換される。値 `null` は無視される。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Duplex.from",
+      "lang": "ja"
+    },
+    "207fc67c": {
+      "original": "A utility method for creating a `Duplex` from a web `ReadableStream` and `WritableStream`.",
+      "translated": "web の `ReadableStream` と `WritableStream` から `Duplex` を作成するためのユーティリティメソッド。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Duplex.fromWeb",
+      "lang": "ja"
+    },
+    "f168d174": {
+      "original": "A utility method for creating a web `ReadableStream` and `WritableStream` from a `Duplex`.",
+      "translated": "`Duplex` から web の `ReadableStream` と `WritableStream` を作成するためのユーティリティメソッド。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Duplex.toWeb",
+      "lang": "ja"
+    },
+    "f1303a13": {
+      "original": "A value to pass to both {@link Duplex} constructors,\nto set options such as buffering.",
+      "translated": "バッファリングなどのオプションを設定するために、両方の {@link Duplex} コンストラクターに渡す値。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.duplexPair",
+      "lang": "ja"
+    },
+    "1c0ef633": {
+      "original": "The utility function `duplexPair` returns an Array with two items,\neach being a `Duplex` stream connected to the other side:\n\n```js\nconst [ sideA, sideB ] = duplexPair();\n```\n\nWhatever is written to one stream is made readable on the other. It provides\nbehavior analogous to a network connection, where the data written by the client\nbecomes readable by the server, and vice-versa.\n\nThe Duplex streams are symmetrical; one or the other may be used without any\ndifference in behavior.",
+      "translated": "ユーティリティ関数 `duplexPair` は、それぞれが互いの反対側に接続された `Duplex` ストリームである 2 つの項目を持つ配列を返す:\n\n```js\nconst [ sideA, sideB ] = duplexPair();\n```\n\n一方のストリームに書き込まれたものは、もう一方で読み取り可能になる。これは、クライアントが書き込んだデータがサーバーで読み取り可能になり、その逆も成り立つネットワーク接続に類似した挙動を提供する。\n\nDuplex ストリームは対称である。挙動に違いなく、どちらを使ってもよい。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.duplexPair",
+      "lang": "ja"
+    },
+    "b21aae3e": {
+      "original": "A callback function that takes an optional error argument.",
+      "translated": "省略可能なエラー引数を取るコールバック関数。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.finished",
+      "lang": "ja"
+    },
+    "dc2482c5": {
+      "original": "A cleanup function which removes all registered listeners.",
+      "translated": "登録されたすべての listener を削除するクリーンアップ関数。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.finished",
+      "lang": "ja"
+    },
+    "91ec371e": {
+      "original": "A readable and/or writable stream.",
+      "translated": "読み取り可能かつ/または書き込み可能なストリーム。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.finished",
+      "lang": "ja"
+    },
+    "6bd9b13f": {
+      "original": "A readable and/or writable stream/webstream.\n\nA function to get notified when a stream is no longer readable, writable\nor has experienced an error or a premature close event.\n\n```js\nimport { finished } from 'node:stream';\nimport fs from 'node:fs';\n\nconst rs = fs.createReadStream('archive.tar');\n\nfinished(rs, (err) => {\n  if (err) {\n    console.error('Stream failed.', err);\n  } else {\n    console.log('Stream is done reading.');\n  }\n});\n\nrs.resume(); // Drain the stream.\n```\n\nEspecially useful in error handling scenarios where a stream is destroyed\nprematurely (like an aborted HTTP request), and will not emit `'end'` or `'finish'`.\n\nThe `finished` API provides [`promise version`](https://nodejs.org/docs/latest-v22.x/api/stream.html#streamfinishedstream-options).\n\n`stream.finished()` leaves dangling event listeners (in particular `'error'`, `'end'`, `'finish'` and `'close'`) after `callback` has been\ninvoked. The reason for this is so that unexpected `'error'` events (due to\nincorrect stream implementations) do not cause unexpected crashes.\nIf this is unwanted behavior then the returned cleanup function needs to be\ninvoked in the callback:\n\n```js\nconst cleanup = finished(rs, (err) => {\n  cleanup();\n  // ...\n});\n```",
+      "translated": "読み取り可能かつ/または書き込み可能なストリーム/webstream。\n\nストリームがもはや読み取り可能でも書き込み可能でもなくなったとき、またはエラーや途中クローズイベントを経験したときに通知を受け取るための関数。\n\n```js\nimport { finished } from 'node:stream';\nimport fs from 'node:fs';\n\nconst rs = fs.createReadStream('archive.tar');\n\nfinished(rs, (err) => {\n  if (err) {\n    console.error('Stream failed.', err);\n  } else {\n    console.log('Stream is done reading.');\n  }\n});\n\nrs.resume(); // Drain the stream.\n```\n\nストリームが(中断された HTTP リクエストのように)途中で破棄され、`'end'` や `'finish'` を発行しないようなエラー処理のシナリオで特に役立つ。\n\n`finished` API は [`promise 版`](https://nodejs.org/docs/latest-v22.x/api/stream.html#streamfinishedstream-options)を提供する。\n\n`stream.finished()` は、`callback` が呼ばれた後も宙ぶらりんのイベント listener(特に `'error'`・`'end'`・`'finish'`・`'close'`)を残す。その理由は、(不正なストリーム実装による)予期しない `'error'` イベントが予期しないクラッシュを引き起こさないようにするためである。この挙動が望ましくない場合は、コールバック内で返されたクリーンアップ関数を呼ぶ必要がある:\n\n```js\nconst cleanup = finished(rs, (err) => {\n  cleanup();\n  // ...\n});\n```",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.finished",
+      "lang": "ja"
+    },
+    "63cf80cb": {
+      "original": "Returns the default highWaterMark used by streams.\nDefaults to `65536` (64 KiB), or `16` for `objectMode`.",
+      "translated": "ストリームが使う既定の highWaterMark を返す。既定値は `65536`(64 KiB)、`objectMode` では `16`。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.getDefaultHighWaterMark",
+      "lang": "ja"
+    },
+    "e63ff4c3": {
+      "original": "Returns whether the stream has encountered an error.",
+      "translated": "ストリームがエラーに遭遇したかどうかを返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.isErrored",
+      "lang": "ja"
+    },
+    "4225372c": {
+      "original": "Only returns `null` if `stream` is not a valid `Readable`, `Duplex` or `ReadableStream`.",
+      "translated": "`stream` が有効な `Readable`・`Duplex`・`ReadableStream` でない場合にのみ `null` を返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.isReadable",
+      "lang": "ja"
+    },
+    "21755aa6": {
+      "original": "Returns whether the stream is readable.",
+      "translated": "ストリームが読み取り可能かどうかを返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.isReadable",
+      "lang": "ja"
+    },
+    "3a7368e0": {
+      "original": "Only returns `null` if `stream` is not a valid `Writable`, `Duplex` or `WritableStream`.",
+      "translated": "`stream` が有効な `Writable`・`Duplex`・`WritableStream` でない場合にのみ `null` を返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.isWritable",
+      "lang": "ja"
+    },
+    "fd25a014": {
+      "original": "Returns whether the stream is writable.",
+      "translated": "ストリームが書き込み可能かどうかを返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.isWritable",
+      "lang": "ja"
+    },
+    "962bb778": {
+      "original": "The `stream.PassThrough` class is a trivial implementation of a `Transform` stream that simply passes the input bytes across to the output. Its purpose is\nprimarily for examples and testing, but there are some use cases where `stream.PassThrough` is useful as a building block for novel sorts of streams.",
+      "translated": "`stream.PassThrough` クラスは、入力バイトを単に出力へ渡すだけの `Transform` ストリームの単純な実装である。その主な目的は例やテスト用だが、`stream.PassThrough` が新しい種類のストリームの構成要素として役立つユースケースもいくつかある。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.PassThrough",
+      "lang": "ja"
+    },
+    "051cafab": {
+      "original": "A module method to pipe between streams and generators forwarding errors and\nproperly cleaning up and provide a callback when the pipeline is complete.\n\n```js\nimport { pipeline } from 'node:stream';\nimport fs from 'node:fs';\nimport zlib from 'node:zlib';\n\n// Use the pipeline API to easily pipe a series of streams\n// together and get notified when the pipeline is fully done.\n\n// A pipeline to gzip a potentially huge tar file efficiently:\n\npipeline(\n  fs.createReadStream('archive.tar'),\n  zlib.createGzip(),\n  fs.createWriteStream('archive.tar.gz'),\n  (err) => {\n    if (err) {\n      console.error('Pipeline failed.', err);\n    } else {\n      console.log('Pipeline succeeded.');\n    }\n  },\n);\n```\n\nThe `pipeline` API provides a [`promise version`](https://nodejs.org/docs/latest-v22.x/api/stream.html#streampipelinesource-transforms-destination-options).\n\n`stream.pipeline()` will call `stream.destroy(err)` on all streams except:\n\n* `Readable` streams which have emitted `'end'` or `'close'`.\n* `Writable` streams which have emitted `'finish'` or `'close'`.\n\n`stream.pipeline()` leaves dangling event listeners on the streams\nafter the `callback` has been invoked. In the case of reuse of streams after\nfailure, this can cause event listener leaks and swallowed errors. If the last\nstream is readable, dangling event listeners will be removed so that the last\nstream can be consumed later.\n\n`stream.pipeline()` closes all the streams when an error is raised.\nThe `IncomingRequest` usage with `pipeline` could lead to an unexpected behavior\nonce it would destroy the socket without sending the expected response.\nSee the example below:\n\n```js\nimport fs from 'node:fs';\nimport http from 'node:http';\nimport { pipeline } from 'node:stream';\n\nconst server = http.createServer((req, res) => {\n  const fileStream = fs.createReadStream('./fileNotExist.txt');\n  pipeline(fileStream, res, (err) => {\n    if (err) {\n      console.log(err); // No such file\n      // this message can't be sent once `pipeline` already destroyed the socket\n      return res.end('error!!!');\n    }\n  });\n});\n```",
+      "translated": "ストリームやジェネレーターの間をパイプし、エラーを転送し、適切にクリーンアップし、パイプラインが完了したときにコールバックを提供するモジュールメソッド。\n\n```js\nimport { pipeline } from 'node:stream';\nimport fs from 'node:fs';\nimport zlib from 'node:zlib';\n\n// Use the pipeline API to easily pipe a series of streams\n// together and get notified when the pipeline is fully done.\n\n// A pipeline to gzip a potentially huge tar file efficiently:\n\npipeline(\n  fs.createReadStream('archive.tar'),\n  zlib.createGzip(),\n  fs.createWriteStream('archive.tar.gz'),\n  (err) => {\n    if (err) {\n      console.error('Pipeline failed.', err);\n    } else {\n      console.log('Pipeline succeeded.');\n    }\n  },\n);\n```\n\n`pipeline` API は [`promise 版`](https://nodejs.org/docs/latest-v22.x/api/stream.html#streampipelinesource-transforms-destination-options)を提供する。\n\n`stream.pipeline()` は、次を除くすべてのストリームで `stream.destroy(err)` を呼ぶ:\n\n* `'end'` または `'close'` を発行した `Readable` ストリーム。\n* `'finish'` または `'close'` を発行した `Writable` ストリーム。\n\n`stream.pipeline()` は、`callback` が呼ばれた後もストリームに宙ぶらりんのイベント listener を残す。失敗後にストリームを再利用する場合、これはイベント listener のリークやエラーの握りつぶしを引き起こすことがある。最後のストリームが読み取り可能な場合、後でそのストリームを消費できるように、宙ぶらりんのイベント listener は削除される。\n\n`stream.pipeline()` はエラーが発生するとすべてのストリームを閉じる。`pipeline` と `IncomingRequest` を併用すると、期待されるレスポンスを送信せずにソケットを破棄してしまい、予期しない挙動につながることがある。下記の例を参照:\n\n```js\nimport fs from 'node:fs';\nimport http from 'node:http';\nimport { pipeline } from 'node:stream';\n\nconst server = http.createServer((req, res) => {\n  const fileStream = fs.createReadStream('./fileNotExist.txt');\n  pipeline(fileStream, res, (err) => {\n    if (err) {\n      console.log(err); // No such file\n      // this message can't be sent once `pipeline` already destroyed the socket\n      return res.end('error!!!');\n    }\n  });\n});\n```",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.pipeline",
+      "lang": "ja"
+    },
+    "f8bdbb25": {
+      "original": "Called when the pipeline is fully done.",
+      "translated": "パイプラインが完全に完了したときに呼ばれる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.pipeline",
+      "lang": "ja"
+    },
+    "0215429f": {
+      "original": "Calls `readable.destroy()` with an `AbortError` and returns a promise that fulfills when the stream is finished.",
+      "translated": "`AbortError` で `readable.destroy()` を呼び、ストリームが終了したときに履行される promise を返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.[Symbol.asyncDispose]",
+      "lang": "ja"
+    },
+    "bd56a3c3": {
+      "original": "Event emitter\nThe defined events on documents including:\n1. close\n2. data\n3. end\n4. error\n5. pause\n6. readable\n7. resume",
+      "translated": "イベント emitter\nドキュメント上で定義されているイベント:\n1. close\n2. data\n3. end\n4. error\n5. pause\n6. readable\n7. resume",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.addListener",
+      "lang": "ja"
+    },
+    "dfe2daff": {
+      "original": "a stream of indexed pairs.",
+      "translated": "インデックス付きペアのストリーム。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.asIndexedPairs",
+      "lang": "ja"
+    },
+    "2495dd63": {
+      "original": "This method returns a new stream with chunks of the underlying stream paired with a counter\nin the form `[index, chunk]`. The first index value is `0` and it increases by 1 for each chunk produced.",
+      "translated": "このメソッドは、元のストリームのチャンクをカウンターと `[index, chunk]` の形でペアにした新しいストリームを返す。最初のインデックス値は `0` で、生成される各チャンクごとに 1 ずつ増える。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.asIndexedPairs",
+      "lang": "ja"
+    },
+    "a70f523b": {
+      "original": "Is `true` after `'close'` has been emitted.",
+      "translated": "`'close'` が発行された後は `true` になる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.closed",
+      "lang": "ja"
+    },
+    "664155c1": {
+      "original": "Destroy the stream. Optionally emit an `'error'` event, and emit a `'close'` event (unless `emitClose` is set to `false`). After this call, the readable\nstream will release any internal resources and subsequent calls to `push()` will be ignored.\n\nOnce `destroy()` has been called any further calls will be a no-op and no\nfurther errors except from `_destroy()` may be emitted as `'error'`.\n\nImplementors should not override this method, but instead implement `readable._destroy()`.",
+      "translated": "ストリームを破棄する。任意で `'error'` イベントを発行し、`'close'` イベントを発行する(`emitClose` が `false` に設定されている場合を除く)。この呼び出しの後、読み取り可能ストリームはすべての内部リソースを解放し、以降の `push()` の呼び出しは無視される。\n\nいったん `destroy()` が呼ばれると、それ以降の呼び出しは no-op になり、`_destroy()` 由来を除いてそれ以上のエラーは `'error'` として発行されない。\n\n実装者はこのメソッドをオーバーライドせず、代わりに `readable._destroy()` を実装すべきである。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.destroy",
+      "lang": "ja"
+    },
+    "46511ab4": {
+      "original": "Error which will be passed as payload in `'error'` event",
+      "translated": "`'error'` イベントのペイロードとして渡されるエラー",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.destroy",
+      "lang": "ja"
+    },
+    "c99c6b4f": {
+      "original": "Is `true` after `readable.destroy()` has been called.",
+      "translated": "`readable.destroy()` が呼ばれた後は `true` になる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.destroyed",
+      "lang": "ja"
+    },
+    "eae8df60": {
+      "original": "a stream with *limit* chunks dropped from the start.",
+      "translated": "先頭から *limit* 個のチャンクが取り除かれたストリーム。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.drop",
+      "lang": "ja"
+    },
+    "6c40a7b4": {
+      "original": "the number of chunks to drop from the readable.",
+      "translated": "読み取り可能ストリームから取り除くチャンクの数。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.drop",
+      "lang": "ja"
+    },
+    "1b7f88f4": {
+      "original": "This method returns a new stream with the first *limit* chunks dropped from the start.",
+      "translated": "このメソッドは、先頭から最初の *limit* 個のチャンクを取り除いた新しいストリームを返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.drop",
+      "lang": "ja"
+    },
+    "54ef2fd5": {
+      "original": "Returns error if the stream has been destroyed with an error.",
+      "translated": "ストリームがエラーで破棄された場合、エラーを返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.errored",
+      "lang": "ja"
+    },
+    "3bbebbde": {
+      "original": "a promise evaluating to `true` if *fn* returned a truthy value for every one of the chunks.",
+      "translated": "*fn* がすべてのチャンクに対して truthy な値を返した場合に `true` に評価される promise。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.every",
+      "lang": "ja"
+    },
+    "3f34301a": {
+      "original": "This method is similar to `Array.prototype.every` and calls *fn* on each chunk in the stream\nto check if all awaited return values are truthy value for *fn*. Once an *fn* call on a chunk\n`await`ed return value is falsy, the stream is destroyed and the promise is fulfilled with `false`.\nIf all of the *fn* calls on the chunks return a truthy value, the promise is fulfilled with `true`.",
+      "translated": "このメソッドは `Array.prototype.every` に似ており、ストリーム内の各チャンクに対して *fn* を呼び、待機したすべての戻り値が *fn* にとって truthy な値かどうかをチェックする。あるチャンクに対する *fn* 呼び出しの `await` された戻り値が falsy になった時点で、ストリームは破棄され、promise は `false` で履行される。チャンクに対するすべての *fn* 呼び出しが truthy な値を返した場合、promise は `true` で履行される。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.every",
+      "lang": "ja"
+    },
+    "6f24b727": {
+      "original": "a function to filter chunks from the stream. Async or not.",
+      "translated": "ストリームからチャンクをフィルタリングする関数。非同期でもそうでなくてもよい。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.filter",
+      "lang": "ja"
+    },
+    "f26d0c82": {
+      "original": "a stream filtered with the predicate *fn*.",
+      "translated": "述語 *fn* でフィルタリングされたストリーム。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.filter",
+      "lang": "ja"
+    },
+    "2895b905": {
+      "original": "This method allows filtering the stream. For each chunk in the stream the *fn* function will be called\nand if it returns a truthy value, the chunk will be passed to the result stream.\nIf the *fn* function returns a promise - that promise will be `await`ed.",
+      "translated": "このメソッドはストリームのフィルタリングを可能にする。ストリーム内の各チャンクに対して *fn* 関数が呼ばれ、truthy な値を返した場合、そのチャンクは結果ストリームに渡される。*fn* 関数が promise を返した場合、その promise は `await` される。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.filter",
+      "lang": "ja"
+    },
+    "f71ec110": {
+      "original": "a promise evaluating to the first chunk for which *fn* evaluated with a truthy value,\nor `undefined` if no element was found.",
+      "translated": "*fn* が truthy な値で評価された最初のチャンクに評価される promise。要素が見つからなかった場合は `undefined` に評価される。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.find",
+      "lang": "ja"
+    },
+    "5ac04c01": {
+      "original": "This method is similar to `Array.prototype.find` and calls *fn* on each chunk in the stream\nto find a chunk with a truthy value for *fn*. Once an *fn* call's awaited return value is truthy,\nthe stream is destroyed and the promise is fulfilled with value for which *fn* returned a truthy value.\nIf all of the *fn* calls on the chunks return a falsy value, the promise is fulfilled with `undefined`.",
+      "translated": "このメソッドは `Array.prototype.find` に似ており、ストリーム内の各チャンクに対して *fn* を呼び、*fn* にとって truthy な値を持つチャンクを探す。ある *fn* 呼び出しの待機された戻り値が truthy になった時点で、ストリームは破棄され、promise は *fn* が truthy な値を返した値で履行される。チャンクに対するすべての *fn* 呼び出しが falsy な値を返した場合、promise は `undefined` で履行される。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.find",
+      "lang": "ja"
+    },
+    "b0f5380b": {
+      "original": "a function to map over every chunk in the stream. May be async. May be a stream or generator.",
+      "translated": "ストリーム内のすべてのチャンクに対してマップする関数。非同期でもよい。ストリームやジェネレーターでもよい。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.flatMap",
+      "lang": "ja"
+    },
+    "1e74d1c8": {
+      "original": "a stream flat-mapped with the function *fn*.",
+      "translated": "関数 *fn* で flat-map されたストリーム。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.flatMap",
+      "lang": "ja"
+    },
+    "c9eac820": {
+      "original": "This method returns a new stream by applying the given callback to each chunk of the stream\nand then flattening the result.\n\nIt is possible to return a stream or another iterable or async iterable from *fn* and the result streams\nwill be merged (flattened) into the returned stream.",
+      "translated": "このメソッドは、ストリームの各チャンクに指定したコールバックを適用し、その結果を平坦化することで新しいストリームを返す。\n\n*fn* からストリーム、または別のイテラブルや非同期イテラブルを返すことができ、結果のストリームは返されるストリームにマージ(平坦化)される。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.flatMap",
+      "lang": "ja"
+    },
+    "0b6b78d4": {
+      "original": "a function to call on each chunk of the stream. Async or not.",
+      "translated": "ストリームの各チャンクに対して呼ぶ関数。非同期でもそうでなくてもよい。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.forEach",
+      "lang": "ja"
+    },
+    "04688999": {
+      "original": "a promise for when the stream has finished.",
+      "translated": "ストリームが終了したときのための promise。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.forEach",
+      "lang": "ja"
+    },
+    "a205e7c7": {
+      "original": "This method allows iterating a stream. For each chunk in the stream the *fn* function will be called.\nIf the *fn* function returns a promise - that promise will be `await`ed.\n\nThis method is different from `for await...of` loops in that it can optionally process chunks concurrently.\nIn addition, a `forEach` iteration can only be stopped by having passed a `signal` option\nand aborting the related AbortController while `for await...of` can be stopped with `break` or `return`.\nIn either case the stream will be destroyed.\n\nThis method is different from listening to the `'data'` event in that it uses the `readable` event\nin the underlying machinary and can limit the number of concurrent *fn* calls.",
+      "translated": "このメソッドはストリームの反復を可能にする。ストリーム内の各チャンクに対して *fn* 関数が呼ばれる。*fn* 関数が promise を返した場合、その promise は `await` される。\n\nこのメソッドは、任意でチャンクを並行に処理できる点で `for await...of` ループと異なる。さらに、`forEach` の反復は `signal` オプションを渡して関連する AbortController を中断することでのみ停止できるが、`for await...of` は `break` や `return` で停止できる。いずれの場合もストリームは破棄される。\n\nこのメソッドは、内部の仕組みで `readable` イベントを使い、並行する *fn* 呼び出しの数を制限できる点で `'data'` イベントをリッスンするのと異なる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.forEach",
+      "lang": "ja"
+    },
+    "0e06858a": {
+      "original": "A utility method for creating Readable Streams out of iterators.",
+      "translated": "イテレーターから読み取り可能ストリームを作成するためのユーティリティメソッド。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.from",
+      "lang": "ja"
+    },
+    "fba060be": {
+      "original": "Object implementing the `Symbol.asyncIterator` or `Symbol.iterator` iterable protocol. Emits an 'error' event if a null value is passed.",
+      "translated": "`Symbol.asyncIterator` または `Symbol.iterator` のイテラブルプロトコルを実装するオブジェクト。null 値が渡されると 'error' イベントを発行する。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.from",
+      "lang": "ja"
+    },
+    "99b82789": {
+      "original": "Options provided to `new stream.Readable([options])`. By default, `Readable.from()` will set `options.objectMode` to `true`, unless this is explicitly opted out by setting `options.objectMode` to `false`.",
+      "translated": "`new stream.Readable([options])` に渡されるオプション。既定では、`Readable.from()` は `options.objectMode` を `true` に設定する。ただし、`options.objectMode` を `false` に設定して明示的にオプトアウトした場合を除く。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.from",
+      "lang": "ja"
+    },
+    "7d5147f7": {
+      "original": "A utility method for creating a `Readable` from a web `ReadableStream`.",
+      "translated": "web の `ReadableStream` から `Readable` を作成するためのユーティリティメソッド。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.fromWeb",
+      "lang": "ja"
+    },
+    "8af37145": {
+      "original": "Returns whether the stream has been read from or cancelled.",
+      "translated": "ストリームから読み取られたか、キャンセルされたかを返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.isDisturbed",
+      "lang": "ja"
+    },
+    "d57f5c74": {
+      "original": "The `readable.isPaused()` method returns the current operating state of the `Readable`.\nThis is used primarily by the mechanism that underlies the `readable.pipe()` method.\nIn most typical cases, there will be no reason to use this method directly.\n\n```js\nconst readable = new stream.Readable();\n\nreadable.isPaused(); // === false\nreadable.pause();\nreadable.isPaused(); // === true\nreadable.resume();\nreadable.isPaused(); // === false\n```",
+      "translated": "`readable.isPaused()` メソッドは、`Readable` の現在の動作状態を返す。これは主に `readable.pipe()` メソッドの基盤となる仕組みが使う。ほとんどの典型的なケースでは、このメソッドを直接使う理由はない。\n\n```js\nconst readable = new stream.Readable();\n\nreadable.isPaused(); // === false\nreadable.pause();\nreadable.isPaused(); // === true\nreadable.resume();\nreadable.isPaused(); // === false\n```",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.isPaused",
+      "lang": "ja"
+    },
+    "b70612fb": {
+      "original": "The iterator created by this method gives users the option to cancel the destruction\nof the stream if the `for await...of` loop is exited by `return`, `break`, or `throw`,\nor if the iterator should destroy the stream if the stream emitted an error during iteration.",
+      "translated": "このメソッドが作成するイテレーターは、`for await...of` ループが `return`・`break`・`throw` で抜けた場合にストリームの破棄をキャンセルするか、あるいは反復中にストリームがエラーを発行した場合にイテレーターがストリームを破棄するかを、ユーザーが選べるようにする。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.iterator",
+      "lang": "ja"
+    },
+    "71337da5": {
+      "original": "When set to `false`, calling `return` on the async iterator,\nor exiting a `for await...of` iteration using a `break`, `return`, or `throw` will not destroy the stream.\n**Default: `true`**.",
+      "translated": "`false` に設定した場合、非同期イテレーターで `return` を呼ぶこと、または `break`・`return`・`throw` を使って `for await...of` の反復を抜けることでは、ストリームは破棄されない。\n**既定値: `true`**。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.iterator",
+      "lang": "ja"
+    },
+    "64f8e3e4": {
+      "original": "a function to map over every chunk in the stream. Async or not.",
+      "translated": "ストリーム内のすべてのチャンクに対してマップする関数。非同期でもそうでなくてもよい。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.map",
+      "lang": "ja"
+    },
+    "0efa450e": {
+      "original": "a stream mapped with the function *fn*.",
+      "translated": "関数 *fn* でマップされたストリーム。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.map",
+      "lang": "ja"
+    },
+    "ddec0300": {
+      "original": "This method allows mapping over the stream. The *fn* function will be called for every chunk in the stream.\nIf the *fn* function returns a promise - that promise will be `await`ed before being passed to the result stream.",
+      "translated": "このメソッドはストリームに対するマップを可能にする。ストリーム内のすべてのチャンクに対して *fn* 関数が呼ばれる。*fn* 関数が promise を返した場合、その promise は結果ストリームに渡される前に `await` される。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.map",
+      "lang": "ja"
+    },
+    "12780e4a": {
+      "original": "The `readable.pause()` method will cause a stream in flowing mode to stop\nemitting `'data'` events, switching out of flowing mode. Any data that\nbecomes available will remain in the internal buffer.\n\n```js\nconst readable = getReadableStreamSomehow();\nreadable.on('data', (chunk) => {\n  console.log(`Received ${chunk.length} bytes of data.`);\n  readable.pause();\n  console.log('There will be no additional data for 1 second.');\n  setTimeout(() => {\n    console.log('Now data will start flowing again.');\n    readable.resume();\n  }, 1000);\n});\n```\n\nThe `readable.pause()` method has no effect if there is a `'readable'` event listener.",
+      "translated": "`readable.pause()` メソッドは、flowing モードのストリームに `'data'` イベントの発行を停止させ、flowing モードから切り替える。利用可能になったデータはすべて内部バッファに残る。\n\n```js\nconst readable = getReadableStreamSomehow();\nreadable.on('data', (chunk) => {\n  console.log(`Received ${chunk.length} bytes of data.`);\n  readable.pause();\n  console.log('There will be no additional data for 1 second.');\n  setTimeout(() => {\n    console.log('Now data will start flowing again.');\n    readable.resume();\n  }, 1000);\n});\n```\n\n`readable.pause()` メソッドは、`'readable'` イベント listener がある場合は効果がない。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.pause",
+      "lang": "ja"
+    },
+    "98e66927": {
+      "original": "Optional argument to specify how much data to read.",
+      "translated": "読み取るデータ量を指定する省略可能な引数。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.read",
+      "lang": "ja"
+    },
+    "9f720e03": {
+      "original": "The `readable.read()` method reads data out of the internal buffer and\nreturns it. If no data is available to be read, `null` is returned. By default,\nthe data is returned as a `Buffer` object unless an encoding has been\nspecified using the `readable.setEncoding()` method or the stream is operating\nin object mode.\n\nThe optional `size` argument specifies a specific number of bytes to read. If\n`size` bytes are not available to be read, `null` will be returned _unless_ the\nstream has ended, in which case all of the data remaining in the internal buffer\nwill be returned.\n\nIf the `size` argument is not specified, all of the data contained in the\ninternal buffer will be returned.\n\nThe `size` argument must be less than or equal to 1 GiB.\n\nThe `readable.read()` method should only be called on `Readable` streams\noperating in paused mode. In flowing mode, `readable.read()` is called\nautomatically until the internal buffer is fully drained.\n\n```js\nconst readable = getReadableStreamSomehow();\n\n// 'readable' may be triggered multiple times as data is buffered in\nreadable.on('readable', () => {\n  let chunk;\n  console.log('Stream is readable (new data received in buffer)');\n  // Use a loop to make sure we read all currently available data\n  while (null !== (chunk = readable.read())) {\n    console.log(`Read ${chunk.length} bytes of data...`);\n  }\n});\n\n// 'end' will be triggered once when there is no more data available\nreadable.on('end', () => {\n  console.log('Reached end of stream.');\n});\n```\n\nEach call to `readable.read()` returns a chunk of data, or `null`. The chunks\nare not concatenated. A `while` loop is necessary to consume all data\ncurrently in the buffer. When reading a large file `.read()` may return `null`,\nhaving consumed all buffered content so far, but there is still more data to\ncome not yet buffered. In this case a new `'readable'` event will be emitted\nwhen there is more data in the buffer. Finally the `'end'` event will be\nemitted when there is no more data to come.\n\nTherefore to read a file's whole contents from a `readable`, it is necessary\nto collect chunks across multiple `'readable'` events:\n\n```js\nconst chunks = [];\n\nreadable.on('readable', () => {\n  let chunk;\n  while (null !== (chunk = readable.read())) {\n    chunks.push(chunk);\n  }\n});\n\nreadable.on('end', () => {\n  const content = chunks.join('');\n});\n```\n\nA `Readable` stream in object mode will always return a single item from\na call to `readable.read(size)`, regardless of the value of the `size` argument.\n\nIf the `readable.read()` method returns a chunk of data, a `'data'` event will\nalso be emitted.\n\nCalling {@link read} after the `'end'` event has\nbeen emitted will return `null`. No runtime error will be raised.",
+      "translated": "`readable.read()` メソッドは、内部バッファからデータを読み取って返す。読み取り可能なデータがない場合、`null` が返される。既定では、`readable.setEncoding()` メソッドでエンコーディングが指定されているか、ストリームがオブジェクトモードで動作している場合を除き、データは `Buffer` オブジェクトとして返される。\n\n省略可能な `size` 引数は、読み取る特定のバイト数を指定する。`size` バイトが読み取り可能でない場合、`null` が返される。_ただし_ストリームが終了している場合は、内部バッファに残っているすべてのデータが返される。\n\n`size` 引数が指定されていない場合、内部バッファに含まれるすべてのデータが返される。\n\n`size` 引数は 1 GiB 以下でなければならない。\n\n`readable.read()` メソッドは、paused モードで動作している `Readable` ストリームに対してのみ呼ぶべきである。flowing モードでは、内部バッファが完全に空になるまで `readable.read()` が自動的に呼ばれる。\n\n```js\nconst readable = getReadableStreamSomehow();\n\n// 'readable' may be triggered multiple times as data is buffered in\nreadable.on('readable', () => {\n  let chunk;\n  console.log('Stream is readable (new data received in buffer)');\n  // Use a loop to make sure we read all currently available data\n  while (null !== (chunk = readable.read())) {\n    console.log(`Read ${chunk.length} bytes of data...`);\n  }\n});\n\n// 'end' will be triggered once when there is no more data available\nreadable.on('end', () => {\n  console.log('Reached end of stream.');\n});\n```\n\n`readable.read()` の各呼び出しは、データのチャンクまたは `null` を返す。チャンクは連結されない。バッファ内に現在あるすべてのデータを消費するには `while` ループが必要である。大きなファイルを読むとき、`.read()` はこれまでにバッファリングされたすべての内容を消費し尽くして `null` を返すことがあるが、まだバッファリングされていないデータがまだ来る場合がある。この場合、バッファにより多くのデータがあるときに新しい `'readable'` イベントが発行される。最終的に、来るデータがなくなると `'end'` イベントが発行される。\n\nしたがって、`readable` からファイルの全内容を読むには、複数の `'readable'` イベントにまたがってチャンクを収集する必要がある:\n\n```js\nconst chunks = [];\n\nreadable.on('readable', () => {\n  let chunk;\n  while (null !== (chunk = readable.read())) {\n    chunks.push(chunk);\n  }\n});\n\nreadable.on('end', () => {\n  const content = chunks.join('');\n});\n```\n\nオブジェクトモードの `Readable` ストリームは、`size` 引数の値にかかわらず、`readable.read(size)` の呼び出しから常に単一の項目を返す。\n\n`readable.read()` メソッドがデータのチャンクを返す場合、`'data'` イベントも発行される。\n\n`'end'` イベントが発行された後に {@link read} を呼ぶと `null` が返される。実行時エラーは発生しない。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.read",
+      "lang": "ja"
+    },
+    "08dd3db2": {
+      "original": "Is `true` if it is safe to call {@link read}, which means\nthe stream has not been destroyed or emitted `'error'` or `'end'`.",
+      "translated": "{@link read} を呼んでも安全な場合、すなわちストリームが破棄されておらず `'error'` や `'end'` を発行していない場合は `true` になる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.readable",
+      "lang": "ja"
+    },
+    "361445d5": {
+      "original": "Returns whether the stream was destroyed or errored before emitting `'end'`.",
+      "translated": "ストリームが `'end'` を発行する前に破棄されたか、エラーになったかを返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.readableAborted",
+      "lang": "ja"
+    },
+    "74c62bbd": {
+      "original": "Returns whether `'data'` has been emitted.",
+      "translated": "`'data'` が発行されたかどうかを返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.readableDidRead",
+      "lang": "ja"
+    },
+    "1e53b9ac": {
+      "original": "Getter for the property `encoding` of a given `Readable` stream. The `encoding` property can be set using the {@link setEncoding} method.",
+      "translated": "指定した `Readable` ストリームの `encoding` プロパティのゲッター。`encoding` プロパティは {@link setEncoding} メソッドを使って設定できる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.readableEncoding",
+      "lang": "ja"
+    },
+    "08cf99d9": {
+      "original": "Becomes `true` when [`'end'`](https://nodejs.org/docs/latest-v22.x/api/stream.html#event-end) event is emitted.",
+      "translated": "[`'end'`](https://nodejs.org/docs/latest-v22.x/api/stream.html#event-end) イベントが発行されると `true` になる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.readableEnded",
+      "lang": "ja"
+    },
+    "5639da30": {
+      "original": "This property reflects the current state of a `Readable` stream as described\nin the [Three states](https://nodejs.org/docs/latest-v22.x/api/stream.html#three-states) section.",
+      "translated": "このプロパティは、[Three states](https://nodejs.org/docs/latest-v22.x/api/stream.html#three-states) セクションで説明されているとおり、`Readable` ストリームの現在の状態を反映する。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.readableFlowing",
+      "lang": "ja"
+    },
+    "bb2febc7": {
+      "original": "Returns the value of `highWaterMark` passed when creating this `Readable`.",
+      "translated": "この `Readable` を作成するときに渡された `highWaterMark` の値を返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.readableHighWaterMark",
+      "lang": "ja"
+    },
+    "747119f1": {
+      "original": "This property contains the number of bytes (or objects) in the queue\nready to be read. The value provides introspection data regarding\nthe status of the `highWaterMark`.",
+      "translated": "このプロパティは、読み取り準備ができてキューにあるバイト(またはオブジェクト)の数を含む。この値は `highWaterMark` の状態に関する内省データを提供する。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.readableLength",
+      "lang": "ja"
+    },
+    "800d23ff": {
+      "original": "Getter for the property `objectMode` of a given `Readable` stream.",
+      "translated": "指定した `Readable` ストリームの `objectMode` プロパティのゲッター。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.readableObjectMode",
+      "lang": "ja"
+    },
+    "5d41ebe9": {
+      "original": "a promise for the final value of the reduction.",
+      "translated": "reduce の最終値のための promise。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.reduce",
+      "lang": "ja"
+    },
+    "4a97a58e": {
+      "original": "a reducer function to call over every chunk in the stream. Async or not.",
+      "translated": "ストリーム内のすべてのチャンクに対して呼ぶ reducer 関数。非同期でもそうでなくてもよい。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.reduce",
+      "lang": "ja"
+    },
+    "eac5d59e": {
+      "original": "the initial value to use in the reduction.",
+      "translated": "reduce で使う初期値。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.reduce",
+      "lang": "ja"
+    },
+    "2f763f81": {
+      "original": "This method calls *fn* on each chunk of the stream in order, passing it the result from the calculation\non the previous element. It returns a promise for the final value of the reduction.\n\nIf no *initial* value is supplied the first chunk of the stream is used as the initial value.\nIf the stream is empty, the promise is rejected with a `TypeError` with the `ERR_INVALID_ARGS` code property.\n\nThe reducer function iterates the stream element-by-element which means that there is no *concurrency* parameter\nor parallelism. To perform a reduce concurrently, you can extract the async function to `readable.map` method.",
+      "translated": "このメソッドは、ストリームの各チャンクに対して順に *fn* を呼び、前の要素での計算結果を渡す。reduce の最終値のための promise を返す。\n\n*initial* 値が指定されない場合、ストリームの最初のチャンクが初期値として使われる。ストリームが空の場合、promise は `ERR_INVALID_ARGS` コードプロパティを持つ `TypeError` で拒否される。\n\nreducer 関数はストリームを要素ごとに反復するため、*concurrency* パラメーターや並列性はない。reduce を並行して実行するには、非同期関数を `readable.map` メソッドに抽出できる。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.reduce",
+      "lang": "ja"
+    },
+    "5f8cbd03": {
+      "original": "The `readable.resume()` method causes an explicitly paused `Readable` stream to\nresume emitting `'data'` events, switching the stream into flowing mode.\n\nThe `readable.resume()` method can be used to fully consume the data from a\nstream without actually processing any of that data:\n\n```js\ngetReadableStreamSomehow()\n  .resume()\n  .on('end', () => {\n    console.log('Reached the end, but did not read anything.');\n  });\n```\n\nThe `readable.resume()` method has no effect if there is a `'readable'` event listener.",
+      "translated": "`readable.resume()` メソッドは、明示的に一時停止された `Readable` ストリームに `'data'` イベントの発行を再開させ、ストリームを flowing モードに切り替える。\n\n`readable.resume()` メソッドは、実際にはデータを一切処理せずにストリームからデータを完全に消費するために使える:\n\n```js\ngetReadableStreamSomehow()\n  .resume()\n  .on('end', () => {\n    console.log('Reached the end, but did not read anything.');\n  });\n```\n\n`readable.resume()` メソッドは、`'readable'` イベント listener がある場合は効果がない。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.resume",
+      "lang": "ja"
+    },
+    "88c8a8a0": {
+      "original": "The `readable.setEncoding()` method sets the character encoding for\ndata read from the `Readable` stream.\n\nBy default, no encoding is assigned and stream data will be returned as `Buffer` objects. Setting an encoding causes the stream data\nto be returned as strings of the specified encoding rather than as `Buffer` objects. For instance, calling `readable.setEncoding('utf8')` will cause the\noutput data to be interpreted as UTF-8 data, and passed as strings. Calling `readable.setEncoding('hex')` will cause the data to be encoded in hexadecimal\nstring format.\n\nThe `Readable` stream will properly handle multi-byte characters delivered\nthrough the stream that would otherwise become improperly decoded if simply\npulled from the stream as `Buffer` objects.\n\n```js\nconst readable = getReadableStreamSomehow();\nreadable.setEncoding('utf8');\nreadable.on('data', (chunk) => {\n  assert.equal(typeof chunk, 'string');\n  console.log('Got %d characters of string data:', chunk.length);\n});\n```",
+      "translated": "`readable.setEncoding()` メソッドは、`Readable` ストリームから読み取るデータの文字エンコーディングを設定する。\n\n既定ではエンコーディングは割り当てられず、ストリームデータは `Buffer` オブジェクトとして返される。エンコーディングを設定すると、ストリームデータは `Buffer` オブジェクトではなく、指定したエンコーディングの文字列として返される。たとえば、`readable.setEncoding('utf8')` を呼ぶと出力データは UTF-8 データとして解釈され、文字列として渡される。`readable.setEncoding('hex')` を呼ぶとデータは 16 進数の文字列形式でエンコードされる。\n\n`Readable` ストリームは、ストリームを通じて配信されるマルチバイト文字を適切に扱う。これらは単に `Buffer` オブジェクトとしてストリームから取り出すと不適切にデコードされてしまうものである。\n\n```js\nconst readable = getReadableStreamSomehow();\nreadable.setEncoding('utf8');\nreadable.on('data', (chunk) => {\n  assert.equal(typeof chunk, 'string');\n  console.log('Got %d characters of string data:', chunk.length);\n});\n```",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.setEncoding",
+      "lang": "ja"
+    },
+    "e468d953": {
+      "original": "The encoding to use.",
+      "translated": "使うエンコーディング。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.setEncoding",
+      "lang": "ja"
+    },
+    "22d3986d": {
+      "original": "a promise evaluating to `true` if *fn* returned a truthy value for at least one of the chunks.",
+      "translated": "*fn* が少なくとも 1 つのチャンクに対して truthy な値を返した場合に `true` に評価される promise。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.some",
+      "lang": "ja"
+    },
+    "339eeb83": {
+      "original": "This method is similar to `Array.prototype.some` and calls *fn* on each chunk in the stream\nuntil the awaited return value is `true` (or any truthy value). Once an *fn* call on a chunk\n`await`ed return value is truthy, the stream is destroyed and the promise is fulfilled with `true`.\nIf none of the *fn* calls on the chunks return a truthy value, the promise is fulfilled with `false`.",
+      "translated": "このメソッドは `Array.prototype.some` に似ており、待機された戻り値が `true`(または任意の truthy な値)になるまで、ストリーム内の各チャンクに対して *fn* を呼ぶ。あるチャンクに対する *fn* 呼び出しの `await` された戻り値が truthy になった時点で、ストリームは破棄され、promise は `true` で履行される。チャンクに対する *fn* 呼び出しのいずれも truthy な値を返さなかった場合、promise は `false` で履行される。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.some",
+      "lang": "ja"
+    },
+    "be2ca4bf": {
+      "original": "a stream with *limit* chunks taken.",
+      "translated": "*limit* 個のチャンクを取ったストリーム。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.take",
+      "lang": "ja"
+    },
+    "363066d7": {
+      "original": "the number of chunks to take from the readable.",
+      "translated": "読み取り可能ストリームから取るチャンクの数。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.take",
+      "lang": "ja"
+    },
+    "48d9c19e": {
+      "original": "This method returns a new stream with the first *limit* chunks.",
+      "translated": "このメソッドは、最初の *limit* 個のチャンクを持つ新しいストリームを返す。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.take",
+      "lang": "ja"
+    },
+    "660c9680": {
+      "original": "a promise containing an array with the contents of the stream.",
+      "translated": "ストリームの内容を持つ配列を含む promise。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.toArray",
+      "lang": "ja"
+    },
+    "d448c962": {
+      "original": "This method allows easily obtaining the contents of a stream.\n\nAs this method reads the entire stream into memory, it negates the benefits of streams. It's intended\nfor interoperability and convenience, not as the primary way to consume streams.",
+      "translated": "このメソッドはストリームの内容を簡単に取得できるようにする。\n\nこのメソッドはストリーム全体をメモリに読み込むため、ストリームの利点を打ち消す。これは相互運用性と利便性のためのものであり、ストリームを消費する主要な方法として意図されていない。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.toArray",
+      "lang": "ja"
+    },
+    "09c164fa": {
+      "original": "A utility method for creating a web `ReadableStream` from a `Readable`.",
+      "translated": "`Readable` から web の `ReadableStream` を作成するためのユーティリティメソッド。",
+      "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.toWeb",
+      "lang": "ja"
+    },
     "6534767f": {
       "original": "The `node:util` module supports the needs of Node.js internal APIs. Many of the\nutilities are useful for application and module developers as well. To access\nit:\n\n```js\nimport util from 'node:util';\n```",
       "translated": "`node:util` モジュールは、Node.js の内部 API のニーズをサポートする。ユーティリティの多くは、アプリケーションやモジュールの開発者にとっても役立つ。アクセスするには:\n\n```js\nimport util from 'node:util';\n```",
