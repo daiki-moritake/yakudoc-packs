@@ -922,6 +922,612 @@
       "symbol": "@types/node/buffer.d.ts#buffer.transcode",
       "lang": "ja"
     },
+    "73f2cc3a": {
+      "original": "Much of the Node.js core API is built around an idiomatic asynchronous\nevent-driven architecture in which certain kinds of objects (called \"emitters\")\nemit named events that cause `Function` objects (\"listeners\") to be called.\n\nFor instance: a `net.Server` object emits an event each time a peer\nconnects to it; a `fs.ReadStream` emits an event when the file is opened;\na `stream` emits an event whenever data is available to be read.\n\nAll objects that emit events are instances of the `EventEmitter` class. These\nobjects expose an `eventEmitter.on()` function that allows one or more\nfunctions to be attached to named events emitted by the object. Typically,\nevent names are camel-cased strings but any valid JavaScript property key\ncan be used.\n\nWhen the `EventEmitter` object emits an event, all of the functions attached\nto that specific event are called _synchronously_. Any values returned by the\ncalled listeners are _ignored_ and discarded.\n\nThe following example shows a simple `EventEmitter` instance with a single\nlistener. The `eventEmitter.on()` method is used to register listeners, while\nthe `eventEmitter.emit()` method is used to trigger the event.\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
+      "translated": "Node.js のコア API の多くは、慣用的な非同期のイベント駆動アーキテクチャを中心に構築されている。そこでは特定の種類のオブジェクト(「emitter」と呼ばれる)が名前付きイベントを発行し、それによって `Function` オブジェクト(「listener」)が呼ばれる。\n\nたとえば: `net.Server` オブジェクトはピアが接続するたびにイベントを発行する。`fs.ReadStream` はファイルが開かれたときにイベントを発行する。`stream` はデータが読める状態になるたびにイベントを発行する。\n\nイベントを発行するすべてのオブジェクトは `EventEmitter` クラスのインスタンスである。これらのオブジェクトは、オブジェクトが発行する名前付きイベントに 1 つ以上の関数を結び付けられる `eventEmitter.on()` 関数を公開する。通常、イベント名はキャメルケースの文字列だが、有効な JavaScript のプロパティキーであれば何でも使える。\n\n`EventEmitter` オブジェクトがイベントを発行すると、その特定のイベントに結び付けられたすべての関数が_同期的に_呼ばれる。呼ばれた listener が返す値は_無視_され、破棄される。\n\n次の例は、単一の listener を持つ単純な `EventEmitter` インスタンスを示す。listener の登録には `eventEmitter.on()` メソッドを、イベントのトリガーには `eventEmitter.emit()` メソッドを使う。\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
+      "symbol": "@types/node/events.d.ts#events",
+      "lang": "ja"
+    },
+    "991f02ba": {
+      "original": "The `EventEmitter` class is defined and exposed by the `node:events` module:\n\n```js\nimport { EventEmitter } from 'node:events';\n```\n\nAll `EventEmitter`s emit the event `'newListener'` when new listeners are\nadded and `'removeListener'` when existing listeners are removed.\n\nIt supports the following option:",
+      "translated": "`EventEmitter` クラスは `node:events` モジュールで定義・公開される:\n\n```js\nimport { EventEmitter } from 'node:events';\n```\n\nすべての `EventEmitter` は、新しい listener が追加されたときに `'newListener'` イベントを、既存の listener が削除されたときに `'removeListener'` イベントを発行する。\n\n次のオプションをサポートする:",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter",
+      "lang": "ja"
+    },
+    "3aef3e83": {
+      "original": "When provided the corresponding `AbortController` can be used to cancel an asynchronous action.",
+      "translated": "指定した場合、対応する `AbortController` を使って非同期アクションをキャンセルできる。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.Abortable.signal",
+      "lang": "ja"
+    },
+    "fad10fab": {
+      "original": "Disposable that removes the `abort` listener.",
+      "translated": "`abort` listener を削除する Disposable。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.addAbortListener",
+      "lang": "ja"
+    },
+    "48cb3cfd": {
+      "original": "Listens once to the `abort` event on the provided `signal`.\n\nListening to the `abort` event on abort signals is unsafe and may\nlead to resource leaks since another third party with the signal can\ncall `e.stopImmediatePropagation()`. Unfortunately Node.js cannot change\nthis since it would violate the web standard. Additionally, the original\nAPI makes it easy to forget to remove listeners.\n\nThis API allows safely using `AbortSignal`s in Node.js APIs by solving these\ntwo issues by listening to the event such that `stopImmediatePropagation` does\nnot prevent the listener from running.\n\nReturns a disposable so that it may be unsubscribed from more easily.\n\n```js\nimport { addAbortListener } from 'node:events';\n\nfunction example(signal) {\n  let disposable;\n  try {\n    signal.addEventListener('abort', (e) => e.stopImmediatePropagation());\n    disposable = addAbortListener(signal, (e) => {\n      // Do something when signal is aborted.\n    });\n  } finally {\n    disposable?.[Symbol.dispose]();\n  }\n}\n```",
+      "translated": "指定した `signal` の `abort` イベントを一度だけリッスンする。\n\nabort signal の `abort` イベントをリッスンするのは安全でなく、リソースリークにつながることがある。signal を持つ別のサードパーティが `e.stopImmediatePropagation()` を呼べるからである。残念ながら Node.js はこれを変更できない。Web 標準に違反するためである。さらに、元の API は listener の削除を忘れやすい。\n\nこの API は、`stopImmediatePropagation` が listener の実行を妨げないようにイベントをリッスンすることでこれら 2 つの問題を解決し、Node.js API で `AbortSignal` を安全に使えるようにする。\n\nより簡単に購読解除できるよう、disposable を返す。\n\n```js\nimport { addAbortListener } from 'node:events';\n\nfunction example(signal) {\n  let disposable;\n  try {\n    signal.addEventListener('abort', (e) => e.stopImmediatePropagation());\n    disposable = addAbortListener(signal, (e) => {\n      // Do something when signal is aborted.\n    });\n  } finally {\n    disposable?.[Symbol.dispose]();\n  }\n}\n```",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.addAbortListener",
+      "lang": "ja"
+    },
+    "47e80fb8": {
+      "original": "Value: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)\n\nChange the default `captureRejections` option on all new `EventEmitter` objects.",
+      "translated": "値: [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type)\n\nすべての新しい `EventEmitter` オブジェクトの既定の `captureRejections` オプションを変更する。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.captureRejections",
+      "lang": "ja"
+    },
+    "2b599b87": {
+      "original": "Value: `Symbol.for('nodejs.rejection')`\n\nSee how to write a custom `rejection handler`.",
+      "translated": "値: `Symbol.for('nodejs.rejection')`\n\nカスタムの `rejection handler` の書き方を参照。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.captureRejectionSymbol",
+      "lang": "ja"
+    },
+    "f81043b8": {
+      "original": "By default, a maximum of `10` listeners can be registered for any single\nevent. This limit can be changed for individual `EventEmitter` instances\nusing the `emitter.setMaxListeners(n)` method. To change the default\nfor _all_`EventEmitter` instances, the `events.defaultMaxListeners` property\ncan be used. If this value is not a positive number, a `RangeError` is thrown.\n\nTake caution when setting the `events.defaultMaxListeners` because the\nchange affects _all_ `EventEmitter` instances, including those created before\nthe change is made. However, calling `emitter.setMaxListeners(n)` still has\nprecedence over `events.defaultMaxListeners`.\n\nThis is not a hard limit. The `EventEmitter` instance will allow\nmore listeners to be added but will output a trace warning to stderr indicating\nthat a \"possible EventEmitter memory leak\" has been detected. For any single\n`EventEmitter`, the `emitter.getMaxListeners()` and `emitter.setMaxListeners()` methods can be used to\ntemporarily avoid this warning:\n\n```js\nimport { EventEmitter } from 'node:events';\nconst emitter = new EventEmitter();\nemitter.setMaxListeners(emitter.getMaxListeners() + 1);\nemitter.once('event', () => {\n  // do stuff\n  emitter.setMaxListeners(Math.max(emitter.getMaxListeners() - 1, 0));\n});\n```\n\nThe `--trace-warnings` command-line flag can be used to display the\nstack trace for such warnings.\n\nThe emitted warning can be inspected with `process.on('warning')` and will\nhave the additional `emitter`, `type`, and `count` properties, referring to\nthe event emitter instance, the event's name and the number of attached\nlisteners, respectively.\nIts `name` property is set to `'MaxListenersExceededWarning'`.",
+      "translated": "既定では、単一のイベントに対して最大 `10` 個の listener を登録できる。この上限は `emitter.setMaxListeners(n)` メソッドを使って個々の `EventEmitter` インスタンスごとに変更できる。_すべての_ `EventEmitter` インスタンスの既定を変更するには、`events.defaultMaxListeners` プロパティを使える。この値が正の数でない場合、`RangeError` が投げられる。\n\n`events.defaultMaxListeners` を設定する際は注意すること。この変更は、変更前に作成されたものを含む_すべての_ `EventEmitter` インスタンスに影響するからである。ただし、`emitter.setMaxListeners(n)` の呼び出しは依然として `events.defaultMaxListeners` より優先される。\n\nこれはハードリミットではない。`EventEmitter` インスタンスはより多くの listener の追加を許可するが、「EventEmitter のメモリリークの可能性」が検出されたことを示すトレース警告を stderr に出力する。単一の `EventEmitter` については、`emitter.getMaxListeners()` と `emitter.setMaxListeners()` メソッドを使ってこの警告を一時的に回避できる:\n\n```js\nimport { EventEmitter } from 'node:events';\nconst emitter = new EventEmitter();\nemitter.setMaxListeners(emitter.getMaxListeners() + 1);\nemitter.once('event', () => {\n  // do stuff\n  emitter.setMaxListeners(Math.max(emitter.getMaxListeners() - 1, 0));\n});\n```\n\nそのような警告のスタックトレースを表示するには、`--trace-warnings` コマンドラインフラグを使える。\n\n発行された警告は `process.on('warning')` で検査でき、それぞれイベント emitter インスタンス・イベント名・結び付いた listener の数を指す、追加の `emitter`・`type`・`count` プロパティを持つ。その `name` プロパティは `'MaxListenersExceededWarning'` に設定される。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.defaultMaxListeners",
+      "lang": "ja"
+    },
+    "bc957dbc": {
+      "original": "This symbol shall be used to install a listener for only monitoring `'error'` events. Listeners installed using this symbol are called before the regular `'error'` listeners are called.\n\nInstalling a listener using this symbol does not change the behavior once an `'error'` event is emitted. Therefore, the process will still crash if no\nregular `'error'` listener is installed.",
+      "translated": "このシンボルは、`'error'` イベントを監視するだけの listener を設定するために使う。このシンボルを使って設定した listener は、通常の `'error'` listener より前に呼ばれる。\n\nこのシンボルを使って listener を設定しても、`'error'` イベントが発行された後の挙動は変わらない。したがって、通常の `'error'` listener が設定されていない場合、プロセスは依然としてクラッシュする。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.errorMonitor",
+      "lang": "ja"
+    },
+    "f842e8b3": {
+      "original": "Integrates `EventEmitter` with `AsyncResource` for `EventEmitter`s that\nrequire manual async tracking. Specifically, all events emitted by instances\nof `events.EventEmitterAsyncResource` will run within its `async context`.\n\n```js\nimport { EventEmitterAsyncResource, EventEmitter } from 'node:events';\nimport { notStrictEqual, strictEqual } from 'node:assert';\nimport { executionAsyncId, triggerAsyncId } from 'node:async_hooks';\n\n// Async tracking tooling will identify this as 'Q'.\nconst ee1 = new EventEmitterAsyncResource({ name: 'Q' });\n\n// 'foo' listeners will run in the EventEmitters async context.\nee1.on('foo', () => {\n  strictEqual(executionAsyncId(), ee1.asyncId);\n  strictEqual(triggerAsyncId(), ee1.triggerAsyncId);\n});\n\nconst ee2 = new EventEmitter();\n\n// 'foo' listeners on ordinary EventEmitters that do not track async\n// context, however, run in the same async context as the emit().\nee2.on('foo', () => {\n  notStrictEqual(executionAsyncId(), ee2.asyncId);\n  notStrictEqual(triggerAsyncId(), ee2.triggerAsyncId);\n});\n\nPromise.resolve().then(() => {\n  ee1.emit('foo');\n  ee2.emit('foo');\n});\n```\n\nThe `EventEmitterAsyncResource` class has the same methods and takes the\nsame options as `EventEmitter` and `AsyncResource` themselves.",
+      "translated": "手動の非同期追跡が必要な `EventEmitter` のために、`EventEmitter` を `AsyncResource` と統合する。具体的には、`events.EventEmitterAsyncResource` のインスタンスが発行するすべてのイベントは、その `async context` 内で実行される。\n\n```js\nimport { EventEmitterAsyncResource, EventEmitter } from 'node:events';\nimport { notStrictEqual, strictEqual } from 'node:assert';\nimport { executionAsyncId, triggerAsyncId } from 'node:async_hooks';\n\n// Async tracking tooling will identify this as 'Q'.\nconst ee1 = new EventEmitterAsyncResource({ name: 'Q' });\n\n// 'foo' listeners will run in the EventEmitters async context.\nee1.on('foo', () => {\n  strictEqual(executionAsyncId(), ee1.asyncId);\n  strictEqual(triggerAsyncId(), ee1.triggerAsyncId);\n});\n\nconst ee2 = new EventEmitter();\n\n// 'foo' listeners on ordinary EventEmitters that do not track async\n// context, however, run in the same async context as the emit().\nee2.on('foo', () => {\n  notStrictEqual(executionAsyncId(), ee2.asyncId);\n  notStrictEqual(triggerAsyncId(), ee2.triggerAsyncId);\n});\n\nPromise.resolve().then(() => {\n  ee1.emit('foo');\n  ee2.emit('foo');\n});\n```\n\n`EventEmitterAsyncResource` クラスは `EventEmitter` と `AsyncResource` 自体と同じメソッドを持ち、同じオプションを取る。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.EventEmitterAsyncResource",
+      "lang": "ja"
+    },
+    "fd18d65b": {
+      "original": "Only optional in child class.",
+      "translated": "子クラスでのみ省略可能。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.EventEmitterAsyncResource",
+      "lang": "ja"
+    },
+    "e1697e13": {
+      "original": "The returned `AsyncResource` object has an additional `eventEmitter` property\nthat provides a reference to this `EventEmitterAsyncResource`.",
+      "translated": "返される `AsyncResource` オブジェクトは、この `EventEmitterAsyncResource` への参照を提供する追加の `eventEmitter` プロパティを持つ。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.EventEmitterAsyncResource.asyncResource",
+      "lang": "ja"
+    },
+    "b740bc1a": {
+      "original": "The same triggerAsyncId that is passed to the AsyncResource constructor.",
+      "translated": "AsyncResource コンストラクターに渡されるのと同じ triggerAsyncId。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.EventEmitterAsyncResource.triggerAsyncId",
+      "lang": "ja"
+    },
+    "e259776e": {
+      "original": "The type of async event, this is required when instantiating `EventEmitterAsyncResource`\ndirectly rather than as a child class.",
+      "translated": "非同期イベントの種類。これは、子クラスとしてではなく `EventEmitterAsyncResource` を直接インスタンス化するときに必須である。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.EventEmitterAsyncResourceOptions.name",
+      "lang": "ja"
+    },
+    "81d28c91": {
+      "original": "Returns a copy of the array of listeners for the event named `eventName`.\n\nFor `EventEmitter`s this behaves exactly the same as calling `.listeners` on\nthe emitter.\n\nFor `EventTarget`s this is the only way to get the event listeners for the\nevent target. This is useful for debugging and diagnostic purposes.\n\n```js\nimport { getEventListeners, EventEmitter } from 'node:events';\n\n{\n  const ee = new EventEmitter();\n  const listener = () => console.log('Events are fun');\n  ee.on('foo', listener);\n  console.log(getEventListeners(ee, 'foo')); // [ [Function: listener] ]\n}\n{\n  const et = new EventTarget();\n  const listener = () => console.log('Events are fun');\n  et.addEventListener('foo', listener);\n  console.log(getEventListeners(et, 'foo')); // [ [Function: listener] ]\n}\n```",
+      "translated": "`eventName` という名前のイベントの listener 配列のコピーを返す。\n\n`EventEmitter` については、emitter の `.listeners` を呼ぶのとまったく同じ挙動である。\n\n`EventTarget` については、イベントターゲットの listener を取得する唯一の方法である。デバッグや診断の目的に役立つ。\n\n```js\nimport { getEventListeners, EventEmitter } from 'node:events';\n\n{\n  const ee = new EventEmitter();\n  const listener = () => console.log('Events are fun');\n  ee.on('foo', listener);\n  console.log(getEventListeners(ee, 'foo')); // [ [Function: listener] ]\n}\n{\n  const et = new EventTarget();\n  const listener = () => console.log('Events are fun');\n  et.addEventListener('foo', listener);\n  console.log(getEventListeners(et, 'foo')); // [ [Function: listener] ]\n}\n```",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.getEventListeners",
+      "lang": "ja"
+    },
+    "324f1eee": {
+      "original": "Returns the currently set max amount of listeners.\n\nFor `EventEmitter`s this behaves exactly the same as calling `.getMaxListeners` on\nthe emitter.\n\nFor `EventTarget`s this is the only way to get the max event listeners for the\nevent target. If the number of event handlers on a single EventTarget exceeds\nthe max set, the EventTarget will print a warning.\n\n```js\nimport { getMaxListeners, setMaxListeners, EventEmitter } from 'node:events';\n\n{\n  const ee = new EventEmitter();\n  console.log(getMaxListeners(ee)); // 10\n  setMaxListeners(11, ee);\n  console.log(getMaxListeners(ee)); // 11\n}\n{\n  const et = new EventTarget();\n  console.log(getMaxListeners(et)); // 10\n  setMaxListeners(11, et);\n  console.log(getMaxListeners(et)); // 11\n}\n```",
+      "translated": "現在設定されている listener の最大数を返す。\n\n`EventEmitter` については、emitter の `.getMaxListeners` を呼ぶのとまったく同じ挙動である。\n\n`EventTarget` については、イベントターゲットの最大 listener 数を取得する唯一の方法である。単一の EventTarget のイベントハンドラの数が設定された最大値を超えると、EventTarget は警告を出力する。\n\n```js\nimport { getMaxListeners, setMaxListeners, EventEmitter } from 'node:events';\n\n{\n  const ee = new EventEmitter();\n  console.log(getMaxListeners(ee)); // 10\n  setMaxListeners(11, ee);\n  console.log(getMaxListeners(ee)); // 11\n}\n{\n  const et = new EventTarget();\n  console.log(getMaxListeners(et)); // 10\n  setMaxListeners(11, et);\n  console.log(getMaxListeners(et)); // 11\n}\n```",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.getMaxListeners",
+      "lang": "ja"
+    },
+    "42d40b58": {
+      "original": "A class method that returns the number of listeners for the given `eventName` registered on the given `emitter`.\n\n```js\nimport { EventEmitter, listenerCount } from 'node:events';\n\nconst myEmitter = new EventEmitter();\nmyEmitter.on('event', () => {});\nmyEmitter.on('event', () => {});\nconsole.log(listenerCount(myEmitter, 'event'));\n// Prints: 2\n```",
+      "translated": "指定した `emitter` に登録された、指定の `eventName` の listener の数を返すクラスメソッド。\n\n```js\nimport { EventEmitter, listenerCount } from 'node:events';\n\nconst myEmitter = new EventEmitter();\nmyEmitter.on('event', () => {});\nmyEmitter.on('event', () => {});\nconsole.log(listenerCount(myEmitter, 'event'));\n// Prints: 2\n```",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.listenerCount",
+      "lang": "ja"
+    },
+    "64f1a73e": {
+      "original": "Since v3.2.0 - Use `listenerCount` instead.",
+      "translated": "v3.2.0 以降 - 代わりに `listenerCount` を使うこと。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.listenerCount",
+      "lang": "ja"
+    },
+    "1e8de465": {
+      "original": "The emitter to query",
+      "translated": "問い合わせ対象の emitter",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.listenerCount",
+      "lang": "ja"
+    },
+    "ac455b50": {
+      "original": "The event name",
+      "translated": "イベント名",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.listenerCount",
+      "lang": "ja"
+    },
+    "3d78ff7e": {
+      "original": "The `NodeEventTarget` is a Node.js-specific extension to `EventTarget`\nthat emulates a subset of the `EventEmitter` API.",
+      "translated": "`NodeEventTarget` は、`EventEmitter` API の部分集合を模倣する、Node.js 固有の `EventTarget` 拡張である。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget",
+      "lang": "ja"
+    },
+    "88ff65f5": {
+      "original": "Node.js-specific extension to the `EventTarget` class that emulates the\nequivalent `EventEmitter` API. The only difference between `addListener()` and\n`addEventListener()` is that `addListener()` will return a reference to the\n`EventTarget`.",
+      "translated": "同等の `EventEmitter` API を模倣する、`EventTarget` クラスへの Node.js 固有の拡張。`addListener()` と `addEventListener()` の唯一の違いは、`addListener()` が `EventTarget` への参照を返すことである。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.addListener",
+      "lang": "ja"
+    },
+    "cf9d5a74": {
+      "original": "`true` if event listeners registered for the `type` exist,\notherwise `false`.",
+      "translated": "`type` に登録されたイベント listener が存在する場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.emit",
+      "lang": "ja"
+    },
+    "1c413047": {
+      "original": "Node.js-specific extension to the `EventTarget` class that dispatches the\n`arg` to the list of handlers for `type`.",
+      "translated": "`arg` を `type` のハンドラのリストにディスパッチする、`EventTarget` クラスへの Node.js 固有の拡張。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.emit",
+      "lang": "ja"
+    },
+    "26882d7a": {
+      "original": "Node.js-specific extension to the `EventTarget` class that returns an array\nof event `type` names for which event listeners are registered.",
+      "translated": "イベント listener が登録されているイベント `type` 名の配列を返す、`EventTarget` クラスへの Node.js 固有の拡張。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.eventNames",
+      "lang": "ja"
+    },
+    "f81ef8af": {
+      "original": "Node.js-specific extension to the `EventTarget` class that returns the number\nof max event listeners.",
+      "translated": "最大イベント listener 数を返す、`EventTarget` クラスへの Node.js 固有の拡張。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.getMaxListeners",
+      "lang": "ja"
+    },
+    "29f41a3d": {
+      "original": "Node.js-specific extension to the `EventTarget` class that returns the number\nof event listeners registered for the `type`.",
+      "translated": "`type` に登録されたイベント listener の数を返す、`EventTarget` クラスへの Node.js 固有の拡張。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.listenerCount",
+      "lang": "ja"
+    },
+    "5ef3746f": {
+      "original": "Node.js-specific alias for `eventTarget.removeEventListener()`.",
+      "translated": "`eventTarget.removeEventListener()` の Node.js 固有のエイリアス。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.off",
+      "lang": "ja"
+    },
+    "4233ccf2": {
+      "original": "Node.js-specific alias for `eventTarget.addEventListener()`.",
+      "translated": "`eventTarget.addEventListener()` の Node.js 固有のエイリアス。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.on",
+      "lang": "ja"
+    },
+    "7a454c24": {
+      "original": "Node.js-specific extension to the `EventTarget` class that adds a `once`\nlistener for the given event `type`. This is equivalent to calling `on`\nwith the `once` option set to `true`.",
+      "translated": "指定したイベント `type` に `once` listener を追加する、`EventTarget` クラスへの Node.js 固有の拡張。これは `once` オプションを `true` に設定して `on` を呼ぶのと同等である。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.once",
+      "lang": "ja"
+    },
+    "9d19080d": {
+      "original": "Node.js-specific extension to the `EventTarget` class. If `type` is specified,\nremoves all registered listeners for `type`, otherwise removes all registered\nlisteners.",
+      "translated": "`EventTarget` クラスへの Node.js 固有の拡張。`type` を指定した場合、`type` に登録されたすべての listener を削除する。そうでなければ登録されたすべての listener を削除する。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.removeAllListeners",
+      "lang": "ja"
+    },
+    "bfc37092": {
+      "original": "Node.js-specific extension to the `EventTarget` class that removes the\n`listener` for the given `type`. The only difference between `removeListener()`\nand `removeEventListener()` is that `removeListener()` will return a reference\nto the `EventTarget`.",
+      "translated": "指定した `type` の `listener` を削除する、`EventTarget` クラスへの Node.js 固有の拡張。`removeListener()` と `removeEventListener()` の唯一の違いは、`removeListener()` が `EventTarget` への参照を返すことである。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.removeListener",
+      "lang": "ja"
+    },
+    "b44cc963": {
+      "original": "Node.js-specific extension to the `EventTarget` class that sets the number\nof max event listeners as `n`.",
+      "translated": "最大イベント listener 数を `n` に設定する、`EventTarget` クラスへの Node.js 固有の拡張。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.NodeEventTarget.setMaxListeners",
+      "lang": "ja"
+    },
+    "c15ddd06": {
+      "original": "```js\nimport { on, EventEmitter } from 'node:events';\nimport process from 'node:process';\n\nconst ee = new EventEmitter();\n\n// Emit later on\nprocess.nextTick(() => {\n  ee.emit('foo', 'bar');\n  ee.emit('foo', 42);\n});\n\nfor await (const event of on(ee, 'foo')) {\n  // The execution of this inner block is synchronous and it\n  // processes one event at a time (even with await). Do not use\n  // if concurrent execution is required.\n  console.log(event); // prints ['bar'] [42]\n}\n// Unreachable here\n```\n\nReturns an `AsyncIterator` that iterates `eventName` events. It will throw\nif the `EventEmitter` emits `'error'`. It removes all listeners when\nexiting the loop. The `value` returned by each iteration is an array\ncomposed of the emitted event arguments.\n\nAn `AbortSignal` can be used to cancel waiting on events:\n\n```js\nimport { on, EventEmitter } from 'node:events';\nimport process from 'node:process';\n\nconst ac = new AbortController();\n\n(async () => {\n  const ee = new EventEmitter();\n\n  // Emit later on\n  process.nextTick(() => {\n    ee.emit('foo', 'bar');\n    ee.emit('foo', 42);\n  });\n\n  for await (const event of on(ee, 'foo', { signal: ac.signal })) {\n    // The execution of this inner block is synchronous and it\n    // processes one event at a time (even with await). Do not use\n    // if concurrent execution is required.\n    console.log(event); // prints ['bar'] [42]\n  }\n  // Unreachable here\n})();\n\nprocess.nextTick(() => ac.abort());\n```\n\nUse the `close` option to specify an array of event names that will end the iteration:\n\n```js\nimport { on, EventEmitter } from 'node:events';\nimport process from 'node:process';\n\nconst ee = new EventEmitter();\n\n// Emit later on\nprocess.nextTick(() => {\n  ee.emit('foo', 'bar');\n  ee.emit('foo', 42);\n  ee.emit('close');\n});\n\nfor await (const event of on(ee, 'foo', { close: ['close'] })) {\n  console.log(event); // prints ['bar'] [42]\n}\n// the loop will exit after 'close' is emitted\nconsole.log('done'); // prints 'done'\n```",
+      "translated": "```js\nimport { on, EventEmitter } from 'node:events';\nimport process from 'node:process';\n\nconst ee = new EventEmitter();\n\n// Emit later on\nprocess.nextTick(() => {\n  ee.emit('foo', 'bar');\n  ee.emit('foo', 42);\n});\n\nfor await (const event of on(ee, 'foo')) {\n  // The execution of this inner block is synchronous and it\n  // processes one event at a time (even with await). Do not use\n  // if concurrent execution is required.\n  console.log(event); // prints ['bar'] [42]\n}\n// Unreachable here\n```\n\n`eventName` イベントを反復する `AsyncIterator` を返す。`EventEmitter` が `'error'` を発行すると投げる。ループを抜けるときにすべての listener を削除する。各反復が返す `value` は、発行されたイベント引数からなる配列である。\n\n`AbortSignal` を使ってイベントの待機をキャンセルできる:\n\n```js\nimport { on, EventEmitter } from 'node:events';\nimport process from 'node:process';\n\nconst ac = new AbortController();\n\n(async () => {\n  const ee = new EventEmitter();\n\n  // Emit later on\n  process.nextTick(() => {\n    ee.emit('foo', 'bar');\n    ee.emit('foo', 42);\n  });\n\n  for await (const event of on(ee, 'foo', { signal: ac.signal })) {\n    // The execution of this inner block is synchronous and it\n    // processes one event at a time (even with await). Do not use\n    // if concurrent execution is required.\n    console.log(event); // prints ['bar'] [42]\n  }\n  // Unreachable here\n})();\n\nprocess.nextTick(() => ac.abort());\n```\n\n反復を終了させるイベント名の配列を指定するには `close` オプションを使う:\n\n```js\nimport { on, EventEmitter } from 'node:events';\nimport process from 'node:process';\n\nconst ee = new EventEmitter();\n\n// Emit later on\nprocess.nextTick(() => {\n  ee.emit('foo', 'bar');\n  ee.emit('foo', 42);\n  ee.emit('close');\n});\n\nfor await (const event of on(ee, 'foo', { close: ['close'] })) {\n  console.log(event); // prints ['bar'] [42]\n}\n// the loop will exit after 'close' is emitted\nconsole.log('done'); // prints 'done'\n```",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.on",
+      "lang": "ja"
+    },
+    "71aec8aa": {
+      "original": "An `AsyncIterator` that iterates `eventName` events emitted by the `emitter`",
+      "translated": "`emitter` が発行する `eventName` イベントを反復する `AsyncIterator`",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.on",
+      "lang": "ja"
+    },
+    "29dbe20c": {
+      "original": "Creates a `Promise` that is fulfilled when the `EventEmitter` emits the given\nevent or that is rejected if the `EventEmitter` emits `'error'` while waiting.\nThe `Promise` will resolve with an array of all the arguments emitted to the\ngiven event.\n\nThis method is intentionally generic and works with the web platform [EventTarget](https://dom.spec.whatwg.org/#interface-eventtarget) interface, which has no special`'error'` event\nsemantics and does not listen to the `'error'` event.\n\n```js\nimport { once, EventEmitter } from 'node:events';\nimport process from 'node:process';\n\nconst ee = new EventEmitter();\n\nprocess.nextTick(() => {\n  ee.emit('myevent', 42);\n});\n\nconst [value] = await once(ee, 'myevent');\nconsole.log(value);\n\nconst err = new Error('kaboom');\nprocess.nextTick(() => {\n  ee.emit('error', err);\n});\n\ntry {\n  await once(ee, 'myevent');\n} catch (err) {\n  console.error('error happened', err);\n}\n```\n\nThe special handling of the `'error'` event is only used when `events.once()` is used to wait for another event. If `events.once()` is used to wait for the\n'`error'` event itself, then it is treated as any other kind of event without\nspecial handling:\n\n```js\nimport { EventEmitter, once } from 'node:events';\n\nconst ee = new EventEmitter();\n\nonce(ee, 'error')\n  .then(([err]) => console.log('ok', err.message))\n  .catch((err) => console.error('error', err.message));\n\nee.emit('error', new Error('boom'));\n\n// Prints: ok boom\n```\n\nAn `AbortSignal` can be used to cancel waiting for the event:\n\n```js\nimport { EventEmitter, once } from 'node:events';\n\nconst ee = new EventEmitter();\nconst ac = new AbortController();\n\nasync function foo(emitter, event, signal) {\n  try {\n    await once(emitter, event, { signal });\n    console.log('event emitted!');\n  } catch (error) {\n    if (error.name === 'AbortError') {\n      console.error('Waiting for the event was canceled!');\n    } else {\n      console.error('There was an error', error.message);\n    }\n  }\n}\n\nfoo(ee, 'foo', ac.signal);\nac.abort(); // Abort waiting for the event\nee.emit('foo'); // Prints: Waiting for the event was canceled!\n```",
+      "translated": "`EventEmitter` が指定したイベントを発行したときに履行される、または待機中に `EventEmitter` が `'error'` を発行した場合に拒否される `Promise` を作成する。この `Promise` は、指定したイベントに発行されたすべての引数の配列で解決される。\n\nこのメソッドは意図的に汎用的で、特別な `'error'` イベントのセマンティクスを持たず `'error'` イベントをリッスンしない Web プラットフォームの [EventTarget](https://dom.spec.whatwg.org/#interface-eventtarget) インターフェースでも動作する。\n\n```js\nimport { once, EventEmitter } from 'node:events';\nimport process from 'node:process';\n\nconst ee = new EventEmitter();\n\nprocess.nextTick(() => {\n  ee.emit('myevent', 42);\n});\n\nconst [value] = await once(ee, 'myevent');\nconsole.log(value);\n\nconst err = new Error('kaboom');\nprocess.nextTick(() => {\n  ee.emit('error', err);\n});\n\ntry {\n  await once(ee, 'myevent');\n} catch (err) {\n  console.error('error happened', err);\n}\n```\n\n`'error'` イベントの特別な処理は、`events.once()` が別のイベントを待機するために使われる場合にのみ適用される。`events.once()` が `'error'` イベント自体を待機するために使われる場合は、特別な処理なしに他の種類のイベントと同様に扱われる:\n\n```js\nimport { EventEmitter, once } from 'node:events';\n\nconst ee = new EventEmitter();\n\nonce(ee, 'error')\n  .then(([err]) => console.log('ok', err.message))\n  .catch((err) => console.error('error', err.message));\n\nee.emit('error', new Error('boom'));\n\n// Prints: ok boom\n```\n\n`AbortSignal` を使ってイベントの待機をキャンセルできる:\n\n```js\nimport { EventEmitter, once } from 'node:events';\n\nconst ee = new EventEmitter();\nconst ac = new AbortController();\n\nasync function foo(emitter, event, signal) {\n  try {\n    await once(emitter, event, { signal });\n    console.log('event emitted!');\n  } catch (error) {\n    if (error.name === 'AbortError') {\n      console.error('Waiting for the event was canceled!');\n    } else {\n      console.error('There was an error', error.message);\n    }\n  }\n}\n\nfoo(ee, 'foo', ac.signal);\nac.abort(); // Abort waiting for the event\nee.emit('foo'); // Prints: Waiting for the event was canceled!\n```",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.once",
+      "lang": "ja"
+    },
+    "2136c673": {
+      "original": "```js\nimport { setMaxListeners, EventEmitter } from 'node:events';\n\nconst target = new EventTarget();\nconst emitter = new EventEmitter();\n\nsetMaxListeners(5, target, emitter);\n```",
+      "translated": "```js\nimport { setMaxListeners, EventEmitter } from 'node:events';\n\nconst target = new EventTarget();\nconst emitter = new EventEmitter();\n\nsetMaxListeners(5, target, emitter);\n```",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.setMaxListeners",
+      "lang": "ja"
+    },
+    "e50b2cf0": {
+      "original": "A non-negative number. The maximum number of listeners per `EventTarget` event.",
+      "translated": "非負の数。`EventTarget` イベントごとの listener の最大数。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.setMaxListeners",
+      "lang": "ja"
+    },
+    "8c8d3c5b": {
+      "original": "Zero or more {EventTarget} or {EventEmitter} instances. If none are specified, `n` is set as the default max for all newly created {EventTarget} and {EventEmitter}\nobjects.",
+      "translated": "0 個以上の {EventTarget} または {EventEmitter} インスタンス。1 つも指定しない場合、`n` が、新しく作成されるすべての {EventTarget} と {EventEmitter} オブジェクトの既定の最大値として設定される。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitter.setMaxListeners",
+      "lang": "ja"
+    },
+    "6cf9a9ca": {
+      "original": "Enables automatic capturing of promise rejection.",
+      "translated": "promise の rejection の自動捕捉を有効にする。",
+      "symbol": "@types/node/events.d.ts#events.EventEmitterOptions.captureRejections",
+      "lang": "ja"
+    },
+    "d6559790": {
+      "original": "Alias for `emitter.on(eventName, listener)`.",
+      "translated": "`emitter.on(eventName, listener)` のエイリアス。",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.addListener",
+      "lang": "ja"
+    },
+    "7449ec4d": {
+      "original": "Synchronously calls each of the listeners registered for the event named `eventName`, in the order they were registered, passing the supplied arguments\nto each.\n\nReturns `true` if the event had listeners, `false` otherwise.\n\n```js\nimport { EventEmitter } from 'node:events';\nconst myEmitter = new EventEmitter();\n\n// First listener\nmyEmitter.on('event', function firstListener() {\n  console.log('Helloooo! first listener');\n});\n// Second listener\nmyEmitter.on('event', function secondListener(arg1, arg2) {\n  console.log(`event with parameters ${arg1}, ${arg2} in second listener`);\n});\n// Third listener\nmyEmitter.on('event', function thirdListener(...args) {\n  const parameters = args.join(', ');\n  console.log(`event with parameters ${parameters} in third listener`);\n});\n\nconsole.log(myEmitter.listeners('event'));\n\nmyEmitter.emit('event', 1, 2, 3, 4, 5);\n\n// Prints:\n// [\n//   [Function: firstListener],\n//   [Function: secondListener],\n//   [Function: thirdListener]\n// ]\n// Helloooo! first listener\n// event with parameters 1, 2 in second listener\n// event with parameters 1, 2, 3, 4, 5 in third listener\n```",
+      "translated": "`eventName` という名前のイベントに登録された各 listener を、登録された順に同期的に呼び出し、指定した引数をそれぞれに渡す。\n\nイベントに listener があった場合は `true`、そうでなければ `false` を返す。\n\n```js\nimport { EventEmitter } from 'node:events';\nconst myEmitter = new EventEmitter();\n\n// First listener\nmyEmitter.on('event', function firstListener() {\n  console.log('Helloooo! first listener');\n});\n// Second listener\nmyEmitter.on('event', function secondListener(arg1, arg2) {\n  console.log(`event with parameters ${arg1}, ${arg2} in second listener`);\n});\n// Third listener\nmyEmitter.on('event', function thirdListener(...args) {\n  const parameters = args.join(', ');\n  console.log(`event with parameters ${parameters} in third listener`);\n});\n\nconsole.log(myEmitter.listeners('event'));\n\nmyEmitter.emit('event', 1, 2, 3, 4, 5);\n\n// Prints:\n// [\n//   [Function: firstListener],\n//   [Function: secondListener],\n//   [Function: thirdListener]\n// ]\n// Helloooo! first listener\n// event with parameters 1, 2 in second listener\n// event with parameters 1, 2, 3, 4, 5 in third listener\n```",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.emit",
+      "lang": "ja"
+    },
+    "4cfe9d69": {
+      "original": "Returns an array listing the events for which the emitter has registered\nlisteners. The values in the array are strings or `Symbol`s.\n\n```js\nimport { EventEmitter } from 'node:events';\n\nconst myEE = new EventEmitter();\nmyEE.on('foo', () => {});\nmyEE.on('bar', () => {});\n\nconst sym = Symbol('symbol');\nmyEE.on(sym, () => {});\n\nconsole.log(myEE.eventNames());\n// Prints: [ 'foo', 'bar', Symbol(symbol) ]\n```",
+      "translated": "emitter が listener を登録しているイベントを列挙した配列を返す。配列内の値は文字列または `Symbol` である。\n\n```js\nimport { EventEmitter } from 'node:events';\n\nconst myEE = new EventEmitter();\nmyEE.on('foo', () => {});\nmyEE.on('bar', () => {});\n\nconst sym = Symbol('symbol');\nmyEE.on(sym, () => {});\n\nconsole.log(myEE.eventNames());\n// Prints: [ 'foo', 'bar', Symbol(symbol) ]\n```",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.eventNames",
+      "lang": "ja"
+    },
+    "eb3333c5": {
+      "original": "Returns the current max listener value for the `EventEmitter` which is either\nset by `emitter.setMaxListeners(n)` or defaults to {@link EventEmitter.defaultMaxListeners}.",
+      "translated": "`EventEmitter` の現在の最大 listener 値を返す。この値は `emitter.setMaxListeners(n)` で設定されるか、{@link EventEmitter.defaultMaxListeners} が既定になる。",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.getMaxListeners",
+      "lang": "ja"
+    },
+    "b1965b6a": {
+      "original": "Returns the number of listeners listening for the event named `eventName`.\nIf `listener` is provided, it will return how many times the listener is found\nin the list of the listeners of the event.",
+      "translated": "`eventName` という名前のイベントをリッスンしている listener の数を返す。`listener` を指定した場合、その listener がイベントの listener リストに何回見つかるかを返す。",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.listenerCount",
+      "lang": "ja"
+    },
+    "0dfa6fe2": {
+      "original": "The event handler function",
+      "translated": "イベントハンドラ関数",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.listenerCount",
+      "lang": "ja"
+    },
+    "40468e8d": {
+      "original": "The name of the event being listened for",
+      "translated": "リッスンされているイベントの名前",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.listenerCount",
+      "lang": "ja"
+    },
+    "d88eb2a7": {
+      "original": "Returns a copy of the array of listeners for the event named `eventName`.\n\n```js\nserver.on('connection', (stream) => {\n  console.log('someone connected!');\n});\nconsole.log(util.inspect(server.listeners('connection')));\n// Prints: [ [Function] ]\n```",
+      "translated": "`eventName` という名前のイベントの listener 配列のコピーを返す。\n\n```js\nserver.on('connection', (stream) => {\n  console.log('someone connected!');\n});\nconsole.log(util.inspect(server.listeners('connection')));\n// Prints: [ [Function] ]\n```",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.listeners",
+      "lang": "ja"
+    },
+    "6b8ea8cd": {
+      "original": "Alias for `emitter.removeListener()`.",
+      "translated": "`emitter.removeListener()` のエイリアス。",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.off",
+      "lang": "ja"
+    },
+    "7ec91439": {
+      "original": "Adds the `listener` function to the end of the listeners array for the event\nnamed `eventName`. No checks are made to see if the `listener` has already\nbeen added. Multiple calls passing the same combination of `eventName` and\n`listener` will result in the `listener` being added, and called, multiple times.\n\n```js\nserver.on('connection', (stream) => {\n  console.log('someone connected!');\n});\n```\n\nReturns a reference to the `EventEmitter`, so that calls can be chained.\n\nBy default, event listeners are invoked in the order they are added. The `emitter.prependListener()` method can be used as an alternative to add the\nevent listener to the beginning of the listeners array.\n\n```js\nimport { EventEmitter } from 'node:events';\nconst myEE = new EventEmitter();\nmyEE.on('foo', () => console.log('a'));\nmyEE.prependListener('foo', () => console.log('b'));\nmyEE.emit('foo');\n// Prints:\n//   b\n//   a\n```",
+      "translated": "`eventName` という名前のイベントの listener 配列の末尾に `listener` 関数を追加する。`listener` がすでに追加されているかのチェックは行わない。同じ `eventName` と `listener` の組み合わせで複数回呼ぶと、`listener` は複数回追加され、複数回呼ばれる。\n\n```js\nserver.on('connection', (stream) => {\n  console.log('someone connected!');\n});\n```\n\n呼び出しを連鎖できるよう、`EventEmitter` への参照を返す。\n\n既定では、イベント listener は追加された順に呼ばれる。イベント listener を listener 配列の先頭に追加する代替として、`emitter.prependListener()` メソッドを使える。\n\n```js\nimport { EventEmitter } from 'node:events';\nconst myEE = new EventEmitter();\nmyEE.on('foo', () => console.log('a'));\nmyEE.prependListener('foo', () => console.log('b'));\nmyEE.emit('foo');\n// Prints:\n//   b\n//   a\n```",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.on",
+      "lang": "ja"
+    },
+    "eb9030a8": {
+      "original": "The name of the event.",
+      "translated": "イベントの名前。",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.on",
+      "lang": "ja"
+    },
+    "a89cf545": {
+      "original": "Adds a **one-time** `listener` function for the event named `eventName`. The\nnext time `eventName` is triggered, this listener is removed and then invoked.\n\n```js\nserver.once('connection', (stream) => {\n  console.log('Ah, we have our first user!');\n});\n```\n\nReturns a reference to the `EventEmitter`, so that calls can be chained.\n\nBy default, event listeners are invoked in the order they are added. The `emitter.prependOnceListener()` method can be used as an alternative to add the\nevent listener to the beginning of the listeners array.\n\n```js\nimport { EventEmitter } from 'node:events';\nconst myEE = new EventEmitter();\nmyEE.once('foo', () => console.log('a'));\nmyEE.prependOnceListener('foo', () => console.log('b'));\nmyEE.emit('foo');\n// Prints:\n//   b\n//   a\n```",
+      "translated": "`eventName` という名前のイベントに**一度だけ**の `listener` 関数を追加する。次に `eventName` がトリガーされたとき、この listener は削除されてから呼ばれる。\n\n```js\nserver.once('connection', (stream) => {\n  console.log('Ah, we have our first user!');\n});\n```\n\n呼び出しを連鎖できるよう、`EventEmitter` への参照を返す。\n\n既定では、イベント listener は追加された順に呼ばれる。イベント listener を listener 配列の先頭に追加する代替として、`emitter.prependOnceListener()` メソッドを使える。\n\n```js\nimport { EventEmitter } from 'node:events';\nconst myEE = new EventEmitter();\nmyEE.once('foo', () => console.log('a'));\nmyEE.prependOnceListener('foo', () => console.log('b'));\nmyEE.emit('foo');\n// Prints:\n//   b\n//   a\n```",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.once",
+      "lang": "ja"
+    },
+    "05d634af": {
+      "original": "Adds the `listener` function to the _beginning_ of the listeners array for the\nevent named `eventName`. No checks are made to see if the `listener` has\nalready been added. Multiple calls passing the same combination of `eventName`\nand `listener` will result in the `listener` being added, and called, multiple times.\n\n```js\nserver.prependListener('connection', (stream) => {\n  console.log('someone connected!');\n});\n```\n\nReturns a reference to the `EventEmitter`, so that calls can be chained.",
+      "translated": "`eventName` という名前のイベントの listener 配列の_先頭_に `listener` 関数を追加する。`listener` がすでに追加されているかのチェックは行わない。同じ `eventName` と `listener` の組み合わせで複数回呼ぶと、`listener` は複数回追加され、複数回呼ばれる。\n\n```js\nserver.prependListener('connection', (stream) => {\n  console.log('someone connected!');\n});\n```\n\n呼び出しを連鎖できるよう、`EventEmitter` への参照を返す。",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.prependListener",
+      "lang": "ja"
+    },
+    "06bac07c": {
+      "original": "Adds a **one-time**`listener` function for the event named `eventName` to the _beginning_ of the listeners array. The next time `eventName` is triggered, this\nlistener is removed, and then invoked.\n\n```js\nserver.prependOnceListener('connection', (stream) => {\n  console.log('Ah, we have our first user!');\n});\n```\n\nReturns a reference to the `EventEmitter`, so that calls can be chained.",
+      "translated": "`eventName` という名前のイベントに**一度だけ**の `listener` 関数を listener 配列の_先頭_に追加する。次に `eventName` がトリガーされたとき、この listener は削除されてから呼ばれる。\n\n```js\nserver.prependOnceListener('connection', (stream) => {\n  console.log('Ah, we have our first user!');\n});\n```\n\n呼び出しを連鎖できるよう、`EventEmitter` への参照を返す。",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.prependOnceListener",
+      "lang": "ja"
+    },
+    "b5367299": {
+      "original": "Returns a copy of the array of listeners for the event named `eventName`,\nincluding any wrappers (such as those created by `.once()`).\n\n```js\nimport { EventEmitter } from 'node:events';\nconst emitter = new EventEmitter();\nemitter.once('log', () => console.log('log once'));\n\n// Returns a new Array with a function `onceWrapper` which has a property\n// `listener` which contains the original listener bound above\nconst listeners = emitter.rawListeners('log');\nconst logFnWrapper = listeners[0];\n\n// Logs \"log once\" to the console and does not unbind the `once` event\nlogFnWrapper.listener();\n\n// Logs \"log once\" to the console and removes the listener\nlogFnWrapper();\n\nemitter.on('log', () => console.log('log persistently'));\n// Will return a new Array with a single function bound by `.on()` above\nconst newListeners = emitter.rawListeners('log');\n\n// Logs \"log persistently\" twice\nnewListeners[0]();\nemitter.emit('log');\n```",
+      "translated": "`.once()` が作成したものなどのラッパーを含む、`eventName` という名前のイベントの listener 配列のコピーを返す。\n\n```js\nimport { EventEmitter } from 'node:events';\nconst emitter = new EventEmitter();\nemitter.once('log', () => console.log('log once'));\n\n// Returns a new Array with a function `onceWrapper` which has a property\n// `listener` which contains the original listener bound above\nconst listeners = emitter.rawListeners('log');\nconst logFnWrapper = listeners[0];\n\n// Logs \"log once\" to the console and does not unbind the `once` event\nlogFnWrapper.listener();\n\n// Logs \"log once\" to the console and removes the listener\nlogFnWrapper();\n\nemitter.on('log', () => console.log('log persistently'));\n// Will return a new Array with a single function bound by `.on()` above\nconst newListeners = emitter.rawListeners('log');\n\n// Logs \"log persistently\" twice\nnewListeners[0]();\nemitter.emit('log');\n```",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.rawListeners",
+      "lang": "ja"
+    },
+    "9e5a787d": {
+      "original": "Removes all listeners, or those of the specified `eventName`.\n\nIt is bad practice to remove listeners added elsewhere in the code,\nparticularly when the `EventEmitter` instance was created by some other\ncomponent or module (e.g. sockets or file streams).\n\nReturns a reference to the `EventEmitter`, so that calls can be chained.",
+      "translated": "すべての listener、または指定した `eventName` の listener を削除する。\n\nコードの他の場所で追加された listener を削除するのは悪い習慣である。特に、`EventEmitter` インスタンスが他のコンポーネントやモジュール(例: ソケットやファイルストリーム)によって作成された場合はそうである。\n\n呼び出しを連鎖できるよう、`EventEmitter` への参照を返す。",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.removeAllListeners",
+      "lang": "ja"
+    },
+    "070d5a98": {
+      "original": "Removes the specified `listener` from the listener array for the event named `eventName`.\n\n```js\nconst callback = (stream) => {\n  console.log('someone connected!');\n};\nserver.on('connection', callback);\n// ...\nserver.removeListener('connection', callback);\n```\n\n`removeListener()` will remove, at most, one instance of a listener from the\nlistener array. If any single listener has been added multiple times to the\nlistener array for the specified `eventName`, then `removeListener()` must be\ncalled multiple times to remove each instance.\n\nOnce an event is emitted, all listeners attached to it at the\ntime of emitting are called in order. This implies that any `removeListener()` or `removeAllListeners()` calls _after_ emitting and _before_ the last listener finishes execution\nwill not remove them from`emit()` in progress. Subsequent events behave as expected.\n\n```js\nimport { EventEmitter } from 'node:events';\nclass MyEmitter extends EventEmitter {}\nconst myEmitter = new MyEmitter();\n\nconst callbackA = () => {\n  console.log('A');\n  myEmitter.removeListener('event', callbackB);\n};\n\nconst callbackB = () => {\n  console.log('B');\n};\n\nmyEmitter.on('event', callbackA);\n\nmyEmitter.on('event', callbackB);\n\n// callbackA removes listener callbackB but it will still be called.\n// Internal listener array at time of emit [callbackA, callbackB]\nmyEmitter.emit('event');\n// Prints:\n//   A\n//   B\n\n// callbackB is now removed.\n// Internal listener array [callbackA]\nmyEmitter.emit('event');\n// Prints:\n//   A\n```\n\nBecause listeners are managed using an internal array, calling this will\nchange the position indices of any listener registered _after_ the listener\nbeing removed. This will not impact the order in which listeners are called,\nbut it means that any copies of the listener array as returned by\nthe `emitter.listeners()` method will need to be recreated.\n\nWhen a single function has been added as a handler multiple times for a single\nevent (as in the example below), `removeListener()` will remove the most\nrecently added instance. In the example the `once('ping')` listener is removed:\n\n```js\nimport { EventEmitter } from 'node:events';\nconst ee = new EventEmitter();\n\nfunction pong() {\n  console.log('pong');\n}\n\nee.on('ping', pong);\nee.once('ping', pong);\nee.removeListener('ping', pong);\n\nee.emit('ping');\nee.emit('ping');\n```\n\nReturns a reference to the `EventEmitter`, so that calls can be chained.",
+      "translated": "`eventName` という名前のイベントの listener 配列から、指定した `listener` を削除する。\n\n```js\nconst callback = (stream) => {\n  console.log('someone connected!');\n};\nserver.on('connection', callback);\n// ...\nserver.removeListener('connection', callback);\n```\n\n`removeListener()` は、listener 配列から listener を最大 1 インスタンスだけ削除する。単一の listener が指定した `eventName` の listener 配列に複数回追加されている場合、各インスタンスを削除するには `removeListener()` を複数回呼ばなければならない。\n\nイベントが発行されると、発行時点でそれに結び付いていたすべての listener が順に呼ばれる。これは、発行_後_かつ最後の listener の実行完了_前_の `removeListener()` や `removeAllListeners()` の呼び出しが、進行中の `emit()` からそれらを削除しないことを意味する。以降のイベントは期待どおりに振る舞う。\n\n```js\nimport { EventEmitter } from 'node:events';\nclass MyEmitter extends EventEmitter {}\nconst myEmitter = new MyEmitter();\n\nconst callbackA = () => {\n  console.log('A');\n  myEmitter.removeListener('event', callbackB);\n};\n\nconst callbackB = () => {\n  console.log('B');\n};\n\nmyEmitter.on('event', callbackA);\n\nmyEmitter.on('event', callbackB);\n\n// callbackA removes listener callbackB but it will still be called.\n// Internal listener array at time of emit [callbackA, callbackB]\nmyEmitter.emit('event');\n// Prints:\n//   A\n//   B\n\n// callbackB is now removed.\n// Internal listener array [callbackA]\nmyEmitter.emit('event');\n// Prints:\n//   A\n```\n\nlistener は内部配列で管理されるため、これを呼ぶと、削除される listener の_後_に登録された listener の位置インデックスが変わる。これは listener が呼ばれる順序には影響しないが、`emitter.listeners()` メソッドが返した listener 配列のコピーは再作成が必要になることを意味する。\n\n単一の関数が単一のイベントのハンドラとして複数回追加されている場合(下の例のように)、`removeListener()` は最後に追加されたインスタンスを削除する。この例では `once('ping')` listener が削除される:\n\n```js\nimport { EventEmitter } from 'node:events';\nconst ee = new EventEmitter();\n\nfunction pong() {\n  console.log('pong');\n}\n\nee.on('ping', pong);\nee.once('ping', pong);\nee.removeListener('ping', pong);\n\nee.emit('ping');\nee.emit('ping');\n```\n\n呼び出しを連鎖できるよう、`EventEmitter` への参照を返す。",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.removeListener",
+      "lang": "ja"
+    },
+    "66c15eae": {
+      "original": "By default `EventEmitter`s will print a warning if more than `10` listeners are\nadded for a particular event. This is a useful default that helps finding\nmemory leaks. The `emitter.setMaxListeners()` method allows the limit to be\nmodified for this specific `EventEmitter` instance. The value can be set to `Infinity` (or `0`) to indicate an unlimited number of listeners.\n\nReturns a reference to the `EventEmitter`, so that calls can be chained.",
+      "translated": "既定では、`EventEmitter` は特定のイベントに `10` を超える listener が追加されると警告を出力する。これはメモリリークを見つけるのに役立つ有用な既定である。`emitter.setMaxListeners()` メソッドを使うと、この特定の `EventEmitter` インスタンスについて上限を変更できる。値を `Infinity`(または `0`)に設定すると、listener の数が無制限であることを示せる。\n\n呼び出しを連鎖できるよう、`EventEmitter` への参照を返す。",
+      "symbol": "@types/node/events.d.ts#events.global.NodeJS.EventEmitter.setMaxListeners",
+      "lang": "ja"
+    },
+    "0516cb62": {
+      "original": "Names of events that will end the iteration.",
+      "translated": "反復を終了させるイベントの名前。",
+      "symbol": "@types/node/events.d.ts#events.StaticEventEmitterIteratorOptions.close",
+      "lang": "ja"
+    },
+    "590df58f": {
+      "original": "The high watermark. The emitter is paused every time the size of events being buffered is higher than it.\nSupported only on emitters implementing `pause()` and `resume()` methods.",
+      "translated": "high watermark。バッファされているイベントのサイズがこれを超えるたびに emitter は一時停止される。`pause()` と `resume()` メソッドを実装する emitter でのみサポートされる。",
+      "symbol": "@types/node/events.d.ts#events.StaticEventEmitterIteratorOptions.highWaterMark",
+      "lang": "ja"
+    },
+    "9a82a991": {
+      "original": "The low watermark. The emitter is resumed every time the size of events being buffered is lower than it.\nSupported only on emitters implementing `pause()` and `resume()` methods.",
+      "translated": "low watermark。バッファされているイベントのサイズがこれを下回るたびに emitter は再開される。`pause()` と `resume()` メソッドを実装する emitter でのみサポートされる。",
+      "symbol": "@types/node/events.d.ts#events.StaticEventEmitterIteratorOptions.lowWaterMark",
+      "lang": "ja"
+    },
+    "c11244c3": {
+      "original": "Can be used to cancel awaiting events.",
+      "translated": "イベントの待機をキャンセルするために使える。",
+      "symbol": "@types/node/events.d.ts#events.StaticEventEmitterOptions.signal",
+      "lang": "ja"
+    },
+    "5288b2a1": {
+      "original": "The `node:path` module provides utilities for working with file and directory\npaths. It can be accessed using:\n\n```js\nimport path from 'node:path';\n```",
+      "translated": "`node:path` モジュールは、ファイルパスとディレクトリパスを扱うユーティリティを提供する。次のようにアクセスできる:\n\n```js\nimport path from 'node:path';\n```",
+      "symbol": "@types/node/path.d.ts#path",
+      "lang": "ja"
+    },
+    "e46abe35": {
+      "original": "A parsed path object generated by path.parse() or consumed by path.format().",
+      "translated": "path.parse() が生成し、path.format() が消費する、解析済みのパスオブジェクト。",
+      "symbol": "@types/node/path.d.ts#path.path.ParsedPath",
+      "lang": "ja"
+    },
+    "e581c9c8": {
+      "original": "The file name including extension (if any) such as 'index.html'",
+      "translated": "拡張子(あれば)を含むファイル名。例: 'index.html'",
+      "symbol": "@types/node/path.d.ts#path.path.ParsedPath.base",
+      "lang": "ja"
+    },
+    "6490301f": {
+      "original": "The full directory path such as '/home/user/dir' or 'c:\\path\\dir'",
+      "translated": "完全なディレクトリパス。例: '/home/user/dir' や 'c:\\path\\dir'",
+      "symbol": "@types/node/path.d.ts#path.path.ParsedPath.dir",
+      "lang": "ja"
+    },
+    "403b4c8f": {
+      "original": "The file extension (if any) such as '.html'",
+      "translated": "ファイル拡張子(あれば)。例: '.html'",
+      "symbol": "@types/node/path.d.ts#path.path.ParsedPath.ext",
+      "lang": "ja"
+    },
+    "1cd20d1c": {
+      "original": "The file name without extension (if any) such as 'index'",
+      "translated": "拡張子を除いたファイル名(あれば)。例: 'index'",
+      "symbol": "@types/node/path.d.ts#path.path.ParsedPath.name",
+      "lang": "ja"
+    },
+    "165124ad": {
+      "original": "The root of the path such as '/' or 'c:\\'",
+      "translated": "パスのルート。例: '/' や 'c:\\'",
+      "symbol": "@types/node/path.d.ts#path.path.ParsedPath.root",
+      "lang": "ja"
+    },
+    "06bab281": {
+      "original": "if `path` is not a string or if `ext` is given and is not a string.",
+      "translated": "`path` が文字列でない場合、または `ext` が指定されていて文字列でない場合。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.basename",
+      "lang": "ja"
+    },
+    "e71b95ba": {
+      "original": "optionally, an extension to remove from the result.",
+      "translated": "任意で、結果から取り除く拡張子。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.basename",
+      "lang": "ja"
+    },
+    "26c61bca": {
+      "original": "Return the last portion of a path. Similar to the Unix basename command.\nOften used to extract the file name from a fully qualified path.",
+      "translated": "パスの最後の部分を返す。Unix の basename コマンドに似ている。\n完全修飾パスからファイル名を抽出するのによく使われる。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.basename",
+      "lang": "ja"
+    },
+    "969fa134": {
+      "original": "The platform-specific file delimiter. ';' or ':'.",
+      "translated": "プラットフォーム固有のパスの区切り文字。';' または ':'。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.delimiter",
+      "lang": "ja"
+    },
+    "425228b3": {
+      "original": "Return the directory name of a path. Similar to the Unix dirname command.",
+      "translated": "パスのディレクトリ名を返す。Unix の dirname コマンドに似ている。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.dirname",
+      "lang": "ja"
+    },
+    "43f85f92": {
+      "original": "the path to evaluate.",
+      "translated": "評価するパス。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.dirname",
+      "lang": "ja"
+    },
+    "b96fdc36": {
+      "original": "Return the extension of the path, from the last '.' to end of string in the last portion of the path.\nIf there is no '.' in the last portion of the path or the first character of it is '.', then it returns an empty string.",
+      "translated": "パスの拡張子を返す。パスの最後の部分の、最後の '.' から文字列の終わりまで。\nパスの最後の部分に '.' がない、またはその最初の文字が '.' の場合、空文字列を返す。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.extname",
+      "lang": "ja"
+    },
+    "16d04929": {
+      "original": "Returns a path string from an object - the opposite of parse().",
+      "translated": "オブジェクトからパス文字列を返す - parse() の逆。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.format",
+      "lang": "ja"
+    },
+    "01ca19ba": {
+      "original": "Determines whether {path} is an absolute path. An absolute path will always resolve to the same location, regardless of the working directory.\n\nIf the given {path} is a zero-length string, `false` will be returned.",
+      "translated": "{path} が絶対パスかどうかを判定する。絶対パスは、作業ディレクトリにかかわらず常に同じ場所に解決される。\n\n指定した {path} が長さ 0 の文字列の場合、`false` が返される。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.isAbsolute",
+      "lang": "ja"
+    },
+    "72d1d37d": {
+      "original": "path to test.",
+      "translated": "判定するパス。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.isAbsolute",
+      "lang": "ja"
+    },
+    "9bb91f51": {
+      "original": "if any of the path segments is not a string.",
+      "translated": "いずれかのパスセグメントが文字列でない場合。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.join",
+      "lang": "ja"
+    },
+    "8a2f7c84": {
+      "original": "Join all arguments together and normalize the resulting path.",
+      "translated": "すべての引数を連結し、結果のパスを正規化する。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.join",
+      "lang": "ja"
+    },
+    "2d499344": {
+      "original": "paths to join.",
+      "translated": "連結するパス。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.join",
+      "lang": "ja"
+    },
+    "b0a74536": {
+      "original": "if `path` or `pattern` are not strings.",
+      "translated": "`path` または `pattern` が文字列でない場合。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.matchesGlob",
+      "lang": "ja"
+    },
+    "19150ddb": {
+      "original": "The `path.matchesGlob()` method determines if `path` matches the `pattern`.",
+      "translated": "`path.matchesGlob()` メソッドは、`path` が `pattern` に一致するかどうかを判定する。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.matchesGlob",
+      "lang": "ja"
+    },
+    "5c0ac7d5": {
+      "original": "The glob to check the path against.",
+      "translated": "パスと照合する glob。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.matchesGlob",
+      "lang": "ja"
+    },
+    "9b2dd308": {
+      "original": "The path to glob-match against.",
+      "translated": "glob と照合する対象のパス。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.matchesGlob",
+      "lang": "ja"
+    },
+    "edfe9743": {
+      "original": "Whether or not the `path` matched the `pattern`.",
+      "translated": "`path` が `pattern` に一致したかどうか。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.matchesGlob",
+      "lang": "ja"
+    },
+    "af7427f5": {
+      "original": "if `path` is not a string.",
+      "translated": "`path` が文字列でない場合。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.normalize",
+      "lang": "ja"
+    },
+    "84cf3a42": {
+      "original": "Normalize a string path, reducing '..' and '.' parts.\nWhen multiple slashes are found, they're replaced by a single one; when the path contains a trailing slash, it is preserved. On Windows backslashes are used. If the path is a zero-length string, '.' is returned, representing the current working directory.",
+      "translated": "文字列パスを正規化し、'..' と '.' の部分を削減する。\n複数のスラッシュが見つかった場合は 1 つに置き換えられる。パスが末尾のスラッシュを含む場合はそれが保持される。Windows ではバックスラッシュが使われる。パスが長さ 0 の文字列の場合、カレントワーキングディレクトリを表す '.' が返される。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.normalize",
+      "lang": "ja"
+    },
+    "c21813ca": {
+      "original": "string path to normalize.",
+      "translated": "正規化する文字列パス。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.normalize",
+      "lang": "ja"
+    },
+    "1bae2f27": {
+      "original": "path to evaluate.",
+      "translated": "評価するパス。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.parse",
+      "lang": "ja"
+    },
+    "9436d1d8": {
+      "original": "Returns an object from a path string - the opposite of format().",
+      "translated": "パス文字列からオブジェクトを返す - format() の逆。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.parse",
+      "lang": "ja"
+    },
+    "e893b8da": {
+      "original": "Posix specific pathing.\nSame as parent object on posix.",
+      "translated": "Posix 固有のパス処理。\nposix では親オブジェクトと同じ。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.posix",
+      "lang": "ja"
+    },
+    "3b71d931": {
+      "original": "if either `from` or `to` is not a string.",
+      "translated": "`from` または `to` のいずれかが文字列でない場合。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.relative",
+      "lang": "ja"
+    },
+    "6cf84627": {
+      "original": "Solve the relative path from {from} to {to} based on the current working directory.\nAt times we have two absolute paths, and we need to derive the relative path from one to the other. This is actually the reverse transform of path.resolve.",
+      "translated": "カレントワーキングディレクトリを基準に、{from} から {to} への相対パスを求める。\n2 つの絶対パスがあり、一方から他方への相対パスを導く必要がある場合がある。これは実際には path.resolve の逆変換である。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.relative",
+      "lang": "ja"
+    },
+    "1d160173": {
+      "original": "A sequence of paths or path segments.",
+      "translated": "パスまたはパスセグメントの並び。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.resolve",
+      "lang": "ja"
+    },
+    "e4c593ca": {
+      "original": "if any of the arguments is not a string.",
+      "translated": "いずれかの引数が文字列でない場合。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.resolve",
+      "lang": "ja"
+    },
+    "0edcd6fd": {
+      "original": "The right-most parameter is considered {to}. Other parameters are considered an array of {from}.\n\nStarting from leftmost {from} parameter, resolves {to} to an absolute path.\n\nIf {to} isn't already absolute, {from} arguments are prepended in right to left order,\nuntil an absolute path is found. If after using all {from} paths still no absolute path is found,\nthe current working directory is used as well. The resulting path is normalized,\nand trailing slashes are removed unless the path gets resolved to the root directory.",
+      "translated": "最も右のパラメーターが {to} とみなされる。他のパラメーターは {from} の配列とみなされる。\n\n最も左の {from} パラメーターから始めて、{to} を絶対パスに解決する。\n\n{to} がまだ絶対でない場合、絶対パスが見つかるまで、{from} 引数が右から左の順に前置される。すべての {from} パスを使ってもまだ絶対パスが見つからない場合は、カレントワーキングディレクトリも使われる。結果のパスは正規化され、パスがルートディレクトリに解決される場合を除き、末尾のスラッシュは削除される。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.resolve",
+      "lang": "ja"
+    },
+    "fa7fc7ee": {
+      "original": "The platform-specific file separator. '\\\\' or '/'.",
+      "translated": "プラットフォーム固有のパス区切り文字。'\\\\' または '/'。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.sep",
+      "lang": "ja"
+    },
+    "760280ea": {
+      "original": "On Windows systems only, returns an equivalent namespace-prefixed path for the given path.\nIf path is not a string, path will be returned without modifications.\nThis method is meaningful only on Windows system.\nOn POSIX systems, the method is non-operational and always returns path without modifications.",
+      "translated": "Windows システムでのみ、指定したパスと同等の名前空間プレフィックス付きパスを返す。\npath が文字列でない場合、path は変更されずに返される。\nこのメソッドは Windows システムでのみ意味を持つ。\nPOSIX システムでは、このメソッドは何もせず、常に path を変更せずに返す。",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.toNamespacedPath",
+      "lang": "ja"
+    },
+    "9170a496": {
+      "original": "Windows specific pathing.\nSame as parent object on windows",
+      "translated": "Windows 固有のパス処理。\nwindows では親オブジェクトと同じ",
+      "symbol": "@types/node/path.d.ts#path.path.PlatformPath.win32",
+      "lang": "ja"
+    },
     "ebe23990": {
       "original": "A unique identifier for the warning instance being emitted.",
       "translated": "発生させる警告インスタンスの一意な識別子。",
