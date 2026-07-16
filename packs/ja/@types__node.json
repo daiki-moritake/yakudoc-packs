@@ -1138,12 +1138,6 @@
       "symbol": "@types/node/events.d.ts#events.EventEmitter.once",
       "lang": "ja"
     },
-    "2136c673": {
-      "original": "```js\nimport { setMaxListeners, EventEmitter } from 'node:events';\n\nconst target = new EventTarget();\nconst emitter = new EventEmitter();\n\nsetMaxListeners(5, target, emitter);\n```",
-      "translated": "```js\nimport { setMaxListeners, EventEmitter } from 'node:events';\n\nconst target = new EventTarget();\nconst emitter = new EventEmitter();\n\nsetMaxListeners(5, target, emitter);\n```",
-      "symbol": "@types/node/events.d.ts#events.EventEmitter.setMaxListeners",
-      "lang": "ja"
-    },
     "e50b2cf0": {
       "original": "A non-negative number. The maximum number of listeners per `EventTarget` event.",
       "translated": "非負の数。`EventTarget` イベントごとの listener の最大数。",
