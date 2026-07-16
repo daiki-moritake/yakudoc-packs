@@ -1,0 +1,248 @@
+{
+  "name": "@types/node",
+  "version": "22.20.0",
+  "lang": "ja",
+  "generator": "yakudoc@0.1.1",
+  "entries": {
+    "ebe23990": {
+      "original": "A unique identifier for the warning instance being emitted.",
+      "translated": "発生させる警告インスタンスの一意な識別子。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.EmitWarningOptions.code",
+      "lang": "ja"
+    },
+    "34be1858": {
+      "original": "When `warning` is a `string`, `ctor` is an optional function used to limit the generated stack trace.",
+      "translated": "`warning` が `string` の場合、`ctor` は生成されるスタックトレースを制限するために使う省略可能な関数である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.EmitWarningOptions.ctor",
+      "lang": "ja"
+    },
+    "8039ff58": {
+      "original": "Additional text to include with the error.",
+      "translated": "エラーに含める追加のテキスト。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.EmitWarningOptions.detail",
+      "lang": "ja"
+    },
+    "17caf7ed": {
+      "original": "When `warning` is a `string`, `type` is the name to use for the _type_ of warning being emitted.",
+      "translated": "`warning` が `string` の場合、`type` は発生させる警告の_種類(type)_に使う名前である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.EmitWarningOptions.type",
+      "lang": "ja"
+    },
+    "106184ec": {
+      "original": "The result of a previous call to `process.hrtime()`",
+      "translated": "以前の `process.hrtime()` 呼び出しの結果",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.HRTime",
+      "lang": "ja"
+    },
+    "768ce8e5": {
+      "original": "This is the legacy version of {@link process.hrtime.bigint ()}\nbefore bigint was introduced in JavaScript.\n\nThe `process.hrtime()` method returns the current high-resolution real time in a `[seconds, nanoseconds]` tuple `Array`,\nwhere `nanoseconds` is the remaining part of the real time that can't be represented in second precision.\n\n`time` is an optional parameter that must be the result of a previous `process.hrtime()` call to diff with the current time.\nIf the parameter passed in is not a tuple `Array`, a TypeError will be thrown.\nPassing in a user-defined array instead of the result of a previous call to `process.hrtime()` will lead to undefined behavior.\n\nThese times are relative to an arbitrary time in the past,\nand not related to the time of day and therefore not subject to clock drift.\nThe primary use is for measuring performance between intervals:\n```js\nconst { hrtime } = require('node:process');\nconst NS_PER_SEC = 1e9;\nconst time = hrtime();\n// [ 1800216, 25 ]\n\nsetTimeout(() => {\n  const diff = hrtime(time);\n  // [ 1, 552 ]\n\n  console.log(`Benchmark took ${diff[0] * NS_PER_SEC + diff[1]} nanoseconds`);\n  // Benchmark took 1000000552 nanoseconds\n}, 1000);\n```",
+      "translated": "これは、JavaScript に bigint が導入される前の {@link process.hrtime.bigint ()} のレガシー版である。\n\n`process.hrtime()` メソッドは、現在の高分解能な実時間を `[seconds, nanoseconds]` のタプル `Array` で返す。`nanoseconds` は、秒精度では表せない実時間の残りの部分である。\n\n`time` は省略可能なパラメーターで、現在の時刻との差分を取るために、以前の `process.hrtime()` 呼び出しの結果でなければならない。渡されたパラメーターがタプル `Array` でない場合、TypeError が投げられる。以前の `process.hrtime()` 呼び出しの結果ではなくユーザー定義の配列を渡すと、未定義の動作になる。\n\nこれらの時刻は過去の任意の時点を基準としており、時刻(time of day)とは無関係なので、クロックのずれ(clock drift)の影響を受けない。主な用途は、区間ごとのパフォーマンス測定である:\n```js\nconst { hrtime } = require('node:process');\nconst NS_PER_SEC = 1e9;\nconst time = hrtime();\n// [ 1800216, 25 ]\n\nsetTimeout(() => {\n  const diff = hrtime(time);\n  // [ 1, 552 ]\n\n  console.log(`Benchmark took ${diff[0] * NS_PER_SEC + diff[1]} nanoseconds`);\n  // Benchmark took 1000000552 nanoseconds\n}, 1000);\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.HRTime",
+      "lang": "ja"
+    },
+    "9eb830c7": {
+      "original": "Use {@link process.hrtime.bigint ()} instead.",
+      "translated": "代わりに {@link process.hrtime.bigint ()} を使うこと。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.HRTime",
+      "lang": "ja"
+    },
+    "37093cc1": {
+      "original": "The `bigint` version of the {@link process.hrtime ()} method returning the current high-resolution real time in nanoseconds as a `bigint`.\n\nUnlike {@link process.hrtime ()}, it does not support an additional time argument since the difference can just be computed directly by subtraction of the two `bigint`s.\n```js\nimport { hrtime } from 'node:process';\n\nconst start = hrtime.bigint();\n// 191051479007711n\n\nsetTimeout(() => {\n  const end = hrtime.bigint();\n  // 191052633396993n\n\n  console.log(`Benchmark took ${end - start} nanoseconds`);\n  // Benchmark took 1154389282 nanoseconds\n}, 1000);\n```",
+      "translated": "{@link process.hrtime ()} メソッドの `bigint` 版で、現在の高分解能な実時間をナノ秒単位の `bigint` として返す。\n\n{@link process.hrtime ()} と異なり、追加の時刻引数はサポートしない。差分は 2 つの `bigint` の減算で直接計算できるためである。\n```js\nimport { hrtime } from 'node:process';\n\nconst start = hrtime.bigint();\n// 191051479007711n\n\nsetTimeout(() => {\n  const end = hrtime.bigint();\n  // 191052633396993n\n\n  console.log(`Benchmark took ${end - start} nanoseconds`);\n  // Benchmark took 1154389282 nanoseconds\n}, 1000);\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.HRTime.bigint",
+      "lang": "ja"
+    },
+    "5c10275b": {
+      "original": "Refers to memory allocated for `ArrayBuffer`s and `SharedArrayBuffer`s, including all Node.js Buffers. This is also included\nin the external value. When Node.js is used as an embedded library, this value may be `0` because allocations for `ArrayBuffer`s\nmay not be tracked in that case.",
+      "translated": "すべての Node.js Buffer を含む、`ArrayBuffer` と `SharedArrayBuffer` に割り当てられたメモリを指す。これは external の値にも含まれる。Node.js を組み込みライブラリとして使う場合、`ArrayBuffer` の割り当てが追跡されないことがあるため、この値は `0` になることがある。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.MemoryUsage.arrayBuffers",
+      "lang": "ja"
+    },
+    "89f91bc2": {
+      "original": "Refers to V8's memory usage.",
+      "translated": "V8 のメモリ使用量を指す。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.MemoryUsage.heapTotal",
+      "lang": "ja"
+    },
+    "d5d6e3d1": {
+      "original": "Resident Set Size, is the amount of space occupied in the main memory device (that is a subset of the total allocated memory) for the\nprocess, including all C++ and JavaScript objects and code.",
+      "translated": "Resident Set Size(常駐セットサイズ)。プロセスがメインメモリデバイスで占める領域の量(割り当て済みメモリ全体の部分集合)で、すべての C++ および JavaScript のオブジェクトとコードを含む。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.MemoryUsage.rss",
+      "lang": "ja"
+    },
+    "ceeaa21a": {
+      "original": "The `process.memoryUsage()` method iterate over each page to gather informations about memory\nusage which can be slow depending on the program memory allocations.",
+      "translated": "`process.memoryUsage()` メソッドは各ページを反復してメモリ使用量の情報を集めるため、プログラムのメモリ割り当てによっては遅くなることがある。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.MemoryUsageFn",
+      "lang": "ja"
+    },
+    "2338cfeb": {
+      "original": "method returns an integer representing the Resident Set Size (RSS) in bytes.",
+      "translated": "Resident Set Size(RSS)をバイト単位で表す整数を返すメソッド。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.MemoryUsageFn.rss",
+      "lang": "ja"
+    },
+    "79432c9d": {
+      "original": "The `process.abort()` method causes the Node.js process to exit immediately and\ngenerate a core file.\n\nThis feature is not available in `Worker` threads.",
+      "translated": "`process.abort()` メソッドは、Node.js プロセスをただちに終了させ、コアファイルを生成する。\n\nこの機能は `Worker` スレッドでは利用できない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.abort",
+      "lang": "ja"
+    },
+    "55c9a71c": {
+      "original": "The `process.allowedNodeEnvironmentFlags` property is a special,\nread-only `Set` of flags allowable within the `NODE_OPTIONS` environment variable.\n\n`process.allowedNodeEnvironmentFlags` extends `Set`, but overrides `Set.prototype.has` to recognize several different possible flag\nrepresentations. `process.allowedNodeEnvironmentFlags.has()` will\nreturn `true` in the following cases:\n\n* Flags may omit leading single (`-`) or double (`--`) dashes; e.g., `inspect-brk` for `--inspect-brk`, or `r` for `-r`.\n* Flags passed through to V8 (as listed in `--v8-options`) may replace\none or more _non-leading_ dashes for an underscore, or vice-versa;\ne.g., `--perf_basic_prof`, `--perf-basic-prof`, `--perf_basic-prof`,\netc.\n* Flags may contain one or more equals (`=`) characters; all\ncharacters after and including the first equals will be ignored;\ne.g., `--stack-trace-limit=100`.\n* Flags _must_ be allowable within `NODE_OPTIONS`.\n\nWhen iterating over `process.allowedNodeEnvironmentFlags`, flags will\nappear only _once_; each will begin with one or more dashes. Flags\npassed through to V8 will contain underscores instead of non-leading\ndashes:\n\n```js\nimport { allowedNodeEnvironmentFlags } from 'node:process';\n\nallowedNodeEnvironmentFlags.forEach((flag) => {\n  // -r\n  // --inspect-brk\n  // --abort_on_uncaught_exception\n  // ...\n});\n```\n\nThe methods `add()`, `clear()`, and `delete()` of`process.allowedNodeEnvironmentFlags` do nothing, and will fail\nsilently.\n\nIf Node.js was compiled _without_ `NODE_OPTIONS` support (shown in {@link config}), `process.allowedNodeEnvironmentFlags` will\ncontain what _would have_ been allowable.",
+      "translated": "`process.allowedNodeEnvironmentFlags` プロパティは、`NODE_OPTIONS` 環境変数内で許可されるフラグの、特別な読み取り専用の `Set` である。\n\n`process.allowedNodeEnvironmentFlags` は `Set` を継承するが、`Set.prototype.has` をオーバーライドして、いくつかの異なるフラグ表現を認識する。`process.allowedNodeEnvironmentFlags.has()` は次の場合に `true` を返す:\n\n* フラグは先頭の単一(`-`)または二重(`--`)のダッシュを省略できる。例: `--inspect-brk` に対する `inspect-brk`、`-r` に対する `r`。\n* V8 に渡されるフラグ(`--v8-options` に列挙されるもの)は、_先頭以外の_ 1 つ以上のダッシュをアンダースコアに、またはその逆に置き換えられる。例: `--perf_basic_prof`、`--perf-basic-prof`、`--perf_basic-prof` など。\n* フラグは 1 つ以上の等号(`=`)文字を含められる。最初の等号以降(等号を含む)のすべての文字は無視される。例: `--stack-trace-limit=100`。\n* フラグは `NODE_OPTIONS` 内で許可されている_必要がある_。\n\n`process.allowedNodeEnvironmentFlags` を反復すると、フラグは_一度だけ_現れ、それぞれ 1 つ以上のダッシュで始まる。V8 に渡されるフラグは、先頭以外のダッシュの代わりにアンダースコアを含む:\n\n```js\nimport { allowedNodeEnvironmentFlags } from 'node:process';\n\nallowedNodeEnvironmentFlags.forEach((flag) => {\n  // -r\n  // --inspect-brk\n  // --abort_on_uncaught_exception\n  // ...\n});\n```\n\n`process.allowedNodeEnvironmentFlags` の `add()`・`clear()`・`delete()` メソッドは何もせず、静かに失敗する。\n\nNode.js が `NODE_OPTIONS` サポート_なし_でコンパイルされた場合({@link config} を参照)、`process.allowedNodeEnvironmentFlags` は、_許可されていたであろう_内容を含む。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.allowedNodeEnvironmentFlags",
+      "lang": "ja"
+    },
+    "e6578d1b": {
+      "original": "The operating system CPU architecture for which the Node.js binary was compiled.\nPossible values are: `'arm'`, `'arm64'`, `'ia32'`, `'loong64'`, `'mips'`, `'mipsel'`, `'ppc'`, `'ppc64'`, `'riscv64'`, `'s390'`, `'s390x'`, and `'x64'`.\n\n```js\nimport { arch } from 'node:process';\n\nconsole.log(`This processor architecture is ${arch}`);\n```",
+      "translated": "Node.js バイナリがコンパイルされた対象のオペレーティングシステムの CPU アーキテクチャ。\n指定可能な値は: `'arm'`、`'arm64'`、`'ia32'`、`'loong64'`、`'mips'`、`'mipsel'`、`'ppc'`、`'ppc64'`、`'riscv64'`、`'s390'`、`'s390x'`、`'x64'`。\n\n```js\nimport { arch } from 'node:process';\n\nconsole.log(`This processor architecture is ${arch}`);\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.arch",
+      "lang": "ja"
+    },
+    "49d37cb8": {
+      "original": "The `process.argv` property returns an array containing the command-line\narguments passed when the Node.js process was launched. The first element will\nbe {@link execPath}. See `process.argv0` if access to the original value\nof `argv[0]` is needed. The second element will be the path to the JavaScript\nfile being executed. The remaining elements will be any additional command-line\narguments.\n\nFor example, assuming the following script for `process-args.js`:\n\n```js\nimport { argv } from 'node:process';\n\n// print process.argv\nargv.forEach((val, index) => {\n  console.log(`${index}: ${val}`);\n});\n```\n\nLaunching the Node.js process as:\n\n```bash\nnode process-args.js one two=three four\n```\n\nWould generate the output:\n\n```text\n0: /usr/local/bin/node\n1: /Users/mjr/work/node/process-args.js\n2: one\n3: two=three\n4: four\n```",
+      "translated": "`process.argv` プロパティは、Node.js プロセスの起動時に渡されたコマンドライン引数を含む配列を返す。最初の要素は {@link execPath} になる。`argv[0]` の元の値にアクセスする必要がある場合は `process.argv0` を参照。2 番目の要素は実行中の JavaScript ファイルのパスになる。残りの要素は追加のコマンドライン引数である。\n\nたとえば、`process-args.js` について次のスクリプトを想定する:\n\n```js\nimport { argv } from 'node:process';\n\n// print process.argv\nargv.forEach((val, index) => {\n  console.log(`${index}: ${val}`);\n});\n```\n\nNode.js プロセスを次のように起動すると:\n\n```bash\nnode process-args.js one two=three four\n```\n\n次の出力が生成される:\n\n```text\n0: /usr/local/bin/node\n1: /Users/mjr/work/node/process-args.js\n2: one\n3: two=three\n4: four\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.argv",
+      "lang": "ja"
+    },
+    "d3752aec": {
+      "original": "The `process.argv0` property stores a read-only copy of the original value of`argv[0]` passed when Node.js starts.\n\n```console\n$ bash -c 'exec -a customArgv0 ./node'\n> process.argv[0]\n'/Volumes/code/external/node/out/Release/node'\n> process.argv0\n'customArgv0'\n```",
+      "translated": "`process.argv0` プロパティは、Node.js の起動時に渡された `argv[0]` の元の値の読み取り専用コピーを格納する。\n\n```console\n$ bash -c 'exec -a customArgv0 ./node'\n> process.argv[0]\n'/Volumes/code/external/node/out/Release/node'\n> process.argv0\n'customArgv0'\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.argv0",
+      "lang": "ja"
+    },
+    "106ad4be": {
+      "original": "Gets the amount of free memory that is still available to the process (in bytes).\nSee [`uv_get_available_memory`](https://nodejs.org/docs/latest-v22.x/api/process.html#processavailablememory) for more information.",
+      "translated": "プロセスがまだ利用できる空きメモリの量(バイト単位)を取得する。\n詳細は [`uv_get_available_memory`](https://nodejs.org/docs/latest-v22.x/api/process.html#processavailablememory) を参照。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.availableMemory",
+      "lang": "ja"
+    },
+    "5d0bbd9c": {
+      "original": "If the Node.js process was spawned with an IPC channel, the process.channel property is a reference to the IPC channel.\nIf no IPC channel exists, this property is undefined.",
+      "translated": "Node.js プロセスが IPC チャネル付きで spawn された場合、process.channel プロパティは IPC チャネルへの参照である。\nIPC チャネルが存在しない場合、このプロパティは undefined である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.channel",
+      "lang": "ja"
+    },
+    "f469503c": {
+      "original": "The `process.chdir()` method changes the current working directory of the\nNode.js process or throws an exception if doing so fails (for instance, if\nthe specified `directory` does not exist).\n\n```js\nimport { chdir, cwd } from 'node:process';\n\nconsole.log(`Starting directory: ${cwd()}`);\ntry {\n  chdir('/tmp');\n  console.log(`New directory: ${cwd()}`);\n} catch (err) {\n  console.error(`chdir: ${err}`);\n}\n```\n\nThis feature is not available in `Worker` threads.",
+      "translated": "`process.chdir()` メソッドは、Node.js プロセスのカレントワーキングディレクトリを変更する。失敗した場合(たとえば指定した `directory` が存在しない場合)は例外を投げる。\n\n```js\nimport { chdir, cwd } from 'node:process';\n\nconsole.log(`Starting directory: ${cwd()}`);\ntry {\n  chdir('/tmp');\n  console.log(`New directory: ${cwd()}`);\n} catch (err) {\n  console.error(`chdir: ${err}`);\n}\n```\n\nこの機能は `Worker` スレッドでは利用できない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.chdir",
+      "lang": "ja"
+    },
+    "989cb7fb": {
+      "original": "The `process.config` property returns a frozen `Object` containing the\nJavaScript representation of the configure options used to compile the current\nNode.js executable. This is the same as the `config.gypi` file that was produced\nwhen running the `./configure` script.\n\nAn example of the possible output looks like:\n\n```js\n{\n  target_defaults:\n   { cflags: [],\n     default_configuration: 'Release',\n     defines: [],\n     include_dirs: [],\n     libraries: [] },\n  variables:\n   {\n     host_arch: 'x64',\n     napi_build_version: 5,\n     node_install_npm: 'true',\n     node_prefix: '',\n     node_shared_cares: 'false',\n     node_shared_http_parser: 'false',\n     node_shared_libuv: 'false',\n     node_shared_zlib: 'false',\n     node_use_openssl: 'true',\n     node_shared_openssl: 'false',\n     strict_aliasing: 'true',\n     target_arch: 'x64',\n     v8_use_snapshot: 1\n   }\n}\n```",
+      "translated": "`process.config` プロパティは、現在の Node.js 実行ファイルのコンパイルに使われた configure オプションの JavaScript 表現を含む、凍結された `Object` を返す。これは `./configure` スクリプトの実行時に生成された `config.gypi` ファイルと同じである。\n\n出力の例は次のようになる:\n\n```js\n{\n  target_defaults:\n   { cflags: [],\n     default_configuration: 'Release',\n     defines: [],\n     include_dirs: [],\n     libraries: [] },\n  variables:\n   {\n     host_arch: 'x64',\n     napi_build_version: 5,\n     node_install_npm: 'true',\n     node_prefix: '',\n     node_shared_cares: 'false',\n     node_shared_http_parser: 'false',\n     node_shared_libuv: 'false',\n     node_shared_zlib: 'false',\n     node_use_openssl: 'true',\n     node_shared_openssl: 'false',\n     strict_aliasing: 'true',\n     target_arch: 'x64',\n     v8_use_snapshot: 1\n   }\n}\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.config",
+      "lang": "ja"
+    },
+    "0ce14d82": {
+      "original": "If the Node.js process is spawned with an IPC channel (see the `Child Process` and `Cluster` documentation), the `process.connected` property will return `true` so long as the IPC\nchannel is connected and will return `false` after `process.disconnect()` is called.\n\nOnce `process.connected` is `false`, it is no longer possible to send messages\nover the IPC channel using `process.send()`.",
+      "translated": "Node.js プロセスが IPC チャネル付きで spawn された場合(`Child Process` と `Cluster` のドキュメントを参照)、`process.connected` プロパティは IPC チャネルが接続されている限り `true` を返し、`process.disconnect()` が呼ばれた後は `false` を返す。\n\n`process.connected` が `false` になると、`process.send()` を使って IPC チャネル経由でメッセージを送ることはできなくなる。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.connected",
+      "lang": "ja"
+    },
+    "a35b9367": {
+      "original": "Gets the amount of memory available to the process (in bytes) based on\nlimits imposed by the OS. If there is no such constraint, or the constraint\nis unknown, `0` is returned.\n\nSee [`uv_get_constrained_memory`](https://docs.libuv.org/en/v1.x/misc.html#c.uv_get_constrained_memory) for more\ninformation.",
+      "translated": "OS によって課された制限に基づいて、プロセスが利用できるメモリの量(バイト単位)を取得する。そのような制約がない、または制約が不明な場合は `0` が返される。\n\n詳細は [`uv_get_constrained_memory`](https://docs.libuv.org/en/v1.x/misc.html#c.uv_get_constrained_memory) を参照。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.constrainedMemory",
+      "lang": "ja"
+    },
+    "952cbd47": {
+      "original": "A previous return value from calling `process.cpuUsage()`",
+      "translated": "以前の `process.cpuUsage()` 呼び出しの戻り値",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.cpuUsage",
+      "lang": "ja"
+    },
+    "b305a6ac": {
+      "original": "The `process.cpuUsage()` method returns the user and system CPU time usage of\nthe current process, in an object with properties `user` and `system`, whose\nvalues are microsecond values (millionth of a second). These values measure time\nspent in user and system code respectively, and may end up being greater than\nactual elapsed time if multiple CPU cores are performing work for this process.\n\nThe result of a previous call to `process.cpuUsage()` can be passed as the\nargument to the function, to get a diff reading.\n\n```js\nimport { cpuUsage } from 'node:process';\n\nconst startUsage = cpuUsage();\n// { user: 38579, system: 6986 }\n\n// spin the CPU for 500 milliseconds\nconst now = Date.now();\nwhile (Date.now() - now < 500);\n\nconsole.log(cpuUsage(startUsage));\n// { user: 514883, system: 11226 }\n```",
+      "translated": "`process.cpuUsage()` メソッドは、現在のプロセスのユーザーおよびシステムの CPU 時間使用量を、`user` と `system` プロパティを持つオブジェクトで返す。値はマイクロ秒値(100 万分の 1 秒)である。これらの値はそれぞれユーザーコードとシステムコードで費やされた時間を測定し、複数の CPU コアがこのプロセスのために作業している場合は、実際の経過時間より大きくなることがある。\n\n以前の `process.cpuUsage()` 呼び出しの結果を引数として関数に渡すと、差分の読み取り値を得られる。\n\n```js\nimport { cpuUsage } from 'node:process';\n\nconst startUsage = cpuUsage();\n// { user: 38579, system: 6986 }\n\n// spin the CPU for 500 milliseconds\nconst now = Date.now();\nwhile (Date.now() - now < 500);\n\nconsole.log(cpuUsage(startUsage));\n// { user: 514883, system: 11226 }\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.cpuUsage",
+      "lang": "ja"
+    },
+    "3c1fb2fa": {
+      "original": "The `process.cwd()` method returns the current working directory of the Node.js\nprocess.\n\n```js\nimport { cwd } from 'node:process';\n\nconsole.log(`Current directory: ${cwd()}`);\n```",
+      "translated": "`process.cwd()` メソッドは、Node.js プロセスのカレントワーキングディレクトリを返す。\n\n```js\nimport { cwd } from 'node:process';\n\nconsole.log(`Current directory: ${cwd()}`);\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.cwd",
+      "lang": "ja"
+    },
+    "78adbd91": {
+      "original": "The port used by the Node.js debugger when enabled.\n\n```js\nimport process from 'node:process';\n\nprocess.debugPort = 5858;\n```",
+      "translated": "有効なときに Node.js デバッガーが使うポート。\n\n```js\nimport process from 'node:process';\n\nprocess.debugPort = 5858;\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.debugPort",
+      "lang": "ja"
+    },
+    "2f9b8c3f": {
+      "original": "If the Node.js process is spawned with an IPC channel (see the `Child Process` and `Cluster` documentation), the `process.disconnect()` method will close the\nIPC channel to the parent process, allowing the child process to exit gracefully\nonce there are no other connections keeping it alive.\n\nThe effect of calling `process.disconnect()` is the same as calling `ChildProcess.disconnect()` from the parent process.\n\nIf the Node.js process was not spawned with an IPC channel, `process.disconnect()` will be `undefined`.",
+      "translated": "Node.js プロセスが IPC チャネル付きで spawn された場合(`Child Process` と `Cluster` のドキュメントを参照)、`process.disconnect()` メソッドは親プロセスへの IPC チャネルを閉じ、子プロセスを生かし続ける他の接続がなくなれば、子プロセスが正常に終了できるようにする。\n\n`process.disconnect()` を呼ぶ効果は、親プロセスから `ChildProcess.disconnect()` を呼ぶのと同じである。\n\nNode.js プロセスが IPC チャネル付きで spawn されていない場合、`process.disconnect()` は `undefined` になる。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.disconnect",
+      "lang": "ja"
+    },
+    "5f25485b": {
+      "original": "The `process.dlopen()` method allows dynamically loading shared objects. It is primarily used by `require()` to load C++ Addons, and\nshould not be used directly, except in special cases. In other words, `require()` should be preferred over `process.dlopen()`\nunless there are specific reasons such as custom dlopen flags or loading from ES modules.\n\nThe `flags` argument is an integer that allows to specify dlopen behavior. See the `[os.constants.dlopen](https://nodejs.org/docs/latest-v22.x/api/os.html#dlopen-constants)`\ndocumentation for details.\n\nAn important requirement when calling `process.dlopen()` is that the `module` instance must be passed. Functions exported by the C++ Addon\nare then accessible via `module.exports`.\n\nThe example below shows how to load a C++ Addon, named `local.node`, that exports a `foo` function. All the symbols are loaded before the call returns, by passing the `RTLD_NOW` constant.\nIn this example the constant is assumed to be available.\n\n```js\nimport { dlopen } from 'node:process';\nimport { constants } from 'node:os';\nimport { fileURLToPath } from 'node:url';\n\nconst module = { exports: {} };\ndlopen(module, fileURLToPath(new URL('local.node', import.meta.url)),\n       constants.dlopen.RTLD_NOW);\nmodule.exports.foo();\n```",
+      "translated": "`process.dlopen()` メソッドは共有オブジェクトを動的に読み込めるようにする。主に `require()` が C++ アドオンを読み込むために使い、特別な場合を除いて直接使うべきではない。言い換えると、カスタムの dlopen フラグや ES モジュールからの読み込みといった特別な理由がない限り、`process.dlopen()` より `require()` を優先すべきである。\n\n`flags` 引数は dlopen の挙動を指定できる整数である。詳細は `[os.constants.dlopen](https://nodejs.org/docs/latest-v22.x/api/os.html#dlopen-constants)` のドキュメントを参照。\n\n`process.dlopen()` を呼ぶ際の重要な要件は、`module` インスタンスを渡さなければならないことである。C++ アドオンがエクスポートする関数は、その後 `module.exports` 経由でアクセスできる。\n\n以下の例は、`foo` 関数をエクスポートする `local.node` という C++ アドオンを読み込む方法を示す。`RTLD_NOW` 定数を渡すことで、呼び出しが返る前にすべてのシンボルが読み込まれる。この例では、その定数が利用可能であると仮定する。\n\n```js\nimport { dlopen } from 'node:process';\nimport { constants } from 'node:os';\nimport { fileURLToPath } from 'node:url';\n\nconst module = { exports: {} };\ndlopen(module, fileURLToPath(new URL('local.node', import.meta.url)),\n       constants.dlopen.RTLD_NOW);\nmodule.exports.foo();\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.dlopen",
+      "lang": "ja"
+    },
+    "124a59cd": {
+      "original": "The `process.emitWarning()` method can be used to emit custom or application\nspecific process warnings. These can be listened for by adding a handler to the `'warning'` event.\n\n```js\nimport { emitWarning } from 'node:process';\n\n// Emit a warning using a string.\nemitWarning('Something happened!');\n// Emits: (node: 56338) Warning: Something happened!\n```\n\n```js\nimport { emitWarning } from 'node:process';\n\n// Emit a warning using a string and a type.\nemitWarning('Something Happened!', 'CustomWarning');\n// Emits: (node:56338) CustomWarning: Something Happened!\n```\n\n```js\nimport { emitWarning } from 'node:process';\n\nemitWarning('Something happened!', 'CustomWarning', 'WARN001');\n// Emits: (node:56338) [WARN001] CustomWarning: Something happened!\n```js\n\nIn each of the previous examples, an `Error` object is generated internally by `process.emitWarning()` and passed through to the `'warning'` handler.\n\n```js\nimport process from 'node:process';\n\nprocess.on('warning', (warning) => {\n  console.warn(warning.name);    // 'Warning'\n  console.warn(warning.message); // 'Something happened!'\n  console.warn(warning.code);    // 'MY_WARNING'\n  console.warn(warning.stack);   // Stack trace\n  console.warn(warning.detail);  // 'This is some additional information'\n});\n```\n\nIf `warning` is passed as an `Error` object, it will be passed through to the `'warning'` event handler\nunmodified (and the optional `type`, `code` and `ctor` arguments will be ignored):\n\n```js\nimport { emitWarning } from 'node:process';\n\n// Emit a warning using an Error object.\nconst myWarning = new Error('Something happened!');\n// Use the Error name property to specify the type name\nmyWarning.name = 'CustomWarning';\nmyWarning.code = 'WARN001';\n\nemitWarning(myWarning);\n// Emits: (node:56338) [WARN001] CustomWarning: Something happened!\n```\n\nA `TypeError` is thrown if `warning` is anything other than a string or `Error` object.\n\nWhile process warnings use `Error` objects, the process warning mechanism is not a replacement for normal error handling mechanisms.\n\nThe following additional handling is implemented if the warning `type` is `'DeprecationWarning'`:\n* If the `--throw-deprecation` command-line flag is used, the deprecation warning is thrown as an exception rather than being emitted as an event.\n* If the `--no-deprecation` command-line flag is used, the deprecation warning is suppressed.\n* If the `--trace-deprecation` command-line flag is used, the deprecation warning is printed to `stderr` along with the full stack trace.",
+      "translated": "`process.emitWarning()` メソッドは、カスタムまたはアプリケーション固有のプロセス警告を発生させるために使える。これらは `'warning'` イベントにハンドラを追加することでリッスンできる。\n\n```js\nimport { emitWarning } from 'node:process';\n\n// Emit a warning using a string.\nemitWarning('Something happened!');\n// Emits: (node: 56338) Warning: Something happened!\n```\n\n```js\nimport { emitWarning } from 'node:process';\n\n// Emit a warning using a string and a type.\nemitWarning('Something Happened!', 'CustomWarning');\n// Emits: (node:56338) CustomWarning: Something Happened!\n```\n\n```js\nimport { emitWarning } from 'node:process';\n\nemitWarning('Something happened!', 'CustomWarning', 'WARN001');\n// Emits: (node:56338) [WARN001] CustomWarning: Something happened!\n```js\n\n前述の各例では、`process.emitWarning()` によって内部的に `Error` オブジェクトが生成され、`'warning'` ハンドラに渡される。\n\n```js\nimport process from 'node:process';\n\nprocess.on('warning', (warning) => {\n  console.warn(warning.name);    // 'Warning'\n  console.warn(warning.message); // 'Something happened!'\n  console.warn(warning.code);    // 'MY_WARNING'\n  console.warn(warning.stack);   // Stack trace\n  console.warn(warning.detail);  // 'This is some additional information'\n});\n```\n\n`warning` が `Error` オブジェクトとして渡された場合、それは変更されずに `'warning'` イベントハンドラに渡される(省略可能な `type`・`code`・`ctor` 引数は無視される):\n\n```js\nimport { emitWarning } from 'node:process';\n\n// Emit a warning using an Error object.\nconst myWarning = new Error('Something happened!');\n// Use the Error name property to specify the type name\nmyWarning.name = 'CustomWarning';\nmyWarning.code = 'WARN001';\n\nemitWarning(myWarning);\n// Emits: (node:56338) [WARN001] CustomWarning: Something happened!\n```\n\n`warning` が文字列でも `Error` オブジェクトでもない場合、`TypeError` が投げられる。\n\nプロセス警告は `Error` オブジェクトを使うが、プロセス警告の仕組みは通常のエラー処理の仕組みの代替ではない。\n\n警告の `type` が `'DeprecationWarning'` の場合、次の追加処理が実装される:\n* `--throw-deprecation` コマンドラインフラグを使うと、非推奨警告はイベントとして発生させる代わりに例外として投げられる。\n* `--no-deprecation` コマンドラインフラグを使うと、非推奨警告は抑制される。\n* `--trace-deprecation` コマンドラインフラグを使うと、非推奨警告は完全なスタックトレースとともに `stderr` に出力される。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.emitWarning",
+      "lang": "ja"
+    },
+    "0ea517d1": {
+      "original": "The warning to emit.",
+      "translated": "発生させる警告。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.emitWarning",
+      "lang": "ja"
+    },
+    "3dc26c9e": {
+      "original": "The `process.env` property returns an object containing the user environment.\nSee [`environ(7)`](http://man7.org/linux/man-pages/man7/environ.7.html).\n\nAn example of this object looks like:\n\n```js\n{\n  TERM: 'xterm-256color',\n  SHELL: '/usr/local/bin/bash',\n  USER: 'maciej',\n  PATH: '~/.bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin',\n  PWD: '/Users/maciej',\n  EDITOR: 'vim',\n  SHLVL: '1',\n  HOME: '/Users/maciej',\n  LOGNAME: 'maciej',\n  _: '/usr/local/bin/node'\n}\n```\n\nIt is possible to modify this object, but such modifications will not be\nreflected outside the Node.js process, or (unless explicitly requested)\nto other `Worker` threads.\nIn other words, the following example would not work:\n\n```bash\nnode -e 'process.env.foo = \"bar\"' &#x26;&#x26; echo $foo\n```\n\nWhile the following will:\n\n```js\nimport { env } from 'node:process';\n\nenv.foo = 'bar';\nconsole.log(env.foo);\n```\n\nAssigning a property on `process.env` will implicitly convert the value\nto a string. **This behavior is deprecated.** Future versions of Node.js may\nthrow an error when the value is not a string, number, or boolean.\n\n```js\nimport { env } from 'node:process';\n\nenv.test = null;\nconsole.log(env.test);\n// => 'null'\nenv.test = undefined;\nconsole.log(env.test);\n// => 'undefined'\n```\n\nUse `delete` to delete a property from `process.env`.\n\n```js\nimport { env } from 'node:process';\n\nenv.TEST = 1;\ndelete env.TEST;\nconsole.log(env.TEST);\n// => undefined\n```\n\nOn Windows operating systems, environment variables are case-insensitive.\n\n```js\nimport { env } from 'node:process';\n\nenv.TEST = 1;\nconsole.log(env.test);\n// => 1\n```\n\nUnless explicitly specified when creating a `Worker` instance,\neach `Worker` thread has its own copy of `process.env`, based on its\nparent thread's `process.env`, or whatever was specified as the `env` option\nto the `Worker` constructor. Changes to `process.env` will not be visible\nacross `Worker` threads, and only the main thread can make changes that\nare visible to the operating system or to native add-ons. On Windows, a copy of `process.env` on a `Worker` instance operates in a case-sensitive manner\nunlike the main thread.",
+      "translated": "`process.env` プロパティは、ユーザー環境を含むオブジェクトを返す。[`environ(7)`](http://man7.org/linux/man-pages/man7/environ.7.html) を参照。\n\nこのオブジェクトの例は次のようになる:\n\n```js\n{\n  TERM: 'xterm-256color',\n  SHELL: '/usr/local/bin/bash',\n  USER: 'maciej',\n  PATH: '~/.bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin',\n  PWD: '/Users/maciej',\n  EDITOR: 'vim',\n  SHLVL: '1',\n  HOME: '/Users/maciej',\n  LOGNAME: 'maciej',\n  _: '/usr/local/bin/node'\n}\n```\n\nこのオブジェクトは変更できるが、そのような変更は Node.js プロセスの外部や、(明示的に要求しない限り)他の `Worker` スレッドには反映されない。言い換えると、次の例は動作しない:\n\n```bash\nnode -e 'process.env.foo = \"bar\"' &#x26;&#x26; echo $foo\n```\n\n一方、次は動作する:\n\n```js\nimport { env } from 'node:process';\n\nenv.foo = 'bar';\nconsole.log(env.foo);\n```\n\n`process.env` にプロパティを代入すると、値は暗黙的に文字列に変換される。**この挙動は非推奨である。** 将来の Node.js バージョンでは、値が文字列・数値・真偽値でない場合にエラーを投げることがある。\n\n```js\nimport { env } from 'node:process';\n\nenv.test = null;\nconsole.log(env.test);\n// => 'null'\nenv.test = undefined;\nconsole.log(env.test);\n// => 'undefined'\n```\n\nプロパティを `process.env` から削除するには `delete` を使う。\n\n```js\nimport { env } from 'node:process';\n\nenv.TEST = 1;\ndelete env.TEST;\nconsole.log(env.TEST);\n// => undefined\n```\n\nWindows オペレーティングシステムでは、環境変数は大文字小文字を区別しない。\n\n```js\nimport { env } from 'node:process';\n\nenv.TEST = 1;\nconsole.log(env.test);\n// => 1\n```\n\n`Worker` インスタンスの作成時に明示的に指定しない限り、各 `Worker` スレッドは、親スレッドの `process.env`、または `Worker` コンストラクターに `env` オプションとして指定されたものに基づく、独自の `process.env` のコピーを持つ。`process.env` への変更は `Worker` スレッド間で見えず、オペレーティングシステムやネイティブアドオンに見える変更を行えるのはメインスレッドだけである。Windows では、`Worker` インスタンス上の `process.env` のコピーは、メインスレッドと異なり大文字小文字を区別する。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.env",
+      "lang": "ja"
+    },
+    "ad473219": {
+      "original": "The `process.execArgv` property returns the set of Node.js-specific command-line\noptions passed when the Node.js process was launched. These options do not\nappear in the array returned by the {@link argv} property, and do not\ninclude the Node.js executable, the name of the script, or any options following\nthe script name. These options are useful in order to spawn child processes with\nthe same execution environment as the parent.\n\n```bash\nnode --icu-data-dir=./foo --require ./bar.js script.js --version\n```\n\nResults in `process.execArgv`:\n\n```js\n[\"--icu-data-dir=./foo\", \"--require\", \"./bar.js\"]\n```\n\nAnd `process.argv`:\n\n```js\n['/usr/local/bin/node', 'script.js', '--version']\n```\n\nRefer to `Worker constructor` for the detailed behavior of worker\nthreads with this property.",
+      "translated": "`process.execArgv` プロパティは、Node.js プロセスの起動時に渡された Node.js 固有のコマンドラインオプションの集合を返す。これらのオプションは {@link argv} プロパティが返す配列には現れず、Node.js 実行ファイル・スクリプト名・スクリプト名以降のオプションを含まない。これらのオプションは、親と同じ実行環境で子プロセスを spawn するのに役立つ。\n\n```bash\nnode --icu-data-dir=./foo --require ./bar.js script.js --version\n```\n\nは `process.execArgv` に次を返す:\n\n```js\n[\"--icu-data-dir=./foo\", \"--require\", \"./bar.js\"]\n```\n\nそして `process.argv` には:\n\n```js\n['/usr/local/bin/node', 'script.js', '--version']\n```\n\nこのプロパティに関するワーカースレッドの詳細な挙動は `Worker constructor` を参照。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.execArgv",
+      "lang": "ja"
+    },
+    "87e37ecd": {
+      "original": "The `process.execPath` property returns the absolute pathname of the executable\nthat started the Node.js process. Symbolic links, if any, are resolved.\n\n```js\n'/usr/local/bin/node'\n```",
+      "translated": "`process.execPath` プロパティは、Node.js プロセスを起動した実行ファイルの絶対パス名を返す。シンボリックリンクがあれば解決される。\n\n```js\n'/usr/local/bin/node'\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.execPath",
+      "lang": "ja"
+    },
+    "d8e6b679": {
+      "original": "Environment key-value pairs.\nNo key or value can contain a null-byte (`\\u0000`).\n**Default:** `process.env`.",
+      "translated": "環境のキーと値のペア。\nキーも値も null バイト(`\\u0000`)を含められない。\n**既定:** `process.env`。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.execve",
+      "lang": "ja"
+    },
+    "3421f199": {
+      "original": "List of string arguments. No argument can contain a null-byte (`\\u0000`).",
+      "translated": "文字列引数のリスト。どの引数も null バイト(`\\u0000`)を含められない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.execve",
+      "lang": "ja"
+    },
+    "2298045e": {
+      "original": "Replaces the current process with a new process.\n\nThis is achieved by using the `execve` POSIX function and therefore no memory or other\nresources from the current process are preserved, except for the standard input,\nstandard output and standard error file descriptor.\n\nAll other resources are discarded by the system when the processes are swapped, without triggering\nany exit or close events and without running any cleanup handler.\n\nThis function will never return, unless an error occurred.\n\nThis function is not available on Windows or IBM i.",
+      "translated": "現在のプロセスを新しいプロセスで置き換える。\n\nこれは `execve` POSIX 関数を使って実現されるため、標準入力・標準出力・標準エラーのファイルディスクリプタを除き、現在のプロセスのメモリやその他のリソースは保持されない。\n\nプロセスが入れ替わるとき、他のすべてのリソースはシステムによって破棄され、exit や close のイベントは発生せず、クリーンアップハンドラも実行されない。\n\nこの関数は、エラーが発生しない限り決して返らない。\n\nこの関数は Windows と IBM i では利用できない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.execve",
+      "lang": "ja"
+    },
+    "8f264e5c": {
+      "original": "The `process.exit()` method instructs Node.js to terminate the process\nsynchronously with an exit status of `code`. If `code` is omitted, exit uses\neither the 'success' code `0` or the value of `process.exitCode` if it has been\nset. Node.js will not terminate until all the `'exit'` event listeners are\ncalled.\n\nTo exit with a 'failure' code:\n\n```js\nimport { exit } from 'node:process';\n\nexit(1);\n```\n\nThe shell that executed Node.js should see the exit code as `1`.\n\nCalling `process.exit()` will force the process to exit as quickly as possible\neven if there are still asynchronous operations pending that have not yet\ncompleted fully, including I/O operations to `process.stdout` and `process.stderr`.\n\nIn most situations, it is not actually necessary to call `process.exit()` explicitly. The Node.js process will exit on its own _if there is no additional_\n_work pending_ in the event loop. The `process.exitCode` property can be set to\ntell the process which exit code to use when the process exits gracefully.\n\nFor instance, the following example illustrates a _misuse_ of the `process.exit()` method that could lead to data printed to stdout being\ntruncated and lost:\n\n```js\nimport { exit } from 'node:process';\n\n// This is an example of what *not* to do:\nif (someConditionNotMet()) {\n  printUsageToStdout();\n  exit(1);\n}\n```\n\nThe reason this is problematic is because writes to `process.stdout` in Node.js\nare sometimes _asynchronous_ and may occur over multiple ticks of the Node.js\nevent loop. Calling `process.exit()`, however, forces the process to exit _before_ those additional writes to `stdout` can be performed.\n\nRather than calling `process.exit()` directly, the code _should_ set the `process.exitCode` and allow the process to exit naturally by avoiding\nscheduling any additional work for the event loop:\n\n```js\nimport process from 'node:process';\n\n// How to properly set the exit code while letting\n// the process exit gracefully.\nif (someConditionNotMet()) {\n  printUsageToStdout();\n  process.exitCode = 1;\n}\n```\n\nIf it is necessary to terminate the Node.js process due to an error condition,\nthrowing an _uncaught_ error and allowing the process to terminate accordingly\nis safer than calling `process.exit()`.\n\nIn `Worker` threads, this function stops the current thread rather\nthan the current process.",
+      "translated": "`process.exit()` メソッドは、終了ステータス `code` で Node.js にプロセスを同期的に終了させるよう指示する。`code` を省略すると、exit は 'success' コード `0`、または設定されていれば `process.exitCode` の値を使う。Node.js は、すべての `'exit'` イベントリスナーが呼ばれるまで終了しない。\n\n'failure' コードで終了するには:\n\n```js\nimport { exit } from 'node:process';\n\nexit(1);\n```\n\nNode.js を実行したシェルは、終了コードを `1` として見るはずである。\n\n`process.exit()` を呼ぶと、まだ完全に完了していない非同期操作(`process.stdout` や `process.stderr` への I/O 操作を含む)が保留中でも、プロセスをできる限り速やかに強制終了させる。\n\nほとんどの状況では、`process.exit()` を明示的に呼ぶ必要は実際にはない。イベントループに_保留中の追加作業がなければ_、Node.js プロセスは自ら終了する。プロセスが正常に終了するときに使う終了コードは、`process.exitCode` プロパティで指定できる。\n\nたとえば、次の例は `process.exit()` メソッドの_誤用_を示し、stdout に出力されるデータが切り詰められて失われる可能性がある:\n\n```js\nimport { exit } from 'node:process';\n\n// This is an example of what *not* to do:\nif (someConditionNotMet()) {\n  printUsageToStdout();\n  exit(1);\n}\n```\n\nこれが問題なのは、Node.js での `process.stdout` への書き込みが _非同期_ なことがあり、Node.js イベントループの複数のティックにまたがって発生し得るためである。しかし `process.exit()` を呼ぶと、それらの `stdout` への追加書き込みが行われる_前_にプロセスが強制終了される。\n\n`process.exit()` を直接呼ぶ代わりに、コードは `process.exitCode` を設定し、イベントループに追加作業をスケジュールしないことでプロセスを自然に終了させる_べき_である:\n\n```js\nimport process from 'node:process';\n\n// How to properly set the exit code while letting\n// the process exit gracefully.\nif (someConditionNotMet()) {\n  printUsageToStdout();\n  process.exitCode = 1;\n}\n```\n\nエラー状態のために Node.js プロセスを終了させる必要がある場合、_捕捉されない_エラーを投げてプロセスをそれに応じて終了させるほうが、`process.exit()` を呼ぶより安全である。\n\n`Worker` スレッドでは、この関数は現在のプロセスではなく現在のスレッドを停止する。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.exit",
+      "lang": "ja"
+    },
+    "47cee998": {
+      "original": "The exit code. For string type, only integer strings (e.g.,'1') are allowed.",
+      "translated": "終了コード。文字列型の場合、整数の文字列(例: '1')のみが許可される。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.exit",
+      "lang": "ja"
+    }
+  }
+}
