@@ -34,6 +34,12 @@
       "symbol": "@types/node/buffer.d.ts#buffer.Blob.bytes",
       "lang": "ja"
     },
+    "51861017": {
+      "original": "Gets the `MIMEParams` object representing the\nparameters of the MIME. This property is read-only. See `MIMEParams` documentation for details.",
+      "translated": "MIME のパラメーターを表す `MIMEParams` オブジェクトを取得する。このプロパティは読み取り専用である。詳細は `MIMEParams` のドキュメントを参照。",
+      "symbol": "@types/node/util.d.ts#util.MIMEType.params",
+      "lang": "ja"
+    },
     "56760897": {
       "original": "Reads a signed, big-endian 64-bit integer from `buf` at the specified `offset`.\n\nIntegers read from a `Buffer` are interpreted as two's complement signed\nvalues.",
       "translated": "`buf` の指定した `offset` から符号付きビッグエンディアンの 64 ビット整数を読む。\n\n`Buffer` から読んだ整数は 2 の補数の符号付き値として解釈される。",
@@ -44,6 +50,18 @@
       "original": "Number of bytes to skip before starting to read. Must satisfy `0 <= offset <= buf.length - 1`.",
       "translated": "読み始める前にスキップするバイト数。`0 <= offset <= buf.length - 1` を満たさなければならない。",
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt8",
+      "lang": "ja"
+    },
+    "64061712": {
+      "original": "Used to provide arguments for parsing and to configure the parser. `config` supports the following properties:",
+      "translated": "解析用の引数を提供し、パーサーを設定するために使う。`config` は次のプロパティをサポートする:",
+      "symbol": "@types/node/util.d.ts#util.parseArgs",
+      "lang": "ja"
+    },
+    "94553477": {
+      "original": "Returns an iterator over each of the name-value pairs in the parameters.\nEach item of the iterator is a JavaScript `Array`. The first item of the array\nis the `name`, the second item of the array is the `value`.",
+      "translated": "パラメーター内の各名前と値のペアを反復するイテレーターを返す。イテレーターの各項目は JavaScript の `Array` である。配列の 1 つ目の項目は `name`、2 つ目の項目は `value` である。",
+      "symbol": "@types/node/util.d.ts#util.MIMEParams.entries",
       "lang": "ja"
     },
     "d72894a9": {
@@ -2486,6 +2504,708 @@
       "original": "Most of the time the unhandledRejection will be an Error, but this should not be relied upon\nas *anything* can be thrown/rejected, it is therefore unsafe to assume that the value is an Error.",
       "translated": "ほとんどの場合、unhandledRejection は Error だが、_あらゆるもの_が throw/reject され得るため、これに依存すべきではない。したがって、値が Error であると仮定するのは安全でない。",
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.UnhandledRejectionListener",
+      "lang": "ja"
+    },
+    "6534767f": {
+      "original": "The `node:util` module supports the needs of Node.js internal APIs. Many of the\nutilities are useful for application and module developers as well. To access\nit:\n\n```js\nimport util from 'node:util';\n```",
+      "translated": "`node:util` モジュールは、Node.js の内部 API のニーズをサポートする。ユーティリティの多くは、アプリケーションやモジュールの開発者にとっても役立つ。アクセスするには:\n\n```js\nimport util from 'node:util';\n```",
+      "symbol": "@types/node/util.d.ts#util",
+      "lang": "ja"
+    },
+    "3ff1b252": {
+      "original": "Any non-null object tied to the abortable operation and held weakly.\nIf `resource` is garbage collected before the `signal` aborts, the promise remains pending,\nallowing Node.js to stop tracking it.\nThis helps prevent memory leaks in long-running or non-cancelable operations.",
+      "translated": "中断可能な操作に結び付き、弱く保持される非 null オブジェクト。`signal` が中断する前に `resource` がガベージコレクトされた場合、promise は保留のままとなり、Node.js が追跡を停止できる。これは、長時間実行される操作やキャンセル不可の操作でのメモリリークを防ぐのに役立つ。",
+      "symbol": "@types/node/util.d.ts#util.aborted",
+      "lang": "ja"
+    },
+    "07d5d39a": {
+      "original": "Listens to abort event on the provided `signal` and returns a promise that resolves when the `signal` is aborted.\nIf `resource` is provided, it weakly references the operation's associated object,\nso if `resource` is garbage collected before the `signal` aborts,\nthen returned promise shall remain pending.\nThis prevents memory leaks in long-running or non-cancelable operations.\n\n```js\nimport { aborted } from 'node:util';\n\n// Obtain an object with an abortable signal, like a custom resource or operation.\nconst dependent = obtainSomethingAbortable();\n\n// Pass `dependent` as the resource, indicating the promise should only resolve\n// if `dependent` is still in memory when the signal is aborted.\naborted(dependent.signal, dependent).then(() => {\n  // This code runs when `dependent` is aborted.\n  console.log('Dependent resource was aborted.');\n});\n\n// Simulate an event that triggers the abort.\ndependent.on('event', () => {\n  dependent.abort(); // This will cause the `aborted` promise to resolve.\n});\n```",
+      "translated": "指定した `signal` の abort イベントをリッスンし、`signal` が中断されたときに解決する promise を返す。`resource` を指定した場合、操作に関連するオブジェクトを弱く参照するため、`signal` が中断する前に `resource` がガベージコレクトされると、返される promise は保留のままとなる。これは、長時間実行される操作やキャンセル不可の操作でのメモリリークを防ぐ。\n\n```js\nimport { aborted } from 'node:util';\n\n// Obtain an object with an abortable signal, like a custom resource or operation.\nconst dependent = obtainSomethingAbortable();\n\n// Pass `dependent` as the resource, indicating the promise should only resolve\n// if `dependent` is still in memory when the signal is aborted.\naborted(dependent.signal, dependent).then(() => {\n  // This code runs when `dependent` is aborted.\n  console.log('Dependent resource was aborted.');\n});\n\n// Simulate an event that triggers the abort.\ndependent.on('event', () => {\n  dependent.abort(); // This will cause the `aborted` promise to resolve.\n});\n```",
+      "symbol": "@types/node/util.d.ts#util.aborted",
+      "lang": "ja"
+    },
+    "c95db630": {
+      "original": "a callback style function",
+      "translated": "コールバックスタイルの関数",
+      "symbol": "@types/node/util.d.ts#util.callbackify",
+      "lang": "ja"
+    },
+    "4f6ef080": {
+      "original": "An `async` function",
+      "translated": "`async` 関数",
+      "symbol": "@types/node/util.d.ts#util.callbackify",
+      "lang": "ja"
+    },
+    "c99360e2": {
+      "original": "Takes an `async` function (or a function that returns a `Promise`) and returns a\nfunction following the error-first callback style, i.e. taking\nan `(err, value) => ...` callback as the last argument. In the callback, the\nfirst argument will be the rejection reason (or `null` if the `Promise`\nresolved), and the second argument will be the resolved value.\n\n```js\nimport { callbackify } from 'node:util';\n\nasync function fn() {\n  return 'hello world';\n}\nconst callbackFunction = callbackify(fn);\n\ncallbackFunction((err, ret) => {\n  if (err) throw err;\n  console.log(ret);\n});\n```\n\nWill print:\n\n```text\nhello world\n```\n\nThe callback is executed asynchronously, and will have a limited stack trace.\nIf the callback throws, the process will emit an `'uncaughtException'`\nevent, and if not handled will exit.\n\nSince `null` has a special meaning as the first argument to a callback, if a\nwrapped function rejects a `Promise` with a falsy value as a reason, the value\nis wrapped in an `Error` with the original value stored in a field named\n`reason`.\n\n```js\nfunction fn() {\n  return Promise.reject(null);\n}\nconst callbackFunction = util.callbackify(fn);\n\ncallbackFunction((err, ret) => {\n  // When the Promise was rejected with `null` it is wrapped with an Error and\n  // the original value is stored in `reason`.\n  err && Object.hasOwn(err, 'reason') && err.reason === null;  // true\n});\n```",
+      "translated": "`async` 関数(または `Promise` を返す関数)を受け取り、error-first のコールバックスタイルに従う関数を返す。すなわち、最後の引数として `(err, value) => ...` コールバックを取る。コールバックでは、第 1 引数は拒否理由(`Promise` が解決した場合は `null`)、第 2 引数は解決された値になる。\n\n```js\nimport { callbackify } from 'node:util';\n\nasync function fn() {\n  return 'hello world';\n}\nconst callbackFunction = callbackify(fn);\n\ncallbackFunction((err, ret) => {\n  if (err) throw err;\n  console.log(ret);\n});\n```\n\n次を出力する:\n\n```text\nhello world\n```\n\nコールバックは非同期に実行され、スタックトレースは限定的になる。コールバックが投げた場合、プロセスは `'uncaughtException'` イベントを発行し、処理されなければ終了する。\n\n`null` はコールバックの第 1 引数として特別な意味を持つため、ラップされた関数が falsy な値を理由として `Promise` を拒否した場合、その値は `Error` でラップされ、元の値は `reason` という名前のフィールドに格納される。\n\n```js\nfunction fn() {\n  return Promise.reject(null);\n}\nconst callbackFunction = util.callbackify(fn);\n\ncallbackFunction((err, ret) => {\n  // When the Promise was rejected with `null` it is wrapped with an Error and\n  // the original value is stored in `reason`.\n  err && Object.hasOwn(err, 'reason') && err.reason === null;  // true\n});\n```",
+      "symbol": "@types/node/util.d.ts#util.callbackify",
+      "lang": "ja"
+    },
+    "44ea6a38": {
+      "original": "Returns the 1-based column offset on the line for the associated function call.",
+      "translated": "関連付けられた関数呼び出しの、行内の 1 始まりの列オフセットを返す。",
+      "symbol": "@types/node/util.d.ts#util.CallSiteObject.columnNumber",
+      "lang": "ja"
+    },
+    "30cdadd0": {
+      "original": "Returns the name of the function associated with this call site.",
+      "translated": "この呼び出し箇所に関連付けられた関数の名前を返す。",
+      "symbol": "@types/node/util.d.ts#util.CallSiteObject.functionName",
+      "lang": "ja"
+    },
+    "15a0c689": {
+      "original": "Returns the number, 1-based, of the line for the associate function call.",
+      "translated": "関連付けられた関数呼び出しの、1 始まりの行番号を返す。",
+      "symbol": "@types/node/util.d.ts#util.CallSiteObject.lineNumber",
+      "lang": "ja"
+    },
+    "0fda98e0": {
+      "original": "Returns the unique id of the script, as in Chrome DevTools protocol\n[`Runtime.ScriptId`](https://chromedevtools.github.io/devtools-protocol/1-3/Runtime/#type-ScriptId).",
+      "translated": "Chrome DevTools プロトコルの [`Runtime.ScriptId`](https://chromedevtools.github.io/devtools-protocol/1-3/Runtime/#type-ScriptId) のような、スクリプトの一意な id を返す。",
+      "symbol": "@types/node/util.d.ts#util.CallSiteObject.scriptId",
+      "lang": "ja"
+    },
+    "ddfd8f89": {
+      "original": "Returns the name of the resource that contains the script for the\nfunction for this call site.",
+      "translated": "この呼び出し箇所の関数のスクリプトを含むリソースの名前を返す。",
+      "symbol": "@types/node/util.d.ts#util.CallSiteObject.scriptName",
+      "lang": "ja"
+    },
+    "c24d7b24": {
+      "original": "A callback invoked the first time the logging function is called with a function argument that is a more optimized logging function.",
+      "translated": "ロギング関数が最初に呼ばれたときに、より最適化されたロギング関数を引数として呼び出されるコールバック。",
+      "symbol": "@types/node/util.d.ts#util.debuglog",
+      "lang": "ja"
+    },
+    "81b7298f": {
+      "original": "A string identifying the portion of the application for which the `debuglog` function is being created.",
+      "translated": "`debuglog` 関数を作成する対象の、アプリケーションの部分を識別する文字列。",
+      "symbol": "@types/node/util.d.ts#util.debuglog",
+      "lang": "ja"
+    },
+    "2c77351b": {
+      "original": "The `util.debuglog()` method is used to create a function that conditionally\nwrites debug messages to `stderr` based on the existence of the `NODE_DEBUG`\nenvironment variable. If the `section` name appears within the value of that\nenvironment variable, then the returned function operates similar to\n`console.error()`. If not, then the returned function is a no-op.\n\n```js\nimport { debuglog } from 'node:util';\nconst log = debuglog('foo');\n\nlog('hello from foo [%d]', 123);\n```\n\nIf this program is run with `NODE_DEBUG=foo` in the environment, then\nit will output something like:\n\n```console\nFOO 3245: hello from foo [123]\n```\n\nwhere `3245` is the process id. If it is not run with that\nenvironment variable set, then it will not print anything.\n\nThe `section` supports wildcard also:\n\n```js\nimport { debuglog } from 'node:util';\nconst log = debuglog('foo');\n\nlog('hi there, it\\'s foo-bar [%d]', 2333);\n```\n\nif it is run with `NODE_DEBUG=foo*` in the environment, then it will output\nsomething like:\n\n```console\nFOO-BAR 3257: hi there, it's foo-bar [2333]\n```\n\nMultiple comma-separated `section` names may be specified in the `NODE_DEBUG`\nenvironment variable: `NODE_DEBUG=fs,net,tls`.\n\nThe optional `callback` argument can be used to replace the logging function\nwith a different function that doesn't have any initialization or\nunnecessary wrapping.\n\n```js\nimport { debuglog } from 'node:util';\nlet log = debuglog('internals', (debug) => {\n  // Replace with a logging function that optimizes out\n  // testing if the section is enabled\n  log = debug;\n});\n```",
+      "translated": "`util.debuglog()` メソッドは、`NODE_DEBUG` 環境変数の存在に基づいて条件付きで `stderr` にデバッグメッセージを書き込む関数を作成するために使う。その環境変数の値に `section` 名が現れる場合、返される関数は `console.error()` と同様に動作する。そうでなければ、返される関数は何もしない(no-op)。\n\n```js\nimport { debuglog } from 'node:util';\nconst log = debuglog('foo');\n\nlog('hello from foo [%d]', 123);\n```\n\nこのプログラムを環境に `NODE_DEBUG=foo` を設定して実行すると、次のような出力になる:\n\n```console\nFOO 3245: hello from foo [123]\n```\n\nここで `3245` はプロセス id である。その環境変数を設定せずに実行すると、何も出力しない。\n\n`section` はワイルドカードもサポートする:\n\n```js\nimport { debuglog } from 'node:util';\nconst log = debuglog('foo');\n\nlog('hi there, it\\'s foo-bar [%d]', 2333);\n```\n\n環境に `NODE_DEBUG=foo*` を設定して実行すると、次のような出力になる:\n\n```console\nFOO-BAR 3257: hi there, it's foo-bar [2333]\n```\n\n`NODE_DEBUG` 環境変数には、カンマ区切りで複数の `section` 名を指定できる: `NODE_DEBUG=fs,net,tls`。\n\n省略可能な `callback` 引数を使うと、初期化や不要なラッピングを持たない別の関数でロギング関数を置き換えられる。\n\n```js\nimport { debuglog } from 'node:util';\nlet log = debuglog('internals', (debug) => {\n  // Replace with a logging function that optimizes out\n  // testing if the section is enabled\n  log = debug;\n});\n```",
+      "symbol": "@types/node/util.d.ts#util.debuglog",
+      "lang": "ja"
+    },
+    "a52cb428": {
+      "original": "The logging function",
+      "translated": "ロギング関数",
+      "symbol": "@types/node/util.d.ts#util.debuglog",
+      "lang": "ja"
+    },
+    "2245c1d8": {
+      "original": "The `util.debuglog().enabled` getter is used to create a test that can be used\nin conditionals based on the existence of the `NODE_DEBUG` environment variable.\nIf the `section` name appears within the value of that environment variable,\nthen the returned value will be `true`. If not, then the returned value will be\n`false`.\n\n```js\nimport { debuglog } from 'node:util';\nconst enabled = debuglog('foo').enabled;\nif (enabled) {\n  console.log('hello from foo [%d]', 123);\n}\n```\n\nIf this program is run with `NODE_DEBUG=foo` in the environment, then it will\noutput something like:\n\n```console\nhello from foo [123]\n```",
+      "translated": "`util.debuglog().enabled` ゲッターは、`NODE_DEBUG` 環境変数の存在に基づく条件分岐で使えるテストを作成するために使う。その環境変数の値に `section` 名が現れる場合、返される値は `true` になる。そうでなければ `false` になる。\n\n```js\nimport { debuglog } from 'node:util';\nconst enabled = debuglog('foo').enabled;\nif (enabled) {\n  console.log('hello from foo [%d]', 123);\n}\n```\n\nこのプログラムを環境に `NODE_DEBUG=foo` を設定して実行すると、次のような出力になる:\n\n```console\nhello from foo [123]\n```",
+      "symbol": "@types/node/util.d.ts#util.DebugLogger.enabled",
+      "lang": "ja"
+    },
+    "9bed919c": {
+      "original": "A deprecation code. See the `list of deprecated APIs` for a list of codes.",
+      "translated": "非推奨コード。コードの一覧は `list of deprecated APIs` を参照。",
+      "symbol": "@types/node/util.d.ts#util.deprecate",
+      "lang": "ja"
+    },
+    "a3cb1361": {
+      "original": "A warning message to display when the deprecated function is invoked.",
+      "translated": "非推奨の関数が呼ばれたときに表示する警告メッセージ。",
+      "symbol": "@types/node/util.d.ts#util.deprecate",
+      "lang": "ja"
+    },
+    "91313d6e": {
+      "original": "The `util.deprecate()` method wraps `fn` (which may be a function or class) in\nsuch a way that it is marked as deprecated.\n\n```js\nimport { deprecate } from 'node:util';\n\nexport const obsoleteFunction = deprecate(() => {\n  // Do something here.\n}, 'obsoleteFunction() is deprecated. Use newShinyFunction() instead.');\n```\n\nWhen called, `util.deprecate()` will return a function that will emit a\n`DeprecationWarning` using the `'warning'` event. The warning will\nbe emitted and printed to `stderr` the first time the returned function is\ncalled. After the warning is emitted, the wrapped function is called without\nemitting a warning.\n\nIf the same optional `code` is supplied in multiple calls to `util.deprecate()`,\nthe warning will be emitted only once for that `code`.\n\n```js\nimport { deprecate } from 'node:util';\n\nconst fn1 = deprecate(\n  () => 'a value',\n  'deprecation message',\n  'DEP0001',\n);\nconst fn2 = deprecate(\n  () => 'a  different value',\n  'other dep message',\n  'DEP0001',\n);\nfn1(); // Emits a deprecation warning with code DEP0001\nfn2(); // Does not emit a deprecation warning because it has the same code\n```\n\nIf either the `--no-deprecation` or `--no-warnings` command-line flags are\nused, or if the `process.noDeprecation` property is set to `true` _prior_ to\nthe first deprecation warning, the `util.deprecate()` method does nothing.\n\nIf the `--trace-deprecation` or `--trace-warnings` command-line flags are set,\nor the `process.traceDeprecation` property is set to `true`, a warning and a\nstack trace are printed to `stderr` the first time the deprecated function is\ncalled.\n\nIf the `--throw-deprecation` command-line flag is set, or the\n`process.throwDeprecation` property is set to `true`, then an exception will be\nthrown when the deprecated function is called.\n\nThe `--throw-deprecation` command-line flag and `process.throwDeprecation`\nproperty take precedence over `--trace-deprecation` and\n`process.traceDeprecation`.",
+      "translated": "`util.deprecate()` メソッドは、`fn`(関数またはクラス)を非推奨としてマークするようにラップする。\n\n```js\nimport { deprecate } from 'node:util';\n\nexport const obsoleteFunction = deprecate(() => {\n  // Do something here.\n}, 'obsoleteFunction() is deprecated. Use newShinyFunction() instead.');\n```\n\n呼ばれると、`util.deprecate()` は `'warning'` イベントを使って `DeprecationWarning` を発行する関数を返す。警告は、返された関数が最初に呼ばれたときに発行され `stderr` に出力される。警告が発行された後、ラップされた関数は警告を発行せずに呼ばれる。\n\n同じ省略可能な `code` が `util.deprecate()` の複数の呼び出しに指定された場合、その `code` について警告は一度だけ発行される。\n\n```js\nimport { deprecate } from 'node:util';\n\nconst fn1 = deprecate(\n  () => 'a value',\n  'deprecation message',\n  'DEP0001',\n);\nconst fn2 = deprecate(\n  () => 'a  different value',\n  'other dep message',\n  'DEP0001',\n);\nfn1(); // Emits a deprecation warning with code DEP0001\nfn2(); // Does not emit a deprecation warning because it has the same code\n```\n\n`--no-deprecation` または `--no-warnings` コマンドラインフラグが使われた場合、または最初の非推奨警告_より前_に `process.noDeprecation` プロパティが `true` に設定された場合、`util.deprecate()` メソッドは何もしない。\n\n`--trace-deprecation` または `--trace-warnings` コマンドラインフラグが設定された場合、または `process.traceDeprecation` プロパティが `true` に設定された場合、非推奨の関数が最初に呼ばれたときに警告とスタックトレースが `stderr` に出力される。\n\n`--throw-deprecation` コマンドラインフラグが設定された場合、または `process.throwDeprecation` プロパティが `true` に設定された場合、非推奨の関数が呼ばれると例外が投げられる。\n\n`--throw-deprecation` コマンドラインフラグと `process.throwDeprecation` プロパティは、`--trace-deprecation` と `process.traceDeprecation` より優先される。",
+      "symbol": "@types/node/util.d.ts#util.deprecate",
+      "lang": "ja"
+    },
+    "cee56075": {
+      "original": "The deprecated function wrapped to emit a warning.",
+      "translated": "警告を発行するようラップされた、非推奨の関数。",
+      "symbol": "@types/node/util.d.ts#util.deprecate",
+      "lang": "ja"
+    },
+    "0edfa442": {
+      "original": "The function that is being deprecated.",
+      "translated": "非推奨にされる関数。",
+      "symbol": "@types/node/util.d.ts#util.deprecate",
+      "lang": "ja"
+    },
+    "26151c5c": {
+      "original": "`util.diff()` compares two string or array values and returns an array of difference entries.\nIt uses the Myers diff algorithm to compute minimal differences, which is the same algorithm\nused internally by assertion error messages.\n\nIf the values are equal, an empty array is returned.\n\n```js\nconst { diff } = require('node:util');\n\n// Comparing strings\nconst actualString = '12345678';\nconst expectedString = '12!!5!7!';\nconsole.log(diff(actualString, expectedString));\n// [\n//   [0, '1'],\n//   [0, '2'],\n//   [1, '3'],\n//   [1, '4'],\n//   [-1, '!'],\n//   [-1, '!'],\n//   [0, '5'],\n//   [1, '6'],\n//   [-1, '!'],\n//   [0, '7'],\n//   [1, '8'],\n//   [-1, '!'],\n// ]\n// Comparing arrays\nconst actualArray = ['1', '2', '3'];\nconst expectedArray = ['1', '3', '4'];\nconsole.log(diff(actualArray, expectedArray));\n// [\n//   [0, '1'],\n//   [1, '2'],\n//   [0, '3'],\n//   [-1, '4'],\n// ]\n// Equal values return empty array\nconsole.log(diff('same', 'same'));\n// []\n```",
+      "translated": "`util.diff()` は 2 つの文字列または配列の値を比較し、差分エントリの配列を返す。最小の差分を計算するために Myers diff アルゴリズムを使う。これはアサーションエラーメッセージが内部的に使うのと同じアルゴリズムである。\n\n値が等しい場合、空配列が返される。\n\n```js\nconst { diff } = require('node:util');\n\n// Comparing strings\nconst actualString = '12345678';\nconst expectedString = '12!!5!7!';\nconsole.log(diff(actualString, expectedString));\n// [\n//   [0, '1'],\n//   [0, '2'],\n//   [1, '3'],\n//   [1, '4'],\n//   [-1, '!'],\n//   [-1, '!'],\n//   [0, '5'],\n//   [1, '6'],\n//   [-1, '!'],\n//   [0, '7'],\n//   [1, '8'],\n//   [-1, '!'],\n// ]\n// Comparing arrays\nconst actualArray = ['1', '2', '3'];\nconst expectedArray = ['1', '3', '4'];\nconsole.log(diff(actualArray, expectedArray));\n// [\n//   [0, '1'],\n//   [1, '2'],\n//   [0, '3'],\n//   [-1, '4'],\n// ]\n// Equal values return empty array\nconsole.log(diff('same', 'same'));\n// []\n```",
+      "symbol": "@types/node/util.d.ts#util.diff",
+      "lang": "ja"
+    },
+    "7422fc35": {
+      "original": "An array of difference entries. Each entry is an array with two elements:\n* Index 0: `number` Operation code: `-1` for delete, `0` for no-op/unchanged, `1` for insert\n* Index 1: `string` The value associated with the operation",
+      "translated": "差分エントリの配列。各エントリは 2 要素の配列である:\n* インデックス 0: `number` 操作コード。削除は `-1`、変更なし(no-op)は `0`、挿入は `1`\n* インデックス 1: `string` 操作に関連付けられた値",
+      "symbol": "@types/node/util.d.ts#util.diff",
+      "lang": "ja"
+    },
+    "c6ba28ea": {
+      "original": "The first value to compare",
+      "translated": "比較する 1 つ目の値",
+      "symbol": "@types/node/util.d.ts#util.diff",
+      "lang": "ja"
+    },
+    "2db7b9c5": {
+      "original": "The second value to compare",
+      "translated": "比較する 2 つ目の値",
+      "symbol": "@types/node/util.d.ts#util.diff",
+      "lang": "ja"
+    },
+    "f2674176": {
+      "original": "The read Unicode code units of input.",
+      "translated": "入力から読んだ Unicode コード単位。",
+      "symbol": "@types/node/util.d.ts#util.EncodeIntoResult.read",
+      "lang": "ja"
+    },
+    "aa543ff8": {
+      "original": "The written UTF-8 bytes of output.",
+      "translated": "出力に書き込んだ UTF-8 バイト。",
+      "symbol": "@types/node/util.d.ts#util.EncodeIntoResult.written",
+      "lang": "ja"
+    },
+    "6c66eaf8": {
+      "original": "A `printf`-like format string.",
+      "translated": "`printf` のような書式文字列。",
+      "symbol": "@types/node/util.d.ts#util.format",
+      "lang": "ja"
+    },
+    "b2fd00d5": {
+      "original": "The `util.format()` method returns a formatted string using the first argument\nas a `printf`-like format string which can contain zero or more format\nspecifiers. Each specifier is replaced with the converted value from the\ncorresponding argument. Supported specifiers are:\n\nIf a specifier does not have a corresponding argument, it is not replaced:\n\n```js\nutil.format('%s:%s', 'foo');\n// Returns: 'foo:%s'\n```\n\nValues that are not part of the format string are formatted using `util.inspect()` if their type is not `string`.\n\nIf there are more arguments passed to the `util.format()` method than the\nnumber of specifiers, the extra arguments are concatenated to the returned\nstring, separated by spaces:\n\n```js\nutil.format('%s:%s', 'foo', 'bar', 'baz');\n// Returns: 'foo:bar baz'\n```\n\nIf the first argument does not contain a valid format specifier, `util.format()` returns a string that is the concatenation of all arguments separated by spaces:\n\n```js\nutil.format(1, 2, 3);\n// Returns: '1 2 3'\n```\n\nIf only one argument is passed to `util.format()`, it is returned as it is\nwithout any formatting:\n\n```js\nutil.format('%% %s');\n// Returns: '%% %s'\n```\n\n`util.format()` is a synchronous method that is intended as a debugging tool.\nSome input values can have a significant performance overhead that can block the\nevent loop. Use this function with care and never in a hot code path.",
+      "translated": "`util.format()` メソッドは、第 1 引数を、0 個以上の書式指定子を含められる `printf` のような書式文字列として使い、書式設定された文字列を返す。各指定子は、対応する引数から変換された値に置き換えられる。サポートされる指定子は次のとおり:\n\n指定子に対応する引数がない場合、置き換えられない:\n\n```js\nutil.format('%s:%s', 'foo');\n// Returns: 'foo:%s'\n```\n\n書式文字列の一部でない値は、その型が `string` でない場合 `util.inspect()` で書式設定される。\n\n`util.format()` メソッドに渡された引数が指定子の数より多い場合、余分な引数は空白で区切られて返される文字列に連結される:\n\n```js\nutil.format('%s:%s', 'foo', 'bar', 'baz');\n// Returns: 'foo:bar baz'\n```\n\n第 1 引数が有効な書式指定子を含まない場合、`util.format()` はすべての引数を空白で区切って連結した文字列を返す:\n\n```js\nutil.format(1, 2, 3);\n// Returns: '1 2 3'\n```\n\n`util.format()` に引数が 1 つだけ渡された場合、書式設定なしでそのまま返される:\n\n```js\nutil.format('%% %s');\n// Returns: '%% %s'\n```\n\n`util.format()` はデバッグツールとして意図された同期メソッドである。一部の入力値は、イベントループをブロックし得る大きなパフォーマンスオーバーヘッドを持つことがある。この関数は注意して使い、ホットコードパスでは決して使わないこと。",
+      "symbol": "@types/node/util.d.ts#util.format",
+      "lang": "ja"
+    },
+    "2171acad": {
+      "original": "This function is identical to {@link format}, except in that it takes\nan `inspectOptions` argument which specifies options that are passed along to {@link inspect}.\n\n```js\nutil.formatWithOptions({ colors: true }, 'See object %O', { foo: 42 });\n// Returns 'See object { foo: 42 }', where `42` is colored as a number\n// when printed to a terminal.\n```",
+      "translated": "この関数は {@link format} と同一だが、{@link inspect} に渡されるオプションを指定する `inspectOptions` 引数を取る点が異なる。\n\n```js\nutil.formatWithOptions({ colors: true }, 'See object %O', { foo: 42 });\n// Returns 'See object { foo: 42 }', where `42` is colored as a number\n// when printed to a terminal.\n```",
+      "symbol": "@types/node/util.d.ts#util.formatWithOptions",
+      "lang": "ja"
+    },
+    "f50fe990": {
+      "original": "An array of call site objects",
+      "translated": "呼び出し箇所オブジェクトの配列",
+      "symbol": "@types/node/util.d.ts#util.getCallSites",
+      "lang": "ja"
+    },
+    "1e338265": {
+      "original": "Number of frames to capture as call site objects.\n**Default:** `10`. Allowable range is between 1 and 200.",
+      "translated": "呼び出し箇所オブジェクトとしてキャプチャするフレーム数。\n**既定値:** `10`。許容範囲は 1 から 200 の間。",
+      "symbol": "@types/node/util.d.ts#util.getCallSites",
+      "lang": "ja"
+    },
+    "80f2e529": {
+      "original": "Returns an array of call site objects containing the stack of\nthe caller function.\n\n```js\nimport { getCallSites } from 'node:util';\n\nfunction exampleFunction() {\n  const callSites = getCallSites();\n\n  console.log('Call Sites:');\n  callSites.forEach((callSite, index) => {\n    console.log(`CallSite ${index + 1}:`);\n    console.log(`Function Name: ${callSite.functionName}`);\n    console.log(`Script Name: ${callSite.scriptName}`);\n    console.log(`Line Number: ${callSite.lineNumber}`);\n    console.log(`Column Number: ${callSite.column}`);\n  });\n  // CallSite 1:\n  // Function Name: exampleFunction\n  // Script Name: /home/example.js\n  // Line Number: 5\n  // Column Number: 26\n\n  // CallSite 2:\n  // Function Name: anotherFunction\n  // Script Name: /home/example.js\n  // Line Number: 22\n  // Column Number: 3\n\n  // ...\n}\n\n// A function to simulate another stack layer\nfunction anotherFunction() {\n  exampleFunction();\n}\n\nanotherFunction();\n```\n\nIt is possible to reconstruct the original locations by setting the option `sourceMap` to `true`.\nIf the source map is not available, the original location will be the same as the current location.\nWhen the `--enable-source-maps` flag is enabled, for example when using `--experimental-transform-types`,\n`sourceMap` will be true by default.\n\n```ts\nimport { getCallSites } from 'node:util';\n\ninterface Foo {\n  foo: string;\n}\n\nconst callSites = getCallSites({ sourceMap: true });\n\n// With sourceMap:\n// Function Name: ''\n// Script Name: example.js\n// Line Number: 7\n// Column Number: 26\n\n// Without sourceMap:\n// Function Name: ''\n// Script Name: example.js\n// Line Number: 2\n// Column Number: 26\n```",
+      "translated": "呼び出し元関数のスタックを含む呼び出し箇所オブジェクトの配列を返す。\n\n```js\nimport { getCallSites } from 'node:util';\n\nfunction exampleFunction() {\n  const callSites = getCallSites();\n\n  console.log('Call Sites:');\n  callSites.forEach((callSite, index) => {\n    console.log(`CallSite ${index + 1}:`);\n    console.log(`Function Name: ${callSite.functionName}`);\n    console.log(`Script Name: ${callSite.scriptName}`);\n    console.log(`Line Number: ${callSite.lineNumber}`);\n    console.log(`Column Number: ${callSite.column}`);\n  });\n  // CallSite 1:\n  // Function Name: exampleFunction\n  // Script Name: /home/example.js\n  // Line Number: 5\n  // Column Number: 26\n\n  // CallSite 2:\n  // Function Name: anotherFunction\n  // Script Name: /home/example.js\n  // Line Number: 22\n  // Column Number: 3\n\n  // ...\n}\n\n// A function to simulate another stack layer\nfunction anotherFunction() {\n  exampleFunction();\n}\n\nanotherFunction();\n```\n\nオプション `sourceMap` を `true` に設定すると、元の位置を再構築できる。source map が利用できない場合、元の位置は現在の位置と同じになる。`--enable-source-maps` フラグが有効な場合(たとえば `--experimental-transform-types` を使う場合)、`sourceMap` は既定で true になる。\n\n```ts\nimport { getCallSites } from 'node:util';\n\ninterface Foo {\n  foo: string;\n}\n\nconst callSites = getCallSites({ sourceMap: true });\n\n// With sourceMap:\n// Function Name: ''\n// Script Name: example.js\n// Line Number: 7\n// Column Number: 26\n\n// Without sourceMap:\n// Function Name: ''\n// Script Name: example.js\n// Line Number: 2\n// Column Number: 26\n```",
+      "symbol": "@types/node/util.d.ts#util.getCallSites",
+      "lang": "ja"
+    },
+    "b020d2d4": {
+      "original": "Reconstruct the original location in the stacktrace from the source-map.\nEnabled by default with the flag `--enable-source-maps`.",
+      "translated": "source-map からスタックトレース内の元の位置を再構築する。`--enable-source-maps` フラグにより既定で有効になる。",
+      "symbol": "@types/node/util.d.ts#util.GetCallSitesOptions.sourceMap",
+      "lang": "ja"
+    },
+    "d00517ba": {
+      "original": "Returns a Map of all system error codes available from the Node.js API.\nThe mapping between error codes and error names is platform-dependent.\nSee `Common System Errors` for the names of common errors.\n\n```js\nfs.access('file/that/does/not/exist', (err) => {\n  const errorMap = util.getSystemErrorMap();\n  const name = errorMap.get(err.errno);\n  console.error(name);  // ENOENT\n});\n```",
+      "translated": "Node.js API から利用できるすべてのシステムエラーコードの Map を返す。エラーコードとエラー名の対応はプラットフォーム依存である。一般的なエラーの名前は `Common System Errors` を参照。\n\n```js\nfs.access('file/that/does/not/exist', (err) => {\n  const errorMap = util.getSystemErrorMap();\n  const name = errorMap.get(err.errno);\n  console.error(name);  // ENOENT\n});\n```",
+      "symbol": "@types/node/util.d.ts#util.getSystemErrorMap",
+      "lang": "ja"
+    },
+    "4ad5c117": {
+      "original": "Returns the string message for a numeric error code that comes from a Node.js\nAPI.\nThe mapping between error codes and string messages is platform-dependent.\n\n```js\nfs.access('file/that/does/not/exist', (err) => {\n  const message = util.getSystemErrorMessage(err.errno);\n  console.error(message);  // no such file or directory\n});\n```",
+      "translated": "Node.js API から来る数値エラーコードに対応する文字列メッセージを返す。エラーコードと文字列メッセージの対応はプラットフォーム依存である。\n\n```js\nfs.access('file/that/does/not/exist', (err) => {\n  const message = util.getSystemErrorMessage(err.errno);\n  console.error(message);  // no such file or directory\n});\n```",
+      "symbol": "@types/node/util.d.ts#util.getSystemErrorMessage",
+      "lang": "ja"
+    },
+    "eb86bffa": {
+      "original": "Returns the string name for a numeric error code that comes from a Node.js API.\nThe mapping between error codes and error names is platform-dependent.\nSee `Common System Errors` for the names of common errors.\n\n```js\nfs.access('file/that/does/not/exist', (err) => {\n  const name = util.getSystemErrorName(err.errno);\n  console.error(name);  // ENOENT\n});\n```",
+      "translated": "Node.js API から来る数値エラーコードに対応する文字列名を返す。エラーコードとエラー名の対応はプラットフォーム依存である。一般的なエラーの名前は `Common System Errors` を参照。\n\n```js\nfs.access('file/that/does/not/exist', (err) => {\n  const name = util.getSystemErrorName(err.errno);\n  console.error(name);  // ENOENT\n});\n```",
+      "symbol": "@types/node/util.d.ts#util.getSystemErrorName",
+      "lang": "ja"
+    },
+    "a4a26fff": {
+      "original": "`TextDecoder` class is a global reference for `import { TextDecoder } from 'node:util'`\nhttps://nodejs.org/api/globals.html#textdecoder",
+      "translated": "`TextDecoder` クラスは `import { TextDecoder } from 'node:util'` のグローバル参照である\nhttps://nodejs.org/api/globals.html#textdecoder",
+      "symbol": "@types/node/util.d.ts#util.global.TextDecoder",
+      "lang": "ja"
+    },
+    "8b9b6e72": {
+      "original": "`TextEncoder` class is a global reference for `import { TextEncoder } from 'node:util'`\nhttps://nodejs.org/api/globals.html#textencoder",
+      "translated": "`TextEncoder` クラスは `import { TextEncoder } from 'node:util'` のグローバル参照である\nhttps://nodejs.org/api/globals.html#textencoder",
+      "symbol": "@types/node/util.d.ts#util.global.TextEncoder",
+      "lang": "ja"
+    },
+    "0c7bd235": {
+      "original": "Usage of `util.inherits()` is discouraged. Please use the ES6 `class` and\n`extends` keywords to get language level inheritance support. Also note\nthat the two styles are [semantically incompatible](https://github.com/nodejs/node/issues/4179).\n\nInherit the prototype methods from one\n[constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor) into another. The\nprototype of `constructor` will be set to a new object created from\n`superConstructor`.\n\nThis mainly adds some input validation on top of\n`Object.setPrototypeOf(constructor.prototype, superConstructor.prototype)`.\nAs an additional convenience, `superConstructor` will be accessible\nthrough the `constructor.super_` property.\n\n```js\nconst util = require('node:util');\nconst EventEmitter = require('node:events');\n\nfunction MyStream() {\n  EventEmitter.call(this);\n}\n\nutil.inherits(MyStream, EventEmitter);\n\nMyStream.prototype.write = function(data) {\n  this.emit('data', data);\n};\n\nconst stream = new MyStream();\n\nconsole.log(stream instanceof EventEmitter); // true\nconsole.log(MyStream.super_ === EventEmitter); // true\n\nstream.on('data', (data) => {\n  console.log(`Received data: \"${data}\"`);\n});\nstream.write('It works!'); // Received data: \"It works!\"\n```\n\nES6 example using `class` and `extends`:\n\n```js\nimport EventEmitter from 'node:events';\n\nclass MyStream extends EventEmitter {\n  write(data) {\n    this.emit('data', data);\n  }\n}\n\nconst stream = new MyStream();\n\nstream.on('data', (data) => {\n  console.log(`Received data: \"${data}\"`);\n});\nstream.write('With ES6');\n```",
+      "translated": "`util.inherits()` の使用は推奨されない。言語レベルの継承サポートを得るには ES6 の `class` と `extends` キーワードを使うこと。また、この 2 つのスタイルは[意味的に非互換](https://github.com/nodejs/node/issues/4179)である点にも注意すること。\n\nある[コンストラクター](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor)のプロトタイプメソッドを別のコンストラクターに継承する。`constructor` のプロトタイプは、`superConstructor` から作成された新しいオブジェクトに設定される。\n\nこれは主に、`Object.setPrototypeOf(constructor.prototype, superConstructor.prototype)` の上にいくらかの入力検証を追加するものである。さらに便宜として、`superConstructor` は `constructor.super_` プロパティを通じてアクセスできる。\n\n```js\nconst util = require('node:util');\nconst EventEmitter = require('node:events');\n\nfunction MyStream() {\n  EventEmitter.call(this);\n}\n\nutil.inherits(MyStream, EventEmitter);\n\nMyStream.prototype.write = function(data) {\n  this.emit('data', data);\n};\n\nconst stream = new MyStream();\n\nconsole.log(stream instanceof EventEmitter); // true\nconsole.log(MyStream.super_ === EventEmitter); // true\n\nstream.on('data', (data) => {\n  console.log(`Received data: \"${data}\"`);\n});\nstream.write('It works!'); // Received data: \"It works!\"\n```\n\n`class` と `extends` を使う ES6 の例:\n\n```js\nimport EventEmitter from 'node:events';\n\nclass MyStream extends EventEmitter {\n  write(data) {\n    this.emit('data', data);\n  }\n}\n\nconst stream = new MyStream();\n\nstream.on('data', (data) => {\n  console.log(`Received data: \"${data}\"`);\n});\nstream.write('With ES6');\n```",
+      "symbol": "@types/node/util.d.ts#util.inherits",
+      "lang": "ja"
+    },
+    "acddb535": {
+      "original": "Use ES2015 class syntax and `extends` keyword instead.",
+      "translated": "代わりに ES2015 の class 構文と `extends` キーワードを使うこと。",
+      "symbol": "@types/node/util.d.ts#util.inherits",
+      "lang": "ja"
+    },
+    "89f616f0": {
+      "original": "Any JavaScript primitive or `Object`.",
+      "translated": "任意の JavaScript プリミティブまたは `Object`。",
+      "symbol": "@types/node/util.d.ts#util.inspect",
+      "lang": "ja"
+    },
+    "0cd4ee1e": {
+      "original": "The `util.inspect()` method returns a string representation of `object` that is\nintended for debugging. The output of `util.inspect` may change at any time\nand should not be depended upon programmatically. Additional `options` may be\npassed that alter the result.\n`util.inspect()` will use the constructor's name and/or `Symbol.toStringTag`\nproperty to make an identifiable tag for an inspected value.\n\n```js\nclass Foo {\n  get [Symbol.toStringTag]() {\n    return 'bar';\n  }\n}\n\nclass Bar {}\n\nconst baz = Object.create(null, { [Symbol.toStringTag]: { value: 'foo' } });\n\nutil.inspect(new Foo()); // 'Foo [bar] {}'\nutil.inspect(new Bar()); // 'Bar {}'\nutil.inspect(baz);       // '[foo] {}'\n```\n\nCircular references point to their anchor by using a reference index:\n\n```js\nimport { inspect } from 'node:util';\n\nconst obj = {};\nobj.a = [obj];\nobj.b = {};\nobj.b.inner = obj.b;\nobj.b.obj = obj;\n\nconsole.log(inspect(obj));\n// <ref *1> {\n//   a: [ [Circular *1] ],\n//   b: <ref *2> { inner: [Circular *2], obj: [Circular *1] }\n// }\n```\n\nThe following example inspects all properties of the `util` object:\n\n```js\nimport util from 'node:util';\n\nconsole.log(util.inspect(util, { showHidden: true, depth: null }));\n```\n\nThe following example highlights the effect of the `compact` option:\n\n```js\nimport { inspect } from 'node:util';\n\nconst o = {\n  a: [1, 2, [[\n    'Lorem ipsum dolor sit amet,\\nconsectetur adipiscing elit, sed do ' +\n      'eiusmod \\ntempor incididunt ut labore et dolore magna aliqua.',\n    'test',\n    'foo']], 4],\n  b: new Map([['za', 1], ['zb', 'test']]),\n};\nconsole.log(inspect(o, { compact: true, depth: 5, breakLength: 80 }));\n\n// { a:\n//   [ 1,\n//     2,\n//     [ [ 'Lorem ipsum dolor sit amet,\\nconsectetur [...]', // A long line\n//           'test',\n//           'foo' ] ],\n//     4 ],\n//   b: Map(2) { 'za' => 1, 'zb' => 'test' } }\n\n// Setting `compact` to false or an integer creates more reader friendly output.\nconsole.log(inspect(o, { compact: false, depth: 5, breakLength: 80 }));\n\n// {\n//   a: [\n//     1,\n//     2,\n//     [\n//       [\n//         'Lorem ipsum dolor sit amet,\\n' +\n//           'consectetur adipiscing elit, sed do eiusmod \\n' +\n//           'tempor incididunt ut labore et dolore magna aliqua.',\n//         'test',\n//         'foo'\n//       ]\n//     ],\n//     4\n//   ],\n//   b: Map(2) {\n//     'za' => 1,\n//     'zb' => 'test'\n//   }\n// }\n\n// Setting `breakLength` to e.g. 150 will print the \"Lorem ipsum\" text in a\n// single line.\n```\n\nThe `showHidden` option allows `WeakMap` and `WeakSet` entries to be\ninspected. If there are more entries than `maxArrayLength`, there is no\nguarantee which entries are displayed. That means retrieving the same\n`WeakSet` entries twice may result in different output. Furthermore, entries\nwith no remaining strong references may be garbage collected at any time.\n\n```js\nimport { inspect } from 'node:util';\n\nconst obj = { a: 1 };\nconst obj2 = { b: 2 };\nconst weakSet = new WeakSet([obj, obj2]);\n\nconsole.log(inspect(weakSet, { showHidden: true }));\n// WeakSet { { a: 1 }, { b: 2 } }\n```\n\nThe `sorted` option ensures that an object's property insertion order does not\nimpact the result of `util.inspect()`.\n\n```js\nimport { inspect } from 'node:util';\nimport assert from 'node:assert';\n\nconst o1 = {\n  b: [2, 3, 1],\n  a: '`a` comes before `b`',\n  c: new Set([2, 3, 1]),\n};\nconsole.log(inspect(o1, { sorted: true }));\n// { a: '`a` comes before `b`', b: [ 2, 3, 1 ], c: Set(3) { 1, 2, 3 } }\nconsole.log(inspect(o1, { sorted: (a, b) => b.localeCompare(a) }));\n// { c: Set(3) { 3, 2, 1 }, b: [ 2, 3, 1 ], a: '`a` comes before `b`' }\n\nconst o2 = {\n  c: new Set([2, 1, 3]),\n  a: '`a` comes before `b`',\n  b: [2, 3, 1],\n};\nassert.strict.equal(\n  inspect(o1, { sorted: true }),\n  inspect(o2, { sorted: true }),\n);\n```\n\nThe `numericSeparator` option adds an underscore every three digits to all\nnumbers.\n\n```js\nimport { inspect } from 'node:util';\n\nconst thousand = 1000;\nconst million = 1000000;\nconst bigNumber = 123456789n;\nconst bigDecimal = 1234.12345;\n\nconsole.log(inspect(thousand, { numericSeparator: true }));\n// 1_000\nconsole.log(inspect(million, { numericSeparator: true }));\n// 1_000_000\nconsole.log(inspect(bigNumber, { numericSeparator: true }));\n// 123_456_789n\nconsole.log(inspect(bigDecimal, { numericSeparator: true }));\n// 1_234.123_45\n```\n\n`util.inspect()` is a synchronous method intended for debugging. Its maximum\noutput length is approximately 128 MiB. Inputs that result in longer output will\nbe truncated.",
+      "translated": "`util.inspect()` メソッドは、デバッグを目的とした `object` の文字列表現を返す。`util.inspect` の出力はいつでも変わる可能性があり、プログラムから依存すべきではない。結果を変える追加の `options` を渡すこともできる。`util.inspect()` は、検査対象の値に対して識別可能なタグを作るために、コンストラクターの名前や `Symbol.toStringTag` プロパティを使う。\n\n```js\nclass Foo {\n  get [Symbol.toStringTag]() {\n    return 'bar';\n  }\n}\n\nclass Bar {}\n\nconst baz = Object.create(null, { [Symbol.toStringTag]: { value: 'foo' } });\n\nutil.inspect(new Foo()); // 'Foo [bar] {}'\nutil.inspect(new Bar()); // 'Bar {}'\nutil.inspect(baz);       // '[foo] {}'\n```\n\n循環参照は、参照インデックスを使ってそのアンカーを指す:\n\n```js\nimport { inspect } from 'node:util';\n\nconst obj = {};\nobj.a = [obj];\nobj.b = {};\nobj.b.inner = obj.b;\nobj.b.obj = obj;\n\nconsole.log(inspect(obj));\n// <ref *1> {\n//   a: [ [Circular *1] ],\n//   b: <ref *2> { inner: [Circular *2], obj: [Circular *1] }\n// }\n```\n\n次の例は `util` オブジェクトのすべてのプロパティを検査する:\n\n```js\nimport util from 'node:util';\n\nconsole.log(util.inspect(util, { showHidden: true, depth: null }));\n```\n\n次の例は `compact` オプションの効果を強調する:\n\n```js\nimport { inspect } from 'node:util';\n\nconst o = {\n  a: [1, 2, [[\n    'Lorem ipsum dolor sit amet,\\nconsectetur adipiscing elit, sed do ' +\n      'eiusmod \\ntempor incididunt ut labore et dolore magna aliqua.',\n    'test',\n    'foo']], 4],\n  b: new Map([['za', 1], ['zb', 'test']]),\n};\nconsole.log(inspect(o, { compact: true, depth: 5, breakLength: 80 }));\n\n// { a:\n//   [ 1,\n//     2,\n//     [ [ 'Lorem ipsum dolor sit amet,\\nconsectetur [...]', // A long line\n//           'test',\n//           'foo' ] ],\n//     4 ],\n//   b: Map(2) { 'za' => 1, 'zb' => 'test' } }\n\n// Setting `compact` to false or an integer creates more reader friendly output.\nconsole.log(inspect(o, { compact: false, depth: 5, breakLength: 80 }));\n\n// {\n//   a: [\n//     1,\n//     2,\n//     [\n//       [\n//         'Lorem ipsum dolor sit amet,\\n' +\n//           'consectetur adipiscing elit, sed do eiusmod \\n' +\n//           'tempor incididunt ut labore et dolore magna aliqua.',\n//         'test',\n//         'foo'\n//       ]\n//     ],\n//     4\n//   ],\n//   b: Map(2) {\n//     'za' => 1,\n//     'zb' => 'test'\n//   }\n// }\n\n// Setting `breakLength` to e.g. 150 will print the \"Lorem ipsum\" text in a\n// single line.\n```\n\n`showHidden` オプションは `WeakMap` と `WeakSet` のエントリを検査できるようにする。`maxArrayLength` より多くのエントリがある場合、どのエントリが表示されるかは保証されない。つまり、同じ `WeakSet` のエントリを 2 回取得すると異なる出力になることがある。さらに、強い参照が残っていないエントリはいつでもガベージコレクトされる可能性がある。\n\n```js\nimport { inspect } from 'node:util';\n\nconst obj = { a: 1 };\nconst obj2 = { b: 2 };\nconst weakSet = new WeakSet([obj, obj2]);\n\nconsole.log(inspect(weakSet, { showHidden: true }));\n// WeakSet { { a: 1 }, { b: 2 } }\n```\n\n`sorted` オプションは、オブジェクトのプロパティ挿入順が `util.inspect()` の結果に影響しないようにする。\n\n```js\nimport { inspect } from 'node:util';\nimport assert from 'node:assert';\n\nconst o1 = {\n  b: [2, 3, 1],\n  a: '`a` comes before `b`',\n  c: new Set([2, 3, 1]),\n};\nconsole.log(inspect(o1, { sorted: true }));\n// { a: '`a` comes before `b`', b: [ 2, 3, 1 ], c: Set(3) { 1, 2, 3 } }\nconsole.log(inspect(o1, { sorted: (a, b) => b.localeCompare(a) }));\n// { c: Set(3) { 3, 2, 1 }, b: [ 2, 3, 1 ], a: '`a` comes before `b`' }\n\nconst o2 = {\n  c: new Set([2, 1, 3]),\n  a: '`a` comes before `b`',\n  b: [2, 3, 1],\n};\nassert.strict.equal(\n  inspect(o1, { sorted: true }),\n  inspect(o2, { sorted: true }),\n);\n```\n\n`numericSeparator` オプションは、すべての数値に 3 桁ごとにアンダースコアを追加する。\n\n```js\nimport { inspect } from 'node:util';\n\nconst thousand = 1000;\nconst million = 1000000;\nconst bigNumber = 123456789n;\nconst bigDecimal = 1234.12345;\n\nconsole.log(inspect(thousand, { numericSeparator: true }));\n// 1_000\nconsole.log(inspect(million, { numericSeparator: true }));\n// 1_000_000\nconsole.log(inspect(bigNumber, { numericSeparator: true }));\n// 123_456_789n\nconsole.log(inspect(bigDecimal, { numericSeparator: true }));\n// 1_234.123_45\n```\n\n`util.inspect()` はデバッグを目的とした同期メソッドである。最大出力長は約 128 MiB である。これより長い出力になる入力は切り詰められる。",
+      "symbol": "@types/node/util.d.ts#util.inspect",
+      "lang": "ja"
+    },
+    "bdd7c305": {
+      "original": "The representation of `object`.",
+      "translated": "`object` の表現。",
+      "symbol": "@types/node/util.d.ts#util.inspect",
+      "lang": "ja"
+    },
+    "7d72ec3a": {
+      "original": "That can be used to declare custom inspect functions.",
+      "translated": "カスタムの inspect 関数を宣言するために使える。",
+      "symbol": "@types/node/util.d.ts#util.inspect.custom",
+      "lang": "ja"
+    },
+    "030d4273": {
+      "original": "Allows changing inspect settings from the repl.",
+      "translated": "repl から inspect の設定を変更できるようにする。",
+      "symbol": "@types/node/util.d.ts#util.inspect.replDefaults",
+      "lang": "ja"
+    },
+    "729bd3fd": {
+      "original": "The length at which input values are split across multiple lines.\nSet to `Infinity` to format the input as a single line\n(in combination with `compact` set to `true` or any number >= `1`).",
+      "translated": "入力値が複数行に分割される長さ。\n入力を 1 行として書式設定するには `Infinity` を設定する(`compact` を `true` または `1` 以上の任意の数値に設定した場合と組み合わせて)。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.breakLength",
+      "lang": "ja"
+    },
+    "78198feb": {
+      "original": "If `true`, the output is styled with ANSI color codes. Colors are customizable.",
+      "translated": "`true` の場合、出力は ANSI カラーコードでスタイル付けされる。色はカスタマイズ可能。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.colors",
+      "lang": "ja"
+    },
+    "6c5ebd53": {
+      "original": "Setting this to `false` causes each object key\nto be displayed on a new line. It will also add new lines to text that is\nlonger than `breakLength`. If set to a number, the most `n` inner elements\nare united on a single line as long as all properties fit into\n`breakLength`. Short array elements are also grouped together. Note that no\ntext will be reduced below 16 characters, no matter the `breakLength` size.\nFor more information, see the example below.",
+      "translated": "これを `false` に設定すると、各オブジェクトキーが新しい行に表示される。また、`breakLength` より長いテキストにも改行を追加する。数値に設定した場合、すべてのプロパティが `breakLength` に収まる限り、最大 `n` 個の内側の要素が 1 行にまとめられる。短い配列要素もまとめてグループ化される。`breakLength` の大きさにかかわらず、テキストが 16 文字未満に縮小されることはない点に注意すること。詳細は下記の例を参照。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.compact",
+      "lang": "ja"
+    },
+    "690611c9": {
+      "original": "If `false`, `[util.inspect.custom](depth, opts, inspect)` functions are not invoked.",
+      "translated": "`false` の場合、`[util.inspect.custom](depth, opts, inspect)` 関数は呼び出されない。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.customInspect",
+      "lang": "ja"
+    },
+    "ee01ed1a": {
+      "original": "Specifies the number of times to recurse while formatting object.\nThis is useful for inspecting large objects.\nTo recurse up to the maximum call stack size pass `Infinity` or `null`.",
+      "translated": "オブジェクトを書式設定する際に再帰する回数を指定する。これは大きなオブジェクトを検査するのに役立つ。最大コールスタックサイズまで再帰するには `Infinity` または `null` を渡す。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.depth",
+      "lang": "ja"
+    },
+    "861a73f0": {
+      "original": "If set to `true`, getters are going to be\ninspected as well. If set to `'get'` only getters without setter are going\nto be inspected. If set to `'set'` only getters having a corresponding\nsetter are going to be inspected. This might cause side effects depending on\nthe getter function.",
+      "translated": "`true` に設定した場合、ゲッターも検査される。`'get'` に設定した場合、セッターを持たないゲッターのみが検査される。`'set'` に設定した場合、対応するセッターを持つゲッターのみが検査される。ゲッター関数によっては副作用を引き起こすことがある。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.getters",
+      "lang": "ja"
+    },
+    "c5371265": {
+      "original": "Specifies the maximum number of `Array`, `TypedArray`, `WeakMap`, and `WeakSet` elements\nto include when formatting. Set to `null` or `Infinity` to show all elements.\nSet to `0` or negative to show no elements.",
+      "translated": "書式設定時に含める `Array`・`TypedArray`・`WeakMap`・`WeakSet` の要素の最大数を指定する。すべての要素を表示するには `null` または `Infinity` を設定する。要素を表示しないには `0` または負の値を設定する。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.maxArrayLength",
+      "lang": "ja"
+    },
+    "f92b027c": {
+      "original": "Specifies the maximum number of characters to\ninclude when formatting. Set to `null` or `Infinity` to show all elements.\nSet to `0` or negative to show no characters.",
+      "translated": "書式設定時に含める文字の最大数を指定する。すべての要素を表示するには `null` または `Infinity` を設定する。文字を表示しないには `0` または負の値を設定する。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.maxStringLength",
+      "lang": "ja"
+    },
+    "a58036e5": {
+      "original": "If set to `true`, an underscore is used to separate every three digits in all bigints and numbers.",
+      "translated": "`true` に設定した場合、すべての bigint と数値で 3 桁ごとを区切るためにアンダースコアが使われる。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.numericSeparator",
+      "lang": "ja"
+    },
+    "6ee63473": {
+      "original": "If `true`, object's non-enumerable symbols and properties are included in the formatted result.\n`WeakMap` and `WeakSet` entries are also included as well as user defined prototype properties (excluding method properties).",
+      "translated": "`true` の場合、オブジェクトの列挙不可なシンボルとプロパティが書式設定された結果に含まれる。`WeakMap` と `WeakSet` のエントリ、およびユーザー定義のプロトタイププロパティ(メソッドプロパティを除く)も含まれる。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.showHidden",
+      "lang": "ja"
+    },
+    "0a01e308": {
+      "original": "If `true`, `Proxy` inspection includes the target and handler objects.",
+      "translated": "`true` の場合、`Proxy` の検査はターゲットオブジェクトとハンドラオブジェクトを含む。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.showProxy",
+      "lang": "ja"
+    },
+    "e25529df": {
+      "original": "If set to `true` or a function, all properties of an object, and `Set` and `Map`\nentries are sorted in the resulting string.\nIf set to `true` the default sort is used.\nIf set to a function, it is used as a compare function.",
+      "translated": "`true` または関数に設定した場合、オブジェクトのすべてのプロパティ、および `Set` と `Map` のエントリが結果の文字列でソートされる。`true` に設定した場合、既定のソートが使われる。関数に設定した場合、それが比較関数として使われる。",
+      "symbol": "@types/node/util.d.ts#util.InspectOptions.sorted",
+      "lang": "ja"
+    },
+    "8a157b6e": {
+      "original": "Alias for [`Array.isArray()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray).\n\nReturns `true` if the given `object` is an `Array`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isArray([]);\n// Returns: true\nutil.isArray(new Array());\n// Returns: true\nutil.isArray({});\n// Returns: false\n```",
+      "translated": "[`Array.isArray()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray) のエイリアス。\n\n指定した `object` が `Array` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isArray([]);\n// Returns: true\nutil.isArray(new Array());\n// Returns: true\nutil.isArray({});\n// Returns: false\n```",
+      "symbol": "@types/node/util.d.ts#util.isArray",
+      "lang": "ja"
+    },
+    "e0423d1a": {
+      "original": "Since v4.0.0 - Use `isArray` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `isArray` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isArray",
+      "lang": "ja"
+    },
+    "6798fffd": {
+      "original": "Returns `true` if the given `object` is a `Boolean`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isBoolean(1);\n// Returns: false\nutil.isBoolean(0);\n// Returns: false\nutil.isBoolean(false);\n// Returns: true\n```",
+      "translated": "指定した `object` が `Boolean` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isBoolean(1);\n// Returns: false\nutil.isBoolean(0);\n// Returns: false\nutil.isBoolean(false);\n// Returns: true\n```",
+      "symbol": "@types/node/util.d.ts#util.isBoolean",
+      "lang": "ja"
+    },
+    "5ffa9c47": {
+      "original": "Since v4.0.0 - Use `typeof value === 'boolean'` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `typeof value === 'boolean'` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isBoolean",
+      "lang": "ja"
+    },
+    "e64ad35e": {
+      "original": "Returns `true` if the given `object` is a `Buffer`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isBuffer({ length: 0 });\n// Returns: false\nutil.isBuffer([]);\n// Returns: false\nutil.isBuffer(Buffer.from('hello world'));\n// Returns: true\n```",
+      "translated": "指定した `object` が `Buffer` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isBuffer({ length: 0 });\n// Returns: false\nutil.isBuffer([]);\n// Returns: false\nutil.isBuffer(Buffer.from('hello world'));\n// Returns: true\n```",
+      "symbol": "@types/node/util.d.ts#util.isBuffer",
+      "lang": "ja"
+    },
+    "bbc70d81": {
+      "original": "Since v4.0.0 - Use `isBuffer` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `isBuffer` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isBuffer",
+      "lang": "ja"
+    },
+    "076d5e75": {
+      "original": "Returns `true` if the given `object` is a `Date`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isDate(new Date());\n// Returns: true\nutil.isDate(Date());\n// false (without 'new' returns a String)\nutil.isDate({});\n// Returns: false\n```",
+      "translated": "指定した `object` が `Date` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isDate(new Date());\n// Returns: true\nutil.isDate(Date());\n// false (without 'new' returns a String)\nutil.isDate({});\n// Returns: false\n```",
+      "symbol": "@types/node/util.d.ts#util.isDate",
+      "lang": "ja"
+    },
+    "6afbf912": {
+      "original": "Since v4.0.0 - Use {@link types.isDate} instead.",
+      "translated": "v4.0.0 以降 - 代わりに {@link types.isDate} を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isDate",
+      "lang": "ja"
+    },
+    "aa1f8625": {
+      "original": "Returns `true` if there is deep strict equality between `val1` and `val2`.\nOtherwise, returns `false`.\n\nSee `assert.deepStrictEqual()` for more information about deep strict\nequality.",
+      "translated": "`val1` と `val2` の間に deep strict equality がある場合は `true` を返す。そうでなければ `false` を返す。\n\ndeep strict equality の詳細は `assert.deepStrictEqual()` を参照。",
+      "symbol": "@types/node/util.d.ts#util.isDeepStrictEqual",
+      "lang": "ja"
+    },
+    "5a0cf1a7": {
+      "original": "Returns `true` if the given `object` is an `Error`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isError(new Error());\n// Returns: true\nutil.isError(new TypeError());\n// Returns: true\nutil.isError({ name: 'Error', message: 'an error occurred' });\n// Returns: false\n```\n\nThis method relies on `Object.prototype.toString()` behavior. It is\npossible to obtain an incorrect result when the `object` argument manipulates `@@toStringTag`.\n\n```js\nimport util from 'node:util';\nconst obj = { name: 'Error', message: 'an error occurred' };\n\nutil.isError(obj);\n// Returns: false\nobj[Symbol.toStringTag] = 'Error';\nutil.isError(obj);\n// Returns: true\n```",
+      "translated": "指定した `object` が `Error` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isError(new Error());\n// Returns: true\nutil.isError(new TypeError());\n// Returns: true\nutil.isError({ name: 'Error', message: 'an error occurred' });\n// Returns: false\n```\n\nこのメソッドは `Object.prototype.toString()` の挙動に依存する。`object` 引数が `@@toStringTag` を操作している場合、誤った結果が得られることがある。\n\n```js\nimport util from 'node:util';\nconst obj = { name: 'Error', message: 'an error occurred' };\n\nutil.isError(obj);\n// Returns: false\nobj[Symbol.toStringTag] = 'Error';\nutil.isError(obj);\n// Returns: true\n```",
+      "symbol": "@types/node/util.d.ts#util.isError",
+      "lang": "ja"
+    },
+    "cc92dbd2": {
+      "original": "Since v4.0.0 - Use {@link types.isNativeError} instead.",
+      "translated": "v4.0.0 以降 - 代わりに {@link types.isNativeError} を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isError",
+      "lang": "ja"
+    },
+    "ce3c1bf0": {
+      "original": "Returns `true` if the given `object` is a `Function`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nfunction Foo() {}\nconst Bar = () => {};\n\nutil.isFunction({});\n// Returns: false\nutil.isFunction(Foo);\n// Returns: true\nutil.isFunction(Bar);\n// Returns: true\n```",
+      "translated": "指定した `object` が `Function` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nfunction Foo() {}\nconst Bar = () => {};\n\nutil.isFunction({});\n// Returns: false\nutil.isFunction(Foo);\n// Returns: true\nutil.isFunction(Bar);\n// Returns: true\n```",
+      "symbol": "@types/node/util.d.ts#util.isFunction",
+      "lang": "ja"
+    },
+    "9b01ef3f": {
+      "original": "Since v4.0.0 - Use `typeof value === 'function'` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `typeof value === 'function'` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isFunction",
+      "lang": "ja"
+    },
+    "0453a138": {
+      "original": "Returns `true` if the given `object` is strictly `null`. Otherwise, returns`false`.\n\n```js\nimport util from 'node:util';\n\nutil.isNull(0);\n// Returns: false\nutil.isNull(undefined);\n// Returns: false\nutil.isNull(null);\n// Returns: true\n```",
+      "translated": "指定した `object` が厳密に `null` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isNull(0);\n// Returns: false\nutil.isNull(undefined);\n// Returns: false\nutil.isNull(null);\n// Returns: true\n```",
+      "symbol": "@types/node/util.d.ts#util.isNull",
+      "lang": "ja"
+    },
+    "d7100b51": {
+      "original": "Since v4.0.0 - Use `value === null` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `value === null` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isNull",
+      "lang": "ja"
+    },
+    "fa2290d0": {
+      "original": "Returns `true` if the given `object` is `null` or `undefined`. Otherwise,\nreturns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isNullOrUndefined(0);\n// Returns: false\nutil.isNullOrUndefined(undefined);\n// Returns: true\nutil.isNullOrUndefined(null);\n// Returns: true\n```",
+      "translated": "指定した `object` が `null` または `undefined` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isNullOrUndefined(0);\n// Returns: false\nutil.isNullOrUndefined(undefined);\n// Returns: true\nutil.isNullOrUndefined(null);\n// Returns: true\n```",
+      "symbol": "@types/node/util.d.ts#util.isNullOrUndefined",
+      "lang": "ja"
+    },
+    "a600bb0b": {
+      "original": "Since v4.0.0 - Use `value === undefined || value === null` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `value === undefined || value === null` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isNullOrUndefined",
+      "lang": "ja"
+    },
+    "77ffce96": {
+      "original": "Returns `true` if the given `object` is a `Number`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isNumber(false);\n// Returns: false\nutil.isNumber(Infinity);\n// Returns: true\nutil.isNumber(0);\n// Returns: true\nutil.isNumber(NaN);\n// Returns: true\n```",
+      "translated": "指定した `object` が `Number` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isNumber(false);\n// Returns: false\nutil.isNumber(Infinity);\n// Returns: true\nutil.isNumber(0);\n// Returns: true\nutil.isNumber(NaN);\n// Returns: true\n```",
+      "symbol": "@types/node/util.d.ts#util.isNumber",
+      "lang": "ja"
+    },
+    "ee100894": {
+      "original": "Since v4.0.0 - Use `typeof value === 'number'` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `typeof value === 'number'` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isNumber",
+      "lang": "ja"
+    },
+    "89cf1265": {
+      "original": "Returns `true` if the given `object` is strictly an `Object`**and** not a`Function` (even though functions are objects in JavaScript).\nOtherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isObject(5);\n// Returns: false\nutil.isObject(null);\n// Returns: false\nutil.isObject({});\n// Returns: true\nutil.isObject(() => {});\n// Returns: false\n```",
+      "translated": "指定した `object` が厳密に `Object` で**かつ** `Function` でない場合(JavaScript では関数もオブジェクトだが)は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isObject(5);\n// Returns: false\nutil.isObject(null);\n// Returns: false\nutil.isObject({});\n// Returns: true\nutil.isObject(() => {});\n// Returns: false\n```",
+      "symbol": "@types/node/util.d.ts#util.isObject",
+      "lang": "ja"
+    },
+    "9bb99e63": {
+      "original": "Since v4.0.0 - Use `value !== null && typeof value === 'object'` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `value !== null && typeof value === 'object'` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isObject",
+      "lang": "ja"
+    },
+    "f4c34f6a": {
+      "original": "Returns `true` if the given `object` is a primitive type. Otherwise, returns`false`.\n\n```js\nimport util from 'node:util';\n\nutil.isPrimitive(5);\n// Returns: true\nutil.isPrimitive('foo');\n// Returns: true\nutil.isPrimitive(false);\n// Returns: true\nutil.isPrimitive(null);\n// Returns: true\nutil.isPrimitive(undefined);\n// Returns: true\nutil.isPrimitive({});\n// Returns: false\nutil.isPrimitive(() => {});\n// Returns: false\nutil.isPrimitive(/^$/);\n// Returns: false\nutil.isPrimitive(new Date());\n// Returns: false\n```",
+      "translated": "指定した `object` がプリミティブ型の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isPrimitive(5);\n// Returns: true\nutil.isPrimitive('foo');\n// Returns: true\nutil.isPrimitive(false);\n// Returns: true\nutil.isPrimitive(null);\n// Returns: true\nutil.isPrimitive(undefined);\n// Returns: true\nutil.isPrimitive({});\n// Returns: false\nutil.isPrimitive(() => {});\n// Returns: false\nutil.isPrimitive(/^$/);\n// Returns: false\nutil.isPrimitive(new Date());\n// Returns: false\n```",
+      "symbol": "@types/node/util.d.ts#util.isPrimitive",
+      "lang": "ja"
+    },
+    "00403a2c": {
+      "original": "Since v4.0.0 - Use `(typeof value !== 'object' && typeof value !== 'function') || value === null` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `(typeof value !== 'object' && typeof value !== 'function') || value === null` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isPrimitive",
+      "lang": "ja"
+    },
+    "0c540fb7": {
+      "original": "Returns `true` if the given `object` is a `RegExp`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isRegExp(/some regexp/);\n// Returns: true\nutil.isRegExp(new RegExp('another regexp'));\n// Returns: true\nutil.isRegExp({});\n// Returns: false\n```",
+      "translated": "指定した `object` が `RegExp` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isRegExp(/some regexp/);\n// Returns: true\nutil.isRegExp(new RegExp('another regexp'));\n// Returns: true\nutil.isRegExp({});\n// Returns: false\n```",
+      "symbol": "@types/node/util.d.ts#util.isRegExp",
+      "lang": "ja"
+    },
+    "c9eee5a4": {
+      "original": "Since v4.0.0 - Deprecated",
+      "translated": "v4.0.0 以降 - 非推奨",
+      "symbol": "@types/node/util.d.ts#util.isRegExp",
+      "lang": "ja"
+    },
+    "f2b23306": {
+      "original": "Returns `true` if the given `object` is a `string`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isString('');\n// Returns: true\nutil.isString('foo');\n// Returns: true\nutil.isString(String('foo'));\n// Returns: true\nutil.isString(5);\n// Returns: false\n```",
+      "translated": "指定した `object` が `string` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isString('');\n// Returns: true\nutil.isString('foo');\n// Returns: true\nutil.isString(String('foo'));\n// Returns: true\nutil.isString(5);\n// Returns: false\n```",
+      "symbol": "@types/node/util.d.ts#util.isString",
+      "lang": "ja"
+    },
+    "0268268c": {
+      "original": "Since v4.0.0 - Use `typeof value === 'string'` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `typeof value === 'string'` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isString",
+      "lang": "ja"
+    },
+    "a96eab42": {
+      "original": "Returns `true` if the given `object` is a `Symbol`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nutil.isSymbol(5);\n// Returns: false\nutil.isSymbol('foo');\n// Returns: false\nutil.isSymbol(Symbol('foo'));\n// Returns: true\n```",
+      "translated": "指定した `object` が `Symbol` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nutil.isSymbol(5);\n// Returns: false\nutil.isSymbol('foo');\n// Returns: false\nutil.isSymbol(Symbol('foo'));\n// Returns: true\n```",
+      "symbol": "@types/node/util.d.ts#util.isSymbol",
+      "lang": "ja"
+    },
+    "6282913b": {
+      "original": "Since v4.0.0 - Use `typeof value === 'symbol'` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `typeof value === 'symbol'` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isSymbol",
+      "lang": "ja"
+    },
+    "60620f81": {
+      "original": "Returns `true` if the given `object` is `undefined`. Otherwise, returns `false`.\n\n```js\nimport util from 'node:util';\n\nconst foo = undefined;\nutil.isUndefined(5);\n// Returns: false\nutil.isUndefined(foo);\n// Returns: true\nutil.isUndefined(null);\n// Returns: false\n```",
+      "translated": "指定した `object` が `undefined` の場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport util from 'node:util';\n\nconst foo = undefined;\nutil.isUndefined(5);\n// Returns: false\nutil.isUndefined(foo);\n// Returns: true\nutil.isUndefined(null);\n// Returns: false\n```",
+      "symbol": "@types/node/util.d.ts#util.isUndefined",
+      "lang": "ja"
+    },
+    "ee49c1d2": {
+      "original": "Since v4.0.0 - Use `value === undefined` instead.",
+      "translated": "v4.0.0 以降 - 代わりに `value === undefined` を使うこと。",
+      "symbol": "@types/node/util.d.ts#util.isUndefined",
+      "lang": "ja"
+    },
+    "d488fdbf": {
+      "original": "Since v6.0.0 - Use a third party module instead.",
+      "translated": "v6.0.0 以降 - 代わりにサードパーティのモジュールを使うこと。",
+      "symbol": "@types/node/util.d.ts#util.log",
+      "lang": "ja"
+    },
+    "d2ad1d22": {
+      "original": "The `util.log()` method prints the given `string` to `stdout` with an included\ntimestamp.\n\n```js\nimport util from 'node:util';\n\nutil.log('Timestamped message.');\n```",
+      "translated": "`util.log()` メソッドは、指定した `string` をタイムスタンプ付きで `stdout` に出力する。\n\n```js\nimport util from 'node:util';\n\nutil.log('Timestamped message.');\n```",
+      "symbol": "@types/node/util.d.ts#util.log",
+      "lang": "ja"
+    },
+    "d7be54fe": {
+      "original": "The `MIMEParams` API provides read and write access to the parameters of a `MIMEType`.",
+      "translated": "`MIMEParams` API は、`MIMEType` のパラメーターへの読み書きアクセスを提供する。",
+      "symbol": "@types/node/util.d.ts#util.MIMEParams",
+      "lang": "ja"
+    },
+    "9865882e": {
+      "original": "Returns an iterator over each of the name-value pairs in the parameters.",
+      "translated": "パラメーター内の各名前と値のペアを反復するイテレーターを返す。",
+      "symbol": "@types/node/util.d.ts#util.MIMEParams.[Symbol.iterator]",
+      "lang": "ja"
+    },
+    "b3f302fb": {
+      "original": "Remove all name-value pairs whose name is `name`.",
+      "translated": "名前が `name` であるすべての名前と値のペアを削除する。",
+      "symbol": "@types/node/util.d.ts#util.MIMEParams.delete",
+      "lang": "ja"
+    },
+    "632ec83d": {
+      "original": "Returns `true` if there is at least one name-value pair whose name is `name`.",
+      "translated": "名前が `name` である名前と値のペアが少なくとも 1 つある場合は `true` を返す。",
+      "symbol": "@types/node/util.d.ts#util.MIMEParams.has",
+      "lang": "ja"
+    },
+    "a7964d99": {
+      "original": "Returns an iterator over the names of each name-value pair.\n\n```js\nimport { MIMEType } from 'node:util';\n\nconst { params } = new MIMEType('text/plain;foo=0;bar=1');\nfor (const name of params.keys()) {\n  console.log(name);\n}\n// Prints:\n//   foo\n//   bar\n```",
+      "translated": "各名前と値のペアの名前を反復するイテレーターを返す。\n\n```js\nimport { MIMEType } from 'node:util';\n\nconst { params } = new MIMEType('text/plain;foo=0;bar=1');\nfor (const name of params.keys()) {\n  console.log(name);\n}\n// Prints:\n//   foo\n//   bar\n```",
+      "symbol": "@types/node/util.d.ts#util.MIMEParams.keys",
+      "lang": "ja"
+    },
+    "8791ed5e": {
+      "original": "Sets the value in the `MIMEParams` object associated with `name` to `value`. If there are any pre-existing name-value pairs whose names are `name`,\nset the first such pair's value to `value`.\n\n```js\nimport { MIMEType } from 'node:util';\n\nconst { params } = new MIMEType('text/plain;foo=0;bar=1');\nparams.set('foo', 'def');\nparams.set('baz', 'xyz');\nconsole.log(params.toString());\n// Prints: foo=def;bar=1;baz=xyz\n```",
+      "translated": "`MIMEParams` オブジェクト内で `name` に関連付けられた値を `value` に設定する。名前が `name` である既存の名前と値のペアがある場合、最初のそのようなペアの値を `value` に設定する。\n\n```js\nimport { MIMEType } from 'node:util';\n\nconst { params } = new MIMEType('text/plain;foo=0;bar=1');\nparams.set('foo', 'def');\nparams.set('baz', 'xyz');\nconsole.log(params.toString());\n// Prints: foo=def;bar=1;baz=xyz\n```",
+      "symbol": "@types/node/util.d.ts#util.MIMEParams.set",
+      "lang": "ja"
+    },
+    "43ff7173": {
+      "original": "Returns an iterator over the values of each name-value pair.",
+      "translated": "各名前と値のペアの値を反復するイテレーターを返す。",
+      "symbol": "@types/node/util.d.ts#util.MIMEParams.values",
+      "lang": "ja"
+    },
+    "f0db889c": {
+      "original": "An implementation of [the MIMEType class](https://bmeck.github.io/node-proposal-mime-api/).\n\nIn accordance with browser conventions, all properties of `MIMEType` objects\nare implemented as getters and setters on the class prototype, rather than as\ndata properties on the object itself.\n\nA MIME string is a structured string containing multiple meaningful\ncomponents. When parsed, a `MIMEType` object is returned containing\nproperties for each of these components.",
+      "translated": "[MIMEType クラス](https://bmeck.github.io/node-proposal-mime-api/)の実装。\n\nブラウザーの慣例に従い、`MIMEType` オブジェクトのすべてのプロパティは、オブジェクト自体のデータプロパティとしてではなく、クラスプロトタイプ上のゲッターとセッターとして実装されている。\n\nMIME 文字列は、意味のある複数の構成要素を含む構造化された文字列である。解析されると、これらの各構成要素のプロパティを含む `MIMEType` オブジェクトが返される。",
+      "symbol": "@types/node/util.d.ts#util.MIMEType",
+      "lang": "ja"
+    },
+    "bdb8499a": {
+      "original": "Creates a new MIMEType object by parsing the input.\n\nA `TypeError` will be thrown if the `input` is not a valid MIME.\nNote that an effort will be made to coerce the given values into strings.",
+      "translated": "入力を解析して新しい MIMEType オブジェクトを作成する。\n\n`input` が有効な MIME でない場合、`TypeError` が投げられる。指定された値を文字列に強制変換する試みが行われる点に注意すること。",
+      "symbol": "@types/node/util.d.ts#util.MIMEType",
+      "lang": "ja"
+    },
+    "68f77bee": {
+      "original": "The input MIME to parse.",
+      "translated": "解析する入力 MIME。",
+      "symbol": "@types/node/util.d.ts#util.MIMEType",
+      "lang": "ja"
+    },
+    "b85c2ed7": {
+      "original": "Gets the essence of the MIME. This property is read only.\nUse `mime.type` or `mime.subtype` to alter the MIME.\n\n```js\nimport { MIMEType } from 'node:util';\n\nconst myMIME = new MIMEType('text/javascript;key=value');\nconsole.log(myMIME.essence);\n// Prints: text/javascript\nmyMIME.type = 'application';\nconsole.log(myMIME.essence);\n// Prints: application/javascript\nconsole.log(String(myMIME));\n// Prints: application/javascript;key=value\n```",
+      "translated": "MIME のエッセンスを取得する。このプロパティは読み取り専用である。MIME を変更するには `mime.type` または `mime.subtype` を使うこと。\n\n```js\nimport { MIMEType } from 'node:util';\n\nconst myMIME = new MIMEType('text/javascript;key=value');\nconsole.log(myMIME.essence);\n// Prints: text/javascript\nmyMIME.type = 'application';\nconsole.log(myMIME.essence);\n// Prints: application/javascript\nconsole.log(String(myMIME));\n// Prints: application/javascript;key=value\n```",
+      "symbol": "@types/node/util.d.ts#util.MIMEType.essence",
+      "lang": "ja"
+    },
+    "9ca1eb4d": {
+      "original": "Gets and sets the subtype portion of the MIME.\n\n```js\nimport { MIMEType } from 'node:util';\n\nconst myMIME = new MIMEType('text/ecmascript');\nconsole.log(myMIME.subtype);\n// Prints: ecmascript\nmyMIME.subtype = 'javascript';\nconsole.log(myMIME.subtype);\n// Prints: javascript\nconsole.log(String(myMIME));\n// Prints: text/javascript\n```",
+      "translated": "MIME のサブタイプ部分を取得・設定する。\n\n```js\nimport { MIMEType } from 'node:util';\n\nconst myMIME = new MIMEType('text/ecmascript');\nconsole.log(myMIME.subtype);\n// Prints: ecmascript\nmyMIME.subtype = 'javascript';\nconsole.log(myMIME.subtype);\n// Prints: javascript\nconsole.log(String(myMIME));\n// Prints: text/javascript\n```",
+      "symbol": "@types/node/util.d.ts#util.MIMEType.subtype",
+      "lang": "ja"
+    },
+    "c24cc04e": {
+      "original": "The `toString()` method on the `MIMEType` object returns the serialized MIME.\n\nBecause of the need for standard compliance, this method does not allow users\nto customize the serialization process of the MIME.",
+      "translated": "`MIMEType` オブジェクトの `toString()` メソッドは、シリアライズされた MIME を返す。\n\n標準への準拠が必要なため、このメソッドはユーザーが MIME のシリアライズ処理をカスタマイズすることを許可しない。",
+      "symbol": "@types/node/util.d.ts#util.MIMEType.toString",
+      "lang": "ja"
+    },
+    "dc9f0858": {
+      "original": "Gets and sets the type portion of the MIME.\n\n```js\nimport { MIMEType } from 'node:util';\n\nconst myMIME = new MIMEType('text/javascript');\nconsole.log(myMIME.type);\n// Prints: text\nmyMIME.type = 'application';\nconsole.log(myMIME.type);\n// Prints: application\nconsole.log(String(myMIME));\n// Prints: application/javascript\n```",
+      "translated": "MIME のタイプ部分を取得・設定する。\n\n```js\nimport { MIMEType } from 'node:util';\n\nconst myMIME = new MIMEType('text/javascript');\nconsole.log(myMIME.type);\n// Prints: text\nmyMIME.type = 'application';\nconsole.log(myMIME.type);\n// Prints: application\nconsole.log(String(myMIME));\n// Prints: application/javascript\n```",
+      "symbol": "@types/node/util.d.ts#util.MIMEType.type",
+      "lang": "ja"
+    },
+    "ff1e4db3": {
+      "original": "Provides a higher level API for command-line argument parsing than interacting\nwith `process.argv` directly. Takes a specification for the expected arguments\nand returns a structured object with the parsed options and positionals.\n\n```js\nimport { parseArgs } from 'node:util';\nconst args = ['-f', '--bar', 'b'];\nconst options = {\n  foo: {\n    type: 'boolean',\n    short: 'f',\n  },\n  bar: {\n    type: 'string',\n  },\n};\nconst {\n  values,\n  positionals,\n} = parseArgs({ args, options });\nconsole.log(values, positionals);\n// Prints: [Object: null prototype] { foo: true, bar: 'b' } []\n```",
+      "translated": "`process.argv` を直接操作するよりも高レベルなコマンドライン引数解析 API を提供する。期待される引数の仕様を受け取り、解析されたオプションと位置引数を持つ構造化されたオブジェクトを返す。\n\n```js\nimport { parseArgs } from 'node:util';\nconst args = ['-f', '--bar', 'b'];\nconst options = {\n  foo: {\n    type: 'boolean',\n    short: 'f',\n  },\n  bar: {\n    type: 'string',\n  },\n};\nconst {\n  values,\n  positionals,\n} = parseArgs({ args, options });\nconsole.log(values, positionals);\n// Prints: [Object: null prototype] { foo: true, bar: 'b' } []\n```",
+      "symbol": "@types/node/util.d.ts#util.parseArgs",
+      "lang": "ja"
+    },
+    "69c08432": {
+      "original": "The parsed command line arguments:",
+      "translated": "解析されたコマンドライン引数:",
+      "symbol": "@types/node/util.d.ts#util.parseArgs",
+      "lang": "ja"
+    },
+    "8bfda4e5": {
+      "original": "If `true`, allows explicitly setting boolean options to `false` by prefixing the option name with `--no-`.",
+      "translated": "`true` の場合、オプション名の前に `--no-` を付けることで、真偽値オプションを明示的に `false` に設定できるようにする。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsConfig.allowNegative",
+      "lang": "ja"
+    },
+    "1f6bf7d5": {
+      "original": "Whether this command accepts positional arguments.",
+      "translated": "このコマンドが位置引数を受け付けるかどうか。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsConfig.allowPositionals",
+      "lang": "ja"
+    },
+    "207f221d": {
+      "original": "Array of argument strings.",
+      "translated": "引数文字列の配列。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsConfig.args",
+      "lang": "ja"
+    },
+    "b4e64720": {
+      "original": "Used to describe arguments known to the parser.",
+      "translated": "パーサーが認識する引数を記述するために使う。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsConfig.options",
+      "lang": "ja"
+    },
+    "c0775bdb": {
+      "original": "Should an error be thrown when unknown arguments are encountered,\nor when arguments are passed that do not match the `type` configured in `options`.",
+      "translated": "不明な引数が見つかったとき、または `options` で設定された `type` に一致しない引数が渡されたときに、エラーを投げるかどうか。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsConfig.strict",
+      "lang": "ja"
+    },
+    "b5deff9f": {
+      "original": "Return the parsed tokens. This is useful for extending the built-in behavior,\nfrom adding additional checks through to reprocessing the tokens in different ways.",
+      "translated": "解析されたトークンを返す。これは、追加のチェックを加えることから、トークンを別の方法で再処理することまで、組み込みの挙動を拡張するのに役立つ。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsConfig.tokens",
+      "lang": "ja"
+    },
+    "5df0dffd": {
+      "original": "The value to assign to\nthe option if it does not appear in the arguments to be parsed. The value\nmust match the type specified by the `type` property. If `multiple` is\n`true`, it must be an array. No default value is applied when the option\ndoes appear in the arguments to be parsed, even if the provided value\nis falsy.",
+      "translated": "解析対象の引数にオプションが現れなかった場合にオプションに割り当てる値。値は `type` プロパティで指定された型に一致しなければならない。`multiple` が `true` の場合、配列でなければならない。オプションが解析対象の引数に現れた場合は、指定された値が falsy であっても既定値は適用されない。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsOptionDescriptor.default",
+      "lang": "ja"
+    },
+    "2df6b82a": {
+      "original": "Whether this option can be provided multiple times.\nIf `true`, all values will be collected in an array.\nIf `false`, values for the option are last-wins.",
+      "translated": "このオプションを複数回指定できるかどうか。`true` の場合、すべての値が配列に集められる。`false` の場合、オプションの値は last-wins(最後のものが優先)になる。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsOptionDescriptor.multiple",
+      "lang": "ja"
+    },
+    "c9eec9f6": {
+      "original": "A single character alias for the option.",
+      "translated": "オプションの 1 文字のエイリアス。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsOptionDescriptor.short",
+      "lang": "ja"
+    },
+    "26d3c2ac": {
+      "original": "Type of argument.",
+      "translated": "引数の型。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsOptionDescriptor.type",
       "lang": "ja"
     }
   }
