@@ -28,6 +28,12 @@
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.typescript",
       "lang": "ja"
     },
+    "17463102": {
+      "original": "Constant for fs.open(). Flag indicating that if the file exists and is a regular file, and the file is opened successfully for write access, its length shall be truncated to zero.",
+      "translated": "fs.open() 用の定数。ファイルが存在して通常のファイルであり、書き込みアクセス用に正常に開かれた場合、その長さがゼロに切り詰められるべきことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_TRUNC",
+      "lang": "ja"
+    },
     "23911876": {
       "original": "Passing `chunk` as `null` signals the end of the stream (EOF) and behaves the\nsame as `readable.push(null)`, after which no more data can be written. The EOF\nsignal is put at the end of the buffer and any buffered data will still be\nflushed.\n\nThe `readable.unshift()` method pushes a chunk of data back into the internal\nbuffer. This is useful in certain situations where a stream is being consumed by\ncode that needs to \"un-consume\" some amount of data that it has optimistically\npulled out of the source, so that the data can be passed on to some other party.\n\nThe `stream.unshift(chunk)` method cannot be called after the `'end'` event\nhas been emitted or a runtime error will be thrown.\n\nDevelopers using `stream.unshift()` often should consider switching to\nuse of a `Transform` stream instead. See the `API for stream implementers` section for more information.\n\n```js\n// Pull off a header delimited by \\n\\n.\n// Use unshift() if we get too much.\n// Call the callback with (error, header, stream).\nimport { StringDecoder } from 'node:string_decoder';\nfunction parseHeader(stream, callback) {\n  stream.on('error', callback);\n  stream.on('readable', onReadable);\n  const decoder = new StringDecoder('utf8');\n  let header = '';\n  function onReadable() {\n    let chunk;\n    while (null !== (chunk = stream.read())) {\n      const str = decoder.write(chunk);\n      if (str.includes('\\n\\n')) {\n        // Found the header boundary.\n        const split = str.split(/\\n\\n/);\n        header += split.shift();\n        const remaining = split.join('\\n\\n');\n        const buf = Buffer.from(remaining, 'utf8');\n        stream.removeListener('error', callback);\n        // Remove the 'readable' listener before unshifting.\n        stream.removeListener('readable', onReadable);\n        if (buf.length)\n          stream.unshift(buf);\n        // Now the body of the message can be read from the stream.\n        callback(null, header, stream);\n        return;\n      }\n      // Still reading the header.\n      header += str;\n    }\n  }\n}\n```\n\nUnlike {@link push}, `stream.unshift(chunk)` will not\nend the reading process by resetting the internal reading state of the stream.\nThis can cause unexpected results if `readable.unshift()` is called during a\nread (i.e. from within a {@link _read} implementation on a\ncustom stream). Following the call to `readable.unshift()` with an immediate {@link push} will reset the reading state appropriately,\nhowever it is best to simply avoid calling `readable.unshift()` while in the\nprocess of performing a read.",
       "translated": "`chunk` を `null` として渡すとストリームの終了(EOF)を通知し、`readable.push(null)` と同じように動作する。それ以降はデータを書き込めなくなる。EOF 信号はバッファの末尾に置かれ、バッファリングされたデータはそれでもフラッシュされる。\n\n`readable.unshift()` メソッドは、データのチャンクを内部バッファに戻す。これは、ストリームを消費するコードが、ソースから楽観的に取り出した一定量のデータを「消費し直す(un-consume)」必要があり、そのデータを別の当事者に渡せるようにする特定の状況で役立つ。\n\n`stream.unshift(chunk)` メソッドは、`'end'` イベントが発行された後には呼べない。呼ぶと実行時エラーが投げられる。\n\n`stream.unshift()` を頻繁に使う開発者は、代わりに `Transform` ストリームの使用への切り替えを検討すべきである。詳細は `API for stream implementers` セクションを参照。\n\n```js\n// Pull off a header delimited by \\n\\n.\n// Use unshift() if we get too much.\n// Call the callback with (error, header, stream).\nimport { StringDecoder } from 'node:string_decoder';\nfunction parseHeader(stream, callback) {\n  stream.on('error', callback);\n  stream.on('readable', onReadable);\n  const decoder = new StringDecoder('utf8');\n  let header = '';\n  function onReadable() {\n    let chunk;\n    while (null !== (chunk = stream.read())) {\n      const str = decoder.write(chunk);\n      if (str.includes('\\n\\n')) {\n        // Found the header boundary.\n        const split = str.split(/\\n\\n/);\n        header += split.shift();\n        const remaining = split.join('\\n\\n');\n        const buf = Buffer.from(remaining, 'utf8');\n        stream.removeListener('error', callback);\n        // Remove the 'readable' listener before unshifting.\n        stream.removeListener('readable', onReadable);\n        if (buf.length)\n          stream.unshift(buf);\n        // Now the body of the message can be read from the stream.\n        callback(null, header, stream);\n        return;\n      }\n      // Still reading the header.\n      header += str;\n    }\n  }\n}\n```\n\n{@link push} とは異なり、`stream.unshift(chunk)` はストリームの内部読み取り状態をリセットして読み取り処理を終了させることはない。これは、読み取り中(すなわちカスタムストリームの {@link _read} 実装内)に `readable.unshift()` が呼ばれると予期しない結果を引き起こすことがある。`readable.unshift()` の呼び出しの直後に {@link push} を続けると読み取り状態が適切にリセットされるが、読み取りを実行している最中は単に `readable.unshift()` の呼び出しを避けるのが最善である。",
@@ -46,10 +52,28 @@
       "symbol": "@types/node/util.d.ts#util/types.isKeyObject",
       "lang": "ja"
     },
+    "46362450": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating readable, writable and executable by others.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。その他による読み取り・書き込み・実行が可能なことを示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IRWXO",
+      "lang": "ja"
+    },
     "48727216": {
       "original": "The `blob.bytes()` method returns the byte of the `Blob` object as a `Promise<Uint8Array>`.\n\n```js\nconst blob = new Blob(['hello']);\nblob.bytes().then((bytes) => {\n  console.log(bytes); // Outputs: Uint8Array(5) [ 104, 101, 108, 108, 111 ]\n});\n```",
       "translated": "`blob.bytes()` メソッドは、`Blob` オブジェクトのバイトを `Promise<Uint8Array>` として返す。\n\n```js\nconst blob = new Blob(['hello']);\nblob.bytes().then((bytes) => {\n  console.log(bytes); // Outputs: Uint8Array(5) [ 104, 101, 108, 108, 111 ]\n});\n```",
       "symbol": "@types/node/buffer.d.ts#buffer.Blob.bytes",
+      "lang": "ja"
+    },
+    "48815716": {
+      "original": "Constant for fs.open(). Flag indicating to open a file for read-only access.",
+      "translated": "fs.open() 用の定数。ファイルを読み取り専用アクセスで開くことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_RDONLY",
+      "lang": "ja"
+    },
+    "51538543": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating readable by group.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。グループによる読み取り可能を示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IRGRP",
       "lang": "ja"
     },
     "51861017": {
@@ -74,6 +98,12 @@
       "original": "Used to provide arguments for parsing and to configure the parser. `config` supports the following properties:",
       "translated": "解析用の引数を提供し、パーサーを設定するために使う。`config` は次のプロパティをサポートする:",
       "symbol": "@types/node/util.d.ts#util.parseArgs",
+      "lang": "ja"
+    },
+    "73741370": {
+      "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a directory.",
+      "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。ディレクトリを表すファイル種類定数。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IFDIR",
       "lang": "ja"
     },
     "94553477": {
@@ -1328,6 +1358,516 @@
       "original": "Can be used to cancel awaiting events.",
       "translated": "イベントの待機をキャンセルするために使える。",
       "symbol": "@types/node/events.d.ts#events.StaticEventEmitterOptions.signal",
+      "lang": "ja"
+    },
+    "7fc4f6cb": {
+      "original": "The `node:fs` module enables interacting with the file system in a\nway modeled on standard POSIX functions.\n\nTo use the promise-based APIs:\n\n```js\nimport * as fs from 'node:fs/promises';\n```\n\nTo use the callback and sync APIs:\n\n```js\nimport * as fs from 'node:fs';\n```\n\nAll file system operations have synchronous, callback, and promise-based\nforms, and are accessible using both CommonJS syntax and ES6 Modules (ESM).",
+      "translated": "`node:fs` モジュールは、標準の POSIX 関数をモデルにした方法でファイルシステムとやり取りできるようにする。\n\npromise ベースの API を使うには:\n\n```js\nimport * as fs from 'node:fs/promises';\n```\n\nコールバックおよび同期 API を使うには:\n\n```js\nimport * as fs from 'node:fs';\n```\n\nすべてのファイルシステム操作には同期・コールバック・promise ベースの形式があり、CommonJS 構文と ES6 モジュール(ESM)の両方でアクセスできる。",
+      "symbol": "@types/node/fs.d.ts#fs",
+      "lang": "ja"
+    },
+    "779c56c3": {
+      "original": "Current working directory.",
+      "translated": "カレントワーキングディレクトリ。",
+      "symbol": "@types/node/fs.d.ts#fs._GlobOptions.cwd",
+      "lang": "ja"
+    },
+    "040ee5ae": {
+      "original": "Function to filter out files/directories or a\nlist of glob patterns to be excluded. If a function is provided, return\n`true` to exclude the item, `false` to include it. If a string array is\nprovided, each string should be a glob pattern that specifies paths to exclude.\nNote: Negation patterns (e.g., '!foo.js') are not supported.",
+      "translated": "ファイル/ディレクトリを除外するための関数、または除外する glob パターンのリスト。関数を指定した場合、その項目を除外するには `true`、含めるには `false` を返す。文字列配列を指定した場合、各文字列は除外するパスを指定する glob パターンであるべきである。注意: 否定パターン(例: '!foo.js')はサポートされない。",
+      "symbol": "@types/node/fs.d.ts#fs._GlobOptions.exclude",
+      "lang": "ja"
+    },
+    "552dad09": {
+      "original": "`true` if the glob should return paths as `Dirent`s, `false` otherwise.",
+      "translated": "glob がパスを `Dirent` として返すべき場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/fs.d.ts#fs._GlobOptions.withFileTypes",
+      "lang": "ja"
+    },
+    "5ea7a746": {
+      "original": "Asynchronously tests a user's permissions for the file specified by path.",
+      "translated": "path で指定したファイルに対するユーザーの権限を非同期にテストする。",
+      "symbol": "@types/node/fs.d.ts#fs.access",
+      "lang": "ja"
+    },
+    "23c7bbba": {
+      "original": "Tests a user's permissions for the file or directory specified by `path`.\nThe `mode` argument is an optional integer that specifies the accessibility\nchecks to be performed. `mode` should be either the value `fs.constants.F_OK` or a mask consisting of the bitwise OR of any of `fs.constants.R_OK`, `fs.constants.W_OK`, and `fs.constants.X_OK`\n(e.g.`fs.constants.W_OK | fs.constants.R_OK`). Check `File access constants` for\npossible values of `mode`.\n\nThe final argument, `callback`, is a callback function that is invoked with\na possible error argument. If any of the accessibility checks fail, the error\nargument will be an `Error` object. The following examples check if `package.json` exists, and if it is readable or writable.\n\n```js\nimport { access, constants } from 'node:fs';\n\nconst file = 'package.json';\n\n// Check if the file exists in the current directory.\naccess(file, constants.F_OK, (err) => {\n  console.log(`${file} ${err ? 'does not exist' : 'exists'}`);\n});\n\n// Check if the file is readable.\naccess(file, constants.R_OK, (err) => {\n  console.log(`${file} ${err ? 'is not readable' : 'is readable'}`);\n});\n\n// Check if the file is writable.\naccess(file, constants.W_OK, (err) => {\n  console.log(`${file} ${err ? 'is not writable' : 'is writable'}`);\n});\n\n// Check if the file is readable and writable.\naccess(file, constants.R_OK | constants.W_OK, (err) => {\n  console.log(`${file} ${err ? 'is not' : 'is'} readable and writable`);\n});\n```\n\nDo not use `fs.access()` to check for the accessibility of a file before calling `fs.open()`, `fs.readFile()`, or `fs.writeFile()`. Doing\nso introduces a race condition, since other processes may change the file's\nstate between the two calls. Instead, user code should open/read/write the\nfile directly and handle the error raised if the file is not accessible.\n\n**write (NOT RECOMMENDED)**\n\n```js\nimport { access, open, close } from 'node:fs';\n\naccess('myfile', (err) => {\n  if (!err) {\n    console.error('myfile already exists');\n    return;\n  }\n\n  open('myfile', 'wx', (err, fd) => {\n    if (err) throw err;\n\n    try {\n      writeMyData(fd);\n    } finally {\n      close(fd, (err) => {\n        if (err) throw err;\n      });\n    }\n  });\n});\n```\n\n**write (RECOMMENDED)**\n\n```js\nimport { open, close } from 'node:fs';\n\nopen('myfile', 'wx', (err, fd) => {\n  if (err) {\n    if (err.code === 'EEXIST') {\n      console.error('myfile already exists');\n      return;\n    }\n\n    throw err;\n  }\n\n  try {\n    writeMyData(fd);\n  } finally {\n    close(fd, (err) => {\n      if (err) throw err;\n    });\n  }\n});\n```\n\n**read (NOT RECOMMENDED)**\n\n```js\nimport { access, open, close } from 'node:fs';\naccess('myfile', (err) => {\n  if (err) {\n    if (err.code === 'ENOENT') {\n      console.error('myfile does not exist');\n      return;\n    }\n\n    throw err;\n  }\n\n  open('myfile', 'r', (err, fd) => {\n    if (err) throw err;\n\n    try {\n      readMyData(fd);\n    } finally {\n      close(fd, (err) => {\n        if (err) throw err;\n      });\n    }\n  });\n});\n```\n\n**read (RECOMMENDED)**\n\n```js\nimport { open, close } from 'node:fs';\n\nopen('myfile', 'r', (err, fd) => {\n  if (err) {\n    if (err.code === 'ENOENT') {\n      console.error('myfile does not exist');\n      return;\n    }\n\n    throw err;\n  }\n\n  try {\n    readMyData(fd);\n  } finally {\n    close(fd, (err) => {\n      if (err) throw err;\n    });\n  }\n});\n```\n\nThe \"not recommended\" examples above check for accessibility and then use the\nfile; the \"recommended\" examples are better because they use the file directly\nand handle the error, if any.\n\nIn general, check for the accessibility of a file only if the file will not be\nused directly, for example when its accessibility is a signal from another\nprocess.\n\nOn Windows, access-control policies (ACLs) on a directory may limit access to\na file or directory. The `fs.access()` function, however, does not check the\nACL and therefore may report that a path is accessible even if the ACL restricts\nthe user from reading or writing to it.",
+      "translated": "`path` で指定したファイルまたはディレクトリに対するユーザーの権限をテストする。`mode` 引数は、実行するアクセシビリティチェックを指定する省略可能な整数である。`mode` は、値 `fs.constants.F_OK`、または `fs.constants.R_OK`・`fs.constants.W_OK`・`fs.constants.X_OK` のいずれかのビット単位 OR からなるマスク(例: `fs.constants.W_OK | fs.constants.R_OK`)のいずれかであるべきである。`mode` の指定可能な値は `File access constants` を確認すること。\n\n最後の引数 `callback` は、起こり得るエラー引数とともに呼ばれるコールバック関数である。アクセシビリティチェックのいずれかが失敗した場合、エラー引数は `Error` オブジェクトになる。次の例は、`package.json` が存在するか、また読み取り可能か書き込み可能かを確認する。\n\n```js\nimport { access, constants } from 'node:fs';\n\nconst file = 'package.json';\n\n// Check if the file exists in the current directory.\naccess(file, constants.F_OK, (err) => {\n  console.log(`${file} ${err ? 'does not exist' : 'exists'}`);\n});\n\n// Check if the file is readable.\naccess(file, constants.R_OK, (err) => {\n  console.log(`${file} ${err ? 'is not readable' : 'is readable'}`);\n});\n\n// Check if the file is writable.\naccess(file, constants.W_OK, (err) => {\n  console.log(`${file} ${err ? 'is not writable' : 'is writable'}`);\n});\n\n// Check if the file is readable and writable.\naccess(file, constants.R_OK | constants.W_OK, (err) => {\n  console.log(`${file} ${err ? 'is not' : 'is'} readable and writable`);\n});\n```\n\n`fs.open()`・`fs.readFile()`・`fs.writeFile()` を呼ぶ前に、ファイルのアクセシビリティを確認するために `fs.access()` を使わないこと。そうすると競合状態が生じる。2 つの呼び出しの間に他のプロセスがファイルの状態を変更する可能性があるからである。代わりに、ユーザーコードはファイルを直接 open/read/write し、ファイルにアクセスできない場合に発生するエラーを処理すべきである。\n\n**書き込み(非推奨)**\n\n```js\nimport { access, open, close } from 'node:fs';\n\naccess('myfile', (err) => {\n  if (!err) {\n    console.error('myfile already exists');\n    return;\n  }\n\n  open('myfile', 'wx', (err, fd) => {\n    if (err) throw err;\n\n    try {\n      writeMyData(fd);\n    } finally {\n      close(fd, (err) => {\n        if (err) throw err;\n      });\n    }\n  });\n});\n```\n\n**書き込み(推奨)**\n\n```js\nimport { open, close } from 'node:fs';\n\nopen('myfile', 'wx', (err, fd) => {\n  if (err) {\n    if (err.code === 'EEXIST') {\n      console.error('myfile already exists');\n      return;\n    }\n\n    throw err;\n  }\n\n  try {\n    writeMyData(fd);\n  } finally {\n    close(fd, (err) => {\n      if (err) throw err;\n    });\n  }\n});\n```\n\n**読み取り(非推奨)**\n\n```js\nimport { access, open, close } from 'node:fs';\naccess('myfile', (err) => {\n  if (err) {\n    if (err.code === 'ENOENT') {\n      console.error('myfile does not exist');\n      return;\n    }\n\n    throw err;\n  }\n\n  open('myfile', 'r', (err, fd) => {\n    if (err) throw err;\n\n    try {\n      readMyData(fd);\n    } finally {\n      close(fd, (err) => {\n        if (err) throw err;\n      });\n    }\n  });\n});\n```\n\n**読み取り(推奨)**\n\n```js\nimport { open, close } from 'node:fs';\n\nopen('myfile', 'r', (err, fd) => {\n  if (err) {\n    if (err.code === 'ENOENT') {\n      console.error('myfile does not exist');\n      return;\n    }\n\n    throw err;\n  }\n\n  try {\n    readMyData(fd);\n  } finally {\n    close(fd, (err) => {\n      if (err) throw err;\n    });\n  }\n});\n```\n\n上記の「非推奨」の例はアクセシビリティを確認してからファイルを使う。「推奨」の例は、ファイルを直接使い、エラーがあればそれを処理するため、より優れている。\n\n一般に、ファイルのアクセシビリティは、ファイルが直接使われない場合(たとえばそのアクセシビリティが別のプロセスからの信号である場合)にのみ確認すること。\n\nWindows では、ディレクトリのアクセス制御ポリシー(ACL)がファイルやディレクトリへのアクセスを制限することがある。ただし、`fs.access()` 関数は ACL を確認しないため、ACL がユーザーの読み書きを制限していても、パスがアクセス可能であると報告することがある。",
+      "symbol": "@types/node/fs.d.ts#fs.access",
+      "lang": "ja"
+    },
+    "c820b3d8": {
+      "original": "Synchronously tests a user's permissions for the file or directory specified\nby `path`. The `mode` argument is an optional integer that specifies the\naccessibility checks to be performed. `mode` should be either the value `fs.constants.F_OK` or a mask consisting of the bitwise OR of any of `fs.constants.R_OK`, `fs.constants.W_OK`, and\n`fs.constants.X_OK` (e.g.`fs.constants.W_OK | fs.constants.R_OK`). Check `File access constants` for\npossible values of `mode`.\n\nIf any of the accessibility checks fail, an `Error` will be thrown. Otherwise,\nthe method will return `undefined`.\n\n```js\nimport { accessSync, constants } from 'node:fs';\n\ntry {\n  accessSync('etc/passwd', constants.R_OK | constants.W_OK);\n  console.log('can read/write');\n} catch (err) {\n  console.error('no access!');\n}\n```",
+      "translated": "`path` で指定したファイルまたはディレクトリに対するユーザーの権限を同期的にテストする。`mode` 引数は、実行するアクセシビリティチェックを指定する省略可能な整数である。`mode` は、値 `fs.constants.F_OK`、または `fs.constants.R_OK`・`fs.constants.W_OK`・`fs.constants.X_OK` のいずれかのビット単位 OR からなるマスク(例: `fs.constants.W_OK | fs.constants.R_OK`)のいずれかであるべきである。`mode` の指定可能な値は `File access constants` を確認すること。\n\nアクセシビリティチェックのいずれかが失敗した場合、`Error` が投げられる。そうでなければ、このメソッドは `undefined` を返す。\n\n```js\nimport { accessSync, constants } from 'node:fs';\n\ntry {\n  accessSync('etc/passwd', constants.R_OK | constants.W_OK);\n  console.log('can read/write');\n} catch (err) {\n  console.error('no access!');\n}\n```",
+      "symbol": "@types/node/fs.d.ts#fs.accessSync",
+      "lang": "ja"
+    },
+    "8e6f967a": {
+      "original": "Asynchronously append data to a file, creating the file if it does not exist.",
+      "translated": "ファイルにデータを非同期に追記する。ファイルが存在しない場合は作成する。",
+      "symbol": "@types/node/fs.d.ts#fs.appendFile",
+      "lang": "ja"
+    },
+    "a2ada6e5": {
+      "original": "Asynchronously append data to a file, creating the file if it does not yet\nexist. `data` can be a string or a `Buffer`.\n\nThe `mode` option only affects the newly created file. See {@link open} for more details.\n\n```js\nimport { appendFile } from 'node:fs';\n\nappendFile('message.txt', 'data to append', (err) => {\n  if (err) throw err;\n  console.log('The \"data to append\" was appended to file!');\n});\n```\n\nIf `options` is a string, then it specifies the encoding:\n\n```js\nimport { appendFile } from 'node:fs';\n\nappendFile('message.txt', 'data to append', 'utf8', callback);\n```\n\nThe `path` may be specified as a numeric file descriptor that has been opened\nfor appending (using `fs.open()` or `fs.openSync()`). The file descriptor will\nnot be closed automatically.\n\n```js\nimport { open, close, appendFile } from 'node:fs';\n\nfunction closeFd(fd) {\n  close(fd, (err) => {\n    if (err) throw err;\n  });\n}\n\nopen('message.txt', 'a', (err, fd) => {\n  if (err) throw err;\n\n  try {\n    appendFile(fd, 'data to append', 'utf8', (err) => {\n      closeFd(fd);\n      if (err) throw err;\n    });\n  } catch (err) {\n    closeFd(fd);\n    throw err;\n  }\n});\n```",
+      "translated": "ファイルにデータを非同期に追記する。ファイルがまだ存在しない場合は作成する。`data` は文字列または `Buffer` でよい。\n\n`mode` オプションは新しく作成されたファイルにのみ影響する。詳細は {@link open} を参照。\n\n```js\nimport { appendFile } from 'node:fs';\n\nappendFile('message.txt', 'data to append', (err) => {\n  if (err) throw err;\n  console.log('The \"data to append\" was appended to file!');\n});\n```\n\n`options` が文字列の場合、エンコーディングを指定する:\n\n```js\nimport { appendFile } from 'node:fs';\n\nappendFile('message.txt', 'data to append', 'utf8', callback);\n```\n\n`path` は、追記用に(`fs.open()` または `fs.openSync()` を使って)開かれた数値ファイルディスクリプタとして指定してもよい。ファイルディスクリプタは自動的には閉じられない。\n\n```js\nimport { open, close, appendFile } from 'node:fs';\n\nfunction closeFd(fd) {\n  close(fd, (err) => {\n    if (err) throw err;\n  });\n}\n\nopen('message.txt', 'a', (err, fd) => {\n  if (err) throw err;\n\n  try {\n    appendFile(fd, 'data to append', 'utf8', (err) => {\n      closeFd(fd);\n      if (err) throw err;\n    });\n  } catch (err) {\n    closeFd(fd);\n    throw err;\n  }\n});\n```",
+      "symbol": "@types/node/fs.d.ts#fs.appendFile",
+      "lang": "ja"
+    },
+    "7219b429": {
+      "original": "Either the encoding for the file, or an object optionally specifying the encoding, file mode, and flag.\nIf `encoding` is not supplied, the default of `'utf8'` is used.\nIf `mode` is not supplied, the default of `0o666` is used.\nIf `mode` is a string, it is parsed as an octal integer.\nIf `flag` is not supplied, the default of `'a'` is used.",
+      "translated": "ファイルのエンコーディング、またはエンコーディング・ファイルモード・フラグを任意で指定するオブジェクトのいずれか。`encoding` が指定されない場合、既定の `'utf8'` が使われる。`mode` が指定されない場合、既定の `0o666` が使われる。`mode` が文字列の場合、8 進数の整数として解析される。`flag` が指定されない場合、既定の `'a'` が使われる。",
+      "symbol": "@types/node/fs.d.ts#fs.appendFile.__promisify__",
+      "lang": "ja"
+    },
+    "c8857aaa": {
+      "original": "Synchronously append data to a file, creating the file if it does not yet\nexist. `data` can be a string or a `Buffer`.\n\nThe `mode` option only affects the newly created file. See {@link open} for more details.\n\n```js\nimport { appendFileSync } from 'node:fs';\n\ntry {\n  appendFileSync('message.txt', 'data to append');\n  console.log('The \"data to append\" was appended to file!');\n} catch (err) {\n  // Handle the error\n}\n```\n\nIf `options` is a string, then it specifies the encoding:\n\n```js\nimport { appendFileSync } from 'node:fs';\n\nappendFileSync('message.txt', 'data to append', 'utf8');\n```\n\nThe `path` may be specified as a numeric file descriptor that has been opened\nfor appending (using `fs.open()` or `fs.openSync()`). The file descriptor will\nnot be closed automatically.\n\n```js\nimport { openSync, closeSync, appendFileSync } from 'node:fs';\n\nlet fd;\n\ntry {\n  fd = openSync('message.txt', 'a');\n  appendFileSync(fd, 'data to append', 'utf8');\n} catch (err) {\n  // Handle the error\n} finally {\n  if (fd !== undefined)\n    closeSync(fd);\n}\n```",
+      "translated": "ファイルにデータを同期的に追記する。ファイルがまだ存在しない場合は作成する。`data` は文字列または `Buffer` でよい。\n\n`mode` オプションは新しく作成されたファイルにのみ影響する。詳細は {@link open} を参照。\n\n```js\nimport { appendFileSync } from 'node:fs';\n\ntry {\n  appendFileSync('message.txt', 'data to append');\n  console.log('The \"data to append\" was appended to file!');\n} catch (err) {\n  // Handle the error\n}\n```\n\n`options` が文字列の場合、エンコーディングを指定する:\n\n```js\nimport { appendFileSync } from 'node:fs';\n\nappendFileSync('message.txt', 'data to append', 'utf8');\n```\n\n`path` は、追記用に(`fs.open()` または `fs.openSync()` を使って)開かれた数値ファイルディスクリプタとして指定してもよい。ファイルディスクリプタは自動的には閉じられない。\n\n```js\nimport { openSync, closeSync, appendFileSync } from 'node:fs';\n\nlet fd;\n\ntry {\n  fd = openSync('message.txt', 'a');\n  appendFileSync(fd, 'data to append', 'utf8');\n} catch (err) {\n  // Handle the error\n} finally {\n  if (fd !== undefined)\n    closeSync(fd);\n}\n```",
+      "symbol": "@types/node/fs.d.ts#fs.appendFileSync",
+      "lang": "ja"
+    },
+    "252142ed": {
+      "original": "Asynchronously changes the permissions of a file. No arguments other than a\npossible exception are given to the completion callback.\n\nSee the POSIX [`chmod(2)`](http://man7.org/linux/man-pages/man2/chmod.2.html) documentation for more detail.\n\n```js\nimport { chmod } from 'node:fs';\n\nchmod('my_file.txt', 0o775, (err) => {\n  if (err) throw err;\n  console.log('The permissions for file \"my_file.txt\" have been changed!');\n});\n```",
+      "translated": "ファイルの権限を非同期に変更する。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\n詳細は POSIX の [`chmod(2)`](http://man7.org/linux/man-pages/man2/chmod.2.html) ドキュメントを参照。\n\n```js\nimport { chmod } from 'node:fs';\n\nchmod('my_file.txt', 0o775, (err) => {\n  if (err) throw err;\n  console.log('The permissions for file \"my_file.txt\" have been changed!');\n});\n```",
+      "symbol": "@types/node/fs.d.ts#fs.chmod",
+      "lang": "ja"
+    },
+    "b7d3395b": {
+      "original": "A file mode. If a string is passed, it is parsed as an octal integer.",
+      "translated": "ファイルモード。文字列が渡された場合、8 進数の整数として解析される。",
+      "symbol": "@types/node/fs.d.ts#fs.chmod.__promisify__",
+      "lang": "ja"
+    },
+    "694eb080": {
+      "original": "Asynchronous chmod(2) - Change permissions of a file.",
+      "translated": "非同期 chmod(2) - ファイルの権限を変更する。",
+      "symbol": "@types/node/fs.d.ts#fs.chmod.__promisify__",
+      "lang": "ja"
+    },
+    "b482dc96": {
+      "original": "For detailed information, see the documentation of the asynchronous version of\nthis API: {@link chmod}.\n\nSee the POSIX [`chmod(2)`](http://man7.org/linux/man-pages/man2/chmod.2.html) documentation for more detail.",
+      "translated": "詳細な情報は、この API の非同期版のドキュメント {@link chmod} を参照。\n\n詳細は POSIX の [`chmod(2)`](http://man7.org/linux/man-pages/man2/chmod.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.chmodSync",
+      "lang": "ja"
+    },
+    "7b5e967b": {
+      "original": "Asynchronously changes owner and group of a file. No arguments other than a\npossible exception are given to the completion callback.\n\nSee the POSIX [`chown(2)`](http://man7.org/linux/man-pages/man2/chown.2.html) documentation for more detail.",
+      "translated": "ファイルの所有者とグループを非同期に変更する。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\n詳細は POSIX の [`chown(2)`](http://man7.org/linux/man-pages/man2/chown.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.chown",
+      "lang": "ja"
+    },
+    "3baa12ae": {
+      "original": "Asynchronous chown(2) - Change ownership of a file.",
+      "translated": "非同期 chown(2) - ファイルの所有権を変更する。",
+      "symbol": "@types/node/fs.d.ts#fs.chown.__promisify__",
+      "lang": "ja"
+    },
+    "1af43780": {
+      "original": "Synchronously changes owner and group of a file. Returns `undefined`.\nThis is the synchronous version of {@link chown}.\n\nSee the POSIX [`chown(2)`](http://man7.org/linux/man-pages/man2/chown.2.html) documentation for more detail.",
+      "translated": "ファイルの所有者とグループを同期的に変更する。`undefined` を返す。これは {@link chown} の同期版である。\n\n詳細は POSIX の [`chown(2)`](http://man7.org/linux/man-pages/man2/chown.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.chownSync",
+      "lang": "ja"
+    },
+    "eacedb2d": {
+      "original": "Closes the file descriptor. No arguments other than a possible exception are\ngiven to the completion callback.\n\nCalling `fs.close()` on any file descriptor (`fd`) that is currently in use\nthrough any other `fs` operation may lead to undefined behavior.\n\nSee the POSIX [`close(2)`](http://man7.org/linux/man-pages/man2/close.2.html) documentation for more detail.",
+      "translated": "ファイルディスクリプタを閉じる。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\n他の `fs` 操作を通じて現在使用中のファイルディスクリプタ(`fd`)に対して `fs.close()` を呼ぶと、未定義の挙動につながることがある。\n\n詳細は POSIX の [`close(2)`](http://man7.org/linux/man-pages/man2/close.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.close",
+      "lang": "ja"
+    },
+    "ab3e6c51": {
+      "original": "Asynchronous close(2) - close a file descriptor.",
+      "translated": "非同期 close(2) - ファイルディスクリプタを閉じる。",
+      "symbol": "@types/node/fs.d.ts#fs.close.__promisify__",
+      "lang": "ja"
+    },
+    "fbc47cc8": {
+      "original": "Closes the file descriptor. Returns `undefined`.\n\nCalling `fs.closeSync()` on any file descriptor (`fd`) that is currently in use\nthrough any other `fs` operation may lead to undefined behavior.\n\nSee the POSIX [`close(2)`](http://man7.org/linux/man-pages/man2/close.2.html) documentation for more detail.",
+      "translated": "ファイルディスクリプタを閉じる。`undefined` を返す。\n\n他の `fs` 操作を通じて現在使用中のファイルディスクリプタ(`fd`)に対して `fs.closeSync()` を呼ぶと、未定義の挙動につながることがある。\n\n詳細は POSIX の [`close(2)`](http://man7.org/linux/man-pages/man2/close.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.closeSync",
+      "lang": "ja"
+    },
+    "ff58fba7": {
+      "original": "Constant for fs.copyFile. Flag indicating the destination file should not be overwritten if it already exists.",
+      "translated": "fs.copyFile 用の定数。宛先ファイルがすでに存在する場合、上書きすべきでないことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.COPYFILE_EXCL",
+      "lang": "ja"
+    },
+    "981d3563": {
+      "original": "Constant for fs.copyFile. copy operation will attempt to create a copy-on-write reflink.\nIf the underlying platform does not support copy-on-write, then a fallback copy mechanism is used.",
+      "translated": "fs.copyFile 用の定数。コピー操作は copy-on-write の reflink の作成を試みる。基盤となるプラットフォームが copy-on-write をサポートしない場合、フォールバックのコピー機構が使われる。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.COPYFILE_FICLONE",
+      "lang": "ja"
+    },
+    "076b4fbc": {
+      "original": "Constant for fs.copyFile. Copy operation will attempt to create a copy-on-write reflink.\nIf the underlying platform does not support copy-on-write, then the operation will fail with an error.",
+      "translated": "fs.copyFile 用の定数。コピー操作は copy-on-write の reflink の作成を試みる。基盤となるプラットフォームが copy-on-write をサポートしない場合、操作はエラーで失敗する。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.COPYFILE_FICLONE_FORCE",
+      "lang": "ja"
+    },
+    "085d4f23": {
+      "original": "Constant for fs.access(). File is visible to the calling process.",
+      "translated": "fs.access() 用の定数。ファイルが呼び出し元のプロセスから見える。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.F_OK",
+      "lang": "ja"
+    },
+    "e45d720b": {
+      "original": "Constant for fs.open(). Flag indicating that data will be appended to the end of the file.",
+      "translated": "fs.open() 用の定数。データがファイルの末尾に追記されることを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_APPEND",
+      "lang": "ja"
+    },
+    "969f82b7": {
+      "original": "Constant for fs.open(). Flag indicating to create the file if it does not already exist.",
+      "translated": "fs.open() 用の定数。ファイルがまだ存在しない場合に作成することを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_CREAT",
+      "lang": "ja"
+    },
+    "5b880093": {
+      "original": "Constant for fs.open(). When set, an attempt will be made to minimize caching effects of file I/O.",
+      "translated": "fs.open() 用の定数。設定されると、ファイル I/O のキャッシュ効果を最小化する試みが行われる。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_DIRECT",
+      "lang": "ja"
+    },
+    "eedd5372": {
+      "original": "Constant for fs.open(). Flag indicating that the open should fail if the path is not a directory.",
+      "translated": "fs.open() 用の定数。パスがディレクトリでない場合に open が失敗すべきことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_DIRECTORY",
+      "lang": "ja"
+    },
+    "82bf8b20": {
+      "original": "Constant for fs.open(). Flag indicating that the file is opened for synchronous I/O with write operations waiting for data integrity.",
+      "translated": "fs.open() 用の定数。データの完全性を待つ書き込み操作を伴う同期 I/O 用にファイルが開かれることを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_DSYNC",
+      "lang": "ja"
+    },
+    "267c9778": {
+      "original": "Constant for fs.open(). Flag indicating that opening a file should fail if the O_CREAT flag is set and the file already exists.",
+      "translated": "fs.open() 用の定数。O_CREAT フラグが設定されていてファイルがすでに存在する場合、ファイルを開くのが失敗すべきことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_EXCL",
+      "lang": "ja"
+    },
+    "5d13b615": {
+      "original": "constant for fs.open().\nFlag indicating reading accesses to the file system will no longer result in\nan update to the atime information associated with the file.\nThis flag is available on Linux operating systems only.",
+      "translated": "fs.open() 用の定数。ファイルシステムへの読み取りアクセスが、ファイルに関連付けられた atime 情報の更新を引き起こさなくなることを示すフラグ。このフラグは Linux オペレーティングシステムでのみ利用できる。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_NOATIME",
+      "lang": "ja"
+    },
+    "5d130a26": {
+      "original": "Constant for fs.open(). Flag indicating that if path identifies a terminal device,\nopening the path shall not cause that terminal to become the controlling terminal for the process\n(if the process does not already have one).",
+      "translated": "fs.open() 用の定数。パスがターミナルデバイスを識別する場合、そのパスを開いても(プロセスがまだ制御ターミナルを持っていなければ)そのターミナルがプロセスの制御ターミナルにならないことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_NOCTTY",
+      "lang": "ja"
+    },
+    "ea0741aa": {
+      "original": "Constant for fs.open(). Flag indicating that the open should fail if the path is a symbolic link.",
+      "translated": "fs.open() 用の定数。パスがシンボリックリンクの場合に open が失敗すべきことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_NOFOLLOW",
+      "lang": "ja"
+    },
+    "0680f31b": {
+      "original": "Constant for fs.open(). Flag indicating to open the file in nonblocking mode when possible.",
+      "translated": "fs.open() 用の定数。可能な場合にファイルをノンブロッキングモードで開くことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_NONBLOCK",
+      "lang": "ja"
+    },
+    "fe26f33d": {
+      "original": "Constant for fs.open(). Flag indicating to open a file for read-write access.",
+      "translated": "fs.open() 用の定数。ファイルを読み書きアクセスで開くことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_RDWR",
+      "lang": "ja"
+    },
+    "def2d79a": {
+      "original": "Constant for fs.open(). Flag indicating to open the symbolic link itself rather than the resource it is pointing to.",
+      "translated": "fs.open() 用の定数。シンボリックリンクが指すリソースではなく、シンボリックリンク自体を開くことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_SYMLINK",
+      "lang": "ja"
+    },
+    "83dfc8a5": {
+      "original": "Constant for fs.open(). Flag indicating that the file is opened for synchronous I/O.",
+      "translated": "fs.open() 用の定数。ファイルが同期 I/O 用に開かれることを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_SYNC",
+      "lang": "ja"
+    },
+    "754695df": {
+      "original": "Constant for fs.open(). Flag indicating to open a file for write-only access.",
+      "translated": "fs.open() 用の定数。ファイルを書き込み専用アクセスで開くことを示すフラグ。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.O_WRONLY",
+      "lang": "ja"
+    },
+    "699b1da5": {
+      "original": "Constant for fs.access(). File can be read by the calling process.",
+      "translated": "fs.access() 用の定数。ファイルが呼び出し元のプロセスによって読み取り可能。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.R_OK",
+      "lang": "ja"
+    },
+    "ef0dd604": {
+      "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a block-oriented device file.",
+      "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。ブロック指向のデバイスファイルを表すファイル種類定数。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IFBLK",
+      "lang": "ja"
+    },
+    "82d97014": {
+      "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a character-oriented device file.",
+      "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。キャラクター指向のデバイスファイルを表すファイル種類定数。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IFCHR",
+      "lang": "ja"
+    },
+    "5a31fbd5": {
+      "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a FIFO/pipe.",
+      "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。FIFO/パイプを表すファイル種類定数。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IFIFO",
+      "lang": "ja"
+    },
+    "a0579071": {
+      "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a symbolic link.",
+      "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。シンボリックリンクを表すファイル種類定数。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IFLNK",
+      "lang": "ja"
+    },
+    "98ed79cc": {
+      "original": "Constant for fs.Stats mode property for determining a file's type. Bit mask used to extract the file type code.",
+      "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。ファイル種類コードを取り出すために使われるビットマスク。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IFMT",
+      "lang": "ja"
+    },
+    "85e2b392": {
+      "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a regular file.",
+      "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。通常のファイルを表すファイル種類定数。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IFREG",
+      "lang": "ja"
+    },
+    "83e35f2a": {
+      "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a socket.",
+      "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。ソケットを表すファイル種類定数。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IFSOCK",
+      "lang": "ja"
+    },
+    "6cb7529b": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating readable by others.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。その他による読み取り可能を示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IROTH",
+      "lang": "ja"
+    },
+    "c6d7ebb7": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating readable by owner.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。所有者による読み取り可能を示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IRUSR",
+      "lang": "ja"
+    },
+    "bfdef892": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating readable, writable and executable by group.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。グループによる読み取り・書き込み・実行が可能なことを示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IRWXG",
+      "lang": "ja"
+    },
+    "7949eab7": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating readable, writable and executable by owner.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。所有者による読み取り・書き込み・実行が可能なことを示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IRWXU",
+      "lang": "ja"
+    },
+    "a331069d": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating writable by group.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。グループによる書き込み可能を示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IWGRP",
+      "lang": "ja"
+    },
+    "cca4b7d9": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating writable by others.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。その他による書き込み可能を示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IWOTH",
+      "lang": "ja"
+    },
+    "2d9ffaee": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating writable by owner.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。所有者による書き込み可能を示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IWUSR",
+      "lang": "ja"
+    },
+    "76db1e9a": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating executable by group.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。グループによる実行可能を示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IXGRP",
+      "lang": "ja"
+    },
+    "816a785d": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating executable by others.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。その他による実行可能を示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IXOTH",
+      "lang": "ja"
+    },
+    "e8bc9bdb": {
+      "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating executable by owner.",
+      "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。所有者による実行可能を示すファイルモード。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.S_IXUSR",
+      "lang": "ja"
+    },
+    "ccafe4ae": {
+      "original": "When set, a memory file mapping is used to access the file. This flag\nis available on Windows operating systems only. On other operating systems,\nthis flag is ignored.",
+      "translated": "設定されると、ファイルへのアクセスにメモリファイルマッピングが使われる。このフラグは Windows オペレーティングシステムでのみ利用できる。他のオペレーティングシステムでは、このフラグは無視される。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.UV_FS_O_FILEMAP",
+      "lang": "ja"
+    },
+    "163d3df4": {
+      "original": "Constant for fs.access(). File can be written by the calling process.",
+      "translated": "fs.access() 用の定数。ファイルが呼び出し元のプロセスによって書き込み可能。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.W_OK",
+      "lang": "ja"
+    },
+    "533464ee": {
+      "original": "Constant for fs.access(). File can be executed by the calling process.",
+      "translated": "fs.access() 用の定数。ファイルが呼び出し元のプロセスによって実行可能。",
+      "symbol": "@types/node/fs.d.ts#fs.constants.X_OK",
+      "lang": "ja"
+    },
+    "b6707ccd": {
+      "original": "Asynchronously copies `src` to `dest`. By default, `dest` is overwritten if it\nalready exists. No arguments other than a possible exception are given to the\ncallback function. Node.js makes no guarantees about the atomicity of the copy\noperation. If an error occurs after the destination file has been opened for\nwriting, Node.js will attempt to remove the destination.\n\n`mode` is an optional integer that specifies the behavior\nof the copy operation. It is possible to create a mask consisting of the bitwise\nOR of two or more values (e.g.`fs.constants.COPYFILE_EXCL | fs.constants.COPYFILE_FICLONE`).\n\n* `fs.constants.COPYFILE_EXCL`: The copy operation will fail if `dest` already\nexists.\n* `fs.constants.COPYFILE_FICLONE`: The copy operation will attempt to create a\ncopy-on-write reflink. If the platform does not support copy-on-write, then a\nfallback copy mechanism is used.\n* `fs.constants.COPYFILE_FICLONE_FORCE`: The copy operation will attempt to\ncreate a copy-on-write reflink. If the platform does not support\ncopy-on-write, then the operation will fail.\n\n```js\nimport { copyFile, constants } from 'node:fs';\n\nfunction callback(err) {\n  if (err) throw err;\n  console.log('source.txt was copied to destination.txt');\n}\n\n// destination.txt will be created or overwritten by default.\ncopyFile('source.txt', 'destination.txt', callback);\n\n// By using COPYFILE_EXCL, the operation will fail if destination.txt exists.\ncopyFile('source.txt', 'destination.txt', constants.COPYFILE_EXCL, callback);\n```",
+      "translated": "`src` を `dest` に非同期にコピーする。既定では、`dest` がすでに存在する場合は上書きされる。コールバック関数には、起こり得る例外以外の引数は渡されない。Node.js はコピー操作のアトミック性について保証しない。宛先ファイルが書き込み用に開かれた後にエラーが発生した場合、Node.js は宛先の削除を試みる。\n\n`mode` は、コピー操作の挙動を指定する省略可能な整数である。2 つ以上の値のビット単位 OR からなるマスクを作成できる(例: `fs.constants.COPYFILE_EXCL | fs.constants.COPYFILE_FICLONE`)。\n\n* `fs.constants.COPYFILE_EXCL`: `dest` がすでに存在する場合、コピー操作は失敗する。\n* `fs.constants.COPYFILE_FICLONE`: コピー操作は copy-on-write の reflink の作成を試みる。プラットフォームが copy-on-write をサポートしない場合、フォールバックのコピー機構が使われる。\n* `fs.constants.COPYFILE_FICLONE_FORCE`: コピー操作は copy-on-write の reflink の作成を試みる。プラットフォームが copy-on-write をサポートしない場合、操作は失敗する。\n\n```js\nimport { copyFile, constants } from 'node:fs';\n\nfunction callback(err) {\n  if (err) throw err;\n  console.log('source.txt was copied to destination.txt');\n}\n\n// destination.txt will be created or overwritten by default.\ncopyFile('source.txt', 'destination.txt', callback);\n\n// By using COPYFILE_EXCL, the operation will fail if destination.txt exists.\ncopyFile('source.txt', 'destination.txt', constants.COPYFILE_EXCL, callback);\n```",
+      "symbol": "@types/node/fs.d.ts#fs.copyFile",
+      "lang": "ja"
+    },
+    "c3f640b7": {
+      "original": "destination filename of the copy operation",
+      "translated": "コピー操作の宛先ファイル名",
+      "symbol": "@types/node/fs.d.ts#fs.copyFile",
+      "lang": "ja"
+    },
+    "8cc5e979": {
+      "original": "modifiers for copy operation.",
+      "translated": "コピー操作の修飾子。",
+      "symbol": "@types/node/fs.d.ts#fs.copyFile",
+      "lang": "ja"
+    },
+    "58da8bf0": {
+      "original": "source filename to copy",
+      "translated": "コピーするソースファイル名",
+      "symbol": "@types/node/fs.d.ts#fs.copyFile",
+      "lang": "ja"
+    },
+    "c88a9b43": {
+      "original": "Synchronously copies `src` to `dest`. By default, `dest` is overwritten if it\nalready exists. Returns `undefined`. Node.js makes no guarantees about the\natomicity of the copy operation. If an error occurs after the destination file\nhas been opened for writing, Node.js will attempt to remove the destination.\n\n`mode` is an optional integer that specifies the behavior\nof the copy operation. It is possible to create a mask consisting of the bitwise\nOR of two or more values (e.g.`fs.constants.COPYFILE_EXCL | fs.constants.COPYFILE_FICLONE`).\n\n* `fs.constants.COPYFILE_EXCL`: The copy operation will fail if `dest` already\nexists.\n* `fs.constants.COPYFILE_FICLONE`: The copy operation will attempt to create a\ncopy-on-write reflink. If the platform does not support copy-on-write, then a\nfallback copy mechanism is used.\n* `fs.constants.COPYFILE_FICLONE_FORCE`: The copy operation will attempt to\ncreate a copy-on-write reflink. If the platform does not support\ncopy-on-write, then the operation will fail.\n\n```js\nimport { copyFileSync, constants } from 'node:fs';\n\n// destination.txt will be created or overwritten by default.\ncopyFileSync('source.txt', 'destination.txt');\nconsole.log('source.txt was copied to destination.txt');\n\n// By using COPYFILE_EXCL, the operation will fail if destination.txt exists.\ncopyFileSync('source.txt', 'destination.txt', constants.COPYFILE_EXCL);\n```",
+      "translated": "`src` を `dest` に同期的にコピーする。既定では、`dest` がすでに存在する場合は上書きされる。`undefined` を返す。Node.js はコピー操作のアトミック性について保証しない。宛先ファイルが書き込み用に開かれた後にエラーが発生した場合、Node.js は宛先の削除を試みる。\n\n`mode` は、コピー操作の挙動を指定する省略可能な整数である。2 つ以上の値のビット単位 OR からなるマスクを作成できる(例: `fs.constants.COPYFILE_EXCL | fs.constants.COPYFILE_FICLONE`)。\n\n* `fs.constants.COPYFILE_EXCL`: `dest` がすでに存在する場合、コピー操作は失敗する。\n* `fs.constants.COPYFILE_FICLONE`: コピー操作は copy-on-write の reflink の作成を試みる。プラットフォームが copy-on-write をサポートしない場合、フォールバックのコピー機構が使われる。\n* `fs.constants.COPYFILE_FICLONE_FORCE`: コピー操作は copy-on-write の reflink の作成を試みる。プラットフォームが copy-on-write をサポートしない場合、操作は失敗する。\n\n```js\nimport { copyFileSync, constants } from 'node:fs';\n\n// destination.txt will be created or overwritten by default.\ncopyFileSync('source.txt', 'destination.txt');\nconsole.log('source.txt was copied to destination.txt');\n\n// By using COPYFILE_EXCL, the operation will fail if destination.txt exists.\ncopyFileSync('source.txt', 'destination.txt', constants.COPYFILE_EXCL);\n```",
+      "symbol": "@types/node/fs.d.ts#fs.copyFileSync",
+      "lang": "ja"
+    },
+    "d92b9d35": {
+      "original": "Function to filter copied files/directories. Return\n`true` to copy the item, `false` to ignore it.",
+      "translated": "コピーするファイル/ディレクトリをフィルタリングする関数。その項目をコピーするには `true`、無視するには `false` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.CopyOptions.filter",
+      "lang": "ja"
+    },
+    "1ad1840f": {
+      "original": "Dereference symlinks",
+      "translated": "シンボリックリンクをデリファレンスする",
+      "symbol": "@types/node/fs.d.ts#fs.CopyOptionsBase.dereference",
+      "lang": "ja"
+    },
+    "e93da170": {
+      "original": "When `force` is `false`, and the destination\nexists, throw an error.",
+      "translated": "`force` が `false` で宛先が存在する場合、エラーを投げる。",
+      "symbol": "@types/node/fs.d.ts#fs.CopyOptionsBase.errorOnExist",
+      "lang": "ja"
+    },
+    "e50843d8": {
+      "original": "Overwrite existing file or directory. _The copy\noperation will ignore errors if you set this to false and the destination\nexists. Use the `errorOnExist` option to change this behavior.",
+      "translated": "既存のファイルまたはディレクトリを上書きする。_これを false に設定していて宛先が存在する場合、コピー操作はエラーを無視する。この挙動を変えるには `errorOnExist` オプションを使う。",
+      "symbol": "@types/node/fs.d.ts#fs.CopyOptionsBase.force",
+      "lang": "ja"
+    },
+    "7d247408": {
+      "original": "Modifiers for copy operation. See `mode` flag of {@link copyFileSync ()}",
+      "translated": "コピー操作の修飾子。{@link copyFileSync ()} の `mode` フラグを参照",
+      "symbol": "@types/node/fs.d.ts#fs.CopyOptionsBase.mode",
+      "lang": "ja"
+    },
+    "0c1f1981": {
+      "original": "When `true` timestamps from `src` will\nbe preserved.",
+      "translated": "`true` の場合、`src` のタイムスタンプが保持される。",
+      "symbol": "@types/node/fs.d.ts#fs.CopyOptionsBase.preserveTimestamps",
+      "lang": "ja"
+    },
+    "b294ce96": {
+      "original": "Copy directories recursively.",
+      "translated": "ディレクトリを再帰的にコピーする。",
+      "symbol": "@types/node/fs.d.ts#fs.CopyOptionsBase.recursive",
+      "lang": "ja"
+    },
+    "bf57be20": {
+      "original": "When true, path resolution for symlinks will be skipped",
+      "translated": "true の場合、シンボリックリンクのパス解決はスキップされる",
+      "symbol": "@types/node/fs.d.ts#fs.CopyOptionsBase.verbatimSymlinks",
+      "lang": "ja"
+    },
+    "09c767e9": {
+      "original": "Asynchronously copies the entire directory structure from `src` to `dest`,\nincluding subdirectories and files.\n\nWhen copying a directory to another directory, globs are not supported and\nbehavior is similar to `cp dir1/ dir2/`.",
+      "translated": "`src` から `dest` へ、サブディレクトリとファイルを含むディレクトリ構造全体を非同期にコピーする。\n\nディレクトリを別のディレクトリにコピーする場合、glob はサポートされず、挙動は `cp dir1/ dir2/` に似ている。",
+      "symbol": "@types/node/fs.d.ts#fs.cp",
+      "lang": "ja"
+    },
+    "124fe5c9": {
+      "original": "destination path to copy to.",
+      "translated": "コピー先の宛先パス。",
+      "symbol": "@types/node/fs.d.ts#fs.cp",
+      "lang": "ja"
+    },
+    "d0c3fa2c": {
+      "original": "source path to copy.",
+      "translated": "コピーするソースパス。",
+      "symbol": "@types/node/fs.d.ts#fs.cp",
+      "lang": "ja"
+    },
+    "056a0556": {
+      "original": "Synchronously copies the entire directory structure from `src` to `dest`,\nincluding subdirectories and files.\n\nWhen copying a directory to another directory, globs are not supported and\nbehavior is similar to `cp dir1/ dir2/`.",
+      "translated": "`src` から `dest` へ、サブディレクトリとファイルを含むディレクトリ構造全体を同期的にコピーする。\n\nディレクトリを別のディレクトリにコピーする場合、glob はサポートされず、挙動は `cp dir1/ dir2/` に似ている。",
+      "symbol": "@types/node/fs.d.ts#fs.cpSync",
+      "lang": "ja"
+    },
+    "6ca8cda5": {
+      "original": "`options` can include `start` and `end` values to read a range of bytes from\nthe file instead of the entire file. Both `start` and `end` are inclusive and\nstart counting at 0, allowed values are in the\n\\[0, [`Number.MAX_SAFE_INTEGER`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER)\\] range. If `fd` is specified and `start` is\nomitted or `undefined`, `fs.createReadStream()` reads sequentially from the\ncurrent file position. The `encoding` can be any one of those accepted by `Buffer`.\n\nIf `fd` is specified, `ReadStream` will ignore the `path` argument and will use\nthe specified file descriptor. This means that no `'open'` event will be\nemitted. `fd` should be blocking; non-blocking `fd`s should be passed to `net.Socket`.\n\nIf `fd` points to a character device that only supports blocking reads\n(such as keyboard or sound card), read operations do not finish until data is\navailable. This can prevent the process from exiting and the stream from\nclosing naturally.\n\nBy default, the stream will emit a `'close'` event after it has been\ndestroyed.  Set the `emitClose` option to `false` to change this behavior.\n\nBy providing the `fs` option, it is possible to override the corresponding `fs` implementations for `open`, `read`, and `close`. When providing the `fs` option,\nan override for `read` is required. If no `fd` is provided, an override for `open` is also required. If `autoClose` is `true`, an override for `close` is\nalso required.\n\n```js\nimport { createReadStream } from 'node:fs';\n\n// Create a stream from some character device.\nconst stream = createReadStream('/dev/input/event0');\nsetTimeout(() => {\n  stream.close(); // This may not close the stream.\n  // Artificially marking end-of-stream, as if the underlying resource had\n  // indicated end-of-file by itself, allows the stream to close.\n  // This does not cancel pending read operations, and if there is such an\n  // operation, the process may still not be able to exit successfully\n  // until it finishes.\n  stream.push(null);\n  stream.read(0);\n}, 100);\n```\n\nIf `autoClose` is false, then the file descriptor won't be closed, even if\nthere's an error. It is the application's responsibility to close it and make\nsure there's no file descriptor leak. If `autoClose` is set to true (default\nbehavior), on `'error'` or `'end'` the file descriptor will be closed\nautomatically.\n\n`mode` sets the file mode (permission and sticky bits), but only if the\nfile was created.\n\nAn example to read the last 10 bytes of a file which is 100 bytes long:\n\n```js\nimport { createReadStream } from 'node:fs';\n\ncreateReadStream('sample.txt', { start: 90, end: 99 });\n```\n\nIf `options` is a string, then it specifies the encoding.",
+      "translated": "`options` には、ファイル全体ではなくファイルからバイト範囲を読み取るための `start` と `end` の値を含められる。`start` と `end` はどちらも両端を含み、0 から数え始める。許可される値は \\[0, [`Number.MAX_SAFE_INTEGER`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER)\\] の範囲である。`fd` が指定され、`start` が省略または `undefined` の場合、`fs.createReadStream()` は現在のファイル位置から順次読み取る。`encoding` は `Buffer` が受け付けるもののいずれかでよい。\n\n`fd` が指定された場合、`ReadStream` は `path` 引数を無視し、指定したファイルディスクリプタを使う。これは `'open'` イベントが発行されないことを意味する。`fd` はブロッキングであるべきである。ノンブロッキングの `fd` は `net.Socket` に渡すべきである。\n\n`fd` が(キーボードやサウンドカードなど)ブロッキング読み取りのみをサポートするキャラクターデバイスを指す場合、読み取り操作はデータが利用可能になるまで完了しない。これはプロセスの終了とストリームの自然なクローズを妨げることがある。\n\n既定では、ストリームは破棄された後に `'close'` イベントを発行する。この挙動を変えるには `emitClose` オプションを `false` に設定する。\n\n`fs` オプションを指定することで、`open`・`read`・`close` に対応する `fs` 実装をオーバーライドできる。`fs` オプションを指定する場合、`read` のオーバーライドが必須である。`fd` が指定されない場合、`open` のオーバーライドも必須である。`autoClose` が `true` の場合、`close` のオーバーライドも必須である。\n\n```js\nimport { createReadStream } from 'node:fs';\n\n// Create a stream from some character device.\nconst stream = createReadStream('/dev/input/event0');\nsetTimeout(() => {\n  stream.close(); // This may not close the stream.\n  // Artificially marking end-of-stream, as if the underlying resource had\n  // indicated end-of-file by itself, allows the stream to close.\n  // This does not cancel pending read operations, and if there is such an\n  // operation, the process may still not be able to exit successfully\n  // until it finishes.\n  stream.push(null);\n  stream.read(0);\n}, 100);\n```\n\n`autoClose` が false の場合、エラーがあってもファイルディスクリプタは閉じられない。それを閉じ、ファイルディスクリプタのリークがないことを保証するのはアプリケーションの責任である。`autoClose` が true に設定されている場合(既定の挙動)、`'error'` または `'end'` でファイルディスクリプタが自動的に閉じられる。\n\n`mode` はファイルモード(権限とスティッキービット)を設定するが、ファイルが作成された場合にのみ有効である。\n\n長さ 100 バイトのファイルの最後の 10 バイトを読む例:\n\n```js\nimport { createReadStream } from 'node:fs';\n\ncreateReadStream('sample.txt', { start: 90, end: 99 });\n```\n\n`options` が文字列の場合、エンコーディングを指定する。",
+      "symbol": "@types/node/fs.d.ts#fs.createReadStream",
+      "lang": "ja"
+    },
+    "9be213f6": {
+      "original": "`options` may also include a `start` option to allow writing data at some\nposition past the beginning of the file, allowed values are in the\n\\[0, [`Number.MAX_SAFE_INTEGER`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER)\\] range. Modifying a file rather than\nreplacing it may require the `flags` option to be set to `r+` rather than the\ndefault `w`. The `encoding` can be any one of those accepted by `Buffer`.\n\nIf `autoClose` is set to true (default behavior) on `'error'` or `'finish'` the file descriptor will be closed automatically. If `autoClose` is false,\nthen the file descriptor won't be closed, even if there's an error.\nIt is the application's responsibility to close it and make sure there's no\nfile descriptor leak.\n\nBy default, the stream will emit a `'close'` event after it has been\ndestroyed.  Set the `emitClose` option to `false` to change this behavior.\n\nBy providing the `fs` option it is possible to override the corresponding `fs` implementations for `open`, `write`, `writev`, and `close`. Overriding `write()` without `writev()` can reduce\nperformance as some optimizations (`_writev()`)\nwill be disabled. When providing the `fs` option, overrides for at least one of `write` and `writev` are required. If no `fd` option is supplied, an override\nfor `open` is also required. If `autoClose` is `true`, an override for `close` is also required.\n\nLike `fs.ReadStream`, if `fd` is specified, `fs.WriteStream` will ignore the `path` argument and will use the specified file descriptor. This means that no `'open'` event will be\nemitted. `fd` should be blocking; non-blocking `fd`s\nshould be passed to `net.Socket`.\n\nIf `options` is a string, then it specifies the encoding.",
+      "translated": "`options` には、ファイルの先頭より後の位置にデータを書き込めるようにする `start` オプションも含められる。許可される値は \\[0, [`Number.MAX_SAFE_INTEGER`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER)\\] の範囲である。ファイルを置き換えるのではなく変更する場合、`flags` オプションを既定の `w` ではなく `r+` に設定する必要があることがある。`encoding` は `Buffer` が受け付けるもののいずれかでよい。\n\n`autoClose` が true に設定されている場合(既定の挙動)、`'error'` または `'finish'` でファイルディスクリプタが自動的に閉じられる。`autoClose` が false の場合、エラーがあってもファイルディスクリプタは閉じられない。それを閉じ、ファイルディスクリプタのリークがないことを保証するのはアプリケーションの責任である。\n\n既定では、ストリームは破棄された後に `'close'` イベントを発行する。この挙動を変えるには `emitClose` オプションを `false` に設定する。\n\n`fs` オプションを指定することで、`open`・`write`・`writev`・`close` に対応する `fs` 実装をオーバーライドできる。`writev()` なしで `write()` をオーバーライドすると、一部の最適化(`_writev()`)が無効になるため性能が低下することがある。`fs` オプションを指定する場合、`write` と `writev` の少なくとも一方のオーバーライドが必須である。`fd` オプションが指定されない場合、`open` のオーバーライドも必須である。`autoClose` が `true` の場合、`close` のオーバーライドも必須である。\n\n`fs.ReadStream` と同様に、`fd` が指定された場合、`fs.WriteStream` は `path` 引数を無視し、指定したファイルディスクリプタを使う。これは `'open'` イベントが発行されないことを意味する。`fd` はブロッキングであるべきである。ノンブロッキングの `fd` は `net.Socket` に渡すべきである。\n\n`options` が文字列の場合、エンコーディングを指定する。",
+      "symbol": "@types/node/fs.d.ts#fs.createWriteStream",
+      "lang": "ja"
+    },
+    "33cef6de": {
+      "original": "string & {} allows to allow any kind of strings for the event\nbut still allows to have auto completion for the normal events.",
+      "translated": "string & {} は、イベントに任意の種類の文字列を許可しつつ、通常のイベントでは自動補完を持てるようにする。",
+      "symbol": "@types/node/fs.d.ts#fs.CustomEvents",
+      "lang": "ja"
+    },
+    "813b55a1": {
+      "original": "A class representing a directory stream.\n\nCreated by {@link opendir}, {@link opendirSync}, or `fsPromises.opendir()`.\n\n```js\nimport { opendir } from 'node:fs/promises';\n\ntry {\n  const dir = await opendir('./');\n  for await (const dirent of dir)\n    console.log(dirent.name);\n} catch (err) {\n  console.error(err);\n}\n```\n\nWhen using the async iterator, the `fs.Dir` object will be automatically\nclosed after the iterator exits.",
+      "translated": "ディレクトリストリームを表すクラス。\n\n{@link opendir}・{@link opendirSync}・`fsPromises.opendir()` によって作成される。\n\n```js\nimport { opendir } from 'node:fs/promises';\n\ntry {\n  const dir = await opendir('./');\n  for await (const dirent of dir)\n    console.log(dirent.name);\n} catch (err) {\n  console.error(err);\n}\n```\n\n非同期イテレーターを使う場合、`fs.Dir` オブジェクトはイテレーターが終了した後に自動的に閉じられる。",
+      "symbol": "@types/node/fs.d.ts#fs.Dir",
+      "lang": "ja"
+    },
+    "d1cb738e": {
+      "original": "Calls `dir.close()` if the directory handle is open, and returns a promise that\nfulfills when disposal is complete.",
+      "translated": "ディレクトリハンドルが開いている場合は `dir.close()` を呼び、破棄が完了したときに履行される promise を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.Dir.[Symbol.asyncDispose]",
+      "lang": "ja"
+    },
+    "c90ffe41": {
+      "original": "Asynchronously iterates over the directory via `readdir(3)` until all entries have been read.",
+      "translated": "すべてのエントリが読み取られるまで、`readdir(3)` を通じてディレクトリを非同期に反復する。",
+      "symbol": "@types/node/fs.d.ts#fs.Dir.[Symbol.asyncIterator]",
+      "lang": "ja"
+    },
+    "023058c4": {
+      "original": "Calls `dir.closeSync()` if the directory handle is open, and returns\n`undefined`.",
+      "translated": "ディレクトリハンドルが開いている場合は `dir.closeSync()` を呼び、`undefined` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.Dir.[Symbol.dispose]",
+      "lang": "ja"
+    },
+    "3be57287": {
+      "original": "Asynchronously close the directory's underlying resource handle.\nSubsequent reads will result in errors.\n\nA promise is returned that will be fulfilled after the resource has been\nclosed.",
+      "translated": "ディレクトリの基盤となるリソースハンドルを非同期に閉じる。以降の読み取りはエラーになる。\n\nリソースが閉じられた後に履行される promise が返される。",
+      "symbol": "@types/node/fs.d.ts#fs.Dir.close",
       "lang": "ja"
     },
     "f3935692": {
