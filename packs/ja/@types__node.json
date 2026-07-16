@@ -28,6 +28,18 @@
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.typescript",
       "lang": "ja"
     },
+    "26287846": {
+      "original": "The value will be `true` if the decoding result will include the byte order\nmark.",
+      "translated": "デコード結果にバイトオーダーマークが含まれる場合、値は `true` になる。",
+      "symbol": "@types/node/util.d.ts#util.TextDecoder.ignoreBOM",
+      "lang": "ja"
+    },
+    "43439202": {
+      "original": "Returns `true` if `value` is a `KeyObject`, `false` otherwise.",
+      "translated": "`value` が `KeyObject` の場合は `true`、そうでなければ `false` を返す。",
+      "symbol": "@types/node/util.d.ts#util/types.isKeyObject",
+      "lang": "ja"
+    },
     "48727216": {
       "original": "The `blob.bytes()` method returns the byte of the `Blob` object as a `Promise<Uint8Array>`.\n\n```js\nconst blob = new Blob(['hello']);\nblob.bytes().then((bytes) => {\n  console.log(bytes); // Outputs: Uint8Array(5) [ 104, 101, 108, 108, 111 ]\n});\n```",
       "translated": "`blob.bytes()` メソッドは、`Blob` オブジェクトのバイトを `Promise<Uint8Array>` として返す。\n\n```js\nconst blob = new Blob(['hello']);\nblob.bytes().then((bytes) => {\n  console.log(bytes); // Outputs: Uint8Array(5) [ 104, 101, 108, 108, 111 ]\n});\n```",
@@ -62,6 +74,12 @@
       "original": "Returns an iterator over each of the name-value pairs in the parameters.\nEach item of the iterator is a JavaScript `Array`. The first item of the array\nis the `name`, the second item of the array is the `value`.",
       "translated": "パラメーター内の各名前と値のペアを反復するイテレーターを返す。イテレーターの各項目は JavaScript の `Array` である。配列の 1 つ目の項目は `name`、2 つ目の項目は `value` である。",
       "symbol": "@types/node/util.d.ts#util.MIMEParams.entries",
+      "lang": "ja"
+    },
+    "95048300": {
+      "original": "The same AbortSignal",
+      "translated": "同じ AbortSignal",
+      "symbol": "@types/node/util.d.ts#util.transferableAbortSignal",
       "lang": "ja"
     },
     "d72894a9": {
@@ -3206,6 +3224,426 @@
       "original": "Type of argument.",
       "translated": "引数の型。",
       "symbol": "@types/node/util.d.ts#util.ParseArgsOptionDescriptor.type",
+      "lang": "ja"
+    },
+    "b73df278": {
+      "original": "Type of argument used in {@link parseArgs}.",
+      "translated": "{@link parseArgs} で使われる引数の型。",
+      "symbol": "@types/node/util.d.ts#util.ParseArgsOptionsType",
+      "lang": "ja"
+    },
+    "f29a9380": {
+      "original": "Stability: 1.1 - Active development\nGiven an example `.env` file:\n\n```js\nimport { parseEnv } from 'node:util';\n\nparseEnv('HELLO=world\\nHELLO=oh my\\n');\n// Returns: { HELLO: 'oh my' }\n```",
+      "translated": "Stability: 1.1 - 活発に開発中\n例として次の `.env` ファイルがあるとする:\n\n```js\nimport { parseEnv } from 'node:util';\n\nparseEnv('HELLO=world\\nHELLO=oh my\\n');\n// Returns: { HELLO: 'oh my' }\n```",
+      "symbol": "@types/node/util.d.ts#util.parseEnv",
+      "lang": "ja"
+    },
+    "3960572b": {
+      "original": "The raw contents of a `.env` file.",
+      "translated": "`.env` ファイルの生の内容。",
+      "symbol": "@types/node/util.d.ts#util.parseEnv",
+      "lang": "ja"
+    },
+    "f1e24a42": {
+      "original": "Takes a function following the common error-first callback style, i.e. taking\nan `(err, value) => ...` callback as the last argument, and returns a version\nthat returns promises.\n\n```js\nimport { promisify } from 'node:util';\nimport { stat } from 'node:fs';\n\nconst promisifiedStat = promisify(stat);\npromisifiedStat('.').then((stats) => {\n  // Do something with `stats`\n}).catch((error) => {\n  // Handle the error.\n});\n```\n\nOr, equivalently using `async function`s:\n\n```js\nimport { promisify } from 'node:util';\nimport { stat } from 'node:fs';\n\nconst promisifiedStat = promisify(stat);\n\nasync function callStat() {\n  const stats = await promisifiedStat('.');\n  console.log(`This directory is owned by ${stats.uid}`);\n}\n\ncallStat();\n```\n\nIf there is an `original[util.promisify.custom]` property present, `promisify`\nwill return its value, see [Custom promisified functions](https://nodejs.org/docs/latest-v22.x/api/util.html#custom-promisified-functions).\n\n`promisify()` assumes that `original` is a function taking a callback as its\nfinal argument in all cases. If `original` is not a function, `promisify()`\nwill throw an error. If `original` is a function but its last argument is not\nan error-first callback, it will still be passed an error-first\ncallback as its last argument.\n\nUsing `promisify()` on class methods or other methods that use `this` may not\nwork as expected unless handled specially:\n\n```js\nimport { promisify } from 'node:util';\n\nclass Foo {\n  constructor() {\n    this.a = 42;\n  }\n\n  bar(callback) {\n    callback(null, this.a);\n  }\n}\n\nconst foo = new Foo();\n\nconst naiveBar = promisify(foo.bar);\n// TypeError: Cannot read properties of undefined (reading 'a')\n// naiveBar().then(a => console.log(a));\n\nnaiveBar.call(foo).then((a) => console.log(a)); // '42'\n\nconst bindBar = naiveBar.bind(foo);\nbindBar().then((a) => console.log(a)); // '42'\n```",
+      "translated": "一般的な error-first コールバックスタイルに従う関数、すなわち最後の引数として `(err, value) => ...` コールバックを取る関数を受け取り、promise を返すバージョンを返す。\n\n```js\nimport { promisify } from 'node:util';\nimport { stat } from 'node:fs';\n\nconst promisifiedStat = promisify(stat);\npromisifiedStat('.').then((stats) => {\n  // Do something with `stats`\n}).catch((error) => {\n  // Handle the error.\n});\n```\n\nあるいは、`async function` を使って同等に書ける:\n\n```js\nimport { promisify } from 'node:util';\nimport { stat } from 'node:fs';\n\nconst promisifiedStat = promisify(stat);\n\nasync function callStat() {\n  const stats = await promisifiedStat('.');\n  console.log(`This directory is owned by ${stats.uid}`);\n}\n\ncallStat();\n```\n\n`original[util.promisify.custom]` プロパティが存在する場合、`promisify` はその値を返す。[Custom promisified functions](https://nodejs.org/docs/latest-v22.x/api/util.html#custom-promisified-functions) を参照。\n\n`promisify()` は、`original` がすべての場合において最後の引数としてコールバックを取る関数であると仮定する。`original` が関数でない場合、`promisify()` はエラーを投げる。`original` が関数だが最後の引数が error-first コールバックでない場合でも、最後の引数として error-first コールバックが渡される。\n\nクラスメソッドや `this` を使う他のメソッドに `promisify()` を使うと、特別に扱わない限り期待どおりに動かないことがある:\n\n```js\nimport { promisify } from 'node:util';\n\nclass Foo {\n  constructor() {\n    this.a = 42;\n  }\n\n  bar(callback) {\n    callback(null, this.a);\n  }\n}\n\nconst foo = new Foo();\n\nconst naiveBar = promisify(foo.bar);\n// TypeError: Cannot read properties of undefined (reading 'a')\n// naiveBar().then(a => console.log(a));\n\nnaiveBar.call(foo).then((a) => console.log(a)); // '42'\n\nconst bindBar = naiveBar.bind(foo);\nbindBar().then((a) => console.log(a)); // '42'\n```",
+      "symbol": "@types/node/util.d.ts#util.promisify",
+      "lang": "ja"
+    },
+    "5f76d9e0": {
+      "original": "That can be used to declare custom promisified variants of functions.",
+      "translated": "関数のカスタムな promisify 版を宣言するために使える。",
+      "symbol": "@types/node/util.d.ts#util.promisify.custom",
+      "lang": "ja"
+    },
+    "65b6caf8": {
+      "original": "Enable or disable printing a stack trace on `SIGINT`. The API is only available on the main thread.",
+      "translated": "`SIGINT` 時のスタックトレース出力を有効または無効にする。この API はメインスレッドでのみ利用できる。",
+      "symbol": "@types/node/util.d.ts#util.setTraceSigInt",
+      "lang": "ja"
+    },
+    "a16bb969": {
+      "original": "Returns `str` with any ANSI escape codes removed.\n\n```js\nconsole.log(util.stripVTControlCharacters('\\u001B[4mvalue\\u001B[0m'));\n// Prints \"value\"\n```",
+      "translated": "`str` から ANSI エスケープコードを取り除いたものを返す。\n\n```js\nconsole.log(util.stripVTControlCharacters('\\u001B[4mvalue\\u001B[0m'));\n// Prints \"value\"\n```",
+      "symbol": "@types/node/util.d.ts#util.stripVTControlCharacters",
+      "lang": "ja"
+    },
+    "d15927ce": {
+      "original": "A text format or an Array of text formats defined in `util.inspect.colors`.",
+      "translated": "`util.inspect.colors` で定義されたテキスト書式、またはテキスト書式の配列。",
+      "symbol": "@types/node/util.d.ts#util.styleText",
+      "lang": "ja"
+    },
+    "869a8008": {
+      "original": "The text to to be formatted.",
+      "translated": "書式設定するテキスト。",
+      "symbol": "@types/node/util.d.ts#util.styleText",
+      "lang": "ja"
+    },
+    "ac820968": {
+      "original": "This function returns a formatted text considering the `format` passed\nfor printing in a terminal. It is aware of the terminal's capabilities\nand acts according to the configuration set via `NO_COLOR`,\n`NODE_DISABLE_COLORS` and `FORCE_COLOR` environment variables.\n\n```js\nimport { styleText } from 'node:util';\nimport { stderr } from 'node:process';\n\nconst successMessage = styleText('green', 'Success!');\nconsole.log(successMessage);\n\nconst errorMessage = styleText(\n  'red',\n  'Error! Error!',\n  // Validate if process.stderr has TTY\n  { stream: stderr },\n);\nconsole.error(errorMessage);\n```\n\n`util.inspect.colors` also provides text formats such as `italic`, and\n`underline` and you can combine both:\n\n```js\nconsole.log(\n  util.styleText(['underline', 'italic'], 'My italic underlined message'),\n);\n```\n\nWhen passing an array of formats, the order of the format applied\nis left to right so the following style might overwrite the previous one.\n\n```js\nconsole.log(\n  util.styleText(['red', 'green'], 'text'), // green\n);\n```\n\nThe special format value `none` applies no additional styling to the text.\n\nThe full list of formats can be found in [modifiers](https://nodejs.org/docs/latest-v22.x/api/util.html#modifiers).",
+      "translated": "この関数は、ターミナルでの出力のために渡された `format` を考慮して、書式設定されたテキストを返す。ターミナルの機能を認識し、`NO_COLOR`・`NODE_DISABLE_COLORS`・`FORCE_COLOR` 環境変数で設定された構成に従って動作する。\n\n```js\nimport { styleText } from 'node:util';\nimport { stderr } from 'node:process';\n\nconst successMessage = styleText('green', 'Success!');\nconsole.log(successMessage);\n\nconst errorMessage = styleText(\n  'red',\n  'Error! Error!',\n  // Validate if process.stderr has TTY\n  { stream: stderr },\n);\nconsole.error(errorMessage);\n```\n\n`util.inspect.colors` は `italic` や `underline` などのテキスト書式も提供し、両方を組み合わせられる:\n\n```js\nconsole.log(\n  util.styleText(['underline', 'italic'], 'My italic underlined message'),\n);\n```\n\n書式の配列を渡す場合、書式が適用される順序は左から右なので、後の書式が前のものを上書きすることがある。\n\n```js\nconsole.log(\n  util.styleText(['red', 'green'], 'text'), // green\n);\n```\n\n特別な書式値 `none` は、テキストに追加のスタイルを適用しない。\n\n書式の完全な一覧は [modifiers](https://nodejs.org/docs/latest-v22.x/api/util.html#modifiers) にある。",
+      "symbol": "@types/node/util.d.ts#util.styleText",
+      "lang": "ja"
+    },
+    "a07eb74c": {
+      "original": "A stream that will be validated if it can be colored.",
+      "translated": "色付けできるか検証されるストリーム。",
+      "symbol": "@types/node/util.d.ts#util.StyleTextOptions.stream",
+      "lang": "ja"
+    },
+    "99c7db0c": {
+      "original": "When true, `stream` is checked to see if it can handle colors.",
+      "translated": "true の場合、`stream` が色を扱えるかどうかがチェックされる。",
+      "symbol": "@types/node/util.d.ts#util.StyleTextOptions.validateStream",
+      "lang": "ja"
+    },
+    "e0519c98": {
+      "original": "An implementation of the [WHATWG Encoding Standard](https://encoding.spec.whatwg.org/) `TextDecoder` API.\n\n```js\nconst decoder = new TextDecoder();\nconst u8arr = new Uint8Array([72, 101, 108, 108, 111]);\nconsole.log(decoder.decode(u8arr)); // Hello\n```",
+      "translated": "[WHATWG Encoding Standard](https://encoding.spec.whatwg.org/) の `TextDecoder` API の実装。\n\n```js\nconst decoder = new TextDecoder();\nconst u8arr = new Uint8Array([72, 101, 108, 108, 111]);\nconsole.log(decoder.decode(u8arr)); // Hello\n```",
+      "symbol": "@types/node/util.d.ts#util.TextDecoder",
+      "lang": "ja"
+    },
+    "a3855787": {
+      "original": "An `ArrayBuffer`, `DataView`, or `TypedArray` instance containing the encoded data.",
+      "translated": "エンコードされたデータを含む `ArrayBuffer`・`DataView`・`TypedArray` のインスタンス。",
+      "symbol": "@types/node/util.d.ts#util.TextDecoder.decode",
+      "lang": "ja"
+    },
+    "8decb961": {
+      "original": "Decodes the `input` and returns a string. If `options.stream` is `true`, any\nincomplete byte sequences occurring at the end of the `input` are buffered\ninternally and emitted after the next call to `textDecoder.decode()`.\n\nIf `textDecoder.fatal` is `true`, decoding errors that occur will result in a `TypeError` being thrown.",
+      "translated": "`input` をデコードして文字列を返す。`options.stream` が `true` の場合、`input` の末尾に現れる不完全なバイト列は内部的にバッファリングされ、次の `textDecoder.decode()` の呼び出し後に発行される。\n\n`textDecoder.fatal` が `true` の場合、発生したデコードエラーは `TypeError` の送出につながる。",
+      "symbol": "@types/node/util.d.ts#util.TextDecoder.decode",
+      "lang": "ja"
+    },
+    "38b96bc7": {
+      "original": "The encoding supported by the `TextDecoder` instance.",
+      "translated": "`TextDecoder` インスタンスがサポートするエンコーディング。",
+      "symbol": "@types/node/util.d.ts#util.TextDecoder.encoding",
+      "lang": "ja"
+    },
+    "aafea5fb": {
+      "original": "The value will be `true` if decoding errors result in a `TypeError` being\nthrown.",
+      "translated": "デコードエラーが `TypeError` の送出につながる場合、値は `true` になる。",
+      "symbol": "@types/node/util.d.ts#util.TextDecoder.fatal",
+      "lang": "ja"
+    },
+    "8b851b3e": {
+      "original": "An implementation of the [WHATWG Encoding Standard](https://encoding.spec.whatwg.org/) `TextEncoder` API. All\ninstances of `TextEncoder` only support UTF-8 encoding.\n\n```js\nconst encoder = new TextEncoder();\nconst uint8array = encoder.encode('this is some data');\n```\n\nThe `TextEncoder` class is also available on the global object.",
+      "translated": "[WHATWG Encoding Standard](https://encoding.spec.whatwg.org/) の `TextEncoder` API の実装。`TextEncoder` のすべてのインスタンスは UTF-8 エンコーディングのみをサポートする。\n\n```js\nconst encoder = new TextEncoder();\nconst uint8array = encoder.encode('this is some data');\n```\n\n`TextEncoder` クラスはグローバルオブジェクトでも利用できる。",
+      "symbol": "@types/node/util.d.ts#util.TextEncoder",
+      "lang": "ja"
+    },
+    "a3dfba88": {
+      "original": "The text to encode.",
+      "translated": "エンコードするテキスト。",
+      "symbol": "@types/node/util.d.ts#util.TextEncoder.encode",
+      "lang": "ja"
+    },
+    "9f302ef3": {
+      "original": "UTF-8 encodes the `input` string and returns a `Uint8Array` containing the\nencoded bytes.",
+      "translated": "`input` 文字列を UTF-8 でエンコードし、エンコードされたバイトを含む `Uint8Array` を返す。",
+      "symbol": "@types/node/util.d.ts#util.TextEncoder.encode",
+      "lang": "ja"
+    },
+    "0c58b09d": {
+      "original": "The array to hold the encode result.",
+      "translated": "エンコード結果を保持する配列。",
+      "symbol": "@types/node/util.d.ts#util.TextEncoder.encodeInto",
+      "lang": "ja"
+    },
+    "0041525c": {
+      "original": "UTF-8 encodes the `src` string to the `dest` Uint8Array and returns an object\ncontaining the read Unicode code units and written UTF-8 bytes.\n\n```js\nconst encoder = new TextEncoder();\nconst src = 'this is some data';\nconst dest = new Uint8Array(10);\nconst { read, written } = encoder.encodeInto(src, dest);\n```",
+      "translated": "`src` 文字列を `dest` の Uint8Array に UTF-8 でエンコードし、読み込んだ Unicode コード単位と書き込んだ UTF-8 バイトを含むオブジェクトを返す。\n\n```js\nconst encoder = new TextEncoder();\nconst src = 'this is some data';\nconst dest = new Uint8Array(10);\nconst { read, written } = encoder.encodeInto(src, dest);\n```",
+      "symbol": "@types/node/util.d.ts#util.TextEncoder.encodeInto",
+      "lang": "ja"
+    },
+    "53ba3baa": {
+      "original": "The encoding supported by the `TextEncoder` instance. Always set to `'utf-8'`.",
+      "translated": "`TextEncoder` インスタンスがサポートするエンコーディング。常に `'utf-8'` に設定される。",
+      "symbol": "@types/node/util.d.ts#util.TextEncoder.encoding",
+      "lang": "ja"
+    },
+    "cc65b56b": {
+      "original": "Returns the `string` after replacing any surrogate code points\n(or equivalently, any unpaired surrogate code units) with the\nUnicode \"replacement character\" U+FFFD.",
+      "translated": "サロゲートコードポイント(同等に、ペアになっていないサロゲートコード単位)を Unicode の「置換文字」U+FFFD に置き換えた後の `string` を返す。",
+      "symbol": "@types/node/util.d.ts#util.toUSVString",
+      "lang": "ja"
+    },
+    "876b3529": {
+      "original": "A transferable AbortController",
+      "translated": "転送可能な AbortController",
+      "symbol": "@types/node/util.d.ts#util.transferableAbortController",
+      "lang": "ja"
+    },
+    "4e5814b8": {
+      "original": "Creates and returns an `AbortController` instance whose `AbortSignal` is marked\nas transferable and can be used with `structuredClone()` or `postMessage()`.",
+      "translated": "`AbortSignal` が転送可能としてマークされ、`structuredClone()` や `postMessage()` で使える `AbortController` インスタンスを作成して返す。",
+      "symbol": "@types/node/util.d.ts#util.transferableAbortController",
+      "lang": "ja"
+    },
+    "393b3eca": {
+      "original": "Marks the given `AbortSignal` as transferable so that it can be used with`structuredClone()` and `postMessage()`.\n\n```js\nconst signal = transferableAbortSignal(AbortSignal.timeout(100));\nconst channel = new MessageChannel();\nchannel.port2.postMessage(signal, [signal]);\n```",
+      "translated": "指定した `AbortSignal` を転送可能としてマークし、`structuredClone()` や `postMessage()` で使えるようにする。\n\n```js\nconst signal = transferableAbortSignal(AbortSignal.timeout(100));\nconst channel = new MessageChannel();\nchannel.port2.postMessage(signal, [signal]);\n```",
+      "symbol": "@types/node/util.d.ts#util.transferableAbortSignal",
+      "lang": "ja"
+    },
+    "31314b94": {
+      "original": "The AbortSignal",
+      "translated": "AbortSignal",
+      "symbol": "@types/node/util.d.ts#util.transferableAbortSignal",
+      "lang": "ja"
+    },
+    "b8373314": {
+      "original": "Returns `true` if the value is a built-in [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) or\n[`SharedArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) instance.\n\nSee also `util.types.isArrayBuffer()` and `util.types.isSharedArrayBuffer()`.\n\n```js\nutil.types.isAnyArrayBuffer(new ArrayBuffer());  // Returns true\nutil.types.isAnyArrayBuffer(new SharedArrayBuffer());  // Returns true\n```",
+      "translated": "値が組み込みの [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) または [`SharedArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) のインスタンスの場合は `true` を返す。\n\n`util.types.isArrayBuffer()` と `util.types.isSharedArrayBuffer()` も参照。\n\n```js\nutil.types.isAnyArrayBuffer(new ArrayBuffer());  // Returns true\nutil.types.isAnyArrayBuffer(new SharedArrayBuffer());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isAnyArrayBuffer",
+      "lang": "ja"
+    },
+    "33b85fdb": {
+      "original": "Returns `true` if the value is an `arguments` object.\n\n```js\nfunction foo() {\n  util.types.isArgumentsObject(arguments);  // Returns true\n}\n```",
+      "translated": "値が `arguments` オブジェクトの場合は `true` を返す。\n\n```js\nfunction foo() {\n  util.types.isArgumentsObject(arguments);  // Returns true\n}\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isArgumentsObject",
+      "lang": "ja"
+    },
+    "08ad1857": {
+      "original": "Returns `true` if the value is a built-in [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) instance.\nThis does _not_ include [`SharedArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) instances. Usually, it is\ndesirable to test for both; See `util.types.isAnyArrayBuffer()` for that.\n\n```js\nutil.types.isArrayBuffer(new ArrayBuffer());  // Returns true\nutil.types.isArrayBuffer(new SharedArrayBuffer());  // Returns false\n```",
+      "translated": "値が組み込みの [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) インスタンスの場合は `true` を返す。これは [`SharedArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) インスタンスを_含まない_。通常は両方をテストするのが望ましい。それには `util.types.isAnyArrayBuffer()` を参照。\n\n```js\nutil.types.isArrayBuffer(new ArrayBuffer());  // Returns true\nutil.types.isArrayBuffer(new SharedArrayBuffer());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isArrayBuffer",
+      "lang": "ja"
+    },
+    "0a65d1b1": {
+      "original": "Returns `true` if the value is an instance of one of the [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) views, such as typed\narray objects or [`DataView`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView). Equivalent to\n[`ArrayBuffer.isView()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/isView).\n\n```js\nutil.types.isArrayBufferView(new Int8Array());  // true\nutil.types.isArrayBufferView(Buffer.from('hello world')); // true\nutil.types.isArrayBufferView(new DataView(new ArrayBuffer(16)));  // true\nutil.types.isArrayBufferView(new ArrayBuffer());  // false\n```",
+      "translated": "値が、型付き配列オブジェクトや [`DataView`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView) などの [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) ビューのいずれかのインスタンスの場合は `true` を返す。[`ArrayBuffer.isView()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/isView) と同等。\n\n```js\nutil.types.isArrayBufferView(new Int8Array());  // true\nutil.types.isArrayBufferView(Buffer.from('hello world')); // true\nutil.types.isArrayBufferView(new DataView(new ArrayBuffer(16)));  // true\nutil.types.isArrayBufferView(new ArrayBuffer());  // false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isArrayBufferView",
+      "lang": "ja"
+    },
+    "7326c12f": {
+      "original": "Returns `true` if the value is an [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function).\nThis only reports back what the JavaScript engine is seeing;\nin particular, the return value may not match the original source code if\na transpilation tool was used.\n\n```js\nutil.types.isAsyncFunction(function foo() {});  // Returns false\nutil.types.isAsyncFunction(async function foo() {});  // Returns true\n```",
+      "translated": "値が [async 関数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)の場合は `true` を返す。これは JavaScript エンジンが見ているものだけを報告する。特に、トランスパイルツールが使われた場合、戻り値は元のソースコードと一致しないことがある。\n\n```js\nutil.types.isAsyncFunction(function foo() {});  // Returns false\nutil.types.isAsyncFunction(async function foo() {});  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isAsyncFunction",
+      "lang": "ja"
+    },
+    "72f675b5": {
+      "original": "Returns `true` if the value is a `BigInt64Array` instance.\n\n```js\nutil.types.isBigInt64Array(new BigInt64Array());   // Returns true\nutil.types.isBigInt64Array(new BigUint64Array());  // Returns false\n```",
+      "translated": "値が `BigInt64Array` インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isBigInt64Array(new BigInt64Array());   // Returns true\nutil.types.isBigInt64Array(new BigUint64Array());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isBigInt64Array",
+      "lang": "ja"
+    },
+    "e8173eb6": {
+      "original": "Returns `true` if the value is a BigInt object, e.g. created\nby `Object(BigInt(123))`.\n\n```js\nutil.types.isBigIntObject(Object(BigInt(123)));   // Returns true\nutil.types.isBigIntObject(BigInt(123));   // Returns false\nutil.types.isBigIntObject(123);  // Returns false\n```",
+      "translated": "値が BigInt オブジェクト(たとえば `Object(BigInt(123))` で作成されたもの)の場合は `true` を返す。\n\n```js\nutil.types.isBigIntObject(Object(BigInt(123)));   // Returns true\nutil.types.isBigIntObject(BigInt(123));   // Returns false\nutil.types.isBigIntObject(123);  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isBigIntObject",
+      "lang": "ja"
+    },
+    "5d903b5d": {
+      "original": "Returns `true` if the value is a `BigUint64Array` instance.\n\n```js\nutil.types.isBigUint64Array(new BigInt64Array());   // Returns false\nutil.types.isBigUint64Array(new BigUint64Array());  // Returns true\n```",
+      "translated": "値が `BigUint64Array` インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isBigUint64Array(new BigInt64Array());   // Returns false\nutil.types.isBigUint64Array(new BigUint64Array());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isBigUint64Array",
+      "lang": "ja"
+    },
+    "e83fa77d": {
+      "original": "Returns `true` if the value is a boolean object, e.g. created\nby `new Boolean()`.\n\n```js\nutil.types.isBooleanObject(false);  // Returns false\nutil.types.isBooleanObject(true);   // Returns false\nutil.types.isBooleanObject(new Boolean(false)); // Returns true\nutil.types.isBooleanObject(new Boolean(true));  // Returns true\nutil.types.isBooleanObject(Boolean(false)); // Returns false\nutil.types.isBooleanObject(Boolean(true));  // Returns false\n```",
+      "translated": "値が真偽値オブジェクト(たとえば `new Boolean()` で作成されたもの)の場合は `true` を返す。\n\n```js\nutil.types.isBooleanObject(false);  // Returns false\nutil.types.isBooleanObject(true);   // Returns false\nutil.types.isBooleanObject(new Boolean(false)); // Returns true\nutil.types.isBooleanObject(new Boolean(true));  // Returns true\nutil.types.isBooleanObject(Boolean(false)); // Returns false\nutil.types.isBooleanObject(Boolean(true));  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isBooleanObject",
+      "lang": "ja"
+    },
+    "480e28a9": {
+      "original": "Returns `true` if the value is any boxed primitive object, e.g. created\nby `new Boolean()`, `new String()` or `Object(Symbol())`.\n\nFor example:\n\n```js\nutil.types.isBoxedPrimitive(false); // Returns false\nutil.types.isBoxedPrimitive(new Boolean(false)); // Returns true\nutil.types.isBoxedPrimitive(Symbol('foo')); // Returns false\nutil.types.isBoxedPrimitive(Object(Symbol('foo'))); // Returns true\nutil.types.isBoxedPrimitive(Object(BigInt(5))); // Returns true\n```",
+      "translated": "値が、たとえば `new Boolean()`・`new String()`・`Object(Symbol())` で作成されたような、任意のボックス化されたプリミティブオブジェクトの場合は `true` を返す。\n\nたとえば:\n\n```js\nutil.types.isBoxedPrimitive(false); // Returns false\nutil.types.isBoxedPrimitive(new Boolean(false)); // Returns true\nutil.types.isBoxedPrimitive(Symbol('foo')); // Returns false\nutil.types.isBoxedPrimitive(Object(Symbol('foo'))); // Returns true\nutil.types.isBoxedPrimitive(Object(BigInt(5))); // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isBoxedPrimitive",
+      "lang": "ja"
+    },
+    "1872f8bc": {
+      "original": "Returns `true` if `value` is a `CryptoKey`, `false` otherwise.",
+      "translated": "`value` が `CryptoKey` の場合は `true`、そうでなければ `false` を返す。",
+      "symbol": "@types/node/util.d.ts#util/types.isCryptoKey",
+      "lang": "ja"
+    },
+    "ee96b33e": {
+      "original": "Returns `true` if the value is a built-in [`DataView`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView) instance.\n\n```js\nconst ab = new ArrayBuffer(20);\nutil.types.isDataView(new DataView(ab));  // Returns true\nutil.types.isDataView(new Float64Array());  // Returns false\n```\n\nSee also [`ArrayBuffer.isView()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/isView).",
+      "translated": "値が組み込みの [`DataView`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView) インスタンスの場合は `true` を返す。\n\n```js\nconst ab = new ArrayBuffer(20);\nutil.types.isDataView(new DataView(ab));  // Returns true\nutil.types.isDataView(new Float64Array());  // Returns false\n```\n\n[`ArrayBuffer.isView()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/isView) も参照。",
+      "symbol": "@types/node/util.d.ts#util/types.isDataView",
+      "lang": "ja"
+    },
+    "c2c08f34": {
+      "original": "Returns `true` if the value is a built-in [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) instance.\n\n```js\nutil.types.isDate(new Date());  // Returns true\n```",
+      "translated": "値が組み込みの [`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isDate(new Date());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isDate",
+      "lang": "ja"
+    },
+    "b8b273ff": {
+      "original": "Returns `true` if the value is a native `External` value.\n\nA native `External` value is a special type of object that contains a\nraw C++ pointer (`void*`) for access from native code, and has no other\nproperties. Such objects are created either by Node.js internals or native\naddons. In JavaScript, they are\n[frozen](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) objects with a\n`null` prototype.\n\n```c\n#include <js_native_api.h>\n#include <stdlib.h>\nnapi_value result;\nstatic napi_value MyNapi(napi_env env, napi_callback_info info) {\n  int* raw = (int*) malloc(1024);\n  napi_status status = napi_create_external(env, (void*) raw, NULL, NULL, &result);\n  if (status != napi_ok) {\n    napi_throw_error(env, NULL, \"napi_create_external failed\");\n    return NULL;\n  }\n  return result;\n}\n...\nDECLARE_NAPI_PROPERTY(\"myNapi\", MyNapi)\n...\n```\n\n```js\nimport native from 'napi_addon.node';\nimport { types } from 'node:util';\n\nconst data = native.myNapi();\ntypes.isExternal(data); // returns true\ntypes.isExternal(0); // returns false\ntypes.isExternal(new String('foo')); // returns false\n```\n\nFor further information on `napi_create_external`, refer to\n[`napi_create_external()`](https://nodejs.org/docs/latest-v22.x/api/n-api.html#napi_create_external).",
+      "translated": "値がネイティブの `External` 値の場合は `true` を返す。\n\nネイティブの `External` 値は、ネイティブコードからアクセスするための生の C++ ポインター(`void*`)を含み、他のプロパティを持たない特別な種類のオブジェクトである。そのようなオブジェクトは、Node.js の内部またはネイティブアドオンによって作成される。JavaScript では、`null` プロトタイプを持つ[凍結された](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)オブジェクトである。\n\n```c\n#include <js_native_api.h>\n#include <stdlib.h>\nnapi_value result;\nstatic napi_value MyNapi(napi_env env, napi_callback_info info) {\n  int* raw = (int*) malloc(1024);\n  napi_status status = napi_create_external(env, (void*) raw, NULL, NULL, &result);\n  if (status != napi_ok) {\n    napi_throw_error(env, NULL, \"napi_create_external failed\");\n    return NULL;\n  }\n  return result;\n}\n...\nDECLARE_NAPI_PROPERTY(\"myNapi\", MyNapi)\n...\n```\n\n```js\nimport native from 'napi_addon.node';\nimport { types } from 'node:util';\n\nconst data = native.myNapi();\ntypes.isExternal(data); // returns true\ntypes.isExternal(0); // returns false\ntypes.isExternal(new String('foo')); // returns false\n```\n\n`napi_create_external` の詳細は [`napi_create_external()`](https://nodejs.org/docs/latest-v22.x/api/n-api.html#napi_create_external) を参照。",
+      "symbol": "@types/node/util.d.ts#util/types.isExternal",
+      "lang": "ja"
+    },
+    "ae47c409": {
+      "original": "Returns `true` if the value is a built-in `Float16Array` instance.\n\n```js\nutil.types.isFloat16Array(new ArrayBuffer());  // Returns false\nutil.types.isFloat16Array(new Float16Array());  // Returns true\nutil.types.isFloat16Array(new Float32Array());  // Returns false\n```",
+      "translated": "値が組み込みの `Float16Array` インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isFloat16Array(new ArrayBuffer());  // Returns false\nutil.types.isFloat16Array(new Float16Array());  // Returns true\nutil.types.isFloat16Array(new Float32Array());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isFloat16Array",
+      "lang": "ja"
+    },
+    "40dcc2fe": {
+      "original": "Returns `true` if the value is a built-in [`Float32Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array) instance.\n\n```js\nutil.types.isFloat32Array(new ArrayBuffer());  // Returns false\nutil.types.isFloat32Array(new Float32Array());  // Returns true\nutil.types.isFloat32Array(new Float64Array());  // Returns false\n```",
+      "translated": "値が組み込みの [`Float32Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isFloat32Array(new ArrayBuffer());  // Returns false\nutil.types.isFloat32Array(new Float32Array());  // Returns true\nutil.types.isFloat32Array(new Float64Array());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isFloat32Array",
+      "lang": "ja"
+    },
+    "f87079c0": {
+      "original": "Returns `true` if the value is a built-in [`Float64Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array) instance.\n\n```js\nutil.types.isFloat64Array(new ArrayBuffer());  // Returns false\nutil.types.isFloat64Array(new Uint8Array());  // Returns false\nutil.types.isFloat64Array(new Float64Array());  // Returns true\n```",
+      "translated": "値が組み込みの [`Float64Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isFloat64Array(new ArrayBuffer());  // Returns false\nutil.types.isFloat64Array(new Uint8Array());  // Returns false\nutil.types.isFloat64Array(new Float64Array());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isFloat64Array",
+      "lang": "ja"
+    },
+    "9e945326": {
+      "original": "Returns `true` if the value is a generator function.\nThis only reports back what the JavaScript engine is seeing;\nin particular, the return value may not match the original source code if\na transpilation tool was used.\n\n```js\nutil.types.isGeneratorFunction(function foo() {});  // Returns false\nutil.types.isGeneratorFunction(function* foo() {});  // Returns true\n```",
+      "translated": "値がジェネレーター関数の場合は `true` を返す。これは JavaScript エンジンが見ているものだけを報告する。特に、トランスパイルツールが使われた場合、戻り値は元のソースコードと一致しないことがある。\n\n```js\nutil.types.isGeneratorFunction(function foo() {});  // Returns false\nutil.types.isGeneratorFunction(function* foo() {});  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isGeneratorFunction",
+      "lang": "ja"
+    },
+    "d60efcfc": {
+      "original": "Returns `true` if the value is a generator object as returned from a\nbuilt-in generator function.\nThis only reports back what the JavaScript engine is seeing;\nin particular, the return value may not match the original source code if\na transpilation tool was used.\n\n```js\nfunction* foo() {}\nconst generator = foo();\nutil.types.isGeneratorObject(generator);  // Returns true\n```",
+      "translated": "値が、組み込みのジェネレーター関数から返されたジェネレーターオブジェクトの場合は `true` を返す。これは JavaScript エンジンが見ているものだけを報告する。特に、トランスパイルツールが使われた場合、戻り値は元のソースコードと一致しないことがある。\n\n```js\nfunction* foo() {}\nconst generator = foo();\nutil.types.isGeneratorObject(generator);  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isGeneratorObject",
+      "lang": "ja"
+    },
+    "7320b1b2": {
+      "original": "Returns `true` if the value is a built-in [`Int16Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array) instance.\n\n```js\nutil.types.isInt16Array(new ArrayBuffer());  // Returns false\nutil.types.isInt16Array(new Int16Array());  // Returns true\nutil.types.isInt16Array(new Float64Array());  // Returns false\n```",
+      "translated": "値が組み込みの [`Int16Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isInt16Array(new ArrayBuffer());  // Returns false\nutil.types.isInt16Array(new Int16Array());  // Returns true\nutil.types.isInt16Array(new Float64Array());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isInt16Array",
+      "lang": "ja"
+    },
+    "1094a764": {
+      "original": "Returns `true` if the value is a built-in [`Int32Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array) instance.\n\n```js\nutil.types.isInt32Array(new ArrayBuffer());  // Returns false\nutil.types.isInt32Array(new Int32Array());  // Returns true\nutil.types.isInt32Array(new Float64Array());  // Returns false\n```",
+      "translated": "値が組み込みの [`Int32Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isInt32Array(new ArrayBuffer());  // Returns false\nutil.types.isInt32Array(new Int32Array());  // Returns true\nutil.types.isInt32Array(new Float64Array());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isInt32Array",
+      "lang": "ja"
+    },
+    "211b2a3b": {
+      "original": "Returns `true` if the value is a built-in [`Int8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array) instance.\n\n```js\nutil.types.isInt8Array(new ArrayBuffer());  // Returns false\nutil.types.isInt8Array(new Int8Array());  // Returns true\nutil.types.isInt8Array(new Float64Array());  // Returns false\n```",
+      "translated": "値が組み込みの [`Int8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isInt8Array(new ArrayBuffer());  // Returns false\nutil.types.isInt8Array(new Int8Array());  // Returns true\nutil.types.isInt8Array(new Float64Array());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isInt8Array",
+      "lang": "ja"
+    },
+    "1abb2d9a": {
+      "original": "Returns `true` if the value is a built-in [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) instance.\n\n```js\nutil.types.isMap(new Map());  // Returns true\n```",
+      "translated": "値が組み込みの [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isMap(new Map());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isMap",
+      "lang": "ja"
+    },
+    "f07017de": {
+      "original": "Returns `true` if the value is an iterator returned for a built-in [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) instance.\n\n```js\nconst map = new Map();\nutil.types.isMapIterator(map.keys());  // Returns true\nutil.types.isMapIterator(map.values());  // Returns true\nutil.types.isMapIterator(map.entries());  // Returns true\nutil.types.isMapIterator(map[Symbol.iterator]());  // Returns true\n```",
+      "translated": "値が、組み込みの [`Map`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) インスタンスに対して返されたイテレーターの場合は `true` を返す。\n\n```js\nconst map = new Map();\nutil.types.isMapIterator(map.keys());  // Returns true\nutil.types.isMapIterator(map.values());  // Returns true\nutil.types.isMapIterator(map.entries());  // Returns true\nutil.types.isMapIterator(map[Symbol.iterator]());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isMapIterator",
+      "lang": "ja"
+    },
+    "fc271f32": {
+      "original": "Returns `true` if the value is an instance of a [Module Namespace Object](https://tc39.github.io/ecma262/#sec-module-namespace-exotic-objects).\n\n```js\nimport * as ns from './a.js';\n\nutil.types.isModuleNamespaceObject(ns);  // Returns true\n```",
+      "translated": "値が [Module Namespace Object](https://tc39.github.io/ecma262/#sec-module-namespace-exotic-objects) のインスタンスの場合は `true` を返す。\n\n```js\nimport * as ns from './a.js';\n\nutil.types.isModuleNamespaceObject(ns);  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isModuleNamespaceObject",
+      "lang": "ja"
+    },
+    "4a2563d4": {
+      "original": "Returns `true` if the value was returned by the constructor of a\n[built-in `Error` type](https://tc39.es/ecma262/#sec-error-objects).\n\n```js\nconsole.log(util.types.isNativeError(new Error()));  // true\nconsole.log(util.types.isNativeError(new TypeError()));  // true\nconsole.log(util.types.isNativeError(new RangeError()));  // true\n```\n\nSubclasses of the native error types are also native errors:\n\n```js\nclass MyError extends Error {}\nconsole.log(util.types.isNativeError(new MyError()));  // true\n```\n\nA value being `instanceof` a native error class is not equivalent to `isNativeError()`\nreturning `true` for that value. `isNativeError()` returns `true` for errors\nwhich come from a different [realm](https://tc39.es/ecma262/#realm) while `instanceof Error` returns `false`\nfor these errors:\n\n```js\nimport { createContext, runInContext } from 'node:vm';\nimport { types } from 'node:util';\n\nconst context = createContext({});\nconst myError = runInContext('new Error()', context);\nconsole.log(types.isNativeError(myError)); // true\nconsole.log(myError instanceof Error); // false\n```\n\nConversely, `isNativeError()` returns `false` for all objects which were not\nreturned by the constructor of a native error. That includes values\nwhich are `instanceof` native errors:\n\n```js\nconst myError = { __proto__: Error.prototype };\nconsole.log(util.types.isNativeError(myError)); // false\nconsole.log(myError instanceof Error); // true\n```",
+      "translated": "値が[組み込みの `Error` 型](https://tc39.es/ecma262/#sec-error-objects)のコンストラクターによって返された場合は `true` を返す。\n\n```js\nconsole.log(util.types.isNativeError(new Error()));  // true\nconsole.log(util.types.isNativeError(new TypeError()));  // true\nconsole.log(util.types.isNativeError(new RangeError()));  // true\n```\n\nネイティブエラー型のサブクラスもネイティブエラーである:\n\n```js\nclass MyError extends Error {}\nconsole.log(util.types.isNativeError(new MyError()));  // true\n```\n\n値がネイティブエラークラスの `instanceof` であることは、その値に対して `isNativeError()` が `true` を返すことと同等ではない。`isNativeError()` は別の [realm](https://tc39.es/ecma262/#realm) から来たエラーに対して `true` を返すが、`instanceof Error` はこれらのエラーに対して `false` を返す:\n\n```js\nimport { createContext, runInContext } from 'node:vm';\nimport { types } from 'node:util';\n\nconst context = createContext({});\nconst myError = runInContext('new Error()', context);\nconsole.log(types.isNativeError(myError)); // true\nconsole.log(myError instanceof Error); // false\n```\n\n逆に、`isNativeError()` は、ネイティブエラーのコンストラクターによって返されなかったすべてのオブジェクトに対して `false` を返す。これにはネイティブエラーの `instanceof` である値も含まれる:\n\n```js\nconst myError = { __proto__: Error.prototype };\nconsole.log(util.types.isNativeError(myError)); // false\nconsole.log(myError instanceof Error); // true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isNativeError",
+      "lang": "ja"
+    },
+    "c12f5241": {
+      "original": "Returns `true` if the value is a number object, e.g. created\nby `new Number()`.\n\n```js\nutil.types.isNumberObject(0);  // Returns false\nutil.types.isNumberObject(new Number(0));   // Returns true\n```",
+      "translated": "値が数値オブジェクト(たとえば `new Number()` で作成されたもの)の場合は `true` を返す。\n\n```js\nutil.types.isNumberObject(0);  // Returns false\nutil.types.isNumberObject(new Number(0));   // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isNumberObject",
+      "lang": "ja"
+    },
+    "fcebcdb2": {
+      "original": "Returns `true` if the value is a built-in [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).\n\n```js\nutil.types.isPromise(Promise.resolve(42));  // Returns true\n```",
+      "translated": "値が組み込みの [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) の場合は `true` を返す。\n\n```js\nutil.types.isPromise(Promise.resolve(42));  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isPromise",
+      "lang": "ja"
+    },
+    "374bb3a3": {
+      "original": "Returns `true` if the value is a [`Proxy`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) instance.\n\n```js\nconst target = {};\nconst proxy = new Proxy(target, {});\nutil.types.isProxy(target);  // Returns false\nutil.types.isProxy(proxy);  // Returns true\n```",
+      "translated": "値が [`Proxy`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy) インスタンスの場合は `true` を返す。\n\n```js\nconst target = {};\nconst proxy = new Proxy(target, {});\nutil.types.isProxy(target);  // Returns false\nutil.types.isProxy(proxy);  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isProxy",
+      "lang": "ja"
+    },
+    "5c19508a": {
+      "original": "Returns `true` if the value is a regular expression object.\n\n```js\nutil.types.isRegExp(/abc/);  // Returns true\nutil.types.isRegExp(new RegExp('abc'));  // Returns true\n```",
+      "translated": "値が正規表現オブジェクトの場合は `true` を返す。\n\n```js\nutil.types.isRegExp(/abc/);  // Returns true\nutil.types.isRegExp(new RegExp('abc'));  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isRegExp",
+      "lang": "ja"
+    },
+    "8e7d94db": {
+      "original": "Returns `true` if the value is a built-in [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) instance.\n\n```js\nutil.types.isSet(new Set());  // Returns true\n```",
+      "translated": "値が組み込みの [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isSet(new Set());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isSet",
+      "lang": "ja"
+    },
+    "be619566": {
+      "original": "Returns `true` if the value is an iterator returned for a built-in [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) instance.\n\n```js\nconst set = new Set();\nutil.types.isSetIterator(set.keys());  // Returns true\nutil.types.isSetIterator(set.values());  // Returns true\nutil.types.isSetIterator(set.entries());  // Returns true\nutil.types.isSetIterator(set[Symbol.iterator]());  // Returns true\n```",
+      "translated": "値が、組み込みの [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) インスタンスに対して返されたイテレーターの場合は `true` を返す。\n\n```js\nconst set = new Set();\nutil.types.isSetIterator(set.keys());  // Returns true\nutil.types.isSetIterator(set.values());  // Returns true\nutil.types.isSetIterator(set.entries());  // Returns true\nutil.types.isSetIterator(set[Symbol.iterator]());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isSetIterator",
+      "lang": "ja"
+    },
+    "4602b92d": {
+      "original": "Returns `true` if the value is a built-in [`SharedArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) instance.\nThis does _not_ include [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) instances. Usually, it is\ndesirable to test for both; See `util.types.isAnyArrayBuffer()` for that.\n\n```js\nutil.types.isSharedArrayBuffer(new ArrayBuffer());  // Returns false\nutil.types.isSharedArrayBuffer(new SharedArrayBuffer());  // Returns true\n```",
+      "translated": "値が組み込みの [`SharedArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) インスタンスの場合は `true` を返す。これは [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) インスタンスを_含まない_。通常は両方をテストするのが望ましい。それには `util.types.isAnyArrayBuffer()` を参照。\n\n```js\nutil.types.isSharedArrayBuffer(new ArrayBuffer());  // Returns false\nutil.types.isSharedArrayBuffer(new SharedArrayBuffer());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isSharedArrayBuffer",
+      "lang": "ja"
+    },
+    "616f3dd6": {
+      "original": "Returns `true` if the value is a string object, e.g. created\nby `new String()`.\n\n```js\nutil.types.isStringObject('foo');  // Returns false\nutil.types.isStringObject(new String('foo'));   // Returns true\n```",
+      "translated": "値が文字列オブジェクト(たとえば `new String()` で作成されたもの)の場合は `true` を返す。\n\n```js\nutil.types.isStringObject('foo');  // Returns false\nutil.types.isStringObject(new String('foo'));   // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isStringObject",
+      "lang": "ja"
+    },
+    "e0e98586": {
+      "original": "Returns `true` if the value is a symbol object, created\nby calling `Object()` on a `Symbol` primitive.\n\n```js\nconst symbol = Symbol('foo');\nutil.types.isSymbolObject(symbol);  // Returns false\nutil.types.isSymbolObject(Object(symbol));   // Returns true\n```",
+      "translated": "値が、`Symbol` プリミティブに `Object()` を呼んで作成されたシンボルオブジェクトの場合は `true` を返す。\n\n```js\nconst symbol = Symbol('foo');\nutil.types.isSymbolObject(symbol);  // Returns false\nutil.types.isSymbolObject(Object(symbol));   // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isSymbolObject",
+      "lang": "ja"
+    },
+    "5f390505": {
+      "original": "Returns `true` if the value is a built-in [`TypedArray`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) instance.\n\n```js\nutil.types.isTypedArray(new ArrayBuffer());  // Returns false\nutil.types.isTypedArray(new Uint8Array());  // Returns true\nutil.types.isTypedArray(new Float64Array());  // Returns true\n```\n\nSee also [`ArrayBuffer.isView()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/isView).",
+      "translated": "値が組み込みの [`TypedArray`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isTypedArray(new ArrayBuffer());  // Returns false\nutil.types.isTypedArray(new Uint8Array());  // Returns true\nutil.types.isTypedArray(new Float64Array());  // Returns true\n```\n\n[`ArrayBuffer.isView()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/isView) も参照。",
+      "symbol": "@types/node/util.d.ts#util/types.isTypedArray",
+      "lang": "ja"
+    },
+    "3a9f803a": {
+      "original": "Returns `true` if the value is a built-in [`Uint16Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array) instance.\n\n```js\nutil.types.isUint16Array(new ArrayBuffer());  // Returns false\nutil.types.isUint16Array(new Uint16Array());  // Returns true\nutil.types.isUint16Array(new Float64Array());  // Returns false\n```",
+      "translated": "値が組み込みの [`Uint16Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isUint16Array(new ArrayBuffer());  // Returns false\nutil.types.isUint16Array(new Uint16Array());  // Returns true\nutil.types.isUint16Array(new Float64Array());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isUint16Array",
+      "lang": "ja"
+    },
+    "61aa06a2": {
+      "original": "Returns `true` if the value is a built-in [`Uint32Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array) instance.\n\n```js\nutil.types.isUint32Array(new ArrayBuffer());  // Returns false\nutil.types.isUint32Array(new Uint32Array());  // Returns true\nutil.types.isUint32Array(new Float64Array());  // Returns false\n```",
+      "translated": "値が組み込みの [`Uint32Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isUint32Array(new ArrayBuffer());  // Returns false\nutil.types.isUint32Array(new Uint32Array());  // Returns true\nutil.types.isUint32Array(new Float64Array());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isUint32Array",
+      "lang": "ja"
+    },
+    "fbcca67d": {
+      "original": "Returns `true` if the value is a built-in [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) instance.\n\n```js\nutil.types.isUint8Array(new ArrayBuffer());  // Returns false\nutil.types.isUint8Array(new Uint8Array());  // Returns true\nutil.types.isUint8Array(new Float64Array());  // Returns false\n```",
+      "translated": "値が組み込みの [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isUint8Array(new ArrayBuffer());  // Returns false\nutil.types.isUint8Array(new Uint8Array());  // Returns true\nutil.types.isUint8Array(new Float64Array());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isUint8Array",
+      "lang": "ja"
+    },
+    "8b39720a": {
+      "original": "Returns `true` if the value is a built-in [`Uint8ClampedArray`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray) instance.\n\n```js\nutil.types.isUint8ClampedArray(new ArrayBuffer());  // Returns false\nutil.types.isUint8ClampedArray(new Uint8ClampedArray());  // Returns true\nutil.types.isUint8ClampedArray(new Float64Array());  // Returns false\n```",
+      "translated": "値が組み込みの [`Uint8ClampedArray`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isUint8ClampedArray(new ArrayBuffer());  // Returns false\nutil.types.isUint8ClampedArray(new Uint8ClampedArray());  // Returns true\nutil.types.isUint8ClampedArray(new Float64Array());  // Returns false\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isUint8ClampedArray",
+      "lang": "ja"
+    },
+    "dcbb0abb": {
+      "original": "Returns `true` if the value is a built-in [`WeakMap`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) instance.\n\n```js\nutil.types.isWeakMap(new WeakMap());  // Returns true\n```",
+      "translated": "値が組み込みの [`WeakMap`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isWeakMap(new WeakMap());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isWeakMap",
+      "lang": "ja"
+    },
+    "f078aeb6": {
+      "original": "Returns `true` if the value is a built-in [`WeakSet`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet) instance.\n\n```js\nutil.types.isWeakSet(new WeakSet());  // Returns true\n```",
+      "translated": "値が組み込みの [`WeakSet`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isWeakSet(new WeakSet());  // Returns true\n```",
+      "symbol": "@types/node/util.d.ts#util/types.isWeakSet",
       "lang": "ja"
     }
   }
