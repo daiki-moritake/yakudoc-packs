@@ -4,6 +4,12 @@
   "lang": "ja",
   "generator": "yakudoc@0.1.1",
   "entries": {
+    "14610749": {
+      "original": "A value that is `\"strip\"` by default,\n`\"transform\"` if Node.js is run with `--experimental-transform-types`, and `false` if\nNode.js is run with `--no-experimental-strip-types`.",
+      "translated": "既定では `\"strip\"`、Node.js を `--experimental-transform-types` 付きで実行した場合は `\"transform\"`、`--no-experimental-strip-types` 付きで実行した場合は `false` になる値。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.typescript",
+      "lang": "ja"
+    },
     "ebe23990": {
       "original": "A unique identifier for the warning instance being emitted.",
       "translated": "発生させる警告インスタンスの一意な識別子。",
@@ -242,6 +248,552 @@
       "original": "The exit code. For string type, only integer strings (e.g.,'1') are allowed.",
       "translated": "終了コード。文字列型の場合、整数の文字列(例: '1')のみが許可される。",
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.exit",
+      "lang": "ja"
+    },
+    "14156ac5": {
+      "original": "A number which will be the process exit code, when the process either\nexits gracefully, or is exited via {@link exit} without specifying\na code.\n\nSpecifying a code to {@link exit} will override any\nprevious setting of `process.exitCode`.",
+      "translated": "プロセスが正常に終了するとき、またはコードを指定せずに {@link exit} で終了されたときの、プロセスの終了コードになる数値。\n\n{@link exit} にコードを指定すると、`process.exitCode` の以前の設定は上書きされる。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.exitCode",
+      "lang": "ja"
+    },
+    "8a86d2f2": {
+      "original": "The callback function to be called when the resource is finalized.",
+      "translated": "リソースがファイナライズされるときに呼ばれるコールバック関数。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.finalization.register",
+      "lang": "ja"
+    },
+    "b475ed34": {
+      "original": "The reference to the resource that is being tracked.",
+      "translated": "追跡対象のリソースへの参照。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.finalization.register",
+      "lang": "ja"
+    },
+    "9e21eeb6": {
+      "original": "This function registers a callback to be called when the process emits the `exit` event if the `ref` object was not garbage collected.\nIf the object `ref` was garbage collected before the `exit` event is emitted, the callback will be removed from the finalization registry, and it will not be called on process exit.\n\nInside the callback you can release the resources allocated by the `ref` object.\nBe aware that all limitations applied to the `beforeExit` event are also applied to the callback function,\nthis means that there is a possibility that the callback will not be called under special circumstances.\n\nThe idea of ​​this function is to help you free up resources when the starts process exiting, but also let the object be garbage collected if it is no longer being used.",
+      "translated": "この関数は、`ref` オブジェクトがガベージコレクトされていない場合に、プロセスが `exit` イベントを発生させたときに呼ばれるコールバックを登録する。\n`exit` イベントが発生する前に `ref` オブジェクトがガベージコレクトされた場合、コールバックはファイナライゼーションレジストリから削除され、プロセス終了時に呼ばれない。\n\nコールバックの中で、`ref` オブジェクトが割り当てたリソースを解放できる。\n`beforeExit` イベントに適用されるすべての制限がコールバック関数にも適用される点に注意。つまり、特殊な状況ではコールバックが呼ばれない可能性がある。\n\nこの関数の狙いは、プロセスの終了開始時にリソースを解放する助けをしつつ、オブジェクトがもう使われていなければガベージコレクトされるようにすることである。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.finalization.register",
+      "lang": "ja"
+    },
+    "9f25f55b": {
+      "original": "This function behaves exactly like the `register`, except that the callback will be called when the process emits the `beforeExit` event if `ref` object was not garbage collected.\n\nBe aware that all limitations applied to the `beforeExit` event are also applied to the callback function, this means that there is a possibility that the callback will not be called under special circumstances.",
+      "translated": "この関数は `register` とまったく同じ挙動だが、`ref` オブジェクトがガベージコレクトされていない場合に、プロセスが `beforeExit` イベントを発生させたときにコールバックが呼ばれる点が異なる。\n\n`beforeExit` イベントに適用されるすべての制限がコールバック関数にも適用される点に注意。つまり、特殊な状況ではコールバックが呼ばれない可能性がある。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.finalization.registerBeforeExit",
+      "lang": "ja"
+    },
+    "29e5c93b": {
+      "original": "The reference to the resource that was registered previously.",
+      "translated": "以前に登録したリソースへの参照。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.finalization.unregister",
+      "lang": "ja"
+    },
+    "458b7392": {
+      "original": "This function remove the register of the object from the finalization registry, so the callback will not be called anymore.",
+      "translated": "この関数は、オブジェクトの登録をファイナライゼーションレジストリから削除するので、コールバックはもう呼ばれない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.finalization.unregister",
+      "lang": "ja"
+    },
+    "0559afd3": {
+      "original": "The `process.getActiveResourcesInfo()` method returns an array of strings containing\nthe types of the active resources that are currently keeping the event loop alive.\n\n```js\nimport { getActiveResourcesInfo } from 'node:process';\nimport { setTimeout } from 'node:timers';\n\nconsole.log('Before:', getActiveResourcesInfo());\nsetTimeout(() => {}, 1000);\nconsole.log('After:', getActiveResourcesInfo());\n// Prints:\n//   Before: [ 'TTYWrap', 'TTYWrap', 'TTYWrap' ]\n//   After: [ 'TTYWrap', 'TTYWrap', 'TTYWrap', 'Timeout' ]\n```",
+      "translated": "`process.getActiveResourcesInfo()` メソッドは、現在イベントループを生かし続けているアクティブなリソースの種類を含む文字列の配列を返す。\n\n```js\nimport { getActiveResourcesInfo } from 'node:process';\nimport { setTimeout } from 'node:timers';\n\nconsole.log('Before:', getActiveResourcesInfo());\nsetTimeout(() => {}, 1000);\nconsole.log('After:', getActiveResourcesInfo());\n// Prints:\n//   Before: [ 'TTYWrap', 'TTYWrap', 'TTYWrap' ]\n//   After: [ 'TTYWrap', 'TTYWrap', 'TTYWrap', 'Timeout' ]\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.getActiveResourcesInfo",
+      "lang": "ja"
+    },
+    "2fda3c77": {
+      "original": "ID of the built-in module being requested.",
+      "translated": "要求される組み込みモジュールの ID。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.getBuiltinModule",
+      "lang": "ja"
+    },
+    "08dfef80": {
+      "original": "Provides a way to load built-in modules in a globally available function.",
+      "translated": "グローバルに利用可能な関数で組み込みモジュールを読み込む手段を提供する。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.getBuiltinModule",
+      "lang": "ja"
+    },
+    "62d39992": {
+      "original": "The `process.getegid()` method returns the numerical effective group identity\nof the Node.js process. (See [`getegid(2)`](http://man7.org/linux/man-pages/man2/getegid.2.html).)\n\n```js\nimport process from 'node:process';\n\nif (process.getegid) {\n  console.log(`Current gid: ${process.getegid()}`);\n}\n```\n\nThis function is only available on POSIX platforms (i.e. not Windows or\nAndroid).",
+      "translated": "`process.getegid()` メソッドは、Node.js プロセスの数値の実効グループ識別子を返す。([`getegid(2)`](http://man7.org/linux/man-pages/man2/getegid.2.html) を参照。)\n\n```js\nimport process from 'node:process';\n\nif (process.getegid) {\n  console.log(`Current gid: ${process.getegid()}`);\n}\n```\n\nこの関数は POSIX プラットフォームでのみ利用できる(すなわち Windows や Android では利用できない)。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.getegid",
+      "lang": "ja"
+    },
+    "d29e5208": {
+      "original": "The `process.geteuid()` method returns the numerical effective user identity of\nthe process. (See [`geteuid(2)`](http://man7.org/linux/man-pages/man2/geteuid.2.html).)\n\n```js\nimport process from 'node:process';\n\nif (process.geteuid) {\n  console.log(`Current uid: ${process.geteuid()}`);\n}\n```\n\nThis function is only available on POSIX platforms (i.e. not Windows or\nAndroid).",
+      "translated": "`process.geteuid()` メソッドは、プロセスの数値の実効ユーザー識別子を返す。([`geteuid(2)`](http://man7.org/linux/man-pages/man2/geteuid.2.html) を参照。)\n\n```js\nimport process from 'node:process';\n\nif (process.geteuid) {\n  console.log(`Current uid: ${process.geteuid()}`);\n}\n```\n\nこの関数は POSIX プラットフォームでのみ利用できる(すなわち Windows や Android では利用できない)。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.geteuid",
+      "lang": "ja"
+    },
+    "1c92a98e": {
+      "original": "The `process.getgid()` method returns the numerical group identity of the\nprocess. (See [`getgid(2)`](http://man7.org/linux/man-pages/man2/getgid.2.html).)\n\n```js\nimport process from 'node:process';\n\nif (process.getgid) {\n  console.log(`Current gid: ${process.getgid()}`);\n}\n```\n\nThis function is only available on POSIX platforms (i.e. not Windows or\nAndroid).",
+      "translated": "`process.getgid()` メソッドは、プロセスの数値のグループ識別子を返す。([`getgid(2)`](http://man7.org/linux/man-pages/man2/getgid.2.html) を参照。)\n\n```js\nimport process from 'node:process';\n\nif (process.getgid) {\n  console.log(`Current gid: ${process.getgid()}`);\n}\n```\n\nこの関数は POSIX プラットフォームでのみ利用できる(すなわち Windows や Android では利用できない)。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.getgid",
+      "lang": "ja"
+    },
+    "231f6bf3": {
+      "original": "The `process.getgroups()` method returns an array with the supplementary group\nIDs. POSIX leaves it unspecified if the effective group ID is included but\nNode.js ensures it always is.\n\n```js\nimport process from 'node:process';\n\nif (process.getgroups) {\n  console.log(process.getgroups()); // [ 16, 21, 297 ]\n}\n```\n\nThis function is only available on POSIX platforms (i.e. not Windows or\nAndroid).",
+      "translated": "`process.getgroups()` メソッドは、補助グループ ID の配列を返す。実効グループ ID が含まれるかどうかは POSIX では未規定だが、Node.js は常に含まれることを保証する。\n\n```js\nimport process from 'node:process';\n\nif (process.getgroups) {\n  console.log(process.getgroups()); // [ 16, 21, 297 ]\n}\n```\n\nこの関数は POSIX プラットフォームでのみ利用できる(すなわち Windows や Android では利用できない)。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.getgroups",
+      "lang": "ja"
+    },
+    "bcd665de": {
+      "original": "The `process.getuid()` method returns the numeric user identity of the process.\n(See [`getuid(2)`](http://man7.org/linux/man-pages/man2/getuid.2.html).)\n\n```js\nimport process from 'node:process';\n\nif (process.getuid) {\n  console.log(`Current uid: ${process.getuid()}`);\n}\n```\n\nThis function is only available on POSIX platforms (i.e. not Windows or\nAndroid).",
+      "translated": "`process.getuid()` メソッドは、プロセスの数値のユーザー識別子を返す。([`getuid(2)`](http://man7.org/linux/man-pages/man2/getuid.2.html) を参照。)\n\n```js\nimport process from 'node:process';\n\nif (process.getuid) {\n  console.log(`Current uid: ${process.getuid()}`);\n}\n```\n\nこの関数は POSIX プラットフォームでのみ利用できる(すなわち Windows や Android では利用できない)。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.getuid",
+      "lang": "ja"
+    },
+    "e17c20df": {
+      "original": "Indicates whether a callback has been set using {@link setUncaughtExceptionCaptureCallback}.",
+      "translated": "{@link setUncaughtExceptionCaptureCallback} を使ってコールバックが設定されているかどうかを示す。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.hasUncaughtExceptionCaptureCallback",
+      "lang": "ja"
+    },
+    "689e403e": {
+      "original": "A process ID",
+      "translated": "プロセス ID",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.kill",
+      "lang": "ja"
+    },
+    "eefe6be8": {
+      "original": "The `process.kill()` method sends the `signal` to the process identified by`pid`.\n\nSignal names are strings such as `'SIGINT'` or `'SIGHUP'`. See `Signal Events` and [`kill(2)`](http://man7.org/linux/man-pages/man2/kill.2.html) for more information.\n\nThis method will throw an error if the target `pid` does not exist. As a special\ncase, a signal of `0` can be used to test for the existence of a process.\nWindows platforms will throw an error if the `pid` is used to kill a process\ngroup.\n\nEven though the name of this function is `process.kill()`, it is really just a\nsignal sender, like the `kill` system call. The signal sent may do something\nother than kill the target process.\n\n```js\nimport process, { kill } from 'node:process';\n\nprocess.on('SIGHUP', () => {\n  console.log('Got SIGHUP signal.');\n});\n\nsetTimeout(() => {\n  console.log('Exiting.');\n  process.exit(0);\n}, 100);\n\nkill(process.pid, 'SIGHUP');\n```\n\nWhen `SIGUSR1` is received by a Node.js process, Node.js will start the\ndebugger. See `Signal Events`.",
+      "translated": "`process.kill()` メソッドは、`pid` で識別されるプロセスに `signal` を送る。\n\nシグナル名は `'SIGINT'` や `'SIGHUP'` のような文字列である。詳細は `Signal Events` と [`kill(2)`](http://man7.org/linux/man-pages/man2/kill.2.html) を参照。\n\n対象の `pid` が存在しない場合、このメソッドはエラーを投げる。特別なケースとして、シグナル `0` はプロセスの存在確認に使える。Windows プラットフォームでは、`pid` がプロセスグループを kill するために使われた場合、エラーを投げる。\n\nこの関数の名前は `process.kill()` だが、実際には `kill` システムコールのような単なるシグナル送信器である。送られたシグナルは、対象プロセスを kill する以外のことをするかもしれない。\n\n```js\nimport process, { kill } from 'node:process';\n\nprocess.on('SIGHUP', () => {\n  console.log('Got SIGHUP signal.');\n});\n\nsetTimeout(() => {\n  console.log('Exiting.');\n  process.exit(0);\n}, 100);\n\nkill(process.pid, 'SIGHUP');\n```\n\nNode.js プロセスが `SIGUSR1` を受け取ると、Node.js はデバッガーを起動する。`Signal Events` を参照。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.kill",
+      "lang": "ja"
+    },
+    "2a33f0da": {
+      "original": "The signal to send, either as a string or number.",
+      "translated": "送るシグナル。文字列または数値。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.kill",
+      "lang": "ja"
+    },
+    "39ee2b1c": {
+      "original": "Loads the environment configuration from a `.env` file into `process.env`. If\nthe file is not found, error will be thrown.\n\nTo load a specific .env file by specifying its path, use the following code:\n\n```js\nimport { loadEnvFile } from 'node:process';\n\nloadEnvFile('./development.env')\n```",
+      "translated": "`.env` ファイルから環境設定を `process.env` に読み込む。ファイルが見つからない場合はエラーが投げられる。\n\nパスを指定して特定の .env ファイルを読み込むには、次のコードを使う:\n\n```js\nimport { loadEnvFile } from 'node:process';\n\nloadEnvFile('./development.env')\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.loadEnvFile",
+      "lang": "ja"
+    },
+    "f9c58d90": {
+      "original": "The path to the .env file",
+      "translated": ".env ファイルへのパス",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.loadEnvFile",
+      "lang": "ja"
+    },
+    "21af3020": {
+      "original": "Since v14.0.0 - Use `main` instead.",
+      "translated": "v14.0.0 以降 - 代わりに `main` を使うこと。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.mainModule",
+      "lang": "ja"
+    },
+    "b51d55c2": {
+      "original": "The `process.mainModule` property provides an alternative way of retrieving `require.main`. The difference is that if the main module changes at\nruntime, `require.main` may still refer to the original main module in\nmodules that were required before the change occurred. Generally, it's\nsafe to assume that the two refer to the same module.\n\nAs with `require.main`, `process.mainModule` will be `undefined` if there\nis no entry script.",
+      "translated": "`process.mainModule` プロパティは、`require.main` を取得する別の方法を提供する。違いは、メインモジュールが実行時に変わった場合、変更が起きる前に require されたモジュールでは `require.main` が元のメインモジュールを指し続けることがある点である。一般に、両者は同じモジュールを指すと仮定して差し支えない。\n\n`require.main` と同様に、エントリスクリプトがない場合、`process.mainModule` は `undefined` になる。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.mainModule",
+      "lang": "ja"
+    },
+    "cffa168c": {
+      "original": "`process.nextTick()` adds `callback` to the \"next tick queue\". This queue is\nfully drained after the current operation on the JavaScript stack runs to\ncompletion and before the event loop is allowed to continue. It's possible to\ncreate an infinite loop if one were to recursively call `process.nextTick()`.\nSee the [Event Loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#process-nexttick) guide for more background.\n\n```js\nimport { nextTick } from 'node:process';\n\nconsole.log('start');\nnextTick(() => {\n  console.log('nextTick callback');\n});\nconsole.log('scheduled');\n// Output:\n// start\n// scheduled\n// nextTick callback\n```\n\nThis is important when developing APIs in order to give users the opportunity\nto assign event handlers _after_ an object has been constructed but before any\nI/O has occurred:\n\n```js\nimport { nextTick } from 'node:process';\n\nfunction MyThing(options) {\n  this.setupOptions(options);\n\n  nextTick(() => {\n    this.startDoingStuff();\n  });\n}\n\nconst thing = new MyThing();\nthing.getReadyForStuff();\n\n// thing.startDoingStuff() gets called now, not before.\n```\n\nIt is very important for APIs to be either 100% synchronous or 100%\nasynchronous. Consider this example:\n\n```js\n// WARNING!  DO NOT USE!  BAD UNSAFE HAZARD!\nfunction maybeSync(arg, cb) {\n  if (arg) {\n    cb();\n    return;\n  }\n\n  fs.stat('file', cb);\n}\n```\n\nThis API is hazardous because in the following case:\n\n```js\nconst maybeTrue = Math.random() > 0.5;\n\nmaybeSync(maybeTrue, () => {\n  foo();\n});\n\nbar();\n```\n\nIt is not clear whether `foo()` or `bar()` will be called first.\n\nThe following approach is much better:\n\n```js\nimport { nextTick } from 'node:process';\n\nfunction definitelyAsync(arg, cb) {\n  if (arg) {\n    nextTick(cb);\n    return;\n  }\n\n  fs.stat('file', cb);\n}\n```",
+      "translated": "`process.nextTick()` は `callback` を「次のティックのキュー」に追加する。このキューは、JavaScript スタック上の現在の操作が完了まで実行された後、イベントループが続行を許可される前に、完全に排出される。`process.nextTick()` を再帰的に呼ぶと無限ループを作ることができる。詳しい背景は [Event Loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#process-nexttick) ガイドを参照。\n\n```js\nimport { nextTick } from 'node:process';\n\nconsole.log('start');\nnextTick(() => {\n  console.log('nextTick callback');\n});\nconsole.log('scheduled');\n// Output:\n// start\n// scheduled\n// nextTick callback\n```\n\nこれは API を開発する際に重要で、オブジェクトが構築された_後_、かつ何らかの I/O が発生する前に、ユーザーがイベントハンドラを割り当てる機会を与えるためである:\n\n```js\nimport { nextTick } from 'node:process';\n\nfunction MyThing(options) {\n  this.setupOptions(options);\n\n  nextTick(() => {\n    this.startDoingStuff();\n  });\n}\n\nconst thing = new MyThing();\nthing.getReadyForStuff();\n\n// thing.startDoingStuff() gets called now, not before.\n```\n\nAPI は 100% 同期か 100% 非同期のどちらかであることが非常に重要である。次の例を考える:\n\n```js\n// WARNING!  DO NOT USE!  BAD UNSAFE HAZARD!\nfunction maybeSync(arg, cb) {\n  if (arg) {\n    cb();\n    return;\n  }\n\n  fs.stat('file', cb);\n}\n```\n\nこの API は危険である。次のケースでは:\n\n```js\nconst maybeTrue = Math.random() > 0.5;\n\nmaybeSync(maybeTrue, () => {\n  foo();\n});\n\nbar();\n```\n\n`foo()` と `bar()` のどちらが先に呼ばれるかが不明だからである。\n\n次のアプローチのほうがはるかに良い:\n\n```js\nimport { nextTick } from 'node:process';\n\nfunction definitelyAsync(arg, cb) {\n  if (arg) {\n    nextTick(cb);\n    return;\n  }\n\n  fs.stat('file', cb);\n}\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.nextTick",
+      "lang": "ja"
+    },
+    "ce049ed5": {
+      "original": "Additional arguments to pass when invoking the `callback`",
+      "translated": "`callback` を呼び出す際に渡す追加の引数",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.nextTick",
+      "lang": "ja"
+    },
+    "cde0c14e": {
+      "original": "The process.noDeprecation property indicates whether the --no-deprecation flag is set on the current Node.js process.\nSee the documentation for the ['warning' event](https://nodejs.org/docs/latest/api/process.html#event-warning) and the [emitWarning()](https://nodejs.org/docs/latest/api/process.html#processemitwarningwarning-type-code-ctor) method for more information about this flag's behavior.",
+      "translated": "process.noDeprecation プロパティは、現在の Node.js プロセスで --no-deprecation フラグが設定されているかどうかを示す。\nこのフラグの挙動の詳細は、['warning' イベント](https://nodejs.org/docs/latest/api/process.html#event-warning)と [emitWarning()](https://nodejs.org/docs/latest/api/process.html#processemitwarningwarning-type-code-ctor) メソッドのドキュメントを参照。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.noDeprecation",
+      "lang": "ja"
+    },
+    "3dc5796b": {
+      "original": "This API is available through the [--permission](https://nodejs.org/api/cli.html#--permission) flag.\n\n`process.permission` is an object whose methods are used to manage permissions for the current process.\nAdditional documentation is available in the [Permission Model](https://nodejs.org/api/permissions.html#permission-model).",
+      "translated": "この API は [--permission](https://nodejs.org/api/cli.html#--permission) フラグを通じて利用できる。\n\n`process.permission` は、現在のプロセスの権限を管理するためのメソッドを持つオブジェクトである。追加のドキュメントは [Permission Model](https://nodejs.org/api/permissions.html#permission-model) にある。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.permission",
+      "lang": "ja"
+    },
+    "eaa3f821": {
+      "original": "The `process.pid` property returns the PID of the process.\n\n```js\nimport { pid } from 'node:process';\n\nconsole.log(`This process is pid ${pid}`);\n```",
+      "translated": "`process.pid` プロパティは、プロセスの PID を返す。\n\n```js\nimport { pid } from 'node:process';\n\nconsole.log(`This process is pid ${pid}`);\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.pid",
+      "lang": "ja"
+    },
+    "4ee65b96": {
+      "original": "The `process.platform` property returns a string identifying the operating\nsystem platform for which the Node.js binary was compiled.\n\nCurrently possible values are:\n\n* `'aix'`\n* `'darwin'`\n* `'freebsd'`\n* `'linux'`\n* `'openbsd'`\n* `'sunos'`\n* `'win32'`\n\n```js\nimport { platform } from 'node:process';\n\nconsole.log(`This platform is ${platform}`);\n```\n\nThe value `'android'` may also be returned if the Node.js is built on the\nAndroid operating system. However, Android support in Node.js [is experimental](https://github.com/nodejs/node/blob/HEAD/BUILDING.md#androidandroid-based-devices-eg-firefox-os).",
+      "translated": "`process.platform` プロパティは、Node.js バイナリがコンパイルされた対象のオペレーティングシステムのプラットフォームを識別する文字列を返す。\n\n現在の指定可能な値は:\n\n* `'aix'`\n* `'darwin'`\n* `'freebsd'`\n* `'linux'`\n* `'openbsd'`\n* `'sunos'`\n* `'win32'`\n\n```js\nimport { platform } from 'node:process';\n\nconsole.log(`This platform is ${platform}`);\n```\n\nNode.js が Android オペレーティングシステム上でビルドされた場合、値 `'android'` が返されることもある。ただし、Node.js の Android サポートは[実験的](https://github.com/nodejs/node/blob/HEAD/BUILDING.md#androidandroid-based-devices-eg-firefox-os)である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.platform",
+      "lang": "ja"
+    },
+    "5d9e97cd": {
+      "original": "The `process.ppid` property returns the PID of the parent of the\ncurrent process.\n\n```js\nimport { ppid } from 'node:process';\n\nconsole.log(`The parent process is pid ${ppid}`);\n```",
+      "translated": "`process.ppid` プロパティは、現在のプロセスの親の PID を返す。\n\n```js\nimport { ppid } from 'node:process';\n\nconsole.log(`The parent process is pid ${ppid}`);\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.ppid",
+      "lang": "ja"
+    },
+    "7fa957b4": {
+      "original": "An object is \"refable\" if it implements the Node.js \"Refable protocol\".\nSpecifically, this means that the object implements the `Symbol.for('nodejs.ref')`\nand `Symbol.for('nodejs.unref')` methods. \"Ref'd\" objects will keep the Node.js\nevent loop alive, while \"unref'd\" objects will not. Historically, this was\nimplemented by using `ref()` and `unref()` methods directly on the objects.\nThis pattern, however, is being deprecated in favor of the \"Refable protocol\"\nin order to better support Web Platform API types whose APIs cannot be modified\nto add `ref()` and `unref()` methods but still need to support that behavior.",
+      "translated": "オブジェクトが Node.js の「Refable プロトコル」を実装している場合、そのオブジェクトは「refable(参照可能)」である。具体的には、オブジェクトが `Symbol.for('nodejs.ref')` と `Symbol.for('nodejs.unref')` メソッドを実装していることを意味する。「ref された」オブジェクトは Node.js イベントループを生かし続け、「unref された」オブジェクトは生かし続けない。歴史的には、これはオブジェクトに直接 `ref()` と `unref()` メソッドを実装することで行われていた。しかしこのパターンは、`ref()` と `unref()` メソッドを追加するように API を変更できないが、それでもその挙動をサポートする必要がある Web Platform API 型をよりよくサポートするため、「Refable プロトコル」を優先して非推奨になりつつある。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.ref",
+      "lang": "ja"
+    },
+    "e133c825": {
+      "original": "An object that may be \"refable\".",
+      "translated": "「refable」である可能性のあるオブジェクト。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.ref",
+      "lang": "ja"
+    },
+    "435bfcd5": {
+      "original": "The `process.release` property returns an `Object` containing metadata related\nto the current release, including URLs for the source tarball and headers-only\ntarball.\n\n`process.release` contains the following properties:\n\n```js\n{\n  name: 'node',\n  lts: 'Hydrogen',\n  sourceUrl: 'https://nodejs.org/download/release/v18.12.0/node-v18.12.0.tar.gz',\n  headersUrl: 'https://nodejs.org/download/release/v18.12.0/node-v18.12.0-headers.tar.gz',\n  libUrl: 'https://nodejs.org/download/release/v18.12.0/win-x64/node.lib'\n}\n```\n\nIn custom builds from non-release versions of the source tree, only the `name` property may be present. The additional properties should not be\nrelied upon to exist.",
+      "translated": "`process.release` プロパティは、現在のリリースに関するメタデータを含む `Object` を返す。ソースの tarball とヘッダーのみの tarball の URL を含む。\n\n`process.release` は次のプロパティを含む:\n\n```js\n{\n  name: 'node',\n  lts: 'Hydrogen',\n  sourceUrl: 'https://nodejs.org/download/release/v18.12.0/node-v18.12.0.tar.gz',\n  headersUrl: 'https://nodejs.org/download/release/v18.12.0/node-v18.12.0-headers.tar.gz',\n  libUrl: 'https://nodejs.org/download/release/v18.12.0/win-x64/node.lib'\n}\n```\n\nソースツリーの非リリース版からのカスタムビルドでは、`name` プロパティのみが存在することがある。追加のプロパティが存在することを当てにすべきではない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.release",
+      "lang": "ja"
+    },
+    "1f9721f0": {
+      "original": "`process.report` is an object whose methods are used to generate diagnostic reports for the current process.\nAdditional documentation is available in the [report documentation](https://nodejs.org/docs/latest-v22.x/api/report.html).",
+      "translated": "`process.report` は、現在のプロセスの診断レポートを生成するためのメソッドを持つオブジェクトである。追加のドキュメントは [report のドキュメント](https://nodejs.org/docs/latest-v22.x/api/report.html) にある。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.report",
+      "lang": "ja"
+    },
+    "a9ef1fcc": {
+      "original": "the resource usage for the current process. All of these values come from the `uv_getrusage` call which returns a [`uv_rusage_t` struct][uv_rusage_t].",
+      "translated": "現在のプロセスのリソース使用量。これらの値はすべて `uv_getrusage` 呼び出しから来ており、[`uv_rusage_t` 構造体][uv_rusage_t] を返す。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.resourceUsage",
+      "lang": "ja"
+    },
+    "7be1075d": {
+      "original": "If Node.js is spawned with an IPC channel, the `process.send()` method can be\nused to send messages to the parent process. Messages will be received as a `'message'` event on the parent's `ChildProcess` object.\n\nIf Node.js was not spawned with an IPC channel, `process.send` will be `undefined`.\n\nThe message goes through serialization and parsing. The resulting message might\nnot be the same as what is originally sent.",
+      "translated": "Node.js が IPC チャネル付きで spawn された場合、`process.send()` メソッドを使って親プロセスにメッセージを送れる。メッセージは親の `ChildProcess` オブジェクトの `'message'` イベントとして受け取られる。\n\nNode.js が IPC チャネル付きで spawn されていない場合、`process.send` は `undefined` になる。\n\nメッセージはシリアライズとパースを経る。結果のメッセージは、元々送ったものと同じとは限らない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.send",
+      "lang": "ja"
+    },
+    "e6e17bf5": {
+      "original": "used to parameterize the sending of certain types of handles. `options` supports the following properties:",
+      "translated": "特定の種類のハンドルの送信をパラメーター化するために使う。`options` は次のプロパティをサポートする:",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.send",
+      "lang": "ja"
+    },
+    "e3fe4b14": {
+      "original": "A group name or ID",
+      "translated": "グループ名または ID",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.setegid",
+      "lang": "ja"
+    },
+    "3402f471": {
+      "original": "The `process.setegid()` method sets the effective group identity of the process.\n(See [`setegid(2)`](http://man7.org/linux/man-pages/man2/setegid.2.html).) The `id` can be passed as either a numeric ID or a group\nname string. If a group name is specified, this method blocks while resolving\nthe associated a numeric ID.\n\n```js\nimport process from 'node:process';\n\nif (process.getegid &#x26;&#x26; process.setegid) {\n  console.log(`Current gid: ${process.getegid()}`);\n  try {\n    process.setegid(501);\n    console.log(`New gid: ${process.getegid()}`);\n  } catch (err) {\n    console.log(`Failed to set gid: ${err}`);\n  }\n}\n```\n\nThis function is only available on POSIX platforms (i.e. not Windows or\nAndroid).\nThis feature is not available in `Worker` threads.",
+      "translated": "`process.setegid()` メソッドは、プロセスの実効グループ識別子を設定する。([`setegid(2)`](http://man7.org/linux/man-pages/man2/setegid.2.html) を参照。)`id` は数値 ID またはグループ名文字列として渡せる。グループ名を指定した場合、このメソッドは関連する数値 ID を解決する間ブロックする。\n\n```js\nimport process from 'node:process';\n\nif (process.getegid &#x26;&#x26; process.setegid) {\n  console.log(`Current gid: ${process.getegid()}`);\n  try {\n    process.setegid(501);\n    console.log(`New gid: ${process.getegid()}`);\n  } catch (err) {\n    console.log(`Failed to set gid: ${err}`);\n  }\n}\n```\n\nこの関数は POSIX プラットフォームでのみ利用できる(すなわち Windows や Android では利用できない)。\nこの機能は `Worker` スレッドでは利用できない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.setegid",
+      "lang": "ja"
+    },
+    "d273991d": {
+      "original": "A user name or ID",
+      "translated": "ユーザー名または ID",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.seteuid",
+      "lang": "ja"
+    },
+    "94a03aab": {
+      "original": "The `process.seteuid()` method sets the effective user identity of the process.\n(See [`seteuid(2)`](http://man7.org/linux/man-pages/man2/seteuid.2.html).) The `id` can be passed as either a numeric ID or a username\nstring. If a username is specified, the method blocks while resolving the\nassociated numeric ID.\n\n```js\nimport process from 'node:process';\n\nif (process.geteuid &#x26;&#x26; process.seteuid) {\n  console.log(`Current uid: ${process.geteuid()}`);\n  try {\n    process.seteuid(501);\n    console.log(`New uid: ${process.geteuid()}`);\n  } catch (err) {\n    console.log(`Failed to set uid: ${err}`);\n  }\n}\n```\n\nThis function is only available on POSIX platforms (i.e. not Windows or\nAndroid).\nThis feature is not available in `Worker` threads.",
+      "translated": "`process.seteuid()` メソッドは、プロセスの実効ユーザー識別子を設定する。([`seteuid(2)`](http://man7.org/linux/man-pages/man2/seteuid.2.html) を参照。)`id` は数値 ID またはユーザー名文字列として渡せる。ユーザー名を指定した場合、このメソッドは関連する数値 ID を解決する間ブロックする。\n\n```js\nimport process from 'node:process';\n\nif (process.geteuid &#x26;&#x26; process.seteuid) {\n  console.log(`Current uid: ${process.geteuid()}`);\n  try {\n    process.seteuid(501);\n    console.log(`New uid: ${process.geteuid()}`);\n  } catch (err) {\n    console.log(`Failed to set uid: ${err}`);\n  }\n}\n```\n\nこの関数は POSIX プラットフォームでのみ利用できる(すなわち Windows や Android では利用できない)。\nこの機能は `Worker` スレッドでは利用できない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.seteuid",
+      "lang": "ja"
+    },
+    "83db6025": {
+      "original": "The `process.setgid()` method sets the group identity of the process. (See [`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html).) The `id` can be passed as either a\nnumeric ID or a group name\nstring. If a group name is specified, this method blocks while resolving the\nassociated numeric ID.\n\n```js\nimport process from 'node:process';\n\nif (process.getgid &#x26;&#x26; process.setgid) {\n  console.log(`Current gid: ${process.getgid()}`);\n  try {\n    process.setgid(501);\n    console.log(`New gid: ${process.getgid()}`);\n  } catch (err) {\n    console.log(`Failed to set gid: ${err}`);\n  }\n}\n```\n\nThis function is only available on POSIX platforms (i.e. not Windows or\nAndroid).\nThis feature is not available in `Worker` threads.",
+      "translated": "`process.setgid()` メソッドは、プロセスのグループ識別子を設定する。([`setgid(2)`](http://man7.org/linux/man-pages/man2/setgid.2.html) を参照。)`id` は数値 ID またはグループ名文字列として渡せる。グループ名を指定した場合、このメソッドは関連する数値 ID を解決する間ブロックする。\n\n```js\nimport process from 'node:process';\n\nif (process.getgid &#x26;&#x26; process.setgid) {\n  console.log(`Current gid: ${process.getgid()}`);\n  try {\n    process.setgid(501);\n    console.log(`New gid: ${process.getgid()}`);\n  } catch (err) {\n    console.log(`Failed to set gid: ${err}`);\n  }\n}\n```\n\nこの関数は POSIX プラットフォームでのみ利用できる(すなわち Windows や Android では利用できない)。\nこの機能は `Worker` スレッドでは利用できない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.setgid",
+      "lang": "ja"
+    },
+    "1ba1a910": {
+      "original": "The group name or ID",
+      "translated": "グループ名または ID",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.setgid",
+      "lang": "ja"
+    },
+    "0dee8eae": {
+      "original": "The `process.setgroups()` method sets the supplementary group IDs for the\nNode.js process. This is a privileged operation that requires the Node.js\nprocess to have `root` or the `CAP_SETGID` capability.\n\nThe `groups` array can contain numeric group IDs, group names, or both.\n\n```js\nimport process from 'node:process';\n\nif (process.getgroups &#x26;&#x26; process.setgroups) {\n  try {\n    process.setgroups([501]);\n    console.log(process.getgroups()); // new groups\n  } catch (err) {\n    console.log(`Failed to set groups: ${err}`);\n  }\n}\n```\n\nThis function is only available on POSIX platforms (i.e. not Windows or\nAndroid).\nThis feature is not available in `Worker` threads.",
+      "translated": "`process.setgroups()` メソッドは、Node.js プロセスの補助グループ ID を設定する。これは特権操作で、Node.js プロセスが `root` または `CAP_SETGID` ケーパビリティを持つ必要がある。\n\n`groups` 配列には、数値のグループ ID・グループ名・その両方を含められる。\n\n```js\nimport process from 'node:process';\n\nif (process.getgroups &#x26;&#x26; process.setgroups) {\n  try {\n    process.setgroups([501]);\n    console.log(process.getgroups()); // new groups\n  } catch (err) {\n    console.log(`Failed to set groups: ${err}`);\n  }\n}\n```\n\nこの関数は POSIX プラットフォームでのみ利用できる(すなわち Windows や Android では利用できない)。\nこの機能は `Worker` スレッドでは利用できない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.setgroups",
+      "lang": "ja"
+    },
+    "6d70e3b5": {
+      "original": "This function enables or disables the [Source Map v3](https://sourcemaps.info/spec.html) support for\nstack traces.\n\nIt provides same features as launching Node.js process with commandline options `--enable-source-maps`.\n\nOnly source maps in JavaScript files that are loaded after source maps has been\nenabled will be parsed and loaded.",
+      "translated": "この関数は、スタックトレースに対する [Source Map v3](https://sourcemaps.info/spec.html) サポートを有効または無効にする。\n\nコマンドラインオプション `--enable-source-maps` を付けて Node.js プロセスを起動するのと同じ機能を提供する。\n\nソースマップが有効化された後に読み込まれた JavaScript ファイル内のソースマップのみが、解析・読み込みされる。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.setSourceMapsEnabled",
+      "lang": "ja"
+    },
+    "931d17d2": {
+      "original": "The `process.setuid(id)` method sets the user identity of the process. (See [`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html).) The `id` can be passed as either a\nnumeric ID or a username string.\nIf a username is specified, the method blocks while resolving the associated\nnumeric ID.\n\n```js\nimport process from 'node:process';\n\nif (process.getuid &#x26;&#x26; process.setuid) {\n  console.log(`Current uid: ${process.getuid()}`);\n  try {\n    process.setuid(501);\n    console.log(`New uid: ${process.getuid()}`);\n  } catch (err) {\n    console.log(`Failed to set uid: ${err}`);\n  }\n}\n```\n\nThis function is only available on POSIX platforms (i.e. not Windows or\nAndroid).\nThis feature is not available in `Worker` threads.",
+      "translated": "`process.setuid(id)` メソッドは、プロセスのユーザー識別子を設定する。([`setuid(2)`](http://man7.org/linux/man-pages/man2/setuid.2.html) を参照。)`id` は数値 ID またはユーザー名文字列として渡せる。ユーザー名を指定した場合、このメソッドは関連する数値 ID を解決する間ブロックする。\n\n```js\nimport process from 'node:process';\n\nif (process.getuid &#x26;&#x26; process.setuid) {\n  console.log(`Current uid: ${process.getuid()}`);\n  try {\n    process.setuid(501);\n    console.log(`New uid: ${process.getuid()}`);\n  } catch (err) {\n    console.log(`Failed to set uid: ${err}`);\n  }\n}\n```\n\nこの関数は POSIX プラットフォームでのみ利用できる(すなわち Windows や Android では利用できない)。\nこの機能は `Worker` スレッドでは利用できない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.setuid",
+      "lang": "ja"
+    },
+    "8a8fa3d7": {
+      "original": "The `process.setUncaughtExceptionCaptureCallback()` function sets a function\nthat will be invoked when an uncaught exception occurs, which will receive the\nexception value itself as its first argument.\n\nIf such a function is set, the `'uncaughtException'` event will\nnot be emitted. If `--abort-on-uncaught-exception` was passed from the\ncommand line or set through `v8.setFlagsFromString()`, the process will\nnot abort. Actions configured to take place on exceptions such as report\ngenerations will be affected too\n\nTo unset the capture function, `process.setUncaughtExceptionCaptureCallback(null)` may be used. Calling this\nmethod with a non-`null` argument while another capture function is set will\nthrow an error.\n\nUsing this function is mutually exclusive with using the deprecated `domain` built-in module.",
+      "translated": "`process.setUncaughtExceptionCaptureCallback()` 関数は、捕捉されない例外が発生したときに呼び出される関数を設定する。その関数は、例外の値自体を第 1 引数として受け取る。\n\nそのような関数が設定されている場合、`'uncaughtException'` イベントは発生しない。コマンドラインから `--abort-on-uncaught-exception` が渡された、または `v8.setFlagsFromString()` で設定された場合でも、プロセスは abort しない。レポート生成など、例外時に行われるよう設定されたアクションも影響を受ける。\n\n捕捉関数を解除するには、`process.setUncaughtExceptionCaptureCallback(null)` を使える。別の捕捉関数が設定されている間に、非 `null` 引数でこのメソッドを呼ぶとエラーを投げる。\n\nこの関数の使用は、非推奨の `domain` 組み込みモジュールの使用と相互排他的である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.setUncaughtExceptionCaptureCallback",
+      "lang": "ja"
+    },
+    "0624c032": {
+      "original": "The `process.sourceMapsEnabled` property returns whether the [Source Map v3](https://sourcemaps.info/spec.html) support for stack traces is enabled.",
+      "translated": "`process.sourceMapsEnabled` プロパティは、スタックトレースに対する [Source Map v3](https://sourcemaps.info/spec.html) サポートが有効かどうかを返す。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.sourceMapsEnabled",
+      "lang": "ja"
+    },
+    "02583576": {
+      "original": "The `process.stderr` property returns a stream connected to`stderr` (fd `2`). It is a `net.Socket` (which is a `Duplex` stream) unless fd `2` refers to a file, in which case it is\na `Writable` stream.\n\n`process.stderr` differs from other Node.js streams in important ways. See `note on process I/O` for more information.",
+      "translated": "`process.stderr` プロパティは、`stderr`(fd `2`)に接続されたストリームを返す。fd `2` がファイルを参照する場合を除き、これは `net.Socket`(`Duplex` ストリーム)である。ファイルを参照する場合は `Writable` ストリームになる。\n\n`process.stderr` は重要な点で他の Node.js ストリームと異なる。詳細は `note on process I/O` を参照。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.stderr",
+      "lang": "ja"
+    },
+    "26c6a359": {
+      "original": "The `process.stdin` property returns a stream connected to`stdin` (fd `0`). It is a `net.Socket` (which is a `Duplex` stream) unless fd `0` refers to a file, in which case it is\na `Readable` stream.\n\nFor details of how to read from `stdin` see `readable.read()`.\n\nAs a `Duplex` stream, `process.stdin` can also be used in \"old\" mode that\nis compatible with scripts written for Node.js prior to v0.10\\.\nFor more information see `Stream compatibility`.\n\nIn \"old\" streams mode the `stdin` stream is paused by default, so one\nmust call `process.stdin.resume()` to read from it. Note also that calling `process.stdin.resume()` itself would switch stream to \"old\" mode.",
+      "translated": "`process.stdin` プロパティは、`stdin`(fd `0`)に接続されたストリームを返す。fd `0` がファイルを参照する場合を除き、これは `net.Socket`(`Duplex` ストリーム)である。ファイルを参照する場合は `Readable` ストリームになる。\n\n`stdin` からの読み取り方法の詳細は `readable.read()` を参照。\n\n`Duplex` ストリームとして、`process.stdin` は v0.10 より前の Node.js 向けに書かれたスクリプトと互換の「古い」モードでも使える。\n詳細は `Stream compatibility` を参照。\n\n「古い」ストリームモードでは `stdin` ストリームは既定で一時停止されているため、そこから読み取るには `process.stdin.resume()` を呼ばなければならない。また、`process.stdin.resume()` 自体を呼ぶとストリームが「古い」モードに切り替わる点にも注意。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.stdin",
+      "lang": "ja"
+    },
+    "ce8bfc55": {
+      "original": "The `process.stdout` property returns a stream connected to`stdout` (fd `1`). It is a `net.Socket` (which is a `Duplex` stream) unless fd `1` refers to a file, in which case it is\na `Writable` stream.\n\nFor example, to copy `process.stdin` to `process.stdout`:\n\n```js\nimport { stdin, stdout } from 'node:process';\n\nstdin.pipe(stdout);\n```\n\n`process.stdout` differs from other Node.js streams in important ways. See `note on process I/O` for more information.",
+      "translated": "`process.stdout` プロパティは、`stdout`(fd `1`)に接続されたストリームを返す。fd `1` がファイルを参照する場合を除き、これは `net.Socket`(`Duplex` ストリーム)である。ファイルを参照する場合は `Writable` ストリームになる。\n\nたとえば、`process.stdin` を `process.stdout` にコピーするには:\n\n```js\nimport { stdin, stdout } from 'node:process';\n\nstdin.pipe(stdout);\n```\n\n`process.stdout` は重要な点で他の Node.js ストリームと異なる。詳細は `note on process I/O` を参照。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.stdout",
+      "lang": "ja"
+    },
+    "8e4242f7": {
+      "original": "A previous return value from calling\n`process.threadCpuUsage()`",
+      "translated": "以前の `process.threadCpuUsage()` 呼び出しの戻り値",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.threadCpuUsage",
+      "lang": "ja"
+    },
+    "b3c3cd43": {
+      "original": "The `process.threadCpuUsage()` method returns the user and system CPU time usage of\nthe current worker thread, in an object with properties `user` and `system`, whose\nvalues are microsecond values (millionth of a second).\n\nThe result of a previous call to `process.threadCpuUsage()` can be passed as the\nargument to the function, to get a diff reading.",
+      "translated": "`process.threadCpuUsage()` メソッドは、現在のワーカースレッドのユーザーおよびシステムの CPU 時間使用量を、`user` と `system` プロパティを持つオブジェクトで返す。値はマイクロ秒値(100 万分の 1 秒)である。\n\n以前の `process.threadCpuUsage()` 呼び出しの結果を引数として関数に渡すと、差分の読み取り値を得られる。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.threadCpuUsage",
+      "lang": "ja"
+    },
+    "23864e0a": {
+      "original": "The initial value of `process.throwDeprecation` indicates whether the `--throw-deprecation` flag is set on the current Node.js process. `process.throwDeprecation`\nis mutable, so whether or not deprecation warnings result in errors may be altered at runtime. See the documentation for the 'warning' event and the emitWarning()\nmethod for more information.\n\n```bash\n$ node --throw-deprecation -p \"process.throwDeprecation\"\ntrue\n$ node -p \"process.throwDeprecation\"\nundefined\n$ node\n> process.emitWarning('test', 'DeprecationWarning');\nundefined\n> (node:26598) DeprecationWarning: test\n> process.throwDeprecation = true;\ntrue\n> process.emitWarning('test', 'DeprecationWarning');\nThrown:\n[DeprecationWarning: test] { name: 'DeprecationWarning' }\n```",
+      "translated": "`process.throwDeprecation` の初期値は、現在の Node.js プロセスで `--throw-deprecation` フラグが設定されているかどうかを示す。`process.throwDeprecation` は可変なので、非推奨警告がエラーになるかどうかを実行時に変更できる。詳細は 'warning' イベントと emitWarning() メソッドのドキュメントを参照。\n\n```bash\n$ node --throw-deprecation -p \"process.throwDeprecation\"\ntrue\n$ node -p \"process.throwDeprecation\"\nundefined\n$ node\n> process.emitWarning('test', 'DeprecationWarning');\nundefined\n> (node:26598) DeprecationWarning: test\n> process.throwDeprecation = true;\ntrue\n> process.emitWarning('test', 'DeprecationWarning');\nThrown:\n[DeprecationWarning: test] { name: 'DeprecationWarning' }\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.throwDeprecation",
+      "lang": "ja"
+    },
+    "6863a610": {
+      "original": "The `process.title` property returns the current process title (i.e. returns\nthe current value of `ps`). Assigning a new value to `process.title` modifies\nthe current value of `ps`.\n\nWhen a new value is assigned, different platforms will impose different maximum\nlength restrictions on the title. Usually such restrictions are quite limited.\nFor instance, on Linux and macOS, `process.title` is limited to the size of the\nbinary name plus the length of the command-line arguments because setting the `process.title` overwrites the `argv` memory of the process. Node.js v0.8\nallowed for longer process title strings by also overwriting the `environ` memory but that was potentially insecure and confusing in some (rather obscure)\ncases.\n\nAssigning a value to `process.title` might not result in an accurate label\nwithin process manager applications such as macOS Activity Monitor or Windows\nServices Manager.",
+      "translated": "`process.title` プロパティは、現在のプロセスタイトルを返す(すなわち `ps` の現在の値を返す)。`process.title` に新しい値を代入すると、`ps` の現在の値が変更される。\n\n新しい値を代入すると、プラットフォームによってタイトルの最大長にさまざまな制限が課される。通常、そのような制限はかなり限定的である。たとえば Linux と macOS では、`process.title` の設定がプロセスの `argv` メモリを上書きするため、`process.title` はバイナリ名のサイズにコマンドライン引数の長さを加えたものに制限される。Node.js v0.8 では `environ` メモリも上書きすることでより長いプロセスタイトル文字列を許可していたが、それは潜在的に安全でなく、(かなり分かりにくい)一部のケースで混乱を招くものだった。\n\n`process.title` に値を代入しても、macOS のアクティビティモニタや Windows のサービスマネージャーなどのプロセス管理アプリケーション内で正確なラベルにならないことがある。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.title",
+      "lang": "ja"
+    },
+    "bf1cf479": {
+      "original": "The `process.traceDeprecation` property indicates whether the `--trace-deprecation` flag is set on the current Node.js process. See the\ndocumentation for the `'warning' event` and the `emitWarning() method` for more information about this\nflag's behavior.",
+      "translated": "`process.traceDeprecation` プロパティは、現在の Node.js プロセスで `--trace-deprecation` フラグが設定されているかどうかを示す。このフラグの挙動の詳細は、`'warning' event` と `emitWarning() method` のドキュメントを参照。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.traceDeprecation",
+      "lang": "ja"
+    },
+    "327b5ca9": {
+      "original": "`process.umask()` returns the Node.js process's file mode creation mask. Child\nprocesses inherit the mask from the parent process.",
+      "translated": "`process.umask()` は、Node.js プロセスのファイルモード作成マスクを返す。子プロセスは親プロセスからマスクを継承する。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.umask",
+      "lang": "ja"
+    },
+    "0270a145": {
+      "original": "Calling `process.umask()` with no argument causes the process-wide umask to be written twice. This introduces a race condition between threads, and is a potential\nsecurity vulnerability. There is no safe, cross-platform alternative API.",
+      "translated": "引数なしで `process.umask()` を呼ぶと、プロセス全体の umask が 2 回書き込まれる。これはスレッド間の競合状態を生み、潜在的なセキュリティ脆弱性となる。安全でクロスプラットフォームな代替 API は存在しない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.umask",
+      "lang": "ja"
+    },
+    "12b943c6": {
+      "original": "Can only be set if not in worker thread.",
+      "translated": "ワーカースレッド内でない場合にのみ設定できる。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.umask",
+      "lang": "ja"
+    },
+    "4b832a05": {
+      "original": "An object is \"unrefable\" if it implements the Node.js \"Refable protocol\".\nSpecifically, this means that the object implements the `Symbol.for('nodejs.ref')`\nand `Symbol.for('nodejs.unref')` methods. \"Ref'd\" objects will keep the Node.js\nevent loop alive, while \"unref'd\" objects will not. Historically, this was\nimplemented by using `ref()` and `unref()` methods directly on the objects.\nThis pattern, however, is being deprecated in favor of the \"Refable protocol\"\nin order to better support Web Platform API types whose APIs cannot be modified\nto add `ref()` and `unref()` methods but still need to support that behavior.",
+      "translated": "オブジェクトが Node.js の「Refable プロトコル」を実装している場合、そのオブジェクトは「unrefable」である。具体的には、オブジェクトが `Symbol.for('nodejs.ref')` と `Symbol.for('nodejs.unref')` メソッドを実装していることを意味する。「ref された」オブジェクトは Node.js イベントループを生かし続け、「unref された」オブジェクトは生かし続けない。歴史的には、これはオブジェクトに直接 `ref()` と `unref()` メソッドを実装することで行われていた。しかしこのパターンは、`ref()` と `unref()` メソッドを追加するように API を変更できないが、それでもその挙動をサポートする必要がある Web Platform API 型をよりよくサポートするため、「Refable プロトコル」を優先して非推奨になりつつある。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.unref",
+      "lang": "ja"
+    },
+    "478d7089": {
+      "original": "An object that may be \"unref'd\".",
+      "translated": "「unref」できる可能性のあるオブジェクト。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.unref",
+      "lang": "ja"
+    },
+    "81fe7b5c": {
+      "original": "The `process.uptime()` method returns the number of seconds the current Node.js\nprocess has been running.\n\nThe return value includes fractions of a second. Use `Math.floor()` to get whole\nseconds.",
+      "translated": "`process.uptime()` メソッドは、現在の Node.js プロセスが実行されている秒数を返す。\n\n戻り値は秒の端数を含む。整数秒を得るには `Math.floor()` を使う。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.uptime",
+      "lang": "ja"
+    },
+    "06cec988": {
+      "original": "The `process.version` property contains the Node.js version string.\n\n```js\nimport { version } from 'node:process';\n\nconsole.log(`Version: ${version}`);\n// Version: v14.8.0\n```\n\nTo get the version string without the prepended _v_, use`process.versions.node`.",
+      "translated": "`process.version` プロパティは、Node.js のバージョン文字列を含む。\n\n```js\nimport { version } from 'node:process';\n\nconsole.log(`Version: ${version}`);\n// Version: v14.8.0\n```\n\n先頭の _v_ を付けないバージョン文字列を得るには、`process.versions.node` を使う。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.version",
+      "lang": "ja"
+    },
+    "a10ce0a8": {
+      "original": "The `process.versions` property returns an object listing the version strings of\nNode.js and its dependencies. `process.versions.modules` indicates the current\nABI version, which is increased whenever a C++ API changes. Node.js will refuse\nto load modules that were compiled against a different module ABI version.\n\n```js\nimport { versions } from 'node:process';\n\nconsole.log(versions);\n```\n\nWill generate an object similar to:\n\n```console\n{ node: '20.2.0',\n  acorn: '8.8.2',\n  ada: '2.4.0',\n  ares: '1.19.0',\n  base64: '0.5.0',\n  brotli: '1.0.9',\n  cjs_module_lexer: '1.2.2',\n  cldr: '43.0',\n  icu: '73.1',\n  llhttp: '8.1.0',\n  modules: '115',\n  napi: '8',\n  nghttp2: '1.52.0',\n  nghttp3: '0.7.0',\n  ngtcp2: '0.8.1',\n  openssl: '3.0.8+quic',\n  simdutf: '3.2.9',\n  tz: '2023c',\n  undici: '5.22.0',\n  unicode: '15.0',\n  uv: '1.44.2',\n  uvwasi: '0.0.16',\n  v8: '11.3.244.8-node.9',\n  zlib: '1.2.13' }\n```",
+      "translated": "`process.versions` プロパティは、Node.js とその依存関係のバージョン文字列を列挙するオブジェクトを返す。`process.versions.modules` は現在の ABI バージョンを示し、これは C++ API が変わるたびに増える。Node.js は、異なるモジュール ABI バージョンに対してコンパイルされたモジュールの読み込みを拒否する。\n\n```js\nimport { versions } from 'node:process';\n\nconsole.log(versions);\n```\n\nは次のようなオブジェクトを生成する:\n\n```console\n{ node: '20.2.0',\n  acorn: '8.8.2',\n  ada: '2.4.0',\n  ares: '1.19.0',\n  base64: '0.5.0',\n  brotli: '1.0.9',\n  cjs_module_lexer: '1.2.2',\n  cldr: '43.0',\n  icu: '73.1',\n  llhttp: '8.1.0',\n  modules: '115',\n  napi: '8',\n  nghttp2: '1.52.0',\n  nghttp3: '0.7.0',\n  ngtcp2: '0.8.1',\n  openssl: '3.0.8+quic',\n  simdutf: '3.2.9',\n  tz: '2023c',\n  undici: '5.22.0',\n  unicode: '15.0',\n  uv: '1.44.2',\n  uvwasi: '0.0.16',\n  v8: '11.3.244.8-node.9',\n  zlib: '1.2.13' }\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.Process.versions",
+      "lang": "ja"
+    },
+    "19bfd1c4": {
+      "original": "A boolean value that is `true` if the current Node.js build is caching builtin modules.",
+      "translated": "現在の Node.js ビルドが組み込みモジュールをキャッシュしている場合に `true` になる真偽値。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.cached_builtins",
+      "lang": "ja"
+    },
+    "418859a4": {
+      "original": "A boolean value that is `true` if the current Node.js build is a debug build.",
+      "translated": "現在の Node.js ビルドがデバッグビルドの場合に `true` になる真偽値。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.debug",
+      "lang": "ja"
+    },
+    "587ea90a": {
+      "original": "A boolean value that is `true` if the current Node.js build includes the inspector.",
+      "translated": "現在の Node.js ビルドが inspector を含む場合に `true` になる真偽値。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.inspector",
+      "lang": "ja"
+    },
+    "714bd77b": {
+      "original": "A boolean value that is `true` if the current Node.js build includes support for IPv6.\n\nSince all Node.js builds have IPv6 support, this value is always `true`.",
+      "translated": "現在の Node.js ビルドが IPv6 のサポートを含む場合に `true` になる真偽値。\n\nすべての Node.js ビルドは IPv6 をサポートするため、この値は常に `true` である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.ipv6",
+      "lang": "ja"
+    },
+    "cd79ce15": {
+      "original": "This property is always true, and any checks based on it are redundant.",
+      "translated": "このプロパティは常に true であり、これに基づくチェックはすべて冗長である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.ipv6",
+      "lang": "ja"
+    },
+    "1baa4131": {
+      "original": "A boolean value that is `true` if the current Node.js build supports\n[loading ECMAScript modules using `require()`](https://nodejs.org/docs/latest-v22.x/api/modules.md#loading-ecmascript-modules-using-require).",
+      "translated": "現在の Node.js ビルドが [`require()` を使った ECMAScript モジュールの読み込み](https://nodejs.org/docs/latest-v22.x/api/modules.md#loading-ecmascript-modules-using-require)をサポートする場合に `true` になる真偽値。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.require_module",
+      "lang": "ja"
+    },
+    "e3374221": {
+      "original": "A boolean value that is `true` if the current Node.js build includes support for TLS.",
+      "translated": "現在の Node.js ビルドが TLS のサポートを含む場合に `true` になる真偽値。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.tls",
+      "lang": "ja"
+    },
+    "3f92635a": {
+      "original": "A boolean value that is `true` if the current Node.js build includes support for ALPN in TLS.\n\nIn Node.js 11.0.0 and later versions, the OpenSSL dependencies feature unconditional ALPN support.\nThis value is therefore identical to that of `process.features.tls`.",
+      "translated": "現在の Node.js ビルドが TLS の ALPN サポートを含む場合に `true` になる真偽値。\n\nNode.js 11.0.0 以降のバージョンでは、OpenSSL の依存関係が無条件の ALPN サポートを備える。したがってこの値は `process.features.tls` の値と同一である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.tls_alpn",
+      "lang": "ja"
+    },
+    "36a08365": {
+      "original": "Use `process.features.tls` instead.",
+      "translated": "代わりに `process.features.tls` を使うこと。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.tls_alpn",
+      "lang": "ja"
+    },
+    "611bf320": {
+      "original": "A boolean value that is `true` if the current Node.js build includes support for OCSP in TLS.\n\nIn Node.js 11.0.0 and later versions, the OpenSSL dependencies feature unconditional OCSP support.\nThis value is therefore identical to that of `process.features.tls`.",
+      "translated": "現在の Node.js ビルドが TLS の OCSP サポートを含む場合に `true` になる真偽値。\n\nNode.js 11.0.0 以降のバージョンでは、OpenSSL の依存関係が無条件の OCSP サポートを備える。したがってこの値は `process.features.tls` の値と同一である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.tls_ocsp",
+      "lang": "ja"
+    },
+    "ff924137": {
+      "original": "A boolean value that is `true` if the current Node.js build includes support for SNI in TLS.\n\nIn Node.js 11.0.0 and later versions, the OpenSSL dependencies feature unconditional SNI support.\nThis value is therefore identical to that of `process.features.tls`.",
+      "translated": "現在の Node.js ビルドが TLS の SNI サポートを含む場合に `true` になる真偽値。\n\nNode.js 11.0.0 以降のバージョンでは、OpenSSL の依存関係が無条件の SNI サポートを備える。したがってこの値は `process.features.tls` の値と同一である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.tls_sni",
+      "lang": "ja"
+    },
+    "ef57188f": {
+      "original": "A boolean value that is `true` if the current Node.js build includes support for libuv.\n\nSince it's not possible to build Node.js without libuv, this value is always `true`.",
+      "translated": "現在の Node.js ビルドが libuv のサポートを含む場合に `true` になる真偽値。\n\nlibuv なしで Node.js をビルドすることは不可能なので、この値は常に `true` である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.uv",
+      "lang": "ja"
+    },
+    "e04693b2": {
+      "original": "Verifies that the process is able to access the given scope and reference.\nIf no reference is provided, a global scope is assumed, for instance, `process.permission.has('fs.read')`\nwill check if the process has ALL file system read permissions.\n\nThe reference has a meaning based on the provided scope. For example, the reference when the scope is File System means files and folders.\n\nThe available scopes are:\n\n* `fs` - All File System\n* `fs.read` - File System read operations\n* `fs.write` - File System write operations\n* `child` - Child process spawning operations\n* `worker` - Worker thread spawning operation\n\n```js\n// Check if the process has permission to read the README file\nprocess.permission.has('fs.read', './README.md');\n// Check if the process has read permission operations\nprocess.permission.has('fs.read');\n```",
+      "translated": "プロセスが指定したスコープと参照にアクセスできるかを検証する。参照が指定されない場合、グローバルスコープが仮定される。たとえば `process.permission.has('fs.read')` は、プロセスがすべてのファイルシステム読み取り権限を持つかを確認する。\n\n参照は、指定したスコープに基づいた意味を持つ。たとえばスコープが File System のとき、参照はファイルとフォルダーを意味する。\n\n利用可能なスコープは:\n\n* `fs` - すべてのファイルシステム\n* `fs.read` - ファイルシステムの読み取り操作\n* `fs.write` - ファイルシステムの書き込み操作\n* `child` - 子プロセスの spawn 操作\n* `worker` - ワーカースレッドの spawn 操作\n\n```js\n// Check if the process has permission to read the README file\nprocess.permission.has('fs.read', './README.md');\n// Check if the process has read permission operations\nprocess.permission.has('fs.read');\n```",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessPermission.has",
+      "lang": "ja"
+    },
+    "d3010d40": {
+      "original": "Write reports in a compact format, single-line JSON, more easily consumable by log processing systems\nthan the default multi-line format designed for human consumption.",
+      "translated": "レポートをコンパクトな形式(単一行 JSON)で書き出す。人間向けに設計された既定の複数行形式より、ログ処理システムで扱いやすい。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.compact",
+      "lang": "ja"
+    },
+    "fe0c2bb5": {
+      "original": "Directory where the report is written.\nThe default value is the empty string, indicating that reports are written to the current\nworking directory of the Node.js process.",
+      "translated": "レポートが書き出されるディレクトリ。\n既定値は空文字列で、レポートが Node.js プロセスのカレントワーキングディレクトリに書き出されることを示す。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.directory",
+      "lang": "ja"
+    },
+    "11ee7163": {
+      "original": "If true, a diagnostic report is generated without the environment variables.",
+      "translated": "true の場合、環境変数を含めずに診断レポートが生成される。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.excludeEnv",
+      "lang": "ja"
+    },
+    "23a831c6": {
+      "original": "Filename where the report is written. If set to the empty string, the output filename will be comprised\nof a timestamp, PID, and sequence number. The default value is the empty string.",
+      "translated": "レポートが書き出されるファイル名。空文字列に設定すると、出力ファイル名はタイムスタンプ・PID・シーケンス番号で構成される。既定値は空文字列である。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.filename",
+      "lang": "ja"
+    },
+    "e9d294bc": {
+      "original": "Returns a JavaScript Object representation of a diagnostic report for the running process.\nThe report's JavaScript stack trace is taken from `err`, if present.",
+      "translated": "実行中のプロセスの診断レポートの JavaScript オブジェクト表現を返す。レポートの JavaScript スタックトレースは、`err` があればそこから取られる。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.getReport",
+      "lang": "ja"
+    },
+    "2edb62bb": {
+      "original": "If true, a diagnostic report is generated on fatal errors,\nsuch as out of memory errors or failed C++ assertions.",
+      "translated": "true の場合、メモリ不足エラーや C++ アサーションの失敗などの致命的エラー時に診断レポートが生成される。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.reportOnFatalError",
+      "lang": "ja"
+    },
+    "6dd7eb3a": {
+      "original": "If true, a diagnostic report is generated when the process\nreceives the signal specified by process.report.signal.",
+      "translated": "true の場合、プロセスが process.report.signal で指定したシグナルを受け取ったときに診断レポートが生成される。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.reportOnSignal",
+      "lang": "ja"
+    },
+    "27e243c4": {
+      "original": "If true, a diagnostic report is generated on uncaught exception.",
+      "translated": "true の場合、捕捉されない例外時に診断レポートが生成される。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.reportOnUncaughtException",
+      "lang": "ja"
+    },
+    "f784b247": {
+      "original": "The signal used to trigger the creation of a diagnostic report.",
+      "translated": "診断レポートの作成をトリガーするために使うシグナル。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.signal",
+      "lang": "ja"
+    },
+    "9343ef1a": {
+      "original": "A custom error used for reporting the JavaScript stack.",
+      "translated": "JavaScript スタックの報告に使うカスタムエラー。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.writeReport",
+      "lang": "ja"
+    },
+    "6eb49352": {
+      "original": "Filename of the generated report.",
+      "translated": "生成されるレポートのファイル名。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.writeReport",
+      "lang": "ja"
+    },
+    "5109f8bf": {
+      "original": "Name of the file where the report is written.\nThis should be a relative path, that will be appended to the directory specified in\n`process.report.directory`, or the current working directory of the Node.js process,\nif unspecified.",
+      "translated": "レポートが書き出されるファイルの名前。\nこれは相対パスであるべきで、`process.report.directory` で指定したディレクトリ、または指定がなければ Node.js プロセスのカレントワーキングディレクトリに追加される。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.writeReport",
+      "lang": "ja"
+    },
+    "7e5eac3e": {
+      "original": "Writes a diagnostic report to a file. If filename is not provided, the default filename\nincludes the date, time, PID, and a sequence number.\nThe report's JavaScript stack trace is taken from `err`, if present.\n\nIf the value of filename is set to `'stdout'` or `'stderr'`, the report is written\nto the stdout or stderr of the process respectively.",
+      "translated": "診断レポートをファイルに書き出す。filename を指定しない場合、既定のファイル名には日付・時刻・PID・シーケンス番号が含まれる。レポートの JavaScript スタックトレースは、`err` があればそこから取られる。\n\nfilename の値が `'stdout'` または `'stderr'` に設定されている場合、レポートはそれぞれプロセスの stdout または stderr に書き出される。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessReport.writeReport",
+      "lang": "ja"
+    },
+    "59e08a10": {
+      "original": "Most of the time the unhandledRejection will be an Error, but this should not be relied upon\nas *anything* can be thrown/rejected, it is therefore unsafe to assume that the value is an Error.",
+      "translated": "ほとんどの場合、unhandledRejection は Error だが、_あらゆるもの_が throw/reject され得るため、これに依存すべきではない。したがって、値が Error であると仮定するのは安全でない。",
+      "symbol": "@types/node/process.d.ts#process.global.NodeJS.UnhandledRejectionListener",
       "lang": "ja"
     }
   }
