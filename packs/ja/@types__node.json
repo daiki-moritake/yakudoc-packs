@@ -10,6 +10,12 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.fill",
       "lang": "ja"
     },
+    "11742929": {
+      "original": "Interprets `buf` as an array of unsigned 32-bit integers and swaps the\nbyte order _in-place_. Throws `ERR_INVALID_BUFFER_SIZE` if `buf.length` is not a multiple of 4.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);\n\nconsole.log(buf1);\n// Prints: <Buffer 01 02 03 04 05 06 07 08>\n\nbuf1.swap32();\n\nconsole.log(buf1);\n// Prints: <Buffer 04 03 02 01 08 07 06 05>\n\nconst buf2 = Buffer.from([0x1, 0x2, 0x3]);\n\nbuf2.swap32();\n// Throws ERR_INVALID_BUFFER_SIZE.\n```",
+      "translated": "`buf` を符号なし 32 ビット整数の配列として解釈し、バイト順を_その場で_入れ替える。`buf.length` が 4 の倍数でない場合は `ERR_INVALID_BUFFER_SIZE` を投げる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);\n\nconsole.log(buf1);\n// Prints: <Buffer 01 02 03 04 05 06 07 08>\n\nbuf1.swap32();\n\nconsole.log(buf1);\n// Prints: <Buffer 04 03 02 01 08 07 06 05>\n\nconst buf2 = Buffer.from([0x1, 0x2, 0x3]);\n\nbuf2.swap32();\n// Throws ERR_INVALID_BUFFER_SIZE.\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.swap32",
+      "lang": "ja"
+    },
     "14610749": {
       "original": "A value that is `\"strip\"` by default,\n`\"transform\"` if Node.js is run with `--experimental-transform-types`, and `false` if\nNode.js is run with `--no-experimental-strip-types`.",
       "translated": "既定では `\"strip\"`、Node.js を `--experimental-transform-types` 付きで実行した場合は `\"transform\"`、`--no-experimental-strip-types` 付きで実行した場合は `false` になる値。",
@@ -26,6 +32,12 @@
       "original": "Reads a signed, big-endian 64-bit integer from `buf` at the specified `offset`.\n\nIntegers read from a `Buffer` are interpreted as two's complement signed\nvalues.",
       "translated": "`buf` の指定した `offset` から符号付きビッグエンディアンの 64 ビット整数を読む。\n\n`Buffer` から読んだ整数は 2 の補数の符号付き値として解釈される。",
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readBigInt64BE",
+      "lang": "ja"
+    },
+    "62027729": {
+      "original": "Number of bytes to skip before starting to read. Must satisfy `0 <= offset <= buf.length - 1`.",
+      "translated": "読み始める前にスキップするバイト数。`0 <= offset <= buf.length - 1` を満たさなければならない。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt8",
       "lang": "ja"
     },
     "d72894a9": {
@@ -464,6 +476,192 @@
       "original": "Reads an unsigned, little-endian 16-bit integer from `buf` at the specified `offset`.\n\nThis function is also available under the `readUint16LE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56]);\n\nconsole.log(buf.readUInt16LE(0).toString(16));\n// Prints: 3412\nconsole.log(buf.readUInt16LE(1).toString(16));\n// Prints: 5634\nconsole.log(buf.readUInt16LE(2).toString(16));\n// Throws ERR_OUT_OF_RANGE.\n```",
       "translated": "`buf` の指定した `offset` から符号なしリトルエンディアンの 16 ビット整数を読む。\n\nこの関数は `readUint16LE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56]);\n\nconsole.log(buf.readUInt16LE(0).toString(16));\n// Prints: 3412\nconsole.log(buf.readUInt16LE(1).toString(16));\n// Prints: 5634\nconsole.log(buf.readUInt16LE(2).toString(16));\n// Throws ERR_OUT_OF_RANGE.\n```",
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt16LE",
+      "lang": "ja"
+    },
+    "ef962d5e": {
+      "original": "Reads an unsigned, big-endian 32-bit integer from `buf` at the specified`offset`.\n\nThis function is also available under the `readUint32BE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78]);\n\nconsole.log(buf.readUInt32BE(0).toString(16));\n// Prints: 12345678\n```",
+      "translated": "`buf` の指定した `offset` から符号なしビッグエンディアンの 32 ビット整数を読む。\n\nこの関数は `readUint32BE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78]);\n\nconsole.log(buf.readUInt32BE(0).toString(16));\n// Prints: 12345678\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt32BE",
+      "lang": "ja"
+    },
+    "92e86846": {
+      "original": "Number of bytes to skip before starting to read. Must satisfy `0 <= offset <= buf.length - 4`.",
+      "translated": "読み始める前にスキップするバイト数。`0 <= offset <= buf.length - 4` を満たさなければならない。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt32LE",
+      "lang": "ja"
+    },
+    "cef3c683": {
+      "original": "Reads an unsigned, little-endian 32-bit integer from `buf` at the specified`offset`.\n\nThis function is also available under the `readUint32LE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78]);\n\nconsole.log(buf.readUInt32LE(0).toString(16));\n// Prints: 78563412\nconsole.log(buf.readUInt32LE(1).toString(16));\n// Throws ERR_OUT_OF_RANGE.\n```",
+      "translated": "`buf` の指定した `offset` から符号なしリトルエンディアンの 32 ビット整数を読む。\n\nこの関数は `readUint32LE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78]);\n\nconsole.log(buf.readUInt32LE(0).toString(16));\n// Prints: 78563412\nconsole.log(buf.readUInt32LE(1).toString(16));\n// Throws ERR_OUT_OF_RANGE.\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt32LE",
+      "lang": "ja"
+    },
+    "e6ac7426": {
+      "original": "Reads an unsigned 8-bit integer from `buf` at the specified `offset`.\n\nThis function is also available under the `readUint8` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([1, -2]);\n\nconsole.log(buf.readUInt8(0));\n// Prints: 1\nconsole.log(buf.readUInt8(1));\n// Prints: 254\nconsole.log(buf.readUInt8(2));\n// Throws ERR_OUT_OF_RANGE.\n```",
+      "translated": "`buf` の指定した `offset` から符号なし 8 ビット整数を読む。\n\nこの関数は `readUint8` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([1, -2]);\n\nconsole.log(buf.readUInt8(0));\n// Prints: 1\nconsole.log(buf.readUInt8(1));\n// Prints: 254\nconsole.log(buf.readUInt8(2));\n// Throws ERR_OUT_OF_RANGE.\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt8",
+      "lang": "ja"
+    },
+    "82b32cf6": {
+      "original": "Reads `byteLength` number of bytes from `buf` at the specified `offset` and interprets the result as an unsigned big-endian integer supporting\nup to 48 bits of accuracy.\n\nThis function is also available under the `readUintBE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);\n\nconsole.log(buf.readUIntBE(0, 6).toString(16));\n// Prints: 1234567890ab\nconsole.log(buf.readUIntBE(1, 6).toString(16));\n// Throws ERR_OUT_OF_RANGE.\n```",
+      "translated": "`buf` の指定した `offset` から `byteLength` バイトを読み、結果を最大 48 ビットの精度をサポートする符号なしビッグエンディアン整数として解釈する。\n\nこの関数は `readUintBE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);\n\nconsole.log(buf.readUIntBE(0, 6).toString(16));\n// Prints: 1234567890ab\nconsole.log(buf.readUIntBE(1, 6).toString(16));\n// Throws ERR_OUT_OF_RANGE.\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUIntBE",
+      "lang": "ja"
+    },
+    "26ae22fa": {
+      "original": "Number of bytes to read. Must satisfy `0 < byteLength <= 6`.",
+      "translated": "読むバイト数。`0 < byteLength <= 6` を満たさなければならない。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUIntLE",
+      "lang": "ja"
+    },
+    "2e07fc5b": {
+      "original": "Number of bytes to skip before starting to read. Must satisfy `0 <= offset <= buf.length - byteLength`.",
+      "translated": "読み始める前にスキップするバイト数。`0 <= offset <= buf.length - byteLength` を満たさなければならない。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUIntLE",
+      "lang": "ja"
+    },
+    "e9d6ccba": {
+      "original": "Reads `byteLength` number of bytes from `buf` at the specified `offset` and interprets the result as an unsigned, little-endian integer supporting\nup to 48 bits of accuracy.\n\nThis function is also available under the `readUintLE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);\n\nconsole.log(buf.readUIntLE(0, 6).toString(16));\n// Prints: ab9078563412\n```",
+      "translated": "`buf` の指定した `offset` から `byteLength` バイトを読み、結果を最大 48 ビットの精度をサポートする符号なしリトルエンディアン整数として解釈する。\n\nこの関数は `readUintLE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);\n\nconsole.log(buf.readUIntLE(0, 6).toString(16));\n// Prints: ab9078563412\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUIntLE",
+      "lang": "ja"
+    },
+    "d5b87dca": {
+      "original": "A reference to `buf`.",
+      "translated": "`buf` への参照。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.swap16",
+      "lang": "ja"
+    },
+    "d107764f": {
+      "original": "Interprets `buf` as an array of unsigned 16-bit integers and swaps the\nbyte order _in-place_. Throws `ERR_INVALID_BUFFER_SIZE` if `buf.length` is not a multiple of 2.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);\n\nconsole.log(buf1);\n// Prints: <Buffer 01 02 03 04 05 06 07 08>\n\nbuf1.swap16();\n\nconsole.log(buf1);\n// Prints: <Buffer 02 01 04 03 06 05 08 07>\n\nconst buf2 = Buffer.from([0x1, 0x2, 0x3]);\n\nbuf2.swap16();\n// Throws ERR_INVALID_BUFFER_SIZE.\n```\n\nOne convenient use of `buf.swap16()` is to perform a fast in-place conversion\nbetween UTF-16 little-endian and UTF-16 big-endian:\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from('This is little-endian UTF-16', 'utf16le');\nbuf.swap16(); // Convert to big-endian UTF-16 text.\n```",
+      "translated": "`buf` を符号なし 16 ビット整数の配列として解釈し、バイト順を_その場で_入れ替える。`buf.length` が 2 の倍数でない場合は `ERR_INVALID_BUFFER_SIZE` を投げる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);\n\nconsole.log(buf1);\n// Prints: <Buffer 01 02 03 04 05 06 07 08>\n\nbuf1.swap16();\n\nconsole.log(buf1);\n// Prints: <Buffer 02 01 04 03 06 05 08 07>\n\nconst buf2 = Buffer.from([0x1, 0x2, 0x3]);\n\nbuf2.swap16();\n// Throws ERR_INVALID_BUFFER_SIZE.\n```\n\n`buf.swap16()` の便利な用途の 1 つは、UTF-16 リトルエンディアンと UTF-16 ビッグエンディアンの間の高速なその場変換である:\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from('This is little-endian UTF-16', 'utf16le');\nbuf.swap16(); // Convert to big-endian UTF-16 text.\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.swap16",
+      "lang": "ja"
+    },
+    "12c49cad": {
+      "original": "Interprets `buf` as an array of 64-bit numbers and swaps byte order _in-place_.\nThrows `ERR_INVALID_BUFFER_SIZE` if `buf.length` is not a multiple of 8.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);\n\nconsole.log(buf1);\n// Prints: <Buffer 01 02 03 04 05 06 07 08>\n\nbuf1.swap64();\n\nconsole.log(buf1);\n// Prints: <Buffer 08 07 06 05 04 03 02 01>\n\nconst buf2 = Buffer.from([0x1, 0x2, 0x3]);\n\nbuf2.swap64();\n// Throws ERR_INVALID_BUFFER_SIZE.\n```",
+      "translated": "`buf` を 64 ビット数値の配列として解釈し、バイト順を_その場で_入れ替える。`buf.length` が 8 の倍数でない場合は `ERR_INVALID_BUFFER_SIZE` を投げる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);\n\nconsole.log(buf1);\n// Prints: <Buffer 01 02 03 04 05 06 07 08>\n\nbuf1.swap64();\n\nconsole.log(buf1);\n// Prints: <Buffer 08 07 06 05 04 03 02 01>\n\nconst buf2 = Buffer.from([0x1, 0x2, 0x3]);\n\nbuf2.swap64();\n// Throws ERR_INVALID_BUFFER_SIZE.\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.swap64",
+      "lang": "ja"
+    },
+    "88cb8f81": {
+      "original": "Returns a JSON representation of `buf`. [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) implicitly calls\nthis function when stringifying a `Buffer` instance.\n\n`Buffer.from()` accepts objects in the format returned from this method.\nIn particular, `Buffer.from(buf.toJSON())` works like `Buffer.from(buf)`.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5]);\nconst json = JSON.stringify(buf);\n\nconsole.log(json);\n// Prints: {\"type\":\"Buffer\",\"data\":[1,2,3,4,5]}\n\nconst copy = JSON.parse(json, (key, value) => {\n  return value &#x26;&#x26; value.type === 'Buffer' ?\n    Buffer.from(value) :\n    value;\n});\n\nconsole.log(copy);\n// Prints: <Buffer 01 02 03 04 05>\n```",
+      "translated": "`buf` の JSON 表現を返す。[`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) は、`Buffer` インスタンスを文字列化するとき、この関数を暗黙的に呼び出す。\n\n`Buffer.from()` は、このメソッドが返す形式のオブジェクトを受け付ける。特に `Buffer.from(buf.toJSON())` は `Buffer.from(buf)` のように動作する。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5]);\nconst json = JSON.stringify(buf);\n\nconsole.log(json);\n// Prints: {\"type\":\"Buffer\",\"data\":[1,2,3,4,5]}\n\nconst copy = JSON.parse(json, (key, value) => {\n  return value &#x26;&#x26; value.type === 'Buffer' ?\n    Buffer.from(value) :\n    value;\n});\n\nconsole.log(copy);\n// Prints: <Buffer 01 02 03 04 05>\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.toJSON",
+      "lang": "ja"
+    },
+    "b59636ca": {
+      "original": "Decodes `buf` to a string according to the specified character encoding in`encoding`. `start` and `end` may be passed to decode only a subset of `buf`.\n\nIf `encoding` is `'utf8'` and a byte sequence in the input is not valid UTF-8,\nthen each invalid byte is replaced with the replacement character `U+FFFD`.\n\nThe maximum length of a string instance (in UTF-16 code units) is available\nas {@link constants.MAX_STRING_LENGTH}.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.allocUnsafe(26);\n\nfor (let i = 0; i < 26; i++) {\n  // 97 is the decimal ASCII value for 'a'.\n  buf1[i] = i + 97;\n}\n\nconsole.log(buf1.toString('utf8'));\n// Prints: abcdefghijklmnopqrstuvwxyz\nconsole.log(buf1.toString('utf8', 0, 5));\n// Prints: abcde\n\nconst buf2 = Buffer.from('tést');\n\nconsole.log(buf2.toString('hex'));\n// Prints: 74c3a97374\nconsole.log(buf2.toString('utf8', 0, 3));\n// Prints: té\nconsole.log(buf2.toString(undefined, 0, 3));\n// Prints: té\n```",
+      "translated": "`encoding` で指定した文字エンコーディングに従って `buf` を文字列にデコードする。`buf` の部分集合だけをデコードするために `start` と `end` を渡せる。\n\n`encoding` が `'utf8'` で、入力中のバイト列が有効な UTF-8 でない場合、各無効バイトは置換文字 `U+FFFD` に置き換えられる。\n\n文字列インスタンスの最大長(UTF-16 コード単位)は {@link constants.MAX_STRING_LENGTH} として利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.allocUnsafe(26);\n\nfor (let i = 0; i < 26; i++) {\n  // 97 is the decimal ASCII value for 'a'.\n  buf1[i] = i + 97;\n}\n\nconsole.log(buf1.toString('utf8'));\n// Prints: abcdefghijklmnopqrstuvwxyz\nconsole.log(buf1.toString('utf8', 0, 5));\n// Prints: abcde\n\nconst buf2 = Buffer.from('tést');\n\nconsole.log(buf2.toString('hex'));\n// Prints: 74c3a97374\nconsole.log(buf2.toString('utf8', 0, 3));\n// Prints: té\nconsole.log(buf2.toString(undefined, 0, 3));\n// Prints: té\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.toString",
+      "lang": "ja"
+    },
+    "f7ee0828": {
+      "original": "The byte offset to start decoding at.",
+      "translated": "デコードを開始するバイトオフセット。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.toString",
+      "lang": "ja"
+    },
+    "dc3fc459": {
+      "original": "The byte offset to stop decoding at (not inclusive).",
+      "translated": "デコードを停止するバイトオフセット(含まない)。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.toString",
+      "lang": "ja"
+    },
+    "0cd29404": {
+      "original": "The character encoding to use.",
+      "translated": "使う文字エンコーディング。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.toString",
+      "lang": "ja"
+    },
+    "89d9f7ca": {
+      "original": "Maximum number of bytes to write (written bytes will not exceed `buf.length - offset`).",
+      "translated": "書き込む最大バイト数(書き込まれるバイトは `buf.length - offset` を超えない)。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.write",
+      "lang": "ja"
+    },
+    "366690cb": {
+      "original": "Number of bytes to skip before starting to write `string`.",
+      "translated": "`string` を書き始める前にスキップするバイト数。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.write",
+      "lang": "ja"
+    },
+    "f2765d86": {
+      "original": "Number of bytes written.",
+      "translated": "書き込まれたバイト数。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.write",
+      "lang": "ja"
+    },
+    "393a6ad5": {
+      "original": "String to write to `buf`.",
+      "translated": "`buf` に書き込む文字列。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.write",
+      "lang": "ja"
+    },
+    "617b68cb": {
+      "original": "The character encoding of `string`.",
+      "translated": "`string` の文字エンコーディング。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.write",
+      "lang": "ja"
+    },
+    "5092de1b": {
+      "original": "Writes `string` to `buf` at `offset` according to the character encoding in`encoding`. The `length` parameter is the number of bytes to write. If `buf` did\nnot contain enough space to fit the entire string, only part of `string` will be\nwritten. However, partially encoded characters will not be written.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.alloc(256);\n\nconst len = buf.write('\\u00bd + \\u00bc = \\u00be', 0);\n\nconsole.log(`${len} bytes: ${buf.toString('utf8', 0, len)}`);\n// Prints: 12 bytes: ½ + ¼ = ¾\n\nconst buffer = Buffer.alloc(10);\n\nconst length = buffer.write('abcd', 8);\n\nconsole.log(`${length} bytes: ${buffer.toString('utf8', 8, 10)}`);\n// Prints: 2 bytes : ab\n```",
+      "translated": "`encoding` の文字エンコーディングに従って、`string` を `buf` の `offset` に書き込む。`length` パラメーターは書き込むバイト数である。`buf` に文字列全体を収めるだけの空きがなかった場合、`string` の一部だけが書き込まれる。ただし、部分的にエンコードされた文字は書き込まれない。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.alloc(256);\n\nconst len = buf.write('\\u00bd + \\u00bc = \\u00be', 0);\n\nconsole.log(`${len} bytes: ${buf.toString('utf8', 0, len)}`);\n// Prints: 12 bytes: ½ + ¼ = ¾\n\nconst buffer = Buffer.alloc(10);\n\nconst length = buffer.write('abcd', 8);\n\nconsole.log(`${length} bytes: ${buffer.toString('utf8', 8, 10)}`);\n// Prints: 2 bytes : ab\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.write",
+      "lang": "ja"
+    },
+    "bd065f97": {
+      "original": "`offset` plus the number of bytes written.",
+      "translated": "`offset` に、書き込まれたバイト数を加えた値。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigInt64BE",
+      "lang": "ja"
+    },
+    "7478c4e5": {
+      "original": "Number of bytes to skip before starting to write. Must satisfy: `0 <= offset <= buf.length - 8`.",
+      "translated": "書き込み始める前にスキップするバイト数。`0 <= offset <= buf.length - 8` を満たさなければならない。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigInt64BE",
+      "lang": "ja"
+    },
+    "d08120be": {
+      "original": "Number to be written to `buf`.",
+      "translated": "`buf` に書き込む数値。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigInt64BE",
+      "lang": "ja"
+    },
+    "36632c8e": {
+      "original": "Writes `value` to `buf` at the specified `offset` as big-endian.\n\n`value` is interpreted and written as a two's complement signed integer.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeBigInt64BE(0x0102030405060708n, 0);\n\nconsole.log(buf);\n// Prints: <Buffer 01 02 03 04 05 06 07 08>\n```",
+      "translated": "`value` を `buf` の指定した `offset` にビッグエンディアンで書き込む。\n\n`value` は 2 の補数の符号付き整数として解釈・書き込みされる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeBigInt64BE(0x0102030405060708n, 0);\n\nconsole.log(buf);\n// Prints: <Buffer 01 02 03 04 05 06 07 08>\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigInt64BE",
+      "lang": "ja"
+    },
+    "8a12c137": {
+      "original": "Writes `value` to `buf` at the specified `offset` as little-endian.\n\n`value` is interpreted and written as a two's complement signed integer.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeBigInt64LE(0x0102030405060708n, 0);\n\nconsole.log(buf);\n// Prints: <Buffer 08 07 06 05 04 03 02 01>\n```",
+      "translated": "`value` を `buf` の指定した `offset` にリトルエンディアンで書き込む。\n\n`value` は 2 の補数の符号付き整数として解釈・書き込みされる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeBigInt64LE(0x0102030405060708n, 0);\n\nconsole.log(buf);\n// Prints: <Buffer 08 07 06 05 04 03 02 01>\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigInt64LE",
+      "lang": "ja"
+    },
+    "552dbe0b": {
+      "original": "Writes `value` to `buf` at the specified `offset` as big-endian.\n\nThis function is also available under the `writeBigUint64BE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeBigUInt64BE(0xdecafafecacefaden, 0);\n\nconsole.log(buf);\n// Prints: <Buffer de ca fa fe ca ce fa de>\n```",
+      "translated": "`value` を `buf` の指定した `offset` にビッグエンディアンで書き込む。\n\nこの関数は `writeBigUint64BE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeBigUInt64BE(0xdecafafecacefaden, 0);\n\nconsole.log(buf);\n// Prints: <Buffer de ca fa fe ca ce fa de>\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigUInt64BE",
+      "lang": "ja"
+    },
+    "bf0f0cdf": {
+      "original": "Writes `value` to `buf` at the specified `offset` as little-endian\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeBigUInt64LE(0xdecafafecacefaden, 0);\n\nconsole.log(buf);\n// Prints: <Buffer de fa ce ca fe fa ca de>\n```\n\nThis function is also available under the `writeBigUint64LE` alias.",
+      "translated": "`value` を `buf` の指定した `offset` にリトルエンディアンで書き込む\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeBigUInt64LE(0xdecafafecacefaden, 0);\n\nconsole.log(buf);\n// Prints: <Buffer de fa ce ca fe fa ca de>\n```\n\nこの関数は `writeBigUint64LE` というエイリアスでも利用できる。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigUInt64LE",
+      "lang": "ja"
+    },
+    "df5697dd": {
+      "original": "Writes `value` to `buf` at the specified `offset` as big-endian. The `value` must be a JavaScript number. Behavior is undefined when `value` is anything\nother than a JavaScript number.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeDoubleBE(123.456, 0);\n\nconsole.log(buf);\n// Prints: <Buffer 40 5e dd 2f 1a 9f be 77>\n```",
+      "translated": "`value` を `buf` の指定した `offset` にビッグエンディアンで書き込む。`value` は JavaScript の数値でなければならない。`value` が JavaScript の数値以外の場合の挙動は未定義である。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeDoubleBE(123.456, 0);\n\nconsole.log(buf);\n// Prints: <Buffer 40 5e dd 2f 1a 9f be 77>\n```",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeDoubleBE",
+      "lang": "ja"
+    },
+    "9268ede2": {
+      "original": "Number of bytes to skip before starting to write. Must satisfy `0 <= offset <= buf.length - 8`.",
+      "translated": "書き込み始める前にスキップするバイト数。`0 <= offset <= buf.length - 8` を満たさなければならない。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeDoubleLE",
       "lang": "ja"
     },
     "ebe23990": {
