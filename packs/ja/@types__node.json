@@ -172,6 +172,12 @@
       "symbol": "@types/node/util.d.ts#util.transferableAbortSignal",
       "lang": "ja"
     },
+    "96292876": {
+      "original": "Calculates the digest of all of the data passed to be hashed (using the `hash.update()` method).\nIf `encoding` is provided a string will be returned; otherwise\na `Buffer` is returned.\n\nThe `Hash` object can not be used again after `hash.digest()` method has been\ncalled. Multiple calls will cause an error to be thrown.",
+      "translated": "(`hash.update()` メソッドを使って)ハッシュ対象として渡されたすべてのデータのダイジェストを計算する。`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。\n\n`hash.digest()` メソッドが呼ばれた後、`Hash` オブジェクトは再び使えない。複数回呼ぶとエラーが投げられる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Hash.digest",
+      "lang": "ja"
+    },
     "98461905": {
       "original": "Asynchronous rename(2) - Change the name or location of a file or directory.",
       "translated": "非同期 rename(2) - ファイルまたはディレクトリの名前や場所を変更する。",
@@ -1724,6 +1730,162 @@
       "original": "The intended use of the generated secret key. Currently accepted values are `'hmac'` and `'aes'`.",
       "translated": "生成される秘密鍵の意図された用途。現在受け付けられる値は `'hmac'` と `'aes'` である。",
       "symbol": "@types/node/crypto.d.ts#crypto.generateKey",
+      "lang": "ja"
+    },
+    "d658b936": {
+      "original": "Generates a new asymmetric key pair of the given `type`. RSA, RSA-PSS, DSA, EC,\nEd25519, Ed448, X25519, X448, and DH are currently supported.\n\nIf a `publicKeyEncoding` or `privateKeyEncoding` was specified, this function\nbehaves as if `keyObject.export()` had been called on its result. Otherwise,\nthe respective part of the key is returned as a `KeyObject`.\n\nIt is recommended to encode public keys as `'spki'` and private keys as `'pkcs8'` with encryption for long-term storage:\n\n```js\nconst {\n  generateKeyPair,\n} = await import('node:crypto');\n\ngenerateKeyPair('rsa', {\n  modulusLength: 4096,\n  publicKeyEncoding: {\n    type: 'spki',\n    format: 'pem',\n  },\n  privateKeyEncoding: {\n    type: 'pkcs8',\n    format: 'pem',\n    cipher: 'aes-256-cbc',\n    passphrase: 'top secret',\n  },\n}, (err, publicKey, privateKey) => {\n  // Handle errors and use the generated key pair.\n});\n```\n\nOn completion, `callback` will be called with `err` set to `undefined` and `publicKey` / `privateKey` representing the generated key pair.\n\nIf this method is invoked as its `util.promisify()` ed version, it returns\na `Promise` for an `Object` with `publicKey` and `privateKey` properties.",
+      "translated": "指定した `type` の新しい非対称鍵ペアを生成する。現在、RSA・RSA-PSS・DSA・EC・Ed25519・Ed448・X25519・X448・DH がサポートされている。\n\n`publicKeyEncoding` または `privateKeyEncoding` が指定された場合、この関数はその結果に対して `keyObject.export()` が呼ばれたかのように動作する。そうでなければ、鍵のそれぞれの部分が `KeyObject` として返される。\n\n長期保存のためには、公開鍵を `'spki'` として、秘密鍵を暗号化付きの `'pkcs8'` としてエンコードすることが推奨される:\n\n```js\nconst {\n  generateKeyPair,\n} = await import('node:crypto');\n\ngenerateKeyPair('rsa', {\n  modulusLength: 4096,\n  publicKeyEncoding: {\n    type: 'spki',\n    format: 'pem',\n  },\n  privateKeyEncoding: {\n    type: 'pkcs8',\n    format: 'pem',\n    cipher: 'aes-256-cbc',\n    passphrase: 'top secret',\n  },\n}, (err, publicKey, privateKey) => {\n  // Handle errors and use the generated key pair.\n});\n```\n\n完了時、`callback` は `err` を `undefined` に設定し、`publicKey` / `privateKey` を生成された鍵ペアとして呼ばれる。\n\nこのメソッドが `util.promisify()` された版として呼ばれた場合、`publicKey` と `privateKey` プロパティを持つ `Object` のための `Promise` を返す。",
+      "symbol": "@types/node/crypto.d.ts#crypto.generateKeyPair",
+      "lang": "ja"
+    },
+    "a16b8d23": {
+      "original": "Generates a new asymmetric key pair of the given `type`. RSA, RSA-PSS, DSA, EC,\nEd25519, Ed448, X25519, X448, and DH are currently supported.\n\nIf a `publicKeyEncoding` or `privateKeyEncoding` was specified, this function\nbehaves as if `keyObject.export()` had been called on its result. Otherwise,\nthe respective part of the key is returned as a `KeyObject`.\n\nWhen encoding public keys, it is recommended to use `'spki'`. When encoding\nprivate keys, it is recommended to use `'pkcs8'` with a strong passphrase,\nand to keep the passphrase confidential.\n\n```js\nconst {\n  generateKeyPairSync,\n} = await import('node:crypto');\n\nconst {\n  publicKey,\n  privateKey,\n} = generateKeyPairSync('rsa', {\n  modulusLength: 4096,\n  publicKeyEncoding: {\n    type: 'spki',\n    format: 'pem',\n  },\n  privateKeyEncoding: {\n    type: 'pkcs8',\n    format: 'pem',\n    cipher: 'aes-256-cbc',\n    passphrase: 'top secret',\n  },\n});\n```\n\nThe return value `{ publicKey, privateKey }` represents the generated key pair.\nWhen PEM encoding was selected, the respective key will be a string, otherwise\nit will be a buffer containing the data encoded as DER.",
+      "translated": "指定した `type` の新しい非対称鍵ペアを生成する。現在、RSA・RSA-PSS・DSA・EC・Ed25519・Ed448・X25519・X448・DH がサポートされている。\n\n`publicKeyEncoding` または `privateKeyEncoding` が指定された場合、この関数はその結果に対して `keyObject.export()` が呼ばれたかのように動作する。そうでなければ、鍵のそれぞれの部分が `KeyObject` として返される。\n\n公開鍵をエンコードする際は `'spki'` の使用が推奨される。秘密鍵をエンコードする際は、強力なパスフレーズ付きの `'pkcs8'` を使い、パスフレーズを秘密に保つことが推奨される。\n\n```js\nconst {\n  generateKeyPairSync,\n} = await import('node:crypto');\n\nconst {\n  publicKey,\n  privateKey,\n} = generateKeyPairSync('rsa', {\n  modulusLength: 4096,\n  publicKeyEncoding: {\n    type: 'spki',\n    format: 'pem',\n  },\n  privateKeyEncoding: {\n    type: 'pkcs8',\n    format: 'pem',\n    cipher: 'aes-256-cbc',\n    passphrase: 'top secret',\n  },\n});\n```\n\n戻り値 `{ publicKey, privateKey }` は生成された鍵ペアを表す。PEM エンコードが選ばれた場合、それぞれの鍵は文字列になる。そうでなければ、DER としてエンコードされたデータを含むバッファになる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.generateKeyPairSync",
+      "lang": "ja"
+    },
+    "03282d61": {
+      "original": "Must be `'rsa'`, `'rsa-pss'`, `'dsa'`, `'ec'`, `'ed25519'`, `'ed448'`, `'x25519'`, `'x448'`, or `'dh'`.",
+      "translated": "`'rsa'`・`'rsa-pss'`・`'dsa'`・`'ec'`・`'ed25519'`・`'ed448'`・`'x25519'`・`'x448'`・`'dh'` のいずれかでなければならない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.generateKeyPairSync",
+      "lang": "ja"
+    },
+    "2827a4b9": {
+      "original": "Synchronously generates a new random secret key of the given `length`. The `type` will determine which validations will be performed on the `length`.\n\n```js\nconst {\n  generateKeySync,\n} = await import('node:crypto');\n\nconst key = generateKeySync('hmac', { length: 512 });\nconsole.log(key.export().toString('hex'));  // e89..........41e\n```\n\nThe size of a generated HMAC key should not exceed the block size of the\nunderlying hash function. See {@link createHmac} for more information.",
+      "translated": "指定した `length` の新しいランダムな秘密鍵を同期的に生成する。`type` は `length` に対してどの検証が実行されるかを決定する。\n\n```js\nconst {\n  generateKeySync,\n} = await import('node:crypto');\n\nconst key = generateKeySync('hmac', { length: 512 });\nconsole.log(key.export().toString('hex'));  // e89..........41e\n```\n\n生成される HMAC 鍵のサイズは、基盤となるハッシュ関数のブロックサイズを超えるべきではない。詳細は {@link createHmac} を参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.generateKeySync",
+      "lang": "ja"
+    },
+    "9e746285": {
+      "original": "Generates a pseudorandom prime of `size` bits.\n\nIf `options.safe` is `true`, the prime will be a safe prime -- that is, `(prime - 1) / 2` will also be a prime.\n\nThe `options.add` and `options.rem` parameters can be used to enforce additional\nrequirements, e.g., for Diffie-Hellman:\n\n* If `options.add` and `options.rem` are both set, the prime will satisfy the\ncondition that `prime % add = rem`.\n* If only `options.add` is set and `options.safe` is not `true`, the prime will\nsatisfy the condition that `prime % add = 1`.\n* If only `options.add` is set and `options.safe` is set to `true`, the prime\nwill instead satisfy the condition that `prime % add = 3`. This is necessary\nbecause `prime % add = 1` for `options.add > 2` would contradict the condition\nenforced by `options.safe`.\n* `options.rem` is ignored if `options.add` is not given.\n\nBoth `options.add` and `options.rem` must be encoded as big-endian sequences\nif given as an `ArrayBuffer`, `SharedArrayBuffer`, `TypedArray`, `Buffer`, or `DataView`.\n\nBy default, the prime is encoded as a big-endian sequence of octets\nin an [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer). If the `bigint` option is `true`, then a\n[bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) is provided.",
+      "translated": "`size` ビットの擬似乱数素数を生成する。\n\n`options.safe` が `true` の場合、素数は safe prime になる。すなわち `(prime - 1) / 2` も素数になる。\n\n`options.add` と `options.rem` パラメーターは、たとえば Diffie-Hellman のための追加の要件を強制するために使える:\n\n* `options.add` と `options.rem` の両方が設定された場合、素数は `prime % add = rem` という条件を満たす。\n* `options.add` のみが設定され `options.safe` が `true` でない場合、素数は `prime % add = 1` という条件を満たす。\n* `options.add` のみが設定され `options.safe` が `true` に設定された場合、素数は代わりに `prime % add = 3` という条件を満たす。これは、`options.add > 2` について `prime % add = 1` が `options.safe` により強制される条件と矛盾するため必要である。\n* `options.add` が指定されない場合、`options.rem` は無視される。\n\n`options.add` と `options.rem` はどちらも、`ArrayBuffer`・`SharedArrayBuffer`・`TypedArray`・`Buffer`・`DataView` として指定される場合、ビッグエンディアン列としてエンコードされなければならない。\n\n既定では、素数は [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) 内のビッグエンディアンオクテット列としてエンコードされる。`bigint` オプションが `true` の場合、[bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) が提供される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.generatePrime",
+      "lang": "ja"
+    },
+    "b42bd554": {
+      "original": "The size (in bits) of the prime to generate.",
+      "translated": "生成する素数のサイズ(ビット単位)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.generatePrime",
+      "lang": "ja"
+    },
+    "810c0412": {
+      "original": "Returns information about a given cipher.\n\nSome ciphers accept variable length keys and initialization vectors. By default,\nthe `crypto.getCipherInfo()` method will return the default values for these\nciphers. To test if a given key length or iv length is acceptable for given\ncipher, use the `keyLength` and `ivLength` options. If the given values are\nunacceptable, `undefined` will be returned.",
+      "translated": "指定した暗号に関する情報を返す。\n\n一部の暗号は可変長の鍵と初期化ベクトルを受け付ける。既定では、`crypto.getCipherInfo()` メソッドはこれらの暗号の既定値を返す。指定した鍵長や iv 長が指定した暗号に受け入れられるかどうかをテストするには、`keyLength` と `ivLength` オプションを使う。指定した値が受け入れられない場合、`undefined` が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.getCipherInfo",
+      "lang": "ja"
+    },
+    "848a078c": {
+      "original": "The name or nid of the cipher to query.",
+      "translated": "問い合わせる暗号の名前または nid。",
+      "symbol": "@types/node/crypto.d.ts#crypto.getCipherInfo",
+      "lang": "ja"
+    },
+    "542189de": {
+      "original": "An array with the names of the supported cipher algorithms.",
+      "translated": "サポートされている暗号アルゴリズムの名前の配列。",
+      "symbol": "@types/node/crypto.d.ts#crypto.getCiphers",
+      "lang": "ja"
+    },
+    "8a9f4e85": {
+      "original": "An array with the names of the supported elliptic curves.",
+      "translated": "サポートされている楕円曲線の名前の配列。",
+      "symbol": "@types/node/crypto.d.ts#crypto.getCurves",
+      "lang": "ja"
+    },
+    "96ee077b": {
+      "original": "Creates a predefined `DiffieHellmanGroup` key exchange object. The\nsupported groups are listed in the documentation for `DiffieHellmanGroup`.\n\nThe returned object mimics the interface of objects created by {@link createDiffieHellman}, but will not allow changing\nthe keys (with `diffieHellman.setPublicKey()`, for example). The\nadvantage of using this method is that the parties do not have to\ngenerate nor exchange a group modulus beforehand, saving both processor\nand communication time.\n\nExample (obtaining a shared secret):\n\n```js\nconst {\n  getDiffieHellman,\n} = await import('node:crypto');\nconst alice = getDiffieHellman('modp14');\nconst bob = getDiffieHellman('modp14');\n\nalice.generateKeys();\nbob.generateKeys();\n\nconst aliceSecret = alice.computeSecret(bob.getPublicKey(), null, 'hex');\nconst bobSecret = bob.computeSecret(alice.getPublicKey(), null, 'hex');\n\n// aliceSecret and bobSecret should be the same\nconsole.log(aliceSecret === bobSecret);\n```",
+      "translated": "事前定義済みの `DiffieHellmanGroup` 鍵交換オブジェクトを作成する。サポートされるグループは `DiffieHellmanGroup` のドキュメントに列挙されている。\n\n返されるオブジェクトは {@link createDiffieHellman} が作成するオブジェクトのインターフェースを模倣するが、(たとえば `diffieHellman.setPublicKey()` で)鍵を変更することは許可しない。このメソッドを使う利点は、当事者が事前にグループの法(modulus)を生成したり交換したりする必要がなく、プロセッサ時間と通信時間の両方を節約できることである。\n\n例(共有秘密を得る):\n\n```js\nconst {\n  getDiffieHellman,\n} = await import('node:crypto');\nconst alice = getDiffieHellman('modp14');\nconst bob = getDiffieHellman('modp14');\n\nalice.generateKeys();\nbob.generateKeys();\n\nconst aliceSecret = alice.computeSecret(bob.getPublicKey(), null, 'hex');\nconst bobSecret = bob.computeSecret(alice.getPublicKey(), null, 'hex');\n\n// aliceSecret and bobSecret should be the same\nconsole.log(aliceSecret === bobSecret);\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.getDiffieHellman",
+      "lang": "ja"
+    },
+    "da4ff921": {
+      "original": "`1` if and only if a FIPS compliant crypto provider is currently in use, `0` otherwise. A future semver-major release may change the return type of this API to a {boolean}.",
+      "translated": "FIPS 準拠の暗号プロバイダーが現在使われている場合に限り `1`、そうでなければ `0`。将来の semver-major リリースでは、この API の戻り値の型が {boolean} に変わることがある。",
+      "symbol": "@types/node/crypto.d.ts#crypto.getFips",
+      "lang": "ja"
+    },
+    "bd359ead": {
+      "original": "An array of the names of the supported hash algorithms, such as `'RSA-SHA256'`. Hash algorithms are also called \"digest\" algorithms.",
+      "translated": "`'RSA-SHA256'` などの、サポートされているハッシュアルゴリズムの名前の配列。ハッシュアルゴリズムは「ダイジェスト」アルゴリズムとも呼ばれる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.getHashes",
+      "lang": "ja"
+    },
+    "bc62e566": {
+      "original": "A convenient alias for {@link webcrypto.getRandomValues}. This\nimplementation is not compliant with the Web Crypto spec, to write\nweb-compatible code use {@link webcrypto.getRandomValues} instead.",
+      "translated": "{@link webcrypto.getRandomValues} の便利なエイリアス。この実装は Web Crypto 仕様に準拠していない。web 互換のコードを書くには、代わりに {@link webcrypto.getRandomValues} を使うこと。",
+      "symbol": "@types/node/crypto.d.ts#crypto.getRandomValues",
+      "lang": "ja"
+    },
+    "94930e32": {
+      "original": "Returns `typedArray`.",
+      "translated": "`typedArray` を返す。",
+      "symbol": "@types/node/crypto.d.ts#crypto.getRandomValues",
+      "lang": "ja"
+    },
+    "87e01cef": {
+      "original": "[Encoding](https://nodejs.org/docs/latest-v22.x/api/buffer.html#buffers-and-character-encodings) used to encode the returned digest.",
+      "translated": "返されるダイジェストのエンコードに使う[エンコーディング](https://nodejs.org/docs/latest-v22.x/api/buffer.html#buffers-and-character-encodings)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.hash",
+      "lang": "ja"
+    },
+    "ec6a4bb2": {
+      "original": "A utility for creating one-shot hash digests of data. It can be faster than the object-based `crypto.createHash()` when hashing a smaller amount of data\n(<= 5MB) that's readily available. If the data can be big or if it is streamed, it's still recommended to use `crypto.createHash()` instead. The `algorithm`\nis dependent on the available algorithms supported by the version of OpenSSL on the platform. Examples are `'sha256'`, `'sha512'`, etc. On recent releases\nof OpenSSL, `openssl list -digest-algorithms` will display the available digest algorithms.\n\nExample:\n\n```js\nimport crypto from 'node:crypto';\nimport { Buffer } from 'node:buffer';\n\n// Hashing a string and return the result as a hex-encoded string.\nconst string = 'Node.js';\n// 10b3493287f831e81a438811a1ffba01f8cec4b7\nconsole.log(crypto.hash('sha1', string));\n\n// Encode a base64-encoded string into a Buffer, hash it and return\n// the result as a buffer.\nconst base64 = 'Tm9kZS5qcw==';\n// <Buffer 10 b3 49 32 87 f8 31 e8 1a 43 88 11 a1 ff ba 01 f8 ce c4 b7>\nconsole.log(crypto.hash('sha1', Buffer.from(base64, 'base64'), 'buffer'));\n```",
+      "translated": "データのワンショットハッシュダイジェストを作成するためのユーティリティ。すぐに利用できる比較的少量のデータ(5MB 以下)をハッシュする場合、オブジェクトベースの `crypto.createHash()` より速いことがある。データが大きくなり得る場合やストリーミングされる場合は、それでも代わりに `crypto.createHash()` を使うことが推奨される。`algorithm` は、プラットフォーム上の OpenSSL のバージョンがサポートする利用可能なアルゴリズムに依存する。例として `'sha256'`・`'sha512'` などがある。最近の OpenSSL リリースでは、`openssl list -digest-algorithms` で利用可能なダイジェストアルゴリズムが表示される。\n\n例:\n\n```js\nimport crypto from 'node:crypto';\nimport { Buffer } from 'node:buffer';\n\n// Hashing a string and return the result as a hex-encoded string.\nconst string = 'Node.js';\n// 10b3493287f831e81a438811a1ffba01f8cec4b7\nconsole.log(crypto.hash('sha1', string));\n\n// Encode a base64-encoded string into a Buffer, hash it and return\n// the result as a buffer.\nconst base64 = 'Tm9kZS5qcw==';\n// <Buffer 10 b3 49 32 87 f8 31 e8 1a 43 88 11 a1 ff ba 01 f8 ce c4 b7>\nconsole.log(crypto.hash('sha1', Buffer.from(base64, 'base64'), 'buffer'));\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.hash",
+      "lang": "ja"
+    },
+    "92c7a7f2": {
+      "original": "When `data` is a string, it will be encoded as UTF-8 before being hashed. If a different input encoding is desired for a string input, user\ncould encode the string into a `TypedArray` using either `TextEncoder` or `Buffer.from()` and passing the encoded `TypedArray` into this API instead.",
+      "translated": "`data` が文字列の場合、ハッシュされる前に UTF-8 としてエンコードされる。文字列入力に別の入力エンコーディングが望まれる場合、ユーザーは `TextEncoder` または `Buffer.from()` のいずれかを使って文字列を `TypedArray` にエンコードし、エンコードされた `TypedArray` を代わりにこの API に渡せる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.hash",
+      "lang": "ja"
+    },
+    "06504abe": {
+      "original": "The `Hash` class is a utility for creating hash digests of data. It can be\nused in one of two ways:\n\n* As a `stream` that is both readable and writable, where data is written\nto produce a computed hash digest on the readable side, or\n* Using the `hash.update()` and `hash.digest()` methods to produce the\ncomputed hash.\n\nThe {@link createHash} method is used to create `Hash` instances. `Hash`objects are not to be created directly using the `new` keyword.\n\nExample: Using `Hash` objects as streams:\n\n```js\nconst {\n  createHash,\n} = await import('node:crypto');\n\nconst hash = createHash('sha256');\n\nhash.on('readable', () => {\n  // Only one element is going to be produced by the\n  // hash stream.\n  const data = hash.read();\n  if (data) {\n    console.log(data.toString('hex'));\n    // Prints:\n    //   6a2da20943931e9834fc12cfe5bb47bbd9ae43489a30726962b576f4e3993e50\n  }\n});\n\nhash.write('some data to hash');\nhash.end();\n```\n\nExample: Using `Hash` and piped streams:\n\n```js\nimport { createReadStream } from 'node:fs';\nimport { stdout } from 'node:process';\nconst { createHash } = await import('node:crypto');\n\nconst hash = createHash('sha256');\n\nconst input = createReadStream('test.js');\ninput.pipe(hash).setEncoding('hex').pipe(stdout);\n```\n\nExample: Using the `hash.update()` and `hash.digest()` methods:\n\n```js\nconst {\n  createHash,\n} = await import('node:crypto');\n\nconst hash = createHash('sha256');\n\nhash.update('some data to hash');\nconsole.log(hash.digest('hex'));\n// Prints:\n//   6a2da20943931e9834fc12cfe5bb47bbd9ae43489a30726962b576f4e3993e50\n```",
+      "translated": "`Hash` クラスは、データのハッシュダイジェストを作成するためのユーティリティである。2 つの方法のいずれかで使える:\n\n* 読み取りと書き込みの両方が可能な `stream` として。データを書き込むと、読み取り側で計算されたハッシュダイジェストが生成される。あるいは\n* `hash.update()` と `hash.digest()` メソッドを使って計算されたハッシュを生成する。\n\n{@link createHash} メソッドは `Hash` インスタンスを作成するために使われる。`Hash` オブジェクトは `new` キーワードを使って直接作成するものではない。\n\n例: `Hash` オブジェクトをストリームとして使う:\n\n```js\nconst {\n  createHash,\n} = await import('node:crypto');\n\nconst hash = createHash('sha256');\n\nhash.on('readable', () => {\n  // Only one element is going to be produced by the\n  // hash stream.\n  const data = hash.read();\n  if (data) {\n    console.log(data.toString('hex'));\n    // Prints:\n    //   6a2da20943931e9834fc12cfe5bb47bbd9ae43489a30726962b576f4e3993e50\n  }\n});\n\nhash.write('some data to hash');\nhash.end();\n```\n\n例: `Hash` とパイプされたストリームを使う:\n\n```js\nimport { createReadStream } from 'node:fs';\nimport { stdout } from 'node:process';\nconst { createHash } = await import('node:crypto');\n\nconst hash = createHash('sha256');\n\nconst input = createReadStream('test.js');\ninput.pipe(hash).setEncoding('hex').pipe(stdout);\n```\n\n例: `hash.update()` と `hash.digest()` メソッドを使う:\n\n```js\nconst {\n  createHash,\n} = await import('node:crypto');\n\nconst hash = createHash('sha256');\n\nhash.update('some data to hash');\nconsole.log(hash.digest('hex'));\n// Prints:\n//   6a2da20943931e9834fc12cfe5bb47bbd9ae43489a30726962b576f4e3993e50\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.Hash",
+      "lang": "ja"
+    },
+    "8731e06e": {
+      "original": "Creates a new `Hash` object that contains a deep copy of the internal state\nof the current `Hash` object.\n\nThe optional `options` argument controls stream behavior. For XOF hash\nfunctions such as `'shake256'`, the `outputLength` option can be used to\nspecify the desired output length in bytes.\n\nAn error is thrown when an attempt is made to copy the `Hash` object after\nits `hash.digest()` method has been called.\n\n```js\n// Calculate a rolling hash.\nconst {\n  createHash,\n} = await import('node:crypto');\n\nconst hash = createHash('sha256');\n\nhash.update('one');\nconsole.log(hash.copy().digest('hex'));\n\nhash.update('two');\nconsole.log(hash.copy().digest('hex'));\n\nhash.update('three');\nconsole.log(hash.copy().digest('hex'));\n\n// Etc.\n```",
+      "translated": "現在の `Hash` オブジェクトの内部状態のディープコピーを含む新しい `Hash` オブジェクトを作成する。\n\n省略可能な `options` 引数はストリームの挙動を制御する。`'shake256'` などの XOF ハッシュ関数では、`outputLength` オプションを使って希望する出力長をバイト単位で指定できる。\n\n`hash.digest()` メソッドが呼ばれた後に `Hash` オブジェクトをコピーしようとすると、エラーが投げられる。\n\n```js\n// Calculate a rolling hash.\nconst {\n  createHash,\n} = await import('node:crypto');\n\nconst hash = createHash('sha256');\n\nhash.update('one');\nconsole.log(hash.copy().digest('hex'));\n\nhash.update('two');\nconsole.log(hash.copy().digest('hex'));\n\nhash.update('three');\nconsole.log(hash.copy().digest('hex'));\n\n// Etc.\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.Hash.copy",
+      "lang": "ja"
+    },
+    "647c0942": {
+      "original": "The `encoding` of the return value.",
+      "translated": "戻り値の `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Hash.digest",
+      "lang": "ja"
+    },
+    "e483b2c1": {
+      "original": "The `encoding` of the `data` string.",
+      "translated": "`data` 文字列の `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Hash.update",
+      "lang": "ja"
+    },
+    "685689f7": {
+      "original": "Updates the hash content with the given `data`, the encoding of which\nis given in `inputEncoding`.\nIf `encoding` is not provided, and the `data` is a string, an\nencoding of `'utf8'` is enforced. If `data` is a `Buffer`, `TypedArray`, or`DataView`, then `inputEncoding` is ignored.\n\nThis can be called many times with new data as it is streamed.",
+      "translated": "指定した `data` でハッシュの内容を更新する。そのエンコーディングは `inputEncoding` で指定される。`encoding` が指定されず `data` が文字列の場合、`'utf8'` のエンコーディングが強制される。`data` が `Buffer`・`TypedArray`・`DataView` の場合、`inputEncoding` は無視される。\n\nこれは、ストリーミングされる新しいデータで何度も呼べる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Hash.update",
+      "lang": "ja"
+    },
+    "adda58ac": {
+      "original": "For XOF hash functions such as `shake256`, the\noutputLength option can be used to specify the desired output length in bytes.",
+      "translated": "`shake256` などの XOF ハッシュ関数では、outputLength オプションを使って希望する出力長をバイト単位で指定できる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.HashOptions.outputLength",
+      "lang": "ja"
+    },
+    "1f9945d5": {
+      "original": "Additional info value. Must be provided but can be zero-length, and cannot be more than 1024 bytes.",
+      "translated": "追加の info 値。指定しなければならないが、長さ 0 でよく、1024 バイトを超えることはできない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.hkdf",
+      "lang": "ja"
+    },
+    "498ecdb1": {
+      "original": "HKDF is a simple key derivation function defined in RFC 5869\\. The given `ikm`, `salt` and `info` are used with the `digest` to derive a key of `keylen` bytes.\n\nThe supplied `callback` function is called with two arguments: `err` and `derivedKey`. If an errors occurs while deriving the key, `err` will be set;\notherwise `err` will be `null`. The successfully generated `derivedKey` will\nbe passed to the callback as an [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer). An error will be thrown if any\nof the input arguments specify invalid values or types.\n\n```js\nimport { Buffer } from 'node:buffer';\nconst {\n  hkdf,\n} = await import('node:crypto');\n\nhkdf('sha512', 'key', 'salt', 'info', 64, (err, derivedKey) => {\n  if (err) throw err;\n  console.log(Buffer.from(derivedKey).toString('hex'));  // '24156e2...5391653'\n});\n```",
+      "translated": "HKDF は RFC 5869 で定義された単純な鍵導出関数である。指定した `ikm`・`salt`・`info` が `digest` とともに使われ、`keylen` バイトの鍵を導出する。\n\n指定した `callback` 関数は 2 つの引数 `err` と `derivedKey` とともに呼ばれる。鍵の導出中にエラーが発生した場合、`err` が設定される。そうでなければ `err` は `null` になる。正常に生成された `derivedKey` は、[ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) としてコールバックに渡される。入力引数のいずれかが無効な値や型を指定した場合、エラーが投げられる。\n\n```js\nimport { Buffer } from 'node:buffer';\nconst {\n  hkdf,\n} = await import('node:crypto');\n\nhkdf('sha512', 'key', 'salt', 'info', 64, (err, derivedKey) => {\n  if (err) throw err;\n  console.log(Buffer.from(derivedKey).toString('hex'));  // '24156e2...5391653'\n});\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.hkdf",
       "lang": "ja"
     },
     "73f2cc3a": {
