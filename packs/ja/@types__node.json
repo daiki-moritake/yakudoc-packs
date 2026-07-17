@@ -100,6 +100,12 @@
       "symbol": "@types/node/util.d.ts#util.parseArgs",
       "lang": "ja"
     },
+    "67264892": {
+      "original": "The position in `buffer` to write the data to.",
+      "translated": "データを書き込む `buffer` 内の位置。",
+      "symbol": "@types/node/fs.d.ts#fs.read",
+      "lang": "ja"
+    },
     "73741370": {
       "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a directory.",
       "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。ディレクトリを表すファイル種類定数。",
@@ -116,6 +122,12 @@
       "original": "The same AbortSignal",
       "translated": "同じ AbortSignal",
       "symbol": "@types/node/util.d.ts#util.transferableAbortSignal",
+      "lang": "ja"
+    },
+    "98461905": {
+      "original": "Asynchronous rename(2) - Change the name or location of a file or directory.",
+      "translated": "非同期 rename(2) - ファイルまたはディレクトリの名前や場所を変更する。",
+      "symbol": "@types/node/fs.d.ts#fs.rename.__promisify__",
       "lang": "ja"
     },
     "d72894a9": {
@@ -2396,6 +2408,348 @@
       "original": "Asynchronously open a directory. See the POSIX [`opendir(3)`](http://man7.org/linux/man-pages/man3/opendir.3.html) documentation for\nmore details.\n\nCreates an `fs.Dir`, which contains all further functions for reading from\nand cleaning up the directory.\n\nThe `encoding` option sets the encoding for the `path` while opening the\ndirectory and subsequent read operations.",
       "translated": "ディレクトリを非同期に開く。詳細は POSIX の [`opendir(3)`](http://man7.org/linux/man-pages/man3/opendir.3.html) ドキュメントを参照。\n\nディレクトリからの読み取りとクリーンアップのためのすべての関数を含む `fs.Dir` を作成する。\n\n`encoding` オプションは、ディレクトリを開くときと以降の読み取り操作における `path` のエンコーディングを設定する。",
       "symbol": "@types/node/fs.d.ts#fs.opendir",
+      "lang": "ja"
+    },
+    "a7c30796": {
+      "original": "Number of directory entries that are buffered\ninternally when reading from the directory. Higher values lead to better\nperformance but higher memory usage.",
+      "translated": "ディレクトリから読み取るときに内部的にバッファリングされるディレクトリエントリの数。値が大きいほど性能は良くなるが、メモリ使用量は増える。",
+      "symbol": "@types/node/fs.d.ts#fs.OpenDirOptions.bufferSize",
+      "lang": "ja"
+    },
+    "2e307679": {
+      "original": "Synchronously open a directory. See [`opendir(3)`](http://man7.org/linux/man-pages/man3/opendir.3.html).\n\nCreates an `fs.Dir`, which contains all further functions for reading from\nand cleaning up the directory.\n\nThe `encoding` option sets the encoding for the `path` while opening the\ndirectory and subsequent read operations.",
+      "translated": "ディレクトリを同期的に開く。[`opendir(3)`](http://man7.org/linux/man-pages/man3/opendir.3.html) を参照。\n\nディレクトリからの読み取りとクリーンアップのためのすべての関数を含む `fs.Dir` を作成する。\n\n`encoding` オプションは、ディレクトリを開くときと以降の読み取り操作における `path` のエンコーディングを設定する。",
+      "symbol": "@types/node/fs.d.ts#fs.opendirSync",
+      "lang": "ja"
+    },
+    "788f3861": {
+      "original": "Returns an integer representing the file descriptor.\n\nFor detailed information, see the documentation of the asynchronous version of\nthis API: {@link open}.",
+      "translated": "ファイルディスクリプタを表す整数を返す。\n\n詳細な情報は、この API の非同期版のドキュメント {@link open} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.openSync",
+      "lang": "ja"
+    },
+    "879a06a4": {
+      "original": "Valid types for path values in \"fs\".",
+      "translated": "「fs」でのパス値に有効な型。",
+      "symbol": "@types/node/fs.d.ts#fs.PathLike",
+      "lang": "ja"
+    },
+    "c0398672": {
+      "original": "Read data from the file specified by `fd`.\n\nThe callback is given the three arguments, `(err, bytesRead, buffer)`.\n\nIf the file is not modified concurrently, the end-of-file is reached when the\nnumber of bytes read is zero.\n\nIf this method is invoked as its `util.promisify()` ed version, it returns\na promise for an `Object` with `bytesRead` and `buffer` properties.",
+      "translated": "`fd` で指定したファイルからデータを読み取る。\n\nコールバックには 3 つの引数 `(err, bytesRead, buffer)` が渡される。\n\nファイルが並行して変更されない場合、読み取ったバイト数が 0 になったときにファイルの終端に達する。\n\nこのメソッドが `util.promisify()` された版として呼ばれた場合、`bytesRead` と `buffer` プロパティを持つ `Object` のための promise を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.read",
+      "lang": "ja"
+    },
+    "78e7c4f7": {
+      "original": "Similar to the above `fs.read` function, this version takes an optional `options` object.\nIf not otherwise specified in an `options` object,\n`buffer` defaults to `Buffer.alloc(16384)`,\n`offset` defaults to `0`,\n`length` defaults to `buffer.byteLength`, `- offset` as of Node 17.6.0\n`position` defaults to `null`",
+      "translated": "上記の `fs.read` 関数に似ているが、この版は省略可能な `options` オブジェクトを取る。`options` オブジェクトで別途指定されない場合、`buffer` は既定で `Buffer.alloc(16384)`、`offset` は既定で `0`、`length` は既定で `buffer.byteLength`(Node 17.6.0 以降は `- offset`)、`position` は既定で `null` になる。",
+      "symbol": "@types/node/fs.d.ts#fs.read",
+      "lang": "ja"
+    },
+    "795e4525": {
+      "original": "Specifies where to begin reading from in the file. If `position` is `null` or `-1 `, data will be read from the current file position, and the file position will be updated. If\n`position` is an integer, the file position will be unchanged.",
+      "translated": "ファイル内のどこから読み始めるかを指定する。`position` が `null` または `-1` の場合、データは現在のファイル位置から読み取られ、ファイル位置は更新される。`position` が整数の場合、ファイル位置は変わらない。",
+      "symbol": "@types/node/fs.d.ts#fs.read",
+      "lang": "ja"
+    },
+    "e5245ee7": {
+      "original": "The buffer that the data will be written to.",
+      "translated": "データが書き込まれるバッファ。",
+      "symbol": "@types/node/fs.d.ts#fs.read",
+      "lang": "ja"
+    },
+    "a5b91c1d": {
+      "original": "The number of bytes to read.",
+      "translated": "読み取るバイト数。",
+      "symbol": "@types/node/fs.d.ts#fs.read",
+      "lang": "ja"
+    },
+    "1a2759dc": {
+      "original": "The offset from the beginning of the file from which data should be read. If `null`, data will be read from the current position.",
+      "translated": "データを読み取るべきファイルの先頭からのオフセット。`null` の場合、データは現在の位置から読み取られる。",
+      "symbol": "@types/node/fs.d.ts#fs.read.__promisify__",
+      "lang": "ja"
+    },
+    "a282557e": {
+      "original": "The offset in the buffer at which to start writing.",
+      "translated": "書き込みを開始するバッファ内のオフセット。",
+      "symbol": "@types/node/fs.d.ts#fs.read.__promisify__",
+      "lang": "ja"
+    },
+    "157ed845": {
+      "original": "Use `ReadOptionsWithBuffer` instead.",
+      "translated": "代わりに `ReadOptionsWithBuffer` を使うこと。",
+      "symbol": "@types/node/fs.d.ts#fs.ReadAsyncOptions",
+      "lang": "ja"
+    },
+    "3b575ace": {
+      "original": "Asynchronous readdir(3) - read a directory.",
+      "translated": "非同期 readdir(3) - ディレクトリを読み取る。",
+      "symbol": "@types/node/fs.d.ts#fs.readdir",
+      "lang": "ja"
+    },
+    "b3a701d5": {
+      "original": "If called with `withFileTypes: true` the result data will be an array of Dirent.",
+      "translated": "`withFileTypes: true` を指定して呼んだ場合、結果データは Dirent の配列になる。",
+      "symbol": "@types/node/fs.d.ts#fs.readdir",
+      "lang": "ja"
+    },
+    "baafbb7d": {
+      "original": "Must include `withFileTypes: true` and `encoding: 'buffer'`.",
+      "translated": "`withFileTypes: true` と `encoding: 'buffer'` を含めなければならない。",
+      "symbol": "@types/node/fs.d.ts#fs.readdir",
+      "lang": "ja"
+    },
+    "c8e6ea3d": {
+      "original": "Reads the contents of a directory. The callback gets two arguments `(err, files)` where `files` is an array of the names of the files in the directory excluding `'.'` and `'..'`.\n\nSee the POSIX [`readdir(3)`](http://man7.org/linux/man-pages/man3/readdir.3.html) documentation for more details.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use for\nthe filenames passed to the callback. If the `encoding` is set to `'buffer'`,\nthe filenames returned will be passed as `Buffer` objects.\n\nIf `options.withFileTypes` is set to `true`, the `files` array will contain `fs.Dirent` objects.",
+      "translated": "ディレクトリの内容を読み取る。コールバックは 2 つの引数 `(err, files)` を受け取り、`files` は `'.'` と `'..'` を除くディレクトリ内のファイル名の配列である。\n\n詳細は POSIX の [`readdir(3)`](http://man7.org/linux/man-pages/man3/readdir.3.html) ドキュメントを参照。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、またはコールバックに渡すファイル名に使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。`encoding` が `'buffer'` に設定された場合、返されるファイル名は `Buffer` オブジェクトとして渡される。\n\n`options.withFileTypes` が `true` に設定された場合、`files` 配列は `fs.Dirent` オブジェクトを含む。",
+      "symbol": "@types/node/fs.d.ts#fs.readdir",
+      "lang": "ja"
+    },
+    "0c3975a6": {
+      "original": "If called with `withFileTypes: true` the result data will be an array of Dirent",
+      "translated": "`withFileTypes: true` を指定して呼んだ場合、結果データは Dirent の配列になる",
+      "symbol": "@types/node/fs.d.ts#fs.readdir.__promisify__",
+      "lang": "ja"
+    },
+    "86bdcd7a": {
+      "original": "Reads the contents of the directory.\n\nSee the POSIX [`readdir(3)`](http://man7.org/linux/man-pages/man3/readdir.3.html) documentation for more details.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use for\nthe filenames returned. If the `encoding` is set to `'buffer'`,\nthe filenames returned will be passed as `Buffer` objects.\n\nIf `options.withFileTypes` is set to `true`, the result will contain `fs.Dirent` objects.",
+      "translated": "ディレクトリの内容を読み取る。\n\n詳細は POSIX の [`readdir(3)`](http://man7.org/linux/man-pages/man3/readdir.3.html) ドキュメントを参照。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、または返されるファイル名に使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。`encoding` が `'buffer'` に設定された場合、返されるファイル名は `Buffer` オブジェクトとして渡される。\n\n`options.withFileTypes` が `true` に設定された場合、結果は `fs.Dirent` オブジェクトを含む。",
+      "symbol": "@types/node/fs.d.ts#fs.readdirSync",
+      "lang": "ja"
+    },
+    "61643efb": {
+      "original": "Synchronous readdir(3) - read a directory.",
+      "translated": "同期 readdir(3) - ディレクトリを読み取る。",
+      "symbol": "@types/node/fs.d.ts#fs.readdirSync",
+      "lang": "ja"
+    },
+    "b05f9c67": {
+      "original": "A path to a file. If a URL is provided, it must use the `file:` protocol.\nIf a file descriptor is provided, the underlying file will _not_ be closed automatically.",
+      "translated": "ファイルへのパス。URL を指定する場合、`file:` プロトコルを使わなければならない。ファイルディスクリプタを指定した場合、基盤となるファイルは自動的には_閉じられない_。",
+      "symbol": "@types/node/fs.d.ts#fs.readFile",
+      "lang": "ja"
+    },
+    "94147c98": {
+      "original": "Asynchronously reads the entire contents of a file.",
+      "translated": "ファイルの内容全体を非同期に読み取る。",
+      "symbol": "@types/node/fs.d.ts#fs.readFile",
+      "lang": "ja"
+    },
+    "2d442513": {
+      "original": "Asynchronously reads the entire contents of a file.\n\n```js\nimport { readFile } from 'node:fs';\n\nreadFile('/etc/passwd', (err, data) => {\n  if (err) throw err;\n  console.log(data);\n});\n```\n\nThe callback is passed two arguments `(err, data)`, where `data` is the\ncontents of the file.\n\nIf no encoding is specified, then the raw buffer is returned.\n\nIf `options` is a string, then it specifies the encoding:\n\n```js\nimport { readFile } from 'node:fs';\n\nreadFile('/etc/passwd', 'utf8', callback);\n```\n\nWhen the path is a directory, the behavior of `fs.readFile()` and {@link readFileSync} is platform-specific. On macOS, Linux, and Windows, an\nerror will be returned. On FreeBSD, a representation of the directory's contents\nwill be returned.\n\n```js\nimport { readFile } from 'node:fs';\n\n// macOS, Linux, and Windows\nreadFile('<directory>', (err, data) => {\n  // => [Error: EISDIR: illegal operation on a directory, read <directory>]\n});\n\n//  FreeBSD\nreadFile('<directory>', (err, data) => {\n  // => null, <data>\n});\n```\n\nIt is possible to abort an ongoing request using an `AbortSignal`. If a\nrequest is aborted the callback is called with an `AbortError`:\n\n```js\nimport { readFile } from 'node:fs';\n\nconst controller = new AbortController();\nconst signal = controller.signal;\nreadFile(fileInfo[0].name, { signal }, (err, buf) => {\n  // ...\n});\n// When you want to abort the request\ncontroller.abort();\n```\n\nThe `fs.readFile()` function buffers the entire file. To minimize memory costs,\nwhen possible prefer streaming via `fs.createReadStream()`.\n\nAborting an ongoing request does not abort individual operating\nsystem requests but rather the internal buffering `fs.readFile` performs.",
+      "translated": "ファイルの内容全体を非同期に読み取る。\n\n```js\nimport { readFile } from 'node:fs';\n\nreadFile('/etc/passwd', (err, data) => {\n  if (err) throw err;\n  console.log(data);\n});\n```\n\nコールバックには 2 つの引数 `(err, data)` が渡され、`data` はファイルの内容である。\n\nエンコーディングが指定されない場合、生のバッファが返される。\n\n`options` が文字列の場合、エンコーディングを指定する:\n\n```js\nimport { readFile } from 'node:fs';\n\nreadFile('/etc/passwd', 'utf8', callback);\n```\n\nパスがディレクトリの場合、`fs.readFile()` と {@link readFileSync} の挙動はプラットフォーム固有である。macOS・Linux・Windows ではエラーが返される。FreeBSD ではディレクトリの内容の表現が返される。\n\n```js\nimport { readFile } from 'node:fs';\n\n// macOS, Linux, and Windows\nreadFile('<directory>', (err, data) => {\n  // => [Error: EISDIR: illegal operation on a directory, read <directory>]\n});\n\n//  FreeBSD\nreadFile('<directory>', (err, data) => {\n  // => null, <data>\n});\n```\n\n`AbortSignal` を使って進行中のリクエストを中断できる。リクエストが中断された場合、コールバックは `AbortError` で呼ばれる:\n\n```js\nimport { readFile } from 'node:fs';\n\nconst controller = new AbortController();\nconst signal = controller.signal;\nreadFile(fileInfo[0].name, { signal }, (err, buf) => {\n  // ...\n});\n// When you want to abort the request\ncontroller.abort();\n```\n\n`fs.readFile()` 関数はファイル全体をバッファリングする。メモリコストを最小化するため、可能な場合は `fs.createReadStream()` によるストリーミングを優先すること。\n\n進行中のリクエストを中断しても、個々のオペレーティングシステムのリクエストは中断されず、`fs.readFile` が行う内部バッファリングが中断される。",
+      "symbol": "@types/node/fs.d.ts#fs.readFile",
+      "lang": "ja"
+    },
+    "0812ff02": {
+      "original": "Either the encoding for the result, or an object that contains the encoding and an optional flag.\nIf a flag is not provided, it defaults to `'r'`.",
+      "translated": "結果のエンコーディング、またはエンコーディングと省略可能なフラグを含むオブジェクトのいずれか。フラグが指定されない場合、既定は `'r'`。",
+      "symbol": "@types/node/fs.d.ts#fs.readFile",
+      "lang": "ja"
+    },
+    "daca16b1": {
+      "original": "filename or file descriptor",
+      "translated": "ファイル名またはファイルディスクリプタ",
+      "symbol": "@types/node/fs.d.ts#fs.readFile",
+      "lang": "ja"
+    },
+    "9d3c8b47": {
+      "original": "A path to a file. If a URL is provided, it must use the `file:` protocol.\nURL support is _experimental_.\nIf a file descriptor is provided, the underlying file will _not_ be closed automatically.",
+      "translated": "ファイルへのパス。URL を指定する場合、`file:` プロトコルを使わなければならない。URL サポートは_実験的_である。ファイルディスクリプタを指定した場合、基盤となるファイルは自動的には_閉じられない_。",
+      "symbol": "@types/node/fs.d.ts#fs.readFile.__promisify__",
+      "lang": "ja"
+    },
+    "abee14fa": {
+      "original": "An object that may contain an optional flag.\nIf a flag is not provided, it defaults to `'r'`.",
+      "translated": "省略可能なフラグを含み得るオブジェクト。フラグが指定されない場合、既定は `'r'`。",
+      "symbol": "@types/node/fs.d.ts#fs.readFile.__promisify__",
+      "lang": "ja"
+    },
+    "b88f0170": {
+      "original": "Returns the contents of the `path`.\n\nFor detailed information, see the documentation of the asynchronous version of\nthis API: {@link readFile}.\n\nIf the `encoding` option is specified then this function returns a\nstring. Otherwise it returns a buffer.\n\nSimilar to {@link readFile}, when the path is a directory, the behavior of `fs.readFileSync()` is platform-specific.\n\n```js\nimport { readFileSync } from 'node:fs';\n\n// macOS, Linux, and Windows\nreadFileSync('<directory>');\n// => [Error: EISDIR: illegal operation on a directory, read <directory>]\n\n//  FreeBSD\nreadFileSync('<directory>'); // => <data>\n```",
+      "translated": "`path` の内容を返す。\n\n詳細な情報は、この API の非同期版のドキュメント {@link readFile} を参照。\n\n`encoding` オプションが指定された場合、この関数は文字列を返す。そうでなければバッファを返す。\n\n{@link readFile} と同様に、パスがディレクトリの場合、`fs.readFileSync()` の挙動はプラットフォーム固有である。\n\n```js\nimport { readFileSync } from 'node:fs';\n\n// macOS, Linux, and Windows\nreadFileSync('<directory>');\n// => [Error: EISDIR: illegal operation on a directory, read <directory>]\n\n//  FreeBSD\nreadFileSync('<directory>'); // => <data>\n```",
+      "symbol": "@types/node/fs.d.ts#fs.readFileSync",
+      "lang": "ja"
+    },
+    "8c14da62": {
+      "original": "Synchronously reads the entire contents of a file.",
+      "translated": "ファイルの内容全体を同期的に読み取る。",
+      "symbol": "@types/node/fs.d.ts#fs.readFileSync",
+      "lang": "ja"
+    },
+    "8512191b": {
+      "original": "Asynchronous readlink(2) - read value of a symbolic link.",
+      "translated": "非同期 readlink(2) - シンボリックリンクの値を読み取る。",
+      "symbol": "@types/node/fs.d.ts#fs.readlink",
+      "lang": "ja"
+    },
+    "a6739352": {
+      "original": "Reads the contents of the symbolic link referred to by `path`. The callback gets\ntwo arguments `(err, linkString)`.\n\nSee the POSIX [`readlink(2)`](http://man7.org/linux/man-pages/man2/readlink.2.html) documentation for more details.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use for\nthe link path passed to the callback. If the `encoding` is set to `'buffer'`,\nthe link path returned will be passed as a `Buffer` object.",
+      "translated": "`path` が参照するシンボリックリンクの内容を読み取る。コールバックは 2 つの引数 `(err, linkString)` を受け取る。\n\n詳細は POSIX の [`readlink(2)`](http://man7.org/linux/man-pages/man2/readlink.2.html) ドキュメントを参照。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、またはコールバックに渡すリンクパスに使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。`encoding` が `'buffer'` に設定された場合、返されるリンクパスは `Buffer` オブジェクトとして渡される。",
+      "symbol": "@types/node/fs.d.ts#fs.readlink",
+      "lang": "ja"
+    },
+    "ea9a110d": {
+      "original": "The encoding (or an object specifying the encoding), used as the encoding of the result. If not provided, `'utf8'` is used.",
+      "translated": "結果のエンコーディングとして使うエンコーディング(またはエンコーディングを指定するオブジェクト)。指定されない場合、`'utf8'` が使われる。",
+      "symbol": "@types/node/fs.d.ts#fs.readlink",
+      "lang": "ja"
+    },
+    "1df6b405": {
+      "original": "Returns the symbolic link's string value.\n\nSee the POSIX [`readlink(2)`](http://man7.org/linux/man-pages/man2/readlink.2.html) documentation for more details.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use for\nthe link path returned. If the `encoding` is set to `'buffer'`,\nthe link path returned will be passed as a `Buffer` object.",
+      "translated": "シンボリックリンクの文字列値を返す。\n\n詳細は POSIX の [`readlink(2)`](http://man7.org/linux/man-pages/man2/readlink.2.html) ドキュメントを参照。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、または返されるリンクパスに使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。`encoding` が `'buffer'` に設定された場合、返されるリンクパスは `Buffer` オブジェクトとして渡される。",
+      "symbol": "@types/node/fs.d.ts#fs.readlinkSync",
+      "lang": "ja"
+    },
+    "c0cf81e3": {
+      "original": "Synchronous readlink(2) - read value of a symbolic link.",
+      "translated": "同期 readlink(2) - シンボリックリンクの値を読み取る。",
+      "symbol": "@types/node/fs.d.ts#fs.readlinkSync",
+      "lang": "ja"
+    },
+    "85ae3e99": {
+      "original": "Instances of `fs.ReadStream` are created and returned using the {@link createReadStream} function.",
+      "translated": "`fs.ReadStream` のインスタンスは、{@link createReadStream} 関数を使って作成・返却される。",
+      "symbol": "@types/node/fs.d.ts#fs.ReadStream",
+      "lang": "ja"
+    },
+    "3ed318be": {
+      "original": "The number of bytes that have been read so far.",
+      "translated": "これまでに読み取られたバイト数。",
+      "symbol": "@types/node/fs.d.ts#fs.ReadStream.bytesRead",
+      "lang": "ja"
+    },
+    "d0cb1a13": {
+      "original": "The path to the file the stream is reading from as specified in the first\nargument to `fs.createReadStream()`. If `path` is passed as a string, then`readStream.path` will be a string. If `path` is passed as a `Buffer`, then`readStream.path` will be a\n`Buffer`. If `fd` is specified, then`readStream.path` will be `undefined`.",
+      "translated": "`fs.createReadStream()` の第 1 引数に指定された、ストリームが読み取り元とするファイルへのパス。`path` が文字列として渡された場合、`readStream.path` は文字列になる。`path` が `Buffer` として渡された場合、`readStream.path` は `Buffer` になる。`fd` が指定された場合、`readStream.path` は `undefined` になる。",
+      "symbol": "@types/node/fs.d.ts#fs.ReadStream.path",
+      "lang": "ja"
+    },
+    "f9e1e032": {
+      "original": "This property is `true` if the underlying file has not been opened yet,\ni.e. before the `'ready'` event is emitted.",
+      "translated": "このプロパティは、基盤となるファイルがまだ開かれていない場合、すなわち `'ready'` イベントが発行される前は `true` になる。",
+      "symbol": "@types/node/fs.d.ts#fs.ReadStream.pending",
+      "lang": "ja"
+    },
+    "165f528e": {
+      "original": "The Keys are events of the ReadStream and the values are the functions that are called when the event is emitted.",
+      "translated": "キーは ReadStream のイベントで、値はイベントが発行されたときに呼ばれる関数である。",
+      "symbol": "@types/node/fs.d.ts#fs.ReadStreamEvents",
+      "lang": "ja"
+    },
+    "8e5f609e": {
+      "original": "Returns the number of `bytesRead`.\n\nFor detailed information, see the documentation of the asynchronous version of\nthis API: {@link read}.",
+      "translated": "読み取ったバイト数 `bytesRead` を返す。\n\n詳細な情報は、この API の非同期版のドキュメント {@link read} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.readSync",
+      "lang": "ja"
+    },
+    "a7eb9ab7": {
+      "original": "Similar to the above `fs.readSync` function, this version takes an optional `options` object.\nIf no `options` object is specified, it will default with the above values.",
+      "translated": "上記の `fs.readSync` 関数に似ているが、この版は省略可能な `options` オブジェクトを取る。`options` オブジェクトが指定されない場合、上記の値が既定として使われる。",
+      "symbol": "@types/node/fs.d.ts#fs.readSync",
+      "lang": "ja"
+    },
+    "148ba319": {
+      "original": "Use `ReadOptions` instead.",
+      "translated": "代わりに `ReadOptions` を使うこと。",
+      "symbol": "@types/node/fs.d.ts#fs.ReadSyncOptions",
+      "lang": "ja"
+    },
+    "c141cbcc": {
+      "original": "Read from a file specified by `fd` and write to an array of `ArrayBufferView`s\nusing `readv()`.\n\n`position` is the offset from the beginning of the file from where data\nshould be read. If `typeof position !== 'number'`, the data will be read\nfrom the current position.\n\nThe callback will be given three arguments: `err`, `bytesRead`, and `buffers`. `bytesRead` is how many bytes were read from the file.\n\nIf this method is invoked as its `util.promisify()` ed version, it returns\na promise for an `Object` with `bytesRead` and `buffers` properties.",
+      "translated": "`fd` で指定したファイルから読み取り、`readv()` を使って `ArrayBufferView` の配列に書き込む。\n\n`position` はデータを読み取るべきファイルの先頭からのオフセットである。`typeof position !== 'number'` の場合、データは現在の位置から読み取られる。\n\nコールバックには 3 つの引数 `err`・`bytesRead`・`buffers` が渡される。`bytesRead` はファイルから読み取られたバイト数である。\n\nこのメソッドが `util.promisify()` された版として呼ばれた場合、`bytesRead` と `buffers` プロパティを持つ `Object` のための promise を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.readv",
+      "lang": "ja"
+    },
+    "4183f120": {
+      "original": "For detailed information, see the documentation of the asynchronous version of\nthis API: {@link readv}.",
+      "translated": "詳細な情報は、この API の非同期版のドキュメント {@link readv} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.readvSync",
+      "lang": "ja"
+    },
+    "cb03ce69": {
+      "original": "The number of bytes read.",
+      "translated": "読み取ったバイト数。",
+      "symbol": "@types/node/fs.d.ts#fs.readvSync",
+      "lang": "ja"
+    },
+    "8b7948f0": {
+      "original": "Asynchronous realpath(3) - return the canonicalized absolute pathname.",
+      "translated": "非同期 realpath(3) - 正規化された絶対パス名を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.realpath",
+      "lang": "ja"
+    },
+    "6778b0a3": {
+      "original": "Asynchronously computes the canonical pathname by resolving `.`, `..`, and\nsymbolic links.\n\nA canonical pathname is not necessarily unique. Hard links and bind mounts can\nexpose a file system entity through many pathnames.\n\nThis function behaves like [`realpath(3)`](http://man7.org/linux/man-pages/man3/realpath.3.html), with some exceptions:\n\n1. No case conversion is performed on case-insensitive file systems.\n2. The maximum number of symbolic links is platform-independent and generally\n(much) higher than what the native [`realpath(3)`](http://man7.org/linux/man-pages/man3/realpath.3.html) implementation supports.\n\nThe `callback` gets two arguments `(err, resolvedPath)`. May use `process.cwd` to resolve relative paths.\n\nOnly paths that can be converted to UTF8 strings are supported.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use for\nthe path passed to the callback. If the `encoding` is set to `'buffer'`,\nthe path returned will be passed as a `Buffer` object.\n\nIf `path` resolves to a socket or a pipe, the function will return a system\ndependent name for that object.",
+      "translated": "`.`・`..`・シンボリックリンクを解決して正規のパス名を非同期に計算する。\n\n正規のパス名は必ずしも一意ではない。ハードリンクとバインドマウントにより、1 つのファイルシステムエンティティが多くのパス名を通じて公開されることがある。\n\nこの関数は [`realpath(3)`](http://man7.org/linux/man-pages/man3/realpath.3.html) のように動作するが、いくつかの例外がある:\n\n1. 大文字小文字を区別しないファイルシステムでも、大文字小文字の変換は行われない。\n2. シンボリックリンクの最大数はプラットフォームに依存せず、一般にネイティブの [`realpath(3)`](http://man7.org/linux/man-pages/man3/realpath.3.html) 実装がサポートするものより(はるかに)多い。\n\n`callback` は 2 つの引数 `(err, resolvedPath)` を受け取る。相対パスの解決に `process.cwd` を使うことがある。\n\nUTF8 文字列に変換できるパスのみがサポートされる。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、またはコールバックに渡すパスに使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。`encoding` が `'buffer'` に設定された場合、返されるパスは `Buffer` オブジェクトとして渡される。\n\n`path` がソケットまたはパイプに解決される場合、この関数はそのオブジェクトのシステム依存の名前を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.realpath",
+      "lang": "ja"
+    },
+    "85bf2064": {
+      "original": "Asynchronous [`realpath(3)`](http://man7.org/linux/man-pages/man3/realpath.3.html).\n\nThe `callback` gets two arguments `(err, resolvedPath)`.\n\nOnly paths that can be converted to UTF8 strings are supported.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use for\nthe path passed to the callback. If the `encoding` is set to `'buffer'`,\nthe path returned will be passed as a `Buffer` object.\n\nOn Linux, when Node.js is linked against musl libc, the procfs file system must\nbe mounted on `/proc` in order for this function to work. Glibc does not have\nthis restriction.",
+      "translated": "非同期の [`realpath(3)`](http://man7.org/linux/man-pages/man3/realpath.3.html)。\n\n`callback` は 2 つの引数 `(err, resolvedPath)` を受け取る。\n\nUTF8 文字列に変換できるパスのみがサポートされる。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、またはコールバックに渡すパスに使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。`encoding` が `'buffer'` に設定された場合、返されるパスは `Buffer` オブジェクトとして渡される。\n\nLinux では、Node.js が musl libc とリンクされている場合、この関数が動作するには procfs ファイルシステムが `/proc` にマウントされていなければならない。Glibc にはこの制限はない。",
+      "symbol": "@types/node/fs.d.ts#fs.realpath.native",
+      "lang": "ja"
+    },
+    "d0502966": {
+      "original": "Returns the resolved pathname.\n\nFor detailed information, see the documentation of the asynchronous version of\nthis API: {@link realpath}.",
+      "translated": "解決されたパス名を返す。\n\n詳細な情報は、この API の非同期版のドキュメント {@link realpath} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.realpathSync",
+      "lang": "ja"
+    },
+    "d3403ee7": {
+      "original": "Synchronous realpath(3) - return the canonicalized absolute pathname.",
+      "translated": "同期 realpath(3) - 正規化された絶対パス名を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.realpathSync",
+      "lang": "ja"
+    },
+    "df554bd7": {
+      "original": "Asynchronously rename file at `oldPath` to the pathname provided\nas `newPath`. In the case that `newPath` already exists, it will\nbe overwritten. If there is a directory at `newPath`, an error will\nbe raised instead. No arguments other than a possible exception are\ngiven to the completion callback.\n\nSee also: [`rename(2)`](http://man7.org/linux/man-pages/man2/rename.2.html).\n\n```js\nimport { rename } from 'node:fs';\n\nrename('oldFile.txt', 'newFile.txt', (err) => {\n  if (err) throw err;\n  console.log('Rename complete!');\n});\n```",
+      "translated": "`oldPath` のファイルを `newPath` として指定されたパス名に非同期にリネームする。`newPath` がすでに存在する場合は上書きされる。`newPath` にディレクトリがある場合は、代わりにエラーが発生する。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\n併せて参照: [`rename(2)`](http://man7.org/linux/man-pages/man2/rename.2.html)。\n\n```js\nimport { rename } from 'node:fs';\n\nrename('oldFile.txt', 'newFile.txt', (err) => {\n  if (err) throw err;\n  console.log('Rename complete!');\n});\n```",
+      "symbol": "@types/node/fs.d.ts#fs.rename",
+      "lang": "ja"
+    },
+    "1f42ea9f": {
+      "original": "A path to a file. If a URL is provided, it must use the `file:` protocol.\nURL support is _experimental_.",
+      "translated": "ファイルへのパス。URL を指定する場合、`file:` プロトコルを使わなければならない。URL サポートは_実験的_である。",
+      "symbol": "@types/node/fs.d.ts#fs.rename.__promisify__",
+      "lang": "ja"
+    },
+    "92697bde": {
+      "original": "Renames the file from `oldPath` to `newPath`. Returns `undefined`.\n\nSee the POSIX [`rename(2)`](http://man7.org/linux/man-pages/man2/rename.2.html) documentation for more details.",
+      "translated": "ファイルを `oldPath` から `newPath` にリネームする。`undefined` を返す。\n\n詳細は POSIX の [`rename(2)`](http://man7.org/linux/man-pages/man2/rename.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.renameSync",
+      "lang": "ja"
+    },
+    "576d66d0": {
+      "original": "Asynchronously removes files and directories (modeled on the standard POSIX `rm` utility). No arguments other than a possible exception are given to the\ncompletion callback.",
+      "translated": "ファイルとディレクトリを非同期に削除する(標準の POSIX `rm` ユーティリティをモデルにしている)。完了コールバックには、起こり得る例外以外の引数は渡されない。",
+      "symbol": "@types/node/fs.d.ts#fs.rm",
+      "lang": "ja"
+    },
+    "1eac97ab": {
+      "original": "Asynchronously removes files and directories (modeled on the standard POSIX `rm` utility).",
+      "translated": "ファイルとディレクトリを非同期に削除する(標準の POSIX `rm` ユーティリティをモデルにしている)。",
+      "symbol": "@types/node/fs.d.ts#fs.rm.__promisify__",
+      "lang": "ja"
+    },
+    "afa7f40d": {
+      "original": "Asynchronous [`rmdir(2)`](http://man7.org/linux/man-pages/man2/rmdir.2.html). No arguments other than a possible exception are given\nto the completion callback.\n\nUsing `fs.rmdir()` on a file (not a directory) results in an `ENOENT` error on\nWindows and an `ENOTDIR` error on POSIX.\n\nTo get a behavior similar to the `rm -rf` Unix command, use {@link rm} with options `{ recursive: true, force: true }`.",
+      "translated": "非同期の [`rmdir(2)`](http://man7.org/linux/man-pages/man2/rmdir.2.html)。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\nファイル(ディレクトリではない)に対して `fs.rmdir()` を使うと、Windows では `ENOENT` エラー、POSIX では `ENOTDIR` エラーになる。\n\n`rm -rf` の Unix コマンドに似た挙動を得るには、オプション `{ recursive: true, force: true }` を指定して {@link rm} を使うこと。",
+      "symbol": "@types/node/fs.d.ts#fs.rmdir",
+      "lang": "ja"
+    },
+    "811002b1": {
+      "original": "Asynchronous rmdir(2) - delete a directory.",
+      "translated": "非同期 rmdir(2) - ディレクトリを削除する。",
+      "symbol": "@types/node/fs.d.ts#fs.rmdir.__promisify__",
+      "lang": "ja"
+    },
+    "9d812f36": {
+      "original": "If an `EBUSY`, `EMFILE`, `ENFILE`, `ENOTEMPTY`, or\n`EPERM` error is encountered, Node.js will retry the operation with a linear\nbackoff wait of `retryDelay` ms longer on each try. This option represents the\nnumber of retries. This option is ignored if the `recursive` option is not\n`true`.",
+      "translated": "`EBUSY`・`EMFILE`・`ENFILE`・`ENOTEMPTY`・`EPERM` エラーに遭遇した場合、Node.js は試行ごとに `retryDelay` ミリ秒ずつ長くなる線形バックオフ待機で操作を再試行する。このオプションは再試行の回数を表す。`recursive` オプションが `true` でない場合、このオプションは無視される。",
+      "symbol": "@types/node/fs.d.ts#fs.RmDirOptions.maxRetries",
       "lang": "ja"
     },
     "f3935692": {
