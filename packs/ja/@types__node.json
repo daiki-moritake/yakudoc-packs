@@ -1870,6 +1870,366 @@
       "symbol": "@types/node/fs.d.ts#fs.Dir.close",
       "lang": "ja"
     },
+    "77dcdf1d": {
+      "original": "Synchronously close the directory's underlying resource handle.\nSubsequent reads will result in errors.",
+      "translated": "ディレクトリの基盤となるリソースハンドルを同期的に閉じる。以降の読み取りはエラーになる。",
+      "symbol": "@types/node/fs.d.ts#fs.Dir.closeSync",
+      "lang": "ja"
+    },
+    "9ebe98cb": {
+      "original": "The read-only path of this directory as was provided to {@link opendir},{@link opendirSync}, or `fsPromises.opendir()`.",
+      "translated": "{@link opendir}・{@link opendirSync}・`fsPromises.opendir()` に指定された、このディレクトリの読み取り専用のパス。",
+      "symbol": "@types/node/fs.d.ts#fs.Dir.path",
+      "lang": "ja"
+    },
+    "fe69cd13": {
+      "original": "Asynchronously read the next directory entry via [`readdir(3)`](http://man7.org/linux/man-pages/man3/readdir.3.html) as an `fs.Dirent`.\n\nA promise is returned that will be fulfilled with an `fs.Dirent`, or `null` if there are no more directory entries to read.\n\nDirectory entries returned by this function are in no particular order as\nprovided by the operating system's underlying directory mechanisms.\nEntries added or removed while iterating over the directory might not be\nincluded in the iteration results.",
+      "translated": "[`readdir(3)`](http://man7.org/linux/man-pages/man3/readdir.3.html) を通じて、次のディレクトリエントリを `fs.Dirent` として非同期に読み取る。\n\n`fs.Dirent` で履行される promise が返される。読み取るディレクトリエントリがもうない場合は `null` で履行される。\n\nこの関数が返すディレクトリエントリは、オペレーティングシステムの基盤となるディレクトリ機構が提供するとおり、特定の順序ではない。ディレクトリの反復中に追加・削除されたエントリは、反復結果に含まれないことがある。",
+      "symbol": "@types/node/fs.d.ts#fs.Dir.read",
+      "lang": "ja"
+    },
+    "6bddfef1": {
+      "original": "containing {fs.Dirent|null}",
+      "translated": "{fs.Dirent|null} を含む",
+      "symbol": "@types/node/fs.d.ts#fs.Dir.read",
+      "lang": "ja"
+    },
+    "51fd1a17": {
+      "original": "Synchronously read the next directory entry as an `fs.Dirent`. See the\nPOSIX [`readdir(3)`](http://man7.org/linux/man-pages/man3/readdir.3.html) documentation for more detail.\n\nIf there are no more directory entries to read, `null` will be returned.\n\nDirectory entries returned by this function are in no particular order as\nprovided by the operating system's underlying directory mechanisms.\nEntries added or removed while iterating over the directory might not be\nincluded in the iteration results.",
+      "translated": "次のディレクトリエントリを `fs.Dirent` として同期的に読み取る。詳細は POSIX の [`readdir(3)`](http://man7.org/linux/man-pages/man3/readdir.3.html) ドキュメントを参照。\n\n読み取るディレクトリエントリがもうない場合、`null` が返される。\n\nこの関数が返すディレクトリエントリは、オペレーティングシステムの基盤となるディレクトリ機構が提供するとおり、特定の順序ではない。ディレクトリの反復中に追加・削除されたエントリは、反復結果に含まれないことがある。",
+      "symbol": "@types/node/fs.d.ts#fs.Dir.readSync",
+      "lang": "ja"
+    },
+    "e44c4d6e": {
+      "original": "A representation of a directory entry, which can be a file or a subdirectory\nwithin the directory, as returned by reading from an `fs.Dir`. The\ndirectory entry is a combination of the file name and file type pairs.\n\nAdditionally, when {@link readdir} or {@link readdirSync} is called with\nthe `withFileTypes` option set to `true`, the resulting array is filled with `fs.Dirent` objects, rather than strings or `Buffer` s.",
+      "translated": "ディレクトリエントリの表現。`fs.Dir` から読み取ったときに返される、ディレクトリ内のファイルまたはサブディレクトリになり得る。ディレクトリエントリは、ファイル名とファイル種類のペアの組み合わせである。\n\nさらに、{@link readdir} または {@link readdirSync} が `withFileTypes` オプションを `true` に設定して呼ばれた場合、結果の配列は文字列や `Buffer` ではなく `fs.Dirent` オブジェクトで満たされる。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent",
+      "lang": "ja"
+    },
+    "24222c73": {
+      "original": "Returns `true` if the `fs.Dirent` object describes a block device.",
+      "translated": "`fs.Dirent` オブジェクトがブロックデバイスを記述する場合は `true` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.isBlockDevice",
+      "lang": "ja"
+    },
+    "fa15f3fd": {
+      "original": "Returns `true` if the `fs.Dirent` object describes a character device.",
+      "translated": "`fs.Dirent` オブジェクトがキャラクターデバイスを記述する場合は `true` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.isCharacterDevice",
+      "lang": "ja"
+    },
+    "868ec981": {
+      "original": "Returns `true` if the `fs.Dirent` object describes a file system\ndirectory.",
+      "translated": "`fs.Dirent` オブジェクトがファイルシステムのディレクトリを記述する場合は `true` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.isDirectory",
+      "lang": "ja"
+    },
+    "337fb7be": {
+      "original": "Returns `true` if the `fs.Dirent` object describes a first-in-first-out\n(FIFO) pipe.",
+      "translated": "`fs.Dirent` オブジェクトが first-in-first-out(FIFO)パイプを記述する場合は `true` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.isFIFO",
+      "lang": "ja"
+    },
+    "611797f2": {
+      "original": "Returns `true` if the `fs.Dirent` object describes a regular file.",
+      "translated": "`fs.Dirent` オブジェクトが通常のファイルを記述する場合は `true` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.isFile",
+      "lang": "ja"
+    },
+    "c2b89b78": {
+      "original": "Returns `true` if the `fs.Dirent` object describes a socket.",
+      "translated": "`fs.Dirent` オブジェクトがソケットを記述する場合は `true` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.isSocket",
+      "lang": "ja"
+    },
+    "a66c6518": {
+      "original": "Returns `true` if the `fs.Dirent` object describes a symbolic link.",
+      "translated": "`fs.Dirent` オブジェクトがシンボリックリンクを記述する場合は `true` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.isSymbolicLink",
+      "lang": "ja"
+    },
+    "1d6f2169": {
+      "original": "The file name that this `fs.Dirent` object refers to. The type of this\nvalue is determined by the `options.encoding` passed to {@link readdir} or {@link readdirSync}.",
+      "translated": "この `fs.Dirent` オブジェクトが参照するファイル名。この値の型は、{@link readdir} または {@link readdirSync} に渡された `options.encoding` によって決まる。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.name",
+      "lang": "ja"
+    },
+    "ff28a1ab": {
+      "original": "The path to the parent directory of the file this `fs.Dirent` object refers to.",
+      "translated": "この `fs.Dirent` オブジェクトが参照するファイルの親ディレクトリへのパス。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.parentPath",
+      "lang": "ja"
+    },
+    "6d635321": {
+      "original": "Alias for `dirent.parentPath`.",
+      "translated": "`dirent.parentPath` のエイリアス。",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.path",
+      "lang": "ja"
+    },
+    "6893c935": {
+      "original": "Since v20.12.0",
+      "translated": "v20.12.0 以降",
+      "symbol": "@types/node/fs.d.ts#fs.Dirent.path",
+      "lang": "ja"
+    },
+    "2c8f7be1": {
+      "original": "Since v1.0.0 - Use {@link stat} or {@link access} instead.",
+      "translated": "v1.0.0 以降 - 代わりに {@link stat} または {@link access} を使うこと。",
+      "symbol": "@types/node/fs.d.ts#fs.exists",
+      "lang": "ja"
+    },
+    "6f0dc705": {
+      "original": "Test whether or not the given path exists by checking with the file system.\nThen call the `callback` argument with either true or false:\n\n```js\nimport { exists } from 'node:fs';\n\nexists('/etc/passwd', (e) => {\n  console.log(e ? 'it exists' : 'no passwd!');\n});\n```\n\n**The parameters for this callback are not consistent with other Node.js**\n**callbacks.** Normally, the first parameter to a Node.js callback is an `err` parameter, optionally followed by other parameters. The `fs.exists()` callback\nhas only one boolean parameter. This is one reason `fs.access()` is recommended\ninstead of `fs.exists()`.\n\nUsing `fs.exists()` to check for the existence of a file before calling `fs.open()`, `fs.readFile()`, or `fs.writeFile()` is not recommended. Doing\nso introduces a race condition, since other processes may change the file's\nstate between the two calls. Instead, user code should open/read/write the\nfile directly and handle the error raised if the file does not exist.\n\n**write (NOT RECOMMENDED)**\n\n```js\nimport { exists, open, close } from 'node:fs';\n\nexists('myfile', (e) => {\n  if (e) {\n    console.error('myfile already exists');\n  } else {\n    open('myfile', 'wx', (err, fd) => {\n      if (err) throw err;\n\n      try {\n        writeMyData(fd);\n      } finally {\n        close(fd, (err) => {\n          if (err) throw err;\n        });\n      }\n    });\n  }\n});\n```\n\n**write (RECOMMENDED)**\n\n```js\nimport { open, close } from 'node:fs';\nopen('myfile', 'wx', (err, fd) => {\n  if (err) {\n    if (err.code === 'EEXIST') {\n      console.error('myfile already exists');\n      return;\n    }\n\n    throw err;\n  }\n\n  try {\n    writeMyData(fd);\n  } finally {\n    close(fd, (err) => {\n      if (err) throw err;\n    });\n  }\n});\n```\n\n**read (NOT RECOMMENDED)**\n\n```js\nimport { open, close, exists } from 'node:fs';\n\nexists('myfile', (e) => {\n  if (e) {\n    open('myfile', 'r', (err, fd) => {\n      if (err) throw err;\n\n      try {\n        readMyData(fd);\n      } finally {\n        close(fd, (err) => {\n          if (err) throw err;\n        });\n      }\n    });\n  } else {\n    console.error('myfile does not exist');\n  }\n});\n```\n\n**read (RECOMMENDED)**\n\n```js\nimport { open, close } from 'node:fs';\n\nopen('myfile', 'r', (err, fd) => {\n  if (err) {\n    if (err.code === 'ENOENT') {\n      console.error('myfile does not exist');\n      return;\n    }\n\n    throw err;\n  }\n\n  try {\n    readMyData(fd);\n  } finally {\n    close(fd, (err) => {\n      if (err) throw err;\n    });\n  }\n});\n```\n\nThe \"not recommended\" examples above check for existence and then use the\nfile; the \"recommended\" examples are better because they use the file directly\nand handle the error, if any.\n\nIn general, check for the existence of a file only if the file won't be\nused directly, for example when its existence is a signal from another\nprocess.",
+      "translated": "指定したパスが存在するかどうかを、ファイルシステムに問い合わせてテストする。その後、`callback` 引数を true または false のいずれかで呼ぶ:\n\n```js\nimport { exists } from 'node:fs';\n\nexists('/etc/passwd', (e) => {\n  console.log(e ? 'it exists' : 'no passwd!');\n});\n```\n\n**このコールバックのパラメーターは、他の Node.js のコールバックと一貫していない。** 通常、Node.js のコールバックの第 1 パラメーターは `err` パラメーターで、任意で他のパラメーターが続く。`fs.exists()` のコールバックは真偽値のパラメーターを 1 つだけ持つ。これが、`fs.exists()` の代わりに `fs.access()` が推奨される理由の 1 つである。\n\n`fs.open()`・`fs.readFile()`・`fs.writeFile()` を呼ぶ前に、ファイルの存在を確認するために `fs.exists()` を使うことは推奨されない。そうすると競合状態が生じる。2 つの呼び出しの間に他のプロセスがファイルの状態を変更する可能性があるからである。代わりに、ユーザーコードはファイルを直接 open/read/write し、ファイルが存在しない場合に発生するエラーを処理すべきである。\n\n**書き込み(非推奨)**\n\n```js\nimport { exists, open, close } from 'node:fs';\n\nexists('myfile', (e) => {\n  if (e) {\n    console.error('myfile already exists');\n  } else {\n    open('myfile', 'wx', (err, fd) => {\n      if (err) throw err;\n\n      try {\n        writeMyData(fd);\n      } finally {\n        close(fd, (err) => {\n          if (err) throw err;\n        });\n      }\n    });\n  }\n});\n```\n\n**書き込み(推奨)**\n\n```js\nimport { open, close } from 'node:fs';\nopen('myfile', 'wx', (err, fd) => {\n  if (err) {\n    if (err.code === 'EEXIST') {\n      console.error('myfile already exists');\n      return;\n    }\n\n    throw err;\n  }\n\n  try {\n    writeMyData(fd);\n  } finally {\n    close(fd, (err) => {\n      if (err) throw err;\n    });\n  }\n});\n```\n\n**読み取り(非推奨)**\n\n```js\nimport { open, close, exists } from 'node:fs';\n\nexists('myfile', (e) => {\n  if (e) {\n    open('myfile', 'r', (err, fd) => {\n      if (err) throw err;\n\n      try {\n        readMyData(fd);\n      } finally {\n        close(fd, (err) => {\n          if (err) throw err;\n        });\n      }\n    });\n  } else {\n    console.error('myfile does not exist');\n  }\n});\n```\n\n**読み取り(推奨)**\n\n```js\nimport { open, close } from 'node:fs';\n\nopen('myfile', 'r', (err, fd) => {\n  if (err) {\n    if (err.code === 'ENOENT') {\n      console.error('myfile does not exist');\n      return;\n    }\n\n    throw err;\n  }\n\n  try {\n    readMyData(fd);\n  } finally {\n    close(fd, (err) => {\n      if (err) throw err;\n    });\n  }\n});\n```\n\n上記の「非推奨」の例は存在を確認してからファイルを使う。「推奨」の例は、ファイルを直接使い、エラーがあればそれを処理するため、より優れている。\n\n一般に、ファイルの存在は、ファイルが直接使われない場合(たとえばその存在が別のプロセスからの信号である場合)にのみ確認すること。",
+      "symbol": "@types/node/fs.d.ts#fs.exists",
+      "lang": "ja"
+    },
+    "99dbad2c": {
+      "original": "A path to a file or directory. If a URL is provided, it must use the `file:` protocol.\nURL support is _experimental_.",
+      "translated": "ファイルまたはディレクトリへのパス。URL を指定する場合、`file:` プロトコルを使わなければならない。URL サポートは_実験的_である。",
+      "symbol": "@types/node/fs.d.ts#fs.exists.__promisify__",
+      "lang": "ja"
+    },
+    "439b87c1": {
+      "original": "Returns `true` if the path exists, `false` otherwise.\n\nFor detailed information, see the documentation of the asynchronous version of\nthis API: {@link exists}.\n\n`fs.exists()` is deprecated, but `fs.existsSync()` is not. The `callback` parameter to `fs.exists()` accepts parameters that are inconsistent with other\nNode.js callbacks. `fs.existsSync()` does not use a callback.\n\n```js\nimport { existsSync } from 'node:fs';\n\nif (existsSync('/etc/passwd'))\n  console.log('The path exists.');\n```",
+      "translated": "パスが存在する場合は `true`、そうでなければ `false` を返す。\n\n詳細な情報は、この API の非同期版のドキュメント {@link exists} を参照。\n\n`fs.exists()` は非推奨だが、`fs.existsSync()` はそうではない。`fs.exists()` の `callback` パラメーターは、他の Node.js のコールバックと一貫しないパラメーターを受け付ける。`fs.existsSync()` はコールバックを使わない。\n\n```js\nimport { existsSync } from 'node:fs';\n\nif (existsSync('/etc/passwd'))\n  console.log('The path exists.');\n```",
+      "symbol": "@types/node/fs.d.ts#fs.existsSync",
+      "lang": "ja"
+    },
+    "3eacbde5": {
+      "original": "Sets the permissions on the file. No arguments other than a possible exception\nare given to the completion callback.\n\nSee the POSIX [`fchmod(2)`](http://man7.org/linux/man-pages/man2/fchmod.2.html) documentation for more detail.",
+      "translated": "ファイルの権限を設定する。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\n詳細は POSIX の [`fchmod(2)`](http://man7.org/linux/man-pages/man2/fchmod.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.fchmod",
+      "lang": "ja"
+    },
+    "6f4a40b6": {
+      "original": "Asynchronous fchmod(2) - Change permissions of a file.",
+      "translated": "非同期 fchmod(2) - ファイルの権限を変更する。",
+      "symbol": "@types/node/fs.d.ts#fs.fchmod.__promisify__",
+      "lang": "ja"
+    },
+    "6bfa8816": {
+      "original": "Sets the permissions on the file. Returns `undefined`.\n\nSee the POSIX [`fchmod(2)`](http://man7.org/linux/man-pages/man2/fchmod.2.html) documentation for more detail.",
+      "translated": "ファイルの権限を設定する。`undefined` を返す。\n\n詳細は POSIX の [`fchmod(2)`](http://man7.org/linux/man-pages/man2/fchmod.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.fchmodSync",
+      "lang": "ja"
+    },
+    "3bec57df": {
+      "original": "Sets the owner of the file. No arguments other than a possible exception are\ngiven to the completion callback.\n\nSee the POSIX [`fchown(2)`](http://man7.org/linux/man-pages/man2/fchown.2.html) documentation for more detail.",
+      "translated": "ファイルの所有者を設定する。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\n詳細は POSIX の [`fchown(2)`](http://man7.org/linux/man-pages/man2/fchown.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.fchown",
+      "lang": "ja"
+    },
+    "495b06c2": {
+      "original": "Asynchronous fchown(2) - Change ownership of a file.",
+      "translated": "非同期 fchown(2) - ファイルの所有権を変更する。",
+      "symbol": "@types/node/fs.d.ts#fs.fchown.__promisify__",
+      "lang": "ja"
+    },
+    "3227456e": {
+      "original": "Sets the owner of the file. Returns `undefined`.\n\nSee the POSIX [`fchown(2)`](http://man7.org/linux/man-pages/man2/fchown.2.html) documentation for more detail.",
+      "translated": "ファイルの所有者を設定する。`undefined` を返す。\n\n詳細は POSIX の [`fchown(2)`](http://man7.org/linux/man-pages/man2/fchown.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.fchownSync",
+      "lang": "ja"
+    },
+    "b67d64bf": {
+      "original": "The file's new group's group id.",
+      "translated": "ファイルの新しいグループのグループ ID。",
+      "symbol": "@types/node/fs.d.ts#fs.fchownSync",
+      "lang": "ja"
+    },
+    "c385c37a": {
+      "original": "The file's new owner's user id.",
+      "translated": "ファイルの新しい所有者のユーザー ID。",
+      "symbol": "@types/node/fs.d.ts#fs.fchownSync",
+      "lang": "ja"
+    },
+    "0c841591": {
+      "original": "Forces all currently queued I/O operations associated with the file to the\noperating system's synchronized I/O completion state. Refer to the POSIX [`fdatasync(2)`](http://man7.org/linux/man-pages/man2/fdatasync.2.html) documentation for details. No arguments other\nthan a possible\nexception are given to the completion callback.",
+      "translated": "ファイルに関連付けられた現在キューにあるすべての I/O 操作を、オペレーティングシステムの同期 I/O 完了状態へ強制する。詳細は POSIX の [`fdatasync(2)`](http://man7.org/linux/man-pages/man2/fdatasync.2.html) ドキュメントを参照。完了コールバックには、起こり得る例外以外の引数は渡されない。",
+      "symbol": "@types/node/fs.d.ts#fs.fdatasync",
+      "lang": "ja"
+    },
+    "626c8aee": {
+      "original": "Asynchronous fdatasync(2) - synchronize a file's in-core state with storage device.",
+      "translated": "非同期 fdatasync(2) - ファイルのコア内状態をストレージデバイスと同期する。",
+      "symbol": "@types/node/fs.d.ts#fs.fdatasync.__promisify__",
+      "lang": "ja"
+    },
+    "8b0d3102": {
+      "original": "Forces all currently queued I/O operations associated with the file to the\noperating system's synchronized I/O completion state. Refer to the POSIX [`fdatasync(2)`](http://man7.org/linux/man-pages/man2/fdatasync.2.html) documentation for details. Returns `undefined`.",
+      "translated": "ファイルに関連付けられた現在キューにあるすべての I/O 操作を、オペレーティングシステムの同期 I/O 完了状態へ強制する。詳細は POSIX の [`fdatasync(2)`](http://man7.org/linux/man-pages/man2/fdatasync.2.html) ドキュメントを参照。`undefined` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.fdatasyncSync",
+      "lang": "ja"
+    },
+    "bc490df4": {
+      "original": "Invokes the callback with the `fs.Stats` for the file descriptor.\n\nSee the POSIX [`fstat(2)`](http://man7.org/linux/man-pages/man2/fstat.2.html) documentation for more detail.",
+      "translated": "ファイルディスクリプタの `fs.Stats` でコールバックを呼ぶ。\n\n詳細は POSIX の [`fstat(2)`](http://man7.org/linux/man-pages/man2/fstat.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.fstat",
+      "lang": "ja"
+    },
+    "986274c4": {
+      "original": "Asynchronous fstat(2) - Get file status.",
+      "translated": "非同期 fstat(2) - ファイルの状態を取得する。",
+      "symbol": "@types/node/fs.d.ts#fs.fstat.__promisify__",
+      "lang": "ja"
+    },
+    "7f1148e5": {
+      "original": "Retrieves the `fs.Stats` for the file descriptor.\n\nSee the POSIX [`fstat(2)`](http://man7.org/linux/man-pages/man2/fstat.2.html) documentation for more detail.",
+      "translated": "ファイルディスクリプタの `fs.Stats` を取得する。\n\n詳細は POSIX の [`fstat(2)`](http://man7.org/linux/man-pages/man2/fstat.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.fstatSync",
+      "lang": "ja"
+    },
+    "6af76d53": {
+      "original": "events.EventEmitter\n  1. change\n  2. close\n  3. error",
+      "translated": "events.EventEmitter\n  1. change\n  2. close\n  3. error",
+      "symbol": "@types/node/fs.d.ts#fs.FSWatcher.addListener",
+      "lang": "ja"
+    },
+    "13f99e1d": {
+      "original": "Stop watching for changes on the given `fs.FSWatcher`. Once stopped, the `fs.FSWatcher` object is no longer usable.",
+      "translated": "指定した `fs.FSWatcher` の変更の監視を停止する。いったん停止すると、`fs.FSWatcher` オブジェクトはもう使えなくなる。",
+      "symbol": "@types/node/fs.d.ts#fs.FSWatcher.close",
+      "lang": "ja"
+    },
+    "895009a5": {
+      "original": "When called, requests that the Node.js event loop _not_ exit so long as the `fs.FSWatcher` is active. Calling `watcher.ref()` multiple times will have\nno effect.\n\nBy default, all `fs.FSWatcher` objects are \"ref'ed\", making it normally\nunnecessary to call `watcher.ref()` unless `watcher.unref()` had been\ncalled previously.",
+      "translated": "呼ばれると、`fs.FSWatcher` がアクティブである限り Node.js イベントループが終了_しない_よう要求する。`watcher.ref()` を複数回呼んでも効果はない。\n\n既定では、すべての `fs.FSWatcher` オブジェクトは「ref されている」ため、以前に `watcher.unref()` が呼ばれていない限り、通常 `watcher.ref()` を呼ぶ必要はない。",
+      "symbol": "@types/node/fs.d.ts#fs.FSWatcher.ref",
+      "lang": "ja"
+    },
+    "654f6afb": {
+      "original": "When called, the active `fs.FSWatcher` object will not require the Node.js\nevent loop to remain active. If there is no other activity keeping the\nevent loop running, the process may exit before the `fs.FSWatcher` object's\ncallback is invoked. Calling `watcher.unref()` multiple times will have\nno effect.",
+      "translated": "呼ばれると、アクティブな `fs.FSWatcher` オブジェクトは Node.js イベントループがアクティブなままであることを要求しなくなる。イベントループを実行し続ける他のアクティビティがない場合、`fs.FSWatcher` オブジェクトのコールバックが呼ばれる前にプロセスが終了することがある。`watcher.unref()` を複数回呼んでも効果はない。",
+      "symbol": "@types/node/fs.d.ts#fs.FSWatcher.unref",
+      "lang": "ja"
+    },
+    "7bc0bf77": {
+      "original": "Request that all data for the open file descriptor is flushed to the storage\ndevice. The specific implementation is operating system and device specific.\nRefer to the POSIX [`fsync(2)`](http://man7.org/linux/man-pages/man2/fsync.2.html) documentation for more detail. No arguments other\nthan a possible exception are given to the completion callback.",
+      "translated": "開いているファイルディスクリプタのすべてのデータをストレージデバイスにフラッシュするよう要求する。具体的な実装はオペレーティングシステムとデバイスに固有である。詳細は POSIX の [`fsync(2)`](http://man7.org/linux/man-pages/man2/fsync.2.html) ドキュメントを参照。完了コールバックには、起こり得る例外以外の引数は渡されない。",
+      "symbol": "@types/node/fs.d.ts#fs.fsync",
+      "lang": "ja"
+    },
+    "4d01c668": {
+      "original": "Asynchronous fsync(2) - synchronize a file's in-core state with the underlying storage device.",
+      "translated": "非同期 fsync(2) - ファイルのコア内状態を基盤となるストレージデバイスと同期する。",
+      "symbol": "@types/node/fs.d.ts#fs.fsync.__promisify__",
+      "lang": "ja"
+    },
+    "7d6e94f0": {
+      "original": "Request that all data for the open file descriptor is flushed to the storage\ndevice. The specific implementation is operating system and device specific.\nRefer to the POSIX [`fsync(2)`](http://man7.org/linux/man-pages/man2/fsync.2.html) documentation for more detail. Returns `undefined`.",
+      "translated": "開いているファイルディスクリプタのすべてのデータをストレージデバイスにフラッシュするよう要求する。具体的な実装はオペレーティングシステムとデバイスに固有である。詳細は POSIX の [`fsync(2)`](http://man7.org/linux/man-pages/man2/fsync.2.html) ドキュメントを参照。`undefined` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.fsyncSync",
+      "lang": "ja"
+    },
+    "51cb5e92": {
+      "original": "A file descriptor.",
+      "translated": "ファイルディスクリプタ。",
+      "symbol": "@types/node/fs.d.ts#fs.ftruncate",
+      "lang": "ja"
+    },
+    "7d69dcad": {
+      "original": "Asynchronous ftruncate(2) - Truncate a file to a specified length.",
+      "translated": "非同期 ftruncate(2) - ファイルを指定した長さに切り詰める。",
+      "symbol": "@types/node/fs.d.ts#fs.ftruncate",
+      "lang": "ja"
+    },
+    "e88b5a34": {
+      "original": "Truncates the file descriptor. No arguments other than a possible exception are\ngiven to the completion callback.\n\nSee the POSIX [`ftruncate(2)`](http://man7.org/linux/man-pages/man2/ftruncate.2.html) documentation for more detail.\n\nIf the file referred to by the file descriptor was larger than `len` bytes, only\nthe first `len` bytes will be retained in the file.\n\nFor example, the following program retains only the first four bytes of the\nfile:\n\n```js\nimport { open, close, ftruncate } from 'node:fs';\n\nfunction closeFd(fd) {\n  close(fd, (err) => {\n    if (err) throw err;\n  });\n}\n\nopen('temp.txt', 'r+', (err, fd) => {\n  if (err) throw err;\n\n  try {\n    ftruncate(fd, 4, (err) => {\n      closeFd(fd);\n      if (err) throw err;\n    });\n  } catch (err) {\n    closeFd(fd);\n    if (err) throw err;\n  }\n});\n```\n\nIf the file previously was shorter than `len` bytes, it is extended, and the\nextended part is filled with null bytes (`'\\0'`):\n\nIf `len` is negative then `0` will be used.",
+      "translated": "ファイルディスクリプタを切り詰める。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\n詳細は POSIX の [`ftruncate(2)`](http://man7.org/linux/man-pages/man2/ftruncate.2.html) ドキュメントを参照。\n\nファイルディスクリプタが参照するファイルが `len` バイトより大きかった場合、ファイルには最初の `len` バイトだけが保持される。\n\nたとえば、次のプログラムはファイルの最初の 4 バイトだけを保持する:\n\n```js\nimport { open, close, ftruncate } from 'node:fs';\n\nfunction closeFd(fd) {\n  close(fd, (err) => {\n    if (err) throw err;\n  });\n}\n\nopen('temp.txt', 'r+', (err, fd) => {\n  if (err) throw err;\n\n  try {\n    ftruncate(fd, 4, (err) => {\n      closeFd(fd);\n      if (err) throw err;\n    });\n  } catch (err) {\n    closeFd(fd);\n    if (err) throw err;\n  }\n});\n```\n\nファイルが以前 `len` バイトより短かった場合、拡張され、拡張された部分は null バイト(`'\\0'`)で埋められる:\n\n`len` が負の場合、`0` が使われる。",
+      "symbol": "@types/node/fs.d.ts#fs.ftruncate",
+      "lang": "ja"
+    },
+    "8ee1f317": {
+      "original": "Truncates the file descriptor. Returns `undefined`.\n\nFor detailed information, see the documentation of the asynchronous version of\nthis API: {@link ftruncate}.",
+      "translated": "ファイルディスクリプタを切り詰める。`undefined` を返す。\n\n詳細な情報は、この API の非同期版のドキュメント {@link ftruncate} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.ftruncateSync",
+      "lang": "ja"
+    },
+    "b3203ef2": {
+      "original": "Change the file system timestamps of the object referenced by the supplied file\ndescriptor. See {@link utimes}.",
+      "translated": "指定したファイルディスクリプタが参照するオブジェクトのファイルシステムタイムスタンプを変更する。{@link utimes} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.futimes",
+      "lang": "ja"
+    },
+    "fe3a9f8d": {
+      "original": "Asynchronously change file timestamps of the file referenced by the supplied file descriptor.",
+      "translated": "指定したファイルディスクリプタが参照するファイルのタイムスタンプを非同期に変更する。",
+      "symbol": "@types/node/fs.d.ts#fs.futimes.__promisify__",
+      "lang": "ja"
+    },
+    "78be5d79": {
+      "original": "Synchronous version of {@link futimes}. Returns `undefined`.",
+      "translated": "{@link futimes} の同期版。`undefined` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.futimesSync",
+      "lang": "ja"
+    },
+    "993f8fd5": {
+      "original": "Retrieves the files matching the specified pattern.\n\n```js\nimport { glob } from 'node:fs';\n\nglob('*.js', (err, matches) => {\n  if (err) throw err;\n  console.log(matches);\n});\n```",
+      "translated": "指定したパターンに一致するファイルを取得する。\n\n```js\nimport { glob } from 'node:fs';\n\nglob('*.js', (err, matches) => {\n  if (err) throw err;\n  console.log(matches);\n});\n```",
+      "symbol": "@types/node/fs.d.ts#fs.glob",
+      "lang": "ja"
+    },
+    "829638e5": {
+      "original": "```js\nimport { globSync } from 'node:fs';\n\nconsole.log(globSync('*.js'));\n```",
+      "translated": "```js\nimport { globSync } from 'node:fs';\n\nconsole.log(globSync('*.js'));\n```",
+      "symbol": "@types/node/fs.d.ts#fs.globSync",
+      "lang": "ja"
+    },
+    "3032fbe9": {
+      "original": "paths of files that match the pattern.",
+      "translated": "パターンに一致するファイルのパス。",
+      "symbol": "@types/node/fs.d.ts#fs.globSync",
+      "lang": "ja"
+    },
+    "abf538c4": {
+      "original": "Changes the permissions on a symbolic link. No arguments other than a possible\nexception are given to the completion callback.\n\nThis method is only implemented on macOS.\n\nSee the POSIX [`lchmod(2)`](https://www.freebsd.org/cgi/man.cgi?query=lchmod&sektion=2) documentation for more detail.",
+      "translated": "シンボリックリンクの権限を変更する。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\nこのメソッドは macOS でのみ実装されている。\n\n詳細は POSIX の [`lchmod(2)`](https://www.freebsd.org/cgi/man.cgi?query=lchmod&sektion=2) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.lchmod",
+      "lang": "ja"
+    },
+    "0d3150ee": {
+      "original": "Since v0.4.7",
+      "translated": "v0.4.7 以降",
+      "symbol": "@types/node/fs.d.ts#fs.lchmod",
+      "lang": "ja"
+    },
+    "0c1d9210": {
+      "original": "Asynchronous lchmod(2) - Change permissions of a file. Does not dereference symbolic links.",
+      "translated": "非同期 lchmod(2) - ファイルの権限を変更する。シンボリックリンクをデリファレンスしない。",
+      "symbol": "@types/node/fs.d.ts#fs.lchmod.__promisify__",
+      "lang": "ja"
+    },
+    "27f134cc": {
+      "original": "Changes the permissions on a symbolic link. Returns `undefined`.\n\nThis method is only implemented on macOS.\n\nSee the POSIX [`lchmod(2)`](https://www.freebsd.org/cgi/man.cgi?query=lchmod&sektion=2) documentation for more detail.",
+      "translated": "シンボリックリンクの権限を変更する。`undefined` を返す。\n\nこのメソッドは macOS でのみ実装されている。\n\n詳細は POSIX の [`lchmod(2)`](https://www.freebsd.org/cgi/man.cgi?query=lchmod&sektion=2) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.lchmodSync",
+      "lang": "ja"
+    },
+    "5f584cfd": {
+      "original": "Set the owner of the symbolic link. No arguments other than a possible\nexception are given to the completion callback.\n\nSee the POSIX [`lchown(2)`](http://man7.org/linux/man-pages/man2/lchown.2.html) documentation for more detail.",
+      "translated": "シンボリックリンクの所有者を設定する。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\n詳細は POSIX の [`lchown(2)`](http://man7.org/linux/man-pages/man2/lchown.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.lchown",
+      "lang": "ja"
+    },
+    "bd14e579": {
+      "original": "Asynchronous lchown(2) - Change ownership of a file. Does not dereference symbolic links.",
+      "translated": "非同期 lchown(2) - ファイルの所有権を変更する。シンボリックリンクをデリファレンスしない。",
+      "symbol": "@types/node/fs.d.ts#fs.lchown.__promisify__",
+      "lang": "ja"
+    },
+    "e1f13f3b": {
+      "original": "Set the owner for the path. Returns `undefined`.\n\nSee the POSIX [`lchown(2)`](http://man7.org/linux/man-pages/man2/lchown.2.html) documentation for more details.",
+      "translated": "パスの所有者を設定する。`undefined` を返す。\n\n詳細は POSIX の [`lchown(2)`](http://man7.org/linux/man-pages/man2/lchown.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.lchownSync",
+      "lang": "ja"
+    },
+    "5b919ba5": {
+      "original": "Creates a new link from the `existingPath` to the `newPath`. See the POSIX [`link(2)`](http://man7.org/linux/man-pages/man2/link.2.html) documentation for more detail. No arguments other than\na possible\nexception are given to the completion callback.",
+      "translated": "`existingPath` から `newPath` への新しいリンクを作成する。詳細は POSIX の [`link(2)`](http://man7.org/linux/man-pages/man2/link.2.html) ドキュメントを参照。完了コールバックには、起こり得る例外以外の引数は渡されない。",
+      "symbol": "@types/node/fs.d.ts#fs.link",
+      "lang": "ja"
+    },
     "f3935692": {
       "original": "The `node:os` module provides operating system-related utility methods and\nproperties. It can be accessed using:\n\n```js\nimport os from 'node:os';\n```",
       "translated": "`node:os` モジュールは、オペレーティングシステム関連のユーティリティメソッドとプロパティを提供する。次のようにアクセスできる:\n\n```js\nimport os from 'node:os';\n```",
