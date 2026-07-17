@@ -2080,12 +2080,6 @@
       "symbol": "@types/node/fs.d.ts#fs.fstatSync",
       "lang": "ja"
     },
-    "6af76d53": {
-      "original": "events.EventEmitter\n  1. change\n  2. close\n  3. error",
-      "translated": "events.EventEmitter\n  1. change\n  2. close\n  3. error",
-      "symbol": "@types/node/fs.d.ts#fs.FSWatcher.addListener",
-      "lang": "ja"
-    },
     "13f99e1d": {
       "original": "Stop watching for changes on the given `fs.FSWatcher`. Once stopped, the `fs.FSWatcher` object is no longer usable.",
       "translated": "指定した `fs.FSWatcher` の変更の監視を停止する。いったん停止すると、`fs.FSWatcher` オブジェクトはもう使えなくなる。",
@@ -2170,12 +2164,6 @@
       "symbol": "@types/node/fs.d.ts#fs.glob",
       "lang": "ja"
     },
-    "829638e5": {
-      "original": "```js\nimport { globSync } from 'node:fs';\n\nconsole.log(globSync('*.js'));\n```",
-      "translated": "```js\nimport { globSync } from 'node:fs';\n\nconsole.log(globSync('*.js'));\n```",
-      "symbol": "@types/node/fs.d.ts#fs.globSync",
-      "lang": "ja"
-    },
     "3032fbe9": {
       "original": "paths of files that match the pattern.",
       "translated": "パターンに一致するファイルのパス。",
@@ -2228,6 +2216,186 @@
       "original": "Creates a new link from the `existingPath` to the `newPath`. See the POSIX [`link(2)`](http://man7.org/linux/man-pages/man2/link.2.html) documentation for more detail. No arguments other than\na possible\nexception are given to the completion callback.",
       "translated": "`existingPath` から `newPath` への新しいリンクを作成する。詳細は POSIX の [`link(2)`](http://man7.org/linux/man-pages/man2/link.2.html) ドキュメントを参照。完了コールバックには、起こり得る例外以外の引数は渡されない。",
       "symbol": "@types/node/fs.d.ts#fs.link",
+      "lang": "ja"
+    },
+    "51a715f4": {
+      "original": "Asynchronous link(2) - Create a new link (also known as a hard link) to an existing file.",
+      "translated": "非同期 link(2) - 既存のファイルへの新しいリンク(ハードリンクとも呼ばれる)を作成する。",
+      "symbol": "@types/node/fs.d.ts#fs.link.__promisify__",
+      "lang": "ja"
+    },
+    "9f18700c": {
+      "original": "Creates a new link from the `existingPath` to the `newPath`. See the POSIX [`link(2)`](http://man7.org/linux/man-pages/man2/link.2.html) documentation for more detail. Returns `undefined`.",
+      "translated": "`existingPath` から `newPath` への新しいリンクを作成する。詳細は POSIX の [`link(2)`](http://man7.org/linux/man-pages/man2/link.2.html) ドキュメントを参照。`undefined` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.linkSync",
+      "lang": "ja"
+    },
+    "36e95cd3": {
+      "original": "Retrieves the `fs.Stats` for the symbolic link referred to by the path.\nThe callback gets two arguments `(err, stats)` where `stats` is a `fs.Stats` object. `lstat()` is identical to `stat()`, except that if `path` is a symbolic\nlink, then the link itself is stat-ed, not the file that it refers to.\n\nSee the POSIX [`lstat(2)`](http://man7.org/linux/man-pages/man2/lstat.2.html) documentation for more details.",
+      "translated": "パスが参照するシンボリックリンクの `fs.Stats` を取得する。コールバックは 2 つの引数 `(err, stats)` を受け取り、`stats` は `fs.Stats` オブジェクトである。`lstat()` は `stat()` と同一だが、`path` がシンボリックリンクの場合、それが参照するファイルではなくリンク自体が stat される点が異なる。\n\n詳細は POSIX の [`lstat(2)`](http://man7.org/linux/man-pages/man2/lstat.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.lstat",
+      "lang": "ja"
+    },
+    "1b72fa2c": {
+      "original": "Asynchronous lstat(2) - Get file status. Does not dereference symbolic links.",
+      "translated": "非同期 lstat(2) - ファイルの状態を取得する。シンボリックリンクをデリファレンスしない。",
+      "symbol": "@types/node/fs.d.ts#fs.lstat.__promisify__",
+      "lang": "ja"
+    },
+    "45d80b4e": {
+      "original": "Synchronous lstat(2) - Get file status. Does not dereference symbolic links.",
+      "translated": "同期 lstat(2) - ファイルの状態を取得する。シンボリックリンクをデリファレンスしない。",
+      "symbol": "@types/node/fs.d.ts#fs.lstatSync",
+      "lang": "ja"
+    },
+    "b4df01f0": {
+      "original": "Changes the access and modification times of a file in the same way as {@link utimes}, with the difference that if the path refers to a symbolic\nlink, then the link is not dereferenced: instead, the timestamps of the\nsymbolic link itself are changed.\n\nNo arguments other than a possible exception are given to the completion\ncallback.",
+      "translated": "{@link utimes} と同じ方法でファイルのアクセス時刻と変更時刻を変更する。ただし、パスがシンボリックリンクを参照する場合、リンクはデリファレンスされず、代わりにシンボリックリンク自体のタイムスタンプが変更される点が異なる。\n\n完了コールバックには、起こり得る例外以外の引数は渡されない。",
+      "symbol": "@types/node/fs.d.ts#fs.lutimes",
+      "lang": "ja"
+    },
+    "459dcee1": {
+      "original": "Changes the access and modification times of a file in the same way as `fsPromises.utimes()`,\nwith the difference that if the path refers to a symbolic link, then the link is not\ndereferenced: instead, the timestamps of the symbolic link itself are changed.",
+      "translated": "`fsPromises.utimes()` と同じ方法でファイルのアクセス時刻と変更時刻を変更する。ただし、パスがシンボリックリンクを参照する場合、リンクはデリファレンスされず、代わりにシンボリックリンク自体のタイムスタンプが変更される点が異なる。",
+      "symbol": "@types/node/fs.d.ts#fs.lutimes.__promisify__",
+      "lang": "ja"
+    },
+    "481c54f5": {
+      "original": "The last access time. If a string is provided, it will be coerced to number.",
+      "translated": "最終アクセス時刻。文字列が指定された場合、数値に強制変換される。",
+      "symbol": "@types/node/fs.d.ts#fs.lutimes.__promisify__",
+      "lang": "ja"
+    },
+    "7314ce03": {
+      "original": "The last modified time. If a string is provided, it will be coerced to number.",
+      "translated": "最終変更時刻。文字列が指定された場合、数値に強制変換される。",
+      "symbol": "@types/node/fs.d.ts#fs.lutimes.__promisify__",
+      "lang": "ja"
+    },
+    "5335d091": {
+      "original": "Change the file system timestamps of the symbolic link referenced by `path`.\nReturns `undefined`, or throws an exception when parameters are incorrect or\nthe operation fails. This is the synchronous version of {@link lutimes}.",
+      "translated": "`path` が参照するシンボリックリンクのファイルシステムタイムスタンプを変更する。`undefined` を返すか、パラメーターが不正または操作が失敗した場合は例外を投げる。これは {@link lutimes} の同期版である。",
+      "symbol": "@types/node/fs.d.ts#fs.lutimesSync",
+      "lang": "ja"
+    },
+    "d852dfe2": {
+      "original": "A file mode. If a string is passed, it is parsed as an octal integer. If not specified",
+      "translated": "ファイルモード。文字列が渡された場合、8 進数の整数として解析される。指定されない場合",
+      "symbol": "@types/node/fs.d.ts#fs.MakeDirectoryOptions.mode",
+      "lang": "ja"
+    },
+    "706eeb74": {
+      "original": "Indicates whether parent folders should be created.\nIf a folder was created, the path to the first created folder will be returned.",
+      "translated": "親フォルダーを作成すべきかどうかを示す。フォルダーが作成された場合、最初に作成されたフォルダーへのパスが返される。",
+      "symbol": "@types/node/fs.d.ts#fs.MakeDirectoryOptions.recursive",
+      "lang": "ja"
+    },
+    "b04bc691": {
+      "original": "Asynchronous mkdir(2) - create a directory with a mode of `0o777`.",
+      "translated": "非同期 mkdir(2) - モード `0o777` でディレクトリを作成する。",
+      "symbol": "@types/node/fs.d.ts#fs.mkdir",
+      "lang": "ja"
+    },
+    "a90c34a8": {
+      "original": "Asynchronous mkdir(2) - create a directory.",
+      "translated": "非同期 mkdir(2) - ディレクトリを作成する。",
+      "symbol": "@types/node/fs.d.ts#fs.mkdir",
+      "lang": "ja"
+    },
+    "a4ac1aff": {
+      "original": "Asynchronously creates a directory.\n\nThe callback is given a possible exception and, if `recursive` is `true`, the\nfirst directory path created, `(err[, path])`.`path` can still be `undefined` when `recursive` is `true`, if no directory was\ncreated (for instance, if it was previously created).\n\nThe optional `options` argument can be an integer specifying `mode` (permission\nand sticky bits), or an object with a `mode` property and a `recursive` property indicating whether parent directories should be created. Calling `fs.mkdir()` when `path` is a directory that\nexists results in an error only\nwhen `recursive` is false. If `recursive` is false and the directory exists,\nan `EEXIST` error occurs.\n\n```js\nimport { mkdir } from 'node:fs';\n\n// Create ./tmp/a/apple, regardless of whether ./tmp and ./tmp/a exist.\nmkdir('./tmp/a/apple', { recursive: true }, (err) => {\n  if (err) throw err;\n});\n```\n\nOn Windows, using `fs.mkdir()` on the root directory even with recursion will\nresult in an error:\n\n```js\nimport { mkdir } from 'node:fs';\n\nmkdir('/', { recursive: true }, (err) => {\n  // => [Error: EPERM: operation not permitted, mkdir 'C:\\']\n});\n```\n\nSee the POSIX [`mkdir(2)`](http://man7.org/linux/man-pages/man2/mkdir.2.html) documentation for more details.",
+      "translated": "ディレクトリを非同期に作成する。\n\nコールバックには、起こり得る例外と、`recursive` が `true` の場合は最初に作成されたディレクトリパスが `(err[, path])` の形で渡される。ディレクトリが作成されなかった場合(たとえば以前に作成されていた場合)、`recursive` が `true` でも `path` は `undefined` になり得る。\n\n省略可能な `options` 引数は、`mode`(権限とスティッキービット)を指定する整数、または `mode` プロパティと親ディレクトリを作成すべきかどうかを示す `recursive` プロパティを持つオブジェクトでよい。`path` が存在するディレクトリのときに `fs.mkdir()` を呼ぶと、`recursive` が false の場合にのみエラーになる。`recursive` が false でディレクトリが存在する場合、`EEXIST` エラーが発生する。\n\n```js\nimport { mkdir } from 'node:fs';\n\n// Create ./tmp/a/apple, regardless of whether ./tmp and ./tmp/a exist.\nmkdir('./tmp/a/apple', { recursive: true }, (err) => {\n  if (err) throw err;\n});\n```\n\nWindows では、再帰を使っても、ルートディレクトリに対して `fs.mkdir()` を使うとエラーになる:\n\n```js\nimport { mkdir } from 'node:fs';\n\nmkdir('/', { recursive: true }, (err) => {\n  // => [Error: EPERM: operation not permitted, mkdir 'C:\\']\n});\n```\n\n詳細は POSIX の [`mkdir(2)`](http://man7.org/linux/man-pages/man2/mkdir.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.mkdir",
+      "lang": "ja"
+    },
+    "1f6c5d24": {
+      "original": "Either the file mode, or an object optionally specifying the file mode and whether parent folders\nshould be created. If a string is passed, it is parsed as an octal integer. If not specified, defaults to `0o777`.",
+      "translated": "ファイルモード、またはファイルモードと親フォルダーを作成すべきかどうかを任意で指定するオブジェクトのいずれか。文字列が渡された場合、8 進数の整数として解析される。指定されない場合、既定は `0o777`。",
+      "symbol": "@types/node/fs.d.ts#fs.mkdir",
+      "lang": "ja"
+    },
+    "06f123ac": {
+      "original": "Synchronous mkdir(2) - create a directory.",
+      "translated": "同期 mkdir(2) - ディレクトリを作成する。",
+      "symbol": "@types/node/fs.d.ts#fs.mkdirSync",
+      "lang": "ja"
+    },
+    "7a11676f": {
+      "original": "Synchronously creates a directory. Returns `undefined`, or if `recursive` is `true`, the first directory path created.\nThis is the synchronous version of {@link mkdir}.\n\nSee the POSIX [`mkdir(2)`](http://man7.org/linux/man-pages/man2/mkdir.2.html) documentation for more details.",
+      "translated": "ディレクトリを同期的に作成する。`undefined` を返すか、`recursive` が `true` の場合は最初に作成されたディレクトリパスを返す。これは {@link mkdir} の同期版である。\n\n詳細は POSIX の [`mkdir(2)`](http://man7.org/linux/man-pages/man2/mkdir.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.mkdirSync",
+      "lang": "ja"
+    },
+    "9200eecd": {
+      "original": "Asynchronously creates a unique temporary directory.\nGenerates six random characters to be appended behind a required prefix to create a unique temporary directory.",
+      "translated": "一意な一時ディレクトリを非同期に作成する。一意な一時ディレクトリを作成するために、必須のプレフィックスの後ろに追加する 6 つのランダムな文字を生成する。",
+      "symbol": "@types/node/fs.d.ts#fs.mkdtemp",
+      "lang": "ja"
+    },
+    "1059438c": {
+      "original": "Creates a unique temporary directory.\n\nGenerates six random characters to be appended behind a required `prefix` to create a unique temporary directory. Due to platform\ninconsistencies, avoid trailing `X` characters in `prefix`. Some platforms,\nnotably the BSDs, can return more than six random characters, and replace\ntrailing `X` characters in `prefix` with random characters.\n\nThe created directory path is passed as a string to the callback's second\nparameter.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use.\n\n```js\nimport { mkdtemp } from 'node:fs';\nimport { join } from 'node:path';\nimport { tmpdir } from 'node:os';\n\nmkdtemp(join(tmpdir(), 'foo-'), (err, directory) => {\n  if (err) throw err;\n  console.log(directory);\n  // Prints: /tmp/foo-itXde2 or C:\\Users\\...\\AppData\\Local\\Temp\\foo-itXde2\n});\n```\n\nThe `fs.mkdtemp()` method will append the six randomly selected characters\ndirectly to the `prefix` string. For instance, given a directory `/tmp`, if the\nintention is to create a temporary directory _within_`/tmp`, the `prefix`must end with a trailing platform-specific path separator\n(`import { sep } from 'node:path'`).\n\n```js\nimport { tmpdir } from 'node:os';\nimport { mkdtemp } from 'node:fs';\n\n// The parent directory for the new temporary directory\nconst tmpDir = tmpdir();\n\n// This method is *INCORRECT*:\nmkdtemp(tmpDir, (err, directory) => {\n  if (err) throw err;\n  console.log(directory);\n  // Will print something similar to `/tmpabc123`.\n  // A new temporary directory is created at the file system root\n  // rather than *within* the /tmp directory.\n});\n\n// This method is *CORRECT*:\nimport { sep } from 'node:path';\nmkdtemp(`${tmpDir}${sep}`, (err, directory) => {\n  if (err) throw err;\n  console.log(directory);\n  // Will print something similar to `/tmp/abc123`.\n  // A new temporary directory is created within\n  // the /tmp directory.\n});\n```",
+      "translated": "一意な一時ディレクトリを作成する。\n\n一意な一時ディレクトリを作成するために、必須の `prefix` の後ろに追加する 6 つのランダムな文字を生成する。プラットフォーム間の不整合のため、`prefix` の末尾に `X` 文字を付けるのは避けること。一部のプラットフォーム、特に BSD は、6 文字より多くのランダムな文字を返し、`prefix` の末尾の `X` 文字をランダムな文字に置き換えることがある。\n\n作成されたディレクトリパスは、コールバックの第 2 パラメーターに文字列として渡される。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、または使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。\n\n```js\nimport { mkdtemp } from 'node:fs';\nimport { join } from 'node:path';\nimport { tmpdir } from 'node:os';\n\nmkdtemp(join(tmpdir(), 'foo-'), (err, directory) => {\n  if (err) throw err;\n  console.log(directory);\n  // Prints: /tmp/foo-itXde2 or C:\\Users\\...\\AppData\\Local\\Temp\\foo-itXde2\n});\n```\n\n`fs.mkdtemp()` メソッドは、ランダムに選ばれた 6 文字を `prefix` 文字列に直接追加する。たとえば、ディレクトリ `/tmp` があるとき、`/tmp` の_中_に一時ディレクトリを作成する意図であれば、`prefix` はプラットフォーム固有の末尾のパス区切り文字(`import { sep } from 'node:path'`)で終わらなければならない。\n\n```js\nimport { tmpdir } from 'node:os';\nimport { mkdtemp } from 'node:fs';\n\n// The parent directory for the new temporary directory\nconst tmpDir = tmpdir();\n\n// This method is *INCORRECT*:\nmkdtemp(tmpDir, (err, directory) => {\n  if (err) throw err;\n  console.log(directory);\n  // Will print something similar to `/tmpabc123`.\n  // A new temporary directory is created at the file system root\n  // rather than *within* the /tmp directory.\n});\n\n// This method is *CORRECT*:\nimport { sep } from 'node:path';\nmkdtemp(`${tmpDir}${sep}`, (err, directory) => {\n  if (err) throw err;\n  console.log(directory);\n  // Will print something similar to `/tmp/abc123`.\n  // A new temporary directory is created within\n  // the /tmp directory.\n});\n```",
+      "symbol": "@types/node/fs.d.ts#fs.mkdtemp",
+      "lang": "ja"
+    },
+    "87df45d6": {
+      "original": "Returns the created directory path.\n\nFor detailed information, see the documentation of the asynchronous version of\nthis API: {@link mkdtemp}.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use.",
+      "translated": "作成されたディレクトリパスを返す。\n\n詳細な情報は、この API の非同期版のドキュメント {@link mkdtemp} を参照。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、または使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。",
+      "symbol": "@types/node/fs.d.ts#fs.mkdtempSync",
+      "lang": "ja"
+    },
+    "2aafebbf": {
+      "original": "Synchronously creates a unique temporary directory.\nGenerates six random characters to be appended behind a required prefix to create a unique temporary directory.",
+      "translated": "一意な一時ディレクトリを同期的に作成する。一意な一時ディレクトリを作成するために、必須のプレフィックスの後ろに追加する 6 つのランダムな文字を生成する。",
+      "symbol": "@types/node/fs.d.ts#fs.mkdtempSync",
+      "lang": "ja"
+    },
+    "fb180c78": {
+      "original": "Asynchronous file open. See the POSIX [`open(2)`](http://man7.org/linux/man-pages/man2/open.2.html) documentation for more details.\n\n`mode` sets the file mode (permission and sticky bits), but only if the file was\ncreated. On Windows, only the write permission can be manipulated; see {@link chmod}.\n\nThe callback gets two arguments `(err, fd)`.\n\nSome characters (`< > : \" / \\ | ? *`) are reserved under Windows as documented\nby [Naming Files, Paths, and Namespaces](https://docs.microsoft.com/en-us/windows/desktop/FileIO/naming-a-file). Under NTFS, if the filename contains\na colon, Node.js will open a file system stream, as described by [this MSDN page](https://docs.microsoft.com/en-us/windows/desktop/FileIO/using-streams).\n\nFunctions based on `fs.open()` exhibit this behavior as well:`fs.writeFile()`, `fs.readFile()`, etc.",
+      "translated": "非同期のファイルオープン。詳細は POSIX の [`open(2)`](http://man7.org/linux/man-pages/man2/open.2.html) ドキュメントを参照。\n\n`mode` はファイルモード(権限とスティッキービット)を設定するが、ファイルが作成された場合にのみ有効である。Windows では書き込み権限のみを操作できる。{@link chmod} を参照。\n\nコールバックは 2 つの引数 `(err, fd)` を受け取る。\n\n一部の文字(`< > : \" / \\ | ? *`)は、[Naming Files, Paths, and Namespaces](https://docs.microsoft.com/en-us/windows/desktop/FileIO/naming-a-file) に記載されているとおり、Windows では予約されている。NTFS では、ファイル名にコロンが含まれる場合、[この MSDN ページ](https://docs.microsoft.com/en-us/windows/desktop/FileIO/using-streams)で説明されているとおり、Node.js はファイルシステムストリームを開く。\n\n`fs.open()` に基づく関数(`fs.writeFile()`・`fs.readFile()` など)も、この挙動を示す。",
+      "symbol": "@types/node/fs.d.ts#fs.open",
+      "lang": "ja"
+    },
+    "dfb1d093": {
+      "original": "Asynchronous open(2) - open and possibly create a file. If the file is created, its mode will be `0o666`.",
+      "translated": "非同期 open(2) - ファイルを開き、場合によっては作成する。ファイルが作成された場合、そのモードは `0o666` になる。",
+      "symbol": "@types/node/fs.d.ts#fs.open",
+      "lang": "ja"
+    },
+    "4f328f8c": {
+      "original": "See `support of file system `flags``.",
+      "translated": "`support of file system `flags`` を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.open",
+      "lang": "ja"
+    },
+    "cc8200d9": {
+      "original": "A file mode. If a string is passed, it is parsed as an octal integer. If not supplied, defaults to `0o666`.",
+      "translated": "ファイルモード。文字列が渡された場合、8 進数の整数として解析される。指定されない場合、既定は `0o666`。",
+      "symbol": "@types/node/fs.d.ts#fs.open.__promisify__",
+      "lang": "ja"
+    },
+    "9921618a": {
+      "original": "Asynchronous open(2) - open and possibly create a file.",
+      "translated": "非同期 open(2) - ファイルを開き、場合によっては作成する。",
+      "symbol": "@types/node/fs.d.ts#fs.open.__promisify__",
+      "lang": "ja"
+    },
+    "b457a6c9": {
+      "original": "Returns a `Blob` whose data is backed by the given file.\n\nThe file must not be modified after the `Blob` is created. Any modifications\nwill cause reading the `Blob` data to fail with a `DOMException` error.\nSynchronous stat operations on the file when the `Blob` is created, and before\neach read in order to detect whether the file data has been modified on disk.\n\n```js\nimport { openAsBlob } from 'node:fs';\n\nconst blob = await openAsBlob('the.file.txt');\nconst ab = await blob.arrayBuffer();\nblob.stream();\n```",
+      "translated": "指定したファイルをデータの裏付けとする `Blob` を返す。\n\n`Blob` が作成された後にファイルを変更してはならない。変更すると、`Blob` データの読み取りが `DOMException` エラーで失敗する。ファイルデータがディスク上で変更されたかどうかを検出するため、`Blob` の作成時と各読み取りの前にファイルに対して同期 stat 操作が行われる。\n\n```js\nimport { openAsBlob } from 'node:fs';\n\nconst blob = await openAsBlob('the.file.txt');\nconst ab = await blob.arrayBuffer();\nblob.stream();\n```",
+      "symbol": "@types/node/fs.d.ts#fs.openAsBlob",
+      "lang": "ja"
+    },
+    "8bfa07c4": {
+      "original": "An optional mime type for the blob.",
+      "translated": "blob の省略可能な mime タイプ。",
+      "symbol": "@types/node/fs.d.ts#fs.OpenAsBlobOptions.type",
+      "lang": "ja"
+    },
+    "5b9776fd": {
+      "original": "Asynchronously open a directory. See the POSIX [`opendir(3)`](http://man7.org/linux/man-pages/man3/opendir.3.html) documentation for\nmore details.\n\nCreates an `fs.Dir`, which contains all further functions for reading from\nand cleaning up the directory.\n\nThe `encoding` option sets the encoding for the `path` while opening the\ndirectory and subsequent read operations.",
+      "translated": "ディレクトリを非同期に開く。詳細は POSIX の [`opendir(3)`](http://man7.org/linux/man-pages/man3/opendir.3.html) ドキュメントを参照。\n\nディレクトリからの読み取りとクリーンアップのためのすべての関数を含む `fs.Dir` を作成する。\n\n`encoding` オプションは、ディレクトリを開くときと以降の読み取り操作における `path` のエンコーディングを設定する。",
+      "symbol": "@types/node/fs.d.ts#fs.opendir",
       "lang": "ja"
     },
     "f3935692": {
