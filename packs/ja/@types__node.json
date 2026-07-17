@@ -136,6 +136,12 @@
       "symbol": "@types/node/fs.d.ts#fs.write",
       "lang": "ja"
     },
+    "67980805": {
+      "original": "Returns a subject name that matches `name`, or `undefined` if no subject name matches `name`.",
+      "translated": "`name` に一致する subject 名を返す。`name` に一致する subject 名がない場合は `undefined` を返す。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkHost",
+      "lang": "ja"
+    },
     "73741370": {
       "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a directory.",
       "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。ディレクトリを表すファイル種類定数。",
@@ -2426,6 +2432,198 @@
       "original": "Using the method and parameters given in `algorithm` and the keying material provided by `key`,\n`subtle.verify()` attempts to verify that `signature` is a valid cryptographic signature of `data`.\nThe returned promise is resolved with either `true` or `false`.\n\nThe algorithms currently supported include:\n\n- `'RSASSA-PKCS1-v1_5'`\n- `'RSA-PSS'`\n- `'ECDSA'`\n- `'Ed25519'`\n- `'Ed448'`\n- `'HMAC'`",
       "translated": "`algorithm` で指定されたメソッドとパラメーター、および `key` が提供する鍵材料を使い、`subtle.verify()` は `signature` が `data` の有効な暗号学的署名であることの検証を試みる。返される promise は `true` または `false` のいずれかで解決される。\n\n現在サポートされているアルゴリズムは次のとおり:\n\n- `'RSASSA-PKCS1-v1_5'`\n- `'RSA-PSS'`\n- `'ECDSA'`\n- `'Ed25519'`\n- `'Ed448'`\n- `'HMAC'`",
       "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.verify",
+      "lang": "ja"
+    },
+    "21ce5595": {
+      "original": "In cryptography, \"wrapping a key\" refers to exporting and then encrypting the keying material.\nThe `subtle.wrapKey()` method exports the keying material into the format identified by `format`,\nthen encrypts it using the method and parameters specified by `wrapAlgo` and the keying material provided by `wrappingKey`.\nIt is the equivalent to calling `subtle.exportKey()` using `format` and `key` as the arguments,\nthen passing the result to the `subtle.encrypt()` method using `wrappingKey` and `wrapAlgo` as inputs.\nIf successful, the returned promise will be resolved with an `<ArrayBuffer>` containing the encrypted key data.\n\nThe wrapping algorithms currently supported include:\n\n- `'RSA-OAEP'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`\n- `'AES-KW'`",
+      "translated": "暗号では「鍵をラップする」とは、鍵材料をエクスポートしてから暗号化することを指す。`subtle.wrapKey()` メソッドは、鍵材料を `format` で識別される形式にエクスポートしてから、`wrapAlgo` で指定されたメソッドとパラメーター、および `wrappingKey` が提供する鍵材料を使って暗号化する。これは、`format` と `key` を引数として `subtle.exportKey()` を呼んでから、その結果を `wrappingKey` と `wrapAlgo` を入力として `subtle.encrypt()` メソッドに渡すことと同等である。成功した場合、返される promise は暗号化された鍵データを含む `<ArrayBuffer>` で解決される。\n\n現在サポートされているラップアルゴリズムは次のとおり:\n\n- `'RSA-OAEP'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`\n- `'AES-KW'`",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.wrapKey",
+      "lang": "ja"
+    },
+    "0990ab67": {
+      "original": "Encapsulates an X509 certificate and provides read-only access to\nits information.\n\n```js\nconst { X509Certificate } = await import('node:crypto');\n\nconst x509 = new X509Certificate('{... pem encoded cert ...}');\n\nconsole.log(x509.subject);\n```",
+      "translated": "X509 証明書をカプセル化し、その情報への読み取り専用アクセスを提供する。\n\n```js\nconst { X509Certificate } = await import('node:crypto');\n\nconst x509 = new X509Certificate('{... pem encoded cert ...}');\n\nconsole.log(x509.subject);\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate",
+      "lang": "ja"
+    },
+    "d789cfeb": {
+      "original": "Will be \\`true\\` if this is a Certificate Authority (CA) certificate.",
+      "translated": "これが認証局(CA)証明書の場合は \\`true\\` になる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.ca",
+      "lang": "ja"
+    },
+    "d31336bd": {
+      "original": "Checks whether the certificate matches the given email address.\n\nIf the `'subject'` option is undefined or set to `'default'`, the certificate\nsubject is only considered if the subject alternative name extension either does\nnot exist or does not contain any email addresses.\n\nIf the `'subject'` option is set to `'always'` and if the subject alternative\nname extension either does not exist or does not contain a matching email\naddress, the certificate subject is considered.\n\nIf the `'subject'` option is set to `'never'`, the certificate subject is never\nconsidered, even if the certificate contains no subject alternative names.",
+      "translated": "証明書が指定したメールアドレスに一致するかどうかを確認する。\n\n`'subject'` オプションが undefined または `'default'` に設定されている場合、subject alternative name 拡張が存在しないか、メールアドレスを含まない場合にのみ証明書の subject が考慮される。\n\n`'subject'` オプションが `'always'` に設定されていて、subject alternative name 拡張が存在しないか一致するメールアドレスを含まない場合、証明書の subject が考慮される。\n\n`'subject'` オプションが `'never'` に設定されている場合、証明書が subject alternative name を含まなくても、証明書の subject は決して考慮されない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkEmail",
+      "lang": "ja"
+    },
+    "8475a5a4": {
+      "original": "Returns `email` if the certificate matches, `undefined` if it does not.",
+      "translated": "証明書が一致する場合は `email` を返し、一致しない場合は `undefined` を返す。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkEmail",
+      "lang": "ja"
+    },
+    "ef6192e9": {
+      "original": "Checks whether the certificate matches the given host name.\n\nIf the certificate matches the given host name, the matching subject name is\nreturned. The returned name might be an exact match (e.g., `foo.example.com`)\nor it might contain wildcards (e.g., `*.example.com`). Because host name\ncomparisons are case-insensitive, the returned subject name might also differ\nfrom the given `name` in capitalization.\n\nIf the `'subject'` option is undefined or set to `'default'`, the certificate\nsubject is only considered if the subject alternative name extension either does\nnot exist or does not contain any DNS names. This behavior is consistent with [RFC 2818](https://www.rfc-editor.org/rfc/rfc2818.txt) (\"HTTP Over TLS\").\n\nIf the `'subject'` option is set to `'always'` and if the subject alternative\nname extension either does not exist or does not contain a matching DNS name,\nthe certificate subject is considered.\n\nIf the `'subject'` option is set to `'never'`, the certificate subject is never\nconsidered, even if the certificate contains no subject alternative names.",
+      "translated": "証明書が指定したホスト名に一致するかどうかを確認する。\n\n証明書が指定したホスト名に一致する場合、一致した subject 名が返される。返される名前は完全一致(たとえば `foo.example.com`)のこともあれば、ワイルドカードを含むこと(たとえば `*.example.com`)もある。ホスト名の比較は大文字小文字を区別しないため、返される subject 名は大文字小文字の点で指定した `name` と異なることもある。\n\n`'subject'` オプションが undefined または `'default'` に設定されている場合、subject alternative name 拡張が存在しないか、DNS 名を含まない場合にのみ証明書の subject が考慮される。この挙動は [RFC 2818](https://www.rfc-editor.org/rfc/rfc2818.txt)(「HTTP Over TLS」)と一致している。\n\n`'subject'` オプションが `'always'` に設定されていて、subject alternative name 拡張が存在しないか一致する DNS 名を含まない場合、証明書の subject が考慮される。\n\n`'subject'` オプションが `'never'` に設定されている場合、証明書が subject alternative name を含まなくても、証明書の subject は決して考慮されない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkHost",
+      "lang": "ja"
+    },
+    "2427a196": {
+      "original": "Checks whether the certificate matches the given IP address (IPv4 or IPv6).\n\nOnly [RFC 5280](https://www.rfc-editor.org/rfc/rfc5280.txt) `iPAddress` subject alternative names are considered, and they\nmust match the given `ip` address exactly. Other subject alternative names as\nwell as the subject field of the certificate are ignored.",
+      "translated": "証明書が指定した IP アドレス(IPv4 または IPv6)に一致するかどうかを確認する。\n\n[RFC 5280](https://www.rfc-editor.org/rfc/rfc5280.txt) の `iPAddress` subject alternative name のみが考慮され、それらは指定した `ip` アドレスと完全に一致しなければならない。他の subject alternative name および証明書の subject フィールドは無視される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkIP",
+      "lang": "ja"
+    },
+    "2158d688": {
+      "original": "Returns `ip` if the certificate matches, `undefined` if it does not.",
+      "translated": "証明書が一致する場合は `ip` を返し、一致しない場合は `undefined` を返す。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkIP",
+      "lang": "ja"
+    },
+    "c9b76273": {
+      "original": "Checks whether this certificate was potentially issued by the given `otherCert`\nby comparing the certificate metadata.\n\nThis is useful for pruning a list of possible issuer certificates which have been\nselected using a more rudimentary filtering routine, i.e. just based on subject\nand issuer names.\n\nFinally, to verify that this certificate's signature was produced by a private key\ncorresponding to `otherCert`'s public key use `x509.verify(publicKey)`\nwith `otherCert`'s public key represented as a `KeyObject`\nlike so\n\n```js\nif (!x509.verify(otherCert.publicKey)) {\n  throw new Error('otherCert did not issue x509');\n}\n```",
+      "translated": "証明書のメタデータを比較して、この証明書が指定した `otherCert` によって発行された可能性があるかどうかを確認する。\n\nこれは、subject 名と issuer 名だけに基づくようなより初歩的なフィルタリングルーチンを使って選択された、発行者候補証明書のリストを絞り込むのに役立つ。\n\n最後に、この証明書の署名が `otherCert` の公開鍵に対応する秘密鍵によって生成されたことを検証するには、次のように `otherCert` の公開鍵を `KeyObject` として表して `x509.verify(publicKey)` を使う\n\n```js\nif (!x509.verify(otherCert.publicKey)) {\n  throw new Error('otherCert did not issue x509');\n}\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkIssued",
+      "lang": "ja"
+    },
+    "787936db": {
+      "original": "A private key.",
+      "translated": "秘密鍵。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkPrivateKey",
+      "lang": "ja"
+    },
+    "a98fe94e": {
+      "original": "Checks whether the public key for this certificate is consistent with\nthe given private key.",
+      "translated": "この証明書の公開鍵が指定した秘密鍵と整合するかどうかを確認する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkPrivateKey",
+      "lang": "ja"
+    },
+    "a96b97ed": {
+      "original": "The SHA-1 fingerprint of this certificate.\n\nBecause SHA-1 is cryptographically broken and because the security of SHA-1 is\nsignificantly worse than that of algorithms that are commonly used to sign\ncertificates, consider using `x509.fingerprint256` instead.",
+      "translated": "この証明書の SHA-1 フィンガープリント。\n\nSHA-1 は暗号学的に破られており、SHA-1 のセキュリティは証明書の署名に一般的に使われるアルゴリズムのそれよりも著しく劣るため、代わりに `x509.fingerprint256` の使用を検討すること。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.fingerprint",
+      "lang": "ja"
+    },
+    "0648fbf4": {
+      "original": "The SHA-256 fingerprint of this certificate.",
+      "translated": "この証明書の SHA-256 フィンガープリント。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.fingerprint256",
+      "lang": "ja"
+    },
+    "fba70172": {
+      "original": "The SHA-512 fingerprint of this certificate.\n\nBecause computing the SHA-256 fingerprint is usually faster and because it is\nonly half the size of the SHA-512 fingerprint, `x509.fingerprint256` may be\na better choice. While SHA-512 presumably provides a higher level of security in\ngeneral, the security of SHA-256 matches that of most algorithms that are\ncommonly used to sign certificates.",
+      "translated": "この証明書の SHA-512 フィンガープリント。\n\nSHA-256 フィンガープリントの計算は通常より速く、SHA-512 フィンガープリントの半分のサイズしかないため、`x509.fingerprint256` の方が良い選択かもしれない。SHA-512 はおそらく一般により高いレベルのセキュリティを提供するが、SHA-256 のセキュリティは証明書の署名に一般的に使われるほとんどのアルゴリズムのそれと同等である。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.fingerprint512",
+      "lang": "ja"
+    },
+    "2260c92c": {
+      "original": "A textual representation of the certificate's authority information access\nextension.\n\nThis is a line feed separated list of access descriptions. Each line begins with\nthe access method and the kind of the access location, followed by a colon and\nthe value associated with the access location.\n\nAfter the prefix denoting the access method and the kind of the access location,\nthe remainder of each line might be enclosed in quotes to indicate that the\nvalue is a JSON string literal. For backward compatibility, Node.js only uses\nJSON string literals within this property when necessary to avoid ambiguity.\nThird-party code should be prepared to handle both possible entry formats.",
+      "translated": "証明書の authority information access 拡張のテキスト表現。\n\nこれは改行区切りのアクセス記述のリストである。各行は、アクセスメソッドとアクセス位置の種類で始まり、コロンとアクセス位置に関連付けられた値が続く。\n\nアクセスメソッドとアクセス位置の種類を示すプレフィックスの後、各行の残りは、値が JSON 文字列リテラルであることを示すために引用符で囲まれることがある。後方互換性のため、Node.js はあいまいさを避けるために必要な場合にのみ、このプロパティ内で JSON 文字列リテラルを使う。サードパーティのコードは、両方の可能なエントリ形式を扱えるよう備えるべきである。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.infoAccess",
+      "lang": "ja"
+    },
+    "553832fe": {
+      "original": "The issuer identification included in this certificate.",
+      "translated": "この証明書に含まれる issuer 識別情報。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.issuer",
+      "lang": "ja"
+    },
+    "876fbcdb": {
+      "original": "The issuer certificate or `undefined` if the issuer certificate is not\navailable.",
+      "translated": "issuer 証明書。issuer 証明書が利用できない場合は `undefined`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.issuerCertificate",
+      "lang": "ja"
+    },
+    "b91e58fb": {
+      "original": "An array detailing the key usages for this certificate.",
+      "translated": "この証明書の鍵の用途を詳述する配列。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.keyUsage",
+      "lang": "ja"
+    },
+    "ec06e952": {
+      "original": "The public key `KeyObject` for this certificate.",
+      "translated": "この証明書の公開鍵 `KeyObject`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.publicKey",
+      "lang": "ja"
+    },
+    "ef5a0e36": {
+      "original": "A `Buffer` containing the DER encoding of this certificate.",
+      "translated": "この証明書の DER エンコードを含む `Buffer`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.raw",
+      "lang": "ja"
+    },
+    "b1126a4c": {
+      "original": "The serial number of this certificate.\n\nSerial numbers are assigned by certificate authorities and do not uniquely\nidentify certificates. Consider using `x509.fingerprint256` as a unique\nidentifier instead.",
+      "translated": "この証明書のシリアル番号。\n\nシリアル番号は認証局によって割り当てられ、証明書を一意に識別しない。代わりに一意な識別子として `x509.fingerprint256` の使用を検討すること。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.serialNumber",
+      "lang": "ja"
+    },
+    "4b631f52": {
+      "original": "The complete subject of this certificate.",
+      "translated": "この証明書の完全な subject。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.subject",
+      "lang": "ja"
+    },
+    "c5361879": {
+      "original": "The subject alternative name specified for this certificate.\n\nThis is a comma-separated list of subject alternative names. Each entry begins\nwith a string identifying the kind of the subject alternative name followed by\na colon and the value associated with the entry.\n\nEarlier versions of Node.js incorrectly assumed that it is safe to split this\nproperty at the two-character sequence `', '` (see [CVE-2021-44532](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44532)). However,\nboth malicious and legitimate certificates can contain subject alternative names\nthat include this sequence when represented as a string.\n\nAfter the prefix denoting the type of the entry, the remainder of each entry\nmight be enclosed in quotes to indicate that the value is a JSON string literal.\nFor backward compatibility, Node.js only uses JSON string literals within this\nproperty when necessary to avoid ambiguity. Third-party code should be prepared\nto handle both possible entry formats.",
+      "translated": "この証明書に指定された subject alternative name。\n\nこれはカンマ区切りの subject alternative name のリストである。各エントリは、subject alternative name の種類を識別する文字列で始まり、コロンとエントリに関連付けられた値が続く。\n\n以前のバージョンの Node.js は、このプロパティを 2 文字の並び `', '` で分割しても安全であると誤って仮定していた([CVE-2021-44532](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44532) を参照)。しかし、悪意のある証明書も正当な証明書も、文字列として表されるときにこの並びを含む subject alternative name を含み得る。\n\nエントリの種類を示すプレフィックスの後、各エントリの残りは、値が JSON 文字列リテラルであることを示すために引用符で囲まれることがある。後方互換性のため、Node.js はあいまいさを避けるために必要な場合にのみ、このプロパティ内で JSON 文字列リテラルを使う。サードパーティのコードは、両方の可能なエントリ形式を扱えるよう備えるべきである。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.subjectAltName",
+      "lang": "ja"
+    },
+    "a77cac33": {
+      "original": "There is no standard JSON encoding for X509 certificates. The`toJSON()` method returns a string containing the PEM encoded\ncertificate.",
+      "translated": "X509 証明書には標準の JSON エンコードがない。`toJSON()` メソッドは、PEM エンコードされた証明書を含む文字列を返す。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.toJSON",
+      "lang": "ja"
+    },
+    "67c24352": {
+      "original": "Returns information about this certificate using the legacy `certificate object` encoding.",
+      "translated": "レガシーな `certificate object` エンコードを使って、この証明書に関する情報を返す。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.toLegacyObject",
+      "lang": "ja"
+    },
+    "2065d580": {
+      "original": "Returns the PEM-encoded certificate.",
+      "translated": "PEM エンコードされた証明書を返す。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.toString",
+      "lang": "ja"
+    },
+    "981921e7": {
+      "original": "The date/time from which this certificate is considered valid.",
+      "translated": "この証明書が有効とみなされる開始日時。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.validFrom",
+      "lang": "ja"
+    },
+    "48bbd300": {
+      "original": "The date/time from which this certificate is valid, encapsulated in a `Date` object.",
+      "translated": "この証明書が有効になる日時を `Date` オブジェクトにカプセル化したもの。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.validFromDate",
+      "lang": "ja"
+    },
+    "f890b68f": {
+      "original": "The date/time until which this certificate is considered valid.",
+      "translated": "この証明書が有効とみなされる終了日時。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.validTo",
+      "lang": "ja"
+    },
+    "6be3b7bc": {
+      "original": "The date/time until which this certificate is valid, encapsulated in a `Date` object.",
+      "translated": "この証明書が有効な終了日時を `Date` オブジェクトにカプセル化したもの。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.validToDate",
+      "lang": "ja"
+    },
+    "99f1f489": {
+      "original": "A public key.",
+      "translated": "公開鍵。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.verify",
+      "lang": "ja"
+    },
+    "8f809da1": {
+      "original": "Verifies that this certificate was signed by the given public key.\nDoes not perform any other validation checks on the certificate.",
+      "translated": "この証明書が指定した公開鍵によって署名されたことを検証する。証明書に対して他の検証チェックは実行しない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.verify",
       "lang": "ja"
     },
     "73f2cc3a": {
