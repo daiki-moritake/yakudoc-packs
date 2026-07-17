@@ -2068,6 +2068,186 @@
       "symbol": "@types/node/crypto.d.ts#crypto.randomFill",
       "lang": "ja"
     },
+    "72aec6f3": {
+      "original": "Must be supplied. The size of the provided `buffer` must not be larger than `2**31 - 1`.",
+      "translated": "指定しなければならない。指定した `buffer` のサイズは `2**31 - 1` より大きくてはならない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomFillSync",
+      "lang": "ja"
+    },
+    "62a4777c": {
+      "original": "Synchronous version of {@link randomFill}.\n\n```js\nimport { Buffer } from 'node:buffer';\nconst { randomFillSync } = await import('node:crypto');\n\nconst buf = Buffer.alloc(10);\nconsole.log(randomFillSync(buf).toString('hex'));\n\nrandomFillSync(buf, 5);\nconsole.log(buf.toString('hex'));\n\n// The above is equivalent to the following:\nrandomFillSync(buf, 5, 5);\nconsole.log(buf.toString('hex'));\n```\n\nAny `ArrayBuffer`, `TypedArray` or `DataView` instance may be passed as`buffer`.\n\n```js\nimport { Buffer } from 'node:buffer';\nconst { randomFillSync } = await import('node:crypto');\n\nconst a = new Uint32Array(10);\nconsole.log(Buffer.from(randomFillSync(a).buffer,\n                        a.byteOffset, a.byteLength).toString('hex'));\n\nconst b = new DataView(new ArrayBuffer(10));\nconsole.log(Buffer.from(randomFillSync(b).buffer,\n                        b.byteOffset, b.byteLength).toString('hex'));\n\nconst c = new ArrayBuffer(10);\nconsole.log(Buffer.from(randomFillSync(c)).toString('hex'));\n```",
+      "translated": "{@link randomFill} の同期版。\n\n```js\nimport { Buffer } from 'node:buffer';\nconst { randomFillSync } = await import('node:crypto');\n\nconst buf = Buffer.alloc(10);\nconsole.log(randomFillSync(buf).toString('hex'));\n\nrandomFillSync(buf, 5);\nconsole.log(buf.toString('hex'));\n\n// The above is equivalent to the following:\nrandomFillSync(buf, 5, 5);\nconsole.log(buf.toString('hex'));\n```\n\n任意の `ArrayBuffer`・`TypedArray`・`DataView` インスタンスを `buffer` として渡せる。\n\n```js\nimport { Buffer } from 'node:buffer';\nconst { randomFillSync } = await import('node:crypto');\n\nconst a = new Uint32Array(10);\nconsole.log(Buffer.from(randomFillSync(a).buffer,\n                        a.byteOffset, a.byteLength).toString('hex'));\n\nconst b = new DataView(new ArrayBuffer(10));\nconsole.log(Buffer.from(randomFillSync(b).buffer,\n                        b.byteOffset, b.byteLength).toString('hex'));\n\nconst c = new ArrayBuffer(10);\nconsole.log(Buffer.from(randomFillSync(c)).toString('hex'));\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomFillSync",
+      "lang": "ja"
+    },
+    "34c46863": {
+      "original": "The object passed as `buffer` argument.",
+      "translated": "`buffer` 引数として渡されたオブジェクト。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomFillSync",
+      "lang": "ja"
+    },
+    "9d3085c5": {
+      "original": "`function(err, n) {}`.",
+      "translated": "`function(err, n) {}`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomInt",
+      "lang": "ja"
+    },
+    "37f9de7a": {
+      "original": "End of random range (exclusive).",
+      "translated": "ランダム範囲の終端(排他的)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomInt",
+      "lang": "ja"
+    },
+    "8be12da3": {
+      "original": "Return a random integer `n` such that `min <= n < max`.  This\nimplementation avoids [modulo bias](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Modulo_bias).\n\nThe range (`max - min`) must be less than 2**48. `min` and `max` must\nbe [safe integers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger).\n\nIf the `callback` function is not provided, the random integer is\ngenerated synchronously.\n\n```js\n// Asynchronous\nconst {\n  randomInt,\n} = await import('node:crypto');\n\nrandomInt(3, (err, n) => {\n  if (err) throw err;\n  console.log(`Random number chosen from (0, 1, 2): ${n}`);\n});\n```\n\n```js\n// Synchronous\nconst {\n  randomInt,\n} = await import('node:crypto');\n\nconst n = randomInt(3);\nconsole.log(`Random number chosen from (0, 1, 2): ${n}`);\n```\n\n```js\n// With `min` argument\nconst {\n  randomInt,\n} = await import('node:crypto');\n\nconst n = randomInt(1, 7);\nconsole.log(`The dice rolled: ${n}`);\n```",
+      "translated": "`min <= n < max` となるランダムな整数 `n` を返す。この実装は[剰余バイアス](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Modulo_bias)を回避する。\n\n範囲(`max - min`)は 2**48 未満でなければならない。`min` と `max` は[安全な整数](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger)でなければならない。\n\n`callback` 関数が指定されない場合、ランダムな整数は同期的に生成される。\n\n```js\n// Asynchronous\nconst {\n  randomInt,\n} = await import('node:crypto');\n\nrandomInt(3, (err, n) => {\n  if (err) throw err;\n  console.log(`Random number chosen from (0, 1, 2): ${n}`);\n});\n```\n\n```js\n// Synchronous\nconst {\n  randomInt,\n} = await import('node:crypto');\n\nconst n = randomInt(3);\nconsole.log(`Random number chosen from (0, 1, 2): ${n}`);\n```\n\n```js\n// With `min` argument\nconst {\n  randomInt,\n} = await import('node:crypto');\n\nconst n = randomInt(1, 7);\nconsole.log(`The dice rolled: ${n}`);\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomInt",
+      "lang": "ja"
+    },
+    "20e334e1": {
+      "original": "Start of random range (inclusive).",
+      "translated": "ランダム範囲の始端(包含的)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomInt",
+      "lang": "ja"
+    },
+    "1a5b992b": {
+      "original": "Generates a random [RFC 4122](https://www.rfc-editor.org/rfc/rfc4122.txt) version 4 UUID. The UUID is generated using a\ncryptographic pseudorandom number generator.",
+      "translated": "ランダムな [RFC 4122](https://www.rfc-editor.org/rfc/rfc4122.txt) バージョン 4 の UUID を生成する。UUID は暗号学的擬似乱数生成器を使って生成される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomUUID",
+      "lang": "ja"
+    },
+    "e071ab99": {
+      "original": "By default, to improve performance,\nNode.js will pre-emptively generate and persistently cache enough\nrandom data to generate up to 128 random UUIDs. To generate a UUID\nwithout using the cache, set `disableEntropyCache` to `true`.",
+      "translated": "既定では、性能を改善するため、Node.js は最大 128 個のランダムな UUID を生成するのに十分なランダムデータを先回りして生成し、永続的にキャッシュする。キャッシュを使わずに UUID を生成するには、`disableEntropyCache` を `true` に設定する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.RandomUUIDOptions.disableEntropyCache",
+      "lang": "ja"
+    },
+    "95dd129c": {
+      "original": "Key size in bits",
+      "translated": "鍵のサイズ(ビット単位)",
+      "symbol": "@types/node/crypto.d.ts#crypto.RSAKeyPairKeyObjectOptions.modulusLength",
+      "lang": "ja"
+    },
+    "c306e095": {
+      "original": "Public exponent",
+      "translated": "公開指数",
+      "symbol": "@types/node/crypto.d.ts#crypto.RSAKeyPairKeyObjectOptions.publicExponent",
+      "lang": "ja"
+    },
+    "568b4ba4": {
+      "original": "Name of the message digest",
+      "translated": "メッセージダイジェストの名前",
+      "symbol": "@types/node/crypto.d.ts#crypto.RSAPSSKeyPairKeyObjectOptions.hashAlgorithm",
+      "lang": "ja"
+    },
+    "5280e598": {
+      "original": "Name of the message digest used by MGF1",
+      "translated": "MGF1 が使うメッセージダイジェストの名前",
+      "symbol": "@types/node/crypto.d.ts#crypto.RSAPSSKeyPairKeyObjectOptions.mgf1HashAlgorithm",
+      "lang": "ja"
+    },
+    "e9591d9d": {
+      "original": "Minimal salt length in bytes",
+      "translated": "最小のソルト長(バイト単位)",
+      "symbol": "@types/node/crypto.d.ts#crypto.RSAPSSKeyPairKeyObjectOptions.saltLength",
+      "lang": "ja"
+    },
+    "d0d09cf5": {
+      "original": "Provides an asynchronous [scrypt](https://en.wikipedia.org/wiki/Scrypt) implementation. Scrypt is a password-based\nkey derivation function that is designed to be expensive computationally and\nmemory-wise in order to make brute-force attacks unrewarding.\n\nThe `salt` should be as unique as possible. It is recommended that a salt is\nrandom and at least 16 bytes long. See [NIST SP 800-132](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf) for details.\n\nWhen passing strings for `password` or `salt`, please consider `caveats when using strings as inputs to cryptographic APIs`.\n\nThe `callback` function is called with two arguments: `err` and `derivedKey`. `err` is an exception object when key derivation fails, otherwise `err` is `null`. `derivedKey` is passed to the\ncallback as a `Buffer`.\n\nAn exception is thrown when any of the input arguments specify invalid values\nor types.\n\n```js\nconst {\n  scrypt,\n} = await import('node:crypto');\n\n// Using the factory defaults.\nscrypt('password', 'salt', 64, (err, derivedKey) => {\n  if (err) throw err;\n  console.log(derivedKey.toString('hex'));  // '3745e48...08d59ae'\n});\n// Using a custom N parameter. Must be a power of two.\nscrypt('password', 'salt', 64, { N: 1024 }, (err, derivedKey) => {\n  if (err) throw err;\n  console.log(derivedKey.toString('hex'));  // '3745e48...aa39b34'\n});\n```",
+      "translated": "非同期の [scrypt](https://en.wikipedia.org/wiki/Scrypt) 実装を提供する。Scrypt は、総当たり攻撃を割に合わなくするために、計算的にもメモリ的にも高コストになるよう設計されたパスワードベースの鍵導出関数である。\n\n`salt` はできるだけ一意であるべきである。ソルトはランダムで少なくとも 16 バイト長であることが推奨される。詳細は [NIST SP 800-132](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf) を参照。\n\n`password` や `salt` に文字列を渡す場合、`caveats when using strings as inputs to cryptographic APIs` を考慮すること。\n\n`callback` 関数は 2 つの引数 `err` と `derivedKey` とともに呼ばれる。`err` は鍵の導出が失敗したときの例外オブジェクトで、そうでなければ `err` は `null` である。`derivedKey` は `Buffer` としてコールバックに渡される。\n\n入力引数のいずれかが無効な値や型を指定した場合、例外が投げられる。\n\n```js\nconst {\n  scrypt,\n} = await import('node:crypto');\n\n// Using the factory defaults.\nscrypt('password', 'salt', 64, (err, derivedKey) => {\n  if (err) throw err;\n  console.log(derivedKey.toString('hex'));  // '3745e48...08d59ae'\n});\n// Using a custom N parameter. Must be a power of two.\nscrypt('password', 'salt', 64, { N: 1024 }, (err, derivedKey) => {\n  if (err) throw err;\n  console.log(derivedKey.toString('hex'));  // '3745e48...aa39b34'\n});\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.scrypt",
+      "lang": "ja"
+    },
+    "c77a6d81": {
+      "original": "Provides a synchronous [scrypt](https://en.wikipedia.org/wiki/Scrypt) implementation. Scrypt is a password-based\nkey derivation function that is designed to be expensive computationally and\nmemory-wise in order to make brute-force attacks unrewarding.\n\nThe `salt` should be as unique as possible. It is recommended that a salt is\nrandom and at least 16 bytes long. See [NIST SP 800-132](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf) for details.\n\nWhen passing strings for `password` or `salt`, please consider `caveats when using strings as inputs to cryptographic APIs`.\n\nAn exception is thrown when key derivation fails, otherwise the derived key is\nreturned as a `Buffer`.\n\nAn exception is thrown when any of the input arguments specify invalid values\nor types.\n\n```js\nconst {\n  scryptSync,\n} = await import('node:crypto');\n// Using the factory defaults.\n\nconst key1 = scryptSync('password', 'salt', 64);\nconsole.log(key1.toString('hex'));  // '3745e48...08d59ae'\n// Using a custom N parameter. Must be a power of two.\nconst key2 = scryptSync('password', 'salt', 64, { N: 1024 });\nconsole.log(key2.toString('hex'));  // '3745e48...aa39b34'\n```",
+      "translated": "同期の [scrypt](https://en.wikipedia.org/wiki/Scrypt) 実装を提供する。Scrypt は、総当たり攻撃を割に合わなくするために、計算的にもメモリ的にも高コストになるよう設計されたパスワードベースの鍵導出関数である。\n\n`salt` はできるだけ一意であるべきである。ソルトはランダムで少なくとも 16 バイト長であることが推奨される。詳細は [NIST SP 800-132](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf) を参照。\n\n`password` や `salt` に文字列を渡す場合、`caveats when using strings as inputs to cryptographic APIs` を考慮すること。\n\n鍵の導出が失敗したときに例外が投げられる。そうでなければ、導出鍵が `Buffer` として返される。\n\n入力引数のいずれかが無効な値や型を指定した場合、例外が投げられる。\n\n```js\nconst {\n  scryptSync,\n} = await import('node:crypto');\n// Using the factory defaults.\n\nconst key1 = scryptSync('password', 'salt', 64);\nconsole.log(key1.toString('hex'));  // '3745e48...08d59ae'\n// Using a custom N parameter. Must be a power of two.\nconst key2 = scryptSync('password', 'salt', 64, { N: 1024 });\nconsole.log(key2.toString('hex'));  // '3745e48...aa39b34'\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.scryptSync",
+      "lang": "ja"
+    },
+    "00d25495": {
+      "original": "The minimum allocation from the secure heap as specified using the `--secure-heap-min` command-line flag.",
+      "translated": "`--secure-heap-min` コマンドラインフラグを使って指定された、セキュアヒープからの最小割り当て。",
+      "symbol": "@types/node/crypto.d.ts#crypto.SecureHeapUsage.min",
+      "lang": "ja"
+    },
+    "518d0d73": {
+      "original": "The total allocated secure heap size as specified using the `--secure-heap=n` command-line flag.",
+      "translated": "`--secure-heap=n` コマンドラインフラグを使って指定された、割り当てられたセキュアヒープの総サイズ。",
+      "symbol": "@types/node/crypto.d.ts#crypto.SecureHeapUsage.total",
+      "lang": "ja"
+    },
+    "ded55662": {
+      "original": "The total number of bytes currently allocated from the secure heap.",
+      "translated": "現在セキュアヒープから割り当てられている総バイト数。",
+      "symbol": "@types/node/crypto.d.ts#crypto.SecureHeapUsage.used",
+      "lang": "ja"
+    },
+    "9ecb0b37": {
+      "original": "The calculated ratio of `used` to `total` allocated bytes.",
+      "translated": "割り当てられたバイト数の `total` に対する `used` の計算された比率。",
+      "symbol": "@types/node/crypto.d.ts#crypto.SecureHeapUsage.utilization",
+      "lang": "ja"
+    },
+    "106504c5": {
+      "original": "Load and set the `engine` for some or all OpenSSL functions (selected by flags).\n\n`engine` could be either an id or a path to the engine's shared library.\n\nThe optional `flags` argument uses `ENGINE_METHOD_ALL` by default. The `flags` is a bit field taking one of or a mix of the following flags (defined in `crypto.constants`):\n\n* `crypto.constants.ENGINE_METHOD_RSA`\n* `crypto.constants.ENGINE_METHOD_DSA`\n* `crypto.constants.ENGINE_METHOD_DH`\n* `crypto.constants.ENGINE_METHOD_RAND`\n* `crypto.constants.ENGINE_METHOD_EC`\n* `crypto.constants.ENGINE_METHOD_CIPHERS`\n* `crypto.constants.ENGINE_METHOD_DIGESTS`\n* `crypto.constants.ENGINE_METHOD_PKEY_METHS`\n* `crypto.constants.ENGINE_METHOD_PKEY_ASN1_METHS`\n* `crypto.constants.ENGINE_METHOD_ALL`\n* `crypto.constants.ENGINE_METHOD_NONE`",
+      "translated": "一部またはすべての OpenSSL 関数(フラグで選択)について `engine` を読み込んで設定する。\n\n`engine` は id またはエンジンの共有ライブラリへのパスのいずれかでよい。\n\n省略可能な `flags` 引数は既定で `ENGINE_METHOD_ALL` を使う。`flags` は、次のフラグ(`crypto.constants` で定義)のいずれか 1 つまたはそれらの組み合わせを取るビットフィールドである:\n\n* `crypto.constants.ENGINE_METHOD_RSA`\n* `crypto.constants.ENGINE_METHOD_DSA`\n* `crypto.constants.ENGINE_METHOD_DH`\n* `crypto.constants.ENGINE_METHOD_RAND`\n* `crypto.constants.ENGINE_METHOD_EC`\n* `crypto.constants.ENGINE_METHOD_CIPHERS`\n* `crypto.constants.ENGINE_METHOD_DIGESTS`\n* `crypto.constants.ENGINE_METHOD_PKEY_METHS`\n* `crypto.constants.ENGINE_METHOD_PKEY_ASN1_METHS`\n* `crypto.constants.ENGINE_METHOD_ALL`\n* `crypto.constants.ENGINE_METHOD_NONE`",
+      "symbol": "@types/node/crypto.d.ts#crypto.setEngine",
+      "lang": "ja"
+    },
+    "014cc0c6": {
+      "original": "`true` to enable FIPS mode.",
+      "translated": "FIPS モードを有効にするには `true`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.setFips",
+      "lang": "ja"
+    },
+    "632815c4": {
+      "original": "Enables the FIPS compliant crypto provider in a FIPS-enabled Node.js build.\nThrows an error if FIPS mode is not available.",
+      "translated": "FIPS 有効の Node.js ビルドで FIPS 準拠の暗号プロバイダーを有効にする。FIPS モードが利用できない場合はエラーを投げる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.setFips",
+      "lang": "ja"
+    },
+    "81f63991": {
+      "original": "Calculates and returns the signature for `data` using the given private key and\nalgorithm. If `algorithm` is `null` or `undefined`, then the algorithm is\ndependent upon the key type (especially Ed25519 and Ed448).\n\nIf `key` is not a `KeyObject`, this function behaves as if `key` had been\npassed to {@link createPrivateKey}. If it is an object, the following\nadditional properties can be passed:\n\nIf the `callback` function is provided this function uses libuv's threadpool.",
+      "translated": "指定した秘密鍵とアルゴリズムを使って `data` の署名を計算して返す。`algorithm` が `null` または `undefined` の場合、アルゴリズムは鍵の型(特に Ed25519 と Ed448)に依存する。\n\n`key` が `KeyObject` でない場合、この関数は `key` が {@link createPrivateKey} に渡されたかのように動作する。オブジェクトの場合、次の追加プロパティを渡せる:\n\n`callback` 関数が指定された場合、この関数は libuv のスレッドプールを使う。",
+      "symbol": "@types/node/crypto.d.ts#crypto.sign",
+      "lang": "ja"
+    },
+    "aeb1fea5": {
+      "original": "The `Sign` class is a utility for generating signatures. It can be used in one\nof two ways:\n\n* As a writable `stream`, where data to be signed is written and the `sign.sign()` method is used to generate and return the signature, or\n* Using the `sign.update()` and `sign.sign()` methods to produce the\nsignature.\n\nThe {@link createSign} method is used to create `Sign` instances. The\nargument is the string name of the hash function to use. `Sign` objects are not\nto be created directly using the `new` keyword.\n\nExample: Using `Sign` and `Verify` objects as streams:\n\n```js\nconst {\n  generateKeyPairSync,\n  createSign,\n  createVerify,\n} = await import('node:crypto');\n\nconst { privateKey, publicKey } = generateKeyPairSync('ec', {\n  namedCurve: 'sect239k1',\n});\n\nconst sign = createSign('SHA256');\nsign.write('some data to sign');\nsign.end();\nconst signature = sign.sign(privateKey, 'hex');\n\nconst verify = createVerify('SHA256');\nverify.write('some data to sign');\nverify.end();\nconsole.log(verify.verify(publicKey, signature, 'hex'));\n// Prints: true\n```\n\nExample: Using the `sign.update()` and `verify.update()` methods:\n\n```js\nconst {\n  generateKeyPairSync,\n  createSign,\n  createVerify,\n} = await import('node:crypto');\n\nconst { privateKey, publicKey } = generateKeyPairSync('rsa', {\n  modulusLength: 2048,\n});\n\nconst sign = createSign('SHA256');\nsign.update('some data to sign');\nsign.end();\nconst signature = sign.sign(privateKey);\n\nconst verify = createVerify('SHA256');\nverify.update('some data to sign');\nverify.end();\nconsole.log(verify.verify(publicKey, signature));\n// Prints: true\n```",
+      "translated": "`Sign` クラスは署名を生成するためのユーティリティである。2 つの方法のいずれかで使える:\n\n* 書き込み可能な `stream` として。署名対象のデータを書き込み、`sign.sign()` メソッドを使って署名を生成して返す。あるいは\n* `sign.update()` と `sign.sign()` メソッドを使って署名を生成する。\n\n{@link createSign} メソッドは `Sign` インスタンスを作成するために使われる。引数は使うハッシュ関数の文字列名である。`Sign` オブジェクトは `new` キーワードを使って直接作成するものではない。\n\n例: `Sign` と `Verify` オブジェクトをストリームとして使う:\n\n```js\nconst {\n  generateKeyPairSync,\n  createSign,\n  createVerify,\n} = await import('node:crypto');\n\nconst { privateKey, publicKey } = generateKeyPairSync('ec', {\n  namedCurve: 'sect239k1',\n});\n\nconst sign = createSign('SHA256');\nsign.write('some data to sign');\nsign.end();\nconst signature = sign.sign(privateKey, 'hex');\n\nconst verify = createVerify('SHA256');\nverify.write('some data to sign');\nverify.end();\nconsole.log(verify.verify(publicKey, signature, 'hex'));\n// Prints: true\n```\n\n例: `sign.update()` と `verify.update()` メソッドを使う:\n\n```js\nconst {\n  generateKeyPairSync,\n  createSign,\n  createVerify,\n} = await import('node:crypto');\n\nconst { privateKey, publicKey } = generateKeyPairSync('rsa', {\n  modulusLength: 2048,\n});\n\nconst sign = createSign('SHA256');\nsign.update('some data to sign');\nsign.end();\nconst signature = sign.sign(privateKey);\n\nconst verify = createVerify('SHA256');\nverify.update('some data to sign');\nverify.end();\nconsole.log(verify.verify(publicKey, signature));\n// Prints: true\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.Sign",
+      "lang": "ja"
+    },
+    "178b36e2": {
+      "original": "Calculates the signature on all the data passed through using either `sign.update()` or `sign.write()`.\n\nIf `privateKey` is not a `KeyObject`, this function behaves as if `privateKey` had been passed to {@link createPrivateKey}. If it is an\nobject, the following additional properties can be passed:\n\nIf `outputEncoding` is provided a string is returned; otherwise a `Buffer` is returned.\n\nThe `Sign` object can not be again used after `sign.sign()` method has been\ncalled. Multiple calls to `sign.sign()` will result in an error being thrown.",
+      "translated": "`sign.update()` または `sign.write()` を通じて渡されたすべてのデータに対する署名を計算する。\n\n`privateKey` が `KeyObject` でない場合、この関数は `privateKey` が {@link createPrivateKey} に渡されたかのように動作する。オブジェクトの場合、次の追加プロパティを渡せる:\n\n`outputEncoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。\n\n`sign.sign()` メソッドが呼ばれた後、`Sign` オブジェクトは再び使えない。`sign.sign()` を複数回呼ぶとエラーが投げられる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Sign.sign",
+      "lang": "ja"
+    },
+    "05771107": {
+      "original": "Updates the `Sign` content with the given `data`, the encoding of which\nis given in `inputEncoding`.\nIf `encoding` is not provided, and the `data` is a string, an\nencoding of `'utf8'` is enforced. If `data` is a `Buffer`, `TypedArray`, or`DataView`, then `inputEncoding` is ignored.\n\nThis can be called many times with new data as it is streamed.",
+      "translated": "指定した `data` で `Sign` の内容を更新する。そのエンコーディングは `inputEncoding` で指定される。`encoding` が指定されず `data` が文字列の場合、`'utf8'` のエンコーディングが強制される。`data` が `Buffer`・`TypedArray`・`DataView` の場合、`inputEncoding` は無視される。\n\nこれは、ストリーミングされる新しいデータで何度も呼べる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Sign.update",
+      "lang": "ja"
+    },
+    "9e8c015f": {
+      "original": "A convenient alias for `crypto.webcrypto.subtle`.",
+      "translated": "`crypto.webcrypto.subtle` の便利なエイリアス。",
+      "symbol": "@types/node/crypto.d.ts#crypto.subtle",
+      "lang": "ja"
+    },
+    "0458872f": {
+      "original": "This function compares the underlying bytes that represent the given `ArrayBuffer`, `TypedArray`, or `DataView` instances using a constant-time\nalgorithm.\n\nThis function does not leak timing information that\nwould allow an attacker to guess one of the values. This is suitable for\ncomparing HMAC digests or secret values like authentication cookies or [capability urls](https://www.w3.org/TR/capability-urls/).\n\n`a` and `b` must both be `Buffer`s, `TypedArray`s, or `DataView`s, and they\nmust have the same byte length. An error is thrown if `a` and `b` have\ndifferent byte lengths.\n\nIf at least one of `a` and `b` is a `TypedArray` with more than one byte per\nentry, such as `Uint16Array`, the result will be computed using the platform\nbyte order.\n\n**When both of the inputs are `Float32Array`s or `Float64Array`s, this function might return unexpected results due to IEEE 754**\n**encoding of floating-point numbers. In particular, neither `x === y` nor `Object.is(x, y)` implies that the byte representations of two floating-point**\n**numbers `x` and `y` are equal.**\n\nUse of `crypto.timingSafeEqual` does not guarantee that the _surrounding_ code\nis timing-safe. Care should be taken to ensure that the surrounding code does\nnot introduce timing vulnerabilities.",
+      "translated": "この関数は、指定した `ArrayBuffer`・`TypedArray`・`DataView` インスタンスを表す基盤となるバイトを、定数時間アルゴリズムを使って比較する。\n\nこの関数は、攻撃者が値のいずれかを推測できるようなタイミング情報を漏らさない。これは HMAC ダイジェストや、認証クッキーや[ケイパビリティ URL](https://www.w3.org/TR/capability-urls/)のような秘密の値を比較するのに適している。\n\n`a` と `b` はどちらも `Buffer`・`TypedArray`・`DataView` でなければならず、同じバイト長でなければならない。`a` と `b` のバイト長が異なる場合、エラーが投げられる。\n\n`a` と `b` の少なくとも一方が、`Uint16Array` のようにエントリごとに 2 バイト以上を持つ `TypedArray` の場合、結果はプラットフォームのバイトオーダーを使って計算される。\n\n**両方の入力が `Float32Array` または `Float64Array` の場合、浮動小数点数の IEEE 754 エンコードのため、この関数は予期しない結果を返すことがある。特に、`x === y` も `Object.is(x, y)` も、2 つの浮動小数点数 `x` と `y` のバイト表現が等しいことを含意しない。**\n\n`crypto.timingSafeEqual` を使っても、_周囲の_コードがタイミング安全であることは保証されない。周囲のコードがタイミングの脆弱性を導入しないよう注意すべきである。",
+      "symbol": "@types/node/crypto.d.ts#crypto.timingSafeEqual",
+      "lang": "ja"
+    },
+    "cb4f84a5": {
+      "original": "Verifies the given signature for `data` using the given key and algorithm. If `algorithm` is `null` or `undefined`, then the algorithm is dependent upon the\nkey type (especially Ed25519 and Ed448).\n\nIf `key` is not a `KeyObject`, this function behaves as if `key` had been\npassed to {@link createPublicKey}. If it is an object, the following\nadditional properties can be passed:\n\nThe `signature` argument is the previously calculated signature for the `data`.\n\nBecause public keys can be derived from private keys, a private key or a public\nkey may be passed for `key`.\n\nIf the `callback` function is provided this function uses libuv's threadpool.",
+      "translated": "指定した鍵とアルゴリズムを使って `data` の指定した署名を検証する。`algorithm` が `null` または `undefined` の場合、アルゴリズムは鍵の型(特に Ed25519 と Ed448)に依存する。\n\n`key` が `KeyObject` でない場合、この関数は `key` が {@link createPublicKey} に渡されたかのように動作する。オブジェクトの場合、次の追加プロパティを渡せる:\n\n`signature` 引数は、以前計算された `data` の署名である。\n\n公開鍵は秘密鍵から導出できるため、`key` には秘密鍵または公開鍵を渡せる。\n\n`callback` 関数が指定された場合、この関数は libuv のスレッドプールを使う。",
+      "symbol": "@types/node/crypto.d.ts#crypto.verify",
+      "lang": "ja"
+    },
     "73f2cc3a": {
       "original": "Much of the Node.js core API is built around an idiomatic asynchronous\nevent-driven architecture in which certain kinds of objects (called \"emitters\")\nemit named events that cause `Function` objects (\"listeners\") to be called.\n\nFor instance: a `net.Server` object emits an event each time a peer\nconnects to it; a `fs.ReadStream` emits an event when the file is opened;\na `stream` emits an event whenever data is available to be read.\n\nAll objects that emit events are instances of the `EventEmitter` class. These\nobjects expose an `eventEmitter.on()` function that allows one or more\nfunctions to be attached to named events emitted by the object. Typically,\nevent names are camel-cased strings but any valid JavaScript property key\ncan be used.\n\nWhen the `EventEmitter` object emits an event, all of the functions attached\nto that specific event are called _synchronously_. Any values returned by the\ncalled listeners are _ignored_ and discarded.\n\nThe following example shows a simple `EventEmitter` instance with a single\nlistener. The `eventEmitter.on()` method is used to register listeners, while\nthe `eventEmitter.emit()` method is used to trigger the event.\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
       "translated": "Node.js のコア API の多くは、慣用的な非同期のイベント駆動アーキテクチャを中心に構築されている。そこでは特定の種類のオブジェクト(「emitter」と呼ばれる)が名前付きイベントを発行し、それによって `Function` オブジェクト(「listener」)が呼ばれる。\n\nたとえば: `net.Server` オブジェクトはピアが接続するたびにイベントを発行する。`fs.ReadStream` はファイルが開かれたときにイベントを発行する。`stream` はデータが読める状態になるたびにイベントを発行する。\n\nイベントを発行するすべてのオブジェクトは `EventEmitter` クラスのインスタンスである。これらのオブジェクトは、オブジェクトが発行する名前付きイベントに 1 つ以上の関数を結び付けられる `eventEmitter.on()` 関数を公開する。通常、イベント名はキャメルケースの文字列だが、有効な JavaScript のプロパティキーであれば何でも使える。\n\n`EventEmitter` オブジェクトがイベントを発行すると、その特定のイベントに結び付けられたすべての関数が_同期的に_呼ばれる。呼ばれた listener が返す値は_無視_され、破棄される。\n\n次の例は、単一の listener を持つ単純な `EventEmitter` インスタンスを示す。listener の登録には `eventEmitter.on()` メソッドを、イベントのトリガーには `eventEmitter.emit()` メソッドを使う。\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
