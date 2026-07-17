@@ -64,6 +64,12 @@
       "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.issuer",
       "lang": "ja"
     },
+    "42814359": {
+      "original": "PEM formatted CRLs (Certificate Revocation Lists).",
+      "translated": "PEM 形式の CRL(証明書失効リスト)。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.crl",
+      "lang": "ja"
+    },
     "43439202": {
       "original": "Returns `true` if `value` is a `KeyObject`, `false` otherwise.",
       "translated": "`value` が `KeyObject` の場合は `true`、そうでなければ `false` を返す。",
@@ -200,6 +206,12 @@
       "original": "Calculates the digest of all of the data passed to be hashed (using the `hash.update()` method).\nIf `encoding` is provided a string will be returned; otherwise\na `Buffer` is returned.\n\nThe `Hash` object can not be used again after `hash.digest()` method has been\ncalled. Multiple calls will cause an error to be thrown.",
       "translated": "(`hash.update()` メソッドを使って)ハッシュ対象として渡されたすべてのデータのダイジェストを計算する。`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。\n\n`hash.digest()` メソッドが呼ばれた後、`Hash` オブジェクトは再び使えない。複数回呼ぶとエラーが投げられる。",
       "symbol": "@types/node/crypto.d.ts#crypto.Hash.digest",
+      "lang": "ja"
+    },
+    "97815549": {
+      "original": "Cert chains in PEM format. One cert chain should be provided per\nprivate key. Each cert chain should consist of the PEM formatted\ncertificate for a provided private key, followed by the PEM\nformatted intermediate certificates (if any), in order, and not\nincluding the root CA (the root CA must be pre-known to the peer,\nsee ca). When providing multiple cert chains, they do not have to\nbe in the same order as their private keys in key. If the\nintermediate certificates are not provided, the peer will not be\nable to validate the certificate, and the handshake will fail.",
+      "translated": "PEM 形式の証明書チェーン。秘密鍵ごとに 1 つの証明書チェーンを提供すべきである。各証明書チェーンは、提供された秘密鍵の PEM 形式の証明書と、それに続く(あれば)PEM 形式の中間証明書を順に含み、ルート CA を含めるべきではない(ルート CA はピアに事前に知られていなければならない。ca を参照)。複数の証明書チェーンを提供する場合、それらは key 内の秘密鍵と同じ順序である必要はない。中間証明書が提供されない場合、ピアは証明書を検証できず、ハンドシェイクは失敗する。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.cert",
       "lang": "ja"
     },
     "98461905": {
@@ -8426,6 +8438,174 @@
       "original": "The certificate serial number, as a hex string.",
       "translated": "証明書のシリアル番号。16 進文字列。",
       "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.serialNumber",
+      "lang": "ja"
+    },
+    "657a64a2": {
+      "original": "The certificate subject.",
+      "translated": "証明書の subject。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.subject",
+      "lang": "ja"
+    },
+    "cae67a0e": {
+      "original": "A string containing concatenated names for the subject,\nan alternative to the `subject` names.",
+      "translated": "subject の名前を連結した文字列。`subject` 名の代替。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.subjectaltname",
+      "lang": "ja"
+    },
+    "d0487830": {
+      "original": "The date-time the certificate is valid from.",
+      "translated": "証明書が有効になる日時。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.valid_from",
+      "lang": "ja"
+    },
+    "4a6bb035": {
+      "original": "The date-time the certificate is valid to.",
+      "translated": "証明書が有効な終了日時。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.valid_to",
+      "lang": "ja"
+    },
+    "1c70c56f": {
+      "original": "PFX or PKCS12 encoded private key and certificate chain.",
+      "translated": "PFX または PKCS12 エンコードされた秘密鍵と証明書チェーン。",
+      "symbol": "@types/node/tls.d.ts#tls.PxfObject.buf",
+      "lang": "ja"
+    },
+    "002f0077": {
+      "original": "An immutable array of strings representing the root certificates (in PEM format)\nfrom the bundled Mozilla CA store as supplied by the current Node.js version.\n\nThe bundled CA store, as supplied by Node.js, is a snapshot of Mozilla CA store\nthat is fixed at release time. It is identical on all supported platforms.",
+      "translated": "現在の Node.js バージョンが提供する、同梱の Mozilla CA ストアからのルート証明書(PEM 形式)を表す不変な文字列の配列。\n\nNode.js が提供する同梱の CA ストアは、リリース時に固定された Mozilla CA ストアのスナップショットである。サポートされているすべてのプラットフォームで同一である。",
+      "symbol": "@types/node/tls.d.ts#tls.rootCertificates",
+      "lang": "ja"
+    },
+    "feec6080": {
+      "original": "Treat intermediate (non-self-signed)\ncertificates in the trust CA certificate list as trusted.",
+      "translated": "信頼された CA 証明書リスト内の中間(自己署名でない)証明書を信頼されたものとして扱う。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.allowPartialTrustChain",
+      "lang": "ja"
+    },
+    "c78b1b80": {
+      "original": "If set, this will be called when a client opens a connection using the ALPN extension.\nOne argument will be passed to the callback: an object containing `servername` and `protocols` fields,\nrespectively containing the server name from the SNI extension (if any) and an array of\nALPN protocol name strings. The callback must return either one of the strings listed in `protocols`,\nwhich will be returned to the client as the selected ALPN protocol, or `undefined`,\nto reject the connection with a fatal alert. If a string is returned that does not match one of\nthe client's ALPN protocols, an error will be thrown.\nThis option cannot be used with the `ALPNProtocols` option, and setting both options will throw an error.",
+      "translated": "設定された場合、クライアントが ALPN 拡張を使って接続を開いたときに呼ばれる。コールバックには 1 つの引数が渡される: `servername` と `protocols` フィールドを含むオブジェクトで、それぞれ SNI 拡張からのサーバー名(あれば)と ALPN プロトコル名文字列の配列を含む。コールバックは、選択された ALPN プロトコルとしてクライアントに返される `protocols` に列挙された文字列のいずれか、または fatal alert で接続を拒否する `undefined` のいずれかを返さなければならない。クライアントの ALPN プロトコルのいずれとも一致しない文字列が返された場合、エラーが投げられる。このオプションは `ALPNProtocols` オプションと併用できず、両方のオプションを設定するとエラーが投げられる。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.ALPNCallback",
+      "lang": "ja"
+    },
+    "2af28ab6": {
+      "original": "Optionally override the trusted CA certificates. Default is to trust\nthe well-known CAs curated by Mozilla. Mozilla's CAs are completely\nreplaced when CAs are explicitly specified using this option.",
+      "translated": "任意で、信頼された CA 証明書をオーバーライドする。既定は Mozilla がキュレートしたよく知られた CA を信頼することである。このオプションを使って CA を明示的に指定すると、Mozilla の CA は完全に置き換えられる。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.ca",
+      "lang": "ja"
+    },
+    "bb0a2b63": {
+      "original": "Cipher suite specification, replacing the default. For more\ninformation, see modifying the default cipher suite. Permitted\nciphers can be obtained via tls.getCiphers(). Cipher names must be\nuppercased in order for OpenSSL to accept them.",
+      "translated": "暗号スイートの仕様。既定を置き換える。詳細は「既定の暗号スイートの変更」を参照。許可される暗号は tls.getCiphers() で取得できる。OpenSSL が受け付けるには、暗号名は大文字化しなければならない。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.ciphers",
+      "lang": "ja"
+    },
+    "579531fe": {
+      "original": "Name of an OpenSSL engine which can provide the client certificate.",
+      "translated": "クライアント証明書を提供できる OpenSSL エンジンの名前。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.clientCertEngine",
+      "lang": "ja"
+    },
+    "2f676e5a": {
+      "original": "`'auto'` or custom Diffie-Hellman parameters, required for non-ECDHE perfect forward secrecy.\nIf omitted or invalid, the parameters are silently discarded and DHE ciphers will not be available.\nECDHE-based perfect forward secrecy will still be available.",
+      "translated": "`'auto'` またはカスタムの Diffie-Hellman パラメーター。非 ECDHE の perfect forward secrecy に必要である。省略または無効の場合、パラメーターは静かに破棄され、DHE 暗号は利用できなくなる。ECDHE ベースの perfect forward secrecy は引き続き利用できる。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.dhparam",
+      "lang": "ja"
+    },
+    "c86d14f8": {
+      "original": "A string describing a named curve or a colon separated list of curve\nNIDs or names, for example P-521:P-384:P-256, to use for ECDH key\nagreement. Set to auto to select the curve automatically. Use\ncrypto.getCurves() to obtain a list of available curve names. On\nrecent releases, openssl ecparam -list_curves will also display the\nname and description of each available elliptic curve. Default:\ntls.DEFAULT_ECDH_CURVE.",
+      "translated": "ECDH 鍵合意に使う、名前付き曲線を記述する文字列、または曲線 NID や名前のコロン区切りリスト(たとえば P-521:P-384:P-256)。曲線を自動的に選択するには auto に設定する。利用可能な曲線名のリストを取得するには crypto.getCurves() を使う。最近のリリースでは、openssl ecparam -list_curves でも利用可能な各楕円曲線の名前と説明が表示される。既定: tls.DEFAULT_ECDH_CURVE。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.ecdhCurve",
+      "lang": "ja"
+    },
+    "1800f860": {
+      "original": "Attempt to use the server's cipher suite preferences instead of the\nclient's. When true, causes SSL_OP_CIPHER_SERVER_PREFERENCE to be\nset in secureOptions",
+      "translated": "クライアントの代わりにサーバーの暗号スイート設定を使おうとする。true のとき、secureOptions に SSL_OP_CIPHER_SERVER_PREFERENCE が設定される",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.honorCipherOrder",
+      "lang": "ja"
+    },
+    "a2f7d906": {
+      "original": "Private keys in PEM format. PEM allows the option of private keys\nbeing encrypted. Encrypted keys will be decrypted with\noptions.passphrase. Multiple keys using different algorithms can be\nprovided either as an array of unencrypted key strings or buffers,\nor an array of objects in the form {pem: <string|buffer>[,\npassphrase: <string>]}. The object form can only occur in an array.\nobject.passphrase is optional. Encrypted keys will be decrypted with\nobject.passphrase if provided, or options.passphrase if it is not.",
+      "translated": "PEM 形式の秘密鍵。PEM は秘密鍵を暗号化するオプションを許可する。暗号化された鍵は options.passphrase で復号される。異なるアルゴリズムを使う複数の鍵は、暗号化されていない鍵文字列やバッファの配列として、または {pem: <string|buffer>[, passphrase: <string>]} の形のオブジェクトの配列として提供できる。オブジェクト形式は配列内でのみ使える。object.passphrase は省略可能。暗号化された鍵は、指定されていれば object.passphrase で、そうでなければ options.passphrase で復号される。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.key",
+      "lang": "ja"
+    },
+    "5d6e55ff": {
+      "original": "Optionally set the maximum TLS version to allow. One\nof `'TLSv1.3'`, `'TLSv1.2'`, `'TLSv1.1'`, or `'TLSv1'`. Cannot be specified along with the\n`secureProtocol` option, use one or the other.\n**Default:** `'TLSv1.3'`, unless changed using CLI options. Using\n`--tls-max-v1.2` sets the default to `'TLSv1.2'`. Using `--tls-max-v1.3` sets the default to\n`'TLSv1.3'`. If multiple of the options are provided, the highest maximum is used.",
+      "translated": "任意で、許可する TLS の最大バージョンを設定する。`'TLSv1.3'`・`'TLSv1.2'`・`'TLSv1.1'`・`'TLSv1'` のいずれか。`secureProtocol` オプションと併せて指定できず、どちらか一方を使う。**既定値:** `'TLSv1.3'`。ただし CLI オプションで変更された場合は異なる。`--tls-max-v1.2` を使うと既定が `'TLSv1.2'` になる。`--tls-max-v1.3` を使うと既定が `'TLSv1.3'` になる。複数のオプションが指定された場合、最も高い最大値が使われる。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.maxVersion",
+      "lang": "ja"
+    },
+    "28b7c737": {
+      "original": "Optionally set the minimum TLS version to allow. One\nof `'TLSv1.3'`, `'TLSv1.2'`, `'TLSv1.1'`, or `'TLSv1'`. Cannot be specified along with the\n`secureProtocol` option, use one or the other.  It is not recommended to use\nless than TLSv1.2, but it may be required for interoperability.\n**Default:** `'TLSv1.2'`, unless changed using CLI options. Using\n`--tls-v1.0` sets the default to `'TLSv1'`. Using `--tls-v1.1` sets the default to\n`'TLSv1.1'`. Using `--tls-min-v1.3` sets the default to\n'TLSv1.3'. If multiple of the options are provided, the lowest minimum is used.",
+      "translated": "任意で、許可する TLS の最小バージョンを設定する。`'TLSv1.3'`・`'TLSv1.2'`・`'TLSv1.1'`・`'TLSv1'` のいずれか。`secureProtocol` オプションと併せて指定できず、どちらか一方を使う。TLSv1.2 未満の使用は推奨されないが、相互運用性のために必要になることがある。**既定値:** `'TLSv1.2'`。ただし CLI オプションで変更された場合は異なる。`--tls-v1.0` を使うと既定が `'TLSv1'` になる。`--tls-v1.1` を使うと既定が `'TLSv1.1'` になる。`--tls-min-v1.3` を使うと既定が 'TLSv1.3' になる。複数のオプションが指定された場合、最も低い最小値が使われる。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.minVersion",
+      "lang": "ja"
+    },
+    "61c1225e": {
+      "original": "Shared passphrase used for a single private key and/or a PFX.",
+      "translated": "単一の秘密鍵かつ/または PFX に使う共有パスフレーズ。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.passphrase",
+      "lang": "ja"
+    },
+    "2f5b8d29": {
+      "original": "PFX or PKCS12 encoded private key and certificate chain. pfx is an\nalternative to providing key and cert individually. PFX is usually\nencrypted, if it is, passphrase will be used to decrypt it. Multiple\nPFX can be provided either as an array of unencrypted PFX buffers,\nor an array of objects in the form {buf: <string|buffer>[,\npassphrase: <string>]}. The object form can only occur in an array.\nobject.passphrase is optional. Encrypted PFX will be decrypted with\nobject.passphrase if provided, or options.passphrase if it is not.",
+      "translated": "PFX または PKCS12 エンコードされた秘密鍵と証明書チェーン。pfx は key と cert を個別に提供する代替である。PFX は通常暗号化されており、その場合は passphrase を使って復号される。複数の PFX は、暗号化されていない PFX バッファの配列として、または {buf: <string|buffer>[, passphrase: <string>]} の形のオブジェクトの配列として提供できる。オブジェクト形式は配列内でのみ使える。object.passphrase は省略可能。暗号化された PFX は、指定されていれば object.passphrase で、そうでなければ options.passphrase で復号される。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.pfx",
+      "lang": "ja"
+    },
+    "485a23e5": {
+      "original": "Name of an OpenSSL engine to get private key from. Should be used\ntogether with privateKeyIdentifier.",
+      "translated": "秘密鍵を取得する OpenSSL エンジンの名前。privateKeyIdentifier と併せて使うべきである。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.privateKeyEngine",
+      "lang": "ja"
+    },
+    "9d37ae6d": {
+      "original": "Identifier of a private key managed by an OpenSSL engine. Should be\nused together with privateKeyEngine. Should not be set together with\nkey, because both options define a private key in different ways.",
+      "translated": "OpenSSL エンジンが管理する秘密鍵の識別子。privateKeyEngine と併せて使うべきである。key と併せて設定すべきではない。どちらのオプションも異なる方法で秘密鍵を定義するからである。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.privateKeyIdentifier",
+      "lang": "ja"
+    },
+    "06124ad5": {
+      "original": "Optionally affect the OpenSSL protocol behavior, which is not\nusually necessary. This should be used carefully if at all! Value is\na numeric bitmask of the SSL_OP_* options from OpenSSL Options",
+      "translated": "任意で OpenSSL のプロトコル挙動に影響を与える。これは通常必要ない。使うとしても注意して使うべきである。値は OpenSSL Options の SSL_OP_* オプションの数値ビットマスクである",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.secureOptions",
+      "lang": "ja"
+    },
+    "9d13c30a": {
+      "original": "Legacy mechanism to select the TLS protocol version to use, it does\nnot support independent control of the minimum and maximum version,\nand does not support limiting the protocol to TLSv1.3. Use\nminVersion and maxVersion instead. The possible values are listed as\nSSL_METHODS, use the function names as strings. For example, use\n'TLSv1_1_method' to force TLS version 1.1, or 'TLS_method' to allow\nany TLS protocol version up to TLSv1.3. It is not recommended to use\nTLS versions less than 1.2, but it may be required for\ninteroperability. Default: none, see minVersion.",
+      "translated": "使う TLS プロトコルバージョンを選択するレガシーな仕組み。最小バージョンと最大バージョンの独立した制御をサポートせず、プロトコルを TLSv1.3 に制限することもサポートしない。代わりに minVersion と maxVersion を使う。可能な値は SSL_METHODS として列挙されており、関数名を文字列として使う。たとえば、TLS バージョン 1.1 を強制するには 'TLSv1_1_method'、TLSv1.3 までの任意の TLS プロトコルバージョンを許可するには 'TLS_method' を使う。1.2 未満の TLS バージョンの使用は推奨されないが、相互運用性のために必要になることがある。既定: なし。minVersion を参照。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.secureProtocol",
+      "lang": "ja"
+    },
+    "ed34e3b4": {
+      "original": "Opaque identifier used by servers to ensure session state is not\nshared between applications. Unused by clients.",
+      "translated": "セッション状態がアプリケーション間で共有されないようにするためにサーバーが使う不透明な識別子。クライアントでは使われない。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.sessionIdContext",
+      "lang": "ja"
+    },
+    "d6223ac1": {
+      "original": "Colon-separated list of supported signature algorithms. The list\ncan contain digest algorithms (SHA256, MD5 etc.), public key\nalgorithms (RSA-PSS, ECDSA etc.), combination of both (e.g\n'RSA+SHA384') or TLS v1.3 scheme names (e.g. rsa_pss_pss_sha512).",
+      "translated": "サポートされている署名アルゴリズムのコロン区切りリスト。このリストには、ダイジェストアルゴリズム(SHA256・MD5 など)、公開鍵アルゴリズム(RSA-PSS・ECDSA など)、両方の組み合わせ(たとえば 'RSA+SHA384')、または TLS v1.3 のスキーム名(たとえば rsa_pss_pss_sha512)を含められる。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.sigalgs",
+      "lang": "ja"
+    },
+    "b301b288": {
+      "original": "48-bytes of cryptographically strong pseudo-random data.\nSee Session Resumption for more information.",
+      "translated": "暗号学的に強い擬似乱数データ 48 バイト。詳細は Session Resumption を参照。",
+      "symbol": "@types/node/tls.d.ts#tls.SecureContextOptions.ticketKeys",
+      "lang": "ja"
+    },
+    "9698dc43": {
+      "original": "since v0.11.3 Use `tls.TLSSocket` instead.",
+      "translated": "v0.11.3 以降。代わりに `tls.TLSSocket` を使うこと。",
+      "symbol": "@types/node/tls.d.ts#tls.SecurePair",
+      "lang": "ja"
+    },
+    "63fa4003": {
+      "original": "Accepts encrypted connections using TLS or SSL.",
+      "translated": "TLS または SSL を使って暗号化された接続を受け付ける。",
+      "symbol": "@types/node/tls.d.ts#tls.Server",
       "lang": "ja"
     },
     "6534767f": {
