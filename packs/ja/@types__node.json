@@ -106,6 +106,12 @@
       "symbol": "@types/node/fs.d.ts#fs.read",
       "lang": "ja"
     },
+    "67712954": {
+      "original": "By default set to 256. For agents with `keepAlive` enabled, this\nsets the maximum number of sockets that will be left open in the free\nstate.",
+      "translated": "既定では 256 に設定される。`keepAlive` が有効な agent の場合、これは free 状態で開いたままにするソケットの最大数を設定する。",
+      "symbol": "@types/node/http.d.ts#http.Agent.maxFreeSockets",
+      "lang": "ja"
+    },
     "67914622": {
       "original": "The expected string encoding.",
       "translated": "期待される文字列のエンコーディング。",
@@ -3188,6 +3194,360 @@
       "original": "For detailed information, see the documentation of the asynchronous version of\nthis API: {@link writev}.",
       "translated": "詳細な情報は、この API の非同期版のドキュメント {@link writev} を参照。",
       "symbol": "@types/node/fs.d.ts#fs.writevSync",
+      "lang": "ja"
+    },
+    "f175d510": {
+      "original": "To use the HTTP server and client one must import the `node:http` module.\n\nThe HTTP interfaces in Node.js are designed to support many features\nof the protocol which have been traditionally difficult to use.\nIn particular, large, possibly chunk-encoded, messages. The interface is\ncareful to never buffer entire requests or responses, so the\nuser is able to stream data.\n\nHTTP message headers are represented by an object like this:\n\n```json\n{ \"content-length\": \"123\",\n  \"content-type\": \"text/plain\",\n  \"connection\": \"keep-alive\",\n  \"host\": \"example.com\",\n  \"accept\": \"*\" }\n```\n\nKeys are lowercased. Values are not modified.\n\nIn order to support the full spectrum of possible HTTP applications, the Node.js\nHTTP API is very low-level. It deals with stream handling and message\nparsing only. It parses a message into headers and body but it does not\nparse the actual headers or the body.\n\nSee `message.headers` for details on how duplicate headers are handled.\n\nThe raw headers as they were received are retained in the `rawHeaders` property, which is an array of `[key, value, key2, value2, ...]`. For\nexample, the previous message header object might have a `rawHeaders` list like the following:\n\n```js\n[ 'ConTent-Length', '123456',\n  'content-LENGTH', '123',\n  'content-type', 'text/plain',\n  'CONNECTION', 'keep-alive',\n  'Host', 'example.com',\n  'accepT', '*' ]\n```",
+      "translated": "HTTP サーバーとクライアントを使うには、`node:http` モジュールをインポートしなければならない。\n\nNode.js の HTTP インターフェースは、従来使うのが難しかったプロトコルの多くの機能をサポートするように設計されている。特に、大きな、場合によってはチャンクエンコードされたメッセージである。このインターフェースは、リクエストやレスポンス全体を決してバッファリングしないよう注意しているため、ユーザーはデータをストリーミングできる。\n\nHTTP メッセージヘッダーは、次のようなオブジェクトで表される:\n\n```json\n{ \"content-length\": \"123\",\n  \"content-type\": \"text/plain\",\n  \"connection\": \"keep-alive\",\n  \"host\": \"example.com\",\n  \"accept\": \"*\" }\n```\n\nキーは小文字化される。値は変更されない。\n\n可能な HTTP アプリケーションのすべてのスペクトルをサポートするため、Node.js の HTTP API は非常に低レベルである。ストリーム処理とメッセージ解析のみを扱う。メッセージをヘッダーとボディに解析するが、実際のヘッダーやボディは解析しない。\n\n重複したヘッダーがどう扱われるかの詳細は `message.headers` を参照。\n\n受信したままの生のヘッダーは `rawHeaders` プロパティに保持される。これは `[key, value, key2, value2, ...]` の配列である。たとえば、前述のメッセージヘッダーオブジェクトは次のような `rawHeaders` リストを持つことがある:\n\n```js\n[ 'ConTent-Length', '123456',\n  'content-LENGTH', '123',\n  'content-type', 'text/plain',\n  'CONNECTION', 'keep-alive',\n  'Host', 'example.com',\n  'accepT', '*' ]\n```",
+      "symbol": "@types/node/http.d.ts#http",
+      "lang": "ja"
+    },
+    "eb39e6e7": {
+      "original": "An `Agent` is responsible for managing connection persistence\nand reuse for HTTP clients. It maintains a queue of pending requests\nfor a given host and port, reusing a single socket connection for each\nuntil the queue is empty, at which time the socket is either destroyed\nor put into a pool where it is kept to be used again for requests to the\nsame host and port. Whether it is destroyed or pooled depends on the `keepAlive` `option`.\n\nPooled connections have TCP Keep-Alive enabled for them, but servers may\nstill close idle connections, in which case they will be removed from the\npool and a new connection will be made when a new HTTP request is made for\nthat host and port. Servers may also refuse to allow multiple requests\nover the same connection, in which case the connection will have to be\nremade for every request and cannot be pooled. The `Agent` will still make\nthe requests to that server, but each one will occur over a new connection.\n\nWhen a connection is closed by the client or the server, it is removed\nfrom the pool. Any unused sockets in the pool will be unrefed so as not\nto keep the Node.js process running when there are no outstanding requests.\n(see `socket.unref()`).\n\nIt is good practice, to `destroy()` an `Agent` instance when it is no\nlonger in use, because unused sockets consume OS resources.\n\nSockets are removed from an agent when the socket emits either\na `'close'` event or an `'agentRemove'` event. When intending to keep one\nHTTP request open for a long time without keeping it in the agent, something\nlike the following may be done:\n\n```js\nhttp.get(options, (res) => {\n  // Do stuff\n}).on('socket', (socket) => {\n  socket.emit('agentRemove');\n});\n```\n\nAn agent may also be used for an individual request. By providing `{agent: false}` as an option to the `http.get()` or `http.request()` functions, a one-time use `Agent` with default options\nwill be used\nfor the client connection.\n\n`agent:false`:\n\n```js\nhttp.get({\n  hostname: 'localhost',\n  port: 80,\n  path: '/',\n  agent: false,  // Create a new agent just for this one request\n}, (res) => {\n  // Do stuff with response\n});\n```\n\n`options` in [`socket.connect()`](https://nodejs.org/docs/latest-v22.x/api/net.html#socketconnectoptions-connectlistener) are also supported.\n\nTo configure any of them, a custom {@link Agent} instance must be created.\n\n```js\nimport http from 'node:http';\nconst keepAliveAgent = new http.Agent({ keepAlive: true });\noptions.agent = keepAliveAgent;\nhttp.request(options, onResponseCallback)\n```",
+      "translated": "`Agent` は、HTTP クライアントの接続の永続化と再利用を管理する責任を負う。特定のホストとポートに対する保留中のリクエストのキューを保持し、キューが空になるまで各リクエストで単一のソケット接続を再利用する。空になった時点で、ソケットは破棄されるか、同じホストとポートへのリクエストで再び使うために保持されるプールに入れられる。破棄されるかプールされるかは `keepAlive` `option` による。\n\nプールされた接続は TCP Keep-Alive が有効だが、サーバーは依然としてアイドル接続を閉じることがある。その場合、それらはプールから削除され、そのホストとポートに対して新しい HTTP リクエストが行われたときに新しい接続が作られる。サーバーは同じ接続上での複数のリクエストを拒否することもあり、その場合、接続はリクエストごとに作り直さなければならず、プールできない。`Agent` はそれでもそのサーバーへリクエストを行うが、各リクエストは新しい接続上で発生する。\n\n接続がクライアントまたはサーバーによって閉じられると、プールから削除される。プール内の未使用のソケットは、未処理のリクエストがないときに Node.js プロセスを実行し続けないよう unref される(`socket.unref()` を参照)。\n\n未使用のソケットは OS リソースを消費するため、もう使わなくなった `Agent` インスタンスは `destroy()` するのが良い習慣である。\n\nソケットは、`'close'` イベントまたは `'agentRemove'` イベントを発行したときに agent から削除される。1 つの HTTP リクエストを agent に保持せずに長時間開いたままにする場合、次のようにできる:\n\n```js\nhttp.get(options, (res) => {\n  // Do stuff\n}).on('socket', (socket) => {\n  socket.emit('agentRemove');\n});\n```\n\nagent は個々のリクエストにも使える。`http.get()` または `http.request()` 関数のオプションとして `{agent: false}` を指定すると、既定オプションの一度きりの `Agent` がクライアント接続に使われる。\n\n`agent:false`:\n\n```js\nhttp.get({\n  hostname: 'localhost',\n  port: 80,\n  path: '/',\n  agent: false,  // Create a new agent just for this one request\n}, (res) => {\n  // Do stuff with response\n});\n```\n\n[`socket.connect()`](https://nodejs.org/docs/latest-v22.x/api/net.html#socketconnectoptions-connectlistener) の `options` もサポートされる。\n\nそれらのいずれかを設定するには、カスタムの {@link Agent} インスタンスを作成しなければならない。\n\n```js\nimport http from 'node:http';\nconst keepAliveAgent = new http.Agent({ keepAlive: true });\noptions.agent = keepAliveAgent;\nhttp.request(options, onResponseCallback)\n```",
+      "symbol": "@types/node/http.d.ts#http.Agent",
+      "lang": "ja"
+    },
+    "b6ab8232": {
+      "original": "Callback function that receives the created socket",
+      "translated": "作成されたソケットを受け取るコールバック関数",
+      "symbol": "@types/node/http.d.ts#http.Agent.createConnection",
+      "lang": "ja"
+    },
+    "224e18cf": {
+      "original": "Options containing connection details. Check `createConnection` for the format of the options",
+      "translated": "接続の詳細を含むオプション。オプションの形式は `createConnection` を確認すること",
+      "symbol": "@types/node/http.d.ts#http.Agent.createConnection",
+      "lang": "ja"
+    },
+    "6fa29de9": {
+      "original": "Produces a socket/stream to be used for HTTP requests.\n\nBy default, this function is the same as `net.createConnection()`. However,\ncustom agents may override this method in case greater flexibility is desired.\n\nA socket/stream can be supplied in one of two ways: by returning the\nsocket/stream from this function, or by passing the socket/stream to `callback`.\n\nThis method is guaranteed to return an instance of the `net.Socket` class,\na subclass of `stream.Duplex`, unless the user specifies a socket\ntype other than `net.Socket`.\n\n`callback` has a signature of `(err, stream)`.",
+      "translated": "HTTP リクエストに使うソケット/ストリームを生成する。\n\n既定では、この関数は `net.createConnection()` と同じである。ただし、より大きな柔軟性が望まれる場合、カスタム agent はこのメソッドをオーバーライドできる。\n\nソケット/ストリームは 2 つの方法のいずれかで提供できる。この関数からソケット/ストリームを返すか、`callback` にソケット/ストリームを渡すかである。\n\nこのメソッドは、ユーザーが `net.Socket` 以外のソケット型を指定しない限り、`stream.Duplex` のサブクラスである `net.Socket` クラスのインスタンスを返すことが保証される。\n\n`callback` のシグネチャは `(err, stream)` である。",
+      "symbol": "@types/node/http.d.ts#http.Agent.createConnection",
+      "lang": "ja"
+    },
+    "0324ce24": {
+      "original": "Destroy any sockets that are currently in use by the agent.\n\nIt is usually not necessary to do this. However, if using an\nagent with `keepAlive` enabled, then it is best to explicitly shut down\nthe agent when it is no longer needed. Otherwise,\nsockets might stay open for quite a long time before the server\nterminates them.",
+      "translated": "agent が現在使用中のソケットをすべて破棄する。\n\n通常これを行う必要はない。ただし、`keepAlive` が有効な agent を使う場合、もう不要になったら明示的に agent をシャットダウンするのが最善である。そうしないと、サーバーがソケットを終了するまで、ソケットがかなり長い間開いたままになることがある。",
+      "symbol": "@types/node/http.d.ts#http.Agent.destroy",
+      "lang": "ja"
+    },
+    "8c5a57fe": {
+      "original": "An object which contains arrays of sockets currently awaiting use by\nthe agent when `keepAlive` is enabled. Do not modify.\n\nSockets in the `freeSockets` list will be automatically destroyed and\nremoved from the array on `'timeout'`.",
+      "translated": "`keepAlive` が有効なとき、agent による使用を現在待っているソケットの配列を含むオブジェクト。変更しないこと。\n\n`freeSockets` リスト内のソケットは、`'timeout'` で自動的に破棄され、配列から削除される。",
+      "symbol": "@types/node/http.d.ts#http.Agent.freeSockets",
+      "lang": "ja"
+    },
+    "8384a1eb": {
+      "original": "A set of options providing information for name generation",
+      "translated": "名前生成のための情報を提供するオプションのセット",
+      "symbol": "@types/node/http.d.ts#http.Agent.getName",
+      "lang": "ja"
+    },
+    "5c22c523": {
+      "original": "Get a unique name for a set of request options, to determine whether a\nconnection can be reused. For an HTTP agent, this returns`host:port:localAddress` or `host:port:localAddress:family`. For an HTTPS agent,\nthe name includes the CA, cert, ciphers, and other HTTPS/TLS-specific options\nthat determine socket reusability.",
+      "translated": "接続を再利用できるかどうかを判定するために、リクエストオプションのセットに対する一意な名前を取得する。HTTP agent の場合、これは `host:port:localAddress` または `host:port:localAddress:family` を返す。HTTPS agent の場合、名前には CA・cert・ciphers、およびソケットの再利用可能性を決定する他の HTTPS/TLS 固有のオプションが含まれる。",
+      "symbol": "@types/node/http.d.ts#http.Agent.getName",
+      "lang": "ja"
+    },
+    "44fe8820": {
+      "original": "Called when `socket` is detached from a request and could be persisted by the`Agent`. Default behavior is to:\n\n```js\nsocket.setKeepAlive(true, this.keepAliveMsecs);\nsocket.unref();\nreturn true;\n```\n\nThis method can be overridden by a particular `Agent` subclass. If this\nmethod returns a falsy value, the socket will be destroyed instead of persisting\nit for use with the next request.\n\nThe `socket` argument can be an instance of `net.Socket`, a subclass of `stream.Duplex`.",
+      "translated": "`socket` がリクエストから切り離され、`Agent` によって永続化され得るときに呼ばれる。既定の挙動は次のとおり:\n\n```js\nsocket.setKeepAlive(true, this.keepAliveMsecs);\nsocket.unref();\nreturn true;\n```\n\nこのメソッドは特定の `Agent` サブクラスによってオーバーライドできる。このメソッドが falsy な値を返した場合、ソケットは次のリクエストで使うために永続化される代わりに破棄される。\n\n`socket` 引数は、`stream.Duplex` のサブクラスである `net.Socket` のインスタンスでよい。",
+      "symbol": "@types/node/http.d.ts#http.Agent.keepSocketAlive",
+      "lang": "ja"
+    },
+    "c2968a4f": {
+      "original": "By default set to `Infinity`. Determines how many concurrent sockets the agent\ncan have open per origin. Origin is the returned value of `agent.getName()`.",
+      "translated": "既定では `Infinity` に設定される。agent が origin ごとに開いておける同時ソケットの数を決める。origin は `agent.getName()` の戻り値である。",
+      "symbol": "@types/node/http.d.ts#http.Agent.maxSockets",
+      "lang": "ja"
+    },
+    "ecb1a866": {
+      "original": "By default set to `Infinity`. Determines how many concurrent sockets the agent\ncan have open. Unlike `maxSockets`, this parameter applies across all origins.",
+      "translated": "既定では `Infinity` に設定される。agent が開いておける同時ソケットの数を決める。`maxSockets` とは異なり、このパラメーターはすべての origin にまたがって適用される。",
+      "symbol": "@types/node/http.d.ts#http.Agent.maxTotalSockets",
+      "lang": "ja"
+    },
+    "28e215e5": {
+      "original": "An object which contains queues of requests that have not yet been assigned to\nsockets. Do not modify.",
+      "translated": "まだソケットに割り当てられていないリクエストのキューを含むオブジェクト。変更しないこと。",
+      "symbol": "@types/node/http.d.ts#http.Agent.requests",
+      "lang": "ja"
+    },
+    "ac2edd9d": {
+      "original": "Called when `socket` is attached to `request` after being persisted because of\nthe keep-alive options. Default behavior is to:\n\n```js\nsocket.ref();\n```\n\nThis method can be overridden by a particular `Agent` subclass.\n\nThe `socket` argument can be an instance of `net.Socket`, a subclass of `stream.Duplex`.",
+      "translated": "keep-alive オプションのために永続化された後、`socket` が `request` に取り付けられるときに呼ばれる。既定の挙動は次のとおり:\n\n```js\nsocket.ref();\n```\n\nこのメソッドは特定の `Agent` サブクラスによってオーバーライドできる。\n\n`socket` 引数は、`stream.Duplex` のサブクラスである `net.Socket` のインスタンスでよい。",
+      "symbol": "@types/node/http.d.ts#http.Agent.reuseSocket",
+      "lang": "ja"
+    },
+    "b7237c94": {
+      "original": "An object which contains arrays of sockets currently in use by the\nagent. Do not modify.",
+      "translated": "agent が現在使用中のソケットの配列を含むオブジェクト。変更しないこと。",
+      "symbol": "@types/node/http.d.ts#http.Agent.sockets",
+      "lang": "ja"
+    },
+    "e40f1575": {
+      "original": "Milliseconds to subtract from the server-provided `keep-alive: timeout=...` hint when determining socket\nexpiration time. This buffer helps ensure the agent closes the socket slightly before the server does, reducing\nthe chance of sending a request on a socket that’s about to be closed by the server.",
+      "translated": "ソケットの有効期限を決めるときに、サーバーが提供する `keep-alive: timeout=...` のヒントから差し引くミリ秒数。このバッファは、agent がサーバーよりわずかに早くソケットを閉じることを保証するのに役立ち、サーバーによって閉じられようとしているソケットでリクエストを送信する可能性を減らす。",
+      "symbol": "@types/node/http.d.ts#http.AgentOptions.agentKeepAliveTimeoutBuffer",
+      "lang": "ja"
+    },
+    "fc2ccef6": {
+      "original": "Keep sockets around in a pool to be used by other requests in the future. Default = false",
+      "translated": "将来の他のリクエストで使うために、ソケットをプールに保持する。既定 = false",
+      "symbol": "@types/node/http.d.ts#http.AgentOptions.keepAlive",
+      "lang": "ja"
+    },
+    "eb2c3015": {
+      "original": "When using HTTP KeepAlive, how often to send TCP KeepAlive packets over sockets being kept alive. Default = 1000.\nOnly relevant if keepAlive is set to true.",
+      "translated": "HTTP KeepAlive を使うとき、keep-alive されているソケット上で TCP KeepAlive パケットをどれくらいの頻度で送信するか。既定 = 1000。keepAlive が true に設定されている場合にのみ関係する。",
+      "symbol": "@types/node/http.d.ts#http.AgentOptions.keepAliveMsecs",
+      "lang": "ja"
+    },
+    "af7b72a8": {
+      "original": "Maximum number of sockets to leave open in a free state. Only relevant if keepAlive is set to true. Default = 256.",
+      "translated": "free 状態で開いたままにするソケットの最大数。keepAlive が true に設定されている場合にのみ関係する。既定 = 256。",
+      "symbol": "@types/node/http.d.ts#http.AgentOptions.maxFreeSockets",
+      "lang": "ja"
+    },
+    "71013ad0": {
+      "original": "Maximum number of sockets to allow per host. Default for Node 0.10 is 5, default for Node 0.12 is Infinity",
+      "translated": "ホストごとに許可するソケットの最大数。Node 0.10 の既定は 5、Node 0.12 の既定は Infinity",
+      "symbol": "@types/node/http.d.ts#http.AgentOptions.maxSockets",
+      "lang": "ja"
+    },
+    "2d3f778c": {
+      "original": "Maximum number of sockets allowed for all hosts in total. Each request will use a new socket until the maximum is reached. Default: Infinity.",
+      "translated": "すべてのホストに対して合計で許可されるソケットの最大数。各リクエストは、最大数に達するまで新しいソケットを使う。既定: Infinity。",
+      "symbol": "@types/node/http.d.ts#http.AgentOptions.maxTotalSockets",
+      "lang": "ja"
+    },
+    "8fb09b5c": {
+      "original": "Scheduling strategy to apply when picking the next free socket to use.",
+      "translated": "次に使う free ソケットを選ぶときに適用するスケジューリング戦略。",
+      "symbol": "@types/node/http.d.ts#http.AgentOptions.scheduling",
+      "lang": "ja"
+    },
+    "1cdda8ad": {
+      "original": "Socket timeout in milliseconds. This will set the timeout after the socket is connected.",
+      "translated": "ソケットのタイムアウト(ミリ秒)。これは、ソケットが接続された後にタイムアウトを設定する。",
+      "symbol": "@types/node/http.d.ts#http.AgentOptions.timeout",
+      "lang": "ja"
+    },
+    "efe50c59": {
+      "original": "This object is created internally and returned from {@link request}. It\nrepresents an _in-progress_ request whose header has already been queued. The\nheader is still mutable using the `setHeader(name, value)`, `getHeader(name)`, `removeHeader(name)` API. The actual header will\nbe sent along with the first data chunk or when calling `request.end()`.\n\nTo get the response, add a listener for `'response'` to the request object. `'response'` will be emitted from the request object when the response\nheaders have been received. The `'response'` event is executed with one\nargument which is an instance of {@link IncomingMessage}.\n\nDuring the `'response'` event, one can add listeners to the\nresponse object; particularly to listen for the `'data'` event.\n\nIf no `'response'` handler is added, then the response will be\nentirely discarded. However, if a `'response'` event handler is added,\nthen the data from the response object **must** be consumed, either by\ncalling `response.read()` whenever there is a `'readable'` event, or\nby adding a `'data'` handler, or by calling the `.resume()` method.\nUntil the data is consumed, the `'end'` event will not fire. Also, until\nthe data is read it will consume memory that can eventually lead to a\n'process out of memory' error.\n\nFor backward compatibility, `res` will only emit `'error'` if there is an `'error'` listener registered.\n\nSet `Content-Length` header to limit the response body size.\nIf `response.strictContentLength` is set to `true`, mismatching the `Content-Length` header value will result in an `Error` being thrown,\nidentified by `code:``'ERR_HTTP_CONTENT_LENGTH_MISMATCH'`.\n\n`Content-Length` value should be in bytes, not characters. Use `Buffer.byteLength()` to determine the length of the body in bytes.",
+      "translated": "このオブジェクトは内部的に作成され、{@link request} から返される。ヘッダーがすでにキューに入れられた_進行中_のリクエストを表す。ヘッダーは `setHeader(name, value)`・`getHeader(name)`・`removeHeader(name)` API を使ってまだ変更可能である。実際のヘッダーは、最初のデータチャンクとともに、または `request.end()` を呼ぶときに送信される。\n\nレスポンスを取得するには、リクエストオブジェクトに `'response'` の listener を追加する。レスポンスヘッダーが受信されると、リクエストオブジェクトから `'response'` が発行される。`'response'` イベントは、{@link IncomingMessage} のインスタンスである 1 つの引数とともに実行される。\n\n`'response'` イベント中に、レスポンスオブジェクトに listener を追加できる。特に `'data'` イベントをリッスンするために。\n\n`'response'` ハンドラが追加されない場合、レスポンスは完全に破棄される。ただし、`'response'` イベントハンドラが追加された場合、レスポンスオブジェクトからのデータは**必ず**消費されなければならない。`'readable'` イベントがあるたびに `response.read()` を呼ぶか、`'data'` ハンドラを追加するか、`.resume()` メソッドを呼ぶことによってである。データが消費されるまで `'end'` イベントは発火しない。また、データが読み取られるまでメモリを消費し、最終的に 'process out of memory' エラーにつながることがある。\n\n後方互換性のため、`res` は `'error'` listener が登録されている場合にのみ `'error'` を発行する。\n\nレスポンスボディのサイズを制限するには `Content-Length` ヘッダーを設定する。`response.strictContentLength` が `true` に設定されている場合、`Content-Length` ヘッダー値と一致しないと `Error` が投げられ、`code: 'ERR_HTTP_CONTENT_LENGTH_MISMATCH'` で識別される。\n\n`Content-Length` の値は文字数ではなくバイト数であるべきである。ボディの長さをバイト単位で判定するには `Buffer.byteLength()` を使うこと。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest",
+      "lang": "ja"
+    },
+    "5dcaa7e7": {
+      "original": "Marks the request as aborting. Calling this will cause remaining data\nin the response to be dropped and the socket to be destroyed.",
+      "translated": "リクエストを中断中としてマークする。これを呼ぶと、レスポンス内の残りのデータが破棄され、ソケットが破棄される。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.abort",
+      "lang": "ja"
+    },
+    "4c179481": {
+      "original": "Since v14.1.0,v13.14.0 - Use `destroy` instead.",
+      "translated": "v14.1.0,v13.14.0 以降 - 代わりに `destroy` を使うこと。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.abort",
+      "lang": "ja"
+    },
+    "ae4c9121": {
+      "original": "Since v17.0.0, v16.12.0 - Check `destroyed` instead.",
+      "translated": "v17.0.0, v16.12.0 以降 - 代わりに `destroyed` を確認すること。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.aborted",
+      "lang": "ja"
+    },
+    "84e45372": {
+      "original": "The `request.aborted` property will be `true` if the request has\nbeen aborted.",
+      "translated": "リクエストが中断された場合、`request.aborted` プロパティは `true` になる。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.aborted",
+      "lang": "ja"
+    },
+    "8497cb69": {
+      "original": "Returns an array containing the unique names of the current outgoing raw\nheaders. Header names are returned with their exact casing being set.\n\n```js\nrequest.setHeader('Foo', 'bar');\nrequest.setHeader('Set-Cookie', ['foo=bar', 'bar=baz']);\n\nconst headerNames = request.getRawHeaderNames();\n// headerNames === ['Foo', 'Set-Cookie']\n```",
+      "translated": "現在の送信中の生ヘッダーの一意な名前を含む配列を返す。ヘッダー名は、設定された正確な大文字小文字で返される。\n\n```js\nrequest.setHeader('Foo', 'bar');\nrequest.setHeader('Set-Cookie', ['foo=bar', 'bar=baz']);\n\nconst headerNames = request.getRawHeaderNames();\n// headerNames === ['Foo', 'Set-Cookie']\n```",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.getRawHeaderNames",
+      "lang": "ja"
+    },
+    "01460e4f": {
+      "original": "The request host.",
+      "translated": "リクエストのホスト。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.host",
+      "lang": "ja"
+    },
+    "4553004e": {
+      "original": "Limits maximum response headers count. If set to 0, no limit will be applied.",
+      "translated": "レスポンスヘッダーの最大数を制限する。0 に設定した場合、制限は適用されない。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.maxHeadersCount",
+      "lang": "ja"
+    },
+    "ab92f8d7": {
+      "original": "The request method.",
+      "translated": "リクエストのメソッド。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.method",
+      "lang": "ja"
+    },
+    "1eff4023": {
+      "original": "The request path.",
+      "translated": "リクエストのパス。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.path",
+      "lang": "ja"
+    },
+    "ca93489a": {
+      "original": "The request protocol.",
+      "translated": "リクエストのプロトコル。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.protocol",
+      "lang": "ja"
+    },
+    "ac0e1fd9": {
+      "original": "When sending request through a keep-alive enabled agent, the underlying socket\nmight be reused. But if server closes connection at unfortunate time, client\nmay run into a 'ECONNRESET' error.\n\n```js\nimport http from 'node:http';\n\n// Server has a 5 seconds keep-alive timeout by default\nhttp\n  .createServer((req, res) => {\n    res.write('hello\\n');\n    res.end();\n  })\n  .listen(3000);\n\nsetInterval(() => {\n  // Adapting a keep-alive agent\n  http.get('http://localhost:3000', { agent }, (res) => {\n    res.on('data', (data) => {\n      // Do nothing\n    });\n  });\n}, 5000); // Sending request on 5s interval so it's easy to hit idle timeout\n```\n\nBy marking a request whether it reused socket or not, we can do\nautomatic error retry base on it.\n\n```js\nimport http from 'node:http';\nconst agent = new http.Agent({ keepAlive: true });\n\nfunction retriableRequest() {\n  const req = http\n    .get('http://localhost:3000', { agent }, (res) => {\n      // ...\n    })\n    .on('error', (err) => {\n      // Check if retry is needed\n      if (req.reusedSocket &#x26;&#x26; err.code === 'ECONNRESET') {\n        retriableRequest();\n      }\n    });\n}\n\nretriableRequest();\n```",
+      "translated": "keep-alive が有効な agent を通じてリクエストを送信する場合、基盤となるソケットが再利用されることがある。しかし、サーバーが不都合なタイミングで接続を閉じると、クライアントは 'ECONNRESET' エラーに遭遇することがある。\n\n```js\nimport http from 'node:http';\n\n// Server has a 5 seconds keep-alive timeout by default\nhttp\n  .createServer((req, res) => {\n    res.write('hello\\n');\n    res.end();\n  })\n  .listen(3000);\n\nsetInterval(() => {\n  // Adapting a keep-alive agent\n  http.get('http://localhost:3000', { agent }, (res) => {\n    res.on('data', (data) => {\n      // Do nothing\n    });\n  });\n}, 5000); // Sending request on 5s interval so it's easy to hit idle timeout\n```\n\nリクエストがソケットを再利用したかどうかをマークすることで、それに基づいて自動的なエラー再試行を行える。\n\n```js\nimport http from 'node:http';\nconst agent = new http.Agent({ keepAlive: true });\n\nfunction retriableRequest() {\n  const req = http\n    .get('http://localhost:3000', { agent }, (res) => {\n      // ...\n    })\n    .on('error', (err) => {\n      // Check if retry is needed\n      if (req.reusedSocket &#x26;&#x26; err.code === 'ECONNRESET') {\n        retriableRequest();\n      }\n    });\n}\n\nretriableRequest();\n```",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.reusedSocket",
+      "lang": "ja"
+    },
+    "908957d9": {
+      "original": "Once a socket is assigned to this request and is connected `socket.setNoDelay()` will be called.",
+      "translated": "このリクエストにソケットが割り当てられ接続されると、`socket.setNoDelay()` が呼ばれる。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.setNoDelay",
+      "lang": "ja"
+    },
+    "d17ceef4": {
+      "original": "Once a socket is assigned to this request and is connected `socket.setKeepAlive()` will be called.",
+      "translated": "このリクエストにソケットが割り当てられ接続されると、`socket.setKeepAlive()` が呼ばれる。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.setSocketKeepAlive",
+      "lang": "ja"
+    },
+    "5fa5c286": {
+      "original": "Milliseconds before a request times out.",
+      "translated": "リクエストがタイムアウトするまでのミリ秒。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.setTimeout",
+      "lang": "ja"
+    },
+    "b889fe1f": {
+      "original": "Once a socket is assigned to this request and is connected `socket.setTimeout()` will be called.",
+      "translated": "このリクエストにソケットが割り当てられ接続されると、`socket.setTimeout()` が呼ばれる。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.setTimeout",
+      "lang": "ja"
+    },
+    "2a61489f": {
+      "original": "Optional function to be called when a timeout occurs. Same as binding to the `'timeout'` event.",
+      "translated": "タイムアウトが発生したときに呼ばれる省略可能な関数。`'timeout'` イベントにバインドするのと同じ。",
+      "symbol": "@types/node/http.d.ts#http.ClientRequest.setTimeout",
+      "lang": "ja"
+    },
+    "8ee0b0e2": {
+      "original": "Returns a new instance of {@link Server}.\n\nThe `requestListener` is a function which is automatically\nadded to the `'request'` event.\n\n```js\nimport http from 'node:http';\n\n// Create a local server to receive data from\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'application/json' });\n  res.end(JSON.stringify({\n    data: 'Hello World!',\n  }));\n});\n\nserver.listen(8000);\n```\n\n```js\nimport http from 'node:http';\n\n// Create a local server to receive data from\nconst server = http.createServer();\n\n// Listen to the request event\nserver.on('request', (request, res) => {\n  res.writeHead(200, { 'Content-Type': 'application/json' });\n  res.end(JSON.stringify({\n    data: 'Hello World!',\n  }));\n});\n\nserver.listen(8000);\n```",
+      "translated": "{@link Server} の新しいインスタンスを返す。\n\n`requestListener` は、`'request'` イベントに自動的に追加される関数である。\n\n```js\nimport http from 'node:http';\n\n// Create a local server to receive data from\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'application/json' });\n  res.end(JSON.stringify({\n    data: 'Hello World!',\n  }));\n});\n\nserver.listen(8000);\n```\n\n```js\nimport http from 'node:http';\n\n// Create a local server to receive data from\nconst server = http.createServer();\n\n// Listen to the request event\nserver.on('request', (request, res) => {\n  res.writeHead(200, { 'Content-Type': 'application/json' });\n  res.end(JSON.stringify({\n    data: 'Hello World!',\n  }));\n});\n\nserver.listen(8000);\n```",
+      "symbol": "@types/node/http.d.ts#http.createServer",
+      "lang": "ja"
+    },
+    "1358e324": {
+      "original": "Accepts the same `options` as {@link request}, with the method set to GET by default.",
+      "translated": "{@link request} と同じ `options` を受け付けるが、メソッドは既定で GET に設定される。",
+      "symbol": "@types/node/http.d.ts#http.get",
+      "lang": "ja"
+    },
+    "da0a2217": {
+      "original": "Since most requests are GET requests without bodies, Node.js provides this\nconvenience method. The only difference between this method and {@link request} is that it sets the method to GET by default and calls `req.end()` automatically. The callback must take care to\nconsume the response\ndata for reasons stated in {@link ClientRequest} section.\n\nThe `callback` is invoked with a single argument that is an instance of {@link IncomingMessage}.\n\nJSON fetching example:\n\n```js\nhttp.get('http://localhost:8000/', (res) => {\n  const { statusCode } = res;\n  const contentType = res.headers['content-type'];\n\n  let error;\n  // Any 2xx status code signals a successful response but\n  // here we're only checking for 200.\n  if (statusCode !== 200) {\n    error = new Error('Request Failed.\\n' +\n                      `Status Code: ${statusCode}`);\n  } else if (!/^application\\/json/.test(contentType)) {\n    error = new Error('Invalid content-type.\\n' +\n                      `Expected application/json but received ${contentType}`);\n  }\n  if (error) {\n    console.error(error.message);\n    // Consume response data to free up memory\n    res.resume();\n    return;\n  }\n\n  res.setEncoding('utf8');\n  let rawData = '';\n  res.on('data', (chunk) => { rawData += chunk; });\n  res.on('end', () => {\n    try {\n      const parsedData = JSON.parse(rawData);\n      console.log(parsedData);\n    } catch (e) {\n      console.error(e.message);\n    }\n  });\n}).on('error', (e) => {\n  console.error(`Got error: ${e.message}`);\n});\n\n// Create a local server to receive data from\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'application/json' });\n  res.end(JSON.stringify({\n    data: 'Hello World!',\n  }));\n});\n\nserver.listen(8000);\n```",
+      "translated": "ほとんどのリクエストはボディのない GET リクエストなので、Node.js はこの便宜メソッドを提供する。このメソッドと {@link request} の唯一の違いは、メソッドを既定で GET に設定し、`req.end()` を自動的に呼ぶことである。コールバックは、{@link ClientRequest} セクションで述べた理由により、レスポンスデータを消費するよう注意しなければならない。\n\n`callback` は、{@link IncomingMessage} のインスタンスである単一の引数とともに呼ばれる。\n\nJSON 取得の例:\n\n```js\nhttp.get('http://localhost:8000/', (res) => {\n  const { statusCode } = res;\n  const contentType = res.headers['content-type'];\n\n  let error;\n  // Any 2xx status code signals a successful response but\n  // here we're only checking for 200.\n  if (statusCode !== 200) {\n    error = new Error('Request Failed.\\n' +\n                      `Status Code: ${statusCode}`);\n  } else if (!/^application\\/json/.test(contentType)) {\n    error = new Error('Invalid content-type.\\n' +\n                      `Expected application/json but received ${contentType}`);\n  }\n  if (error) {\n    console.error(error.message);\n    // Consume response data to free up memory\n    res.resume();\n    return;\n  }\n\n  res.setEncoding('utf8');\n  let rawData = '';\n  res.on('data', (chunk) => { rawData += chunk; });\n  res.on('end', () => {\n    try {\n      const parsedData = JSON.parse(rawData);\n      console.log(parsedData);\n    } catch (e) {\n      console.error(e.message);\n    }\n  });\n}).on('error', (e) => {\n  console.error(`Got error: ${e.message}`);\n});\n\n// Create a local server to receive data from\nconst server = http.createServer((req, res) => {\n  res.writeHead(200, { 'Content-Type': 'application/json' });\n  res.end(JSON.stringify({\n    data: 'Hello World!',\n  }));\n});\n\nserver.listen(8000);\n```",
+      "symbol": "@types/node/http.d.ts#http.get",
+      "lang": "ja"
+    },
+    "59c401d5": {
+      "original": "Global instance of `Agent` which is used as the default for all HTTP client\nrequests. Diverges from a default `Agent` configuration by having `keepAlive`\nenabled and a `timeout` of 5 seconds.",
+      "translated": "すべての HTTP クライアントリクエストの既定として使われる `Agent` のグローバルインスタンス。既定の `Agent` 構成とは、`keepAlive` が有効で `timeout` が 5 秒である点が異なる。",
+      "symbol": "@types/node/http.d.ts#http.globalAgent",
+      "lang": "ja"
+    },
+    "388276ef": {
+      "original": "An `IncomingMessage` object is created by {@link Server} or {@link ClientRequest} and passed as the first argument to the `'request'` and `'response'` event respectively. It may be used to\naccess response\nstatus, headers, and data.\n\nDifferent from its `socket` value which is a subclass of `stream.Duplex`, the `IncomingMessage` itself extends `stream.Readable` and is created separately to\nparse and emit the incoming HTTP headers and payload, as the underlying socket\nmay be reused multiple times in case of keep-alive.",
+      "translated": "`IncomingMessage` オブジェクトは {@link Server} または {@link ClientRequest} によって作成され、それぞれ `'request'` と `'response'` イベントの第 1 引数として渡される。レスポンスのステータス・ヘッダー・データにアクセスするために使える。\n\n`stream.Duplex` のサブクラスである `socket` 値とは異なり、`IncomingMessage` 自体は `stream.Readable` を拡張し、受信する HTTP ヘッダーとペイロードを解析・発行するために別途作成される。基盤となるソケットは keep-alive の場合に複数回再利用されることがあるからである。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage",
+      "lang": "ja"
+    },
+    "f3d8b4a7": {
+      "original": "Since v17.0.0,v16.12.0 - Check `message.destroyed` from <a href=\"stream.html#class-streamreadable\" class=\"type\">stream.Readable</a>.",
+      "translated": "v17.0.0,v16.12.0 以降 - <a href=\"stream.html#class-streamreadable\" class=\"type\">stream.Readable</a> の `message.destroyed` を確認すること。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.aborted",
+      "lang": "ja"
+    },
+    "eee190a6": {
+      "original": "The `message.aborted` property will be `true` if the request has\nbeen aborted.",
+      "translated": "リクエストが中断された場合、`message.aborted` プロパティは `true` になる。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.aborted",
+      "lang": "ja"
+    },
+    "b919bce8": {
+      "original": "The `message.complete` property will be `true` if a complete HTTP message has\nbeen received and successfully parsed.\n\nThis property is particularly useful as a means of determining if a client or\nserver fully transmitted a message before a connection was terminated:\n\n```js\nconst req = http.request({\n  host: '127.0.0.1',\n  port: 8080,\n  method: 'POST',\n}, (res) => {\n  res.resume();\n  res.on('end', () => {\n    if (!res.complete)\n      console.error(\n        'The connection was terminated while the message was still being sent');\n  });\n});\n```",
+      "translated": "完全な HTTP メッセージが受信され正常に解析された場合、`message.complete` プロパティは `true` になる。\n\nこのプロパティは、接続が終了する前にクライアントまたはサーバーがメッセージを完全に送信したかどうかを判定する手段として特に役立つ:\n\n```js\nconst req = http.request({\n  host: '127.0.0.1',\n  port: 8080,\n  method: 'POST',\n}, (res) => {\n  res.resume();\n  res.on('end', () => {\n    if (!res.complete)\n      console.error(\n        'The connection was terminated while the message was still being sent');\n  });\n});\n```",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.complete",
+      "lang": "ja"
+    },
+    "15607d75": {
+      "original": "Alias for `message.socket`.",
+      "translated": "`message.socket` のエイリアス。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.connection",
+      "lang": "ja"
+    },
+    "bbbcb8f4": {
+      "original": "Since v16.0.0 - Use `socket`.",
+      "translated": "v16.0.0 以降 - `socket` を使うこと。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.connection",
+      "lang": "ja"
+    },
+    "b90996c2": {
+      "original": "Calls `destroy()` on the socket that received the `IncomingMessage`. If `error` is provided, an `'error'` event is emitted on the socket and `error` is passed\nas an argument to any listeners on the event.",
+      "translated": "`IncomingMessage` を受信したソケットに対して `destroy()` を呼ぶ。`error` が指定された場合、ソケットで `'error'` イベントが発行され、`error` がそのイベントの listener に引数として渡される。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.destroy",
+      "lang": "ja"
+    },
+    "35599b3e": {
+      "original": "The request/response headers object.\n\nKey-value pairs of header names and values. Header names are lower-cased.\n\n```js\n// Prints something like:\n//\n// { 'user-agent': 'curl/7.22.0',\n//   host: '127.0.0.1:8000',\n//   accept: '*' }\nconsole.log(request.headers);\n```\n\nDuplicates in raw headers are handled in the following ways, depending on the\nheader name:\n\n* Duplicates of `age`, `authorization`, `content-length`, `content-type`, `etag`, `expires`, `from`, `host`, `if-modified-since`, `if-unmodified-since`, `last-modified`, `location`,\n`max-forwards`, `proxy-authorization`, `referer`, `retry-after`, `server`, or `user-agent` are discarded.\nTo allow duplicate values of the headers listed above to be joined,\nuse the option `joinDuplicateHeaders` in {@link request} and {@link createServer}. See RFC 9110 Section 5.3 for more\ninformation.\n* `set-cookie` is always an array. Duplicates are added to the array.\n* For duplicate `cookie` headers, the values are joined together with `; `.\n* For all other headers, the values are joined together with `, `.",
+      "translated": "リクエスト/レスポンスのヘッダーオブジェクト。\n\nヘッダー名と値のキーと値のペア。ヘッダー名は小文字化される。\n\n```js\n// Prints something like:\n//\n// { 'user-agent': 'curl/7.22.0',\n//   host: '127.0.0.1:8000',\n//   accept: '*' }\nconsole.log(request.headers);\n```\n\n生ヘッダー内の重複は、ヘッダー名に応じて次の方法で扱われる:\n\n* `age`・`authorization`・`content-length`・`content-type`・`etag`・`expires`・`from`・`host`・`if-modified-since`・`if-unmodified-since`・`last-modified`・`location`・`max-forwards`・`proxy-authorization`・`referer`・`retry-after`・`server`・`user-agent` の重複は破棄される。上記のヘッダーの重複した値を結合できるようにするには、{@link request} と {@link createServer} でオプション `joinDuplicateHeaders` を使う。詳細は RFC 9110 の 5.3 節を参照。\n* `set-cookie` は常に配列である。重複は配列に追加される。\n* 重複した `cookie` ヘッダーの場合、値は `; ` で結合される。\n* 他のすべてのヘッダーの場合、値は `, ` で結合される。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.headers",
+      "lang": "ja"
+    },
+    "085e73d6": {
+      "original": "Similar to `message.headers`, but there is no join logic and the values are\nalways arrays of strings, even for headers received just once.\n\n```js\n// Prints something like:\n//\n// { 'user-agent': ['curl/7.22.0'],\n//   host: ['127.0.0.1:8000'],\n//   accept: ['*'] }\nconsole.log(request.headersDistinct);\n```",
+      "translated": "`message.headers` に似ているが、結合ロジックがなく、一度しか受信されなかったヘッダーでも値は常に文字列の配列である。\n\n```js\n// Prints something like:\n//\n// { 'user-agent': ['curl/7.22.0'],\n//   host: ['127.0.0.1:8000'],\n//   accept: ['*'] }\nconsole.log(request.headersDistinct);\n```",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.headersDistinct",
+      "lang": "ja"
+    },
+    "4120f380": {
+      "original": "In case of server request, the HTTP version sent by the client. In the case of\nclient response, the HTTP version of the connected-to server.\nProbably either `'1.1'` or `'1.0'`.\n\nAlso `message.httpVersionMajor` is the first integer and `message.httpVersionMinor` is the second.",
+      "translated": "サーバーリクエストの場合、クライアントが送信した HTTP バージョン。クライアントレスポンスの場合、接続先サーバーの HTTP バージョン。おそらく `'1.1'` または `'1.0'` のいずれか。\n\nまた、`message.httpVersionMajor` は 1 つ目の整数、`message.httpVersionMinor` は 2 つ目である。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.httpVersion",
+      "lang": "ja"
+    },
+    "fe3a8dec": {
+      "original": "**Only valid for request obtained from {@link Server}.**\n\nThe request method as a string. Read only. Examples: `'GET'`, `'DELETE'`.",
+      "translated": "**{@link Server} から取得したリクエストにのみ有効。**\n\nリクエストのメソッドを文字列で表したもの。読み取り専用。例: `'GET'`・`'DELETE'`。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.method",
+      "lang": "ja"
+    },
+    "2c1747d8": {
+      "original": "The raw request/response headers list exactly as they were received.\n\nThe keys and values are in the same list. It is _not_ a\nlist of tuples. So, the even-numbered offsets are key values, and the\nodd-numbered offsets are the associated values.\n\nHeader names are not lowercased, and duplicates are not merged.\n\n```js\n// Prints something like:\n//\n// [ 'user-agent',\n//   'this is invalid because there can be only one',\n//   'User-Agent',\n//   'curl/7.22.0',\n//   'Host',\n//   '127.0.0.1:8000',\n//   'ACCEPT',\n//   '*' ]\nconsole.log(request.rawHeaders);\n```",
+      "translated": "受信したままの生のリクエスト/レスポンスヘッダーのリスト。\n\nキーと値は同じリストにある。タプルのリストで_はない_。したがって、偶数番目のオフセットはキーの値、奇数番目のオフセットは関連付けられた値である。\n\nヘッダー名は小文字化されず、重複はマージされない。\n\n```js\n// Prints something like:\n//\n// [ 'user-agent',\n//   'this is invalid because there can be only one',\n//   'User-Agent',\n//   'curl/7.22.0',\n//   'Host',\n//   '127.0.0.1:8000',\n//   'ACCEPT',\n//   '*' ]\nconsole.log(request.rawHeaders);\n```",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.rawHeaders",
+      "lang": "ja"
+    },
+    "29a6ab6e": {
+      "original": "The raw request/response trailer keys and values exactly as they were\nreceived. Only populated at the `'end'` event.",
+      "translated": "受信したままの生のリクエスト/レスポンスのトレーラーのキーと値。`'end'` イベントでのみ設定される。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.rawTrailers",
+      "lang": "ja"
+    },
+    "6eaeaf5e": {
+      "original": "Calls `message.socket.setTimeout(msecs, callback)`.",
+      "translated": "`message.socket.setTimeout(msecs, callback)` を呼ぶ。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.setTimeout",
+      "lang": "ja"
+    },
+    "cd8466b5": {
+      "original": "The `net.Socket` object associated with the connection.\n\nWith HTTPS support, use `request.socket.getPeerCertificate()` to obtain the\nclient's authentication details.\n\nThis property is guaranteed to be an instance of the `net.Socket` class,\na subclass of `stream.Duplex`, unless the user specified a socket\ntype other than `net.Socket` or internally nulled.",
+      "translated": "接続に関連付けられた `net.Socket` オブジェクト。\n\nHTTPS サポートでは、クライアントの認証詳細を取得するために `request.socket.getPeerCertificate()` を使う。\n\nこのプロパティは、ユーザーが `net.Socket` 以外のソケット型を指定したか内部的に null 化された場合を除き、`stream.Duplex` のサブクラスである `net.Socket` クラスのインスタンスであることが保証される。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.socket",
       "lang": "ja"
     },
     "f3935692": {
