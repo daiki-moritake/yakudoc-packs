@@ -5914,6 +5914,192 @@
       "symbol": "@types/node/net.d.ts#net.Socket.destroySoon",
       "lang": "ja"
     },
+    "45daac9f": {
+      "original": "Half-closes the socket, with one final chunk of data.",
+      "translated": "最後のデータチャンクとともにソケットを half-close する。",
+      "symbol": "@types/node/net.d.ts#net.Socket.end",
+      "lang": "ja"
+    },
+    "23594cb3": {
+      "original": "Half-closes the socket. i.e., it sends a FIN packet. It is possible the\nserver will still send some data.\n\nSee `writable.end()` for further details.",
+      "translated": "ソケットを half-close する。すなわち FIN パケットを送信する。サーバーがまだいくらかのデータを送信する可能性はある。\n\n詳細は `writable.end()` を参照。",
+      "symbol": "@types/node/net.d.ts#net.Socket.end",
+      "lang": "ja"
+    },
+    "8de910ba": {
+      "original": "Optional callback for when the socket is finished.",
+      "translated": "ソケットが終了したときのための省略可能なコールバック。",
+      "symbol": "@types/node/net.d.ts#net.Socket.end",
+      "lang": "ja"
+    },
+    "fb1f2c57": {
+      "original": "The string representation of the local IP address the remote client is\nconnecting on. For example, in a server listening on `'0.0.0.0'`, if a client\nconnects on `'192.168.1.1'`, the value of `socket.localAddress` would be`'192.168.1.1'`.",
+      "translated": "リモートクライアントが接続しているローカル IP アドレスの文字列表現。たとえば、`'0.0.0.0'` でリッスンしているサーバーで、クライアントが `'192.168.1.1'` で接続した場合、`socket.localAddress` の値は `'192.168.1.1'` になる。",
+      "symbol": "@types/node/net.d.ts#net.Socket.localAddress",
+      "lang": "ja"
+    },
+    "925e8068": {
+      "original": "The string representation of the local IP family. `'IPv4'` or `'IPv6'`.",
+      "translated": "ローカル IP ファミリーの文字列表現。`'IPv4'` または `'IPv6'`。",
+      "symbol": "@types/node/net.d.ts#net.Socket.localFamily",
+      "lang": "ja"
+    },
+    "02f7051e": {
+      "original": "The numeric representation of the local port. For example, `80` or `21`.",
+      "translated": "ローカルポートの数値表現。たとえば `80` や `21`。",
+      "symbol": "@types/node/net.d.ts#net.Socket.localPort",
+      "lang": "ja"
+    },
+    "2da22361": {
+      "original": "Pauses the reading of data. That is, `'data'` events will not be emitted.\nUseful to throttle back an upload.",
+      "translated": "データの読み取りを一時停止する。すなわち、`'data'` イベントは発行されなくなる。アップロードを抑制するのに役立つ。",
+      "symbol": "@types/node/net.d.ts#net.Socket.pause",
+      "lang": "ja"
+    },
+    "b83257f2": {
+      "original": "This is `true` if the socket is not connected yet, either because `.connect()`has not yet been called or because it is still in the process of connecting\n(see `socket.connecting`).",
+      "translated": "`.connect()` がまだ呼ばれていないか、まだ接続処理中(`socket.connecting` を参照)のため、ソケットがまだ接続されていない場合は `true` になる。",
+      "symbol": "@types/node/net.d.ts#net.Socket.pending",
+      "lang": "ja"
+    },
+    "e8c4a940": {
+      "original": "This property represents the state of the connection as a string.\n\n* If the stream is connecting `socket.readyState` is `opening`.\n* If the stream is readable and writable, it is `open`.\n* If the stream is readable and not writable, it is `readOnly`.\n* If the stream is not readable and writable, it is `writeOnly`.",
+      "translated": "このプロパティは接続の状態を文字列で表す。\n\n* ストリームが接続中の場合、`socket.readyState` は `opening` である。\n* ストリームが読み取り可能かつ書き込み可能な場合、`open` である。\n* ストリームが読み取り可能で書き込み不可の場合、`readOnly` である。\n* ストリームが読み取り不可で書き込み可能の場合、`writeOnly` である。",
+      "symbol": "@types/node/net.d.ts#net.Socket.readyState",
+      "lang": "ja"
+    },
+    "73e83e28": {
+      "original": "Opposite of `unref()`, calling `ref()` on a previously `unref`ed socket will _not_ let the program exit if it's the only socket left (the default behavior).\nIf the socket is `ref`ed calling `ref` again will have no effect.",
+      "translated": "`unref()` の逆。以前 `unref` されたソケットに対して `ref()` を呼ぶと、それが残った唯一のソケットであってもプログラムが終了しないようにする(既定の挙動)。ソケットが `ref` されている場合、再び `ref` を呼んでも効果はない。",
+      "symbol": "@types/node/net.d.ts#net.Socket.ref",
+      "lang": "ja"
+    },
+    "4b78ca3e": {
+      "original": "The string representation of the remote IP address. For example,`'74.125.127.100'` or `'2001:4860:a005::68'`. Value may be `undefined` if\nthe socket is destroyed (for example, if the client disconnected).",
+      "translated": "リモート IP アドレスの文字列表現。たとえば `'74.125.127.100'` や `'2001:4860:a005::68'`。ソケットが破棄されている場合(たとえばクライアントが切断した場合)、値は `undefined` になり得る。",
+      "symbol": "@types/node/net.d.ts#net.Socket.remoteAddress",
+      "lang": "ja"
+    },
+    "c81e748b": {
+      "original": "The string representation of the remote IP family. `'IPv4'` or `'IPv6'`. Value may be `undefined` if\nthe socket is destroyed (for example, if the client disconnected).",
+      "translated": "リモート IP ファミリーの文字列表現。`'IPv4'` または `'IPv6'`。ソケットが破棄されている場合(たとえばクライアントが切断した場合)、値は `undefined` になり得る。",
+      "symbol": "@types/node/net.d.ts#net.Socket.remoteFamily",
+      "lang": "ja"
+    },
+    "9a5de136": {
+      "original": "The numeric representation of the remote port. For example, `80` or `21`. Value may be `undefined` if\nthe socket is destroyed (for example, if the client disconnected).",
+      "translated": "リモートポートの数値表現。たとえば `80` や `21`。ソケットが破棄されている場合(たとえばクライアントが切断した場合)、値は `undefined` になり得る。",
+      "symbol": "@types/node/net.d.ts#net.Socket.remotePort",
+      "lang": "ja"
+    },
+    "bb630bf4": {
+      "original": "Close the TCP connection by sending an RST packet and destroy the stream.\nIf this TCP socket is in connecting status, it will send an RST packet and destroy this TCP socket once it is connected.\nOtherwise, it will call `socket.destroy` with an `ERR_SOCKET_CLOSED` Error.\nIf this is not a TCP socket (for example, a pipe), calling this method will immediately throw an `ERR_INVALID_HANDLE_TYPE` Error.",
+      "translated": "RST パケットを送信して TCP 接続を閉じ、ストリームを破棄する。この TCP ソケットが接続中の状態の場合、RST パケットを送信し、接続されたらこの TCP ソケットを破棄する。そうでなければ、`ERR_SOCKET_CLOSED` エラーで `socket.destroy` を呼ぶ。これが TCP ソケットでない(たとえばパイプの)場合、このメソッドを呼ぶと即座に `ERR_INVALID_HANDLE_TYPE` エラーが投げられる。",
+      "symbol": "@types/node/net.d.ts#net.Socket.resetAndDestroy",
+      "lang": "ja"
+    },
+    "ac753df8": {
+      "original": "Resumes reading after a call to `socket.pause()`.",
+      "translated": "`socket.pause()` の呼び出し後に読み取りを再開する。",
+      "symbol": "@types/node/net.d.ts#net.Socket.resume",
+      "lang": "ja"
+    },
+    "eb5b6f9d": {
+      "original": "Set the encoding for the socket as a `Readable Stream`. See `readable.setEncoding()` for more information.",
+      "translated": "ソケットのエンコーディングを `Readable Stream` として設定する。詳細は `readable.setEncoding()` を参照。",
+      "symbol": "@types/node/net.d.ts#net.Socket.setEncoding",
+      "lang": "ja"
+    },
+    "cf450abf": {
+      "original": "The socket itself.",
+      "translated": "ソケット自体。",
+      "symbol": "@types/node/net.d.ts#net.Socket.setEncoding",
+      "lang": "ja"
+    },
+    "6df9abbe": {
+      "original": "Enable/disable keep-alive functionality, and optionally set the initial\ndelay before the first keepalive probe is sent on an idle socket.\n\nSet `initialDelay` (in milliseconds) to set the delay between the last\ndata packet received and the first keepalive probe. Setting `0` for`initialDelay` will leave the value unchanged from the default\n(or previous) setting.\n\nEnabling the keep-alive functionality will set the following socket options:\n\n* `SO_KEEPALIVE=1`\n* `TCP_KEEPIDLE=initialDelay`\n* `TCP_KEEPCNT=10`\n* `TCP_KEEPINTVL=1`",
+      "translated": "keep-alive 機能を有効/無効にし、任意でアイドルソケットで最初の keepalive プローブが送信されるまでの初期遅延を設定する。\n\n最後に受信したデータパケットと最初の keepalive プローブの間の遅延を設定するには、`initialDelay`(ミリ秒単位)を設定する。`initialDelay` を `0` に設定すると、値は既定(または以前)の設定から変わらない。\n\nkeep-alive 機能を有効にすると、次のソケットオプションが設定される:\n\n* `SO_KEEPALIVE=1`\n* `TCP_KEEPIDLE=initialDelay`\n* `TCP_KEEPCNT=10`\n* `TCP_KEEPINTVL=1`",
+      "symbol": "@types/node/net.d.ts#net.Socket.setKeepAlive",
+      "lang": "ja"
+    },
+    "6d5b0ac5": {
+      "original": "Enable/disable the use of Nagle's algorithm.\n\nWhen a TCP connection is created, it will have Nagle's algorithm enabled.\n\nNagle's algorithm delays data before it is sent via the network. It attempts\nto optimize throughput at the expense of latency.\n\nPassing `true` for `noDelay` or not passing an argument will disable Nagle's\nalgorithm for the socket. Passing `false` for `noDelay` will enable Nagle's\nalgorithm.",
+      "translated": "Nagle アルゴリズムの使用を有効/無効にする。\n\nTCP 接続が作成されると、Nagle アルゴリズムが有効になる。\n\nNagle アルゴリズムは、データがネットワーク経由で送信される前に遅延させる。レイテンシを犠牲にしてスループットを最適化しようとする。\n\n`noDelay` に `true` を渡すか、引数を渡さないと、ソケットの Nagle アルゴリズムが無効になる。`noDelay` に `false` を渡すと、Nagle アルゴリズムが有効になる。",
+      "symbol": "@types/node/net.d.ts#net.Socket.setNoDelay",
+      "lang": "ja"
+    },
+    "8e849c30": {
+      "original": "Sets the socket to timeout after `timeout` milliseconds of inactivity on\nthe socket. By default `net.Socket` do not have a timeout.\n\nWhen an idle timeout is triggered the socket will receive a `'timeout'` event but the connection will not be severed. The user must manually call `socket.end()` or `socket.destroy()` to\nend the connection.\n\n```js\nsocket.setTimeout(3000);\nsocket.on('timeout', () => {\n  console.log('socket timeout');\n  socket.end();\n});\n```\n\nIf `timeout` is 0, then the existing idle timeout is disabled.\n\nThe optional `callback` parameter will be added as a one-time listener for the `'timeout'` event.",
+      "translated": "ソケットで `timeout` ミリ秒の非アクティブ後にタイムアウトするようソケットを設定する。既定では `net.Socket` はタイムアウトを持たない。\n\nアイドルタイムアウトがトリガーされると、ソケットは `'timeout'` イベントを受け取るが、接続は切断されない。ユーザーは接続を終了するために手動で `socket.end()` または `socket.destroy()` を呼ばなければならない。\n\n```js\nsocket.setTimeout(3000);\nsocket.on('timeout', () => {\n  console.log('socket timeout');\n  socket.end();\n});\n```\n\n`timeout` が 0 の場合、既存のアイドルタイムアウトは無効になる。\n\n省略可能な `callback` パラメーターは、`'timeout'` イベントの一度きりの listener として追加される。",
+      "symbol": "@types/node/net.d.ts#net.Socket.setTimeout",
+      "lang": "ja"
+    },
+    "e15842e5": {
+      "original": "The socket timeout in milliseconds as set by `socket.setTimeout()`.\nIt is `undefined` if a timeout has not been set.",
+      "translated": "`socket.setTimeout()` で設定されたソケットのタイムアウト(ミリ秒)。タイムアウトが設定されていない場合は `undefined` である。",
+      "symbol": "@types/node/net.d.ts#net.Socket.timeout",
+      "lang": "ja"
+    },
+    "3c41b2e2": {
+      "original": "Calling `unref()` on a socket will allow the program to exit if this is the only\nactive socket in the event system. If the socket is already `unref`ed calling`unref()` again will have no effect.",
+      "translated": "ソケットに対して `unref()` を呼ぶと、これがイベントシステム内で唯一のアクティブなソケットである場合にプログラムが終了できるようになる。ソケットがすでに `unref` されている場合、再び `unref()` を呼んでも効果はない。",
+      "symbol": "@types/node/net.d.ts#net.Socket.unref",
+      "lang": "ja"
+    },
+    "8c6d8c9d": {
+      "original": "Only used when data is `string`.",
+      "translated": "データが `string` の場合にのみ使われる。",
+      "symbol": "@types/node/net.d.ts#net.Socket.write",
+      "lang": "ja"
+    },
+    "005d75fe": {
+      "original": "Sends data on the socket, with an explicit encoding for string data.",
+      "translated": "文字列データに明示的なエンコーディングを指定して、ソケットでデータを送信する。",
+      "symbol": "@types/node/net.d.ts#net.Socket.write",
+      "lang": "ja"
+    },
+    "fe02866e": {
+      "original": "Sends data on the socket. The second parameter specifies the encoding in the\ncase of a string. It defaults to UTF8 encoding.\n\nReturns `true` if the entire data was flushed successfully to the kernel\nbuffer. Returns `false` if all or part of the data was queued in user memory.`'drain'` will be emitted when the buffer is again free.\n\nThe optional `callback` parameter will be executed when the data is finally\nwritten out, which may not be immediately.\n\nSee `Writable` stream `write()` method for more\ninformation.",
+      "translated": "ソケットでデータを送信する。第 2 パラメーターは、文字列の場合のエンコーディングを指定する。既定は UTF8 エンコーディングである。\n\nデータ全体がカーネルバッファに正常にフラッシュされた場合は `true` を返す。データの全部または一部がユーザーメモリにキューされた場合は `false` を返す。バッファが再び空になると `'drain'` が発行される。\n\n省略可能な `callback` パラメーターは、データが最終的に書き出されたときに実行される。それは即座でないことがある。\n\n詳細は `Writable` ストリームの `write()` メソッドを参照。",
+      "symbol": "@types/node/net.d.ts#net.Socket.write",
+      "lang": "ja"
+    },
+    "7646e47e": {
+      "original": "Either \\`'ipv4'\\` or \\`'ipv6'\\`.",
+      "translated": "`'ipv4'` または `'ipv6'` のいずれか。",
+      "symbol": "@types/node/net.d.ts#net.SocketAddress.address",
+      "lang": "ja"
+    },
+    "341b2b52": {
+      "original": "An input string containing an IP address and optional port,\ne.g. `123.1.2.3:1234` or `[1::1]:1234`.",
+      "translated": "IP アドレスと省略可能なポートを含む入力文字列。たとえば `123.1.2.3:1234` や `[1::1]:1234`。",
+      "symbol": "@types/node/net.d.ts#net.SocketAddress.parse",
+      "lang": "ja"
+    },
+    "e5f4b975": {
+      "original": "Returns a `SocketAddress` if parsing was successful.\nOtherwise returns `undefined`.",
+      "translated": "解析が成功した場合は `SocketAddress` を返す。そうでなければ `undefined` を返す。",
+      "symbol": "@types/node/net.d.ts#net.SocketAddress.parse",
+      "lang": "ja"
+    },
+    "1eac00fc": {
+      "original": "The network address as either an IPv4 or IPv6 string.",
+      "translated": "IPv4 または IPv6 文字列としてのネットワークアドレス。",
+      "symbol": "@types/node/net.d.ts#net.SocketAddressInitOptions.address",
+      "lang": "ja"
+    },
+    "2b659b42": {
+      "original": "An IPv6 flow-label used only if `family` is `'ipv6'`.",
+      "translated": "`family` が `'ipv6'` の場合にのみ使われる IPv6 フローラベル。",
+      "symbol": "@types/node/net.d.ts#net.SocketAddressInitOptions.flowlabel",
+      "lang": "ja"
+    },
+    "1e39c0b6": {
+      "original": "An IP port.",
+      "translated": "IP ポート。",
+      "symbol": "@types/node/net.d.ts#net.SocketAddressInitOptions.port",
+      "lang": "ja"
+    },
     "f3935692": {
       "original": "The `node:os` module provides operating system-related utility methods and\nproperties. It can be accessed using:\n\n```js\nimport os from 'node:os';\n```",
       "translated": "`node:os` モジュールは、オペレーティングシステム関連のユーティリティメソッドとプロパティを提供する。次のようにアクセスできる:\n\n```js\nimport os from 'node:os';\n```",
