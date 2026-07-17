@@ -220,6 +220,12 @@
       "symbol": "@types/node/fs.d.ts#fs.rename.__promisify__",
       "lang": "ja"
     },
+    "99737814": {
+      "original": "number of bytes to retrieve from keying material",
+      "translated": "鍵素材から取得するバイト数",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.exportKeyingMaterial",
+      "lang": "ja"
+    },
     "d72894a9": {
       "original": "`Buffer` objects are used to represent a fixed-length sequence of bytes. Many\nNode.js APIs support `Buffer`s.\n\nThe `Buffer` class is a subclass of JavaScript's [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) class and\nextends it with methods that cover additional use cases. Node.js APIs accept\nplain [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) s wherever `Buffer`s are supported as well.\n\nWhile the `Buffer` class is available within the global scope, it is still\nrecommended to explicitly reference it via an import or require statement.\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Creates a zero-filled Buffer of length 10.\nconst buf1 = Buffer.alloc(10);\n\n// Creates a Buffer of length 10,\n// filled with bytes which all have the value `1`.\nconst buf2 = Buffer.alloc(10, 1);\n\n// Creates an uninitialized buffer of length 10.\n// This is faster than calling Buffer.alloc() but the returned\n// Buffer instance might contain old data that needs to be\n// overwritten using fill(), write(), or other functions that fill the Buffer's\n// contents.\nconst buf3 = Buffer.allocUnsafe(10);\n\n// Creates a Buffer containing the bytes [1, 2, 3].\nconst buf4 = Buffer.from([1, 2, 3]);\n\n// Creates a Buffer containing the bytes [1, 1, 1, 1] – the entries\n// are all truncated using `(value &#x26; 255)` to fit into the range 0–255.\nconst buf5 = Buffer.from([257, 257.5, -255, '1']);\n\n// Creates a Buffer containing the UTF-8-encoded bytes for the string 'tést':\n// [0x74, 0xc3, 0xa9, 0x73, 0x74] (in hexadecimal notation)\n// [116, 195, 169, 115, 116] (in decimal notation)\nconst buf6 = Buffer.from('tést');\n\n// Creates a Buffer containing the Latin-1 bytes [0x74, 0xe9, 0x73, 0x74].\nconst buf7 = Buffer.from('tést', 'latin1');\n```",
       "translated": "`Buffer` オブジェクトは、固定長のバイト列を表すために使われる。多くの Node.js API が `Buffer` をサポートする。\n\n`Buffer` クラスは JavaScript の [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) クラスのサブクラスで、追加のユースケースをカバーするメソッドで拡張している。Node.js API は、`Buffer` がサポートされる場所ではプレーンな [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) も受け付ける。\n\n`Buffer` クラスはグローバルスコープ内で利用できるが、それでも import または require 文で明示的に参照することが推奨される。\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Creates a zero-filled Buffer of length 10.\nconst buf1 = Buffer.alloc(10);\n\n// Creates a Buffer of length 10,\n// filled with bytes which all have the value `1`.\nconst buf2 = Buffer.alloc(10, 1);\n\n// Creates an uninitialized buffer of length 10.\n// This is faster than calling Buffer.alloc() but the returned\n// Buffer instance might contain old data that needs to be\n// overwritten using fill(), write(), or other functions that fill the Buffer's\n// contents.\nconst buf3 = Buffer.allocUnsafe(10);\n\n// Creates a Buffer containing the bytes [1, 2, 3].\nconst buf4 = Buffer.from([1, 2, 3]);\n\n// Creates a Buffer containing the bytes [1, 1, 1, 1] – the entries\n// are all truncated using `(value &#x26; 255)` to fit into the range 0–255.\nconst buf5 = Buffer.from([257, 257.5, -255, '1']);\n\n// Creates a Buffer containing the UTF-8-encoded bytes for the string 'tést':\n// [0x74, 0xc3, 0xa9, 0x73, 0x74] (in hexadecimal notation)\n// [116, 195, 169, 115, 116] (in decimal notation)\nconst buf6 = Buffer.from('tést');\n\n// Creates a Buffer containing the Latin-1 bytes [0x74, 0xe9, 0x73, 0x74].\nconst buf7 = Buffer.from('tést', 'latin1');\n```",
@@ -8606,6 +8612,174 @@
       "original": "Accepts encrypted connections using TLS or SSL.",
       "translated": "TLS または SSL を使って暗号化された接続を受け付ける。",
       "symbol": "@types/node/tls.d.ts#tls.Server",
+      "lang": "ja"
+    },
+    "6a8eb721": {
+      "original": "A SNI host name or wildcard (e.g. `'*'`)",
+      "translated": "SNI ホスト名またはワイルドカード(たとえば `'*'`)",
+      "symbol": "@types/node/tls.d.ts#tls.Server.addContext",
+      "lang": "ja"
+    },
+    "5991e07b": {
+      "original": "An object containing any of the possible properties from the {@link createSecureContext} `options` arguments (e.g. `key`, `cert`, `ca`, etc), or a TLS context object created\nwith {@link createSecureContext} itself.",
+      "translated": "{@link createSecureContext} の `options` 引数の可能なプロパティのいずれか(たとえば `key`・`cert`・`ca` など)を含むオブジェクト、または {@link createSecureContext} 自体で作成された TLS コンテキストオブジェクト。",
+      "symbol": "@types/node/tls.d.ts#tls.Server.addContext",
+      "lang": "ja"
+    },
+    "4701eb67": {
+      "original": "The `server.addContext()` method adds a secure context that will be used if\nthe client request's SNI name matches the supplied `hostname` (or wildcard).\n\nWhen there are multiple matching contexts, the most recently added one is\nused.",
+      "translated": "`server.addContext()` メソッドは、クライアントリクエストの SNI 名が指定した `hostname`(またはワイルドカード)に一致する場合に使われるセキュアコンテキストを追加する。\n\n一致するコンテキストが複数ある場合、最も最近追加されたものが使われる。",
+      "symbol": "@types/node/tls.d.ts#tls.Server.addContext",
+      "lang": "ja"
+    },
+    "669668ef": {
+      "original": "A 48-byte buffer containing the session ticket keys.",
+      "translated": "セッションチケット鍵を含む 48 バイトのバッファ。",
+      "symbol": "@types/node/tls.d.ts#tls.Server.getTicketKeys",
+      "lang": "ja"
+    },
+    "7e7d27ab": {
+      "original": "Returns the session ticket keys.\n\nSee `Session Resumption` for more information.",
+      "translated": "セッションチケット鍵を返す。\n\n詳細は `Session Resumption` を参照。",
+      "symbol": "@types/node/tls.d.ts#tls.Server.getTicketKeys",
+      "lang": "ja"
+    },
+    "bf6522a4": {
+      "original": "An object containing any of the possible properties from the {@link createSecureContext} `options` arguments (e.g. `key`, `cert`, `ca`, etc).",
+      "translated": "{@link createSecureContext} の `options` 引数の可能なプロパティのいずれか(たとえば `key`・`cert`・`ca` など)を含むオブジェクト。",
+      "symbol": "@types/node/tls.d.ts#tls.Server.setSecureContext",
+      "lang": "ja"
+    },
+    "c93653da": {
+      "original": "The `server.setSecureContext()` method replaces the secure context of an\nexisting server. Existing connections to the server are not interrupted.",
+      "translated": "`server.setSecureContext()` メソッドは、既存のサーバーのセキュアコンテキストを置き換える。サーバーへの既存の接続は中断されない。",
+      "symbol": "@types/node/tls.d.ts#tls.Server.setSecureContext",
+      "lang": "ja"
+    },
+    "2e6be0d8": {
+      "original": "Sets the session ticket keys.\n\nChanges to the ticket keys are effective only for future server connections.\nExisting or currently pending server connections will use the previous keys.\n\nSee `Session Resumption` for more information.",
+      "translated": "セッションチケット鍵を設定する。\n\nチケット鍵への変更は、以降のサーバー接続に対してのみ有効である。既存または現在保留中のサーバー接続は以前の鍵を使う。\n\n詳細は `Session Resumption` を参照。",
+      "symbol": "@types/node/tls.d.ts#tls.Server.setTicketKeys",
+      "lang": "ja"
+    },
+    "b451f5e7": {
+      "original": "An array of CA certificates in PEM format.",
+      "translated": "PEM 形式の CA 証明書の配列。",
+      "symbol": "@types/node/tls.d.ts#tls.setDefaultCACertificates",
+      "lang": "ja"
+    },
+    "4520a2aa": {
+      "original": "Sets the default CA certificates used by Node.js TLS clients. If the provided\ncertificates are parsed successfully, they will become the default CA\ncertificate list returned by {@link getCACertificates} and used\nby subsequent TLS connections that don't specify their own CA certificates.\nThe certificates will be deduplicated before being set as the default.\n\nThis function only affects the current Node.js thread. Previous\nsessions cached by the HTTPS agent won't be affected by this change, so\nthis method should be called before any unwanted cachable TLS connections are\nmade.\n\nTo use system CA certificates as the default:\n\n```js\nimport tls from 'node:tls';\ntls.setDefaultCACertificates(tls.getCACertificates('system'));\n```\n\nThis function completely replaces the default CA certificate list. To add additional\ncertificates to the existing defaults, get the current certificates and append to them:\n\n```js\nimport tls from 'node:tls';\nconst currentCerts = tls.getCACertificates('default');\nconst additionalCerts = ['-----BEGIN CERTIFICATE-----\\n...'];\ntls.setDefaultCACertificates([...currentCerts, ...additionalCerts]);\n```",
+      "translated": "Node.js の TLS クライアントが使う既定の CA 証明書を設定する。指定した証明書が正常に解析された場合、それらは {@link getCACertificates} が返す既定の CA 証明書リストとなり、独自の CA 証明書を指定しない以降の TLS 接続で使われる。証明書は既定として設定される前に重複が除去される。\n\nこの関数は現在の Node.js スレッドにのみ影響する。HTTPS agent がキャッシュした以前のセッションはこの変更の影響を受けないため、このメソッドは望ましくないキャッシュ可能な TLS 接続が行われる前に呼ぶべきである。\n\nシステムの CA 証明書を既定として使うには:\n\n```js\nimport tls from 'node:tls';\ntls.setDefaultCACertificates(tls.getCACertificates('system'));\n```\n\nこの関数は既定の CA 証明書リストを完全に置き換える。既存の既定に追加の証明書を加えるには、現在の証明書を取得してそれに追加する:\n\n```js\nimport tls from 'node:tls';\nconst currentCerts = tls.getCACertificates('default');\nconst additionalCerts = ['-----BEGIN CERTIFICATE-----\\n...'];\ntls.setDefaultCACertificates([...currentCerts, ...additionalCerts]);\n```",
+      "symbol": "@types/node/tls.d.ts#tls.setDefaultCACertificates",
+      "lang": "ja"
+    },
+    "78a955fc": {
+      "original": "Abort the connection if the SSL/TLS handshake does not finish in the\nspecified number of milliseconds. A 'tlsClientError' is emitted on\nthe tls.Server object whenever a handshake times out. Default:\n120000 (120 seconds).",
+      "translated": "SSL/TLS ハンドシェイクが指定したミリ秒数以内に完了しない場合、接続を中断する。ハンドシェイクがタイムアウトするたびに tls.Server オブジェクトで 'tlsClientError' が発行される。既定: 120000(120 秒)。",
+      "symbol": "@types/node/tls.d.ts#tls.TlsOptions.handshakeTimeout",
+      "lang": "ja"
+    },
+    "07434b9b": {
+      "original": "identity parameter sent from the client.",
+      "translated": "クライアントから送信された identity パラメーター。",
+      "symbol": "@types/node/tls.d.ts#tls.TlsOptions.pskCallback",
+      "lang": "ja"
+    },
+    "e16c8207": {
+      "original": "pre-shared key that must either be\na buffer or `null` to stop the negotiation process. Returned PSK must be\ncompatible with the selected cipher's digest.\n\nWhen negotiating TLS-PSK (pre-shared keys), this function is called\nwith the identity provided by the client.\nIf the return value is `null` the negotiation process will stop and an\n\"unknown_psk_identity\" alert message will be sent to the other party.\nIf the server wishes to hide the fact that the PSK identity was not known,\nthe callback must provide some random data as `psk` to make the connection\nfail with \"decrypt_error\" before negotiation is finished.\nPSK ciphers are disabled by default, and using TLS-PSK thus\nrequires explicitly specifying a cipher suite with the `ciphers` option.\nMore information can be found in the RFC 4279.",
+      "translated": "事前共有鍵。バッファであるか、ネゴシエーション処理を停止するための `null` のいずれかでなければならない。返される PSK は選択された暗号のダイジェストと互換でなければならない。\n\nTLS-PSK(事前共有鍵)をネゴシエートするとき、この関数はクライアントが提供した identity とともに呼ばれる。戻り値が `null` の場合、ネゴシエーション処理は停止し、\"unknown_psk_identity\" alert メッセージが相手方に送信される。サーバーが PSK identity が既知でなかったという事実を隠したい場合、コールバックは、ネゴシエーションが完了する前に接続を \"decrypt_error\" で失敗させるために、いくらかのランダムデータを `psk` として提供しなければならない。PSK 暗号は既定で無効なため、TLS-PSK を使うには `ciphers` オプションで暗号スイートを明示的に指定する必要がある。詳細は RFC 4279 にある。",
+      "symbol": "@types/node/tls.d.ts#tls.TlsOptions.pskCallback",
+      "lang": "ja"
+    },
+    "1925b0bb": {
+      "original": "hint to send to a client to help\nwith selecting the identity during TLS-PSK negotiation. Will be ignored\nin TLS 1.3. Upon failing to set pskIdentityHint `tlsClientError` will be\nemitted with `ERR_TLS_PSK_SET_IDENTIY_HINT_FAILED` code.",
+      "translated": "TLS-PSK ネゴシエーション中に identity の選択を助けるためにクライアントに送信するヒント。TLS 1.3 では無視される。pskIdentityHint の設定に失敗すると、`ERR_TLS_PSK_SET_IDENTIY_HINT_FAILED` コードとともに `tlsClientError` が発行される。",
+      "symbol": "@types/node/tls.d.ts#tls.TlsOptions.pskIdentityHint",
+      "lang": "ja"
+    },
+    "1e01f196": {
+      "original": "The number of seconds after which a TLS session created by the\nserver will no longer be resumable. See Session Resumption for more\ninformation. Default: 300.",
+      "translated": "サーバーが作成した TLS セッションが再開できなくなるまでの秒数。詳細は Session Resumption を参照。既定: 300。",
+      "symbol": "@types/node/tls.d.ts#tls.TlsOptions.sessionTimeout",
+      "lang": "ja"
+    },
+    "d55eb85e": {
+      "original": "48-bytes of cryptographically strong pseudo-random data.",
+      "translated": "暗号学的に強い擬似乱数データ 48 バイト。",
+      "symbol": "@types/node/tls.d.ts#tls.TlsOptions.ticketKeys",
+      "lang": "ja"
+    },
+    "64e8cb62": {
+      "original": "Construct a new tls.TLSSocket object from an existing TCP socket.",
+      "translated": "既存の TCP ソケットから新しい tls.TLSSocket オブジェクトを構築する。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket",
+      "lang": "ja"
+    },
+    "325d2f63": {
+      "original": "Performs transparent encryption of written data and all required TLS\nnegotiation.\n\nInstances of `tls.TLSSocket` implement the duplex `Stream` interface.\n\nMethods that return TLS connection metadata (e.g.{@link TLSSocket.getPeerCertificate}) will only return data while the\nconnection is open.",
+      "translated": "書き込まれたデータの透過的な暗号化と、必要なすべての TLS ネゴシエーションを実行する。\n\n`tls.TLSSocket` のインスタンスは双方向 `Stream` インターフェースを実装する。\n\nTLS 接続のメタデータを返すメソッド(たとえば {@link TLSSocket.getPeerCertificate})は、接続が開いている間のみデータを返す。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket",
+      "lang": "ja"
+    },
+    "80db8f97": {
+      "original": "String containing the selected ALPN protocol.\nBefore a handshake has completed, this value is always null.\nWhen a handshake is completed but not ALPN protocol was selected, tlsSocket.alpnProtocol equals false.",
+      "translated": "選択された ALPN プロトコルを含む文字列。ハンドシェイクが完了する前は、この値は常に null である。ハンドシェイクが完了したが ALPN プロトコルが選択されなかった場合、tlsSocket.alpnProtocol は false と等しい。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.alpnProtocol",
+      "lang": "ja"
+    },
+    "33fdf8b9": {
+      "original": "Returns the reason why the peer's certificate was not been verified. This\nproperty is set only when `tlsSocket.authorized === false`.",
+      "translated": "ピアの証明書が検証されなかった理由を返す。このプロパティは `tlsSocket.authorized === false` のときにのみ設定される。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.authorizationError",
+      "lang": "ja"
+    },
+    "62dc7551": {
+      "original": "This property is `true` if the peer certificate was signed by one of the CAs\nspecified when creating the `tls.TLSSocket` instance, otherwise `false`.",
+      "translated": "ピア証明書が `tls.TLSSocket` インスタンスの作成時に指定した CA のいずれかによって署名された場合、このプロパティは `true`、そうでなければ `false` である。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.authorized",
+      "lang": "ja"
+    },
+    "c06b3db0": {
+      "original": "Disables TLS renegotiation for this `TLSSocket` instance. Once called, attempts\nto renegotiate will trigger an `'error'` event on the `TLSSocket`.",
+      "translated": "この `TLSSocket` インスタンスの TLS 再ネゴシエーションを無効にする。いったん呼ばれると、再ネゴシエーションの試みは `TLSSocket` で `'error'` イベントをトリガーする。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.disableRenegotiation",
+      "lang": "ja"
+    },
+    "ea02e4d4": {
+      "original": "When enabled, TLS packet trace information is written to `stderr`. This can be\nused to debug TLS connection problems.\n\nThe format of the output is identical to the output of`openssl s_client -trace` or `openssl s_server -trace`. While it is produced by\nOpenSSL's `SSL_trace()` function, the format is undocumented, can change\nwithout notice, and should not be relied on.",
+      "translated": "有効にすると、TLS パケットのトレース情報が `stderr` に書き込まれる。これは TLS 接続の問題をデバッグするために使える。\n\n出力の形式は `openssl s_client -trace` または `openssl s_server -trace` の出力と同一である。これは OpenSSL の `SSL_trace()` 関数によって生成されるが、形式は文書化されておらず、予告なく変わる可能性があり、依存すべきではない。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.enableTrace",
+      "lang": "ja"
+    },
+    "70bfe380": {
+      "original": "Always returns `true`. This may be used to distinguish TLS sockets from regular`net.Socket` instances.",
+      "translated": "常に `true` を返す。これは TLS ソケットを通常の `net.Socket` インスタンスと区別するために使える。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.encrypted",
+      "lang": "ja"
+    },
+    "e4d2bd62": {
+      "original": "an application specific label, typically this will be a value from the [IANA Exporter Label\nRegistry](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#exporter-labels).",
+      "translated": "アプリケーション固有のラベル。通常これは [IANA Exporter Label Registry](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#exporter-labels) の値になる。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.exportKeyingMaterial",
+      "lang": "ja"
+    },
+    "cb70ec5c": {
+      "original": "Keying material is used for validations to prevent different kind of attacks in\nnetwork protocols, for example in the specifications of IEEE 802.1X.\n\nExample\n\n```js\nconst keyingMaterial = tlsSocket.exportKeyingMaterial(\n  128,\n  'client finished');\n\n/*\n Example return value of keyingMaterial:\n <Buffer 76 26 af 99 c5 56 8e 42 09 91 ef 9f 93 cb ad 6c 7b 65 f8 53 f1 d8 d9\n    12 5a 33 b8 b5 25 df 7b 37 9f e0 e2 4f b8 67 83 a3 2f cd 5d 41 42 4c 91\n    74 ef 2c ... 78 more bytes>\n\n```\n\nSee the OpenSSL [`SSL_export_keying_material`](https://www.openssl.org/docs/man1.1.1/man3/SSL_export_keying_material.html) documentation for more\ninformation.",
+      "translated": "鍵素材(keying material)は、ネットワークプロトコルでさまざまな種類の攻撃を防ぐ検証に使われる。たとえば IEEE 802.1X の仕様である。\n\n例\n\n```js\nconst keyingMaterial = tlsSocket.exportKeyingMaterial(\n  128,\n  'client finished');\n\n/*\n Example return value of keyingMaterial:\n <Buffer 76 26 af 99 c5 56 8e 42 09 91 ef 9f 93 cb ad 6c 7b 65 f8 53 f1 d8 d9\n    12 5a 33 b8 b5 25 df 7b 37 9f e0 e2 4f b8 67 83 a3 2f cd 5d 41 42 4c 91\n    74 ef 2c ... 78 more bytes>\n\n```\n\n詳細は OpenSSL の [`SSL_export_keying_material`](https://www.openssl.org/docs/man1.1.1/man3/SSL_export_keying_material.html) ドキュメントを参照。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.exportKeyingMaterial",
+      "lang": "ja"
+    },
+    "719d39ce": {
+      "original": "Optionally provide a context.",
+      "translated": "任意でコンテキストを提供する。",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.exportKeyingMaterial",
+      "lang": "ja"
+    },
+    "ce81d94b": {
+      "original": "requested bytes of the keying material",
+      "translated": "要求された鍵素材のバイト",
+      "symbol": "@types/node/tls.d.ts#tls.TLSSocket.exportKeyingMaterial",
       "lang": "ja"
     },
     "6534767f": {
