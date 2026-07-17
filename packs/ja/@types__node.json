@@ -58,6 +58,12 @@
       "symbol": "@types/node/util.d.ts#util.TextDecoder.ignoreBOM",
       "lang": "ja"
     },
+    "34979629": {
+      "original": "The certificate issuer, described in the same terms as the `subject`.",
+      "translated": "証明書の issuer。`subject` と同じ用語で記述される。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.issuer",
+      "lang": "ja"
+    },
     "43439202": {
       "original": "Returns `true` if `value` is a `KeyObject`, `false` otherwise.",
       "translated": "`value` が `KeyObject` の場合は `true`、そうでなければ `false` を返す。",
@@ -8066,6 +8072,360 @@
       "original": "Writes data to the stream, with an explicit encoding for string data.",
       "translated": "文字列データに明示的なエンコーディングを指定して、ストリームにデータを書き込む。",
       "symbol": "@types/node/stream.d.ts#stream.Stream.Writable.write",
+      "lang": "ja"
+    },
+    "20202caf": {
+      "original": "The `node:tls` module provides an implementation of the Transport Layer Security\n(TLS) and Secure Socket Layer (SSL) protocols that is built on top of OpenSSL.\nThe module can be accessed using:\n\n```js\nimport tls from 'node:tls';\n```",
+      "translated": "`node:tls` モジュールは、OpenSSL の上に構築された Transport Layer Security(TLS)および Secure Socket Layer(SSL)プロトコルの実装を提供する。このモジュールには次のようにアクセスできる:\n\n```js\nimport tls from 'node:tls';\n```",
+      "symbol": "@types/node/tls.d.ts#tls",
+      "lang": "ja"
+    },
+    "6ba3365e": {
+      "original": "Country code.",
+      "translated": "国コード。",
+      "symbol": "@types/node/tls.d.ts#tls.Certificate.C",
+      "lang": "ja"
+    },
+    "b11a44a0": {
+      "original": "Common name.",
+      "translated": "コモンネーム。",
+      "symbol": "@types/node/tls.d.ts#tls.Certificate.CN",
+      "lang": "ja"
+    },
+    "02d2cbe1": {
+      "original": "Locality.",
+      "translated": "地域(Locality)。",
+      "symbol": "@types/node/tls.d.ts#tls.Certificate.L",
+      "lang": "ja"
+    },
+    "7b918b7c": {
+      "original": "Organization.",
+      "translated": "組織(Organization)。",
+      "symbol": "@types/node/tls.d.ts#tls.Certificate.O",
+      "lang": "ja"
+    },
+    "0bb51bf5": {
+      "original": "Organizational unit.",
+      "translated": "組織単位(Organizational unit)。",
+      "symbol": "@types/node/tls.d.ts#tls.Certificate.OU",
+      "lang": "ja"
+    },
+    "c868378a": {
+      "original": "Street.",
+      "translated": "番地(Street)。",
+      "symbol": "@types/node/tls.d.ts#tls.Certificate.ST",
+      "lang": "ja"
+    },
+    "af96ec96": {
+      "original": "A `certificate object` representing the peer's certificate.",
+      "translated": "ピアの証明書を表す `certificate object`。",
+      "symbol": "@types/node/tls.d.ts#tls.checkServerIdentity",
+      "lang": "ja"
+    },
+    "bb1f63c0": {
+      "original": "The host name or IP address to verify the certificate against.",
+      "translated": "証明書と照合するホスト名または IP アドレス。",
+      "symbol": "@types/node/tls.d.ts#tls.checkServerIdentity",
+      "lang": "ja"
+    },
+    "3bf4e5f2": {
+      "original": "Verifies the certificate `cert` is issued to `hostname`.\n\nReturns [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) object, populating it with `reason`, `host`, and `cert` on\nfailure. On success, returns [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Undefined_type).\n\nThis function is intended to be used in combination with the`checkServerIdentity` option that can be passed to {@link connect} and as\nsuch operates on a `certificate object`. For other purposes, consider using `x509.checkHost()` instead.\n\nThis function can be overwritten by providing an alternative function as the `options.checkServerIdentity` option that is passed to `tls.connect()`. The\noverwriting function can call `tls.checkServerIdentity()` of course, to augment\nthe checks done with additional verification.\n\nThis function is only called if the certificate passed all other checks, such as\nbeing issued by trusted CA (`options.ca`).\n\nEarlier versions of Node.js incorrectly accepted certificates for a given`hostname` if a matching `uniformResourceIdentifier` subject alternative name\nwas present (see [CVE-2021-44531](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44531)). Applications that wish to accept`uniformResourceIdentifier` subject alternative names can use\na custom `options.checkServerIdentity` function that implements the desired behavior.",
+      "translated": "証明書 `cert` が `hostname` に対して発行されたことを検証する。\n\n失敗時には [Error](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error) オブジェクトを返し、`reason`・`host`・`cert` を設定する。成功時には [undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Undefined_type) を返す。\n\nこの関数は、{@link connect} に渡せる `checkServerIdentity` オプションと組み合わせて使うことを意図しており、そのため `certificate object` を対象に動作する。他の目的には、代わりに `x509.checkHost()` の使用を検討すること。\n\nこの関数は、`tls.connect()` に渡す `options.checkServerIdentity` オプションとして代替の関数を提供することでオーバーライドできる。オーバーライドする関数は、もちろん `tls.checkServerIdentity()` を呼んで、行われるチェックに追加の検証を加えられる。\n\nこの関数は、証明書が信頼された CA(`options.ca`)によって発行されているなど、他のすべてのチェックに合格した場合にのみ呼ばれる。\n\n以前のバージョンの Node.js は、一致する `uniformResourceIdentifier` subject alternative name が存在する場合、指定した `hostname` の証明書を誤って受け入れていた([CVE-2021-44531](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44531) を参照)。`uniformResourceIdentifier` subject alternative name を受け入れたいアプリケーションは、望む挙動を実装するカスタムの `options.checkServerIdentity` 関数を使える。",
+      "symbol": "@types/node/tls.d.ts#tls.checkServerIdentity",
+      "lang": "ja"
+    },
+    "1558663d": {
+      "original": "The cipher name.",
+      "translated": "暗号の名前。",
+      "symbol": "@types/node/tls.d.ts#tls.CipherNameAndProtocol.name",
+      "lang": "ja"
+    },
+    "61b363e7": {
+      "original": "IETF name for the cipher suite.",
+      "translated": "暗号スイートの IETF 名。",
+      "symbol": "@types/node/tls.d.ts#tls.CipherNameAndProtocol.standardName",
+      "lang": "ja"
+    },
+    "dcfca052": {
+      "original": "SSL/TLS protocol version.",
+      "translated": "SSL/TLS プロトコルバージョン。",
+      "symbol": "@types/node/tls.d.ts#tls.CipherNameAndProtocol.version",
+      "lang": "ja"
+    },
+    "8ae4470c": {
+      "original": "An array of strings or a Buffer naming possible ALPN protocols.\n(Protocols should be ordered by their priority.)",
+      "translated": "可能な ALPN プロトコルを指定する文字列の配列または Buffer。(プロトコルは優先度順に並べるべきである。)",
+      "symbol": "@types/node/tls.d.ts#tls.CommonConnectionOptions.ALPNProtocols",
+      "lang": "ja"
+    },
+    "450359e4": {
+      "original": "When enabled, TLS packet trace information is written to `stderr`. This can be\nused to debug TLS connection problems.",
+      "translated": "有効にすると、TLS パケットのトレース情報が `stderr` に書き込まれる。これは TLS 接続の問題をデバッグするために使える。",
+      "symbol": "@types/node/tls.d.ts#tls.CommonConnectionOptions.enableTrace",
+      "lang": "ja"
+    },
+    "e8fa4bcd": {
+      "original": "If true the server will reject any connection which is not\nauthorized with the list of supplied CAs. This option only has an\neffect if requestCert is true.",
+      "translated": "true の場合、サーバーは指定した CA のリストで認可されていないあらゆる接続を拒否する。このオプションは requestCert が true の場合にのみ効果がある。",
+      "symbol": "@types/node/tls.d.ts#tls.CommonConnectionOptions.rejectUnauthorized",
+      "lang": "ja"
+    },
+    "b516b915": {
+      "original": "If true the server will request a certificate from clients that\nconnect and attempt to verify that certificate. Defaults to\nfalse.",
+      "translated": "true の場合、サーバーは接続してくるクライアントに証明書を要求し、その証明書の検証を試みる。既定は false。",
+      "symbol": "@types/node/tls.d.ts#tls.CommonConnectionOptions.requestCert",
+      "lang": "ja"
+    },
+    "e09b9e87": {
+      "original": "An optional TLS context object from tls.createSecureContext()",
+      "translated": "tls.createSecureContext() から得られる省略可能な TLS コンテキストオブジェクト",
+      "symbol": "@types/node/tls.d.ts#tls.CommonConnectionOptions.secureContext",
+      "lang": "ja"
+    },
+    "5b4972f0": {
+      "original": "SNICallback(servername, cb) <Function> A function that will be\ncalled if the client supports SNI TLS extension. Two arguments\nwill be passed when called: servername and cb. SNICallback should\ninvoke cb(null, ctx), where ctx is a SecureContext instance.\n(tls.createSecureContext(...) can be used to get a proper\nSecureContext.) If SNICallback wasn't provided the default callback\nwith high-level API will be used (see below).",
+      "translated": "SNICallback(servername, cb) <Function> クライアントが SNI TLS 拡張をサポートする場合に呼ばれる関数。呼ばれるとき、2 つの引数 servername と cb が渡される。SNICallback は cb(null, ctx) を呼ぶべきで、ctx は SecureContext のインスタンスである。(適切な SecureContext を得るには tls.createSecureContext(...) を使える。)SNICallback が指定されなかった場合、高レベル API を持つ既定のコールバックが使われる(下記を参照)。",
+      "symbol": "@types/node/tls.d.ts#tls.CommonConnectionOptions.SNICallback",
+      "lang": "ja"
+    },
+    "13d718f3": {
+      "original": "The `callback` function, if specified, will be added as a listener for the `'secureConnect'` event.\n\n`tls.connect()` returns a {@link TLSSocket} object.\n\nUnlike the `https` API, `tls.connect()` does not enable the\nSNI (Server Name Indication) extension by default, which may cause some\nservers to return an incorrect certificate or reject the connection\naltogether. To enable SNI, set the `servername` option in addition\nto `host`.\n\nThe following illustrates a client for the echo server example from {@link createServer}:\n\n```js\n// Assumes an echo server that is listening on port 8000.\nimport tls from 'node:tls';\nimport fs from 'node:fs';\n\nconst options = {\n  // Necessary only if the server requires client certificate authentication.\n  key: fs.readFileSync('client-key.pem'),\n  cert: fs.readFileSync('client-cert.pem'),\n\n  // Necessary only if the server uses a self-signed certificate.\n  ca: [ fs.readFileSync('server-cert.pem') ],\n\n  // Necessary only if the server's cert isn't for \"localhost\".\n  checkServerIdentity: () => { return null; },\n};\n\nconst socket = tls.connect(8000, options, () => {\n  console.log('client connected',\n              socket.authorized ? 'authorized' : 'unauthorized');\n  process.stdin.pipe(socket);\n  process.stdin.resume();\n});\nsocket.setEncoding('utf8');\nsocket.on('data', (data) => {\n  console.log(data);\n});\nsocket.on('end', () => {\n  console.log('server ends connection');\n});\n```",
+      "translated": "`callback` 関数が指定された場合、`'secureConnect'` イベントの listener として追加される。\n\n`tls.connect()` は {@link TLSSocket} オブジェクトを返す。\n\n`https` API とは異なり、`tls.connect()` は既定で SNI(Server Name Indication)拡張を有効にしない。これにより一部のサーバーが誤った証明書を返したり、接続を完全に拒否したりすることがある。SNI を有効にするには、`host` に加えて `servername` オプションを設定する。\n\n次は {@link createServer} のエコーサーバー例に対するクライアントを示す:\n\n```js\n// Assumes an echo server that is listening on port 8000.\nimport tls from 'node:tls';\nimport fs from 'node:fs';\n\nconst options = {\n  // Necessary only if the server requires client certificate authentication.\n  key: fs.readFileSync('client-key.pem'),\n  cert: fs.readFileSync('client-cert.pem'),\n\n  // Necessary only if the server uses a self-signed certificate.\n  ca: [ fs.readFileSync('server-cert.pem') ],\n\n  // Necessary only if the server's cert isn't for \"localhost\".\n  checkServerIdentity: () => { return null; },\n};\n\nconst socket = tls.connect(8000, options, () => {\n  console.log('client connected',\n              socket.authorized ? 'authorized' : 'unauthorized');\n  process.stdin.pipe(socket);\n  process.stdin.resume();\n});\nsocket.setEncoding('utf8');\nsocket.on('data', (data) => {\n  console.log(data);\n});\nsocket.on('end', () => {\n  console.log('server ends connection');\n});\n```",
+      "symbol": "@types/node/tls.d.ts#tls.connect",
+      "lang": "ja"
+    },
+    "72beb148": {
+      "original": "message sent from the server to help client\ndecide which identity to use during negotiation.\nAlways `null` if TLS 1.3 is used.",
+      "translated": "ネゴシエーション中にどの identity を使うかをクライアントが決めるのを助けるために、サーバーから送信されるメッセージ。TLS 1.3 が使われる場合は常に `null`。",
+      "symbol": "@types/node/tls.d.ts#tls.ConnectionOptions.pskCallback",
+      "lang": "ja"
+    },
+    "1ae8b7d6": {
+      "original": "Return `null` to stop the negotiation process. `psk` must be\ncompatible with the selected cipher's digest.\n`identity` must use UTF-8 encoding.",
+      "translated": "ネゴシエーション処理を停止するには `null` を返す。`psk` は選択された暗号のダイジェストと互換でなければならない。`identity` は UTF-8 エンコーディングを使わなければならない。",
+      "symbol": "@types/node/tls.d.ts#tls.ConnectionOptions.pskCallback",
+      "lang": "ja"
+    },
+    "8c9dc8ab": {
+      "original": "When negotiating TLS-PSK (pre-shared keys), this function is called\nwith optional identity `hint` provided by the server or `null`\nin case of TLS 1.3 where `hint` was removed.\nIt will be necessary to provide a custom `tls.checkServerIdentity()`\nfor the connection as the default one will try to check hostname/IP\nof the server against the certificate but that's not applicable for PSK\nbecause there won't be a certificate present.\nMore information can be found in the RFC 4279.",
+      "translated": "TLS-PSK(事前共有鍵)をネゴシエートするとき、この関数は、サーバーが提供する省略可能な identity `hint`、または `hint` が削除された TLS 1.3 の場合は `null` とともに呼ばれる。既定の `tls.checkServerIdentity()` はサーバーの証明書に対してホスト名/IP を確認しようとするが、PSK では証明書が存在しないためそれは適用できないので、接続にカスタムの `tls.checkServerIdentity()` を提供する必要がある。詳細は RFC 4279 にある。",
+      "symbol": "@types/node/tls.d.ts#tls.ConnectionOptions.pskCallback",
+      "lang": "ja"
+    },
+    "c97f65b5": {
+      "original": "`{@link createServer}` sets the default value of the `honorCipherOrder` option\nto `true`, other APIs that create secure contexts leave it unset.\n\n`{@link createServer}` uses a 128 bit truncated SHA1 hash value generated\nfrom `process.argv` as the default value of the `sessionIdContext` option, other\nAPIs that create secure contexts have no default value.\n\nThe `tls.createSecureContext()` method creates a `SecureContext` object. It is\nusable as an argument to several `tls` APIs, such as `server.addContext()`,\nbut has no public methods. The {@link Server} constructor and the {@link createServer} method do not support the `secureContext` option.\n\nA key is _required_ for ciphers that use certificates. Either `key` or `pfx` can be used to provide it.\n\nIf the `ca` option is not given, then Node.js will default to using [Mozilla's publicly trusted list of\nCAs](https://hg.mozilla.org/mozilla-central/raw-file/tip/security/nss/lib/ckfw/builtins/certdata.txt).\n\nCustom DHE parameters are discouraged in favor of the new `dhparam: 'auto' `option. When set to `'auto'`, well-known DHE parameters of sufficient strength\nwill be selected automatically. Otherwise, if necessary, `openssl dhparam` can\nbe used to create custom parameters. The key length must be greater than or\nequal to 1024 bits or else an error will be thrown. Although 1024 bits is\npermissible, use 2048 bits or larger for stronger security.",
+      "translated": "`{@link createServer}` は `honorCipherOrder` オプションの既定値を `true` に設定するが、セキュアコンテキストを作成する他の API はこれを未設定のままにする。\n\n`{@link createServer}` は、`sessionIdContext` オプションの既定値として `process.argv` から生成された 128 ビットに切り詰めた SHA1 ハッシュ値を使うが、セキュアコンテキストを作成する他の API には既定値がない。\n\n`tls.createSecureContext()` メソッドは `SecureContext` オブジェクトを作成する。これは `server.addContext()` などいくつかの `tls` API の引数として使えるが、公開メソッドを持たない。{@link Server} コンストラクターと {@link createServer} メソッドは `secureContext` オプションをサポートしない。\n\n証明書を使う暗号には鍵が_必須_である。それを提供するには `key` または `pfx` のいずれかを使える。\n\n`ca` オプションが指定されない場合、Node.js は既定で [Mozilla の公的に信頼された CA のリスト](https://hg.mozilla.org/mozilla-central/raw-file/tip/security/nss/lib/ckfw/builtins/certdata.txt)を使う。\n\nカスタムの DHE パラメーターは、新しい `dhparam: 'auto'` オプションを優先して推奨されない。`'auto'` に設定すると、十分な強度のよく知られた DHE パラメーターが自動的に選択される。そうでなければ、必要に応じて `openssl dhparam` を使ってカスタムパラメーターを作成できる。鍵長は 1024 ビット以上でなければならず、そうでないとエラーが投げられる。1024 ビットは許可されているが、より強いセキュリティのためには 2048 ビット以上を使うこと。",
+      "symbol": "@types/node/tls.d.ts#tls.createSecureContext",
+      "lang": "ja"
+    },
+    "9538f5d1": {
+      "original": "`true` to specify that this TLS connection should be opened as a server.",
+      "translated": "この TLS 接続をサーバーとして開くべきことを指定するには `true`。",
+      "symbol": "@types/node/tls.d.ts#tls.createSecurePair",
+      "lang": "ja"
+    },
+    "f9ae9b62": {
+      "original": "`true` to specify whether a server should request a certificate from a connecting client. Only applies when `isServer` is `true`.",
+      "translated": "接続してくるクライアントにサーバーが証明書を要求すべきかどうかを指定するには `true`。`isServer` が `true` の場合にのみ適用される。",
+      "symbol": "@types/node/tls.d.ts#tls.createSecurePair",
+      "lang": "ja"
+    },
+    "cd9a7d67": {
+      "original": "A secure context object as returned by `tls.createSecureContext()`",
+      "translated": "`tls.createSecureContext()` が返すようなセキュアコンテキストオブジェクト",
+      "symbol": "@types/node/tls.d.ts#tls.createSecurePair",
+      "lang": "ja"
+    },
+    "b97b0d16": {
+      "original": "Creates a new secure pair object with two streams, one of which reads and writes\nthe encrypted data and the other of which reads and writes the cleartext data.\nGenerally, the encrypted stream is piped to/from an incoming encrypted data\nstream and the cleartext one is used as a replacement for the initial encrypted\nstream.\n\n`tls.createSecurePair()` returns a `tls.SecurePair` object with `cleartext` and `encrypted` stream properties.\n\nUsing `cleartext` has the same API as {@link TLSSocket}.\n\nThe `tls.createSecurePair()` method is now deprecated in favor of`tls.TLSSocket()`. For example, the code:\n\n```js\npair = tls.createSecurePair(// ... );\npair.encrypted.pipe(socket);\nsocket.pipe(pair.encrypted);\n```\n\ncan be replaced by:\n\n```js\nsecureSocket = tls.TLSSocket(socket, options);\n```\n\nwhere `secureSocket` has the same API as `pair.cleartext`.",
+      "translated": "2 つのストリームを持つ新しい secure pair オブジェクトを作成する。一方は暗号化されたデータを読み書きし、もう一方は平文データを読み書きする。一般に、暗号化されたストリームは受信する暗号化データストリームとの間でパイプされ、平文のストリームは最初の暗号化されたストリームの代わりとして使われる。\n\n`tls.createSecurePair()` は、`cleartext` と `encrypted` のストリームプロパティを持つ `tls.SecurePair` オブジェクトを返す。\n\n`cleartext` の使用は {@link TLSSocket} と同じ API を持つ。\n\n`tls.createSecurePair()` メソッドは現在、`tls.TLSSocket()` を優先して非推奨である。たとえば、次のコード:\n\n```js\npair = tls.createSecurePair(// ... );\npair.encrypted.pipe(socket);\nsocket.pipe(pair.encrypted);\n```\n\nは次で置き換えられる:\n\n```js\nsecureSocket = tls.TLSSocket(socket, options);\n```\n\nここで `secureSocket` は `pair.cleartext` と同じ API を持つ。",
+      "symbol": "@types/node/tls.d.ts#tls.createSecurePair",
+      "lang": "ja"
+    },
+    "970d5a4b": {
+      "original": "If not `false` a server automatically reject clients with invalid certificates. Only applies when `isServer` is `true`.",
+      "translated": "`false` でない場合、サーバーは無効な証明書を持つクライアントを自動的に拒否する。`isServer` が `true` の場合にのみ適用される。",
+      "symbol": "@types/node/tls.d.ts#tls.createSecurePair",
+      "lang": "ja"
+    },
+    "0ba16546": {
+      "original": "Since v0.11.3 - Use {@link TLSSocket} instead.",
+      "translated": "v0.11.3 以降 - 代わりに {@link TLSSocket} を使うこと。",
+      "symbol": "@types/node/tls.d.ts#tls.createSecurePair",
+      "lang": "ja"
+    },
+    "0b24b480": {
+      "original": "Creates a new {@link Server}. The `secureConnectionListener`, if provided, is\nautomatically set as a listener for the `'secureConnection'` event.\n\nThe `ticketKeys` options is automatically shared between `node:cluster` module\nworkers.\n\nThe following illustrates a simple echo server:\n\n```js\nimport tls from 'node:tls';\nimport fs from 'node:fs';\n\nconst options = {\n  key: fs.readFileSync('server-key.pem'),\n  cert: fs.readFileSync('server-cert.pem'),\n\n  // This is necessary only if using client certificate authentication.\n  requestCert: true,\n\n  // This is necessary only if the client uses a self-signed certificate.\n  ca: [ fs.readFileSync('client-cert.pem') ],\n};\n\nconst server = tls.createServer(options, (socket) => {\n  console.log('server connected',\n              socket.authorized ? 'authorized' : 'unauthorized');\n  socket.write('welcome!\\n');\n  socket.setEncoding('utf8');\n  socket.pipe(socket);\n});\nserver.listen(8000, () => {\n  console.log('server bound');\n});\n```\n\nThe server can be tested by connecting to it using the example client from {@link connect}.",
+      "translated": "新しい {@link Server} を作成する。`secureConnectionListener` が指定された場合、`'secureConnection'` イベントの listener として自動的に設定される。\n\n`ticketKeys` オプションは `node:cluster` モジュールのワーカー間で自動的に共有される。\n\n次は単純なエコーサーバーを示す:\n\n```js\nimport tls from 'node:tls';\nimport fs from 'node:fs';\n\nconst options = {\n  key: fs.readFileSync('server-key.pem'),\n  cert: fs.readFileSync('server-cert.pem'),\n\n  // This is necessary only if using client certificate authentication.\n  requestCert: true,\n\n  // This is necessary only if the client uses a self-signed certificate.\n  ca: [ fs.readFileSync('client-cert.pem') ],\n};\n\nconst server = tls.createServer(options, (socket) => {\n  console.log('server connected',\n              socket.authorized ? 'authorized' : 'unauthorized');\n  socket.write('welcome!\\n');\n  socket.setEncoding('utf8');\n  socket.pipe(socket);\n});\nserver.listen(8000, () => {\n  console.log('server bound');\n});\n```\n\nサーバーは、{@link connect} のクライアント例を使って接続することでテストできる。",
+      "symbol": "@types/node/tls.d.ts#tls.createServer",
+      "lang": "ja"
+    },
+    "17f1c8c3": {
+      "original": "The default value of the `ciphers` option of `{@link createSecureContext ()}`.\nIt can be assigned any of the supported OpenSSL ciphers.\nDefaults to the content of `crypto.constants.defaultCoreCipherList`, unless\nchanged using CLI options using `--tls-default-ciphers`.",
+      "translated": "`{@link createSecureContext ()}` の `ciphers` オプションの既定値。サポートされている OpenSSL 暗号のいずれかを割り当てられる。既定は `crypto.constants.defaultCoreCipherList` の内容だが、`--tls-default-ciphers` を使う CLI オプションで変更された場合は異なる。",
+      "symbol": "@types/node/tls.d.ts#tls.DEFAULT_CIPHERS",
+      "lang": "ja"
+    },
+    "b7e9ae09": {
+      "original": "The default curve name to use for ECDH key agreement in a tls server.\nThe default value is `'auto'`. See `{@link createSecureContext ()}` for further\ninformation.",
+      "translated": "tls サーバーで ECDH 鍵合意に使う既定の曲線名。既定値は `'auto'`。詳細は `{@link createSecureContext ()}` を参照。",
+      "symbol": "@types/node/tls.d.ts#tls.DEFAULT_ECDH_CURVE",
+      "lang": "ja"
+    },
+    "1ef18d6f": {
+      "original": "The default value of the `maxVersion` option of `{@link createSecureContext ()}`.\nIt can be assigned any of the supported TLS protocol versions,\n`'TLSv1.3'`, `'TLSv1.2'`, `'TLSv1.1'`, or `'TLSv1'`. **Default:** `'TLSv1.3'`, unless\nchanged using CLI options. Using `--tls-max-v1.2` sets the default to `'TLSv1.2'`. Using\n`--tls-max-v1.3` sets the default to `'TLSv1.3'`. If multiple of the options\nare provided, the highest maximum is used.",
+      "translated": "`{@link createSecureContext ()}` の `maxVersion` オプションの既定値。サポートされている TLS プロトコルバージョン `'TLSv1.3'`・`'TLSv1.2'`・`'TLSv1.1'`・`'TLSv1'` のいずれかを割り当てられる。**既定値:** `'TLSv1.3'`。ただし CLI オプションで変更された場合は異なる。`--tls-max-v1.2` を使うと既定が `'TLSv1.2'` になる。`--tls-max-v1.3` を使うと既定が `'TLSv1.3'` になる。複数のオプションが指定された場合、最も高い最大値が使われる。",
+      "symbol": "@types/node/tls.d.ts#tls.DEFAULT_MAX_VERSION",
+      "lang": "ja"
+    },
+    "1979943c": {
+      "original": "The default value of the `minVersion` option of `{@link createSecureContext ()}`.\nIt can be assigned any of the supported TLS protocol versions,\n`'TLSv1.3'`, `'TLSv1.2'`, `'TLSv1.1'`, or `'TLSv1'`. **Default:** `'TLSv1.2'`, unless\nchanged using CLI options. Using `--tls-min-v1.0` sets the default to\n`'TLSv1'`. Using `--tls-min-v1.1` sets the default to `'TLSv1.1'`. Using\n`--tls-min-v1.3` sets the default to `'TLSv1.3'`. If multiple of the options\nare provided, the lowest minimum is used.",
+      "translated": "`{@link createSecureContext ()}` の `minVersion` オプションの既定値。サポートされている TLS プロトコルバージョン `'TLSv1.3'`・`'TLSv1.2'`・`'TLSv1.1'`・`'TLSv1'` のいずれかを割り当てられる。**既定値:** `'TLSv1.2'`。ただし CLI オプションで変更された場合は異なる。`--tls-min-v1.0` を使うと既定が `'TLSv1'` になる。`--tls-min-v1.1` を使うと既定が `'TLSv1.1'` になる。`--tls-min-v1.3` を使うと既定が `'TLSv1.3'` になる。複数のオプションが指定された場合、最も低い最小値が使われる。",
+      "symbol": "@types/node/tls.d.ts#tls.DEFAULT_MIN_VERSION",
+      "lang": "ja"
+    },
+    "3921bc0b": {
+      "original": "The issuer certificate object.\nFor self-signed certificates, this may be a circular reference.",
+      "translated": "issuer 証明書オブジェクト。自己署名証明書の場合、これは循環参照になり得る。",
+      "symbol": "@types/node/tls.d.ts#tls.DetailedPeerCertificate.issuerCertificate",
+      "lang": "ja"
+    },
+    "e38a7295": {
+      "original": "The name property is available only when type is 'ECDH'.",
+      "translated": "name プロパティは type が 'ECDH' のときにのみ利用できる。",
+      "symbol": "@types/node/tls.d.ts#tls.EphemeralKeyInfo.name",
+      "lang": "ja"
+    },
+    "134307d6": {
+      "original": "The size of parameter of an ephemeral key exchange.",
+      "translated": "一時鍵交換のパラメーターのサイズ。",
+      "symbol": "@types/node/tls.d.ts#tls.EphemeralKeyInfo.size",
+      "lang": "ja"
+    },
+    "637ac3ef": {
+      "original": "The supported types are 'DH' and 'ECDH'.",
+      "translated": "サポートされる型は 'DH' と 'ECDH' である。",
+      "symbol": "@types/node/tls.d.ts#tls.EphemeralKeyInfo.type",
+      "lang": "ja"
+    },
+    "cc4846fc": {
+      "original": "An array of PEM-encoded certificates. The array may contain duplicates\nif the same certificate is repeatedly stored in multiple sources.",
+      "translated": "PEM エンコードされた証明書の配列。同じ証明書が複数のソースに繰り返し格納されている場合、配列には重複が含まれることがある。",
+      "symbol": "@types/node/tls.d.ts#tls.getCACertificates",
+      "lang": "ja"
+    },
+    "617a3c16": {
+      "original": "Returns an array containing the CA certificates from various sources, depending on `type`:\n\n* `\"default\"`: return the CA certificates that will be used by the Node.js TLS clients by default.\n  * When `--use-bundled-ca` is enabled (default), or `--use-openssl-ca` is not enabled,\n    this would include CA certificates from the bundled Mozilla CA store.\n  * When `--use-system-ca` is enabled, this would also include certificates from the system's\n    trusted store.\n  * When `NODE_EXTRA_CA_CERTS` is used, this would also include certificates loaded from the specified\n    file.\n* `\"system\"`: return the CA certificates that are loaded from the system's trusted store, according\n  to rules set by `--use-system-ca`. This can be used to get the certificates from the system\n  when `--use-system-ca` is not enabled.\n* `\"bundled\"`: return the CA certificates from the bundled Mozilla CA store. This would be the same\n  as `tls.rootCertificates`.\n* `\"extra\"`: return the CA certificates loaded from `NODE_EXTRA_CA_CERTS`. It's an empty array if\n  `NODE_EXTRA_CA_CERTS` is not set.",
+      "translated": "`type` に応じて、さまざまなソースからの CA 証明書を含む配列を返す:\n\n* `\"default\"`: Node.js の TLS クライアントが既定で使う CA 証明書を返す。\n  * `--use-bundled-ca` が有効(既定)、または `--use-openssl-ca` が無効の場合、これには同梱の Mozilla CA ストアからの CA 証明書が含まれる。\n  * `--use-system-ca` が有効の場合、これにはシステムの信頼ストアからの証明書も含まれる。\n  * `NODE_EXTRA_CA_CERTS` が使われる場合、これには指定したファイルから読み込まれた証明書も含まれる。\n* `\"system\"`: `--use-system-ca` が設定する規則に従って、システムの信頼ストアから読み込まれた CA 証明書を返す。これは `--use-system-ca` が無効のときにシステムから証明書を取得するために使える。\n* `\"bundled\"`: 同梱の Mozilla CA ストアからの CA 証明書を返す。これは `tls.rootCertificates` と同じである。\n* `\"extra\"`: `NODE_EXTRA_CA_CERTS` から読み込まれた CA 証明書を返す。`NODE_EXTRA_CA_CERTS` が設定されていない場合は空配列になる。",
+      "symbol": "@types/node/tls.d.ts#tls.getCACertificates",
+      "lang": "ja"
+    },
+    "a01dcd86": {
+      "original": "The type of CA certificates that will be returned. Valid values\nare `\"default\"`, `\"system\"`, `\"bundled\"` and `\"extra\"`.\n**Default:** `\"default\"`.",
+      "translated": "返される CA 証明書の型。有効な値は `\"default\"`・`\"system\"`・`\"bundled\"`・`\"extra\"`。**既定値:** `\"default\"`。",
+      "symbol": "@types/node/tls.d.ts#tls.getCACertificates",
+      "lang": "ja"
+    },
+    "862cd179": {
+      "original": "Returns an array with the names of the supported TLS ciphers. The names are\nlower-case for historical reasons, but must be uppercased to be used in\nthe `ciphers` option of `{@link createSecureContext}`.\n\nNot all supported ciphers are enabled by default. See\n[Modifying the default TLS cipher suite](https://nodejs.org/docs/latest-v22.x/api/tls.html#modifying-the-default-tls-cipher-suite).\n\nCipher names that start with `'tls_'` are for TLSv1.3, all the others are for\nTLSv1.2 and below.\n\n```js\nconsole.log(tls.getCiphers()); // ['aes128-gcm-sha256', 'aes128-sha', ...]\n```",
+      "translated": "サポートされている TLS 暗号の名前の配列を返す。名前は歴史的な理由で小文字だが、`{@link createSecureContext}` の `ciphers` オプションで使うには大文字化しなければならない。\n\nサポートされているすべての暗号が既定で有効なわけではない。[Modifying the default TLS cipher suite](https://nodejs.org/docs/latest-v22.x/api/tls.html#modifying-the-default-tls-cipher-suite) を参照。\n\n`'tls_'` で始まる暗号名は TLSv1.3 用で、他のすべては TLSv1.2 以下用である。\n\n```js\nconsole.log(tls.getCiphers()); // ['aes128-gcm-sha256', 'aes128-sha', ...]\n```",
+      "symbol": "@types/node/tls.d.ts#tls.getCiphers",
+      "lang": "ja"
+    },
+    "4deb5a03": {
+      "original": "Optional passphrase.",
+      "translated": "省略可能なパスフレーズ。",
+      "symbol": "@types/node/tls.d.ts#tls.KeyObject.passphrase",
+      "lang": "ja"
+    },
+    "60081c9b": {
+      "original": "Private keys in PEM format.",
+      "translated": "PEM 形式の秘密鍵。",
+      "symbol": "@types/node/tls.d.ts#tls.KeyObject.pem",
+      "lang": "ja"
+    },
+    "b1bf8ef3": {
+      "original": "The ASN.1 name of the OID of the elliptic curve.\nWell-known curves are identified by an OID.\nWhile it is unusual, it is possible that the curve\nis identified by its mathematical properties,\nin which case it will not have an OID.",
+      "translated": "楕円曲線の OID の ASN.1 名。よく知られた曲線は OID で識別される。まれではあるが、曲線がその数学的性質によって識別される可能性もあり、その場合は OID を持たない。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.asn1Curve",
+      "lang": "ja"
+    },
+    "50b8cce4": {
+      "original": "For RSA keys: The RSA bit size.\n\nFor EC keys: The key size in bits.",
+      "translated": "RSA 鍵の場合: RSA のビットサイズ。\n\nEC 鍵の場合: 鍵のサイズ(ビット単位)。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.bits",
+      "lang": "ja"
+    },
+    "1e322eea": {
+      "original": "`true` if a Certificate Authority (CA), `false` otherwise.",
+      "translated": "認証局(CA)の場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.ca",
+      "lang": "ja"
+    },
+    "6733154f": {
+      "original": "The RSA exponent, as a string in hexadecimal number notation.",
+      "translated": "RSA 指数。16 進数表記の文字列。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.exponent",
+      "lang": "ja"
+    },
+    "5a3fda9b": {
+      "original": "The extended key usage, a set of OIDs.",
+      "translated": "extended key usage。OID のセット。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.ext_key_usage",
+      "lang": "ja"
+    },
+    "4641f166": {
+      "original": "The SHA-1 digest of the DER encoded certificate.\nIt is returned as a `:` separated hexadecimal string.",
+      "translated": "DER エンコードされた証明書の SHA-1 ダイジェスト。`:` 区切りの 16 進文字列として返される。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.fingerprint",
+      "lang": "ja"
+    },
+    "154d932c": {
+      "original": "The SHA-256 digest of the DER encoded certificate.\nIt is returned as a `:` separated hexadecimal string.",
+      "translated": "DER エンコードされた証明書の SHA-256 ダイジェスト。`:` 区切りの 16 進文字列として返される。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.fingerprint256",
+      "lang": "ja"
+    },
+    "9f2b7496": {
+      "original": "The SHA-512 digest of the DER encoded certificate.\nIt is returned as a `:` separated hexadecimal string.",
+      "translated": "DER エンコードされた証明書の SHA-512 ダイジェスト。`:` 区切りの 16 進文字列として返される。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.fingerprint512",
+      "lang": "ja"
+    },
+    "070920bd": {
+      "original": "An array describing the AuthorityInfoAccess, used with OCSP.",
+      "translated": "OCSP で使われる AuthorityInfoAccess を記述する配列。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.infoAccess",
+      "lang": "ja"
+    },
+    "0e6a3c31": {
+      "original": "The RSA modulus, as a hexadecimal string.",
+      "translated": "RSA の法(modulus)。16 進文字列。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.modulus",
+      "lang": "ja"
+    },
+    "b2cc6b19": {
+      "original": "The NIST name for the elliptic curve, if it has one\n(not all well-known curves have been assigned names by NIST).",
+      "translated": "楕円曲線の NIST 名(それがある場合。よく知られた曲線のすべてに NIST が名前を割り当てているわけではない)。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.nistCurve",
+      "lang": "ja"
+    },
+    "d304833c": {
+      "original": "The public key.",
+      "translated": "公開鍵。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.pubkey",
+      "lang": "ja"
+    },
+    "76c3d001": {
+      "original": "The DER encoded X.509 certificate data.",
+      "translated": "DER エンコードされた X.509 証明書データ。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.raw",
+      "lang": "ja"
+    },
+    "00751628": {
+      "original": "The certificate serial number, as a hex string.",
+      "translated": "証明書のシリアル番号。16 進文字列。",
+      "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.serialNumber",
       "lang": "ja"
     },
     "6534767f": {
