@@ -100,6 +100,12 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readBigInt64BE",
       "lang": "ja"
     },
+    "60093917": {
+      "original": "The `encoding` of an `otherPublicKey` string.",
+      "translated": "`otherPublicKey` 文字列の `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.computeSecret",
+      "lang": "ja"
+    },
     "62027729": {
       "original": "Number of bytes to skip before starting to read. Must satisfy `0 <= offset <= buf.length - 1`.",
       "translated": "読み始める前にスキップするバイト数。`0 <= offset <= buf.length - 1` を満たさなければならない。",
@@ -1544,6 +1550,180 @@
       "original": "The `DiffieHellman` class is a utility for creating Diffie-Hellman key\nexchanges.\n\nInstances of the `DiffieHellman` class can be created using the {@link createDiffieHellman} function.\n\n```js\nimport assert from 'node:assert';\n\nconst {\n  createDiffieHellman,\n} = await import('node:crypto');\n\n// Generate Alice's keys...\nconst alice = createDiffieHellman(2048);\nconst aliceKey = alice.generateKeys();\n\n// Generate Bob's keys...\nconst bob = createDiffieHellman(alice.getPrime(), alice.getGenerator());\nconst bobKey = bob.generateKeys();\n\n// Exchange and generate the secret...\nconst aliceSecret = alice.computeSecret(bobKey);\nconst bobSecret = bob.computeSecret(aliceKey);\n\n// OK\nassert.strictEqual(aliceSecret.toString('hex'), bobSecret.toString('hex'));\n```",
       "translated": "`DiffieHellman` クラスは、Diffie-Hellman 鍵交換を作成するためのユーティリティである。\n\n`DiffieHellman` クラスのインスタンスは {@link createDiffieHellman} 関数を使って作成できる。\n\n```js\nimport assert from 'node:assert';\n\nconst {\n  createDiffieHellman,\n} = await import('node:crypto');\n\n// Generate Alice's keys...\nconst alice = createDiffieHellman(2048);\nconst aliceKey = alice.generateKeys();\n\n// Generate Bob's keys...\nconst bob = createDiffieHellman(alice.getPrime(), alice.getGenerator());\nconst bobKey = bob.generateKeys();\n\n// Exchange and generate the secret...\nconst aliceSecret = alice.computeSecret(bobKey);\nconst bobSecret = bob.computeSecret(aliceKey);\n\n// OK\nassert.strictEqual(aliceSecret.toString('hex'), bobSecret.toString('hex'));\n```",
       "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman",
+      "lang": "ja"
+    },
+    "d1e5ff23": {
+      "original": "Computes the shared secret using `otherPublicKey` as the other\nparty's public key and returns the computed shared secret. The supplied\nkey is interpreted using the specified `inputEncoding`, and secret is\nencoded using specified `outputEncoding`.\nIf the `inputEncoding` is not\nprovided, `otherPublicKey` is expected to be a `Buffer`, `TypedArray`, or `DataView`.\n\nIf `outputEncoding` is given a string is returned; otherwise, a `Buffer` is returned.",
+      "translated": "`otherPublicKey` を相手方の公開鍵として使い、共有秘密を計算して、計算された共有秘密を返す。指定した鍵は指定の `inputEncoding` を使って解釈され、秘密は指定の `outputEncoding` を使ってエンコードされる。`inputEncoding` が指定されない場合、`otherPublicKey` は `Buffer`・`TypedArray`・`DataView` であることが期待される。\n\n`outputEncoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.computeSecret",
+      "lang": "ja"
+    },
+    "d3913a22": {
+      "original": "Generates private and public Diffie-Hellman key values unless they have been\ngenerated or computed already, and returns\nthe public key in the specified `encoding`. This key should be\ntransferred to the other party.\nIf `encoding` is provided a string is returned; otherwise a `Buffer` is returned.\n\nThis function is a thin wrapper around [`DH_generate_key()`](https://www.openssl.org/docs/man3.0/man3/DH_generate_key.html). In particular,\nonce a private key has been generated or set, calling this function only updates\nthe public key but does not generate a new private key.",
+      "translated": "Diffie-Hellman の秘密鍵と公開鍵の値をまだ生成・計算していない場合は生成し、公開鍵を指定した `encoding` で返す。この鍵は相手方に転送すべきである。`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。\n\nこの関数は [`DH_generate_key()`](https://www.openssl.org/docs/man3.0/man3/DH_generate_key.html) の薄いラッパーである。特に、秘密鍵がいったん生成または設定されると、この関数を呼んでも公開鍵を更新するだけで、新しい秘密鍵は生成しない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.generateKeys",
+      "lang": "ja"
+    },
+    "dbec07f8": {
+      "original": "Returns the Diffie-Hellman generator in the specified `encoding`.\nIf `encoding` is provided a string is\nreturned; otherwise a `Buffer` is returned.",
+      "translated": "Diffie-Hellman の generator を指定した `encoding` で返す。`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.getGenerator",
+      "lang": "ja"
+    },
+    "99d7ba57": {
+      "original": "Returns the Diffie-Hellman prime in the specified `encoding`.\nIf `encoding` is provided a string is\nreturned; otherwise a `Buffer` is returned.",
+      "translated": "Diffie-Hellman の素数を指定した `encoding` で返す。`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.getPrime",
+      "lang": "ja"
+    },
+    "740929c1": {
+      "original": "Returns the Diffie-Hellman private key in the specified `encoding`.\nIf `encoding` is provided a\nstring is returned; otherwise a `Buffer` is returned.",
+      "translated": "Diffie-Hellman の秘密鍵を指定した `encoding` で返す。`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.getPrivateKey",
+      "lang": "ja"
+    },
+    "7b8362f9": {
+      "original": "Returns the Diffie-Hellman public key in the specified `encoding`.\nIf `encoding` is provided a\nstring is returned; otherwise a `Buffer` is returned.",
+      "translated": "Diffie-Hellman の公開鍵を指定した `encoding` で返す。`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.getPublicKey",
+      "lang": "ja"
+    },
+    "258c6dbb": {
+      "original": "Sets the Diffie-Hellman private key. If the `encoding` argument is provided,`privateKey` is expected\nto be a string. If no `encoding` is provided, `privateKey` is expected\nto be a `Buffer`, `TypedArray`, or `DataView`.\n\nThis function does not automatically compute the associated public key. Either `diffieHellman.setPublicKey()` or `diffieHellman.generateKeys()` can be\nused to manually provide the public key or to automatically derive it.",
+      "translated": "Diffie-Hellman の秘密鍵を設定する。`encoding` 引数が指定された場合、`privateKey` は文字列であることが期待される。`encoding` が指定されない場合、`privateKey` は `Buffer`・`TypedArray`・`DataView` であることが期待される。\n\nこの関数は、関連する公開鍵を自動的には計算しない。公開鍵を手動で指定するか自動的に導出するには、`diffieHellman.setPublicKey()` または `diffieHellman.generateKeys()` のいずれかを使える。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.setPrivateKey",
+      "lang": "ja"
+    },
+    "0e521579": {
+      "original": "The `encoding` of the `privateKey` string.",
+      "translated": "`privateKey` 文字列の `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.setPrivateKey",
+      "lang": "ja"
+    },
+    "9092af31": {
+      "original": "Sets the Diffie-Hellman public key. If the `encoding` argument is provided, `publicKey` is expected\nto be a string. If no `encoding` is provided, `publicKey` is expected\nto be a `Buffer`, `TypedArray`, or `DataView`.",
+      "translated": "Diffie-Hellman の公開鍵を設定する。`encoding` 引数が指定された場合、`publicKey` は文字列であることが期待される。`encoding` が指定されない場合、`publicKey` は `Buffer`・`TypedArray`・`DataView` であることが期待される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.setPublicKey",
+      "lang": "ja"
+    },
+    "b95abc90": {
+      "original": "The `encoding` of the `publicKey` string.",
+      "translated": "`publicKey` 文字列の `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.setPublicKey",
+      "lang": "ja"
+    },
+    "1635f8ac": {
+      "original": "A bit field containing any warnings and/or errors resulting from a check\nperformed during initialization of the `DiffieHellman` object.\n\nThe following values are valid for this property (as defined in `node:constants` module):\n\n* `DH_CHECK_P_NOT_SAFE_PRIME`\n* `DH_CHECK_P_NOT_PRIME`\n* `DH_UNABLE_TO_CHECK_GENERATOR`\n* `DH_NOT_SUITABLE_GENERATOR`",
+      "translated": "`DiffieHellman` オブジェクトの初期化中に実行されたチェックによる警告やエラーを含むビットフィールド。\n\n次の値がこのプロパティに有効である(`node:constants` モジュールで定義されているとおり):\n\n* `DH_CHECK_P_NOT_SAFE_PRIME`\n* `DH_CHECK_P_NOT_PRIME`\n* `DH_UNABLE_TO_CHECK_GENERATOR`\n* `DH_NOT_SUITABLE_GENERATOR`",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.verifyError",
+      "lang": "ja"
+    },
+    "1aca6bf8": {
+      "original": "The `DiffieHellmanGroup` class takes a well-known modp group as its argument.\nIt works the same as `DiffieHellman`, except that it does not allow changing its keys after creation.\nIn other words, it does not implement `setPublicKey()` or `setPrivateKey()` methods.\n\n```js\nconst { createDiffieHellmanGroup } = await import('node:crypto');\nconst dh = createDiffieHellmanGroup('modp1');\n```\nThe name (e.g. `'modp1'`) is taken from [RFC 2412](https://www.rfc-editor.org/rfc/rfc2412.txt) (modp1 and 2) and [RFC 3526](https://www.rfc-editor.org/rfc/rfc3526.txt):\n```bash\n$ perl -ne 'print \"$1\\n\" if /\"(modp\\d+)\"/' src/node_crypto_groups.h\nmodp1  #  768 bits\nmodp2  # 1024 bits\nmodp5  # 1536 bits\nmodp14 # 2048 bits\nmodp15 # etc.\nmodp16\nmodp17\nmodp18\n```",
+      "translated": "`DiffieHellmanGroup` クラスは、よく知られた modp グループを引数に取る。`DiffieHellman` と同じように機能するが、作成後に鍵を変更できない点が異なる。言い換えると、`setPublicKey()` や `setPrivateKey()` メソッドを実装しない。\n\n```js\nconst { createDiffieHellmanGroup } = await import('node:crypto');\nconst dh = createDiffieHellmanGroup('modp1');\n```\n名前(たとえば `'modp1'`)は [RFC 2412](https://www.rfc-editor.org/rfc/rfc2412.txt)(modp1 と 2)および [RFC 3526](https://www.rfc-editor.org/rfc/rfc3526.txt)から取られている:\n```bash\n$ perl -ne 'print \"$1\\n\" if /\"(modp\\d+)\"/' src/node_crypto_groups.h\nmodp1  #  768 bits\nmodp2  # 1024 bits\nmodp5  # 1536 bits\nmodp14 # 2048 bits\nmodp15 # etc.\nmodp16\nmodp17\nmodp18\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellmanGroup",
+      "lang": "ja"
+    },
+    "5eb4dbd4": {
+      "original": "Size of q in bits",
+      "translated": "q のサイズ(ビット単位)",
+      "symbol": "@types/node/crypto.d.ts#crypto.DSAKeyPairKeyObjectOptions.divisorLength",
+      "lang": "ja"
+    },
+    "73cf79ef": {
+      "original": "The `ECDH` class is a utility for creating Elliptic Curve Diffie-Hellman (ECDH)\nkey exchanges.\n\nInstances of the `ECDH` class can be created using the {@link createECDH} function.\n\n```js\nimport assert from 'node:assert';\n\nconst {\n  createECDH,\n} = await import('node:crypto');\n\n// Generate Alice's keys...\nconst alice = createECDH('secp521r1');\nconst aliceKey = alice.generateKeys();\n\n// Generate Bob's keys...\nconst bob = createECDH('secp521r1');\nconst bobKey = bob.generateKeys();\n\n// Exchange and generate the secret...\nconst aliceSecret = alice.computeSecret(bobKey);\nconst bobSecret = bob.computeSecret(aliceKey);\n\nassert.strictEqual(aliceSecret.toString('hex'), bobSecret.toString('hex'));\n// OK\n```",
+      "translated": "`ECDH` クラスは、楕円曲線 Diffie-Hellman(ECDH)鍵交換を作成するためのユーティリティである。\n\n`ECDH` クラスのインスタンスは {@link createECDH} 関数を使って作成できる。\n\n```js\nimport assert from 'node:assert';\n\nconst {\n  createECDH,\n} = await import('node:crypto');\n\n// Generate Alice's keys...\nconst alice = createECDH('secp521r1');\nconst aliceKey = alice.generateKeys();\n\n// Generate Bob's keys...\nconst bob = createECDH('secp521r1');\nconst bobKey = bob.generateKeys();\n\n// Exchange and generate the secret...\nconst aliceSecret = alice.computeSecret(bobKey);\nconst bobSecret = bob.computeSecret(aliceKey);\n\nassert.strictEqual(aliceSecret.toString('hex'), bobSecret.toString('hex'));\n// OK\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH",
+      "lang": "ja"
+    },
+    "12749aa0": {
+      "original": "Computes the shared secret using `otherPublicKey` as the other\nparty's public key and returns the computed shared secret. The supplied\nkey is interpreted using specified `inputEncoding`, and the returned secret\nis encoded using the specified `outputEncoding`.\nIf the `inputEncoding` is not\nprovided, `otherPublicKey` is expected to be a `Buffer`, `TypedArray`, or `DataView`.\n\nIf `outputEncoding` is given a string will be returned; otherwise a `Buffer` is returned.\n\n`ecdh.computeSecret` will throw an`ERR_CRYPTO_ECDH_INVALID_PUBLIC_KEY` error when `otherPublicKey` lies outside of the elliptic curve. Since `otherPublicKey` is\nusually supplied from a remote user over an insecure network,\nbe sure to handle this exception accordingly.",
+      "translated": "`otherPublicKey` を相手方の公開鍵として使い、共有秘密を計算して、計算された共有秘密を返す。指定した鍵は指定の `inputEncoding` を使って解釈され、返される秘密は指定の `outputEncoding` を使ってエンコードされる。`inputEncoding` が指定されない場合、`otherPublicKey` は `Buffer`・`TypedArray`・`DataView` であることが期待される。\n\n`outputEncoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。\n\n`otherPublicKey` が楕円曲線の外側にある場合、`ecdh.computeSecret` は `ERR_CRYPTO_ECDH_INVALID_PUBLIC_KEY` エラーを投げる。`otherPublicKey` は通常、安全でないネットワーク越しにリモートユーザーから提供されるため、この例外を適切に処理すること。",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH.computeSecret",
+      "lang": "ja"
+    },
+    "4e083b81": {
+      "original": "The `encoding` of the `otherPublicKey` string.",
+      "translated": "`otherPublicKey` 文字列の `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH.computeSecret",
+      "lang": "ja"
+    },
+    "3e8ca03a": {
+      "original": "Converts the EC Diffie-Hellman public key specified by `key` and `curve` to the\nformat specified by `format`. The `format` argument specifies point encoding\nand can be `'compressed'`, `'uncompressed'` or `'hybrid'`. The supplied key is\ninterpreted using the specified `inputEncoding`, and the returned key is encoded\nusing the specified `outputEncoding`.\n\nUse {@link getCurves} to obtain a list of available curve names.\nOn recent OpenSSL releases, `openssl ecparam -list_curves` will also display\nthe name and description of each available elliptic curve.\n\nIf `format` is not specified the point will be returned in `'uncompressed'` format.\n\nIf the `inputEncoding` is not provided, `key` is expected to be a `Buffer`, `TypedArray`, or `DataView`.\n\nExample (uncompressing a key):\n\n```js\nconst {\n  createECDH,\n  ECDH,\n} = await import('node:crypto');\n\nconst ecdh = createECDH('secp256k1');\necdh.generateKeys();\n\nconst compressedKey = ecdh.getPublicKey('hex', 'compressed');\n\nconst uncompressedKey = ECDH.convertKey(compressedKey,\n                                        'secp256k1',\n                                        'hex',\n                                        'hex',\n                                        'uncompressed');\n\n// The converted key and the uncompressed public key should be the same\nconsole.log(uncompressedKey === ecdh.getPublicKey('hex'));\n```",
+      "translated": "`key` と `curve` で指定された EC Diffie-Hellman 公開鍵を、`format` で指定された形式に変換する。`format` 引数は点のエンコードを指定し、`'compressed'`・`'uncompressed'`・`'hybrid'` のいずれかでよい。指定した鍵は指定の `inputEncoding` を使って解釈され、返される鍵は指定の `outputEncoding` を使ってエンコードされる。\n\n利用可能な曲線名のリストを取得するには {@link getCurves} を使う。最近の OpenSSL リリースでは、`openssl ecparam -list_curves` でも利用可能な各楕円曲線の名前と説明が表示される。\n\n`format` が指定されない場合、点は `'uncompressed'` 形式で返される。\n\n`inputEncoding` が指定されない場合、`key` は `Buffer`・`TypedArray`・`DataView` であることが期待される。\n\n例(鍵を uncompress する):\n\n```js\nconst {\n  createECDH,\n  ECDH,\n} = await import('node:crypto');\n\nconst ecdh = createECDH('secp256k1');\necdh.generateKeys();\n\nconst compressedKey = ecdh.getPublicKey('hex', 'compressed');\n\nconst uncompressedKey = ECDH.convertKey(compressedKey,\n                                        'secp256k1',\n                                        'hex',\n                                        'hex',\n                                        'uncompressed');\n\n// The converted key and the uncompressed public key should be the same\nconsole.log(uncompressedKey === ecdh.getPublicKey('hex'));\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH.convertKey",
+      "lang": "ja"
+    },
+    "3d87ba0c": {
+      "original": "The `encoding` of the `key` string.",
+      "translated": "`key` 文字列の `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH.convertKey",
+      "lang": "ja"
+    },
+    "c878950c": {
+      "original": "Generates private and public EC Diffie-Hellman key values, and returns\nthe public key in the specified `format` and `encoding`. This key should be\ntransferred to the other party.\n\nThe `format` argument specifies point encoding and can be `'compressed'` or `'uncompressed'`. If `format` is not specified, the point will be returned in`'uncompressed'` format.\n\nIf `encoding` is provided a string is returned; otherwise a `Buffer` is returned.",
+      "translated": "EC Diffie-Hellman の秘密鍵と公開鍵の値を生成し、公開鍵を指定した `format` と `encoding` で返す。この鍵は相手方に転送すべきである。\n\n`format` 引数は点のエンコードを指定し、`'compressed'` または `'uncompressed'` でよい。`format` が指定されない場合、点は `'uncompressed'` 形式で返される。\n\n`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH.generateKeys",
+      "lang": "ja"
+    },
+    "7b6a0373": {
+      "original": "If `encoding` is specified, a string is returned; otherwise a `Buffer` is\nreturned.",
+      "translated": "`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH.getPrivateKey",
+      "lang": "ja"
+    },
+    "628bf712": {
+      "original": "The EC Diffie-Hellman in the specified `encoding`.",
+      "translated": "指定した `encoding` の EC Diffie-Hellman。",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH.getPrivateKey",
+      "lang": "ja"
+    },
+    "4fe816fd": {
+      "original": "The `format` argument specifies point encoding and can be `'compressed'` or `'uncompressed'`. If `format` is not specified the point will be returned in`'uncompressed'` format.\n\nIf `encoding` is specified, a string is returned; otherwise a `Buffer` is\nreturned.",
+      "translated": "`format` 引数は点のエンコードを指定し、`'compressed'` または `'uncompressed'` でよい。`format` が指定されない場合、点は `'uncompressed'` 形式で返される。\n\n`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH.getPublicKey",
+      "lang": "ja"
+    },
+    "502aed2f": {
+      "original": "The EC Diffie-Hellman public key in the specified `encoding` and `format`.",
+      "translated": "指定した `encoding` と `format` の EC Diffie-Hellman 公開鍵。",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH.getPublicKey",
+      "lang": "ja"
+    },
+    "676157c3": {
+      "original": "Sets the EC Diffie-Hellman private key.\nIf `encoding` is provided, `privateKey` is expected\nto be a string; otherwise `privateKey` is expected to be a `Buffer`, `TypedArray`, or `DataView`.\n\nIf `privateKey` is not valid for the curve specified when the `ECDH` object was\ncreated, an error is thrown. Upon setting the private key, the associated\npublic point (key) is also generated and set in the `ECDH` object.",
+      "translated": "EC Diffie-Hellman の秘密鍵を設定する。`encoding` が指定された場合、`privateKey` は文字列であることが期待される。そうでなければ `privateKey` は `Buffer`・`TypedArray`・`DataView` であることが期待される。\n\n`privateKey` が `ECDH` オブジェクトの作成時に指定された曲線に対して有効でない場合、エラーが投げられる。秘密鍵を設定すると、関連する公開点(鍵)も生成され、`ECDH` オブジェクトに設定される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECDH.setPrivateKey",
+      "lang": "ja"
+    },
+    "8f4154a3": {
+      "original": "Name of the curve to use",
+      "translated": "使う曲線の名前",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECKeyPairKeyObjectOptions.namedCurve",
+      "lang": "ja"
+    },
+    "dbc5c9a8": {
+      "original": "Must be `'named'` or `'explicit'`. Default: `'named'`.",
+      "translated": "`'named'` または `'explicit'` でなければならない。既定: `'named'`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.ECKeyPairKeyObjectOptions.paramEncoding",
+      "lang": "ja"
+    },
+    "eac26b51": {
+      "original": "since v10.0.0",
+      "translated": "v10.0.0 以降",
+      "symbol": "@types/node/crypto.d.ts#crypto.fips",
+      "lang": "ja"
+    },
+    "ef57349e": {
+      "original": "Asynchronously generates a new random secret key of the given `length`. The `type` will determine which validations will be performed on the `length`.\n\n```js\nconst {\n  generateKey,\n} = await import('node:crypto');\n\ngenerateKey('hmac', { length: 512 }, (err, key) => {\n  if (err) throw err;\n  console.log(key.export().toString('hex'));  // 46e..........620\n});\n```\n\nThe size of a generated HMAC key should not exceed the block size of the\nunderlying hash function. See {@link createHmac} for more information.",
+      "translated": "指定した `length` の新しいランダムな秘密鍵を非同期に生成する。`type` は `length` に対してどの検証が実行されるかを決定する。\n\n```js\nconst {\n  generateKey,\n} = await import('node:crypto');\n\ngenerateKey('hmac', { length: 512 }, (err, key) => {\n  if (err) throw err;\n  console.log(key.export().toString('hex'));  // 46e..........620\n});\n```\n\n生成される HMAC 鍵のサイズは、基盤となるハッシュ関数のブロックサイズを超えるべきではない。詳細は {@link createHmac} を参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.generateKey",
+      "lang": "ja"
+    },
+    "5f98c73d": {
+      "original": "The intended use of the generated secret key. Currently accepted values are `'hmac'` and `'aes'`.",
+      "translated": "生成される秘密鍵の意図された用途。現在受け付けられる値は `'hmac'` と `'aes'` である。",
+      "symbol": "@types/node/crypto.d.ts#crypto.generateKey",
       "lang": "ja"
     },
     "73f2cc3a": {
