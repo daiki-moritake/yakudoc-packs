@@ -34,6 +34,18 @@
       "symbol": "@types/node/fs.d.ts#fs.constants.O_TRUNC",
       "lang": "ja"
     },
+    "17587654": {
+      "original": "`true` if the given `spkac` data structure is valid,\n`false` otherwise.",
+      "translated": "指定した `spkac` データ構造が有効な場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.verifySpkac",
+      "lang": "ja"
+    },
+    "21606443": {
+      "original": "Specifies the built-in default cipher list used by Node.js (colon-separated values).",
+      "translated": "Node.js が使う組み込みの既定の暗号リスト(コロン区切りの値)を指定する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.defaultCoreCipherList",
+      "lang": "ja"
+    },
     "23911876": {
       "original": "Passing `chunk` as `null` signals the end of the stream (EOF) and behaves the\nsame as `readable.push(null)`, after which no more data can be written. The EOF\nsignal is put at the end of the buffer and any buffered data will still be\nflushed.\n\nThe `readable.unshift()` method pushes a chunk of data back into the internal\nbuffer. This is useful in certain situations where a stream is being consumed by\ncode that needs to \"un-consume\" some amount of data that it has optimistically\npulled out of the source, so that the data can be passed on to some other party.\n\nThe `stream.unshift(chunk)` method cannot be called after the `'end'` event\nhas been emitted or a runtime error will be thrown.\n\nDevelopers using `stream.unshift()` often should consider switching to\nuse of a `Transform` stream instead. See the `API for stream implementers` section for more information.\n\n```js\n// Pull off a header delimited by \\n\\n.\n// Use unshift() if we get too much.\n// Call the callback with (error, header, stream).\nimport { StringDecoder } from 'node:string_decoder';\nfunction parseHeader(stream, callback) {\n  stream.on('error', callback);\n  stream.on('readable', onReadable);\n  const decoder = new StringDecoder('utf8');\n  let header = '';\n  function onReadable() {\n    let chunk;\n    while (null !== (chunk = stream.read())) {\n      const str = decoder.write(chunk);\n      if (str.includes('\\n\\n')) {\n        // Found the header boundary.\n        const split = str.split(/\\n\\n/);\n        header += split.shift();\n        const remaining = split.join('\\n\\n');\n        const buf = Buffer.from(remaining, 'utf8');\n        stream.removeListener('error', callback);\n        // Remove the 'readable' listener before unshifting.\n        stream.removeListener('readable', onReadable);\n        if (buf.length)\n          stream.unshift(buf);\n        // Now the body of the message can be read from the stream.\n        callback(null, header, stream);\n        return;\n      }\n      // Still reading the header.\n      header += str;\n    }\n  }\n}\n```\n\nUnlike {@link push}, `stream.unshift(chunk)` will not\nend the reading process by resetting the internal reading state of the stream.\nThis can cause unexpected results if `readable.unshift()` is called during a\nread (i.e. from within a {@link _read} implementation on a\ncustom stream). Following the call to `readable.unshift()` with an immediate {@link push} will reset the reading state appropriately,\nhowever it is best to simply avoid calling `readable.unshift()` while in the\nprocess of performing a read.",
       "translated": "`chunk` を `null` として渡すとストリームの終了(EOF)を通知し、`readable.push(null)` と同じように動作する。それ以降はデータを書き込めなくなる。EOF 信号はバッファの末尾に置かれ、バッファリングされたデータはそれでもフラッシュされる。\n\n`readable.unshift()` メソッドは、データのチャンクを内部バッファに戻す。これは、ストリームを消費するコードが、ソースから楽観的に取り出した一定量のデータを「消費し直す(un-consume)」必要があり、そのデータを別の当事者に渡せるようにする特定の状況で役立つ。\n\n`stream.unshift(chunk)` メソッドは、`'end'` イベントが発行された後には呼べない。呼ぶと実行時エラーが投げられる。\n\n`stream.unshift()` を頻繁に使う開発者は、代わりに `Transform` ストリームの使用への切り替えを検討すべきである。詳細は `API for stream implementers` セクションを参照。\n\n```js\n// Pull off a header delimited by \\n\\n.\n// Use unshift() if we get too much.\n// Call the callback with (error, header, stream).\nimport { StringDecoder } from 'node:string_decoder';\nfunction parseHeader(stream, callback) {\n  stream.on('error', callback);\n  stream.on('readable', onReadable);\n  const decoder = new StringDecoder('utf8');\n  let header = '';\n  function onReadable() {\n    let chunk;\n    while (null !== (chunk = stream.read())) {\n      const str = decoder.write(chunk);\n      if (str.includes('\\n\\n')) {\n        // Found the header boundary.\n        const split = str.split(/\\n\\n/);\n        header += split.shift();\n        const remaining = split.join('\\n\\n');\n        const buf = Buffer.from(remaining, 'utf8');\n        stream.removeListener('error', callback);\n        // Remove the 'readable' listener before unshifting.\n        stream.removeListener('readable', onReadable);\n        if (buf.length)\n          stream.unshift(buf);\n        // Now the body of the message can be read from the stream.\n        callback(null, header, stream);\n        return;\n      }\n      // Still reading the header.\n      header += str;\n    }\n  }\n}\n```\n\n{@link push} とは異なり、`stream.unshift(chunk)` はストリームの内部読み取り状態をリセットして読み取り処理を終了させることはない。これは、読み取り中(すなわちカスタムストリームの {@link _read} 実装内)に `readable.unshift()` が呼ばれると予期しない結果を引き起こすことがある。`readable.unshift()` の呼び出しの直後に {@link push} を続けると読み取り状態が適切にリセットされるが、読み取りを実行している最中は単に `readable.unshift()` の呼び出しを避けるのが最善である。",
@@ -1022,6 +1034,354 @@
       "original": "To target encoding.",
       "translated": "変換先のエンコーディング。",
       "symbol": "@types/node/buffer.d.ts#buffer.transcode",
+      "lang": "ja"
+    },
+    "03a04b1b": {
+      "original": "The `node:crypto` module provides cryptographic functionality that includes a\nset of wrappers for OpenSSL's hash, HMAC, cipher, decipher, sign, and verify\nfunctions.\n\n```js\nconst { createHmac } = await import('node:crypto');\n\nconst secret = 'abcdefg';\nconst hash = createHmac('sha256', secret)\n               .update('I love cupcakes')\n               .digest('hex');\nconsole.log(hash);\n// Prints:\n//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e\n```",
+      "translated": "`node:crypto` モジュールは、OpenSSL の hash・HMAC・cipher・decipher・sign・verify 関数に対する一連のラッパーを含む暗号機能を提供する。\n\n```js\nconst { createHmac } = await import('node:crypto');\n\nconst secret = 'abcdefg';\nconst hash = createHmac('sha256', secret)\n               .update('I love cupcakes')\n               .digest('hex');\nconsole.log(hash);\n// Prints:\n//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto",
+      "lang": "ja"
+    },
+    "80f306d9": {
+      "original": "Size of q in bits (DSA).",
+      "translated": "q のサイズ(ビット単位、DSA)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.AsymmetricKeyDetails.divisorLength",
+      "lang": "ja"
+    },
+    "1ca1f138": {
+      "original": "Name of the message digest (RSA-PSS).",
+      "translated": "メッセージダイジェストの名前(RSA-PSS)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.AsymmetricKeyDetails.hashAlgorithm",
+      "lang": "ja"
+    },
+    "b03079b4": {
+      "original": "Name of the message digest used by MGF1 (RSA-PSS).",
+      "translated": "MGF1 が使うメッセージダイジェストの名前(RSA-PSS)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.AsymmetricKeyDetails.mgf1HashAlgorithm",
+      "lang": "ja"
+    },
+    "0d8945ec": {
+      "original": "Key size in bits (RSA, DSA).",
+      "translated": "鍵のサイズ(ビット単位、RSA・DSA)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.AsymmetricKeyDetails.modulusLength",
+      "lang": "ja"
+    },
+    "1a2abb2c": {
+      "original": "Name of the curve (EC).",
+      "translated": "曲線の名前(EC)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.AsymmetricKeyDetails.namedCurve",
+      "lang": "ja"
+    },
+    "c54498cc": {
+      "original": "Public exponent (RSA).",
+      "translated": "公開指数(RSA)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.AsymmetricKeyDetails.publicExponent",
+      "lang": "ja"
+    },
+    "1b21b1f7": {
+      "original": "Minimal salt length in bytes (RSA-PSS).",
+      "translated": "最小のソルト長(バイト単位、RSA-PSS)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.AsymmetricKeyDetails.saltLength",
+      "lang": "ja"
+    },
+    "eb5d7966": {
+      "original": "SPKAC is a Certificate Signing Request mechanism originally implemented by\nNetscape and was specified formally as part of HTML5's `keygen` element.\n\n`<keygen>` is deprecated since [HTML 5.2](https://www.w3.org/TR/html52/changes.html#features-removed) and new projects\nshould not use this element anymore.\n\nThe `node:crypto` module provides the `Certificate` class for working with SPKAC\ndata. The most common usage is handling output generated by the HTML5 `<keygen>` element. Node.js uses [OpenSSL's SPKAC\nimplementation](https://www.openssl.org/docs/man3.0/man1/openssl-spkac.html) internally.",
+      "translated": "SPKAC は、もともと Netscape によって実装された証明書署名要求(CSR)の仕組みで、HTML5 の `keygen` 要素の一部として正式に規定された。\n\n`<keygen>` は [HTML 5.2](https://www.w3.org/TR/html52/changes.html#features-removed) 以降非推奨であり、新しいプロジェクトではこの要素をもう使うべきではない。\n\n`node:crypto` モジュールは、SPKAC データを扱うための `Certificate` クラスを提供する。最も一般的な用途は、HTML5 の `<keygen>` 要素が生成した出力を扱うことである。Node.js は内部的に [OpenSSL の SPKAC 実装](https://www.openssl.org/docs/man3.0/man1/openssl-spkac.html)を使う。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate",
+      "lang": "ja"
+    },
+    "0bab3e7a": {
+      "original": "```js\nconst { Certificate } = await import('node:crypto');\nconst spkac = getSpkacSomehow();\nconst challenge = Certificate.exportChallenge(spkac);\nconsole.log(challenge.toString('utf8'));\n// Prints: the challenge as a UTF8 string\n```",
+      "translated": "```js\nconst { Certificate } = await import('node:crypto');\nconst spkac = getSpkacSomehow();\nconst challenge = Certificate.exportChallenge(spkac);\nconsole.log(challenge.toString('utf8'));\n// Prints: the challenge as a UTF8 string\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportChallenge",
+      "lang": "ja"
+    },
+    "716ec6fd": {
+      "original": "The `encoding` of the `spkac` string.",
+      "translated": "`spkac` 文字列の `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportChallenge",
+      "lang": "ja"
+    },
+    "a16b3243": {
+      "original": "The challenge component of the `spkac` data structure,\nwhich includes a public key and a challenge.",
+      "translated": "公開鍵とチャレンジを含む `spkac` データ構造のチャレンジ部分。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportChallenge",
+      "lang": "ja"
+    },
+    "3a51640b": {
+      "original": "The challenge component of the `spkac` data structure, which includes a public key and a challenge.",
+      "translated": "公開鍵とチャレンジを含む `spkac` データ構造のチャレンジ部分。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportChallenge",
+      "lang": "ja"
+    },
+    "49108ad7": {
+      "original": "```js\nconst { Certificate } = await import('node:crypto');\nconst spkac = getSpkacSomehow();\nconst publicKey = Certificate.exportPublicKey(spkac);\nconsole.log(publicKey);\n// Prints: the public key as <Buffer ...>\n```",
+      "translated": "```js\nconst { Certificate } = await import('node:crypto');\nconst spkac = getSpkacSomehow();\nconst publicKey = Certificate.exportPublicKey(spkac);\nconsole.log(publicKey);\n// Prints: the public key as <Buffer ...>\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportPublicKey",
+      "lang": "ja"
+    },
+    "46edf66a": {
+      "original": "The encoding of the spkac string.",
+      "translated": "spkac 文字列のエンコーディング。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportPublicKey",
+      "lang": "ja"
+    },
+    "52b4a46c": {
+      "original": "The public key component of the `spkac` data structure,\nwhich includes a public key and a challenge.",
+      "translated": "公開鍵とチャレンジを含む `spkac` データ構造の公開鍵部分。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportPublicKey",
+      "lang": "ja"
+    },
+    "cc83b776": {
+      "original": "The public key component of the `spkac` data structure, which includes a public key and a challenge.",
+      "translated": "公開鍵とチャレンジを含む `spkac` データ構造の公開鍵部分。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportPublicKey",
+      "lang": "ja"
+    },
+    "2a144947": {
+      "original": "```js\nimport { Buffer } from 'node:buffer';\nconst { Certificate } = await import('node:crypto');\n\nconst spkac = getSpkacSomehow();\nconsole.log(Certificate.verifySpkac(Buffer.from(spkac)));\n// Prints: true or false\n```",
+      "translated": "```js\nimport { Buffer } from 'node:buffer';\nconst { Certificate } = await import('node:crypto');\n\nconst spkac = getSpkacSomehow();\nconsole.log(Certificate.verifySpkac(Buffer.from(spkac)));\n// Prints: true or false\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.verifySpkac",
+      "lang": "ja"
+    },
+    "baebc62f": {
+      "original": "`true` if the given `spkac` data structure is valid, `false` otherwise.",
+      "translated": "指定した `spkac` データ構造が有効な場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.verifySpkac",
+      "lang": "ja"
+    },
+    "a89aabee": {
+      "original": "A possible prime encoded as a sequence of big endian octets of arbitrary length.",
+      "translated": "任意の長さのビッグエンディアンオクテット列としてエンコードされた素数候補。",
+      "symbol": "@types/node/crypto.d.ts#crypto.checkPrime",
+      "lang": "ja"
+    },
+    "72f2a764": {
+      "original": "Checks the primality of the `candidate`.",
+      "translated": "`candidate` の素数性を確認する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.checkPrime",
+      "lang": "ja"
+    },
+    "c9890e89": {
+      "original": "The number of Miller-Rabin probabilistic primality iterations to perform.\nWhen the value is 0 (zero), a number of checks is used that yields a false positive rate of at most `2**-64` for random input.\nCare must be used when selecting a number of checks.\nRefer to the OpenSSL documentation for the BN_is_prime_ex function nchecks options for more details.",
+      "translated": "実行する Miller-Rabin 確率的素数性判定の反復回数。値が 0(ゼロ)の場合、ランダムな入力に対して偽陽性率が最大でも `2**-64` になる回数のチェックが使われる。チェック回数を選ぶ際は注意しなければならない。詳細は BN_is_prime_ex 関数の nchecks オプションについて OpenSSL のドキュメントを参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.CheckPrimeOptions.checks",
+      "lang": "ja"
+    },
+    "008c69e1": {
+      "original": "`true` if the candidate is a prime with an error probability less than `0.25 ** options.checks`.",
+      "translated": "候補が `0.25 ** options.checks` 未満の誤り確率で素数である場合は `true`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.checkPrimeSync",
+      "lang": "ja"
+    },
+    "4ac42fc5": {
+      "original": "Instances of the `Cipher` class are used to encrypt data. The class can be\nused in one of two ways:\n\n* As a `stream` that is both readable and writable, where plain unencrypted\ndata is written to produce encrypted data on the readable side, or\n* Using the `cipher.update()` and `cipher.final()` methods to produce\nthe encrypted data.\n\nThe {@link createCipheriv} method is\nused to create `Cipher` instances. `Cipher` objects are not to be created\ndirectly using the `new` keyword.\n\nExample: Using `Cipher` objects as streams:\n\n```js\nconst {\n  scrypt,\n  randomFill,\n  createCipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n\n// First, we'll generate the key. The key length is dependent on the algorithm.\n// In this case for aes192, it is 24 bytes (192 bits).\nscrypt(password, 'salt', 24, (err, key) => {\n  if (err) throw err;\n  // Then, we'll generate a random initialization vector\n  randomFill(new Uint8Array(16), (err, iv) => {\n    if (err) throw err;\n\n    // Once we have the key and iv, we can create and use the cipher...\n    const cipher = createCipheriv(algorithm, key, iv);\n\n    let encrypted = '';\n    cipher.setEncoding('hex');\n\n    cipher.on('data', (chunk) => encrypted += chunk);\n    cipher.on('end', () => console.log(encrypted));\n\n    cipher.write('some clear text data');\n    cipher.end();\n  });\n});\n```\n\nExample: Using `Cipher` and piped streams:\n\n```js\nimport {\n  createReadStream,\n  createWriteStream,\n} from 'node:fs';\n\nimport {\n  pipeline,\n} from 'node:stream';\n\nconst {\n  scrypt,\n  randomFill,\n  createCipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n\n// First, we'll generate the key. The key length is dependent on the algorithm.\n// In this case for aes192, it is 24 bytes (192 bits).\nscrypt(password, 'salt', 24, (err, key) => {\n  if (err) throw err;\n  // Then, we'll generate a random initialization vector\n  randomFill(new Uint8Array(16), (err, iv) => {\n    if (err) throw err;\n\n    const cipher = createCipheriv(algorithm, key, iv);\n\n    const input = createReadStream('test.js');\n    const output = createWriteStream('test.enc');\n\n    pipeline(input, cipher, output, (err) => {\n      if (err) throw err;\n    });\n  });\n});\n```\n\nExample: Using the `cipher.update()` and `cipher.final()` methods:\n\n```js\nconst {\n  scrypt,\n  randomFill,\n  createCipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n\n// First, we'll generate the key. The key length is dependent on the algorithm.\n// In this case for aes192, it is 24 bytes (192 bits).\nscrypt(password, 'salt', 24, (err, key) => {\n  if (err) throw err;\n  // Then, we'll generate a random initialization vector\n  randomFill(new Uint8Array(16), (err, iv) => {\n    if (err) throw err;\n\n    const cipher = createCipheriv(algorithm, key, iv);\n\n    let encrypted = cipher.update('some clear text data', 'utf8', 'hex');\n    encrypted += cipher.final('hex');\n    console.log(encrypted);\n  });\n});\n```",
+      "translated": "`Cipher` クラスのインスタンスはデータを暗号化するために使われる。このクラスは 2 つの方法のいずれかで使える:\n\n* 読み取りと書き込みの両方が可能な `stream` として。平文の暗号化されていないデータを書き込むと、読み取り側で暗号化されたデータが生成される。あるいは\n* `cipher.update()` と `cipher.final()` メソッドを使って暗号化されたデータを生成する。\n\n{@link createCipheriv} メソッドは `Cipher` インスタンスを作成するために使われる。`Cipher` オブジェクトは `new` キーワードを使って直接作成するものではない。\n\n例: `Cipher` オブジェクトをストリームとして使う:\n\n```js\nconst {\n  scrypt,\n  randomFill,\n  createCipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n\n// First, we'll generate the key. The key length is dependent on the algorithm.\n// In this case for aes192, it is 24 bytes (192 bits).\nscrypt(password, 'salt', 24, (err, key) => {\n  if (err) throw err;\n  // Then, we'll generate a random initialization vector\n  randomFill(new Uint8Array(16), (err, iv) => {\n    if (err) throw err;\n\n    // Once we have the key and iv, we can create and use the cipher...\n    const cipher = createCipheriv(algorithm, key, iv);\n\n    let encrypted = '';\n    cipher.setEncoding('hex');\n\n    cipher.on('data', (chunk) => encrypted += chunk);\n    cipher.on('end', () => console.log(encrypted));\n\n    cipher.write('some clear text data');\n    cipher.end();\n  });\n});\n```\n\n例: `Cipher` とパイプされたストリームを使う:\n\n```js\nimport {\n  createReadStream,\n  createWriteStream,\n} from 'node:fs';\n\nimport {\n  pipeline,\n} from 'node:stream';\n\nconst {\n  scrypt,\n  randomFill,\n  createCipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n\n// First, we'll generate the key. The key length is dependent on the algorithm.\n// In this case for aes192, it is 24 bytes (192 bits).\nscrypt(password, 'salt', 24, (err, key) => {\n  if (err) throw err;\n  // Then, we'll generate a random initialization vector\n  randomFill(new Uint8Array(16), (err, iv) => {\n    if (err) throw err;\n\n    const cipher = createCipheriv(algorithm, key, iv);\n\n    const input = createReadStream('test.js');\n    const output = createWriteStream('test.enc');\n\n    pipeline(input, cipher, output, (err) => {\n      if (err) throw err;\n    });\n  });\n});\n```\n\n例: `cipher.update()` と `cipher.final()` メソッドを使う:\n\n```js\nconst {\n  scrypt,\n  randomFill,\n  createCipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n\n// First, we'll generate the key. The key length is dependent on the algorithm.\n// In this case for aes192, it is 24 bytes (192 bits).\nscrypt(password, 'salt', 24, (err, key) => {\n  if (err) throw err;\n  // Then, we'll generate a random initialization vector\n  randomFill(new Uint8Array(16), (err, iv) => {\n    if (err) throw err;\n\n    const cipher = createCipheriv(algorithm, key, iv);\n\n    let encrypted = cipher.update('some clear text data', 'utf8', 'hex');\n    encrypted += cipher.final('hex');\n    console.log(encrypted);\n  });\n});\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.Cipher",
+      "lang": "ja"
+    },
+    "3b4b5481": {
+      "original": "Any remaining enciphered contents. If `outputEncoding` is specified, a string is returned. If an `outputEncoding` is not provided, a {@link Buffer} is returned.",
+      "translated": "残りの暗号化された内容。`outputEncoding` が指定された場合、文字列が返される。`outputEncoding` が指定されない場合、{@link Buffer} が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Cipher.final",
+      "lang": "ja"
+    },
+    "e0f48543": {
+      "original": "Once the `cipher.final()` method has been called, the `Cipher` object can no\nlonger be used to encrypt data. Attempts to call `cipher.final()` more than\nonce will result in an error being thrown.",
+      "translated": "`cipher.final()` メソッドが呼ばれると、`Cipher` オブジェクトはもうデータの暗号化に使えない。`cipher.final()` を複数回呼ぼうとすると、エラーが投げられる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Cipher.final",
+      "lang": "ja"
+    },
+    "f8e4e455": {
+      "original": "for method chaining.",
+      "translated": "メソッドチェーン用。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Cipher.setAutoPadding",
+      "lang": "ja"
+    },
+    "2b848f96": {
+      "original": "When using block encryption algorithms, the `Cipher` class will automatically\nadd padding to the input data to the appropriate block size. To disable the\ndefault padding call `cipher.setAutoPadding(false)`.\n\nWhen `autoPadding` is `false`, the length of the entire input data must be a\nmultiple of the cipher's block size or `cipher.final()` will throw an error.\nDisabling automatic padding is useful for non-standard padding, for instance\nusing `0x0` instead of PKCS padding.\n\nThe `cipher.setAutoPadding()` method must be called before `cipher.final()`.",
+      "translated": "ブロック暗号アルゴリズムを使う場合、`Cipher` クラスは入力データに適切なブロックサイズまで自動的にパディングを追加する。既定のパディングを無効にするには `cipher.setAutoPadding(false)` を呼ぶ。\n\n`autoPadding` が `false` の場合、入力データ全体の長さは暗号のブロックサイズの倍数でなければならず、そうでないと `cipher.final()` はエラーを投げる。自動パディングの無効化は、非標準のパディング(たとえば PKCS パディングの代わりに `0x0` を使う)に役立つ。\n\n`cipher.setAutoPadding()` メソッドは `cipher.final()` の前に呼ばなければならない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Cipher.setAutoPadding",
+      "lang": "ja"
+    },
+    "4ccfd73b": {
+      "original": "The `encoding` of the data.",
+      "translated": "データの `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Cipher.update",
+      "lang": "ja"
+    },
+    "33764e90": {
+      "original": "Updates the cipher with `data`. If the `inputEncoding` argument is given,\nthe `data`argument is a string using the specified encoding. If the `inputEncoding`argument is not given, `data` must be a `Buffer`, `TypedArray`, or `DataView`. If `data` is a `Buffer`,\n`TypedArray`, or `DataView`, then `inputEncoding` is ignored.\n\nThe `outputEncoding` specifies the output format of the enciphered\ndata. If the `outputEncoding`is specified, a string using the specified encoding is returned. If no`outputEncoding` is provided, a `Buffer` is returned.\n\nThe `cipher.update()` method can be called multiple times with new data until `cipher.final()` is called. Calling `cipher.update()` after `cipher.final()` will result in an error being\nthrown.",
+      "translated": "`data` で暗号を更新する。`inputEncoding` 引数が指定された場合、`data` 引数は指定したエンコーディングを使う文字列である。`inputEncoding` 引数が指定されない場合、`data` は `Buffer`・`TypedArray`・`DataView` でなければならない。`data` が `Buffer`・`TypedArray`・`DataView` の場合、`inputEncoding` は無視される。\n\n`outputEncoding` は暗号化されたデータの出力形式を指定する。`outputEncoding` が指定された場合、指定したエンコーディングを使う文字列が返される。`outputEncoding` が指定されない場合、`Buffer` が返される。\n\n`cipher.update()` メソッドは、`cipher.final()` が呼ばれるまで新しいデータで複数回呼べる。`cipher.final()` の後に `cipher.update()` を呼ぶと、エラーが投げられる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Cipher.update",
+      "lang": "ja"
+    },
+    "cc61b0d8": {
+      "original": "The block size of the cipher in bytes.\nThis property is omitted when mode is 'stream'.",
+      "translated": "暗号のブロックサイズ(バイト単位)。このプロパティは mode が 'stream' のときは省略される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.CipherInfo.blockSize",
+      "lang": "ja"
+    },
+    "2d24861d": {
+      "original": "The expected or default initialization vector length in bytes.\nThis property is omitted if the cipher does not use an initialization vector.",
+      "translated": "期待される、または既定の初期化ベクトル長(バイト単位)。このプロパティは、暗号が初期化ベクトルを使わない場合は省略される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.CipherInfo.ivLength",
+      "lang": "ja"
+    },
+    "61b0c3a7": {
+      "original": "The expected or default key length in bytes.",
+      "translated": "期待される、または既定の鍵長(バイト単位)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.CipherInfo.keyLength",
+      "lang": "ja"
+    },
+    "b720fd23": {
+      "original": "The cipher mode.",
+      "translated": "暗号モード。",
+      "symbol": "@types/node/crypto.d.ts#crypto.CipherInfo.mode",
+      "lang": "ja"
+    },
+    "b72d136f": {
+      "original": "The name of the cipher.",
+      "translated": "暗号の名前。",
+      "symbol": "@types/node/crypto.d.ts#crypto.CipherInfo.name",
+      "lang": "ja"
+    },
+    "387d2d76": {
+      "original": "The nid of the cipher.",
+      "translated": "暗号の nid。",
+      "symbol": "@types/node/crypto.d.ts#crypto.CipherInfo.nid",
+      "lang": "ja"
+    },
+    "f6227f3f": {
+      "original": "A test IV length.",
+      "translated": "テスト用の IV 長。",
+      "symbol": "@types/node/crypto.d.ts#crypto.CipherInfoOptions.ivLength",
+      "lang": "ja"
+    },
+    "579741b0": {
+      "original": "A test key length.",
+      "translated": "テスト用の鍵長。",
+      "symbol": "@types/node/crypto.d.ts#crypto.CipherInfoOptions.keyLength",
+      "lang": "ja"
+    },
+    "4373b756": {
+      "original": "Specifies the active default cipher list used by the current Node.js process  (colon-separated values).",
+      "translated": "現在の Node.js プロセスが使うアクティブな既定の暗号リスト(コロン区切りの値)を指定する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.defaultCipherList",
+      "lang": "ja"
+    },
+    "0bb8689d": {
+      "original": "Causes the salt length for RSA_PKCS1_PSS_PADDING to be determined automatically when verifying a signature.",
+      "translated": "署名を検証する際、RSA_PKCS1_PSS_PADDING のソルト長を自動的に決定させる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.RSA_PSS_SALTLEN_AUTO",
+      "lang": "ja"
+    },
+    "436ed4ce": {
+      "original": "Sets the salt length for RSA_PKCS1_PSS_PADDING to the digest size when signing or verifying.",
+      "translated": "署名または検証の際、RSA_PKCS1_PSS_PADDING のソルト長をダイジェストサイズに設定する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.RSA_PSS_SALTLEN_DIGEST",
+      "lang": "ja"
+    },
+    "955977a3": {
+      "original": "Sets the salt length for RSA_PKCS1_PSS_PADDING to the maximum permissible value when signing data.",
+      "translated": "データに署名する際、RSA_PKCS1_PSS_PADDING のソルト長を許可される最大値に設定する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.RSA_PSS_SALTLEN_MAX_SIGN",
+      "lang": "ja"
+    },
+    "4b6928bb": {
+      "original": "Applies multiple bug workarounds within OpenSSL. See https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_options.html for detail.",
+      "translated": "OpenSSL 内の複数のバグ回避策を適用する。詳細は https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_options.html を参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_ALL",
+      "lang": "ja"
+    },
+    "c0d76731": {
+      "original": "Instructs OpenSSL to allow a non-[EC]DHE-based key exchange mode for TLS v1.3",
+      "translated": "TLS v1.3 について、[EC]DHE ベースでない鍵交換モードを許可するよう OpenSSL に指示する",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_ALLOW_NO_DHE_KEX",
+      "lang": "ja"
+    },
+    "f647c87c": {
+      "original": "Allows legacy insecure renegotiation between OpenSSL and unpatched clients or servers. See https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_options.html.",
+      "translated": "OpenSSL とパッチ未適用のクライアントまたはサーバーの間での、レガシーで安全でない再ネゴシエーションを許可する。https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_options.html を参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION",
+      "lang": "ja"
+    },
+    "24828cc1": {
+      "original": "Attempts to use the server's preferences instead of the client's when selecting a cipher. See https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_options.html.",
+      "translated": "暗号を選択する際、クライアントの代わりにサーバーの設定を使おうとする。https://www.openssl.org/docs/man1.0.2/ssl/SSL_CTX_set_options.html を参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_CIPHER_SERVER_PREFERENCE",
+      "lang": "ja"
+    },
+    "9f22df90": {
+      "original": "Instructs OpenSSL to use Cisco's version identifier of DTLS_BAD_VER.",
+      "translated": "DTLS_BAD_VER の Cisco 版バージョン識別子を使うよう OpenSSL に指示する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_CISCO_ANYCONNECT",
+      "lang": "ja"
+    },
+    "cee4e425": {
+      "original": "Instructs OpenSSL to turn on cookie exchange.",
+      "translated": "cookie 交換を有効にするよう OpenSSL に指示する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_COOKIE_EXCHANGE",
+      "lang": "ja"
+    },
+    "1f000757": {
+      "original": "Instructs OpenSSL to add server-hello extension from an early version of the cryptopro draft.",
+      "translated": "cryptopro ドラフトの初期バージョンの server-hello 拡張を追加するよう OpenSSL に指示する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_CRYPTOPRO_TLSEXT_BUG",
+      "lang": "ja"
+    },
+    "5719745f": {
+      "original": "Instructs OpenSSL to disable a SSL 3.0/TLS 1.0 vulnerability workaround added in OpenSSL 0.9.6d.",
+      "translated": "OpenSSL 0.9.6d で追加された SSL 3.0/TLS 1.0 の脆弱性回避策を無効にするよう OpenSSL に指示する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS",
+      "lang": "ja"
+    },
+    "81940c79": {
+      "original": "Allows initial connection to servers that do not support RI.",
+      "translated": "RI をサポートしないサーバーへの初回接続を許可する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT",
+      "lang": "ja"
+    },
+    "31e93256": {
+      "original": "Instructs OpenSSL to disable support for SSL/TLS compression.",
+      "translated": "SSL/TLS 圧縮のサポートを無効にするよう OpenSSL に指示する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_COMPRESSION",
+      "lang": "ja"
+    },
+    "34073fa3": {
+      "original": "Instructs OpenSSL to disable encrypt-then-MAC.",
+      "translated": "encrypt-then-MAC を無効にするよう OpenSSL に指示する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_ENCRYPT_THEN_MAC",
+      "lang": "ja"
+    },
+    "86a83c84": {
+      "original": "Instructs OpenSSL to disable renegotiation.",
+      "translated": "再ネゴシエーションを無効にするよう OpenSSL に指示する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_RENEGOTIATION",
+      "lang": "ja"
+    },
+    "137dc4b7": {
+      "original": "Instructs OpenSSL to always start a new session when performing renegotiation.",
+      "translated": "再ネゴシエーションを実行する際、常に新しいセッションを開始するよう OpenSSL に指示する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION",
+      "lang": "ja"
+    },
+    "4404ebf8": {
+      "original": "Instructs OpenSSL to turn off SSL v2",
+      "translated": "SSL v2 を無効にするよう OpenSSL に指示する",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_SSLv2",
+      "lang": "ja"
+    },
+    "d3d717f6": {
+      "original": "Instructs OpenSSL to turn off SSL v3",
+      "translated": "SSL v3 を無効にするよう OpenSSL に指示する",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_SSLv3",
+      "lang": "ja"
+    },
+    "5e5fbbd7": {
+      "original": "Instructs OpenSSL to disable use of RFC4507bis tickets.",
+      "translated": "RFC4507bis チケットの使用を無効にするよう OpenSSL に指示する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_TICKET",
       "lang": "ja"
     },
     "73f2cc3a": {
