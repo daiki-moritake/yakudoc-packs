@@ -106,10 +106,22 @@
       "symbol": "@types/node/fs.d.ts#fs.read",
       "lang": "ja"
     },
+    "67914622": {
+      "original": "The expected string encoding.",
+      "translated": "期待される文字列のエンコーディング。",
+      "symbol": "@types/node/fs.d.ts#fs.write",
+      "lang": "ja"
+    },
     "73741370": {
       "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a directory.",
       "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。ディレクトリを表すファイル種類定数。",
       "symbol": "@types/node/fs.d.ts#fs.constants.S_IFDIR",
+      "lang": "ja"
+    },
+    "82364802": {
+      "original": "Synchronously removes files and directories (modeled on the standard POSIX `rm` utility). Returns `undefined`.",
+      "translated": "ファイルとディレクトリを同期的に削除する(標準の POSIX `rm` ユーティリティをモデルにしている)。`undefined` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.rmSync",
       "lang": "ja"
     },
     "94553477": {
@@ -2750,6 +2762,432 @@
       "original": "If an `EBUSY`, `EMFILE`, `ENFILE`, `ENOTEMPTY`, or\n`EPERM` error is encountered, Node.js will retry the operation with a linear\nbackoff wait of `retryDelay` ms longer on each try. This option represents the\nnumber of retries. This option is ignored if the `recursive` option is not\n`true`.",
       "translated": "`EBUSY`・`EMFILE`・`ENFILE`・`ENOTEMPTY`・`EPERM` エラーに遭遇した場合、Node.js は試行ごとに `retryDelay` ミリ秒ずつ長くなる線形バックオフ待機で操作を再試行する。このオプションは再試行の回数を表す。`recursive` オプションが `true` でない場合、このオプションは無視される。",
       "symbol": "@types/node/fs.d.ts#fs.RmDirOptions.maxRetries",
+      "lang": "ja"
+    },
+    "d4ba4b74": {
+      "original": "since v14.14.0 In future versions of Node.js and will trigger a warning\n`fs.rmdir(path, { recursive: true })` will throw if `path` does not exist or is a file.\nUse `fs.rm(path, { recursive: true, force: true })` instead.\n\nIf `true`, perform a recursive directory removal. In\nrecursive mode, operations are retried on failure.",
+      "translated": "v14.14.0 以降。将来のバージョンの Node.js では警告を発生させ、`path` が存在しないかファイルの場合、`fs.rmdir(path, { recursive: true })` は投げるようになる。代わりに `fs.rm(path, { recursive: true, force: true })` を使うこと。\n\n`true` の場合、再帰的なディレクトリ削除を実行する。再帰モードでは、失敗時に操作が再試行される。",
+      "symbol": "@types/node/fs.d.ts#fs.RmDirOptions.recursive",
+      "lang": "ja"
+    },
+    "87eb03ee": {
+      "original": "The amount of time in milliseconds to wait between retries.\nThis option is ignored if the `recursive` option is not `true`.",
+      "translated": "再試行の間に待機する時間(ミリ秒)。`recursive` オプションが `true` でない場合、このオプションは無視される。",
+      "symbol": "@types/node/fs.d.ts#fs.RmDirOptions.retryDelay",
+      "lang": "ja"
+    },
+    "e57aa499": {
+      "original": "Synchronous [`rmdir(2)`](http://man7.org/linux/man-pages/man2/rmdir.2.html). Returns `undefined`.\n\nUsing `fs.rmdirSync()` on a file (not a directory) results in an `ENOENT` error\non Windows and an `ENOTDIR` error on POSIX.\n\nTo get a behavior similar to the `rm -rf` Unix command, use {@link rmSync} with options `{ recursive: true, force: true }`.",
+      "translated": "同期の [`rmdir(2)`](http://man7.org/linux/man-pages/man2/rmdir.2.html)。`undefined` を返す。\n\nファイル(ディレクトリではない)に対して `fs.rmdirSync()` を使うと、Windows では `ENOENT` エラー、POSIX では `ENOTDIR` エラーになる。\n\n`rm -rf` の Unix コマンドに似た挙動を得るには、オプション `{ recursive: true, force: true }` を指定して {@link rmSync} を使うこと。",
+      "symbol": "@types/node/fs.d.ts#fs.rmdirSync",
+      "lang": "ja"
+    },
+    "aa11b680": {
+      "original": "When `true`, exceptions will be ignored if `path` does not exist.",
+      "translated": "`true` の場合、`path` が存在しなくても例外は無視される。",
+      "symbol": "@types/node/fs.d.ts#fs.RmOptions.force",
+      "lang": "ja"
+    },
+    "576b11aa": {
+      "original": "If `true`, perform a recursive directory removal. In\nrecursive mode, operations are retried on failure.",
+      "translated": "`true` の場合、再帰的なディレクトリ削除を実行する。再帰モードでは、失敗時に操作が再試行される。",
+      "symbol": "@types/node/fs.d.ts#fs.RmOptions.recursive",
+      "lang": "ja"
+    },
+    "5c1b0333": {
+      "original": "Asynchronous [`stat(2)`](http://man7.org/linux/man-pages/man2/stat.2.html). The callback gets two arguments `(err, stats)` where`stats` is an `fs.Stats` object.\n\nIn case of an error, the `err.code` will be one of `Common System Errors`.\n\n{@link stat} follows symbolic links. Use {@link lstat} to look at the\nlinks themselves.\n\nUsing `fs.stat()` to check for the existence of a file before calling`fs.open()`, `fs.readFile()`, or `fs.writeFile()` is not recommended.\nInstead, user code should open/read/write the file directly and handle the\nerror raised if the file is not available.\n\nTo check if a file exists without manipulating it afterwards, {@link access} is recommended.\n\nFor example, given the following directory structure:\n\n```text\n- txtDir\n-- file.txt\n- app.js\n```\n\nThe next program will check for the stats of the given paths:\n\n```js\nimport { stat } from 'node:fs';\n\nconst pathsToCheck = ['./txtDir', './txtDir/file.txt'];\n\nfor (let i = 0; i < pathsToCheck.length; i++) {\n  stat(pathsToCheck[i], (err, stats) => {\n    console.log(stats.isDirectory());\n    console.log(stats);\n  });\n}\n```\n\nThe resulting output will resemble:\n\n```console\ntrue\nStats {\n  dev: 16777220,\n  mode: 16877,\n  nlink: 3,\n  uid: 501,\n  gid: 20,\n  rdev: 0,\n  blksize: 4096,\n  ino: 14214262,\n  size: 96,\n  blocks: 0,\n  atimeMs: 1561174653071.963,\n  mtimeMs: 1561174614583.3518,\n  ctimeMs: 1561174626623.5366,\n  birthtimeMs: 1561174126937.2893,\n  atime: 2019-06-22T03:37:33.072Z,\n  mtime: 2019-06-22T03:36:54.583Z,\n  ctime: 2019-06-22T03:37:06.624Z,\n  birthtime: 2019-06-22T03:28:46.937Z\n}\nfalse\nStats {\n  dev: 16777220,\n  mode: 33188,\n  nlink: 1,\n  uid: 501,\n  gid: 20,\n  rdev: 0,\n  blksize: 4096,\n  ino: 14214074,\n  size: 8,\n  blocks: 8,\n  atimeMs: 1561174616618.8555,\n  mtimeMs: 1561174614584,\n  ctimeMs: 1561174614583.8145,\n  birthtimeMs: 1561174007710.7478,\n  atime: 2019-06-22T03:36:56.619Z,\n  mtime: 2019-06-22T03:36:54.584Z,\n  ctime: 2019-06-22T03:36:54.584Z,\n  birthtime: 2019-06-22T03:26:47.711Z\n}\n```",
+      "translated": "非同期の [`stat(2)`](http://man7.org/linux/man-pages/man2/stat.2.html)。コールバックは 2 つの引数 `(err, stats)` を受け取り、`stats` は `fs.Stats` オブジェクトである。\n\nエラーが発生した場合、`err.code` は `Common System Errors` のいずれかになる。\n\n{@link stat} はシンボリックリンクをたどる。リンク自体を見るには {@link lstat} を使うこと。\n\n`fs.open()`・`fs.readFile()`・`fs.writeFile()` を呼ぶ前に、ファイルの存在を確認するために `fs.stat()` を使うことは推奨されない。代わりに、ユーザーコードはファイルを直接 open/read/write し、ファイルが利用できない場合に発生するエラーを処理すべきである。\n\nその後にファイルを操作せずに存在を確認するには、{@link access} が推奨される。\n\nたとえば、次のディレクトリ構造があるとする:\n\n```text\n- txtDir\n-- file.txt\n- app.js\n```\n\n次のプログラムは、指定したパスの stat を確認する:\n\n```js\nimport { stat } from 'node:fs';\n\nconst pathsToCheck = ['./txtDir', './txtDir/file.txt'];\n\nfor (let i = 0; i < pathsToCheck.length; i++) {\n  stat(pathsToCheck[i], (err, stats) => {\n    console.log(stats.isDirectory());\n    console.log(stats);\n  });\n}\n```\n\n結果の出力は次のようになる:\n\n```console\ntrue\nStats {\n  dev: 16777220,\n  mode: 16877,\n  nlink: 3,\n  uid: 501,\n  gid: 20,\n  rdev: 0,\n  blksize: 4096,\n  ino: 14214262,\n  size: 96,\n  blocks: 0,\n  atimeMs: 1561174653071.963,\n  mtimeMs: 1561174614583.3518,\n  ctimeMs: 1561174626623.5366,\n  birthtimeMs: 1561174126937.2893,\n  atime: 2019-06-22T03:37:33.072Z,\n  mtime: 2019-06-22T03:36:54.583Z,\n  ctime: 2019-06-22T03:37:06.624Z,\n  birthtime: 2019-06-22T03:28:46.937Z\n}\nfalse\nStats {\n  dev: 16777220,\n  mode: 33188,\n  nlink: 1,\n  uid: 501,\n  gid: 20,\n  rdev: 0,\n  blksize: 4096,\n  ino: 14214074,\n  size: 8,\n  blocks: 8,\n  atimeMs: 1561174616618.8555,\n  mtimeMs: 1561174614584,\n  ctimeMs: 1561174614583.8145,\n  birthtimeMs: 1561174007710.7478,\n  atime: 2019-06-22T03:36:56.619Z,\n  mtime: 2019-06-22T03:36:54.584Z,\n  ctime: 2019-06-22T03:36:54.584Z,\n  birthtime: 2019-06-22T03:26:47.711Z\n}\n```",
+      "symbol": "@types/node/fs.d.ts#fs.stat",
+      "lang": "ja"
+    },
+    "ddfba982": {
+      "original": "Asynchronous stat(2) - Get file status.",
+      "translated": "非同期 stat(2) - ファイルの状態を取得する。",
+      "symbol": "@types/node/fs.d.ts#fs.stat.__promisify__",
+      "lang": "ja"
+    },
+    "9a01ab15": {
+      "original": "A path to an existing file or directory on the file system to be queried.",
+      "translated": "問い合わせ対象の、ファイルシステム上の既存のファイルまたはディレクトリへのパス。",
+      "symbol": "@types/node/fs.d.ts#fs.statfs",
+      "lang": "ja"
+    },
+    "2c803b7c": {
+      "original": "Asynchronous [`statfs(2)`](http://man7.org/linux/man-pages/man2/statfs.2.html). Returns information about the mounted file system which\ncontains `path`. The callback gets two arguments `(err, stats)` where `stats`is an `fs.StatFs` object.\n\nIn case of an error, the `err.code` will be one of `Common System Errors`.",
+      "translated": "非同期の [`statfs(2)`](http://man7.org/linux/man-pages/man2/statfs.2.html)。`path` を含むマウントされたファイルシステムに関する情報を返す。コールバックは 2 つの引数 `(err, stats)` を受け取り、`stats` は `fs.StatFs` オブジェクトである。\n\nエラーが発生した場合、`err.code` は `Common System Errors` のいずれかになる。",
+      "symbol": "@types/node/fs.d.ts#fs.statfs",
+      "lang": "ja"
+    },
+    "48bd6986": {
+      "original": "Asynchronous statfs(2) - Returns information about the mounted file system which contains path. The callback gets two arguments (err, stats) where stats is an <fs.StatFs> object.",
+      "translated": "非同期 statfs(2) - path を含むマウントされたファイルシステムに関する情報を返す。コールバックは 2 つの引数 (err, stats) を受け取り、stats は <fs.StatFs> オブジェクトである。",
+      "symbol": "@types/node/fs.d.ts#fs.statfs.__promisify__",
+      "lang": "ja"
+    },
+    "7f74d11e": {
+      "original": "Synchronous [`statfs(2)`](http://man7.org/linux/man-pages/man2/statfs.2.html). Returns information about the mounted file system which\ncontains `path`.\n\nIn case of an error, the `err.code` will be one of `Common System Errors`.",
+      "translated": "同期の [`statfs(2)`](http://man7.org/linux/man-pages/man2/statfs.2.html)。`path` を含むマウントされたファイルシステムに関する情報を返す。\n\nエラーが発生した場合、`err.code` は `Common System Errors` のいずれかになる。",
+      "symbol": "@types/node/fs.d.ts#fs.statfsSync",
+      "lang": "ja"
+    },
+    "99dd1125": {
+      "original": "A `fs.Stats` object provides information about a file.\n\nObjects returned from {@link stat}, {@link lstat}, {@link fstat}, and\ntheir synchronous counterparts are of this type.\nIf `bigint` in the `options` passed to those methods is true, the numeric values\nwill be `bigint` instead of `number`, and the object will contain additional\nnanosecond-precision properties suffixed with `Ns`. `Stat` objects are not to be created directly using the `new` keyword.\n\n```console\nStats {\n  dev: 2114,\n  ino: 48064969,\n  mode: 33188,\n  nlink: 1,\n  uid: 85,\n  gid: 100,\n  rdev: 0,\n  size: 527,\n  blksize: 4096,\n  blocks: 8,\n  atimeMs: 1318289051000.1,\n  mtimeMs: 1318289051000.1,\n  ctimeMs: 1318289051000.1,\n  birthtimeMs: 1318289051000.1,\n  atime: Mon, 10 Oct 2011 23:24:11 GMT,\n  mtime: Mon, 10 Oct 2011 23:24:11 GMT,\n  ctime: Mon, 10 Oct 2011 23:24:11 GMT,\n  birthtime: Mon, 10 Oct 2011 23:24:11 GMT }\n```\n\n`bigint` version:\n\n```console\nBigIntStats {\n  dev: 2114n,\n  ino: 48064969n,\n  mode: 33188n,\n  nlink: 1n,\n  uid: 85n,\n  gid: 100n,\n  rdev: 0n,\n  size: 527n,\n  blksize: 4096n,\n  blocks: 8n,\n  atimeMs: 1318289051000n,\n  mtimeMs: 1318289051000n,\n  ctimeMs: 1318289051000n,\n  birthtimeMs: 1318289051000n,\n  atimeNs: 1318289051000000000n,\n  mtimeNs: 1318289051000000000n,\n  ctimeNs: 1318289051000000000n,\n  birthtimeNs: 1318289051000000000n,\n  atime: Mon, 10 Oct 2011 23:24:11 GMT,\n  mtime: Mon, 10 Oct 2011 23:24:11 GMT,\n  ctime: Mon, 10 Oct 2011 23:24:11 GMT,\n  birthtime: Mon, 10 Oct 2011 23:24:11 GMT }\n```",
+      "translated": "`fs.Stats` オブジェクトは、ファイルに関する情報を提供する。\n\n{@link stat}・{@link lstat}・{@link fstat} およびそれらの同期版から返されるオブジェクトはこの型である。それらのメソッドに渡す `options` の `bigint` が true の場合、数値は `number` ではなく `bigint` になり、オブジェクトには接尾辞 `Ns` の付いたナノ秒精度の追加プロパティが含まれる。`Stat` オブジェクトは `new` キーワードを使って直接作成するものではない。\n\n```console\nStats {\n  dev: 2114,\n  ino: 48064969,\n  mode: 33188,\n  nlink: 1,\n  uid: 85,\n  gid: 100,\n  rdev: 0,\n  size: 527,\n  blksize: 4096,\n  blocks: 8,\n  atimeMs: 1318289051000.1,\n  mtimeMs: 1318289051000.1,\n  ctimeMs: 1318289051000.1,\n  birthtimeMs: 1318289051000.1,\n  atime: Mon, 10 Oct 2011 23:24:11 GMT,\n  mtime: Mon, 10 Oct 2011 23:24:11 GMT,\n  ctime: Mon, 10 Oct 2011 23:24:11 GMT,\n  birthtime: Mon, 10 Oct 2011 23:24:11 GMT }\n```\n\n`bigint` 版:\n\n```console\nBigIntStats {\n  dev: 2114n,\n  ino: 48064969n,\n  mode: 33188n,\n  nlink: 1n,\n  uid: 85n,\n  gid: 100n,\n  rdev: 0n,\n  size: 527n,\n  blksize: 4096n,\n  blocks: 8n,\n  atimeMs: 1318289051000n,\n  mtimeMs: 1318289051000n,\n  ctimeMs: 1318289051000n,\n  birthtimeMs: 1318289051000n,\n  atimeNs: 1318289051000000000n,\n  mtimeNs: 1318289051000000000n,\n  ctimeNs: 1318289051000000000n,\n  birthtimeNs: 1318289051000000000n,\n  atime: Mon, 10 Oct 2011 23:24:11 GMT,\n  mtime: Mon, 10 Oct 2011 23:24:11 GMT,\n  ctime: Mon, 10 Oct 2011 23:24:11 GMT,\n  birthtime: Mon, 10 Oct 2011 23:24:11 GMT }\n```",
+      "symbol": "@types/node/fs.d.ts#fs.Stats",
+      "lang": "ja"
+    },
+    "7e5404a5": {
+      "original": "Provides information about a mounted file system.\n\nObjects returned from {@link statfs} and its synchronous counterpart are of\nthis type. If `bigint` in the `options` passed to those methods is `true`, the\nnumeric values will be `bigint` instead of `number`.\n\n```console\nStatFs {\n  type: 1397114950,\n  bsize: 4096,\n  blocks: 121938943,\n  bfree: 61058895,\n  bavail: 61058895,\n  files: 999,\n  ffree: 1000000\n}\n```\n\n`bigint` version:\n\n```console\nStatFs {\n  type: 1397114950n,\n  bsize: 4096n,\n  blocks: 121938943n,\n  bfree: 61058895n,\n  bavail: 61058895n,\n  files: 999n,\n  ffree: 1000000n\n}\n```",
+      "translated": "マウントされたファイルシステムに関する情報を提供する。\n\n{@link statfs} およびその同期版から返されるオブジェクトはこの型である。それらのメソッドに渡す `options` の `bigint` が `true` の場合、数値は `number` ではなく `bigint` になる。\n\n```console\nStatFs {\n  type: 1397114950,\n  bsize: 4096,\n  blocks: 121938943,\n  bfree: 61058895,\n  bavail: 61058895,\n  files: 999,\n  ffree: 1000000\n}\n```\n\n`bigint` 版:\n\n```console\nStatFs {\n  type: 1397114950n,\n  bsize: 4096n,\n  blocks: 121938943n,\n  bfree: 61058895n,\n  bavail: 61058895n,\n  files: 999n,\n  ffree: 1000000n\n}\n```",
+      "symbol": "@types/node/fs.d.ts#fs.StatsFs",
+      "lang": "ja"
+    },
+    "7857adc0": {
+      "original": "Available blocks for unprivileged users",
+      "translated": "非特権ユーザーが利用できるブロック数",
+      "symbol": "@types/node/fs.d.ts#fs.StatsFsBase.bavail",
+      "lang": "ja"
+    },
+    "5eea47dc": {
+      "original": "Free blocks in file system.",
+      "translated": "ファイルシステム内の空きブロック数。",
+      "symbol": "@types/node/fs.d.ts#fs.StatsFsBase.bfree",
+      "lang": "ja"
+    },
+    "cf350f43": {
+      "original": "Total data blocks in file system.",
+      "translated": "ファイルシステム内の総データブロック数。",
+      "symbol": "@types/node/fs.d.ts#fs.StatsFsBase.blocks",
+      "lang": "ja"
+    },
+    "0fea0f2b": {
+      "original": "Optimal transfer block size.",
+      "translated": "最適な転送ブロックサイズ。",
+      "symbol": "@types/node/fs.d.ts#fs.StatsFsBase.bsize",
+      "lang": "ja"
+    },
+    "5ec0b85e": {
+      "original": "Free file nodes in file system.",
+      "translated": "ファイルシステム内の空きファイルノード数。",
+      "symbol": "@types/node/fs.d.ts#fs.StatsFsBase.ffree",
+      "lang": "ja"
+    },
+    "4f72c5ee": {
+      "original": "Total file nodes in file system.",
+      "translated": "ファイルシステム内の総ファイルノード数。",
+      "symbol": "@types/node/fs.d.ts#fs.StatsFsBase.files",
+      "lang": "ja"
+    },
+    "f86c6185": {
+      "original": "Type of file system.",
+      "translated": "ファイルシステムの種類。",
+      "symbol": "@types/node/fs.d.ts#fs.StatsFsBase.type",
+      "lang": "ja"
+    },
+    "f6d38087": {
+      "original": "Synchronous stat(2) - Get file status.",
+      "translated": "同期 stat(2) - ファイルの状態を取得する。",
+      "symbol": "@types/node/fs.d.ts#fs.statSync",
+      "lang": "ja"
+    },
+    "78b8e17f": {
+      "original": "Class: fs.StatWatcher",
+      "translated": "クラス: fs.StatWatcher",
+      "symbol": "@types/node/fs.d.ts#fs.StatWatcher",
+      "lang": "ja"
+    },
+    "00c0ddb1": {
+      "original": "v14.3.0, v12.20.0\nExtends `EventEmitter`\nA successful call to {@link watchFile} method will return a new fs.StatWatcher object.",
+      "translated": "v14.3.0, v12.20.0\n`EventEmitter` を継承する\n{@link watchFile} メソッドの呼び出しが成功すると、新しい fs.StatWatcher オブジェクトが返される。",
+      "symbol": "@types/node/fs.d.ts#fs.StatWatcher",
+      "lang": "ja"
+    },
+    "e0022111": {
+      "original": "When called, requests that the Node.js event loop _not_ exit so long as the `fs.StatWatcher` is active. Calling `watcher.ref()` multiple times will have\nno effect.\n\nBy default, all `fs.StatWatcher` objects are \"ref'ed\", making it normally\nunnecessary to call `watcher.ref()` unless `watcher.unref()` had been\ncalled previously.",
+      "translated": "呼ばれると、`fs.StatWatcher` がアクティブである限り Node.js イベントループが終了_しない_よう要求する。`watcher.ref()` を複数回呼んでも効果はない。\n\n既定では、すべての `fs.StatWatcher` オブジェクトは「ref されている」ため、以前に `watcher.unref()` が呼ばれていない限り、通常 `watcher.ref()` を呼ぶ必要はない。",
+      "symbol": "@types/node/fs.d.ts#fs.StatWatcher.ref",
+      "lang": "ja"
+    },
+    "4aa11098": {
+      "original": "When called, the active `fs.StatWatcher` object will not require the Node.js\nevent loop to remain active. If there is no other activity keeping the\nevent loop running, the process may exit before the `fs.StatWatcher` object's\ncallback is invoked. Calling `watcher.unref()` multiple times will have\nno effect.",
+      "translated": "呼ばれると、アクティブな `fs.StatWatcher` オブジェクトは Node.js イベントループがアクティブなままであることを要求しなくなる。イベントループを実行し続ける他のアクティビティがない場合、`fs.StatWatcher` オブジェクトのコールバックが呼ばれる前にプロセスが終了することがある。`watcher.unref()` を複数回呼んでも効果はない。",
+      "symbol": "@types/node/fs.d.ts#fs.StatWatcher.unref",
+      "lang": "ja"
+    },
+    "973bf4f1": {
+      "original": "A path to an existing file. If a URL is provided, it must use the `file:` protocol.",
+      "translated": "既存のファイルへのパス。URL を指定する場合、`file:` プロトコルを使わなければならない。",
+      "symbol": "@types/node/fs.d.ts#fs.symlink",
+      "lang": "ja"
+    },
+    "1bf5d791": {
+      "original": "A path to the new symlink. If a URL is provided, it must use the `file:` protocol.",
+      "translated": "新しいシンボリックリンクへのパス。URL を指定する場合、`file:` プロトコルを使わなければならない。",
+      "symbol": "@types/node/fs.d.ts#fs.symlink",
+      "lang": "ja"
+    },
+    "5771740e": {
+      "original": "Asynchronous symlink(2) - Create a new symbolic link to an existing file.",
+      "translated": "非同期 symlink(2) - 既存のファイルへの新しいシンボリックリンクを作成する。",
+      "symbol": "@types/node/fs.d.ts#fs.symlink",
+      "lang": "ja"
+    },
+    "a4a37bd9": {
+      "original": "Creates the link called `path` pointing to `target`. No arguments other than a\npossible exception are given to the completion callback.\n\nSee the POSIX [`symlink(2)`](http://man7.org/linux/man-pages/man2/symlink.2.html) documentation for more details.\n\nThe `type` argument is only available on Windows and ignored on other platforms.\nIt can be set to `'dir'`, `'file'`, or `'junction'`. If the `type` argument is\nnot a string, Node.js will autodetect `target` type and use `'file'` or `'dir'`.\nIf the `target` does not exist, `'file'` will be used. Windows junction points\nrequire the destination path to be absolute. When using `'junction'`, the`target` argument will automatically be normalized to absolute path. Junction\npoints on NTFS volumes can only point to directories.\n\nRelative targets are relative to the link's parent directory.\n\n```js\nimport { symlink } from 'node:fs';\n\nsymlink('./mew', './mewtwo', callback);\n```\n\nThe above example creates a symbolic link `mewtwo` which points to `mew` in the\nsame directory:\n\n```bash\n$ tree .\n.\n├── mew\n└── mewtwo -> ./mew\n```",
+      "translated": "`target` を指す `path` というリンクを作成する。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\n詳細は POSIX の [`symlink(2)`](http://man7.org/linux/man-pages/man2/symlink.2.html) ドキュメントを参照。\n\n`type` 引数は Windows でのみ利用でき、他のプラットフォームでは無視される。`'dir'`・`'file'`・`'junction'` に設定できる。`type` 引数が文字列でない場合、Node.js は `target` の型を自動検出し、`'file'` または `'dir'` を使う。`target` が存在しない場合、`'file'` が使われる。Windows のジャンクションポイントは宛先パスが絶対であることを要求する。`'junction'` を使う場合、`target` 引数は自動的に絶対パスに正規化される。NTFS ボリューム上のジャンクションポイントはディレクトリのみを指すことができる。\n\n相対的な target は、リンクの親ディレクトリからの相対である。\n\n```js\nimport { symlink } from 'node:fs';\n\nsymlink('./mew', './mewtwo', callback);\n```\n\n上記の例は、同じディレクトリ内の `mew` を指すシンボリックリンク `mewtwo` を作成する:\n\n```bash\n$ tree .\n.\n├── mew\n└── mewtwo -> ./mew\n```",
+      "symbol": "@types/node/fs.d.ts#fs.symlink",
+      "lang": "ja"
+    },
+    "fc454743": {
+      "original": "May be set to `'dir'`, `'file'`, or `'junction'` (default is `'file'`) and is only available on Windows (ignored on other platforms).\nWhen using `'junction'`, the `target` argument will automatically be normalized to an absolute path.",
+      "translated": "`'dir'`・`'file'`・`'junction'` に設定できる(既定は `'file'`)。Windows でのみ利用でき、他のプラットフォームでは無視される。`'junction'` を使う場合、`target` 引数は自動的に絶対パスに正規化される。",
+      "symbol": "@types/node/fs.d.ts#fs.symlink.__promisify__",
+      "lang": "ja"
+    },
+    "b18ae4e5": {
+      "original": "Returns `undefined`.\n\nFor detailed information, see the documentation of the asynchronous version of\nthis API: {@link symlink}.",
+      "translated": "`undefined` を返す。\n\n詳細な情報は、この API の非同期版のドキュメント {@link symlink} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.symlinkSync",
+      "lang": "ja"
+    },
+    "483492db": {
+      "original": "A path to a file. If a URL is provided, it must use the `file:` protocol.",
+      "translated": "ファイルへのパス。URL を指定する場合、`file:` プロトコルを使わなければならない。",
+      "symbol": "@types/node/fs.d.ts#fs.truncate",
+      "lang": "ja"
+    },
+    "49b636a5": {
+      "original": "Asynchronous truncate(2) - Truncate a file to a specified length.",
+      "translated": "非同期 truncate(2) - ファイルを指定した長さに切り詰める。",
+      "symbol": "@types/node/fs.d.ts#fs.truncate",
+      "lang": "ja"
+    },
+    "33cc77be": {
+      "original": "Truncates the file. No arguments other than a possible exception are\ngiven to the completion callback. A file descriptor can also be passed as the\nfirst argument. In this case, `fs.ftruncate()` is called.\n\n```js\nimport { truncate } from 'node:fs';\n// Assuming that 'path/file.txt' is a regular file.\ntruncate('path/file.txt', (err) => {\n  if (err) throw err;\n  console.log('path/file.txt was truncated');\n});\n```\n\nPassing a file descriptor is deprecated and may result in an error being thrown\nin the future.\n\nSee the POSIX [`truncate(2)`](http://man7.org/linux/man-pages/man2/truncate.2.html) documentation for more details.",
+      "translated": "ファイルを切り詰める。完了コールバックには、起こり得る例外以外の引数は渡されない。ファイルディスクリプタを第 1 引数として渡すこともできる。その場合、`fs.ftruncate()` が呼ばれる。\n\n```js\nimport { truncate } from 'node:fs';\n// Assuming that 'path/file.txt' is a regular file.\ntruncate('path/file.txt', (err) => {\n  if (err) throw err;\n  console.log('path/file.txt was truncated');\n});\n```\n\nファイルディスクリプタを渡すことは非推奨であり、将来はエラーが投げられることがある。\n\n詳細は POSIX の [`truncate(2)`](http://man7.org/linux/man-pages/man2/truncate.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.truncate",
+      "lang": "ja"
+    },
+    "9340ab17": {
+      "original": "If not specified, defaults to `0`.",
+      "translated": "指定されない場合、既定は `0`。",
+      "symbol": "@types/node/fs.d.ts#fs.truncate.__promisify__",
+      "lang": "ja"
+    },
+    "2e51ef86": {
+      "original": "Truncates the file. Returns `undefined`. A file descriptor can also be\npassed as the first argument. In this case, `fs.ftruncateSync()` is called.\n\nPassing a file descriptor is deprecated and may result in an error being thrown\nin the future.",
+      "translated": "ファイルを切り詰める。`undefined` を返す。ファイルディスクリプタを第 1 引数として渡すこともできる。その場合、`fs.ftruncateSync()` が呼ばれる。\n\nファイルディスクリプタを渡すことは非推奨であり、将来はエラーが投げられることがある。",
+      "symbol": "@types/node/fs.d.ts#fs.truncateSync",
+      "lang": "ja"
+    },
+    "925d65f4": {
+      "original": "Asynchronously removes a file or symbolic link. No arguments other than a\npossible exception are given to the completion callback.\n\n```js\nimport { unlink } from 'node:fs';\n// Assuming that 'path/file.txt' is a regular file.\nunlink('path/file.txt', (err) => {\n  if (err) throw err;\n  console.log('path/file.txt was deleted');\n});\n```\n\n`fs.unlink()` will not work on a directory, empty or otherwise. To remove a\ndirectory, use {@link rmdir}.\n\nSee the POSIX [`unlink(2)`](http://man7.org/linux/man-pages/man2/unlink.2.html) documentation for more details.",
+      "translated": "ファイルまたはシンボリックリンクを非同期に削除する。完了コールバックには、起こり得る例外以外の引数は渡されない。\n\n```js\nimport { unlink } from 'node:fs';\n// Assuming that 'path/file.txt' is a regular file.\nunlink('path/file.txt', (err) => {\n  if (err) throw err;\n  console.log('path/file.txt was deleted');\n});\n```\n\n`fs.unlink()` は、空かどうかにかかわらずディレクトリに対しては機能しない。ディレクトリを削除するには {@link rmdir} を使うこと。\n\n詳細は POSIX の [`unlink(2)`](http://man7.org/linux/man-pages/man2/unlink.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs.d.ts#fs.unlink",
+      "lang": "ja"
+    },
+    "80f92364": {
+      "original": "Asynchronous unlink(2) - delete a name and possibly the file it refers to.",
+      "translated": "非同期 unlink(2) - 名前と、場合によってはそれが参照するファイルを削除する。",
+      "symbol": "@types/node/fs.d.ts#fs.unlink.__promisify__",
+      "lang": "ja"
+    },
+    "ef185cda": {
+      "original": "Synchronous [`unlink(2)`](http://man7.org/linux/man-pages/man2/unlink.2.html). Returns `undefined`.",
+      "translated": "同期の [`unlink(2)`](http://man7.org/linux/man-pages/man2/unlink.2.html)。`undefined` を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.unlinkSync",
+      "lang": "ja"
+    },
+    "200022ca": {
+      "original": "Optional, a listener previously attached using `fs.watchFile()`",
+      "translated": "任意で、以前 `fs.watchFile()` を使って取り付けた listener",
+      "symbol": "@types/node/fs.d.ts#fs.unwatchFile",
+      "lang": "ja"
+    },
+    "06e31e66": {
+      "original": "Stop watching for changes on `filename`. If `listener` is specified, only that\nparticular listener is removed. Otherwise, _all_ listeners are removed,\neffectively stopping watching of `filename`.\n\nCalling `fs.unwatchFile()` with a filename that is not being watched is a\nno-op, not an error.\n\nUsing {@link watch} is more efficient than `fs.watchFile()` and `fs.unwatchFile()`. `fs.watch()` should be used instead of `fs.watchFile()` and `fs.unwatchFile()` when possible.",
+      "translated": "`filename` の変更の監視を停止する。`listener` が指定された場合、その特定の listener のみが削除される。そうでなければ、_すべて_の listener が削除され、実質的に `filename` の監視が停止する。\n\n監視されていないファイル名で `fs.unwatchFile()` を呼ぶのは、エラーではなく no-op である。\n\n{@link watch} を使う方が `fs.watchFile()` と `fs.unwatchFile()` より効率的である。可能な場合は `fs.watchFile()` と `fs.unwatchFile()` の代わりに `fs.watch()` を使うべきである。",
+      "symbol": "@types/node/fs.d.ts#fs.unwatchFile",
+      "lang": "ja"
+    },
+    "de725335": {
+      "original": "Change the file system timestamps of the object referenced by `path`.\n\nThe `atime` and `mtime` arguments follow these rules:\n\n* Values can be either numbers representing Unix epoch time in seconds, `Date`s, or a numeric string like `'123456789.0'`.\n* If the value can not be converted to a number, or is `NaN`, `Infinity`, or `-Infinity`, an `Error` will be thrown.",
+      "translated": "`path` が参照するオブジェクトのファイルシステムタイムスタンプを変更する。\n\n`atime` と `mtime` 引数は次の規則に従う:\n\n* 値は、Unix エポック時刻を秒で表す数値、`Date`、または `'123456789.0'` のような数値文字列のいずれかでよい。\n* 値を数値に変換できない場合、または `NaN`・`Infinity`・`-Infinity` の場合、`Error` が投げられる。",
+      "symbol": "@types/node/fs.d.ts#fs.utimes",
+      "lang": "ja"
+    },
+    "d0fd4419": {
+      "original": "Asynchronously change file timestamps of the file referenced by the supplied path.",
+      "translated": "指定したパスが参照するファイルのタイムスタンプを非同期に変更する。",
+      "symbol": "@types/node/fs.d.ts#fs.utimes.__promisify__",
+      "lang": "ja"
+    },
+    "f8e6019c": {
+      "original": "Returns `undefined`.\n\nFor detailed information, see the documentation of the asynchronous version of\nthis API: {@link utimes}.",
+      "translated": "`undefined` を返す。\n\n詳細な情報は、この API の非同期版のドキュメント {@link utimes} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.utimesSync",
+      "lang": "ja"
+    },
+    "d6d4cdf0": {
+      "original": "Watch for changes on `filename`, where `filename` is either a file or a\ndirectory.\n\nThe second argument is optional. If `options` is provided as a string, it\nspecifies the `encoding`. Otherwise `options` should be passed as an object.\n\nThe listener callback gets two arguments `(eventType, filename)`. `eventType`is either `'rename'` or `'change'`, and `filename` is the name of the file\nwhich triggered the event.\n\nOn most platforms, `'rename'` is emitted whenever a filename appears or\ndisappears in the directory.\n\nThe listener callback is attached to the `'change'` event fired by `fs.FSWatcher`, but it is not the same thing as the `'change'` value of `eventType`.\n\nIf a `signal` is passed, aborting the corresponding AbortController will close\nthe returned `fs.FSWatcher`.",
+      "translated": "`filename` の変更を監視する。ここで `filename` はファイルまたはディレクトリである。\n\n第 2 引数は省略可能である。`options` が文字列として指定された場合、`encoding` を指定する。そうでなければ、`options` はオブジェクトとして渡すべきである。\n\nlistener コールバックは 2 つの引数 `(eventType, filename)` を受け取る。`eventType` は `'rename'` または `'change'` のいずれかで、`filename` はイベントをトリガーしたファイルの名前である。\n\nほとんどのプラットフォームでは、ディレクトリ内にファイル名が現れたり消えたりするたびに `'rename'` が発行される。\n\nlistener コールバックは `fs.FSWatcher` が発火する `'change'` イベントに取り付けられるが、これは `eventType` の `'change'` 値と同じものではない。\n\n`signal` が渡された場合、対応する AbortController を中断すると、返された `fs.FSWatcher` が閉じられる。",
+      "symbol": "@types/node/fs.d.ts#fs.watch",
+      "lang": "ja"
+    },
+    "4ed9258c": {
+      "original": "A path to a file or directory. If a URL is provided, it must use the `file:` protocol.",
+      "translated": "ファイルまたはディレクトリへのパス。URL を指定する場合、`file:` プロトコルを使わなければならない。",
+      "symbol": "@types/node/fs.d.ts#fs.watchFile",
+      "lang": "ja"
+    },
+    "3a1fb37e": {
+      "original": "Watch for changes on `filename`. The callback `listener` will be called each time the file is accessed.",
+      "translated": "`filename` の変更を監視する。コールバック `listener` は、ファイルがアクセスされるたびに呼ばれる。",
+      "symbol": "@types/node/fs.d.ts#fs.watchFile",
+      "lang": "ja"
+    },
+    "ea89366c": {
+      "original": "Watch for changes on `filename`. The callback `listener` will be called each\ntime the file is accessed.\n\nThe `options` argument may be omitted. If provided, it should be an object. The `options` object may contain a boolean named `persistent` that indicates\nwhether the process should continue to run as long as files are being watched.\nThe `options` object may specify an `interval` property indicating how often the\ntarget should be polled in milliseconds.\n\nThe `listener` gets two arguments the current stat object and the previous\nstat object:\n\n```js\nimport { watchFile } from 'node:fs';\n\nwatchFile('message.text', (curr, prev) => {\n  console.log(`the current mtime is: ${curr.mtime}`);\n  console.log(`the previous mtime was: ${prev.mtime}`);\n});\n```\n\nThese stat objects are instances of `fs.Stat`. If the `bigint` option is `true`,\nthe numeric values in these objects are specified as `BigInt`s.\n\nTo be notified when the file was modified, not just accessed, it is necessary\nto compare `curr.mtimeMs` and `prev.mtimeMs`.\n\nWhen an `fs.watchFile` operation results in an `ENOENT` error, it\nwill invoke the listener once, with all the fields zeroed (or, for dates, the\nUnix Epoch). If the file is created later on, the listener will be called\nagain, with the latest stat objects. This is a change in functionality since\nv0.10.\n\nUsing {@link watch} is more efficient than `fs.watchFile` and `fs.unwatchFile`. `fs.watch` should be used instead of `fs.watchFile` and `fs.unwatchFile` when possible.\n\nWhen a file being watched by `fs.watchFile()` disappears and reappears,\nthen the contents of `previous` in the second callback event (the file's\nreappearance) will be the same as the contents of `previous` in the first\ncallback event (its disappearance).\n\nThis happens when:\n\n* the file is deleted, followed by a restore\n* the file is renamed and then renamed a second time back to its original name",
+      "translated": "`filename` の変更を監視する。コールバック `listener` は、ファイルがアクセスされるたびに呼ばれる。\n\n`options` 引数は省略できる。指定する場合、オブジェクトであるべきである。`options` オブジェクトには、ファイルが監視されている限りプロセスを実行し続けるべきかどうかを示す `persistent` という真偽値を含められる。`options` オブジェクトは、対象をどれくらいの頻度でポーリングすべきかをミリ秒で示す `interval` プロパティを指定できる。\n\n`listener` は 2 つの引数、現在の stat オブジェクトと以前の stat オブジェクトを受け取る:\n\n```js\nimport { watchFile } from 'node:fs';\n\nwatchFile('message.text', (curr, prev) => {\n  console.log(`the current mtime is: ${curr.mtime}`);\n  console.log(`the previous mtime was: ${prev.mtime}`);\n});\n```\n\nこれらの stat オブジェクトは `fs.Stat` のインスタンスである。`bigint` オプションが `true` の場合、これらのオブジェクト内の数値は `BigInt` として指定される。\n\nファイルがアクセスされただけでなく変更されたときに通知を受けるには、`curr.mtimeMs` と `prev.mtimeMs` を比較する必要がある。\n\n`fs.watchFile` 操作が `ENOENT` エラーになった場合、すべてのフィールドをゼロ(日付の場合は Unix エポック)にして listener を一度呼ぶ。ファイルが後で作成された場合、最新の stat オブジェクトで listener が再び呼ばれる。これは v0.10 以降の機能変更である。\n\n{@link watch} を使う方が `fs.watchFile` と `fs.unwatchFile` より効率的である。可能な場合は `fs.watchFile` と `fs.unwatchFile` の代わりに `fs.watch` を使うべきである。\n\n`fs.watchFile()` が監視しているファイルが消えて再び現れた場合、2 回目のコールバックイベント(ファイルの再出現)における `previous` の内容は、1 回目のコールバックイベント(その消失)における `previous` の内容と同じになる。\n\nこれは次の場合に起こる:\n\n* ファイルが削除され、その後復元される\n* ファイルがリネームされ、その後 2 度目のリネームで元の名前に戻される",
+      "symbol": "@types/node/fs.d.ts#fs.WatchFileOptions",
+      "lang": "ja"
+    },
+    "c5d4ad8e": {
+      "original": "A string to write.",
+      "translated": "書き込む文字列。",
+      "symbol": "@types/node/fs.d.ts#fs.write",
+      "lang": "ja"
+    },
+    "9b6307be": {
+      "original": "An object with the following properties:\n* `offset` The part of the buffer to be written. If not supplied, defaults to `0`.\n* `length` The number of bytes to write. If not supplied, defaults to `buffer.length - offset`.\n* `position` The offset from the beginning of the file where this data should be written. If not supplied, defaults to the current position.",
+      "translated": "次のプロパティを持つオブジェクト:\n* `offset` 書き込むバッファの部分。指定されない場合、既定は `0`。\n* `length` 書き込むバイト数。指定されない場合、既定は `buffer.length - offset`。\n* `position` このデータを書き込むべきファイルの先頭からのオフセット。指定されない場合、既定は現在の位置。",
+      "symbol": "@types/node/fs.d.ts#fs.write",
+      "lang": "ja"
+    },
+    "4c13f298": {
+      "original": "Asynchronously writes `buffer` to the file referenced by the supplied file descriptor.",
+      "translated": "指定したファイルディスクリプタが参照するファイルに `buffer` を非同期に書き込む。",
+      "symbol": "@types/node/fs.d.ts#fs.write",
+      "lang": "ja"
+    },
+    "d16bd724": {
+      "original": "Asynchronously writes `string` to the file referenced by the supplied file descriptor.",
+      "translated": "指定したファイルディスクリプタが参照するファイルに `string` を非同期に書き込む。",
+      "symbol": "@types/node/fs.d.ts#fs.write",
+      "lang": "ja"
+    },
+    "891a6583": {
+      "original": "The number of bytes to write. If not supplied, defaults to `buffer.length - offset`.",
+      "translated": "書き込むバイト数。指定されない場合、既定は `buffer.length - offset`。",
+      "symbol": "@types/node/fs.d.ts#fs.write",
+      "lang": "ja"
+    },
+    "541c2f1f": {
+      "original": "The offset from the beginning of the file where this data should be written. If not supplied, defaults to the current position.",
+      "translated": "このデータを書き込むべきファイルの先頭からのオフセット。指定されない場合、既定は現在の位置。",
+      "symbol": "@types/node/fs.d.ts#fs.write",
+      "lang": "ja"
+    },
+    "1938c52a": {
+      "original": "The part of the buffer to be written. If not supplied, defaults to `0`.",
+      "translated": "書き込むバッファの部分。指定されない場合、既定は `0`。",
+      "symbol": "@types/node/fs.d.ts#fs.write",
+      "lang": "ja"
+    },
+    "1ce9dd77": {
+      "original": "Write `buffer` to the file specified by `fd`.\n\n`offset` determines the part of the buffer to be written, and `length` is\nan integer specifying the number of bytes to write.\n\n`position` refers to the offset from the beginning of the file where this data\nshould be written. If `typeof position !== 'number'`, the data will be written\nat the current position. See [`pwrite(2)`](http://man7.org/linux/man-pages/man2/pwrite.2.html).\n\nThe callback will be given three arguments `(err, bytesWritten, buffer)` where `bytesWritten` specifies how many _bytes_ were written from `buffer`.\n\nIf this method is invoked as its `util.promisify()` ed version, it returns\na promise for an `Object` with `bytesWritten` and `buffer` properties.\n\nIt is unsafe to use `fs.write()` multiple times on the same file without waiting\nfor the callback. For this scenario, {@link createWriteStream} is\nrecommended.\n\nOn Linux, positional writes don't work when the file is opened in append mode.\nThe kernel ignores the position argument and always appends the data to\nthe end of the file.",
+      "translated": "`fd` で指定したファイルに `buffer` を書き込む。\n\n`offset` は書き込むバッファの部分を決め、`length` は書き込むバイト数を指定する整数である。\n\n`position` は、このデータを書き込むべきファイルの先頭からのオフセットを指す。`typeof position !== 'number'` の場合、データは現在の位置に書き込まれる。[`pwrite(2)`](http://man7.org/linux/man-pages/man2/pwrite.2.html) を参照。\n\nコールバックには 3 つの引数 `(err, bytesWritten, buffer)` が渡され、`bytesWritten` は `buffer` から何_バイト_書き込まれたかを指定する。\n\nこのメソッドが `util.promisify()` された版として呼ばれた場合、`bytesWritten` と `buffer` プロパティを持つ `Object` のための promise を返す。\n\nコールバックを待たずに同じファイルに対して `fs.write()` を複数回使うのは安全でない。このシナリオでは {@link createWriteStream} が推奨される。\n\nLinux では、ファイルが追記モードで開かれている場合、位置指定の書き込みは機能しない。カーネルは position 引数を無視し、常にデータをファイルの末尾に追記する。",
+      "symbol": "@types/node/fs.d.ts#fs.write",
+      "lang": "ja"
+    },
+    "41db264f": {
+      "original": "Asynchronously writes data to a file, replacing the file if it already exists.",
+      "translated": "ファイルにデータを非同期に書き込む。ファイルがすでに存在する場合は置き換える。",
+      "symbol": "@types/node/fs.d.ts#fs.writeFile",
+      "lang": "ja"
+    },
+    "c1439bcf": {
+      "original": "The data to write. If something other than a Buffer or Uint8Array is provided, the value is coerced to a string.",
+      "translated": "書き込むデータ。Buffer や Uint8Array 以外のものが指定された場合、その値は文字列に強制変換される。",
+      "symbol": "@types/node/fs.d.ts#fs.writeFile",
+      "lang": "ja"
+    },
+    "e90d8ec8": {
+      "original": "When `file` is a filename, asynchronously writes data to the file, replacing the\nfile if it already exists. `data` can be a string or a buffer.\n\nWhen `file` is a file descriptor, the behavior is similar to calling `fs.write()` directly (which is recommended). See the notes below on using\na file descriptor.\n\nThe `encoding` option is ignored if `data` is a buffer.\n\nThe `mode` option only affects the newly created file. See {@link open} for more details.\n\n```js\nimport { writeFile } from 'node:fs';\nimport { Buffer } from 'node:buffer';\n\nconst data = new Uint8Array(Buffer.from('Hello Node.js'));\nwriteFile('message.txt', data, (err) => {\n  if (err) throw err;\n  console.log('The file has been saved!');\n});\n```\n\nIf `options` is a string, then it specifies the encoding:\n\n```js\nimport { writeFile } from 'node:fs';\n\nwriteFile('message.txt', 'Hello Node.js', 'utf8', callback);\n```\n\nIt is unsafe to use `fs.writeFile()` multiple times on the same file without\nwaiting for the callback. For this scenario, {@link createWriteStream} is\nrecommended.\n\nSimilarly to `fs.readFile` \\- `fs.writeFile` is a convenience method that\nperforms multiple `write` calls internally to write the buffer passed to it.\nFor performance sensitive code consider using {@link createWriteStream}.\n\nIt is possible to use an `AbortSignal` to cancel an `fs.writeFile()`.\nCancelation is \"best effort\", and some amount of data is likely still\nto be written.\n\n```js\nimport { writeFile } from 'node:fs';\nimport { Buffer } from 'node:buffer';\n\nconst controller = new AbortController();\nconst { signal } = controller;\nconst data = new Uint8Array(Buffer.from('Hello Node.js'));\nwriteFile('message.txt', data, { signal }, (err) => {\n  // When a request is aborted - the callback is called with an AbortError\n});\n// When the request should be aborted\ncontroller.abort();\n```\n\nAborting an ongoing request does not abort individual operating\nsystem requests but rather the internal buffering `fs.writeFile` performs.",
+      "translated": "`file` がファイル名の場合、ファイルにデータを非同期に書き込み、ファイルがすでに存在する場合は置き換える。`data` は文字列またはバッファでよい。\n\n`file` がファイルディスクリプタの場合、挙動は `fs.write()` を直接呼ぶのに似ている(こちらが推奨される)。ファイルディスクリプタの使用については下記の注記を参照。\n\n`data` がバッファの場合、`encoding` オプションは無視される。\n\n`mode` オプションは新しく作成されたファイルにのみ影響する。詳細は {@link open} を参照。\n\n```js\nimport { writeFile } from 'node:fs';\nimport { Buffer } from 'node:buffer';\n\nconst data = new Uint8Array(Buffer.from('Hello Node.js'));\nwriteFile('message.txt', data, (err) => {\n  if (err) throw err;\n  console.log('The file has been saved!');\n});\n```\n\n`options` が文字列の場合、エンコーディングを指定する:\n\n```js\nimport { writeFile } from 'node:fs';\n\nwriteFile('message.txt', 'Hello Node.js', 'utf8', callback);\n```\n\nコールバックを待たずに同じファイルに対して `fs.writeFile()` を複数回使うのは安全でない。このシナリオでは {@link createWriteStream} が推奨される。\n\n`fs.readFile` と同様に、`fs.writeFile` は渡されたバッファを書き込むために内部的に複数の `write` 呼び出しを行う便宜メソッドである。性能が重要なコードでは {@link createWriteStream} の使用を検討すること。\n\n`AbortSignal` を使って `fs.writeFile()` をキャンセルできる。キャンセルは「ベストエフォート」であり、ある程度のデータはそれでも書き込まれる可能性が高い。\n\n```js\nimport { writeFile } from 'node:fs';\nimport { Buffer } from 'node:buffer';\n\nconst controller = new AbortController();\nconst { signal } = controller;\nconst data = new Uint8Array(Buffer.from('Hello Node.js'));\nwriteFile('message.txt', data, { signal }, (err) => {\n  // When a request is aborted - the callback is called with an AbortError\n});\n// When the request should be aborted\ncontroller.abort();\n```\n\n進行中のリクエストを中断しても、個々のオペレーティングシステムのリクエストは中断されず、`fs.writeFile` が行う内部バッファリングが中断される。",
+      "symbol": "@types/node/fs.d.ts#fs.writeFile",
+      "lang": "ja"
+    },
+    "3a8bf5f7": {
+      "original": "Either the encoding for the file, or an object optionally specifying the encoding, file mode, and flag.\nIf `encoding` is not supplied, the default of `'utf8'` is used.\nIf `mode` is not supplied, the default of `0o666` is used.\nIf `mode` is a string, it is parsed as an octal integer.\nIf `flag` is not supplied, the default of `'w'` is used.",
+      "translated": "ファイルのエンコーディング、またはエンコーディング・ファイルモード・フラグを任意で指定するオブジェクトのいずれか。`encoding` が指定されない場合、既定の `'utf8'` が使われる。`mode` が指定されない場合、既定の `0o666` が使われる。`mode` が文字列の場合、8 進数の整数として解析される。`flag` が指定されない場合、既定の `'w'` が使われる。",
+      "symbol": "@types/node/fs.d.ts#fs.writeFile.__promisify__",
+      "lang": "ja"
+    },
+    "d618453c": {
+      "original": "Returns `undefined`.\n\nThe `mode` option only affects the newly created file. See {@link open} for more details.\n\nFor detailed information, see the documentation of the asynchronous version of\nthis API: {@link writeFile}.",
+      "translated": "`undefined` を返す。\n\n`mode` オプションは新しく作成されたファイルにのみ影響する。詳細は {@link open} を参照。\n\n詳細な情報は、この API の非同期版のドキュメント {@link writeFile} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.writeFileSync",
+      "lang": "ja"
+    },
+    "d52de87c": {
+      "original": "* Extends `stream.Writable`\n\nInstances of `fs.WriteStream` are created and returned using the {@link createWriteStream} function.",
+      "translated": "* `stream.Writable` を継承する\n\n`fs.WriteStream` のインスタンスは、{@link createWriteStream} 関数を使って作成・返却される。",
+      "symbol": "@types/node/fs.d.ts#fs.WriteStream",
+      "lang": "ja"
+    },
+    "254180b9": {
+      "original": "The number of bytes written so far. Does not include data that is still queued\nfor writing.",
+      "translated": "これまでに書き込まれたバイト数。まだ書き込み待ちのキューにあるデータは含まない。",
+      "symbol": "@types/node/fs.d.ts#fs.WriteStream.bytesWritten",
+      "lang": "ja"
+    },
+    "7d314ebf": {
+      "original": "Closes `writeStream`. Optionally accepts a\ncallback that will be executed once the `writeStream`is closed.",
+      "translated": "`writeStream` を閉じる。任意で、`writeStream` が閉じられたときに実行されるコールバックを受け付ける。",
+      "symbol": "@types/node/fs.d.ts#fs.WriteStream.close",
+      "lang": "ja"
+    },
+    "d2d2f4b6": {
+      "original": "The path to the file the stream is writing to as specified in the first\nargument to {@link createWriteStream}. If `path` is passed as a string, then`writeStream.path` will be a string. If `path` is passed as a `Buffer`, then`writeStream.path` will be a\n`Buffer`.",
+      "translated": "{@link createWriteStream} の第 1 引数に指定された、ストリームが書き込み先とするファイルへのパス。`path` が文字列として渡された場合、`writeStream.path` は文字列になる。`path` が `Buffer` として渡された場合、`writeStream.path` は `Buffer` になる。",
+      "symbol": "@types/node/fs.d.ts#fs.WriteStream.path",
+      "lang": "ja"
+    },
+    "c38671df": {
+      "original": "The Keys are events of the WriteStream and the values are the functions that are called when the event is emitted.",
+      "translated": "キーは WriteStream のイベントで、値はイベントが発行されたときに呼ばれる関数である。",
+      "symbol": "@types/node/fs.d.ts#fs.WriteStreamEvents",
+      "lang": "ja"
+    },
+    "b8710265": {
+      "original": "For detailed information, see the documentation of the asynchronous version of\nthis API: {@link write}.",
+      "translated": "詳細な情報は、この API の非同期版のドキュメント {@link write} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.writeSync",
+      "lang": "ja"
+    },
+    "a4184fc8": {
+      "original": "Synchronously writes `string` to the file referenced by the supplied file descriptor, returning the number of bytes written.",
+      "translated": "指定したファイルディスクリプタが参照するファイルに `string` を同期的に書き込み、書き込まれたバイト数を返す。",
+      "symbol": "@types/node/fs.d.ts#fs.writeSync",
+      "lang": "ja"
+    },
+    "c6c35ed0": {
+      "original": "The number of bytes written.",
+      "translated": "書き込まれたバイト数。",
+      "symbol": "@types/node/fs.d.ts#fs.writeSync",
+      "lang": "ja"
+    },
+    "ea54584c": {
+      "original": "Write an array of `ArrayBufferView`s to the file specified by `fd` using `writev()`.\n\n`position` is the offset from the beginning of the file where this data\nshould be written. If `typeof position !== 'number'`, the data will be written\nat the current position.\n\nThe callback will be given three arguments: `err`, `bytesWritten`, and `buffers`. `bytesWritten` is how many bytes were written from `buffers`.\n\nIf this method is `util.promisify()` ed, it returns a promise for an `Object` with `bytesWritten` and `buffers` properties.\n\nIt is unsafe to use `fs.writev()` multiple times on the same file without\nwaiting for the callback. For this scenario, use {@link createWriteStream}.\n\nOn Linux, positional writes don't work when the file is opened in append mode.\nThe kernel ignores the position argument and always appends the data to\nthe end of the file.",
+      "translated": "`writev()` を使って `ArrayBufferView` の配列を `fd` で指定したファイルに書き込む。\n\n`position` は、このデータを書き込むべきファイルの先頭からのオフセットである。`typeof position !== 'number'` の場合、データは現在の位置に書き込まれる。\n\nコールバックには 3 つの引数 `err`・`bytesWritten`・`buffers` が渡される。`bytesWritten` は `buffers` から書き込まれたバイト数である。\n\nこのメソッドが `util.promisify()` された場合、`bytesWritten` と `buffers` プロパティを持つ `Object` のための promise を返す。\n\nコールバックを待たずに同じファイルに対して `fs.writev()` を複数回使うのは安全でない。このシナリオでは {@link createWriteStream} を使うこと。\n\nLinux では、ファイルが追記モードで開かれている場合、位置指定の書き込みは機能しない。カーネルは position 引数を無視し、常にデータをファイルの末尾に追記する。",
+      "symbol": "@types/node/fs.d.ts#fs.writev",
+      "lang": "ja"
+    },
+    "0ecdb918": {
+      "original": "For detailed information, see the documentation of the asynchronous version of\nthis API: {@link writev}.",
+      "translated": "詳細な情報は、この API の非同期版のドキュメント {@link writev} を参照。",
+      "symbol": "@types/node/fs.d.ts#fs.writevSync",
       "lang": "ja"
     },
     "f3935692": {
