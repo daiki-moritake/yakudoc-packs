@@ -1888,6 +1888,186 @@
       "symbol": "@types/node/crypto.d.ts#crypto.hkdf",
       "lang": "ja"
     },
+    "c33e4050": {
+      "original": "The digest algorithm to use.",
+      "translated": "使うダイジェストアルゴリズム。",
+      "symbol": "@types/node/crypto.d.ts#crypto.hkdf",
+      "lang": "ja"
+    },
+    "3082de97": {
+      "original": "The input keying material. Must be provided but can be zero-length.",
+      "translated": "入力鍵材料。指定しなければならないが、長さ 0 でよい。",
+      "symbol": "@types/node/crypto.d.ts#crypto.hkdf",
+      "lang": "ja"
+    },
+    "7d6ed041": {
+      "original": "The length of the key to generate. Must be greater than 0. The maximum allowable value is `255` times the number of bytes produced by the selected digest function (e.g. `sha512`\ngenerates 64-byte hashes, making the maximum HKDF output 16320 bytes).",
+      "translated": "生成する鍵の長さ。0 より大きくなければならない。許可される最大値は、選択したダイジェスト関数が生成するバイト数の `255` 倍である(たとえば `sha512` は 64 バイトのハッシュを生成するため、HKDF の最大出力は 16320 バイトになる)。",
+      "symbol": "@types/node/crypto.d.ts#crypto.hkdf",
+      "lang": "ja"
+    },
+    "91722be2": {
+      "original": "The salt value. Must be provided but can be zero-length.",
+      "translated": "ソルト値。指定しなければならないが、長さ 0 でよい。",
+      "symbol": "@types/node/crypto.d.ts#crypto.hkdf",
+      "lang": "ja"
+    },
+    "42a721e4": {
+      "original": "Provides a synchronous HKDF key derivation function as defined in RFC 5869\\. The\ngiven `ikm`, `salt` and `info` are used with the `digest` to derive a key of `keylen` bytes.\n\nThe successfully generated `derivedKey` will be returned as an [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer).\n\nAn error will be thrown if any of the input arguments specify invalid values or\ntypes, or if the derived key cannot be generated.\n\n```js\nimport { Buffer } from 'node:buffer';\nconst {\n  hkdfSync,\n} = await import('node:crypto');\n\nconst derivedKey = hkdfSync('sha512', 'key', 'salt', 'info', 64);\nconsole.log(Buffer.from(derivedKey).toString('hex'));  // '24156e2...5391653'\n```",
+      "translated": "RFC 5869 で定義された同期の HKDF 鍵導出関数を提供する。指定した `ikm`・`salt`・`info` が `digest` とともに使われ、`keylen` バイトの鍵を導出する。\n\n正常に生成された `derivedKey` は [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) として返される。\n\n入力引数のいずれかが無効な値や型を指定した場合、または導出鍵を生成できない場合、エラーが投げられる。\n\n```js\nimport { Buffer } from 'node:buffer';\nconst {\n  hkdfSync,\n} = await import('node:crypto');\n\nconst derivedKey = hkdfSync('sha512', 'key', 'salt', 'info', 64);\nconsole.log(Buffer.from(derivedKey).toString('hex'));  // '24156e2...5391653'\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.hkdfSync",
+      "lang": "ja"
+    },
+    "e06b1670": {
+      "original": "Since v20.13.0 Calling `Hmac` class directly with `Hmac()` or `new Hmac()` is deprecated due to being internals, not intended for public use. Please use the {@link createHmac} method to create Hmac instances.",
+      "translated": "v20.13.0 以降。`Hmac()` または `new Hmac()` で `Hmac` クラスを直接呼ぶことは、内部用であり公開使用を意図していないため非推奨である。Hmac インスタンスを作成するには {@link createHmac} メソッドを使うこと。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Hmac",
+      "lang": "ja"
+    },
+    "f0d17ec0": {
+      "original": "The `Hmac` class is a utility for creating cryptographic HMAC digests. It can\nbe used in one of two ways:\n\n* As a `stream` that is both readable and writable, where data is written\nto produce a computed HMAC digest on the readable side, or\n* Using the `hmac.update()` and `hmac.digest()` methods to produce the\ncomputed HMAC digest.\n\nThe {@link createHmac} method is used to create `Hmac` instances. `Hmac`objects are not to be created directly using the `new` keyword.\n\nExample: Using `Hmac` objects as streams:\n\n```js\nconst {\n  createHmac,\n} = await import('node:crypto');\n\nconst hmac = createHmac('sha256', 'a secret');\n\nhmac.on('readable', () => {\n  // Only one element is going to be produced by the\n  // hash stream.\n  const data = hmac.read();\n  if (data) {\n    console.log(data.toString('hex'));\n    // Prints:\n    //   7fd04df92f636fd450bc841c9418e5825c17f33ad9c87c518115a45971f7f77e\n  }\n});\n\nhmac.write('some data to hash');\nhmac.end();\n```\n\nExample: Using `Hmac` and piped streams:\n\n```js\nimport { createReadStream } from 'node:fs';\nimport { stdout } from 'node:process';\nconst {\n  createHmac,\n} = await import('node:crypto');\n\nconst hmac = createHmac('sha256', 'a secret');\n\nconst input = createReadStream('test.js');\ninput.pipe(hmac).pipe(stdout);\n```\n\nExample: Using the `hmac.update()` and `hmac.digest()` methods:\n\n```js\nconst {\n  createHmac,\n} = await import('node:crypto');\n\nconst hmac = createHmac('sha256', 'a secret');\n\nhmac.update('some data to hash');\nconsole.log(hmac.digest('hex'));\n// Prints:\n//   7fd04df92f636fd450bc841c9418e5825c17f33ad9c87c518115a45971f7f77e\n```",
+      "translated": "`Hmac` クラスは、暗号学的 HMAC ダイジェストを作成するためのユーティリティである。2 つの方法のいずれかで使える:\n\n* 読み取りと書き込みの両方が可能な `stream` として。データを書き込むと、読み取り側で計算された HMAC ダイジェストが生成される。あるいは\n* `hmac.update()` と `hmac.digest()` メソッドを使って計算された HMAC ダイジェストを生成する。\n\n{@link createHmac} メソッドは `Hmac` インスタンスを作成するために使われる。`Hmac` オブジェクトは `new` キーワードを使って直接作成するものではない。\n\n例: `Hmac` オブジェクトをストリームとして使う:\n\n```js\nconst {\n  createHmac,\n} = await import('node:crypto');\n\nconst hmac = createHmac('sha256', 'a secret');\n\nhmac.on('readable', () => {\n  // Only one element is going to be produced by the\n  // hash stream.\n  const data = hmac.read();\n  if (data) {\n    console.log(data.toString('hex'));\n    // Prints:\n    //   7fd04df92f636fd450bc841c9418e5825c17f33ad9c87c518115a45971f7f77e\n  }\n});\n\nhmac.write('some data to hash');\nhmac.end();\n```\n\n例: `Hmac` とパイプされたストリームを使う:\n\n```js\nimport { createReadStream } from 'node:fs';\nimport { stdout } from 'node:process';\nconst {\n  createHmac,\n} = await import('node:crypto');\n\nconst hmac = createHmac('sha256', 'a secret');\n\nconst input = createReadStream('test.js');\ninput.pipe(hmac).pipe(stdout);\n```\n\n例: `hmac.update()` と `hmac.digest()` メソッドを使う:\n\n```js\nconst {\n  createHmac,\n} = await import('node:crypto');\n\nconst hmac = createHmac('sha256', 'a secret');\n\nhmac.update('some data to hash');\nconsole.log(hmac.digest('hex'));\n// Prints:\n//   7fd04df92f636fd450bc841c9418e5825c17f33ad9c87c518115a45971f7f77e\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.Hmac",
+      "lang": "ja"
+    },
+    "e703b915": {
+      "original": "Calculates the HMAC digest of all of the data passed using `hmac.update()`.\nIf `encoding` is\nprovided a string is returned; otherwise a `Buffer` is returned;\n\nThe `Hmac` object can not be used again after `hmac.digest()` has been\ncalled. Multiple calls to `hmac.digest()` will result in an error being thrown.",
+      "translated": "`hmac.update()` を使って渡されたすべてのデータの HMAC ダイジェストを計算する。`encoding` が指定された場合、文字列が返される。そうでなければ `Buffer` が返される。\n\n`hmac.digest()` が呼ばれた後、`Hmac` オブジェクトは再び使えない。`hmac.digest()` を複数回呼ぶとエラーが投げられる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Hmac.digest",
+      "lang": "ja"
+    },
+    "2044b2a0": {
+      "original": "Updates the `Hmac` content with the given `data`, the encoding of which\nis given in `inputEncoding`.\nIf `encoding` is not provided, and the `data` is a string, an\nencoding of `'utf8'` is enforced. If `data` is a `Buffer`, `TypedArray`, or`DataView`, then `inputEncoding` is ignored.\n\nThis can be called many times with new data as it is streamed.",
+      "translated": "指定した `data` で `Hmac` の内容を更新する。そのエンコーディングは `inputEncoding` で指定される。`encoding` が指定されず `data` が文字列の場合、`'utf8'` のエンコーディングが強制される。`data` が `Buffer`・`TypedArray`・`DataView` の場合、`inputEncoding` は無視される。\n\nこれは、ストリーミングされる新しいデータで何度も呼べる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Hmac.update",
+      "lang": "ja"
+    },
+    "4bf46d53": {
+      "original": "Node.js uses a `KeyObject` class to represent a symmetric or asymmetric key,\nand each kind of key exposes different functions. The {@link createSecretKey}, {@link createPublicKey} and {@link createPrivateKey} methods are used to create `KeyObject`instances. `KeyObject`\nobjects are not to be created directly using the `new`keyword.\n\nMost applications should consider using the new `KeyObject` API instead of\npassing keys as strings or `Buffer`s due to improved security features.\n\n`KeyObject` instances can be passed to other threads via `postMessage()`.\nThe receiver obtains a cloned `KeyObject`, and the `KeyObject` does not need to\nbe listed in the `transferList` argument.",
+      "translated": "Node.js は対称鍵または非対称鍵を表すために `KeyObject` クラスを使い、それぞれの種類の鍵は異なる関数を公開する。{@link createSecretKey}・{@link createPublicKey}・{@link createPrivateKey} メソッドは `KeyObject` インスタンスを作成するために使われる。`KeyObject` オブジェクトは `new` キーワードを使って直接作成するものではない。\n\nほとんどのアプリケーションは、改善されたセキュリティ機能のため、鍵を文字列や `Buffer` として渡す代わりに新しい `KeyObject` API の使用を検討すべきである。\n\n`KeyObject` インスタンスは `postMessage()` を介して他のスレッドに渡せる。受信側はクローンされた `KeyObject` を得るが、`KeyObject` を `transferList` 引数に列挙する必要はない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.KeyObject",
+      "lang": "ja"
+    },
+    "2679d733": {
+      "original": "This property exists only on asymmetric keys. Depending on the type of the key,\nthis object contains information about the key. None of the information obtained\nthrough this property can be used to uniquely identify a key or to compromise\nthe security of the key.\n\nFor RSA-PSS keys, if the key material contains a `RSASSA-PSS-params` sequence,\nthe `hashAlgorithm`, `mgf1HashAlgorithm`, and `saltLength` properties will be\nset.\n\nOther key details might be exposed via this API using additional attributes.",
+      "translated": "このプロパティは非対称鍵にのみ存在する。鍵の型に応じて、このオブジェクトには鍵に関する情報が含まれる。このプロパティを通じて得られる情報のいずれも、鍵を一意に識別したり、鍵のセキュリティを損なったりするために使えるものではない。\n\nRSA-PSS 鍵では、鍵材料に `RSASSA-PSS-params` シーケンスが含まれる場合、`hashAlgorithm`・`mgf1HashAlgorithm`・`saltLength` プロパティが設定される。\n\n追加の属性を使って、この API を通じて他の鍵の詳細が公開されることがある。",
+      "symbol": "@types/node/crypto.d.ts#crypto.KeyObject.asymmetricKeyDetails",
+      "lang": "ja"
+    },
+    "a787291c": {
+      "original": "For asymmetric keys, this property represents the type of the key. Supported key\ntypes are:\n\n* `'rsa'` (OID 1.2.840.113549.1.1.1)\n* `'rsa-pss'` (OID 1.2.840.113549.1.1.10)\n* `'dsa'` (OID 1.2.840.10040.4.1)\n* `'ec'` (OID 1.2.840.10045.2.1)\n* `'x25519'` (OID 1.3.101.110)\n* `'x448'` (OID 1.3.101.111)\n* `'ed25519'` (OID 1.3.101.112)\n* `'ed448'` (OID 1.3.101.113)\n* `'dh'` (OID 1.2.840.113549.1.3.1)\n\nThis property is `undefined` for unrecognized `KeyObject` types and symmetric\nkeys.",
+      "translated": "非対称鍵の場合、このプロパティは鍵の型を表す。サポートされる鍵の型は次のとおり:\n\n* `'rsa'`(OID 1.2.840.113549.1.1.1)\n* `'rsa-pss'`(OID 1.2.840.113549.1.1.10)\n* `'dsa'`(OID 1.2.840.10040.4.1)\n* `'ec'`(OID 1.2.840.10045.2.1)\n* `'x25519'`(OID 1.3.101.110)\n* `'x448'`(OID 1.3.101.111)\n* `'ed25519'`(OID 1.3.101.112)\n* `'ed448'`(OID 1.3.101.113)\n* `'dh'`(OID 1.2.840.113549.1.3.1)\n\nこのプロパティは、認識されない `KeyObject` の型と対称鍵の場合は `undefined` である。",
+      "symbol": "@types/node/crypto.d.ts#crypto.KeyObject.asymmetricKeyType",
+      "lang": "ja"
+    },
+    "df8fe22c": {
+      "original": "A `KeyObject` with which to compare `keyObject`.",
+      "translated": "`keyObject` と比較する `KeyObject`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.KeyObject.equals",
+      "lang": "ja"
+    },
+    "3be51fbd": {
+      "original": "Returns `true` or `false` depending on whether the keys have exactly the same\ntype, value, and parameters. This method is not [constant time](https://en.wikipedia.org/wiki/Timing_attack).",
+      "translated": "鍵がまったく同じ型・値・パラメーターを持つかどうかに応じて `true` または `false` を返す。このメソッドは[定数時間](https://en.wikipedia.org/wiki/Timing_attack)ではない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.KeyObject.equals",
+      "lang": "ja"
+    },
+    "2ab6b4e5": {
+      "original": "For symmetric keys, the following encoding options can be used:\n\nFor public keys, the following encoding options can be used:\n\nFor private keys, the following encoding options can be used:\n\nThe result type depends on the selected encoding format, when PEM the\nresult is a string, when DER it will be a buffer containing the data\nencoded as DER, when [JWK](https://tools.ietf.org/html/rfc7517) it will be an object.\n\nWhen [JWK](https://tools.ietf.org/html/rfc7517) encoding format was selected, all other encoding options are\nignored.\n\nPKCS#1, SEC1, and PKCS#8 type keys can be encrypted by using a combination of\nthe `cipher` and `format` options. The PKCS#8 `type` can be used with any`format` to encrypt any key algorithm (RSA, EC, or DH) by specifying a`cipher`. PKCS#1 and SEC1 can only be\nencrypted by specifying a `cipher`when the PEM `format` is used. For maximum compatibility, use PKCS#8 for\nencrypted private keys. Since PKCS#8 defines its own\nencryption mechanism, PEM-level encryption is not supported when encrypting\na PKCS#8 key. See [RFC 5208](https://www.rfc-editor.org/rfc/rfc5208.txt) for PKCS#8 encryption and [RFC 1421](https://www.rfc-editor.org/rfc/rfc1421.txt) for\nPKCS#1 and SEC1 encryption.",
+      "translated": "対称鍵の場合、次のエンコードオプションを使える:\n\n公開鍵の場合、次のエンコードオプションを使える:\n\n秘密鍵の場合、次のエンコードオプションを使える:\n\n結果の型は選択したエンコード形式に依存する。PEM の場合は結果が文字列になり、DER の場合は DER としてエンコードされたデータを含むバッファになり、[JWK](https://tools.ietf.org/html/rfc7517) の場合はオブジェクトになる。\n\n[JWK](https://tools.ietf.org/html/rfc7517) エンコード形式が選択された場合、他のすべてのエンコードオプションは無視される。\n\nPKCS#1・SEC1・PKCS#8 型の鍵は、`cipher` と `format` オプションの組み合わせを使って暗号化できる。PKCS#8 の `type` は、`cipher` を指定することで任意の鍵アルゴリズム(RSA・EC・DH)を暗号化するために任意の `format` で使える。PKCS#1 と SEC1 は、PEM `format` が使われるときに `cipher` を指定することでのみ暗号化できる。最大の互換性のためには、暗号化された秘密鍵には PKCS#8 を使うこと。PKCS#8 は独自の暗号化機構を定義するため、PKCS#8 鍵を暗号化する際は PEM レベルの暗号化はサポートされない。PKCS#8 暗号化については [RFC 5208](https://www.rfc-editor.org/rfc/rfc5208.txt)、PKCS#1 と SEC1 暗号化については [RFC 1421](https://www.rfc-editor.org/rfc/rfc1421.txt) を参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.KeyObject.export",
+      "lang": "ja"
+    },
+    "a85a5e7d": {
+      "original": "Example: Converting a `CryptoKey` instance to a `KeyObject`:\n\n```js\nconst { KeyObject } = await import('node:crypto');\nconst { subtle } = globalThis.crypto;\n\nconst key = await subtle.generateKey({\n  name: 'HMAC',\n  hash: 'SHA-256',\n  length: 256,\n}, true, ['sign', 'verify']);\n\nconst keyObject = KeyObject.from(key);\nconsole.log(keyObject.symmetricKeySize);\n// Prints: 32 (symmetric key size in bytes)\n```",
+      "translated": "例: `CryptoKey` インスタンスを `KeyObject` に変換する:\n\n```js\nconst { KeyObject } = await import('node:crypto');\nconst { subtle } = globalThis.crypto;\n\nconst key = await subtle.generateKey({\n  name: 'HMAC',\n  hash: 'SHA-256',\n  length: 256,\n}, true, ['sign', 'verify']);\n\nconst keyObject = KeyObject.from(key);\nconsole.log(keyObject.symmetricKeySize);\n// Prints: 32 (symmetric key size in bytes)\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.KeyObject.from",
+      "lang": "ja"
+    },
+    "4838a9e8": {
+      "original": "For secret keys, this property represents the size of the key in bytes. This\nproperty is `undefined` for asymmetric keys.",
+      "translated": "秘密鍵の場合、このプロパティは鍵のサイズをバイト単位で表す。このプロパティは非対称鍵の場合は `undefined` である。",
+      "symbol": "@types/node/crypto.d.ts#crypto.KeyObject.symmetricKeySize",
+      "lang": "ja"
+    },
+    "14bd4cfe": {
+      "original": "Converts a `KeyObject` instance to a `CryptoKey`.",
+      "translated": "`KeyObject` インスタンスを `CryptoKey` に変換する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.KeyObject.toCryptoKey",
+      "lang": "ja"
+    },
+    "6f4ec790": {
+      "original": "Depending on the type of this `KeyObject`, this property is either`'secret'` for secret (symmetric) keys, `'public'` for public (asymmetric) keys\nor `'private'` for private (asymmetric) keys.",
+      "translated": "この `KeyObject` の型に応じて、このプロパティは、秘密(対称)鍵の場合は `'secret'`、公開(非対称)鍵の場合は `'public'`、秘密(非対称)鍵の場合は `'private'` のいずれかである。",
+      "symbol": "@types/node/crypto.d.ts#crypto.KeyObject.type",
+      "lang": "ja"
+    },
+    "8ee50067": {
+      "original": "Provides an asynchronous Password-Based Key Derivation Function 2 (PBKDF2)\nimplementation. A selected HMAC digest algorithm specified by `digest` is\napplied to derive a key of the requested byte length (`keylen`) from the `password`, `salt` and `iterations`.\n\nThe supplied `callback` function is called with two arguments: `err` and `derivedKey`. If an error occurs while deriving the key, `err` will be set;\notherwise `err` will be `null`. By default, the successfully generated `derivedKey` will be passed to the callback as a `Buffer`. An error will be\nthrown if any of the input arguments specify invalid values or types.\n\nThe `iterations` argument must be a number set as high as possible. The\nhigher the number of iterations, the more secure the derived key will be,\nbut will take a longer amount of time to complete.\n\nThe `salt` should be as unique as possible. It is recommended that a salt is\nrandom and at least 16 bytes long. See [NIST SP 800-132](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf) for details.\n\nWhen passing strings for `password` or `salt`, please consider `caveats when using strings as inputs to cryptographic APIs`.\n\n```js\nconst {\n  pbkdf2,\n} = await import('node:crypto');\n\npbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, derivedKey) => {\n  if (err) throw err;\n  console.log(derivedKey.toString('hex'));  // '3745e48...08d59ae'\n});\n```\n\nAn array of supported digest functions can be retrieved using {@link getHashes}.\n\nThis API uses libuv's threadpool, which can have surprising and\nnegative performance implications for some applications; see the `UV_THREADPOOL_SIZE` documentation for more information.",
+      "translated": "非同期のパスワードベース鍵導出関数 2(PBKDF2)実装を提供する。`digest` で指定された選択済みの HMAC ダイジェストアルゴリズムが適用され、`password`・`salt`・`iterations` から要求されたバイト長(`keylen`)の鍵を導出する。\n\n指定した `callback` 関数は 2 つの引数 `err` と `derivedKey` とともに呼ばれる。鍵の導出中にエラーが発生した場合、`err` が設定される。そうでなければ `err` は `null` になる。既定では、正常に生成された `derivedKey` は `Buffer` としてコールバックに渡される。入力引数のいずれかが無効な値や型を指定した場合、エラーが投げられる。\n\n`iterations` 引数は、できるだけ高く設定された数値でなければならない。反復回数が多いほど導出鍵は安全になるが、完了により長い時間がかかる。\n\n`salt` はできるだけ一意であるべきである。ソルトはランダムで少なくとも 16 バイト長であることが推奨される。詳細は [NIST SP 800-132](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf) を参照。\n\n`password` や `salt` に文字列を渡す場合、`caveats when using strings as inputs to cryptographic APIs` を考慮すること。\n\n```js\nconst {\n  pbkdf2,\n} = await import('node:crypto');\n\npbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, derivedKey) => {\n  if (err) throw err;\n  console.log(derivedKey.toString('hex'));  // '3745e48...08d59ae'\n});\n```\n\nサポートされているダイジェスト関数の配列は {@link getHashes} を使って取得できる。\n\nこの API は libuv のスレッドプールを使う。これは一部のアプリケーションにとって意外で悪い性能上の影響を与えることがある。詳細は `UV_THREADPOOL_SIZE` のドキュメントを参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.pbkdf2",
+      "lang": "ja"
+    },
+    "723242c1": {
+      "original": "Provides a synchronous Password-Based Key Derivation Function 2 (PBKDF2)\nimplementation. A selected HMAC digest algorithm specified by `digest` is\napplied to derive a key of the requested byte length (`keylen`) from the `password`, `salt` and `iterations`.\n\nIf an error occurs an `Error` will be thrown, otherwise the derived key will be\nreturned as a `Buffer`.\n\nThe `iterations` argument must be a number set as high as possible. The\nhigher the number of iterations, the more secure the derived key will be,\nbut will take a longer amount of time to complete.\n\nThe `salt` should be as unique as possible. It is recommended that a salt is\nrandom and at least 16 bytes long. See [NIST SP 800-132](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf) for details.\n\nWhen passing strings for `password` or `salt`, please consider `caveats when using strings as inputs to cryptographic APIs`.\n\n```js\nconst {\n  pbkdf2Sync,\n} = await import('node:crypto');\n\nconst key = pbkdf2Sync('secret', 'salt', 100000, 64, 'sha512');\nconsole.log(key.toString('hex'));  // '3745e48...08d59ae'\n```\n\nAn array of supported digest functions can be retrieved using {@link getHashes}.",
+      "translated": "同期のパスワードベース鍵導出関数 2(PBKDF2)実装を提供する。`digest` で指定された選択済みの HMAC ダイジェストアルゴリズムが適用され、`password`・`salt`・`iterations` から要求されたバイト長(`keylen`)の鍵を導出する。\n\nエラーが発生した場合、`Error` が投げられる。そうでなければ、導出鍵が `Buffer` として返される。\n\n`iterations` 引数は、できるだけ高く設定された数値でなければならない。反復回数が多いほど導出鍵は安全になるが、完了により長い時間がかかる。\n\n`salt` はできるだけ一意であるべきである。ソルトはランダムで少なくとも 16 バイト長であることが推奨される。詳細は [NIST SP 800-132](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf) を参照。\n\n`password` や `salt` に文字列を渡す場合、`caveats when using strings as inputs to cryptographic APIs` を考慮すること。\n\n```js\nconst {\n  pbkdf2Sync,\n} = await import('node:crypto');\n\nconst key = pbkdf2Sync('secret', 'salt', 100000, 64, 'sha512');\nconsole.log(key.toString('hex'));  // '3745e48...08d59ae'\n```\n\nサポートされているダイジェスト関数の配列は {@link getHashes} を使って取得できる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.pbkdf2Sync",
+      "lang": "ja"
+    },
+    "db48c801": {
+      "original": "Decrypts `buffer` with `privateKey`. `buffer` was previously encrypted using\nthe corresponding public key, for example using {@link publicEncrypt}.\n\nIf `privateKey` is not a `KeyObject`, this function behaves as if `privateKey` had been passed to {@link createPrivateKey}. If it is an\nobject, the `padding` property can be passed. Otherwise, this function uses `RSA_PKCS1_OAEP_PADDING`.",
+      "translated": "`buffer` を `privateKey` で復号する。`buffer` は以前、対応する公開鍵を使って(たとえば {@link publicEncrypt} を使って)暗号化されたものである。\n\n`privateKey` が `KeyObject` でない場合、この関数は `privateKey` が {@link createPrivateKey} に渡されたかのように動作する。オブジェクトの場合、`padding` プロパティを渡せる。そうでなければ、この関数は `RSA_PKCS1_OAEP_PADDING` を使う。",
+      "symbol": "@types/node/crypto.d.ts#crypto.privateDecrypt",
+      "lang": "ja"
+    },
+    "abd38e4c": {
+      "original": "Encrypts `buffer` with `privateKey`. The returned data can be decrypted using\nthe corresponding public key, for example using {@link publicDecrypt}.\n\nIf `privateKey` is not a `KeyObject`, this function behaves as if `privateKey` had been passed to {@link createPrivateKey}. If it is an\nobject, the `padding` property can be passed. Otherwise, this function uses `RSA_PKCS1_PADDING`.",
+      "translated": "`buffer` を `privateKey` で暗号化する。返されるデータは、対応する公開鍵を使って(たとえば {@link publicDecrypt} を使って)復号できる。\n\n`privateKey` が `KeyObject` でない場合、この関数は `privateKey` が {@link createPrivateKey} に渡されたかのように動作する。オブジェクトの場合、`padding` プロパティを渡せる。そうでなければ、この関数は `RSA_PKCS1_PADDING` を使う。",
+      "symbol": "@types/node/crypto.d.ts#crypto.privateEncrypt",
+      "lang": "ja"
+    },
+    "3ea6c9ee": {
+      "original": "Decrypts `buffer` with `key`.`buffer` was previously encrypted using\nthe corresponding private key, for example using {@link privateEncrypt}.\n\nIf `key` is not a `KeyObject`, this function behaves as if `key` had been passed to {@link createPublicKey}. If it is an\nobject, the `padding` property can be passed. Otherwise, this function uses `RSA_PKCS1_PADDING`.\n\nBecause RSA public keys can be derived from private keys, a private key may\nbe passed instead of a public key.",
+      "translated": "`buffer` を `key` で復号する。`buffer` は以前、対応する秘密鍵を使って(たとえば {@link privateEncrypt} を使って)暗号化されたものである。\n\n`key` が `KeyObject` でない場合、この関数は `key` が {@link createPublicKey} に渡されたかのように動作する。オブジェクトの場合、`padding` プロパティを渡せる。そうでなければ、この関数は `RSA_PKCS1_PADDING` を使う。\n\nRSA 公開鍵は秘密鍵から導出できるため、公開鍵の代わりに秘密鍵を渡してもよい。",
+      "symbol": "@types/node/crypto.d.ts#crypto.publicDecrypt",
+      "lang": "ja"
+    },
+    "3ff44ab7": {
+      "original": "Encrypts the content of `buffer` with `key` and returns a new `Buffer` with encrypted content. The returned data can be decrypted using\nthe corresponding private key, for example using {@link privateDecrypt}.\n\nIf `key` is not a `KeyObject`, this function behaves as if `key` had been passed to {@link createPublicKey}. If it is an\nobject, the `padding` property can be passed. Otherwise, this function uses `RSA_PKCS1_OAEP_PADDING`.\n\nBecause RSA public keys can be derived from private keys, a private key may\nbe passed instead of a public key.",
+      "translated": "`buffer` の内容を `key` で暗号化し、暗号化された内容を持つ新しい `Buffer` を返す。返されるデータは、対応する秘密鍵を使って(たとえば {@link privateDecrypt} を使って)復号できる。\n\n`key` が `KeyObject` でない場合、この関数は `key` が {@link createPublicKey} に渡されたかのように動作する。オブジェクトの場合、`padding` プロパティを渡せる。そうでなければ、この関数は `RSA_PKCS1_OAEP_PADDING` を使う。\n\nRSA 公開鍵は秘密鍵から導出できるため、公開鍵の代わりに秘密鍵を渡してもよい。",
+      "symbol": "@types/node/crypto.d.ts#crypto.publicEncrypt",
+      "lang": "ja"
+    },
+    "618a8c3e": {
+      "original": "Generates cryptographically strong pseudorandom data. The `size` argument\nis a number indicating the number of bytes to generate.\n\nIf a `callback` function is provided, the bytes are generated asynchronously\nand the `callback` function is invoked with two arguments: `err` and `buf`.\nIf an error occurs, `err` will be an `Error` object; otherwise it is `null`. The `buf` argument is a `Buffer` containing the generated bytes.\n\n```js\n// Asynchronous\nconst {\n  randomBytes,\n} = await import('node:crypto');\n\nrandomBytes(256, (err, buf) => {\n  if (err) throw err;\n  console.log(`${buf.length} bytes of random data: ${buf.toString('hex')}`);\n});\n```\n\nIf the `callback` function is not provided, the random bytes are generated\nsynchronously and returned as a `Buffer`. An error will be thrown if\nthere is a problem generating the bytes.\n\n```js\n// Synchronous\nconst {\n  randomBytes,\n} = await import('node:crypto');\n\nconst buf = randomBytes(256);\nconsole.log(\n  `${buf.length} bytes of random data: ${buf.toString('hex')}`);\n```\n\nThe `crypto.randomBytes()` method will not complete until there is\nsufficient entropy available.\nThis should normally never take longer than a few milliseconds. The only time\nwhen generating the random bytes may conceivably block for a longer period of\ntime is right after boot, when the whole system is still low on entropy.\n\nThis API uses libuv's threadpool, which can have surprising and\nnegative performance implications for some applications; see the `UV_THREADPOOL_SIZE` documentation for more information.\n\nThe asynchronous version of `crypto.randomBytes()` is carried out in a single\nthreadpool request. To minimize threadpool task length variation, partition\nlarge `randomBytes` requests when doing so as part of fulfilling a client\nrequest.",
+      "translated": "暗号学的に強い擬似乱数データを生成する。`size` 引数は生成するバイト数を示す数値である。\n\n`callback` 関数が指定された場合、バイトは非同期に生成され、`callback` 関数は 2 つの引数 `err` と `buf` とともに呼ばれる。エラーが発生した場合、`err` は `Error` オブジェクトになる。そうでなければ `null` である。`buf` 引数は生成されたバイトを含む `Buffer` である。\n\n```js\n// Asynchronous\nconst {\n  randomBytes,\n} = await import('node:crypto');\n\nrandomBytes(256, (err, buf) => {\n  if (err) throw err;\n  console.log(`${buf.length} bytes of random data: ${buf.toString('hex')}`);\n});\n```\n\n`callback` 関数が指定されない場合、ランダムバイトは同期的に生成され、`Buffer` として返される。バイトの生成に問題がある場合、エラーが投げられる。\n\n```js\n// Synchronous\nconst {\n  randomBytes,\n} = await import('node:crypto');\n\nconst buf = randomBytes(256);\nconsole.log(\n  `${buf.length} bytes of random data: ${buf.toString('hex')}`);\n```\n\n`crypto.randomBytes()` メソッドは、十分なエントロピーが利用可能になるまで完了しない。これは通常、数ミリ秒より長くかかることはないはずである。ランダムバイトの生成がより長い期間ブロックし得る唯一の場面は、システム全体がまだエントロピー不足であるブート直後である。\n\nこの API は libuv のスレッドプールを使う。これは一部のアプリケーションにとって意外で悪い性能上の影響を与えることがある。詳細は `UV_THREADPOOL_SIZE` のドキュメントを参照。\n\n`crypto.randomBytes()` の非同期版は単一のスレッドプールリクエストで実行される。スレッドプールのタスク長のばらつきを最小化するため、クライアントリクエストの一部として行う場合は大きな `randomBytes` リクエストを分割すること。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomBytes",
+      "lang": "ja"
+    },
+    "e0784c94": {
+      "original": "if the `callback` function is not provided.",
+      "translated": "`callback` 関数が指定されない場合。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomBytes",
+      "lang": "ja"
+    },
+    "d8ec8a0c": {
+      "original": "The number of bytes to generate. The `size` must not be larger than `2**31 - 1`.",
+      "translated": "生成するバイト数。`size` は `2**31 - 1` より大きくてはならない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomBytes",
+      "lang": "ja"
+    },
+    "5ceb675b": {
+      "original": "`function(err, buf) {}`.",
+      "translated": "`function(err, buf) {}`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomFill",
+      "lang": "ja"
+    },
+    "7567508c": {
+      "original": "This function is similar to {@link randomBytes} but requires the first\nargument to be a `Buffer` that will be filled. It also\nrequires that a callback is passed in.\n\nIf the `callback` function is not provided, an error will be thrown.\n\n```js\nimport { Buffer } from 'node:buffer';\nconst { randomFill } = await import('node:crypto');\n\nconst buf = Buffer.alloc(10);\nrandomFill(buf, (err, buf) => {\n  if (err) throw err;\n  console.log(buf.toString('hex'));\n});\n\nrandomFill(buf, 5, (err, buf) => {\n  if (err) throw err;\n  console.log(buf.toString('hex'));\n});\n\n// The above is equivalent to the following:\nrandomFill(buf, 5, 5, (err, buf) => {\n  if (err) throw err;\n  console.log(buf.toString('hex'));\n});\n```\n\nAny `ArrayBuffer`, `TypedArray`, or `DataView` instance may be passed as `buffer`.\n\nWhile this includes instances of `Float32Array` and `Float64Array`, this\nfunction should not be used to generate random floating-point numbers. The\nresult may contain `+Infinity`, `-Infinity`, and `NaN`, and even if the array\ncontains finite numbers only, they are not drawn from a uniform random\ndistribution and have no meaningful lower or upper bounds.\n\n```js\nimport { Buffer } from 'node:buffer';\nconst { randomFill } = await import('node:crypto');\n\nconst a = new Uint32Array(10);\nrandomFill(a, (err, buf) => {\n  if (err) throw err;\n  console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)\n    .toString('hex'));\n});\n\nconst b = new DataView(new ArrayBuffer(10));\nrandomFill(b, (err, buf) => {\n  if (err) throw err;\n  console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)\n    .toString('hex'));\n});\n\nconst c = new ArrayBuffer(10);\nrandomFill(c, (err, buf) => {\n  if (err) throw err;\n  console.log(Buffer.from(buf).toString('hex'));\n});\n```\n\nThis API uses libuv's threadpool, which can have surprising and\nnegative performance implications for some applications; see the `UV_THREADPOOL_SIZE` documentation for more information.\n\nThe asynchronous version of `crypto.randomFill()` is carried out in a single\nthreadpool request. To minimize threadpool task length variation, partition\nlarge `randomFill` requests when doing so as part of fulfilling a client\nrequest.",
+      "translated": "この関数は {@link randomBytes} に似ているが、第 1 引数が、埋められる `Buffer` であることを要求する。また、コールバックが渡されることも要求する。\n\n`callback` 関数が指定されない場合、エラーが投げられる。\n\n```js\nimport { Buffer } from 'node:buffer';\nconst { randomFill } = await import('node:crypto');\n\nconst buf = Buffer.alloc(10);\nrandomFill(buf, (err, buf) => {\n  if (err) throw err;\n  console.log(buf.toString('hex'));\n});\n\nrandomFill(buf, 5, (err, buf) => {\n  if (err) throw err;\n  console.log(buf.toString('hex'));\n});\n\n// The above is equivalent to the following:\nrandomFill(buf, 5, 5, (err, buf) => {\n  if (err) throw err;\n  console.log(buf.toString('hex'));\n});\n```\n\n任意の `ArrayBuffer`・`TypedArray`・`DataView` インスタンスを `buffer` として渡せる。\n\nこれには `Float32Array` と `Float64Array` のインスタンスも含まれるが、この関数はランダムな浮動小数点数を生成するために使うべきではない。結果には `+Infinity`・`-Infinity`・`NaN` が含まれることがあり、配列が有限の数値のみを含む場合でも、それらは一様なランダム分布から抽出されておらず、意味のある下限や上限を持たない。\n\n```js\nimport { Buffer } from 'node:buffer';\nconst { randomFill } = await import('node:crypto');\n\nconst a = new Uint32Array(10);\nrandomFill(a, (err, buf) => {\n  if (err) throw err;\n  console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)\n    .toString('hex'));\n});\n\nconst b = new DataView(new ArrayBuffer(10));\nrandomFill(b, (err, buf) => {\n  if (err) throw err;\n  console.log(Buffer.from(buf.buffer, buf.byteOffset, buf.byteLength)\n    .toString('hex'));\n});\n\nconst c = new ArrayBuffer(10);\nrandomFill(c, (err, buf) => {\n  if (err) throw err;\n  console.log(Buffer.from(buf).toString('hex'));\n});\n```\n\nこの API は libuv のスレッドプールを使う。これは一部のアプリケーションにとって意外で悪い性能上の影響を与えることがある。詳細は `UV_THREADPOOL_SIZE` のドキュメントを参照。\n\n`crypto.randomFill()` の非同期版は単一のスレッドプールリクエストで実行される。スレッドプールのタスク長のばらつきを最小化するため、クライアントリクエストの一部として行う場合は大きな `randomFill` リクエストを分割すること。",
+      "symbol": "@types/node/crypto.d.ts#crypto.randomFill",
+      "lang": "ja"
+    },
     "73f2cc3a": {
       "original": "Much of the Node.js core API is built around an idiomatic asynchronous\nevent-driven architecture in which certain kinds of objects (called \"emitters\")\nemit named events that cause `Function` objects (\"listeners\") to be called.\n\nFor instance: a `net.Server` object emits an event each time a peer\nconnects to it; a `fs.ReadStream` emits an event when the file is opened;\na `stream` emits an event whenever data is available to be read.\n\nAll objects that emit events are instances of the `EventEmitter` class. These\nobjects expose an `eventEmitter.on()` function that allows one or more\nfunctions to be attached to named events emitted by the object. Typically,\nevent names are camel-cased strings but any valid JavaScript property key\ncan be used.\n\nWhen the `EventEmitter` object emits an event, all of the functions attached\nto that specific event are called _synchronously_. Any values returned by the\ncalled listeners are _ignored_ and discarded.\n\nThe following example shows a simple `EventEmitter` instance with a single\nlistener. The `eventEmitter.on()` method is used to register listeners, while\nthe `eventEmitter.emit()` method is used to trigger the event.\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
       "translated": "Node.js のコア API の多くは、慣用的な非同期のイベント駆動アーキテクチャを中心に構築されている。そこでは特定の種類のオブジェクト(「emitter」と呼ばれる)が名前付きイベントを発行し、それによって `Function` オブジェクト(「listener」)が呼ばれる。\n\nたとえば: `net.Server` オブジェクトはピアが接続するたびにイベントを発行する。`fs.ReadStream` はファイルが開かれたときにイベントを発行する。`stream` はデータが読める状態になるたびにイベントを発行する。\n\nイベントを発行するすべてのオブジェクトは `EventEmitter` クラスのインスタンスである。これらのオブジェクトは、オブジェクトが発行する名前付きイベントに 1 つ以上の関数を結び付けられる `eventEmitter.on()` 関数を公開する。通常、イベント名はキャメルケースの文字列だが、有効な JavaScript のプロパティキーであれば何でも使える。\n\n`EventEmitter` オブジェクトがイベントを発行すると、その特定のイベントに結び付けられたすべての関数が_同期的に_呼ばれる。呼ばれた listener が返す値は_無視_され、破棄される。\n\n次の例は、単一の listener を持つ単純な `EventEmitter` インスタンスを示す。listener の登録には `eventEmitter.on()` メソッドを、イベントのトリガーには `eventEmitter.emit()` メソッドを使う。\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
