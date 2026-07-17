@@ -82,6 +82,12 @@
       "symbol": "@types/node/fs.d.ts#fs.constants.O_RDONLY",
       "lang": "ja"
     },
+    "50283121": {
+      "original": "Indicates whether the socket should be paused on incoming connections.",
+      "translated": "受信接続でソケットを一時停止すべきかどうかを示す。",
+      "symbol": "@types/node/net.d.ts#net.ServerOpts.pauseOnConnect",
+      "lang": "ja"
+    },
     "51538543": {
       "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating readable by group.",
       "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。グループによる読み取り可能を示すファイルモード。",
@@ -92,6 +98,12 @@
       "original": "Gets the `MIMEParams` object representing the\nparameters of the MIME. This property is read-only. See `MIMEParams` documentation for details.",
       "translated": "MIME のパラメーターを表す `MIMEParams` オブジェクトを取得する。このプロパティは読み取り専用である。詳細は `MIMEParams` のドキュメントを参照。",
       "symbol": "@types/node/util.d.ts#util.MIMEType.params",
+      "lang": "ja"
+    },
+    "53717885": {
+      "original": "The amount of bytes sent.",
+      "translated": "送信したバイト数。",
+      "symbol": "@types/node/net.d.ts#net.Socket.bytesWritten",
       "lang": "ja"
     },
     "56760897": {
@@ -5570,6 +5582,336 @@
       "original": "A browser-compatible implementation of `WebSocket`.",
       "translated": "`WebSocket` のブラウザー互換な実装。",
       "symbol": "@types/node/http.d.ts#http.WebSocket",
+      "lang": "ja"
+    },
+    "dbd26389": {
+      "original": "> Stability: 2 - Stable\n\nThe `node:net` module provides an asynchronous network API for creating stream-based\nTCP or `IPC` servers ({@link createServer}) and clients\n({@link createConnection}).\n\nIt can be accessed using:\n\n```js\nimport net from 'node:net';\n```",
+      "translated": "> Stability: 2 - 安定\n\n`node:net` モジュールは、ストリームベースの TCP または `IPC` サーバー({@link createServer})とクライアント({@link createConnection})を作成するための非同期ネットワーク API を提供する。\n\n次のようにアクセスできる:\n\n```js\nimport net from 'node:net';\n```",
+      "symbol": "@types/node/net.d.ts#net",
+      "lang": "ja"
+    },
+    "012bdee7": {
+      "original": "The `BlockList` object can be used with some network APIs to specify rules for\ndisabling inbound or outbound access to specific IP addresses, IP ranges, or\nIP subnets.",
+      "translated": "`BlockList` オブジェクトは、特定の IP アドレス・IP 範囲・IP サブネットへのインバウンドまたはアウトバウンドアクセスを無効にする規則を指定するために、一部のネットワーク API とともに使える。",
+      "symbol": "@types/node/net.d.ts#net.BlockList",
+      "lang": "ja"
+    },
+    "c9ad0298": {
+      "original": "Adds a rule to block the given IP address.",
+      "translated": "指定した IP アドレスをブロックする規則を追加する。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.addAddress",
+      "lang": "ja"
+    },
+    "9cfdf25c": {
+      "original": "An IPv4 or IPv6 address.",
+      "translated": "IPv4 または IPv6 アドレス。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.addAddress",
+      "lang": "ja"
+    },
+    "de5b22f9": {
+      "original": "Either `'ipv4'` or `'ipv6'`.",
+      "translated": "`'ipv4'` または `'ipv6'` のいずれか。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.addAddress",
+      "lang": "ja"
+    },
+    "70bfa6c7": {
+      "original": "Adds a rule to block a range of IP addresses from `start` (inclusive) to`end` (inclusive).",
+      "translated": "`start`(包含的)から `end`(包含的)までの IP アドレス範囲をブロックする規則を追加する。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.addRange",
+      "lang": "ja"
+    },
+    "ff14ab2c": {
+      "original": "The ending IPv4 or IPv6 address in the range.",
+      "translated": "範囲の終端の IPv4 または IPv6 アドレス。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.addRange",
+      "lang": "ja"
+    },
+    "42681b53": {
+      "original": "The starting IPv4 or IPv6 address in the range.",
+      "translated": "範囲の始端の IPv4 または IPv6 アドレス。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.addRange",
+      "lang": "ja"
+    },
+    "760f4a09": {
+      "original": "Adds a rule to block a range of IP addresses specified as a subnet mask.",
+      "translated": "サブネットマスクとして指定された IP アドレス範囲をブロックする規則を追加する。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.addSubnet",
+      "lang": "ja"
+    },
+    "1b106bf5": {
+      "original": "The network IPv4 or IPv6 address.",
+      "translated": "ネットワークの IPv4 または IPv6 アドレス。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.addSubnet",
+      "lang": "ja"
+    },
+    "5fe6e0ce": {
+      "original": "The number of CIDR prefix bits. For IPv4, this must be a value between `0` and `32`. For IPv6, this must be between `0` and `128`.",
+      "translated": "CIDR プレフィックスビットの数。IPv4 の場合、これは `0` から `32` の間の値でなければならない。IPv6 の場合、これは `0` から `128` の間でなければならない。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.addSubnet",
+      "lang": "ja"
+    },
+    "c83af0f5": {
+      "original": "Returns `true` if the given IP address matches any of the rules added to the`BlockList`.\n\n```js\nconst blockList = new net.BlockList();\nblockList.addAddress('123.123.123.123');\nblockList.addRange('10.0.0.1', '10.0.0.10');\nblockList.addSubnet('8592:757c:efae:4e45::', 64, 'ipv6');\n\nconsole.log(blockList.check('123.123.123.123'));  // Prints: true\nconsole.log(blockList.check('10.0.0.3'));  // Prints: true\nconsole.log(blockList.check('222.111.111.222'));  // Prints: false\n\n// IPv6 notation for IPv4 addresses works:\nconsole.log(blockList.check('::ffff:7b7b:7b7b', 'ipv6')); // Prints: true\nconsole.log(blockList.check('::ffff:123.123.123.123', 'ipv6')); // Prints: true\n```",
+      "translated": "指定した IP アドレスが `BlockList` に追加された規則のいずれかに一致する場合は `true` を返す。\n\n```js\nconst blockList = new net.BlockList();\nblockList.addAddress('123.123.123.123');\nblockList.addRange('10.0.0.1', '10.0.0.10');\nblockList.addSubnet('8592:757c:efae:4e45::', 64, 'ipv6');\n\nconsole.log(blockList.check('123.123.123.123'));  // Prints: true\nconsole.log(blockList.check('10.0.0.3'));  // Prints: true\nconsole.log(blockList.check('222.111.111.222'));  // Prints: false\n\n// IPv6 notation for IPv4 addresses works:\nconsole.log(blockList.check('::ffff:7b7b:7b7b', 'ipv6')); // Prints: true\nconsole.log(blockList.check('::ffff:123.123.123.123', 'ipv6')); // Prints: true\n```",
+      "symbol": "@types/node/net.d.ts#net.BlockList.check",
+      "lang": "ja"
+    },
+    "7b21aea2": {
+      "original": "The IP address to check",
+      "translated": "確認する IP アドレス",
+      "symbol": "@types/node/net.d.ts#net.BlockList.check",
+      "lang": "ja"
+    },
+    "60da5e0e": {
+      "original": "Any JS value",
+      "translated": "任意の JS 値",
+      "symbol": "@types/node/net.d.ts#net.BlockList.isBlockList",
+      "lang": "ja"
+    },
+    "90445f5c": {
+      "original": "Returns `true` if the `value` is a `net.BlockList`.",
+      "translated": "`value` が `net.BlockList` の場合は `true` を返す。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.isBlockList",
+      "lang": "ja"
+    },
+    "a425d6a6": {
+      "original": "The list of rules added to the blocklist.",
+      "translated": "ブロックリストに追加された規則のリスト。",
+      "symbol": "@types/node/net.d.ts#net.BlockList.rules",
+      "lang": "ja"
+    },
+    "7c18c8c7": {
+      "original": "Aliases to {@link createConnection}.\n\nPossible signatures:\n\n* {@link connect}\n* {@link connect} for `IPC` connections.\n* {@link connect} for TCP connections.",
+      "translated": "{@link createConnection} のエイリアス。\n\n可能なシグネチャ:\n\n* {@link connect}\n* `IPC` 接続用の {@link connect}。\n* TCP 接続用の {@link connect}。",
+      "symbol": "@types/node/net.d.ts#net.connect",
+      "lang": "ja"
+    },
+    "9329e832": {
+      "original": "A factory function, which creates a new {@link Socket},\nimmediately initiates connection with `socket.connect()`,\nthen returns the `net.Socket` that starts the connection.\n\nWhen the connection is established, a `'connect'` event will be emitted\non the returned socket. The last parameter `connectListener`, if supplied,\nwill be added as a listener for the `'connect'` event **once**.\n\nPossible signatures:\n\n* {@link createConnection}\n* {@link createConnection} for `IPC` connections.\n* {@link createConnection} for TCP connections.\n\nThe {@link connect} function is an alias to this function.",
+      "translated": "新しい {@link Socket} を作成し、`socket.connect()` で即座に接続を開始してから、接続を開始する `net.Socket` を返すファクトリー関数。\n\n接続が確立されると、返されたソケットで `'connect'` イベントが発行される。最後のパラメーター `connectListener` が指定された場合、`'connect'` イベントの listener として**一度だけ**追加される。\n\n可能なシグネチャ:\n\n* {@link createConnection}\n* `IPC` 接続用の {@link createConnection}。\n* TCP 接続用の {@link createConnection}。\n\n{@link connect} 関数はこの関数のエイリアスである。",
+      "symbol": "@types/node/net.d.ts#net.createConnection",
+      "lang": "ja"
+    },
+    "c817da2c": {
+      "original": "Automatically set as a listener for the {@link  'connection'} event.",
+      "translated": "{@link 'connection'} イベントの listener として自動的に設定される。",
+      "symbol": "@types/node/net.d.ts#net.createServer",
+      "lang": "ja"
+    },
+    "e53f741e": {
+      "original": "Creates a new TCP or `IPC` server.\n\nIf `allowHalfOpen` is set to `true`, when the other end of the socket\nsignals the end of transmission, the server will only send back the end of\ntransmission when `socket.end()` is explicitly called. For example, in the\ncontext of TCP, when a FIN packed is received, a FIN packed is sent\nback only when `socket.end()` is explicitly called. Until then the\nconnection is half-closed (non-readable but still writable). See `'end'` event and [RFC 1122](https://tools.ietf.org/html/rfc1122) (section 4.2.2.13) for more information.\n\nIf `pauseOnConnect` is set to `true`, then the socket associated with each\nincoming connection will be paused, and no data will be read from its handle.\nThis allows connections to be passed between processes without any data being\nread by the original process. To begin reading data from a paused socket, call `socket.resume()`.\n\nThe server can be a TCP server or an `IPC` server, depending on what it `listen()` to.\n\nHere is an example of a TCP echo server which listens for connections\non port 8124:\n\n```js\nimport net from 'node:net';\nconst server = net.createServer((c) => {\n  // 'connection' listener.\n  console.log('client connected');\n  c.on('end', () => {\n    console.log('client disconnected');\n  });\n  c.write('hello\\r\\n');\n  c.pipe(c);\n});\nserver.on('error', (err) => {\n  throw err;\n});\nserver.listen(8124, () => {\n  console.log('server bound');\n});\n```\n\nTest this by using `telnet`:\n\n```bash\ntelnet localhost 8124\n```\n\nTo listen on the socket `/tmp/echo.sock`:\n\n```js\nserver.listen('/tmp/echo.sock', () => {\n  console.log('server bound');\n});\n```\n\nUse `nc` to connect to a Unix domain socket server:\n\n```bash\nnc -U /tmp/echo.sock\n```",
+      "translated": "新しい TCP または `IPC` サーバーを作成する。\n\n`allowHalfOpen` が `true` に設定されている場合、ソケットの相手側が送信の終了を通知したとき、サーバーは `socket.end()` が明示的に呼ばれたときにのみ送信の終了を返す。たとえば TCP の文脈では、FIN パケットを受信したとき、`socket.end()` が明示的に呼ばれたときにのみ FIN パケットが返される。それまで接続は half-closed(読み取り不可だが書き込みは可能)である。詳細は `'end'` イベントと [RFC 1122](https://tools.ietf.org/html/rfc1122)(4.2.2.13 節)を参照。\n\n`pauseOnConnect` が `true` に設定されている場合、各受信接続に関連付けられたソケットは一時停止され、そのハンドルからデータは読み取られない。これにより、元のプロセスがデータを読み取ることなく、プロセス間で接続を渡せる。一時停止されたソケットからデータの読み取りを開始するには、`socket.resume()` を呼ぶ。\n\nサーバーは、何を `listen()` するかに応じて、TCP サーバーまたは `IPC` サーバーになり得る。\n\n次はポート 8124 で接続をリッスンする TCP エコーサーバーの例である:\n\n```js\nimport net from 'node:net';\nconst server = net.createServer((c) => {\n  // 'connection' listener.\n  console.log('client connected');\n  c.on('end', () => {\n    console.log('client disconnected');\n  });\n  c.write('hello\\r\\n');\n  c.pipe(c);\n});\nserver.on('error', (err) => {\n  throw err;\n});\nserver.listen(8124, () => {\n  console.log('server bound');\n});\n```\n\nこれを `telnet` を使ってテストする:\n\n```bash\ntelnet localhost 8124\n```\n\nソケット `/tmp/echo.sock` でリッスンするには:\n\n```js\nserver.listen('/tmp/echo.sock', () => {\n  console.log('server bound');\n});\n```\n\nUnix ドメインソケットサーバーに接続するには `nc` を使う:\n\n```bash\nnc -U /tmp/echo.sock\n```",
+      "symbol": "@types/node/net.d.ts#net.createServer",
+      "lang": "ja"
+    },
+    "4acb964b": {
+      "original": "Gets the current default value of the `autoSelectFamily` option of `socket.connect(options)`.\nThe initial default value is `true`, unless the command line option`--no-network-family-autoselection` is provided.",
+      "translated": "`socket.connect(options)` の `autoSelectFamily` オプションの現在の既定値を取得する。初期の既定値は `true` だが、コマンドラインオプション `--no-network-family-autoselection` が指定された場合は異なる。",
+      "symbol": "@types/node/net.d.ts#net.getDefaultAutoSelectFamily",
+      "lang": "ja"
+    },
+    "b285be54": {
+      "original": "Gets the current default value of the `autoSelectFamilyAttemptTimeout` option of `socket.connect(options)`.\nThe initial default value is `250` or the value specified via the command line option `--network-family-autoselection-attempt-timeout`.",
+      "translated": "`socket.connect(options)` の `autoSelectFamilyAttemptTimeout` オプションの現在の既定値を取得する。初期の既定値は `250`、またはコマンドラインオプション `--network-family-autoselection-attempt-timeout` で指定された値である。",
+      "symbol": "@types/node/net.d.ts#net.getDefaultAutoSelectFamilyAttemptTimeout",
+      "lang": "ja"
+    },
+    "b8bcc3bd": {
+      "original": "The current default value of the `autoSelectFamilyAttemptTimeout` option.",
+      "translated": "`autoSelectFamilyAttemptTimeout` オプションの現在の既定値。",
+      "symbol": "@types/node/net.d.ts#net.getDefaultAutoSelectFamilyAttemptTimeout",
+      "lang": "ja"
+    },
+    "d94d1643": {
+      "original": "Returns `6` if `input` is an IPv6 address. Returns `4` if `input` is an IPv4\naddress in [dot-decimal notation](https://en.wikipedia.org/wiki/Dot-decimal_notation) with no leading zeroes. Otherwise, returns`0`.\n\n```js\nnet.isIP('::1'); // returns 6\nnet.isIP('127.0.0.1'); // returns 4\nnet.isIP('127.000.000.001'); // returns 0\nnet.isIP('127.0.0.1/24'); // returns 0\nnet.isIP('fhqwhgads'); // returns 0\n```",
+      "translated": "`input` が IPv6 アドレスの場合は `6` を返す。`input` が先頭ゼロなしの[ドット区切り 10 進表記](https://en.wikipedia.org/wiki/Dot-decimal_notation)の IPv4 アドレスの場合は `4` を返す。そうでなければ `0` を返す。\n\n```js\nnet.isIP('::1'); // returns 6\nnet.isIP('127.0.0.1'); // returns 4\nnet.isIP('127.000.000.001'); // returns 0\nnet.isIP('127.0.0.1/24'); // returns 0\nnet.isIP('fhqwhgads'); // returns 0\n```",
+      "symbol": "@types/node/net.d.ts#net.isIP",
+      "lang": "ja"
+    },
+    "abe3fa44": {
+      "original": "Returns `true` if `input` is an IPv4 address in [dot-decimal notation](https://en.wikipedia.org/wiki/Dot-decimal_notation) with no\nleading zeroes. Otherwise, returns `false`.\n\n```js\nnet.isIPv4('127.0.0.1'); // returns true\nnet.isIPv4('127.000.000.001'); // returns false\nnet.isIPv4('127.0.0.1/24'); // returns false\nnet.isIPv4('fhqwhgads'); // returns false\n```",
+      "translated": "`input` が先頭ゼロなしの[ドット区切り 10 進表記](https://en.wikipedia.org/wiki/Dot-decimal_notation)の IPv4 アドレスの場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nnet.isIPv4('127.0.0.1'); // returns true\nnet.isIPv4('127.000.000.001'); // returns false\nnet.isIPv4('127.0.0.1/24'); // returns false\nnet.isIPv4('fhqwhgads'); // returns false\n```",
+      "symbol": "@types/node/net.d.ts#net.isIPv4",
+      "lang": "ja"
+    },
+    "ce8340c0": {
+      "original": "Returns `true` if `input` is an IPv6 address. Otherwise, returns `false`.\n\n```js\nnet.isIPv6('::1'); // returns true\nnet.isIPv6('fhqwhgads'); // returns false\n```",
+      "translated": "`input` が IPv6 アドレスの場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nnet.isIPv6('::1'); // returns true\nnet.isIPv6('fhqwhgads'); // returns false\n```",
+      "symbol": "@types/node/net.d.ts#net.isIPv6",
+      "lang": "ja"
+    },
+    "8f092d56": {
+      "original": "This function is called for every chunk of incoming data.\nTwo arguments are passed to it: the number of bytes written to `buffer` and a reference to `buffer`.\nReturn `false` from this function to implicitly `pause()` the socket.",
+      "translated": "この関数は受信データのチャンクごとに呼ばれる。2 つの引数が渡される: `buffer` に書き込まれたバイト数と `buffer` への参照。この関数から `false` を返すと、暗黙的にソケットを `pause()` する。",
+      "symbol": "@types/node/net.d.ts#net.OnReadOpts.callback",
+      "lang": "ja"
+    },
+    "879fe940": {
+      "original": "This class is used to create a TCP or `IPC` server.",
+      "translated": "このクラスは TCP または `IPC` サーバーを作成するために使われる。",
+      "symbol": "@types/node/net.d.ts#net.Server",
+      "lang": "ja"
+    },
+    "83fcfa72": {
+      "original": "Calls {@link Server.close ()} and returns a promise that fulfills when the server has closed.",
+      "translated": "{@link Server.close ()} を呼び、サーバーが閉じられたときに履行される promise を返す。",
+      "symbol": "@types/node/net.d.ts#net.Server.[Symbol.asyncDispose]",
+      "lang": "ja"
+    },
+    "fa855cb9": {
+      "original": "Returns the bound `address`, the address `family` name, and `port` of the server\nas reported by the operating system if listening on an IP socket\n(useful to find which port was assigned when getting an OS-assigned address):`{ port: 12346, family: 'IPv4', address: '127.0.0.1' }`.\n\nFor a server listening on a pipe or Unix domain socket, the name is returned\nas a string.\n\n```js\nconst server = net.createServer((socket) => {\n  socket.end('goodbye\\n');\n}).on('error', (err) => {\n  // Handle errors here.\n  throw err;\n});\n\n// Grab an arbitrary unused port.\nserver.listen(() => {\n  console.log('opened server on', server.address());\n});\n```\n\n`server.address()` returns `null` before the `'listening'` event has been\nemitted or after calling `server.close()`.",
+      "translated": "IP ソケットでリッスンしている場合、オペレーティングシステムが報告するとおり、バインドされた `address`・アドレスの `family` 名・サーバーの `port` を返す(OS が割り当てたアドレスを取得するとき、どのポートが割り当てられたかを見つけるのに役立つ): `{ port: 12346, family: 'IPv4', address: '127.0.0.1' }`。\n\nパイプまたは Unix ドメインソケットでリッスンしているサーバーの場合、名前は文字列として返される。\n\n```js\nconst server = net.createServer((socket) => {\n  socket.end('goodbye\\n');\n}).on('error', (err) => {\n  // Handle errors here.\n  throw err;\n});\n\n// Grab an arbitrary unused port.\nserver.listen(() => {\n  console.log('opened server on', server.address());\n});\n```\n\n`server.address()` は、`'listening'` イベントが発行される前、または `server.close()` を呼んだ後は `null` を返す。",
+      "symbol": "@types/node/net.d.ts#net.Server.address",
+      "lang": "ja"
+    },
+    "bb812a4d": {
+      "original": "Called when the server is closed.",
+      "translated": "サーバーが閉じられたときに呼ばれる。",
+      "symbol": "@types/node/net.d.ts#net.Server.close",
+      "lang": "ja"
+    },
+    "8d1d55e9": {
+      "original": "Stops the server from accepting new connections and keeps existing\nconnections. This function is asynchronous, the server is finally closed\nwhen all connections are ended and the server emits a `'close'` event.\nThe optional `callback` will be called once the `'close'` event occurs. Unlike\nthat event, it will be called with an `Error` as its only argument if the server\nwas not open when it was closed.",
+      "translated": "サーバーが新しい接続を受け付けるのを停止し、既存の接続は保持する。この関数は非同期で、すべての接続が終了しサーバーが `'close'` イベントを発行したときに、最終的にサーバーが閉じられる。省略可能な `callback` は、`'close'` イベントが発生したときに一度呼ばれる。そのイベントとは異なり、閉じられたときにサーバーが開いていなかった場合、`Error` を唯一の引数として呼ばれる。",
+      "symbol": "@types/node/net.d.ts#net.Server.close",
+      "lang": "ja"
+    },
+    "70ee4ffe": {
+      "original": "Asynchronously get the number of concurrent connections on the server. Works\nwhen sockets were sent to forks.\n\nCallback should take two arguments `err` and `count`.",
+      "translated": "サーバー上の同時接続数を非同期に取得する。ソケットが fork に送られた場合に機能する。\n\nコールバックは 2 つの引数 `err` と `count` を取るべきである。",
+      "symbol": "@types/node/net.d.ts#net.Server.getConnections",
+      "lang": "ja"
+    },
+    "0a7f4381": {
+      "original": "Start a server listening for connections. A `net.Server` can be a TCP or\nan `IPC` server depending on what it listens to.\n\nPossible signatures:\n\n* `server.listen(handle[, backlog][, callback])`\n* `server.listen(options[, callback])`\n* `server.listen(path[, backlog][, callback])` for `IPC` servers\n* `server.listen([port[, host[, backlog]]][, callback])` for TCP servers\n\nThis function is asynchronous. When the server starts listening, the `'listening'` event will be emitted. The last parameter `callback`will be added as a listener for the `'listening'`\nevent.\n\nAll `listen()` methods can take a `backlog` parameter to specify the maximum\nlength of the queue of pending connections. The actual length will be determined\nby the OS through sysctl settings such as `tcp_max_syn_backlog` and `somaxconn` on Linux. The default value of this parameter is 511 (not 512).\n\nAll {@link Socket} are set to `SO_REUSEADDR` (see [`socket(7)`](https://man7.org/linux/man-pages/man7/socket.7.html) for\ndetails).\n\nThe `server.listen()` method can be called again if and only if there was an\nerror during the first `server.listen()` call or `server.close()` has been\ncalled. Otherwise, an `ERR_SERVER_ALREADY_LISTEN` error will be thrown.\n\nOne of the most common errors raised when listening is `EADDRINUSE`.\nThis happens when another server is already listening on the requested`port`/`path`/`handle`. One way to handle this would be to retry\nafter a certain amount of time:\n\n```js\nserver.on('error', (e) => {\n  if (e.code === 'EADDRINUSE') {\n    console.error('Address in use, retrying...');\n    setTimeout(() => {\n      server.close();\n      server.listen(PORT, HOST);\n    }, 1000);\n  }\n});\n```",
+      "translated": "接続をリッスンするサーバーを開始する。`net.Server` は、何をリッスンするかに応じて TCP または `IPC` サーバーになり得る。\n\n可能なシグネチャ:\n\n* `server.listen(handle[, backlog][, callback])`\n* `server.listen(options[, callback])`\n* `IPC` サーバー用の `server.listen(path[, backlog][, callback])`\n* TCP サーバー用の `server.listen([port[, host[, backlog]]][, callback])`\n\nこの関数は非同期である。サーバーがリッスンを開始すると、`'listening'` イベントが発行される。最後のパラメーター `callback` は `'listening'` イベントの listener として追加される。\n\nすべての `listen()` メソッドは、保留中の接続のキューの最大長を指定する `backlog` パラメーターを取れる。実際の長さは、Linux では `tcp_max_syn_backlog` や `somaxconn` などの sysctl 設定を通じて OS によって決定される。このパラメーターの既定値は 511(512 ではない)である。\n\nすべての {@link Socket} は `SO_REUSEADDR` に設定される(詳細は [`socket(7)`](https://man7.org/linux/man-pages/man7/socket.7.html) を参照)。\n\n`server.listen()` メソッドは、最初の `server.listen()` 呼び出し中にエラーがあった場合、または `server.close()` が呼ばれた場合に限り、再び呼べる。そうでなければ、`ERR_SERVER_ALREADY_LISTEN` エラーが投げられる。\n\nリッスン時に発生する最も一般的なエラーの 1 つは `EADDRINUSE` である。これは、別のサーバーがすでに要求された `port`/`path`/`handle` でリッスンしているときに起こる。これを処理する 1 つの方法は、一定時間後に再試行することである:\n\n```js\nserver.on('error', (e) => {\n  if (e.code === 'EADDRINUSE') {\n    console.error('Address in use, retrying...');\n    setTimeout(() => {\n      server.close();\n      server.listen(PORT, HOST);\n    }, 1000);\n  }\n});\n```",
+      "symbol": "@types/node/net.d.ts#net.Server.listen",
+      "lang": "ja"
+    },
+    "0f36594a": {
+      "original": "Indicates whether or not the server is listening for connections.",
+      "translated": "サーバーが接続をリッスンしているかどうかを示す。",
+      "symbol": "@types/node/net.d.ts#net.Server.listening",
+      "lang": "ja"
+    },
+    "2a88b1e3": {
+      "original": "Set this property to reject connections when the server's connection count gets\nhigh.\n\nIt is not recommended to use this option once a socket has been sent to a child\nwith `child_process.fork()`.",
+      "translated": "サーバーの接続数が高くなったときに接続を拒否するには、このプロパティを設定する。\n\n`child_process.fork()` でソケットが子に送られた後は、このオプションの使用は推奨されない。",
+      "symbol": "@types/node/net.d.ts#net.Server.maxConnections",
+      "lang": "ja"
+    },
+    "b988d3d5": {
+      "original": "Opposite of `unref()`, calling `ref()` on a previously `unref`ed server will _not_ let the program exit if it's the only server left (the default behavior).\nIf the server is `ref`ed calling `ref()` again will have no effect.",
+      "translated": "`unref()` の逆。以前 `unref` されたサーバーに対して `ref()` を呼ぶと、それが残った唯一のサーバーであってもプログラムが終了しないようにする(既定の挙動)。サーバーが `ref` されている場合、再び `ref()` を呼んでも効果はない。",
+      "symbol": "@types/node/net.d.ts#net.Server.ref",
+      "lang": "ja"
+    },
+    "cebea75e": {
+      "original": "Calling `unref()` on a server will allow the program to exit if this is the only\nactive server in the event system. If the server is already `unref`ed calling`unref()` again will have no effect.",
+      "translated": "サーバーに対して `unref()` を呼ぶと、これがイベントシステム内で唯一のアクティブなサーバーである場合にプログラムが終了できるようになる。サーバーがすでに `unref` されている場合、再び `unref()` を呼んでも効果はない。",
+      "symbol": "@types/node/net.d.ts#net.Server.unref",
+      "lang": "ja"
+    },
+    "7edf5194": {
+      "original": "Indicates whether half-opened TCP connections are allowed.",
+      "translated": "half-open な TCP 接続が許可されるかどうかを示す。",
+      "symbol": "@types/node/net.d.ts#net.ServerOpts.allowHalfOpen",
+      "lang": "ja"
+    },
+    "f074b620": {
+      "original": "`blockList` can be used for disabling inbound\naccess to specific IP addresses, IP ranges, or IP subnets. This does not\nwork if the server is behind a reverse proxy, NAT, etc. because the address\nchecked against the block list is the address of the proxy, or the one\nspecified by the NAT.",
+      "translated": "`blockList` は、特定の IP アドレス・IP 範囲・IP サブネットへのインバウンドアクセスを無効にするために使える。サーバーがリバースプロキシや NAT などの背後にある場合、ブロックリストと照合されるアドレスがプロキシのアドレスまたは NAT が指定したものになるため、これは機能しない。",
+      "symbol": "@types/node/net.d.ts#net.ServerOpts.blockList",
+      "lang": "ja"
+    },
+    "b9f45744": {
+      "original": "Optionally overrides all `net.Socket`s' `readableHighWaterMark` and `writableHighWaterMark`.",
+      "translated": "任意で、すべての `net.Socket` の `readableHighWaterMark` と `writableHighWaterMark` をオーバーライドする。",
+      "symbol": "@types/node/net.d.ts#net.ServerOpts.highWaterMark",
+      "lang": "ja"
+    },
+    "d4be652b": {
+      "original": "Sets the default value of the `autoSelectFamily` option of `socket.connect(options)`.",
+      "translated": "`socket.connect(options)` の `autoSelectFamily` オプションの既定値を設定する。",
+      "symbol": "@types/node/net.d.ts#net.setDefaultAutoSelectFamily",
+      "lang": "ja"
+    },
+    "7263a283": {
+      "original": "The new default value.\nThe initial default value is `true`, unless the command line option\n`--no-network-family-autoselection` is provided.",
+      "translated": "新しい既定値。初期の既定値は `true` だが、コマンドラインオプション `--no-network-family-autoselection` が指定された場合は異なる。",
+      "symbol": "@types/node/net.d.ts#net.setDefaultAutoSelectFamily",
+      "lang": "ja"
+    },
+    "eee5fbcc": {
+      "original": "Sets the default value of the `autoSelectFamilyAttemptTimeout` option of `socket.connect(options)`.",
+      "translated": "`socket.connect(options)` の `autoSelectFamilyAttemptTimeout` オプションの既定値を設定する。",
+      "symbol": "@types/node/net.d.ts#net.setDefaultAutoSelectFamilyAttemptTimeout",
+      "lang": "ja"
+    },
+    "bc94b164": {
+      "original": "The new default value, which must be a positive number. If the number is less than `10`, the value `10` is used instead. The initial default value is `250` or the value specified via the command line\noption `--network-family-autoselection-attempt-timeout`.",
+      "translated": "新しい既定値。正の数でなければならない。数値が `10` 未満の場合、代わりに値 `10` が使われる。初期の既定値は `250`、またはコマンドラインオプション `--network-family-autoselection-attempt-timeout` で指定された値である。",
+      "symbol": "@types/node/net.d.ts#net.setDefaultAutoSelectFamilyAttemptTimeout",
+      "lang": "ja"
+    },
+    "556623ac": {
+      "original": "This class is an abstraction of a TCP socket or a streaming `IPC` endpoint\n(uses named pipes on Windows, and Unix domain sockets otherwise). It is also\nan `EventEmitter`.\n\nA `net.Socket` can be created by the user and used directly to interact with\na server. For example, it is returned by {@link createConnection},\nso the user can use it to talk to the server.\n\nIt can also be created by Node.js and passed to the user when a connection\nis received. For example, it is passed to the listeners of a `'connection'` event emitted on a {@link Server}, so the user can use\nit to interact with the client.",
+      "translated": "このクラスは、TCP ソケットまたはストリーミング `IPC` エンドポイント(Windows では名前付きパイプ、それ以外では Unix ドメインソケットを使う)の抽象化である。`EventEmitter` でもある。\n\n`net.Socket` はユーザーが作成し、サーバーとやり取りするために直接使える。たとえば {@link createConnection} から返されるため、ユーザーはそれを使ってサーバーと通信できる。\n\nまた、接続が受信されたときに Node.js が作成してユーザーに渡すこともできる。たとえば {@link Server} で発行される `'connection'` イベントの listener に渡されるため、ユーザーはそれを使ってクライアントとやり取りできる。",
+      "symbol": "@types/node/net.d.ts#net.Socket",
+      "lang": "ja"
+    },
+    "2e39ca93": {
+      "original": "Returns the bound `address`, the address `family` name and `port` of the\nsocket as reported by the operating system:`{ port: 12346, family: 'IPv4', address: '127.0.0.1' }`",
+      "translated": "オペレーティングシステムが報告するとおり、バインドされた `address`・アドレスの `family` 名・ソケットの `port` を返す: `{ port: 12346, family: 'IPv4', address: '127.0.0.1' }`",
+      "symbol": "@types/node/net.d.ts#net.Socket.address",
+      "lang": "ja"
+    },
+    "65ee35fd": {
+      "original": "This property is only present if the family autoselection algorithm is enabled in `socket.connect(options)`\nand it is an array of the addresses that have been attempted.\n\nEach address is a string in the form of `$IP:$PORT`.\nIf the connection was successful, then the last address is the one that the socket is currently connected to.",
+      "translated": "このプロパティは、`socket.connect(options)` でファミリー自動選択アルゴリズムが有効な場合にのみ存在し、試行されたアドレスの配列である。\n\n各アドレスは `$IP:$PORT` の形の文字列である。接続が成功した場合、最後のアドレスがソケットが現在接続しているものである。",
+      "symbol": "@types/node/net.d.ts#net.Socket.autoSelectFamilyAttemptedAddresses",
+      "lang": "ja"
+    },
+    "e536ff1c": {
+      "original": "Since v14.6.0 - Use `writableLength` instead.",
+      "translated": "v14.6.0 以降 - 代わりに `writableLength` を使うこと。",
+      "symbol": "@types/node/net.d.ts#net.Socket.bufferSize",
+      "lang": "ja"
+    },
+    "ebbe8c9d": {
+      "original": "This property shows the number of characters buffered for writing. The buffer\nmay contain strings whose length after encoding is not yet known. So this number\nis only an approximation of the number of bytes in the buffer.\n\n`net.Socket` has the property that `socket.write()` always works. This is to\nhelp users get up and running quickly. The computer cannot always keep up\nwith the amount of data that is written to a socket. The network connection\nsimply might be too slow. Node.js will internally queue up the data written to a\nsocket and send it out over the wire when it is possible.\n\nThe consequence of this internal buffering is that memory may grow.\nUsers who experience large or growing `bufferSize` should attempt to\n\"throttle\" the data flows in their program with `socket.pause()` and `socket.resume()`.",
+      "translated": "このプロパティは、書き込みのためにバッファリングされた文字数を示す。バッファには、エンコード後の長さがまだ分からない文字列が含まれることがある。したがって、この数はバッファ内のバイト数の近似にすぎない。\n\n`net.Socket` は、`socket.write()` が常に機能するという特性を持つ。これはユーザーがすぐに使い始められるようにするためである。コンピューターはソケットに書き込まれるデータ量に常に追いつけるとは限らない。ネットワーク接続が単に遅すぎることもある。Node.js はソケットに書き込まれたデータを内部的にキューに入れ、可能なときにネットワーク越しに送出する。\n\nこの内部バッファリングの結果、メモリが増大することがある。大きな、または増大する `bufferSize` を経験するユーザーは、`socket.pause()` と `socket.resume()` を使ってプログラム内のデータフローを「絞る」ことを試みるべきである。",
+      "symbol": "@types/node/net.d.ts#net.Socket.bufferSize",
+      "lang": "ja"
+    },
+    "8af29098": {
+      "original": "The amount of received bytes.",
+      "translated": "受信したバイト数。",
+      "symbol": "@types/node/net.d.ts#net.Socket.bytesRead",
+      "lang": "ja"
+    },
+    "41a67db2": {
+      "original": "Initiate a connection on a given socket.\n\nPossible signatures:\n\n* `socket.connect(options[, connectListener])`\n* `socket.connect(path[, connectListener])` for `IPC` connections.\n* `socket.connect(port[, host][, connectListener])` for TCP connections.\n* Returns: `net.Socket` The socket itself.\n\nThis function is asynchronous. When the connection is established, the `'connect'` event will be emitted. If there is a problem connecting,\ninstead of a `'connect'` event, an `'error'` event will be emitted with\nthe error passed to the `'error'` listener.\nThe last parameter `connectListener`, if supplied, will be added as a listener\nfor the `'connect'` event **once**.\n\nThis function should only be used for reconnecting a socket after`'close'` has been emitted or otherwise it may lead to undefined\nbehavior.",
+      "translated": "指定したソケットで接続を開始する。\n\n可能なシグネチャ:\n\n* `socket.connect(options[, connectListener])`\n* `IPC` 接続用の `socket.connect(path[, connectListener])`。\n* TCP 接続用の `socket.connect(port[, host][, connectListener])`。\n* 戻り値: `net.Socket` ソケット自体。\n\nこの関数は非同期である。接続が確立されると、`'connect'` イベントが発行される。接続に問題がある場合、`'connect'` イベントの代わりに `'error'` イベントが発行され、エラーが `'error'` listener に渡される。最後のパラメーター `connectListener` が指定された場合、`'connect'` イベントの listener として**一度だけ**追加される。\n\nこの関数は、`'close'` が発行された後にソケットを再接続するためにのみ使うべきである。そうでないと未定義の挙動につながることがある。",
+      "symbol": "@types/node/net.d.ts#net.Socket.connect",
+      "lang": "ja"
+    },
+    "eeb540f3": {
+      "original": "If `true`, `socket.connect(options[, connectListener])` was\ncalled and has not yet finished. It will stay `true` until the socket becomes\nconnected, then it is set to `false` and the `'connect'` event is emitted. Note\nthat the `socket.connect(options[, connectListener])` callback is a listener for the `'connect'` event.",
+      "translated": "`true` の場合、`socket.connect(options[, connectListener])` が呼ばれ、まだ完了していないことを示す。ソケットが接続されるまで `true` のままで、その後 `false` に設定され `'connect'` イベントが発行される。`socket.connect(options[, connectListener])` コールバックは `'connect'` イベントの listener である点に注意すること。",
+      "symbol": "@types/node/net.d.ts#net.Socket.connecting",
+      "lang": "ja"
+    },
+    "bc7e2bf2": {
+      "original": "See `writable.destroyed` for further details.",
+      "translated": "詳細は `writable.destroyed` を参照。",
+      "symbol": "@types/node/net.d.ts#net.Socket.destroyed",
+      "lang": "ja"
+    },
+    "d24d417a": {
+      "original": "Destroys the socket after all data is written. If the `finish` event was already emitted the socket is destroyed immediately.\nIf the socket is still writable it implicitly calls `socket.end()`.",
+      "translated": "すべてのデータが書き込まれた後にソケットを破棄する。`finish` イベントがすでに発行されていた場合、ソケットは即座に破棄される。ソケットがまだ書き込み可能な場合、暗黙的に `socket.end()` を呼ぶ。",
+      "symbol": "@types/node/net.d.ts#net.Socket.destroySoon",
       "lang": "ja"
     },
     "f3935692": {
