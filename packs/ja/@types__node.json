@@ -40,6 +40,12 @@
       "symbol": "@types/node/crypto.d.ts#crypto.Certificate.verifySpkac",
       "lang": "ja"
     },
+    "21563505": {
+      "original": "Modules are cached in this object when they are required. By deleting a key\nvalue from this object, the next `require` will reload the module.\nThis does not apply to\n[native addons](https://nodejs.org/docs/latest-v22.x/api/addons.html),\nfor which reloading will result in an error.",
+      "translated": "モジュールは require されたときにこのオブジェクトにキャッシュされる。このオブジェクトからキーの値を削除すると、次の `require` でモジュールが再読み込みされる。これは[ネイティブアドオン](https://nodejs.org/docs/latest-v22.x/api/addons.html)には適用されず、それらの再読み込みはエラーになる。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Require.cache",
+      "lang": "ja"
+    },
     "21606443": {
       "original": "Specifies the built-in default cipher list used by Node.js (colon-separated values).",
       "translated": "Node.js が使う組み込みの既定の暗号リスト(コロン区切りの値)を指定する。",
@@ -194,6 +200,12 @@
       "original": "Synchronously removes files and directories (modeled on the standard POSIX `rm` utility). Returns `undefined`.",
       "translated": "ファイルとディレクトリを同期的に削除する(標準の POSIX `rm` ユーティリティをモデルにしている)。`undefined` を返す。",
       "symbol": "@types/node/fs.d.ts#fs.rmSync",
+      "lang": "ja"
+    },
+    "84946042": {
+      "original": "Use `NodeJS.Module` instead.",
+      "translated": "代わりに `NodeJS.Module` を使うこと。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeModule",
       "lang": "ja"
     },
     "94553477": {
@@ -5612,6 +5624,348 @@
       "original": "A browser-compatible implementation of `WebSocket`.",
       "translated": "`WebSocket` のブラウザー互換な実装。",
       "symbol": "@types/node/http.d.ts#http.WebSocket",
+      "lang": "ja"
+    },
+    "78a6ad93": {
+      "original": "The directory name of the current module. This is the same as the\n`path.dirname()` of the `__filename`.",
+      "translated": "現在のモジュールのディレクトリ名。これは `__filename` の `path.dirname()` と同じである。",
+      "symbol": "@types/node/module.d.ts#module.global.__dirname",
+      "lang": "ja"
+    },
+    "22575a75": {
+      "original": "The file name of the current module. This is the current module file's absolute\npath with symlinks resolved.\n\nFor a main program this is not necessarily the same as the file name used in the\ncommand line.",
+      "translated": "現在のモジュールのファイル名。これはシンボリックリンクを解決した現在のモジュールファイルの絶対パスである。\n\nメインプログラムの場合、これは必ずしもコマンドラインで使われたファイル名と同じではない。",
+      "symbol": "@types/node/module.d.ts#module.global.__filename",
+      "lang": "ja"
+    },
+    "a588886c": {
+      "original": "The `exports` variable is available within a module's file-level scope, and is\nassigned the value of `module.exports` before the module is evaluated.",
+      "translated": "`exports` 変数はモジュールのファイルレベルのスコープ内で利用でき、モジュールが評価される前に `module.exports` の値が代入される。",
+      "symbol": "@types/node/module.d.ts#module.global.exports",
+      "lang": "ja"
+    },
+    "4f476153": {
+      "original": "The directory name of the current module.\n\nThis is the same as the `path.dirname()` of the `import.meta.filename`.\n\n> **Caveat**: only present on `file:` modules.",
+      "translated": "現在のモジュールのディレクトリ名。\n\nこれは `import.meta.filename` の `path.dirname()` と同じである。\n\n> **注意**: `file:` モジュールにのみ存在する。",
+      "symbol": "@types/node/module.d.ts#module.global.ImportMeta.dirname",
+      "lang": "ja"
+    },
+    "e961594a": {
+      "original": "The full absolute path and filename of the current module, with\nsymlinks resolved.\n\nThis is the same as the `url.fileURLToPath()` of the `import.meta.url`.\n\n> **Caveat** only local modules support this property. Modules not using the\n> `file:` protocol will not provide it.",
+      "translated": "シンボリックリンクを解決した、現在のモジュールの完全な絶対パスとファイル名。\n\nこれは `import.meta.url` の `url.fileURLToPath()` と同じである。\n\n> **注意** ローカルモジュールのみがこのプロパティをサポートする。`file:` プロトコルを使わないモジュールはこれを提供しない。",
+      "symbol": "@types/node/module.d.ts#module.global.ImportMeta.filename",
+      "lang": "ja"
+    },
+    "1f9ad08a": {
+      "original": "`true` when the current module is the entry point of the current process; `false` otherwise.\n\nEquivalent to `require.main === module` in CommonJS.\n\nAnalogous to Python's `__name__ == \"__main__\"`.\n\n```js\nexport function foo() {\n  return 'Hello, world';\n}\n\nfunction main() {\n  const message = foo();\n  console.log(message);\n}\n\nif (import.meta.main) main();\n// `foo` can be imported from another module without possible side-effects from `main`\n```",
+      "translated": "現在のモジュールが現在のプロセスのエントリポイントの場合は `true`、そうでなければ `false`。\n\nCommonJS の `require.main === module` に相当する。\n\nPython の `__name__ == \"__main__\"` に類似する。\n\n```js\nexport function foo() {\n  return 'Hello, world';\n}\n\nfunction main() {\n  const message = foo();\n  console.log(message);\n}\n\nif (import.meta.main) main();\n// `foo` can be imported from another module without possible side-effects from `main`\n```",
+      "symbol": "@types/node/module.d.ts#module.global.ImportMeta.main",
+      "lang": "ja"
+    },
+    "f207a944": {
+      "original": "`import.meta.resolve` is a module-relative resolution function scoped to\neach module, returning the URL string.\n\n```js\nconst dependencyAsset = import.meta.resolve('component-lib/asset.css');\n// file:///app/node_modules/component-lib/asset.css\nimport.meta.resolve('./dep.js');\n// file:///app/dep.js\n```\n\nAll features of the Node.js module resolution are supported. Dependency\nresolutions are subject to the permitted exports resolutions within the package.\n\n**Caveats**:\n\n* This can result in synchronous file-system operations, which\n  can impact performance similarly to `require.resolve`.\n* This feature is not available within custom loaders (it would\n  create a deadlock).",
+      "translated": "`import.meta.resolve` は、各モジュールにスコープされたモジュール相対の解決関数で、URL 文字列を返す。\n\n```js\nconst dependencyAsset = import.meta.resolve('component-lib/asset.css');\n// file:///app/node_modules/component-lib/asset.css\nimport.meta.resolve('./dep.js');\n// file:///app/dep.js\n```\n\nNode.js のモジュール解決のすべての機能がサポートされる。依存関係の解決は、パッケージ内で許可された exports の解決の対象となる。\n\n**注意**:\n\n* これは同期的なファイルシステム操作を引き起こすことがあり、`require.resolve` と同様に性能に影響することがある。\n* この機能はカスタムローダー内では利用できない(デッドロックを引き起こすため)。",
+      "symbol": "@types/node/module.d.ts#module.global.ImportMeta.resolve",
+      "lang": "ja"
+    },
+    "ba512a20": {
+      "original": "An optional absolute parent module URL to resolve from.\n**Default:** `import.meta.url`",
+      "translated": "解決の起点となる、省略可能な絶対的な親モジュール URL。\n**既定値:** `import.meta.url`",
+      "symbol": "@types/node/module.d.ts#module.global.ImportMeta.resolve",
+      "lang": "ja"
+    },
+    "6eee9663": {
+      "original": "The absolute URL string that the specifier would resolve to.",
+      "translated": "specifier が解決される絶対 URL 文字列。",
+      "symbol": "@types/node/module.d.ts#module.global.ImportMeta.resolve",
+      "lang": "ja"
+    },
+    "11a2149a": {
+      "original": "The module specifier to resolve relative to the\ncurrent module.",
+      "translated": "現在のモジュールを基準に解決するモジュール specifier。",
+      "symbol": "@types/node/module.d.ts#module.global.ImportMeta.resolve",
+      "lang": "ja"
+    },
+    "b186214d": {
+      "original": "The absolute `file:` URL of the module.\n\nThis is defined exactly the same as it is in browsers providing the URL of the\ncurrent module file.\n\nThis enables useful patterns such as relative file loading:\n\n```js\nimport { readFileSync } from 'node:fs';\nconst buffer = readFileSync(new URL('./data.proto', import.meta.url));\n```",
+      "translated": "モジュールの絶対的な `file:` URL。\n\nこれは、現在のモジュールファイルの URL を提供するブラウザーとまったく同じように定義される。\n\nこれにより、相対的なファイル読み込みなどの便利なパターンが可能になる:\n\n```js\nimport { readFileSync } from 'node:fs';\nconst buffer = readFileSync(new URL('./data.proto', import.meta.url));\n```",
+      "symbol": "@types/node/module.d.ts#module.global.ImportMeta.url",
+      "lang": "ja"
+    },
+    "c378094d": {
+      "original": "A reference to the current module.",
+      "translated": "現在のモジュールへの参照。",
+      "symbol": "@types/node/module.d.ts#module.global.module",
+      "lang": "ja"
+    },
+    "853f176e": {
+      "original": "The module objects required for the first time by this one.",
+      "translated": "このモジュールが初めて require したモジュールオブジェクト。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.children",
+      "lang": "ja"
+    },
+    "5de71564": {
+      "original": "The `module.exports` object is created by the `Module` system. Sometimes this is\nnot acceptable; many want their module to be an instance of some class. To do\nthis, assign the desired export object to `module.exports`.",
+      "translated": "`module.exports` オブジェクトは `Module` システムによって作成される。これが受け入れられないこともある。多くの場合、モジュールを何らかのクラスのインスタンスにしたい。これを行うには、望むエクスポートオブジェクトを `module.exports` に代入する。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.exports",
+      "lang": "ja"
+    },
+    "ffc6f171": {
+      "original": "The fully resolved filename of the module.",
+      "translated": "モジュールの完全に解決されたファイル名。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.filename",
+      "lang": "ja"
+    },
+    "3cbca2c1": {
+      "original": "The identifier for the module. Typically this is the fully resolved\nfilename.",
+      "translated": "モジュールの識別子。通常これは完全に解決されたファイル名である。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.id",
+      "lang": "ja"
+    },
+    "20067d14": {
+      "original": "`true` if the module is running during the Node.js preload\nphase.",
+      "translated": "モジュールが Node.js のプリロードフェーズ中に実行されている場合は `true`。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.isPreloading",
+      "lang": "ja"
+    },
+    "529b137f": {
+      "original": "Whether or not the module is done loading, or is in the process of\nloading.",
+      "translated": "モジュールの読み込みが完了しているか、読み込み処理中かどうか。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.loaded",
+      "lang": "ja"
+    },
+    "a7c21578": {
+      "original": "Please use `require.main` and `module.children` instead.",
+      "translated": "代わりに `require.main` と `module.children` を使うこと。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.parent",
+      "lang": "ja"
+    },
+    "9fb55f7b": {
+      "original": "The module that first required this one, or `null` if the current module is the\nentry point of the current process, or `undefined` if the module was loaded by\nsomething that is not a CommonJS module (e.g. REPL or `import`).",
+      "translated": "このモジュールを最初に require したモジュール。現在のモジュールが現在のプロセスのエントリポイントの場合は `null`、モジュールが CommonJS モジュールでないもの(たとえば REPL や `import`)によって読み込まれた場合は `undefined`。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.parent",
+      "lang": "ja"
+    },
+    "b21a19ce": {
+      "original": "The directory name of the module. This is usually the same as the\n`path.dirname()` of the `module.id`.",
+      "translated": "モジュールのディレクトリ名。これは通常 `module.id` の `path.dirname()` と同じである。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.path",
+      "lang": "ja"
+    },
+    "3dd556da": {
+      "original": "The search paths for the module.",
+      "translated": "モジュールの検索パス。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.paths",
+      "lang": "ja"
+    },
+    "290c0902": {
+      "original": "The `module.require()` method provides a way to load a module as if\n`require()` was called from the original module.",
+      "translated": "`module.require()` メソッドは、元のモジュールから `require()` が呼ばれたかのようにモジュールを読み込む方法を提供する。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Module.require",
+      "lang": "ja"
+    },
+    "596b56a0": {
+      "original": "Used to import modules, `JSON`, and local files.",
+      "translated": "モジュール・`JSON`・ローカルファイルをインポートするために使う。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Require",
+      "lang": "ja"
+    },
+    "ded88fc3": {
+      "original": "Instruct `require` on how to handle certain file extensions.",
+      "translated": "特定のファイル拡張子を `require` がどう扱うかを指示する。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Require.extensions",
+      "lang": "ja"
+    },
+    "8a25c426": {
+      "original": "The `Module` object representing the entry script loaded when the Node.js\nprocess launched, or `undefined` if the entry point of the program is not a\nCommonJS module.",
+      "translated": "Node.js プロセスが起動したときに読み込まれたエントリスクリプトを表す `Module` オブジェクト。プログラムのエントリポイントが CommonJS モジュールでない場合は `undefined`。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.Require.main",
+      "lang": "ja"
+    },
+    "cd195d0c": {
+      "original": "The module path to resolve.",
+      "translated": "解決するモジュールパス。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.RequireResolve",
+      "lang": "ja"
+    },
+    "04640aa2": {
+      "original": "Use the internal `require()` machinery to look up the location of a module,\nbut rather than loading the module, just return the resolved filename.\n\nIf the module can not be found, a `MODULE_NOT_FOUND` error is thrown.",
+      "translated": "内部の `require()` の仕組みを使ってモジュールの場所を調べるが、モジュールを読み込むのではなく、解決されたファイル名を返すだけである。\n\nモジュールが見つからない場合、`MODULE_NOT_FOUND` エラーが投げられる。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.RequireResolve",
+      "lang": "ja"
+    },
+    "b7f4f2b8": {
+      "original": "Returns an array containing the paths searched during resolution of `request` or\n`null` if the `request` string references a core module, for example `http` or\n`fs`.",
+      "translated": "`request` の解決中に検索されたパスを含む配列を返す。`request` 文字列が `http` や `fs` などのコアモジュールを参照する場合は `null` を返す。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.RequireResolve.paths",
+      "lang": "ja"
+    },
+    "2cd86d93": {
+      "original": "The module path whose lookup paths are being retrieved.",
+      "translated": "lookup パスを取得する対象のモジュールパス。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.RequireResolve.paths",
+      "lang": "ja"
+    },
+    "014e89e3": {
+      "original": "Paths to resolve module location from. If present, these\npaths are used instead of the default resolution paths, with the exception\nof\n[GLOBAL\\_FOLDERS](https://nodejs.org/docs/latest-v22.x/api/modules.html#loading-from-the-global-folders)\nlike `$HOME/.node_modules`, which are\nalways included. Each of these paths is used as a starting point for\nthe module resolution algorithm, meaning that the `node_modules` hierarchy\nis checked from this location.",
+      "translated": "モジュールの場所を解決する起点となるパス。指定された場合、これらのパスが既定の解決パスの代わりに使われる。ただし `$HOME/.node_modules` のような [GLOBAL\\_FOLDERS](https://nodejs.org/docs/latest-v22.x/api/modules.html#loading-from-the-global-folders) は例外で、常に含まれる。これらの各パスはモジュール解決アルゴリズムの起点として使われる。つまり、`node_modules` の階層がこの場所から確認される。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeJS.RequireResolveOptions.paths",
+      "lang": "ja"
+    },
+    "e244d16a": {
+      "original": "Use `NodeJS.Require` instead.",
+      "translated": "代わりに `NodeJS.Require` を使うこと。",
+      "symbol": "@types/node/module.d.ts#module.global.NodeRequire",
+      "lang": "ja"
+    },
+    "0dea27ab": {
+      "original": "Use `NodeJS.RequireResolve` instead.",
+      "translated": "代わりに `NodeJS.RequireResolve` を使うこと。",
+      "symbol": "@types/node/module.d.ts#module.global.RequireResolve",
+      "lang": "ja"
+    },
+    "f37105a6": {
+      "original": "A list of the names of all modules provided by Node.js. Can be used to verify\nif a module is maintained by a third party or not.\n\nNote: the list doesn't contain prefix-only modules like `node:test`.",
+      "translated": "Node.js が提供するすべてのモジュールの名前のリスト。モジュールがサードパーティによって保守されているかどうかを検証するために使える。\n\n注意: このリストには `node:test` のような prefix のみのモジュールは含まれない。",
+      "symbol": "@types/node/module.d.ts#module.Module.builtinModules",
+      "lang": "ja"
+    },
+    "c3c73fad": {
+      "original": "The following constants are returned as the `status` field in the object returned by\n{@link enableCompileCache} to indicate the result of the attempt to enable the\n[module compile cache](https://nodejs.org/docs/latest-v22.x/api/module.html#module-compile-cache).",
+      "translated": "次の定数は、[module compile cache](https://nodejs.org/docs/latest-v22.x/api/module.html#module-compile-cache) を有効にする試みの結果を示すために、{@link enableCompileCache} が返すオブジェクトの `status` フィールドとして返される。",
+      "symbol": "@types/node/module.d.ts#module.Module.constants.compileCacheStatus",
+      "lang": "ja"
+    },
+    "34ea4bb4": {
+      "original": "The compile cache has already been enabled before, either by a previous call to\n{@link enableCompileCache}, or by the `NODE_COMPILE_CACHE=dir`\nenvironment variable. The directory used to store the\ncompile cache will be returned in the `directory` field in the\nreturned object.",
+      "translated": "compile cache は、以前の {@link enableCompileCache} の呼び出しか、`NODE_COMPILE_CACHE=dir` 環境変数のいずれかによって、以前にすでに有効化されている。compile cache の格納に使われるディレクトリは、返されるオブジェクトの `directory` フィールドで返される。",
+      "symbol": "@types/node/module.d.ts#module.Module.constants.compileCacheStatus.ALREADY_ENABLED",
+      "lang": "ja"
+    },
+    "5e76d4fb": {
+      "original": "Node.js cannot enable the compile cache because the environment variable\n`NODE_DISABLE_COMPILE_CACHE=1` has been set.",
+      "translated": "環境変数 `NODE_DISABLE_COMPILE_CACHE=1` が設定されているため、Node.js は compile cache を有効にできない。",
+      "symbol": "@types/node/module.d.ts#module.Module.constants.compileCacheStatus.DISABLED",
+      "lang": "ja"
+    },
+    "c31444b5": {
+      "original": "Node.js has enabled the compile cache successfully. The directory used to store the\ncompile cache will be returned in the `directory` field in the\nreturned object.",
+      "translated": "Node.js が compile cache を正常に有効化した。compile cache の格納に使われるディレクトリは、返されるオブジェクトの `directory` フィールドで返される。",
+      "symbol": "@types/node/module.d.ts#module.Module.constants.compileCacheStatus.ENABLED",
+      "lang": "ja"
+    },
+    "899fe0f6": {
+      "original": "Node.js fails to enable the compile cache. This can be caused by the lack of\npermission to use the specified directory, or various kinds of file system errors.\nThe detail of the failure will be returned in the `message` field in the\nreturned object.",
+      "translated": "Node.js が compile cache を有効にできない。これは、指定したディレクトリを使う権限の欠如や、さまざまな種類のファイルシステムエラーが原因になり得る。失敗の詳細は、返されるオブジェクトの `message` フィールドで返される。",
+      "symbol": "@types/node/module.d.ts#module.Module.constants.compileCacheStatus.FAILED",
+      "lang": "ja"
+    },
+    "524c7f9e": {
+      "original": "Filename to be used to construct the require\nfunction. Must be a file URL object, file URL string, or absolute path\nstring.",
+      "translated": "require 関数を構築するために使うファイル名。ファイル URL オブジェクト・ファイル URL 文字列・絶対パス文字列のいずれかでなければならない。",
+      "symbol": "@types/node/module.d.ts#module.Module.createRequire",
+      "lang": "ja"
+    },
+    "fd9bd05e": {
+      "original": "Enable [module compile cache](https://nodejs.org/docs/latest-v22.x/api/module.html#module-compile-cache)\nin the current Node.js instance.\n\nIf `cacheDir` is not specified, Node.js will either use the directory specified by the\n`NODE_COMPILE_CACHE=dir` environment variable if it's set, or use\n`path.join(os.tmpdir(), 'node-compile-cache')` otherwise. For general use cases, it's\nrecommended to call `module.enableCompileCache()` without specifying the `cacheDir`,\nso that the directory can be overridden by the `NODE_COMPILE_CACHE` environment\nvariable when necessary.\n\nSince compile cache is supposed to be a quiet optimization that is not required for the\napplication to be functional, this method is designed to not throw any exception when the\ncompile cache cannot be enabled. Instead, it will return an object containing an error\nmessage in the `message` field to aid debugging.\nIf compile cache is enabled successfully, the `directory` field in the returned object\ncontains the path to the directory where the compile cache is stored. The `status`\nfield in the returned object would be one of the `module.constants.compileCacheStatus`\nvalues to indicate the result of the attempt to enable the\n[module compile cache](https://nodejs.org/docs/latest-v22.x/api/module.html#module-compile-cache).\n\nThis method only affects the current Node.js instance. To enable it in child worker threads,\neither call this method in child worker threads too, or set the\n`process.env.NODE_COMPILE_CACHE` value to compile cache directory so the behavior can\nbe inherited into the child workers. The directory can be obtained either from the\n`directory` field returned by this method, or with {@link getCompileCacheDir}.",
+      "translated": "現在の Node.js インスタンスで [module compile cache](https://nodejs.org/docs/latest-v22.x/api/module.html#module-compile-cache) を有効にする。\n\n`cacheDir` が指定されない場合、Node.js は `NODE_COMPILE_CACHE=dir` 環境変数が設定されていればそれで指定されたディレクトリを使うか、そうでなければ `path.join(os.tmpdir(), 'node-compile-cache')` を使う。一般的なユースケースでは、必要なときに `NODE_COMPILE_CACHE` 環境変数でディレクトリをオーバーライドできるよう、`cacheDir` を指定せずに `module.enableCompileCache()` を呼ぶことが推奨される。\n\ncompile cache はアプリケーションが機能するために必須ではない静かな最適化であるはずなので、このメソッドは compile cache を有効にできないときに例外を投げないよう設計されている。代わりに、デバッグを助けるため `message` フィールドにエラーメッセージを含むオブジェクトを返す。compile cache が正常に有効化された場合、返されるオブジェクトの `directory` フィールドには compile cache が格納されるディレクトリへのパスが含まれる。返されるオブジェクトの `status` フィールドは、[module compile cache](https://nodejs.org/docs/latest-v22.x/api/module.html#module-compile-cache) を有効にする試みの結果を示す `module.constants.compileCacheStatus` の値の 1 つになる。\n\nこのメソッドは現在の Node.js インスタンスにのみ影響する。子ワーカースレッドで有効にするには、子ワーカースレッドでもこのメソッドを呼ぶか、`process.env.NODE_COMPILE_CACHE` の値を compile cache ディレクトリに設定して、挙動が子ワーカーに継承されるようにする。ディレクトリは、このメソッドが返す `directory` フィールドから、または {@link getCompileCacheDir} で取得できる。",
+      "symbol": "@types/node/module.d.ts#module.Module.enableCompileCache",
+      "lang": "ja"
+    },
+    "9ea8ff8b": {
+      "original": "Optional path to specify the directory where the compile cache\nwill be stored/retrieved.",
+      "translated": "compile cache が格納/取得されるディレクトリを指定する省略可能なパス。",
+      "symbol": "@types/node/module.d.ts#module.Module.enableCompileCache",
+      "lang": "ja"
+    },
+    "1ec5cbc3": {
+      "original": "If the compile cache is enabled, this contains the directory\nwhere the compile cache is stored. Only set if  `status` is\n`module.constants.compileCacheStatus.ENABLED` or\n`module.constants.compileCacheStatus.ALREADY_ENABLED`.",
+      "translated": "compile cache が有効な場合、これは compile cache が格納されるディレクトリを含む。`status` が `module.constants.compileCacheStatus.ENABLED` または `module.constants.compileCacheStatus.ALREADY_ENABLED` の場合にのみ設定される。",
+      "symbol": "@types/node/module.d.ts#module.Module.EnableCompileCacheResult.directory",
+      "lang": "ja"
+    },
+    "acab839c": {
+      "original": "If Node.js cannot enable the compile cache, this contains\nthe error message. Only set if `status` is `module.constants.compileCacheStatus.FAILED`.",
+      "translated": "Node.js が compile cache を有効にできない場合、これはエラーメッセージを含む。`status` が `module.constants.compileCacheStatus.FAILED` の場合にのみ設定される。",
+      "symbol": "@types/node/module.d.ts#module.Module.EnableCompileCacheResult.message",
+      "lang": "ja"
+    },
+    "683360f6": {
+      "original": "One of the {@link constants.compileCacheStatus}",
+      "translated": "{@link constants.compileCacheStatus} のいずれか",
+      "symbol": "@types/node/module.d.ts#module.Module.EnableCompileCacheResult.status",
+      "lang": "ja"
+    },
+    "dcd96c59": {
+      "original": "A path if the `package.json` is found. When `startLocation`\nis a package, the package's root `package.json`; when a relative or unresolved, the closest\n`package.json` to the `startLocation`.",
+      "translated": "`package.json` が見つかった場合のパス。`startLocation` がパッケージの場合はパッケージのルート `package.json`、相対または未解決の場合は `startLocation` に最も近い `package.json`。",
+      "symbol": "@types/node/module.d.ts#module.Module.findPackageJSON",
+      "lang": "ja"
+    },
+    "294dd222": {
+      "original": "The absolute location (`file:` URL string or FS path) of the\ncontaining  module. For CJS, use `__filename` (not `__dirname`!); for ESM, use\n`import.meta.url`. You do not need to pass it if `specifier` is an _absolute specifier_.",
+      "translated": "対象を含むモジュールの絶対的な場所(`file:` URL 文字列または FS パス)。CJS では `__filename`(`__dirname` ではない!)を、ESM では `import.meta.url` を使う。`specifier` が_絶対 specifier_の場合、これを渡す必要はない。",
+      "symbol": "@types/node/module.d.ts#module.Module.findPackageJSON",
+      "lang": "ja"
+    },
+    "536975d9": {
+      "original": "The specifier for the module whose `package.json` to\nretrieve. When passing a _bare specifier_, the `package.json` at the root of\nthe package is returned. When passing a _relative specifier_ or an _absolute specifier_,\nthe closest parent `package.json` is returned.",
+      "translated": "`package.json` を取得する対象のモジュールの specifier。_bare specifier_ を渡すと、パッケージのルートにある `package.json` が返される。_相対 specifier_ または _絶対 specifier_ を渡すと、最も近い親 `package.json` が返される。",
+      "symbol": "@types/node/module.d.ts#module.Module.findPackageJSON",
+      "lang": "ja"
+    },
+    "946ed9b4": {
+      "original": "`path` is the resolved path for the file for which a corresponding source map\nshould be fetched.",
+      "translated": "`path` は、対応するソースマップを取得すべきファイルの解決されたパスである。",
+      "symbol": "@types/node/module.d.ts#module.Module.findSourceMap",
+      "lang": "ja"
+    },
+    "b9197d7f": {
+      "original": "Returns `module.SourceMap` if a source map is found, `undefined` otherwise.",
+      "translated": "ソースマップが見つかった場合は `module.SourceMap` を、そうでなければ `undefined` を返す。",
+      "symbol": "@types/node/module.d.ts#module.Module.findSourceMap",
+      "lang": "ja"
+    },
+    "fbd88382": {
+      "original": "Flush the [module compile cache](https://nodejs.org/docs/latest-v22.x/api/module.html#module-compile-cache)\naccumulated from modules already loaded\nin the current Node.js instance to disk. This returns after all the flushing\nfile system operations come to an end, no matter they succeed or not. If there\nare any errors, this will fail silently, since compile cache misses should not\ninterfere with the actual operation of the application.",
+      "translated": "現在の Node.js インスタンスですでに読み込まれたモジュールから蓄積された [module compile cache](https://nodejs.org/docs/latest-v22.x/api/module.html#module-compile-cache) をディスクにフラッシュする。これは、すべてのフラッシュ用ファイルシステム操作が、成功したかどうかにかかわらず終了した後に返る。エラーがある場合、compile cache のミスがアプリケーションの実際の動作を妨げるべきではないため、静かに失敗する。",
+      "symbol": "@types/node/module.d.ts#module.Module.flushCompileCache",
+      "lang": "ja"
+    },
+    "be5dd53a": {
+      "original": "Path to the [module compile cache](https://nodejs.org/docs/latest-v22.x/api/module.html#module-compile-cache)\ndirectory if it is enabled, or `undefined` otherwise.",
+      "translated": "有効な場合は [module compile cache](https://nodejs.org/docs/latest-v22.x/api/module.html#module-compile-cache) ディレクトリへのパス、そうでなければ `undefined`。",
+      "symbol": "@types/node/module.d.ts#module.Module.getCompileCacheDir",
+      "lang": "ja"
+    },
+    "2f72e9bb": {
+      "original": "This method returns whether the [Source Map v3](https://tc39.es/ecma426/) support for stack\ntraces is enabled.",
+      "translated": "このメソッドは、スタックトレースの [Source Map v3](https://tc39.es/ecma426/) サポートが有効かどうかを返す。",
+      "symbol": "@types/node/module.d.ts#module.Module.getSourceMapsSupport",
+      "lang": "ja"
+    },
+    "b3f7bed5": {
+      "original": "The `initialize` hook provides a way to define a custom function that runs in\nthe hooks thread when the hooks module is initialized. Initialization happens\nwhen the hooks module is registered via {@link register}.\n\nThis hook can receive data from a {@link register} invocation, including\nports and other transferable objects. The return value of `initialize` can be a\n`Promise`, in which case it will be awaited before the main application thread\nexecution resumes.",
+      "translated": "`initialize` フックは、フックモジュールが初期化されるときにフックスレッドで実行されるカスタム関数を定義する方法を提供する。初期化は、フックモジュールが {@link register} を介して登録されたときに行われる。\n\nこのフックは、ポートや他の転送可能なオブジェクトを含む {@link register} 呼び出しからデータを受け取れる。`initialize` の戻り値は `Promise` でよく、その場合はメインアプリケーションスレッドの実行が再開される前に await される。",
+      "symbol": "@types/node/module.d.ts#module.Module.InitializeHook",
+      "lang": "ja"
+    },
+    "93af7628": {
+      "original": "The source for Node.js to evaluate",
+      "translated": "Node.js が評価するソース",
+      "symbol": "@types/node/module.d.ts#module.Module.LoadFnOutput.source",
+      "lang": "ja"
+    },
+    "826adcc9": {
+      "original": "The `load` hook provides a way to define a custom method of determining how a\nURL should be interpreted, retrieved, and parsed. It is also in charge of\nvalidating the import attributes.",
+      "translated": "`load` フックは、URL がどう解釈・取得・解析されるべきかを決定するカスタムメソッドを定義する方法を提供する。import 属性の検証も担当する。",
+      "symbol": "@types/node/module.d.ts#module.Module.LoadHook",
+      "lang": "ja"
+    },
+    "99fdc70b": {
+      "original": "The format optionally supplied by the `resolve` hook chain (can be an intermediary value).",
+      "translated": "`resolve` フックチェーンによって任意で提供される format(中間値であり得る)。",
+      "symbol": "@types/node/module.d.ts#module.Module.LoadHookContext.format",
       "lang": "ja"
     },
     "dbd26389": {
