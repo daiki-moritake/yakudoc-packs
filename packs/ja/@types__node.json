@@ -136,6 +136,18 @@
       "symbol": "@types/node/fs.d.ts#fs.constants.S_IFDIR",
       "lang": "ja"
     },
+    "79209074": {
+      "original": "`stream.transform` options",
+      "translated": "`stream.transform` のオプション",
+      "symbol": "@types/node/crypto.d.ts#crypto.createHash",
+      "lang": "ja"
+    },
+    "81448455": {
+      "original": "Creates and returns an `Hmac` object that uses the given `algorithm` and `key`.\nOptional `options` argument controls stream behavior.\n\nThe `algorithm` is dependent on the available algorithms supported by the\nversion of OpenSSL on the platform. Examples are `'sha256'`, `'sha512'`, etc.\nOn recent releases of OpenSSL, `openssl list -digest-algorithms` will\ndisplay the available digest algorithms.\n\nThe `key` is the HMAC key used to generate the cryptographic HMAC hash. If it is\na `KeyObject`, its type must be `secret`. If it is a string, please consider `caveats when using strings as inputs to cryptographic APIs`. If it was\nobtained from a cryptographically secure source of entropy, such as {@link randomBytes} or {@link generateKey}, its length should not\nexceed the block size of `algorithm` (e.g., 512 bits for SHA-256).\n\nExample: generating the sha256 HMAC of a file\n\n```js\nimport {\n  createReadStream,\n} from 'node:fs';\nimport { argv } from 'node:process';\nconst {\n  createHmac,\n} = await import('node:crypto');\n\nconst filename = argv[2];\n\nconst hmac = createHmac('sha256', 'a secret');\n\nconst input = createReadStream(filename);\ninput.on('readable', () => {\n  // Only one element is going to be produced by the\n  // hash stream.\n  const data = input.read();\n  if (data)\n    hmac.update(data);\n  else {\n    console.log(`${hmac.digest('hex')} ${filename}`);\n  }\n});\n```",
+      "translated": "指定した `algorithm` と `key` を使う `Hmac` オブジェクトを作成して返す。省略可能な `options` 引数はストリームの挙動を制御する。\n\n`algorithm` は、プラットフォーム上の OpenSSL のバージョンがサポートする利用可能なアルゴリズムに依存する。例として `'sha256'`・`'sha512'` などがある。最近の OpenSSL リリースでは、`openssl list -digest-algorithms` で利用可能なダイジェストアルゴリズムが表示される。\n\n`key` は暗号学的 HMAC ハッシュを生成するために使う HMAC 鍵である。`KeyObject` の場合、その型は `secret` でなければならない。文字列の場合、`caveats when using strings as inputs to cryptographic APIs` を考慮すること。{@link randomBytes} や {@link generateKey} などの暗号学的に安全なエントロピー源から得られた場合、その長さは `algorithm` のブロックサイズ(たとえば SHA-256 では 512 ビット)を超えるべきではない。\n\n例: ファイルの sha256 HMAC を生成する\n\n```js\nimport {\n  createReadStream,\n} from 'node:fs';\nimport { argv } from 'node:process';\nconst {\n  createHmac,\n} = await import('node:crypto');\n\nconst filename = argv[2];\n\nconst hmac = createHmac('sha256', 'a secret');\n\nconst input = createReadStream(filename);\ninput.on('readable', () => {\n  // Only one element is going to be produced by the\n  // hash stream.\n  const data = input.read();\n  if (data)\n    hmac.update(data);\n  else {\n    console.log(`${hmac.digest('hex')} ${filename}`);\n  }\n});\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.createHmac",
+      "lang": "ja"
+    },
     "82364802": {
       "original": "Synchronously removes files and directories (modeled on the standard POSIX `rm` utility). Returns `undefined`.",
       "translated": "ファイルとディレクトリを同期的に削除する(標準の POSIX `rm` ユーティリティをモデルにしている)。`undefined` を返す。",
@@ -1090,12 +1102,6 @@
       "symbol": "@types/node/crypto.d.ts#crypto.Certificate",
       "lang": "ja"
     },
-    "0bab3e7a": {
-      "original": "```js\nconst { Certificate } = await import('node:crypto');\nconst spkac = getSpkacSomehow();\nconst challenge = Certificate.exportChallenge(spkac);\nconsole.log(challenge.toString('utf8'));\n// Prints: the challenge as a UTF8 string\n```",
-      "translated": "```js\nconst { Certificate } = await import('node:crypto');\nconst spkac = getSpkacSomehow();\nconst challenge = Certificate.exportChallenge(spkac);\nconsole.log(challenge.toString('utf8'));\n// Prints: the challenge as a UTF8 string\n```",
-      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportChallenge",
-      "lang": "ja"
-    },
     "716ec6fd": {
       "original": "The `encoding` of the `spkac` string.",
       "translated": "`spkac` 文字列の `encoding`。",
@@ -1114,12 +1120,6 @@
       "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportChallenge",
       "lang": "ja"
     },
-    "49108ad7": {
-      "original": "```js\nconst { Certificate } = await import('node:crypto');\nconst spkac = getSpkacSomehow();\nconst publicKey = Certificate.exportPublicKey(spkac);\nconsole.log(publicKey);\n// Prints: the public key as <Buffer ...>\n```",
-      "translated": "```js\nconst { Certificate } = await import('node:crypto');\nconst spkac = getSpkacSomehow();\nconst publicKey = Certificate.exportPublicKey(spkac);\nconsole.log(publicKey);\n// Prints: the public key as <Buffer ...>\n```",
-      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportPublicKey",
-      "lang": "ja"
-    },
     "46edf66a": {
       "original": "The encoding of the spkac string.",
       "translated": "spkac 文字列のエンコーディング。",
@@ -1136,12 +1136,6 @@
       "original": "The public key component of the `spkac` data structure, which includes a public key and a challenge.",
       "translated": "公開鍵とチャレンジを含む `spkac` データ構造の公開鍵部分。",
       "symbol": "@types/node/crypto.d.ts#crypto.Certificate.exportPublicKey",
-      "lang": "ja"
-    },
-    "2a144947": {
-      "original": "```js\nimport { Buffer } from 'node:buffer';\nconst { Certificate } = await import('node:crypto');\n\nconst spkac = getSpkacSomehow();\nconsole.log(Certificate.verifySpkac(Buffer.from(spkac)));\n// Prints: true or false\n```",
-      "translated": "```js\nimport { Buffer } from 'node:buffer';\nconst { Certificate } = await import('node:crypto');\n\nconst spkac = getSpkacSomehow();\nconsole.log(Certificate.verifySpkac(Buffer.from(spkac)));\n// Prints: true or false\n```",
-      "symbol": "@types/node/crypto.d.ts#crypto.Certificate.verifySpkac",
       "lang": "ja"
     },
     "baebc62f": {
@@ -1382,6 +1376,174 @@
       "original": "Instructs OpenSSL to disable use of RFC4507bis tickets.",
       "translated": "RFC4507bis チケットの使用を無効にするよう OpenSSL に指示する。",
       "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_TICKET",
+      "lang": "ja"
+    },
+    "c6fa9c83": {
+      "original": "Instructs OpenSSL to turn off TLS v1",
+      "translated": "TLS v1 を無効にするよう OpenSSL に指示する",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_TLSv1",
+      "lang": "ja"
+    },
+    "a378029f": {
+      "original": "Instructs OpenSSL to turn off TLS v1.1",
+      "translated": "TLS v1.1 を無効にするよう OpenSSL に指示する",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_TLSv1_1",
+      "lang": "ja"
+    },
+    "a7da5d5b": {
+      "original": "Instructs OpenSSL to turn off TLS v1.2",
+      "translated": "TLS v1.2 を無効にするよう OpenSSL に指示する",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_TLSv1_2",
+      "lang": "ja"
+    },
+    "73dc2f31": {
+      "original": "Instructs OpenSSL to turn off TLS v1.3",
+      "translated": "TLS v1.3 を無効にするよう OpenSSL に指示する",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_NO_TLSv1_3",
+      "lang": "ja"
+    },
+    "9ba2bdd7": {
+      "original": "Instructs OpenSSL server to prioritize ChaCha20-Poly1305 when the client does. This option has no effect if `SSL_OP_CIPHER_SERVER_PREFERENCE` is not enabled.",
+      "translated": "クライアントが ChaCha20-Poly1305 を優先するとき、OpenSSL サーバーもそれを優先するよう指示する。このオプションは `SSL_OP_CIPHER_SERVER_PREFERENCE` が有効でない場合は効果がない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_PRIORITIZE_CHACHA",
+      "lang": "ja"
+    },
+    "ee0ef360": {
+      "original": "Instructs OpenSSL to disable version rollback attack detection.",
+      "translated": "バージョンロールバック攻撃の検出を無効にするよう OpenSSL に指示する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.constants.SSL_OP_TLS_ROLLBACK_BUG",
+      "lang": "ja"
+    },
+    "fcacc5ea": {
+      "original": "Creates and returns a `Cipher` object, with the given `algorithm`, `key` and\ninitialization vector (`iv`).\n\nThe `options` argument controls stream behavior and is optional except when a\ncipher in CCM or OCB mode (e.g. `'aes-128-ccm'`) is used. In that case, the`authTagLength` option is required and specifies the length of the\nauthentication tag in bytes, see `CCM mode`. In GCM mode, the `authTagLength`option is not required but can be used to set the length of the authentication\ntag that will be returned by `getAuthTag()` and defaults to 16 bytes.\nFor `chacha20-poly1305`, the `authTagLength` option defaults to 16 bytes.\n\nThe `algorithm` is dependent on OpenSSL, examples are `'aes192'`, etc. On\nrecent OpenSSL releases, `openssl list -cipher-algorithms` will\ndisplay the available cipher algorithms.\n\nThe `key` is the raw key used by the `algorithm` and `iv` is an [initialization vector](https://en.wikipedia.org/wiki/Initialization_vector). Both arguments must be `'utf8'` encoded\nstrings,`Buffers`, `TypedArray`, or `DataView`s. The `key` may optionally be\na `KeyObject` of type `secret`. If the cipher does not need\nan initialization vector, `iv` may be `null`.\n\nWhen passing strings for `key` or `iv`, please consider `caveats when using strings as inputs to cryptographic APIs`.\n\nInitialization vectors should be unpredictable and unique; ideally, they will be\ncryptographically random. They do not have to be secret: IVs are typically just\nadded to ciphertext messages unencrypted. It may sound contradictory that\nsomething has to be unpredictable and unique, but does not have to be secret;\nremember that an attacker must not be able to predict ahead of time what a\ngiven IV will be.",
+      "translated": "指定した `algorithm`・`key`・初期化ベクトル(`iv`)を持つ `Cipher` オブジェクトを作成して返す。\n\n`options` 引数はストリームの挙動を制御し、CCM または OCB モードの暗号(たとえば `'aes-128-ccm'`)が使われる場合を除いて省略可能である。その場合、`authTagLength` オプションが必須で、認証タグの長さをバイト単位で指定する。`CCM mode` を参照。GCM モードでは、`authTagLength` オプションは必須ではないが、`getAuthTag()` が返す認証タグの長さを設定するために使え、既定は 16 バイトである。`chacha20-poly1305` では、`authTagLength` オプションの既定は 16 バイトである。\n\n`algorithm` は OpenSSL に依存し、例として `'aes192'` などがある。最近の OpenSSL リリースでは、`openssl list -cipher-algorithms` で利用可能な暗号アルゴリズムが表示される。\n\n`key` は `algorithm` が使う生の鍵で、`iv` は[初期化ベクトル](https://en.wikipedia.org/wiki/Initialization_vector)である。どちらの引数も `'utf8'` エンコードの文字列・`Buffer`・`TypedArray`・`DataView` でなければならない。`key` は任意で `secret` 型の `KeyObject` でもよい。暗号が初期化ベクトルを必要としない場合、`iv` は `null` でよい。\n\n`key` や `iv` に文字列を渡す場合、`caveats when using strings as inputs to cryptographic APIs` を考慮すること。\n\n初期化ベクトルは予測不可能で一意であるべきで、理想的には暗号学的にランダムである。秘密である必要はない。IV は通常、暗号文メッセージに暗号化されずに単に付加される。予測不可能で一意でなければならないが秘密である必要はないというのは矛盾に聞こえるかもしれないが、攻撃者が特定の IV が何になるかを事前に予測できてはならない、と覚えておくこと。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createCipheriv",
+      "lang": "ja"
+    },
+    "6927340d": {
+      "original": "Creates and returns a `Decipher` object that uses the given `algorithm`, `key` and initialization vector (`iv`).\n\nThe `options` argument controls stream behavior and is optional except when a\ncipher in CCM or OCB mode (e.g. `'aes-128-ccm'`) is used. In that case, the `authTagLength` option is required and specifies the length of the\nauthentication tag in bytes, see `CCM mode`. In GCM mode, the `authTagLength` option is not required but can be used to restrict accepted authentication tags\nto those with the specified length.\nFor `chacha20-poly1305`, the `authTagLength` option defaults to 16 bytes.\n\nThe `algorithm` is dependent on OpenSSL, examples are `'aes192'`, etc. On\nrecent OpenSSL releases, `openssl list -cipher-algorithms` will\ndisplay the available cipher algorithms.\n\nThe `key` is the raw key used by the `algorithm` and `iv` is an [initialization vector](https://en.wikipedia.org/wiki/Initialization_vector). Both arguments must be `'utf8'` encoded\nstrings,`Buffers`, `TypedArray`, or `DataView`s. The `key` may optionally be\na `KeyObject` of type `secret`. If the cipher does not need\nan initialization vector, `iv` may be `null`.\n\nWhen passing strings for `key` or `iv`, please consider `caveats when using strings as inputs to cryptographic APIs`.\n\nInitialization vectors should be unpredictable and unique; ideally, they will be\ncryptographically random. They do not have to be secret: IVs are typically just\nadded to ciphertext messages unencrypted. It may sound contradictory that\nsomething has to be unpredictable and unique, but does not have to be secret;\nremember that an attacker must not be able to predict ahead of time what a given\nIV will be.",
+      "translated": "指定した `algorithm`・`key`・初期化ベクトル(`iv`)を使う `Decipher` オブジェクトを作成して返す。\n\n`options` 引数はストリームの挙動を制御し、CCM または OCB モードの暗号(たとえば `'aes-128-ccm'`)が使われる場合を除いて省略可能である。その場合、`authTagLength` オプションが必須で、認証タグの長さをバイト単位で指定する。`CCM mode` を参照。GCM モードでは、`authTagLength` オプションは必須ではないが、受け付ける認証タグを指定した長さのものに制限するために使える。`chacha20-poly1305` では、`authTagLength` オプションの既定は 16 バイトである。\n\n`algorithm` は OpenSSL に依存し、例として `'aes192'` などがある。最近の OpenSSL リリースでは、`openssl list -cipher-algorithms` で利用可能な暗号アルゴリズムが表示される。\n\n`key` は `algorithm` が使う生の鍵で、`iv` は[初期化ベクトル](https://en.wikipedia.org/wiki/Initialization_vector)である。どちらの引数も `'utf8'` エンコードの文字列・`Buffer`・`TypedArray`・`DataView` でなければならない。`key` は任意で `secret` 型の `KeyObject` でもよい。暗号が初期化ベクトルを必要としない場合、`iv` は `null` でよい。\n\n`key` や `iv` に文字列を渡す場合、`caveats when using strings as inputs to cryptographic APIs` を考慮すること。\n\n初期化ベクトルは予測不可能で一意であるべきで、理想的には暗号学的にランダムである。秘密である必要はない。IV は通常、暗号文メッセージに暗号化されずに単に付加される。予測不可能で一意でなければならないが秘密である必要はないというのは矛盾に聞こえるかもしれないが、攻撃者が特定の IV が何になるかを事前に予測できてはならない、と覚えておくこと。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createDecipheriv",
+      "lang": "ja"
+    },
+    "786a3972": {
+      "original": "Creates a `DiffieHellman` key exchange object using the supplied `prime` and an\noptional specific `generator`.\n\nThe `generator` argument can be a number, string, or `Buffer`. If `generator` is not specified, the value `2` is used.\n\nIf `primeEncoding` is specified, `prime` is expected to be a string; otherwise\na `Buffer`, `TypedArray`, or `DataView` is expected.\n\nIf `generatorEncoding` is specified, `generator` is expected to be a string;\notherwise a number, `Buffer`, `TypedArray`, or `DataView` is expected.",
+      "translated": "指定した `prime` と省略可能な特定の `generator` を使って `DiffieHellman` 鍵交換オブジェクトを作成する。\n\n`generator` 引数は数値・文字列・`Buffer` でよい。`generator` が指定されない場合、値 `2` が使われる。\n\n`primeEncoding` が指定された場合、`prime` は文字列であることが期待される。そうでなければ `Buffer`・`TypedArray`・`DataView` が期待される。\n\n`generatorEncoding` が指定された場合、`generator` は文字列であることが期待される。そうでなければ数値・`Buffer`・`TypedArray`・`DataView` が期待される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createDiffieHellman",
+      "lang": "ja"
+    },
+    "24bdaca9": {
+      "original": "The `encoding` of the `generator` string.",
+      "translated": "`generator` 文字列の `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createDiffieHellman",
+      "lang": "ja"
+    },
+    "6ce428d6": {
+      "original": "The `encoding` of the `prime` string.",
+      "translated": "`prime` 文字列の `encoding`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createDiffieHellman",
+      "lang": "ja"
+    },
+    "05d8c316": {
+      "original": "An alias for {@link getDiffieHellman}",
+      "translated": "{@link getDiffieHellman} のエイリアス",
+      "symbol": "@types/node/crypto.d.ts#crypto.createDiffieHellmanGroup",
+      "lang": "ja"
+    },
+    "cc545359": {
+      "original": "Creates an Elliptic Curve Diffie-Hellman (`ECDH`) key exchange object using a\npredefined curve specified by the `curveName` string. Use {@link getCurves} to obtain a list of available curve names. On recent\nOpenSSL releases, `openssl ecparam -list_curves` will also display the name\nand description of each available elliptic curve.",
+      "translated": "`curveName` 文字列で指定された事前定義済みの曲線を使って、楕円曲線 Diffie-Hellman(`ECDH`)鍵交換オブジェクトを作成する。利用可能な曲線名のリストを取得するには {@link getCurves} を使う。最近の OpenSSL リリースでは、`openssl ecparam -list_curves` でも利用可能な各楕円曲線の名前と説明が表示される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createECDH",
+      "lang": "ja"
+    },
+    "d461958d": {
+      "original": "Creates and returns a `Hash` object that can be used to generate hash digests\nusing the given `algorithm`. Optional `options` argument controls stream\nbehavior. For XOF hash functions such as `'shake256'`, the `outputLength` option\ncan be used to specify the desired output length in bytes.\n\nThe `algorithm` is dependent on the available algorithms supported by the\nversion of OpenSSL on the platform. Examples are `'sha256'`, `'sha512'`, etc.\nOn recent releases of OpenSSL, `openssl list -digest-algorithms` will\ndisplay the available digest algorithms.\n\nExample: generating the sha256 sum of a file\n\n```js\nimport {\n  createReadStream,\n} from 'node:fs';\nimport { argv } from 'node:process';\nconst {\n  createHash,\n} = await import('node:crypto');\n\nconst filename = argv[2];\n\nconst hash = createHash('sha256');\n\nconst input = createReadStream(filename);\ninput.on('readable', () => {\n  // Only one element is going to be produced by the\n  // hash stream.\n  const data = input.read();\n  if (data)\n    hash.update(data);\n  else {\n    console.log(`${hash.digest('hex')} ${filename}`);\n  }\n});\n```",
+      "translated": "指定した `algorithm` を使ってハッシュダイジェストを生成できる `Hash` オブジェクトを作成して返す。省略可能な `options` 引数はストリームの挙動を制御する。`'shake256'` などの XOF ハッシュ関数では、`outputLength` オプションを使って希望する出力長をバイト単位で指定できる。\n\n`algorithm` は、プラットフォーム上の OpenSSL のバージョンがサポートする利用可能なアルゴリズムに依存する。例として `'sha256'`・`'sha512'` などがある。最近の OpenSSL リリースでは、`openssl list -digest-algorithms` で利用可能なダイジェストアルゴリズムが表示される。\n\n例: ファイルの sha256 sum を生成する\n\n```js\nimport {\n  createReadStream,\n} from 'node:fs';\nimport { argv } from 'node:process';\nconst {\n  createHash,\n} = await import('node:crypto');\n\nconst filename = argv[2];\n\nconst hash = createHash('sha256');\n\nconst input = createReadStream(filename);\ninput.on('readable', () => {\n  // Only one element is going to be produced by the\n  // hash stream.\n  const data = input.read();\n  if (data)\n    hash.update(data);\n  else {\n    console.log(`${hash.digest('hex')} ${filename}`);\n  }\n});\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.createHash",
+      "lang": "ja"
+    },
+    "ecadde2f": {
+      "original": "Creates and returns a new key object containing a private key. If `key` is a\nstring or `Buffer`, `format` is assumed to be `'pem'`; otherwise, `key` must be an object with the properties described above.\n\nIf the private key is encrypted, a `passphrase` must be specified. The length\nof the passphrase is limited to 1024 bytes.",
+      "translated": "秘密鍵を含む新しい鍵オブジェクトを作成して返す。`key` が文字列または `Buffer` の場合、`format` は `'pem'` と仮定される。そうでなければ、`key` は上記のプロパティを持つオブジェクトでなければならない。\n\n秘密鍵が暗号化されている場合、`passphrase` を指定しなければならない。パスフレーズの長さは 1024 バイトに制限される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createPrivateKey",
+      "lang": "ja"
+    },
+    "009712b2": {
+      "original": "Creates and returns a new key object containing a public key. If `key` is a\nstring or `Buffer`, `format` is assumed to be `'pem'`; if `key` is a `KeyObject` with type `'private'`, the public key is derived from the given private key;\notherwise, `key` must be an object with the properties described above.\n\nIf the format is `'pem'`, the `'key'` may also be an X.509 certificate.\n\nBecause public keys can be derived from private keys, a private key may be\npassed instead of a public key. In that case, this function behaves as if {@link createPrivateKey} had been called, except that the type of the\nreturned `KeyObject` will be `'public'` and that the private key cannot be\nextracted from the returned `KeyObject`. Similarly, if a `KeyObject` with type `'private'` is given, a new `KeyObject` with type `'public'` will be returned\nand it will be impossible to extract the private key from the returned object.",
+      "translated": "公開鍵を含む新しい鍵オブジェクトを作成して返す。`key` が文字列または `Buffer` の場合、`format` は `'pem'` と仮定される。`key` が型 `'private'` の `KeyObject` の場合、公開鍵は指定した秘密鍵から導出される。そうでなければ、`key` は上記のプロパティを持つオブジェクトでなければならない。\n\nフォーマットが `'pem'` の場合、`'key'` は X.509 証明書でもよい。\n\n公開鍵は秘密鍵から導出できるため、公開鍵の代わりに秘密鍵を渡してもよい。その場合、この関数は {@link createPrivateKey} が呼ばれたかのように動作するが、返される `KeyObject` の型が `'public'` になり、返された `KeyObject` から秘密鍵を取り出せない点が異なる。同様に、型 `'private'` の `KeyObject` が指定された場合、型 `'public'` の新しい `KeyObject` が返され、返されたオブジェクトから秘密鍵を取り出すことは不可能になる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createPublicKey",
+      "lang": "ja"
+    },
+    "0fed7589": {
+      "original": "Creates and returns a new key object containing a secret key for symmetric\nencryption or `Hmac`.",
+      "translated": "対称暗号または `Hmac` 用の秘密鍵を含む新しい鍵オブジェクトを作成して返す。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createSecretKey",
+      "lang": "ja"
+    },
+    "418937fc": {
+      "original": "The string encoding when `key` is a string.",
+      "translated": "`key` が文字列の場合の文字列エンコーディング。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createSecretKey",
+      "lang": "ja"
+    },
+    "a38849f5": {
+      "original": "`stream.Writable` options",
+      "translated": "`stream.Writable` のオプション",
+      "symbol": "@types/node/crypto.d.ts#crypto.createSign",
+      "lang": "ja"
+    },
+    "fd2e679d": {
+      "original": "Creates and returns a `Sign` object that uses the given `algorithm`. Use {@link getHashes} to obtain the names of the available digest algorithms.\nOptional `options` argument controls the `stream.Writable` behavior.\n\nIn some cases, a `Sign` instance can be created using the name of a signature\nalgorithm, such as `'RSA-SHA256'`, instead of a digest algorithm. This will use\nthe corresponding digest algorithm. This does not work for all signature\nalgorithms, such as `'ecdsa-with-SHA256'`, so it is best to always use digest\nalgorithm names.",
+      "translated": "指定した `algorithm` を使う `Sign` オブジェクトを作成して返す。利用可能なダイジェストアルゴリズムの名前を取得するには {@link getHashes} を使う。省略可能な `options` 引数は `stream.Writable` の挙動を制御する。\n\n場合によっては、ダイジェストアルゴリズムの代わりに `'RSA-SHA256'` などの署名アルゴリズム名を使って `Sign` インスタンスを作成できる。これは対応するダイジェストアルゴリズムを使う。これは `'ecdsa-with-SHA256'` などのすべての署名アルゴリズムで機能するわけではないので、常にダイジェストアルゴリズム名を使うのが最善である。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createSign",
+      "lang": "ja"
+    },
+    "cb286bb8": {
+      "original": "Creates and returns a `Verify` object that uses the given algorithm.\nUse {@link getHashes} to obtain an array of names of the available\nsigning algorithms. Optional `options` argument controls the `stream.Writable` behavior.\n\nIn some cases, a `Verify` instance can be created using the name of a signature\nalgorithm, such as `'RSA-SHA256'`, instead of a digest algorithm. This will use\nthe corresponding digest algorithm. This does not work for all signature\nalgorithms, such as `'ecdsa-with-SHA256'`, so it is best to always use digest\nalgorithm names.",
+      "translated": "指定したアルゴリズムを使う `Verify` オブジェクトを作成して返す。利用可能な署名アルゴリズムの名前の配列を取得するには {@link getHashes} を使う。省略可能な `options` 引数は `stream.Writable` の挙動を制御する。\n\n場合によっては、ダイジェストアルゴリズムの代わりに `'RSA-SHA256'` などの署名アルゴリズム名を使って `Verify` インスタンスを作成できる。これは対応するダイジェストアルゴリズムを使う。これは `'ecdsa-with-SHA256'` などのすべての署名アルゴリズムで機能するわけではないので、常にダイジェストアルゴリズム名を使うのが最善である。",
+      "symbol": "@types/node/crypto.d.ts#crypto.createVerify",
+      "lang": "ja"
+    },
+    "8984ed11": {
+      "original": "Instances of the `Decipher` class are used to decrypt data. The class can be\nused in one of two ways:\n\n* As a `stream` that is both readable and writable, where plain encrypted\ndata is written to produce unencrypted data on the readable side, or\n* Using the `decipher.update()` and `decipher.final()` methods to\nproduce the unencrypted data.\n\nThe {@link createDecipheriv} method is\nused to create `Decipher` instances. `Decipher` objects are not to be created\ndirectly using the `new` keyword.\n\nExample: Using `Decipher` objects as streams:\n\n```js\nimport { Buffer } from 'node:buffer';\nconst {\n  scryptSync,\n  createDecipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n// Key length is dependent on the algorithm. In this case for aes192, it is\n// 24 bytes (192 bits).\n// Use the async `crypto.scrypt()` instead.\nconst key = scryptSync(password, 'salt', 24);\n// The IV is usually passed along with the ciphertext.\nconst iv = Buffer.alloc(16, 0); // Initialization vector.\n\nconst decipher = createDecipheriv(algorithm, key, iv);\n\nlet decrypted = '';\ndecipher.on('readable', () => {\n  let chunk;\n  while (null !== (chunk = decipher.read())) {\n    decrypted += chunk.toString('utf8');\n  }\n});\ndecipher.on('end', () => {\n  console.log(decrypted);\n  // Prints: some clear text data\n});\n\n// Encrypted with same algorithm, key and iv.\nconst encrypted =\n  'e5f79c5915c02171eec6b212d5520d44480993d7d622a7c4c2da32f6efda0ffa';\ndecipher.write(encrypted, 'hex');\ndecipher.end();\n```\n\nExample: Using `Decipher` and piped streams:\n\n```js\nimport {\n  createReadStream,\n  createWriteStream,\n} from 'node:fs';\nimport { Buffer } from 'node:buffer';\nconst {\n  scryptSync,\n  createDecipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n// Use the async `crypto.scrypt()` instead.\nconst key = scryptSync(password, 'salt', 24);\n// The IV is usually passed along with the ciphertext.\nconst iv = Buffer.alloc(16, 0); // Initialization vector.\n\nconst decipher = createDecipheriv(algorithm, key, iv);\n\nconst input = createReadStream('test.enc');\nconst output = createWriteStream('test.js');\n\ninput.pipe(decipher).pipe(output);\n```\n\nExample: Using the `decipher.update()` and `decipher.final()` methods:\n\n```js\nimport { Buffer } from 'node:buffer';\nconst {\n  scryptSync,\n  createDecipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n// Use the async `crypto.scrypt()` instead.\nconst key = scryptSync(password, 'salt', 24);\n// The IV is usually passed along with the ciphertext.\nconst iv = Buffer.alloc(16, 0); // Initialization vector.\n\nconst decipher = createDecipheriv(algorithm, key, iv);\n\n// Encrypted using same algorithm, key and iv.\nconst encrypted =\n  'e5f79c5915c02171eec6b212d5520d44480993d7d622a7c4c2da32f6efda0ffa';\nlet decrypted = decipher.update(encrypted, 'hex', 'utf8');\ndecrypted += decipher.final('utf8');\nconsole.log(decrypted);\n// Prints: some clear text data\n```",
+      "translated": "`Decipher` クラスのインスタンスはデータを復号するために使われる。このクラスは 2 つの方法のいずれかで使える:\n\n* 読み取りと書き込みの両方が可能な `stream` として。暗号化されたデータを書き込むと、読み取り側で復号されたデータが生成される。あるいは\n* `decipher.update()` と `decipher.final()` メソッドを使って復号されたデータを生成する。\n\n{@link createDecipheriv} メソッドは `Decipher` インスタンスを作成するために使われる。`Decipher` オブジェクトは `new` キーワードを使って直接作成するものではない。\n\n例: `Decipher` オブジェクトをストリームとして使う:\n\n```js\nimport { Buffer } from 'node:buffer';\nconst {\n  scryptSync,\n  createDecipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n// Key length is dependent on the algorithm. In this case for aes192, it is\n// 24 bytes (192 bits).\n// Use the async `crypto.scrypt()` instead.\nconst key = scryptSync(password, 'salt', 24);\n// The IV is usually passed along with the ciphertext.\nconst iv = Buffer.alloc(16, 0); // Initialization vector.\n\nconst decipher = createDecipheriv(algorithm, key, iv);\n\nlet decrypted = '';\ndecipher.on('readable', () => {\n  let chunk;\n  while (null !== (chunk = decipher.read())) {\n    decrypted += chunk.toString('utf8');\n  }\n});\ndecipher.on('end', () => {\n  console.log(decrypted);\n  // Prints: some clear text data\n});\n\n// Encrypted with same algorithm, key and iv.\nconst encrypted =\n  'e5f79c5915c02171eec6b212d5520d44480993d7d622a7c4c2da32f6efda0ffa';\ndecipher.write(encrypted, 'hex');\ndecipher.end();\n```\n\n例: `Decipher` とパイプされたストリームを使う:\n\n```js\nimport {\n  createReadStream,\n  createWriteStream,\n} from 'node:fs';\nimport { Buffer } from 'node:buffer';\nconst {\n  scryptSync,\n  createDecipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n// Use the async `crypto.scrypt()` instead.\nconst key = scryptSync(password, 'salt', 24);\n// The IV is usually passed along with the ciphertext.\nconst iv = Buffer.alloc(16, 0); // Initialization vector.\n\nconst decipher = createDecipheriv(algorithm, key, iv);\n\nconst input = createReadStream('test.enc');\nconst output = createWriteStream('test.js');\n\ninput.pipe(decipher).pipe(output);\n```\n\n例: `decipher.update()` と `decipher.final()` メソッドを使う:\n\n```js\nimport { Buffer } from 'node:buffer';\nconst {\n  scryptSync,\n  createDecipheriv,\n} = await import('node:crypto');\n\nconst algorithm = 'aes-192-cbc';\nconst password = 'Password used to generate key';\n// Use the async `crypto.scrypt()` instead.\nconst key = scryptSync(password, 'salt', 24);\n// The IV is usually passed along with the ciphertext.\nconst iv = Buffer.alloc(16, 0); // Initialization vector.\n\nconst decipher = createDecipheriv(algorithm, key, iv);\n\n// Encrypted using same algorithm, key and iv.\nconst encrypted =\n  'e5f79c5915c02171eec6b212d5520d44480993d7d622a7c4c2da32f6efda0ffa';\nlet decrypted = decipher.update(encrypted, 'hex', 'utf8');\ndecrypted += decipher.final('utf8');\nconsole.log(decrypted);\n// Prints: some clear text data\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.Decipher",
+      "lang": "ja"
+    },
+    "33c11b00": {
+      "original": "Any remaining deciphered contents. If `outputEncoding` is specified, a string is returned. If an `outputEncoding` is not provided, a {@link Buffer} is returned.",
+      "translated": "残りの復号された内容。`outputEncoding` が指定された場合、文字列が返される。`outputEncoding` が指定されない場合、{@link Buffer} が返される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Decipher.final",
+      "lang": "ja"
+    },
+    "fa6a3138": {
+      "original": "Once the `decipher.final()` method has been called, the `Decipher` object can\nno longer be used to decrypt data. Attempts to call `decipher.final()` more\nthan once will result in an error being thrown.",
+      "translated": "`decipher.final()` メソッドが呼ばれると、`Decipher` オブジェクトはもうデータの復号に使えない。`decipher.final()` を複数回呼ぼうとすると、エラーが投げられる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Decipher.final",
+      "lang": "ja"
+    },
+    "7e29d374": {
+      "original": "When data has been encrypted without standard block padding, calling `decipher.setAutoPadding(false)` will disable automatic padding to prevent `decipher.final()` from checking for and\nremoving padding.\n\nTurning auto padding off will only work if the input data's length is a\nmultiple of the ciphers block size.\n\nThe `decipher.setAutoPadding()` method must be called before `decipher.final()`.",
+      "translated": "データが標準のブロックパディングなしで暗号化された場合、`decipher.setAutoPadding(false)` を呼ぶと自動パディングが無効になり、`decipher.final()` がパディングを確認・削除しないようになる。\n\n自動パディングをオフにすることは、入力データの長さが暗号のブロックサイズの倍数である場合にのみ機能する。\n\n`decipher.setAutoPadding()` メソッドは `decipher.final()` の前に呼ばなければならない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Decipher.setAutoPadding",
+      "lang": "ja"
+    },
+    "ae0885e4": {
+      "original": "Updates the decipher with `data`. If the `inputEncoding` argument is given,\nthe `data` argument is a string using the specified encoding. If the `inputEncoding` argument is not given, `data` must be a `Buffer`. If `data` is a `Buffer` then `inputEncoding` is\nignored.\n\nThe `outputEncoding` specifies the output format of the enciphered\ndata. If the `outputEncoding` is specified, a string using the specified encoding is returned. If no `outputEncoding` is provided, a `Buffer` is returned.\n\nThe `decipher.update()` method can be called multiple times with new data until `decipher.final()` is called. Calling `decipher.update()` after `decipher.final()` will result in an error\nbeing thrown.",
+      "translated": "`data` で復号器を更新する。`inputEncoding` 引数が指定された場合、`data` 引数は指定したエンコーディングを使う文字列である。`inputEncoding` 引数が指定されない場合、`data` は `Buffer` でなければならない。`data` が `Buffer` の場合、`inputEncoding` は無視される。\n\n`outputEncoding` は復号されたデータの出力形式を指定する。`outputEncoding` が指定された場合、指定したエンコーディングを使う文字列が返される。`outputEncoding` が指定されない場合、`Buffer` が返される。\n\n`decipher.update()` メソッドは、`decipher.final()` が呼ばれるまで新しいデータで複数回呼べる。`decipher.final()` の後に `decipher.update()` を呼ぶと、エラーが投げられる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Decipher.update",
+      "lang": "ja"
+    },
+    "8aaa54f1": {
+      "original": "Computes the Diffie-Hellman secret based on a `privateKey` and a `publicKey`.\nBoth keys must have the same `asymmetricKeyType`, which must be one of `'dh'` (for Diffie-Hellman), `'ec'` (for ECDH), `'x448'`, or `'x25519'` (for ECDH-ES).",
+      "translated": "`privateKey` と `publicKey` に基づいて Diffie-Hellman の秘密を計算する。どちらの鍵も同じ `asymmetricKeyType` を持たなければならず、それは `'dh'`(Diffie-Hellman 用)・`'ec'`(ECDH 用)・`'x448'`・`'x25519'`(ECDH-ES 用)のいずれかでなければならない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.diffieHellman",
+      "lang": "ja"
+    },
+    "69593c7f": {
+      "original": "The `DiffieHellman` class is a utility for creating Diffie-Hellman key\nexchanges.\n\nInstances of the `DiffieHellman` class can be created using the {@link createDiffieHellman} function.\n\n```js\nimport assert from 'node:assert';\n\nconst {\n  createDiffieHellman,\n} = await import('node:crypto');\n\n// Generate Alice's keys...\nconst alice = createDiffieHellman(2048);\nconst aliceKey = alice.generateKeys();\n\n// Generate Bob's keys...\nconst bob = createDiffieHellman(alice.getPrime(), alice.getGenerator());\nconst bobKey = bob.generateKeys();\n\n// Exchange and generate the secret...\nconst aliceSecret = alice.computeSecret(bobKey);\nconst bobSecret = bob.computeSecret(aliceKey);\n\n// OK\nassert.strictEqual(aliceSecret.toString('hex'), bobSecret.toString('hex'));\n```",
+      "translated": "`DiffieHellman` クラスは、Diffie-Hellman 鍵交換を作成するためのユーティリティである。\n\n`DiffieHellman` クラスのインスタンスは {@link createDiffieHellman} 関数を使って作成できる。\n\n```js\nimport assert from 'node:assert';\n\nconst {\n  createDiffieHellman,\n} = await import('node:crypto');\n\n// Generate Alice's keys...\nconst alice = createDiffieHellman(2048);\nconst aliceKey = alice.generateKeys();\n\n// Generate Bob's keys...\nconst bob = createDiffieHellman(alice.getPrime(), alice.getGenerator());\nconst bobKey = bob.generateKeys();\n\n// Exchange and generate the secret...\nconst aliceSecret = alice.computeSecret(bobKey);\nconst bobSecret = bob.computeSecret(aliceKey);\n\n// OK\nassert.strictEqual(aliceSecret.toString('hex'), bobSecret.toString('hex'));\n```",
+      "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman",
       "lang": "ja"
     },
     "73f2cc3a": {
