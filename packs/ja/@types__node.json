@@ -2248,6 +2248,186 @@
       "symbol": "@types/node/crypto.d.ts#crypto.verify",
       "lang": "ja"
     },
+    "147cad9c": {
+      "original": "The `Verify` class is a utility for verifying signatures. It can be used in one\nof two ways:\n\n* As a writable `stream` where written data is used to validate against the\nsupplied signature, or\n* Using the `verify.update()` and `verify.verify()` methods to verify\nthe signature.\n\nThe {@link createVerify} method is used to create `Verify` instances. `Verify` objects are not to be created directly using the `new` keyword.\n\nSee `Sign` for examples.",
+      "translated": "`Verify` クラスは署名を検証するためのユーティリティである。2 つの方法のいずれかで使える:\n\n* 書き込み可能な `stream` として。書き込まれたデータが、指定した署名に対する検証に使われる。あるいは\n* `verify.update()` と `verify.verify()` メソッドを使って署名を検証する。\n\n{@link createVerify} メソッドは `Verify` インスタンスを作成するために使われる。`Verify` オブジェクトは `new` キーワードを使って直接作成するものではない。\n\n例は `Sign` を参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Verify",
+      "lang": "ja"
+    },
+    "8bd25ada": {
+      "original": "Updates the `Verify` content with the given `data`, the encoding of which\nis given in `inputEncoding`.\nIf `inputEncoding` is not provided, and the `data` is a string, an\nencoding of `'utf8'` is enforced. If `data` is a `Buffer`, `TypedArray`, or `DataView`, then `inputEncoding` is ignored.\n\nThis can be called many times with new data as it is streamed.",
+      "translated": "指定した `data` で `Verify` の内容を更新する。そのエンコーディングは `inputEncoding` で指定される。`inputEncoding` が指定されず `data` が文字列の場合、`'utf8'` のエンコーディングが強制される。`data` が `Buffer`・`TypedArray`・`DataView` の場合、`inputEncoding` は無視される。\n\nこれは、ストリーミングされる新しいデータで何度も呼べる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Verify.update",
+      "lang": "ja"
+    },
+    "95bb4e92": {
+      "original": "Verifies the provided data using the given `object` and `signature`.\n\nIf `object` is not a `KeyObject`, this function behaves as if `object` had been passed to {@link createPublicKey}. If it is an\nobject, the following additional properties can be passed:\n\nThe `signature` argument is the previously calculated signature for the data, in\nthe `signatureEncoding`.\nIf a `signatureEncoding` is specified, the `signature` is expected to be a\nstring; otherwise `signature` is expected to be a `Buffer`, `TypedArray`, or `DataView`.\n\nThe `verify` object can not be used again after `verify.verify()` has been\ncalled. Multiple calls to `verify.verify()` will result in an error being\nthrown.\n\nBecause public keys can be derived from private keys, a private key may\nbe passed instead of a public key.",
+      "translated": "指定した `object` と `signature` を使って、提供されたデータを検証する。\n\n`object` が `KeyObject` でない場合、この関数は `object` が {@link createPublicKey} に渡されたかのように動作する。オブジェクトの場合、次の追加プロパティを渡せる:\n\n`signature` 引数は、`signatureEncoding` での、以前計算されたデータの署名である。`signatureEncoding` が指定された場合、`signature` は文字列であることが期待される。そうでなければ `signature` は `Buffer`・`TypedArray`・`DataView` であることが期待される。\n\n`verify.verify()` が呼ばれた後、`verify` オブジェクトは再び使えない。`verify.verify()` を複数回呼ぶとエラーが投げられる。\n\n公開鍵は秘密鍵から導出できるため、公開鍵の代わりに秘密鍵を渡してもよい。",
+      "symbol": "@types/node/crypto.d.ts#crypto.Verify.verify",
+      "lang": "ja"
+    },
+    "e3097c78": {
+      "original": "An implementation of the Web Crypto API standard.\n\nSee the {@link https://nodejs.org/docs/latest/api/webcrypto.html Web Crypto API documentation} for details.",
+      "translated": "Web Crypto API 標準の実装。\n\n詳細は {@link https://nodejs.org/docs/latest/api/webcrypto.html Web Crypto API のドキュメント} を参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto",
+      "lang": "ja"
+    },
+    "20a47ceb": {
+      "original": "Importing the `webcrypto` object (`import { webcrypto } from 'node:crypto'`) gives an instance of the `Crypto` class.\n`Crypto` is a singleton that provides access to the remainder of the crypto API.",
+      "translated": "`webcrypto` オブジェクトをインポートする(`import { webcrypto } from 'node:crypto'`)と、`Crypto` クラスのインスタンスが得られる。`Crypto` は、crypto API の残りの部分へのアクセスを提供するシングルトンである。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.Crypto",
+      "lang": "ja"
+    },
+    "35e8626c": {
+      "original": "Generates cryptographically strong random values.\nThe given `typedArray` is filled with random values, and a reference to `typedArray` is returned.\n\nThe given `typedArray` must be an integer-based instance of {@link NodeJS.TypedArray}, i.e. `Float32Array` and `Float64Array` are not accepted.\n\nAn error will be thrown if the given `typedArray` is larger than 65,536 bytes.",
+      "translated": "暗号学的に強いランダム値を生成する。指定した `typedArray` はランダム値で埋められ、`typedArray` への参照が返される。\n\n指定する `typedArray` は {@link NodeJS.TypedArray} の整数ベースのインスタンスでなければならない。すなわち `Float32Array` と `Float64Array` は受け付けられない。\n\n指定した `typedArray` が 65,536 バイトより大きい場合、エラーが投げられる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.Crypto.getRandomValues",
+      "lang": "ja"
+    },
+    "0484eb7d": {
+      "original": "Generates a random {@link https://www.rfc-editor.org/rfc/rfc4122.txt RFC 4122} version 4 UUID.\nThe UUID is generated using a cryptographic pseudorandom number generator.",
+      "translated": "ランダムな {@link https://www.rfc-editor.org/rfc/rfc4122.txt RFC 4122} バージョン 4 の UUID を生成する。UUID は暗号学的擬似乱数生成器を使って生成される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.Crypto.randomUUID",
+      "lang": "ja"
+    },
+    "4b8b2705": {
+      "original": "Provides access to the `SubtleCrypto` API.",
+      "translated": "`SubtleCrypto` API へのアクセスを提供する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.Crypto.subtle",
+      "lang": "ja"
+    },
+    "773bb7ea": {
+      "original": "An object detailing the algorithm for which the key can be used along with additional algorithm-specific parameters.",
+      "translated": "鍵を使用できるアルゴリズムと、アルゴリズム固有の追加パラメーターを詳述するオブジェクト。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.CryptoKey.algorithm",
+      "lang": "ja"
+    },
+    "4c45346a": {
+      "original": "When `true`, the {@link CryptoKey} can be extracted using either `subtleCrypto.exportKey()` or `subtleCrypto.wrapKey()`.",
+      "translated": "`true` のとき、{@link CryptoKey} は `subtleCrypto.exportKey()` または `subtleCrypto.wrapKey()` のいずれかを使って取り出せる。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.CryptoKey.extractable",
+      "lang": "ja"
+    },
+    "dd70d4cd": {
+      "original": "A string identifying whether the key is a symmetric (`'secret'`) or asymmetric (`'private'` or `'public'`) key.",
+      "translated": "鍵が対称鍵(`'secret'`)か非対称鍵(`'private'` または `'public'`)かを識別する文字列。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.CryptoKey.type",
+      "lang": "ja"
+    },
+    "c7cb5bad": {
+      "original": "An array of strings identifying the operations for which the key may be used.\n\nThe possible usages are:\n- `'encrypt'` - The key may be used to encrypt data.\n- `'decrypt'` - The key may be used to decrypt data.\n- `'sign'` - The key may be used to generate digital signatures.\n- `'verify'` - The key may be used to verify digital signatures.\n- `'deriveKey'` - The key may be used to derive a new key.\n- `'deriveBits'` - The key may be used to derive bits.\n- `'wrapKey'` - The key may be used to wrap another key.\n- `'unwrapKey'` - The key may be used to unwrap another key.\n\nValid key usages depend on the key algorithm (identified by `cryptokey.algorithm.name`).",
+      "translated": "鍵を使用できる操作を識別する文字列の配列。\n\n可能な用途は次のとおり:\n- `'encrypt'` - 鍵はデータの暗号化に使える。\n- `'decrypt'` - 鍵はデータの復号に使える。\n- `'sign'` - 鍵はデジタル署名の生成に使える。\n- `'verify'` - 鍵はデジタル署名の検証に使える。\n- `'deriveKey'` - 鍵は新しい鍵の導出に使える。\n- `'deriveBits'` - 鍵はビットの導出に使える。\n- `'wrapKey'` - 鍵は別の鍵のラップに使える。\n- `'unwrapKey'` - 鍵は別の鍵のアンラップに使える。\n\n有効な鍵の用途は、鍵アルゴリズム(`cryptokey.algorithm.name` で識別)に依存する。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.CryptoKey.usages",
+      "lang": "ja"
+    },
+    "b36d91e6": {
+      "original": "Illegal constructor",
+      "translated": "不正なコンストラクター",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.CryptoKeyConstructor",
+      "lang": "ja"
+    },
+    "ef9b4da5": {
+      "original": "The `CryptoKeyPair` is a simple dictionary object with `publicKey` and `privateKey` properties, representing an asymmetric key pair.",
+      "translated": "`CryptoKeyPair` は、非対称鍵ペアを表す `publicKey` と `privateKey` プロパティを持つ単純な辞書オブジェクトである。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.CryptoKeyPair",
+      "lang": "ja"
+    },
+    "c8fefb98": {
+      "original": "A {@link CryptoKey} whose type will be `'private'`.",
+      "translated": "型が `'private'` になる {@link CryptoKey}。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.CryptoKeyPair.privateKey",
+      "lang": "ja"
+    },
+    "dbeb0ef0": {
+      "original": "A {@link CryptoKey} whose type will be `'public'`.",
+      "translated": "型が `'public'` になる {@link CryptoKey}。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.CryptoKeyPair.publicKey",
+      "lang": "ja"
+    },
+    "997187c0": {
+      "original": "Using the method and parameters specified in `algorithm` and the keying material provided by `key`,\n`subtle.decrypt()` attempts to decipher the provided `data`. If successful,\nthe returned promise will be resolved with an `<ArrayBuffer>` containing the plaintext result.\n\nThe algorithms currently supported include:\n\n- `'RSA-OAEP'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`",
+      "translated": "`algorithm` で指定されたメソッドとパラメーター、および `key` が提供する鍵材料を使い、`subtle.decrypt()` は指定した `data` の復号を試みる。成功した場合、返される promise は平文の結果を含む `<ArrayBuffer>` で解決される。\n\n現在サポートされているアルゴリズムは次のとおり:\n\n- `'RSA-OAEP'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.decrypt",
+      "lang": "ja"
+    },
+    "a7f30aeb": {
+      "original": "Using the method and parameters specified in `algorithm` and the keying material provided by `baseKey`,\n`subtle.deriveBits()` attempts to generate `length` bits.\nThe Node.js implementation requires that when `length` is a number it must be multiple of `8`.\nWhen `length` is `null` the maximum number of bits for a given algorithm is generated. This is allowed\nfor the `'ECDH'`, `'X25519'`, and `'X448'` algorithms.\nIf successful, the returned promise will be resolved with an `<ArrayBuffer>` containing the generated data.\n\nThe algorithms currently supported include:\n\n- `'ECDH'`\n- `'X25519'`\n- `'X448'`\n- `'HKDF'`\n- `'PBKDF2'`",
+      "translated": "`algorithm` で指定されたメソッドとパラメーター、および `baseKey` が提供する鍵材料を使い、`subtle.deriveBits()` は `length` ビットの生成を試みる。Node.js の実装では、`length` が数値の場合は `8` の倍数でなければならない。`length` が `null` の場合、指定したアルゴリズムの最大ビット数が生成される。これは `'ECDH'`・`'X25519'`・`'X448'` アルゴリズムで許可される。成功した場合、返される promise は生成されたデータを含む `<ArrayBuffer>` で解決される。\n\n現在サポートされているアルゴリズムは次のとおり:\n\n- `'ECDH'`\n- `'X25519'`\n- `'X448'`\n- `'HKDF'`\n- `'PBKDF2'`",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.deriveBits",
+      "lang": "ja"
+    },
+    "ef9c0a3d": {
+      "original": "See {@link https://nodejs.org/docs/latest/api/webcrypto.html#cryptokeyusages Key usages}.",
+      "translated": "{@link https://nodejs.org/docs/latest/api/webcrypto.html#cryptokeyusages 鍵の用途} を参照。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.deriveKey",
+      "lang": "ja"
+    },
+    "30aa4473": {
+      "original": "Using the method and parameters specified in `algorithm`, and the keying material provided by `baseKey`,\n`subtle.deriveKey()` attempts to generate a new <CryptoKey>` based on the method and parameters in `derivedKeyAlgorithm`.\n\nCalling `subtle.deriveKey()` is equivalent to calling `subtle.deriveBits()` to generate raw keying material,\nthen passing the result into the `subtle.importKey()` method using the `deriveKeyAlgorithm`, `extractable`, and `keyUsages` parameters as input.\n\nThe algorithms currently supported include:\n\n- `'ECDH'`\n- `'X25519'`\n- `'X448'`\n- `'HKDF'`\n- `'PBKDF2'`",
+      "translated": "`algorithm` で指定されたメソッドとパラメーター、および `baseKey` が提供する鍵材料を使い、`subtle.deriveKey()` は `derivedKeyAlgorithm` のメソッドとパラメーターに基づいて新しい `<CryptoKey>` の生成を試みる。\n\n`subtle.deriveKey()` を呼ぶことは、`subtle.deriveBits()` を呼んで生の鍵材料を生成してから、その結果を `deriveKeyAlgorithm`・`extractable`・`keyUsages` パラメーターを入力として `subtle.importKey()` メソッドに渡すことと同等である。\n\n現在サポートされているアルゴリズムは次のとおり:\n\n- `'ECDH'`\n- `'X25519'`\n- `'X448'`\n- `'HKDF'`\n- `'PBKDF2'`",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.deriveKey",
+      "lang": "ja"
+    },
+    "dc7c7096": {
+      "original": "Using the method identified by `algorithm`, `subtle.digest()` attempts to generate a digest of `data`.\nIf successful, the returned promise is resolved with an `<ArrayBuffer>` containing the computed digest.\n\nIf `algorithm` is provided as a `<string>`, it must be one of:\n\n- `'SHA-1'`\n- `'SHA-256'`\n- `'SHA-384'`\n- `'SHA-512'`\n\nIf `algorithm` is provided as an `<Object>`, it must have a `name` property whose value is one of the above.",
+      "translated": "`algorithm` で識別されるメソッドを使い、`subtle.digest()` は `data` のダイジェストの生成を試みる。成功した場合、返される promise は計算されたダイジェストを含む `<ArrayBuffer>` で解決される。\n\n`algorithm` が `<string>` として指定される場合、次のいずれかでなければならない:\n\n- `'SHA-1'`\n- `'SHA-256'`\n- `'SHA-384'`\n- `'SHA-512'`\n\n`algorithm` が `<Object>` として指定される場合、値が上記のいずれかである `name` プロパティを持たなければならない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.digest",
+      "lang": "ja"
+    },
+    "a4b954a0": {
+      "original": "Using the method and parameters specified by `algorithm` and the keying material provided by `key`,\n`subtle.encrypt()` attempts to encipher `data`. If successful,\nthe returned promise is resolved with an `<ArrayBuffer>` containing the encrypted result.\n\nThe algorithms currently supported include:\n\n- `'RSA-OAEP'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`",
+      "translated": "`algorithm` で指定されたメソッドとパラメーター、および `key` が提供する鍵材料を使い、`subtle.encrypt()` は `data` の暗号化を試みる。成功した場合、返される promise は暗号化された結果を含む `<ArrayBuffer>` で解決される。\n\n現在サポートされているアルゴリズムは次のとおり:\n\n- `'RSA-OAEP'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.encrypt",
+      "lang": "ja"
+    },
+    "c8bd2183": {
+      "original": "`<Promise>` containing `<ArrayBuffer>`.",
+      "translated": "`<ArrayBuffer>` を含む `<Promise>`。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.exportKey",
+      "lang": "ja"
+    },
+    "2aa1bfac": {
+      "original": "Exports the given key into the specified format, if supported.\n\nIf the `<CryptoKey>` is not extractable, the returned promise will reject.\n\nWhen `format` is either `'pkcs8'` or `'spki'` and the export is successful,\nthe returned promise will be resolved with an `<ArrayBuffer>` containing the exported key data.\n\nWhen `format` is `'jwk'` and the export is successful, the returned promise will be resolved with a\nJavaScript object conforming to the {@link https://tools.ietf.org/html/rfc7517 JSON Web Key} specification.",
+      "translated": "サポートされている場合、指定した鍵を指定した形式にエクスポートする。\n\n`<CryptoKey>` が取り出し不可の場合、返される promise は拒否される。\n\n`format` が `'pkcs8'` または `'spki'` のいずれかでエクスポートが成功した場合、返される promise はエクスポートされた鍵データを含む `<ArrayBuffer>` で解決される。\n\n`format` が `'jwk'` でエクスポートが成功した場合、返される promise は {@link https://tools.ietf.org/html/rfc7517 JSON Web Key} 仕様に準拠する JavaScript オブジェクトで解決される。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.exportKey",
+      "lang": "ja"
+    },
+    "92bca50a": {
+      "original": "Must be one of `'raw'`, `'pkcs8'`, `'spki'`, or `'jwk'`.",
+      "translated": "`'raw'`・`'pkcs8'`・`'spki'`・`'jwk'` のいずれかでなければならない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.exportKey",
+      "lang": "ja"
+    },
+    "0ac04d24": {
+      "original": "Using the method and parameters provided in `algorithm`,\n`subtle.generateKey()` attempts to generate new keying material.\nDepending the method used, the method may generate either a single `<CryptoKey>` or a `<CryptoKeyPair>`.\n\nThe `<CryptoKeyPair>` (public and private key) generating algorithms supported include:\n\n- `'RSASSA-PKCS1-v1_5'`\n- `'RSA-PSS'`\n- `'RSA-OAEP'`\n- `'ECDSA'`\n- `'Ed25519'`\n- `'Ed448'`\n- `'ECDH'`\n- `'X25519'`\n- `'X448'`\nThe `<CryptoKey>` (secret key) generating algorithms supported include:\n\n- `'HMAC'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`\n- `'AES-KW'`",
+      "translated": "`algorithm` で指定されたメソッドとパラメーターを使い、`subtle.generateKey()` は新しい鍵材料の生成を試みる。使うメソッドに応じて、単一の `<CryptoKey>` または `<CryptoKeyPair>` のいずれかを生成する。\n\nサポートされる `<CryptoKeyPair>`(公開鍵と秘密鍵)生成アルゴリズムは次のとおり:\n\n- `'RSASSA-PKCS1-v1_5'`\n- `'RSA-PSS'`\n- `'RSA-OAEP'`\n- `'ECDSA'`\n- `'Ed25519'`\n- `'Ed448'`\n- `'ECDH'`\n- `'X25519'`\n- `'X448'`\nサポートされる `<CryptoKey>`(秘密鍵)生成アルゴリズムは次のとおり:\n\n- `'HMAC'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`\n- `'AES-KW'`",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.generateKey",
+      "lang": "ja"
+    },
+    "163fb46f": {
+      "original": "The `subtle.importKey()` method attempts to interpret the provided `keyData` as the given `format`\nto create a `<CryptoKey>` instance using the provided `algorithm`, `extractable`, and `keyUsages` arguments.\nIf the import is successful, the returned promise will be resolved with the created `<CryptoKey>`.\n\nIf importing a `'PBKDF2'` key, `extractable` must be `false`.",
+      "translated": "`subtle.importKey()` メソッドは、指定した `keyData` を指定の `format` として解釈し、指定した `algorithm`・`extractable`・`keyUsages` 引数を使って `<CryptoKey>` インスタンスの作成を試みる。インポートが成功した場合、返される promise は作成された `<CryptoKey>` で解決される。\n\n`'PBKDF2'` 鍵をインポートする場合、`extractable` は `false` でなければならない。",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.importKey",
+      "lang": "ja"
+    },
+    "e1a9dfba": {
+      "original": "Using the method and parameters given by `algorithm` and the keying material provided by `key`,\n`subtle.sign()` attempts to generate a cryptographic signature of `data`. If successful,\nthe returned promise is resolved with an `<ArrayBuffer>` containing the generated signature.\n\nThe algorithms currently supported include:\n\n- `'RSASSA-PKCS1-v1_5'`\n- `'RSA-PSS'`\n- `'ECDSA'`\n- `'Ed25519'`\n- `'Ed448'`\n- `'HMAC'`",
+      "translated": "`algorithm` で指定されたメソッドとパラメーター、および `key` が提供する鍵材料を使い、`subtle.sign()` は `data` の暗号学的署名の生成を試みる。成功した場合、返される promise は生成された署名を含む `<ArrayBuffer>` で解決される。\n\n現在サポートされているアルゴリズムは次のとおり:\n\n- `'RSASSA-PKCS1-v1_5'`\n- `'RSA-PSS'`\n- `'ECDSA'`\n- `'Ed25519'`\n- `'Ed448'`\n- `'HMAC'`",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.sign",
+      "lang": "ja"
+    },
+    "dc276cf4": {
+      "original": "In cryptography, \"wrapping a key\" refers to exporting and then encrypting the keying material.\nThe `subtle.unwrapKey()` method attempts to decrypt a wrapped key and create a `<CryptoKey>` instance.\nIt is equivalent to calling `subtle.decrypt()` first on the encrypted key data (using the `wrappedKey`, `unwrapAlgo`, and `unwrappingKey` arguments as input)\nthen passing the results in to the `subtle.importKey()` method using the `unwrappedKeyAlgo`, `extractable`, and `keyUsages` arguments as inputs.\nIf successful, the returned promise is resolved with a `<CryptoKey>` object.\n\nThe wrapping algorithms currently supported include:\n\n- `'RSA-OAEP'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`\n- `'AES-KW'`\n\nThe unwrapped key algorithms supported include:\n\n- `'RSASSA-PKCS1-v1_5'`\n- `'RSA-PSS'`\n- `'RSA-OAEP'`\n- `'ECDSA'`\n- `'Ed25519'`\n- `'Ed448'`\n- `'ECDH'`\n- `'X25519'`\n- `'X448'`\n- `'HMAC'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`\n- `'AES-KW'`",
+      "translated": "暗号では「鍵をラップする」とは、鍵材料をエクスポートしてから暗号化することを指す。`subtle.unwrapKey()` メソッドは、ラップされた鍵を復号して `<CryptoKey>` インスタンスの作成を試みる。これは、暗号化された鍵データに対してまず `subtle.decrypt()` を(`wrappedKey`・`unwrapAlgo`・`unwrappingKey` 引数を入力として)呼んでから、その結果を `unwrappedKeyAlgo`・`extractable`・`keyUsages` 引数を入力として `subtle.importKey()` メソッドに渡すことと同等である。成功した場合、返される promise は `<CryptoKey>` オブジェクトで解決される。\n\n現在サポートされているラップアルゴリズムは次のとおり:\n\n- `'RSA-OAEP'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`\n- `'AES-KW'`\n\nサポートされるアンラップされた鍵のアルゴリズムは次のとおり:\n\n- `'RSASSA-PKCS1-v1_5'`\n- `'RSA-PSS'`\n- `'RSA-OAEP'`\n- `'ECDSA'`\n- `'Ed25519'`\n- `'Ed448'`\n- `'ECDH'`\n- `'X25519'`\n- `'X448'`\n- `'HMAC'`\n- `'AES-CTR'`\n- `'AES-CBC'`\n- `'AES-GCM'`\n- `'AES-KW'`",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.unwrapKey",
+      "lang": "ja"
+    },
+    "c88b80bd": {
+      "original": "Using the method and parameters given in `algorithm` and the keying material provided by `key`,\n`subtle.verify()` attempts to verify that `signature` is a valid cryptographic signature of `data`.\nThe returned promise is resolved with either `true` or `false`.\n\nThe algorithms currently supported include:\n\n- `'RSASSA-PKCS1-v1_5'`\n- `'RSA-PSS'`\n- `'ECDSA'`\n- `'Ed25519'`\n- `'Ed448'`\n- `'HMAC'`",
+      "translated": "`algorithm` で指定されたメソッドとパラメーター、および `key` が提供する鍵材料を使い、`subtle.verify()` は `signature` が `data` の有効な暗号学的署名であることの検証を試みる。返される promise は `true` または `false` のいずれかで解決される。\n\n現在サポートされているアルゴリズムは次のとおり:\n\n- `'RSASSA-PKCS1-v1_5'`\n- `'RSA-PSS'`\n- `'ECDSA'`\n- `'Ed25519'`\n- `'Ed448'`\n- `'HMAC'`",
+      "symbol": "@types/node/crypto.d.ts#crypto.webcrypto.SubtleCrypto.verify",
+      "lang": "ja"
+    },
     "73f2cc3a": {
       "original": "Much of the Node.js core API is built around an idiomatic asynchronous\nevent-driven architecture in which certain kinds of objects (called \"emitters\")\nemit named events that cause `Function` objects (\"listeners\") to be called.\n\nFor instance: a `net.Server` object emits an event each time a peer\nconnects to it; a `fs.ReadStream` emits an event when the file is opened;\na `stream` emits an event whenever data is available to be read.\n\nAll objects that emit events are instances of the `EventEmitter` class. These\nobjects expose an `eventEmitter.on()` function that allows one or more\nfunctions to be attached to named events emitted by the object. Typically,\nevent names are camel-cased strings but any valid JavaScript property key\ncan be used.\n\nWhen the `EventEmitter` object emits an event, all of the functions attached\nto that specific event are called _synchronously_. Any values returned by the\ncalled listeners are _ignored_ and discarded.\n\nThe following example shows a simple `EventEmitter` instance with a single\nlistener. The `eventEmitter.on()` method is used to register listeners, while\nthe `eventEmitter.emit()` method is used to trigger the event.\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
       "translated": "Node.js のコア API の多くは、慣用的な非同期のイベント駆動アーキテクチャを中心に構築されている。そこでは特定の種類のオブジェクト(「emitter」と呼ばれる)が名前付きイベントを発行し、それによって `Function` オブジェクト(「listener」)が呼ばれる。\n\nたとえば: `net.Server` オブジェクトはピアが接続するたびにイベントを発行する。`fs.ReadStream` はファイルが開かれたときにイベントを発行する。`stream` はデータが読める状態になるたびにイベントを発行する。\n\nイベントを発行するすべてのオブジェクトは `EventEmitter` クラスのインスタンスである。これらのオブジェクトは、オブジェクトが発行する名前付きイベントに 1 つ以上の関数を結び付けられる `eventEmitter.on()` 関数を公開する。通常、イベント名はキャメルケースの文字列だが、有効な JavaScript のプロパティキーであれば何でも使える。\n\n`EventEmitter` オブジェクトがイベントを発行すると、その特定のイベントに結び付けられたすべての関数が_同期的に_呼ばれる。呼ばれた listener が返す値は_無視_され、破棄される。\n\n次の例は、単一の listener を持つ単純な `EventEmitter` インスタンスを示す。listener の登録には `eventEmitter.on()` メソッドを、イベントのトリガーには `eventEmitter.emit()` メソッドを使う。\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
