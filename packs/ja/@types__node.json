@@ -3550,6 +3550,426 @@
       "symbol": "@types/node/http.d.ts#http.IncomingMessage.socket",
       "lang": "ja"
     },
+    "b1c3f95d": {
+      "original": "**Only valid for response obtained from {@link ClientRequest}.**\n\nThe 3-digit HTTP response status code. E.G. `404`.",
+      "translated": "**{@link ClientRequest} から取得したレスポンスにのみ有効。**\n\n3 桁の HTTP レスポンスステータスコード。例: `404`。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.statusCode",
+      "lang": "ja"
+    },
+    "bb6871fc": {
+      "original": "**Only valid for response obtained from {@link ClientRequest}.**\n\nThe HTTP response status message (reason phrase). E.G. `OK` or `Internal Server Error`.",
+      "translated": "**{@link ClientRequest} から取得したレスポンスにのみ有効。**\n\nHTTP レスポンスのステータスメッセージ(理由句)。例: `OK` や `Internal Server Error`。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.statusMessage",
+      "lang": "ja"
+    },
+    "3ec7c285": {
+      "original": "The request/response trailers object. Only populated at the `'end'` event.",
+      "translated": "リクエスト/レスポンスのトレーラーオブジェクト。`'end'` イベントでのみ設定される。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.trailers",
+      "lang": "ja"
+    },
+    "a33640ab": {
+      "original": "Similar to `message.trailers`, but there is no join logic and the values are\nalways arrays of strings, even for headers received just once.\nOnly populated at the `'end'` event.",
+      "translated": "`message.trailers` に似ているが、結合ロジックがなく、一度しか受信されなかったヘッダーでも値は常に文字列の配列である。`'end'` イベントでのみ設定される。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.trailersDistinct",
+      "lang": "ja"
+    },
+    "4e8fe7d1": {
+      "original": "**Only valid for request obtained from {@link Server}.**\n\nRequest URL string. This contains only the URL that is present in the actual\nHTTP request. Take the following request:\n\n```http\nGET /status?name=ryan HTTP/1.1\nAccept: text/plain\n```\n\nTo parse the URL into its parts:\n\n```js\nnew URL(`http://${process.env.HOST ?? 'localhost'}${request.url}`);\n```\n\nWhen `request.url` is `'/status?name=ryan'` and `process.env.HOST` is undefined:\n\n```console\n$ node\n> new URL(`http://${process.env.HOST ?? 'localhost'}${request.url}`);\nURL {\n  href: 'http://localhost/status?name=ryan',\n  origin: 'http://localhost',\n  protocol: 'http:',\n  username: '',\n  password: '',\n  host: 'localhost',\n  hostname: 'localhost',\n  port: '',\n  pathname: '/status',\n  search: '?name=ryan',\n  searchParams: URLSearchParams { 'name' => 'ryan' },\n  hash: ''\n}\n```\n\nEnsure that you set `process.env.HOST` to the server's host name, or consider replacing this part entirely. If using `req.headers.host`, ensure proper\nvalidation is used, as clients may specify a custom `Host` header.",
+      "translated": "**{@link Server} から取得したリクエストにのみ有効。**\n\nリクエストの URL 文字列。これは実際の HTTP リクエストに存在する URL のみを含む。次のリクエストを考える:\n\n```http\nGET /status?name=ryan HTTP/1.1\nAccept: text/plain\n```\n\nURL をその各部に解析するには:\n\n```js\nnew URL(`http://${process.env.HOST ?? 'localhost'}${request.url}`);\n```\n\n`request.url` が `'/status?name=ryan'` で `process.env.HOST` が undefined の場合:\n\n```console\n$ node\n> new URL(`http://${process.env.HOST ?? 'localhost'}${request.url}`);\nURL {\n  href: 'http://localhost/status?name=ryan',\n  origin: 'http://localhost',\n  protocol: 'http:',\n  username: '',\n  password: '',\n  host: 'localhost',\n  hostname: 'localhost',\n  port: '',\n  pathname: '/status',\n  search: '?name=ryan',\n  searchParams: URLSearchParams { 'name' => 'ryan' },\n  hash: ''\n}\n```\n\n`process.env.HOST` をサーバーのホスト名に設定するか、この部分を完全に置き換えることを検討すること。`req.headers.host` を使う場合、クライアントがカスタムの `Host` ヘッダーを指定することがあるため、適切な検証を使うこと。",
+      "symbol": "@types/node/http.d.ts#http.IncomingMessage.url",
+      "lang": "ja"
+    },
+    "6c115f80": {
+      "original": "Read-only property specifying the maximum allowed size of HTTP headers in bytes.\nDefaults to 16KB. Configurable using the `--max-http-header-size` CLI option.",
+      "translated": "HTTP ヘッダーの許可される最大サイズをバイト単位で指定する読み取り専用プロパティ。既定は 16KB。`--max-http-header-size` CLI オプションで設定可能。",
+      "symbol": "@types/node/http.d.ts#http.maxHeaderSize",
+      "lang": "ja"
+    },
+    "9b734a26": {
+      "original": "This class serves as the parent class of {@link ClientRequest} and {@link ServerResponse}. It is an abstract outgoing message from\nthe perspective of the participants of an HTTP transaction.",
+      "translated": "このクラスは {@link ClientRequest} と {@link ServerResponse} の親クラスとして機能する。HTTP トランザクションの参加者の観点から見た抽象的な送信メッセージである。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage",
+      "lang": "ja"
+    },
+    "2f6cbfd6": {
+      "original": "Adds HTTP trailers (headers but at the end of the message) to the message.\n\nTrailers will **only** be emitted if the message is chunked encoded. If not,\nthe trailers will be silently discarded.\n\nHTTP requires the `Trailer` header to be sent to emit trailers,\nwith a list of header field names in its value, e.g.\n\n```js\nmessage.writeHead(200, { 'Content-Type': 'text/plain',\n                         'Trailer': 'Content-MD5' });\nmessage.write(fileData);\nmessage.addTrailers({ 'Content-MD5': '7895bf4b8828b55ceaf47747b4bca667' });\nmessage.end();\n```\n\nAttempting to set a header field name or value that contains invalid characters\nwill result in a `TypeError` being thrown.",
+      "translated": "メッセージに HTTP トレーラー(ヘッダーだがメッセージの末尾にある)を追加する。\n\nトレーラーは、メッセージがチャンクエンコードされている場合に**のみ**発行される。そうでなければ、トレーラーは静かに破棄される。\n\nHTTP は、トレーラーを発行するために `Trailer` ヘッダーを送信することを要求し、その値にヘッダーフィールド名のリストを入れる。例:\n\n```js\nmessage.writeHead(200, { 'Content-Type': 'text/plain',\n                         'Trailer': 'Content-MD5' });\nmessage.write(fileData);\nmessage.addTrailers({ 'Content-MD5': '7895bf4b8828b55ceaf47747b4bca667' });\nmessage.end();\n```\n\n無効な文字を含むヘッダーフィールド名または値を設定しようとすると、`TypeError` が投げられる。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.addTrailers",
+      "lang": "ja"
+    },
+    "3d54443b": {
+      "original": "Append a single header value to the header object.\n\nIf the value is an array, this is equivalent to calling this method multiple\ntimes.\n\nIf there were no previous values for the header, this is equivalent to calling `outgoingMessage.setHeader(name, value)`.\n\nDepending of the value of `options.uniqueHeaders` when the client request or the\nserver were created, this will end up in the header being sent multiple times or\na single time with values joined using `; `.",
+      "translated": "ヘッダーオブジェクトに単一のヘッダー値を追加する。\n\n値が配列の場合、これはこのメソッドを複数回呼ぶのと同等である。\n\nそのヘッダーに以前の値がなかった場合、これは `outgoingMessage.setHeader(name, value)` を呼ぶのと同等である。\n\nクライアントリクエストまたはサーバーが作成されたときの `options.uniqueHeaders` の値に応じて、これはヘッダーが複数回送信されるか、`; ` で結合された値とともに一度だけ送信されることになる。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.appendHeader",
+      "lang": "ja"
+    },
+    "260869e8": {
+      "original": "Alias of `outgoingMessage.socket`.",
+      "translated": "`outgoingMessage.socket` のエイリアス。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.connection",
+      "lang": "ja"
+    },
+    "122c9024": {
+      "original": "Since v15.12.0,v14.17.1 - Use `socket` instead.",
+      "translated": "v15.12.0,v14.17.1 以降 - 代わりに `socket` を使うこと。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.connection",
+      "lang": "ja"
+    },
+    "7a86ce3e": {
+      "original": "Use `writableEnded` instead.",
+      "translated": "代わりに `writableEnded` を使うこと。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.finished",
+      "lang": "ja"
+    },
+    "2105a24a": {
+      "original": "Flushes the message headers.\n\nFor efficiency reason, Node.js normally buffers the message headers\nuntil `outgoingMessage.end()` is called or the first chunk of message data\nis written. It then tries to pack the headers and data into a single TCP\npacket.\n\nIt is usually desired (it saves a TCP round-trip), but not when the first\ndata is not sent until possibly much later. `outgoingMessage.flushHeaders()` bypasses the optimization and kickstarts the message.",
+      "translated": "メッセージヘッダーをフラッシュする。\n\n効率上の理由から、Node.js は通常、`outgoingMessage.end()` が呼ばれるか最初のメッセージデータチャンクが書き込まれるまで、メッセージヘッダーをバッファリングする。その後、ヘッダーとデータを単一の TCP パケットにまとめようとする。\n\nこれは通常望ましい(TCP ラウンドトリップを節約する)が、最初のデータが場合によってはかなり後まで送信されないときは望ましくない。`outgoingMessage.flushHeaders()` はこの最適化をバイパスし、メッセージを始動させる。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.flushHeaders",
+      "lang": "ja"
+    },
+    "88beab3b": {
+      "original": "Gets the value of the HTTP header with the given name. If that header is not\nset, the returned value will be `undefined`.",
+      "translated": "指定した名前の HTTP ヘッダーの値を取得する。そのヘッダーが設定されていない場合、返される値は `undefined` になる。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.getHeader",
+      "lang": "ja"
+    },
+    "2e820e74": {
+      "original": "Name of header",
+      "translated": "ヘッダーの名前",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.getHeader",
+      "lang": "ja"
+    },
+    "3f2afdc7": {
+      "original": "Returns an array containing the unique names of the current outgoing headers.\nAll names are lowercase.",
+      "translated": "現在の送信ヘッダーの一意な名前を含む配列を返す。すべての名前は小文字である。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.getHeaderNames",
+      "lang": "ja"
+    },
+    "dd5aeaa3": {
+      "original": "Returns a shallow copy of the current outgoing headers. Since a shallow\ncopy is used, array values may be mutated without additional calls to\nvarious header-related HTTP module methods. The keys of the returned\nobject are the header names and the values are the respective header\nvalues. All header names are lowercase.\n\nThe object returned by the `outgoingMessage.getHeaders()` method does\nnot prototypically inherit from the JavaScript `Object`. This means that\ntypical `Object` methods such as `obj.toString()`, `obj.hasOwnProperty()`,\nand others are not defined and will not work.\n\n```js\noutgoingMessage.setHeader('Foo', 'bar');\noutgoingMessage.setHeader('Set-Cookie', ['foo=bar', 'bar=baz']);\n\nconst headers = outgoingMessage.getHeaders();\n// headers === { foo: 'bar', 'set-cookie': ['foo=bar', 'bar=baz'] }\n```",
+      "translated": "現在の送信ヘッダーの浅いコピーを返す。浅いコピーが使われるため、さまざまなヘッダー関連の HTTP モジュールメソッドを追加で呼ばずに配列の値を変更できる。返されるオブジェクトのキーはヘッダー名で、値はそれぞれのヘッダー値である。すべてのヘッダー名は小文字である。\n\n`outgoingMessage.getHeaders()` メソッドが返すオブジェクトは、JavaScript の `Object` からプロトタイプ的に継承しない。これは、`obj.toString()`・`obj.hasOwnProperty()` などの典型的な `Object` メソッドが定義されておらず、機能しないことを意味する。\n\n```js\noutgoingMessage.setHeader('Foo', 'bar');\noutgoingMessage.setHeader('Set-Cookie', ['foo=bar', 'bar=baz']);\n\nconst headers = outgoingMessage.getHeaders();\n// headers === { foo: 'bar', 'set-cookie': ['foo=bar', 'bar=baz'] }\n```",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.getHeaders",
+      "lang": "ja"
+    },
+    "9d80a37f": {
+      "original": "Returns `true` if the header identified by `name` is currently set in the\noutgoing headers. The header name is case-insensitive.\n\n```js\nconst hasContentType = outgoingMessage.hasHeader('content-type');\n```",
+      "translated": "`name` で識別されるヘッダーが現在送信ヘッダーに設定されている場合は `true` を返す。ヘッダー名は大文字小文字を区別しない。\n\n```js\nconst hasContentType = outgoingMessage.hasHeader('content-type');\n```",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.hasHeader",
+      "lang": "ja"
+    },
+    "9742fce5": {
+      "original": "Read-only. `true` if the headers were sent, otherwise `false`.",
+      "translated": "読み取り専用。ヘッダーが送信された場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.headersSent",
+      "lang": "ja"
+    },
+    "09172b21": {
+      "original": "Removes a header that is queued for implicit sending.\n\n```js\noutgoingMessage.removeHeader('Content-Encoding');\n```",
+      "translated": "暗黙的な送信のためにキューに入れられたヘッダーを削除する。\n\n```js\noutgoingMessage.removeHeader('Content-Encoding');\n```",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.removeHeader",
+      "lang": "ja"
+    },
+    "c1dcc8fb": {
+      "original": "Header name",
+      "translated": "ヘッダー名",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.setHeader",
+      "lang": "ja"
+    },
+    "f9a9058c": {
+      "original": "Header value",
+      "translated": "ヘッダー値",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.setHeader",
+      "lang": "ja"
+    },
+    "c14d392a": {
+      "original": "Sets a single header value. If the header already exists in the to-be-sent\nheaders, its value will be replaced. Use an array of strings to send multiple\nheaders with the same name.",
+      "translated": "単一のヘッダー値を設定する。そのヘッダーが送信予定のヘッダーにすでに存在する場合、その値は置き換えられる。同じ名前で複数のヘッダーを送信するには、文字列の配列を使う。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.setHeader",
+      "lang": "ja"
+    },
+    "6c1dbff7": {
+      "original": "Sets multiple header values for implicit headers. headers must be an instance of\n`Headers` or `Map`, if a header already exists in the to-be-sent headers, its\nvalue will be replaced.\n\n```js\nconst headers = new Headers({ foo: 'bar' });\noutgoingMessage.setHeaders(headers);\n```\n\nor\n\n```js\nconst headers = new Map([['foo', 'bar']]);\noutgoingMessage.setHeaders(headers);\n```\n\nWhen headers have been set with `outgoingMessage.setHeaders()`, they will be\nmerged with any headers passed to `response.writeHead()`, with the headers passed\nto `response.writeHead()` given precedence.\n\n```js\n// Returns content-type = text/plain\nconst server = http.createServer((req, res) => {\n  const headers = new Headers({ 'Content-Type': 'text/html' });\n  res.setHeaders(headers);\n  res.writeHead(200, { 'Content-Type': 'text/plain' });\n  res.end('ok');\n});\n```",
+      "translated": "暗黙的なヘッダーに複数のヘッダー値を設定する。headers は `Headers` または `Map` のインスタンスでなければならない。ヘッダーが送信予定のヘッダーにすでに存在する場合、その値は置き換えられる。\n\n```js\nconst headers = new Headers({ foo: 'bar' });\noutgoingMessage.setHeaders(headers);\n```\n\nまたは\n\n```js\nconst headers = new Map([['foo', 'bar']]);\noutgoingMessage.setHeaders(headers);\n```\n\n`outgoingMessage.setHeaders()` でヘッダーが設定されている場合、それらは `response.writeHead()` に渡されたヘッダーとマージされ、`response.writeHead()` に渡されたヘッダーが優先される。\n\n```js\n// Returns content-type = text/plain\nconst server = http.createServer((req, res) => {\n  const headers = new Headers({ 'Content-Type': 'text/html' });\n  res.setHeaders(headers);\n  res.writeHead(200, { 'Content-Type': 'text/plain' });\n  res.end('ok');\n});\n```",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.setHeaders",
+      "lang": "ja"
+    },
+    "4a49aabf": {
+      "original": "Once a socket is associated with the message and is connected, `socket.setTimeout()` will be called with `msecs` as the first parameter.",
+      "translated": "メッセージにソケットが関連付けられ接続されると、`msecs` を第 1 パラメーターとして `socket.setTimeout()` が呼ばれる。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.setTimeout",
+      "lang": "ja"
+    },
+    "469fec8f": {
+      "original": "Optional function to be called when a timeout occurs. Same as binding to the `timeout` event.",
+      "translated": "タイムアウトが発生したときに呼ばれる省略可能な関数。`timeout` イベントにバインドするのと同じ。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.setTimeout",
+      "lang": "ja"
+    },
+    "5508c7d9": {
+      "original": "Reference to the underlying socket. Usually, users will not want to access\nthis property.\n\nAfter calling `outgoingMessage.end()`, this property will be nulled.",
+      "translated": "基盤となるソケットへの参照。通常、ユーザーはこのプロパティにアクセスしたくないだろう。\n\n`outgoingMessage.end()` を呼んだ後、このプロパティは null 化される。",
+      "symbol": "@types/node/http.d.ts#http.OutgoingMessage.socket",
+      "lang": "ja"
+    },
+    "3864da7c": {
+      "original": "`options` in `socket.connect()` are also supported.\n\nNode.js maintains several connections per server to make HTTP requests.\nThis function allows one to transparently issue requests.\n\n`url` can be a string or a `URL` object. If `url` is a\nstring, it is automatically parsed with `new URL()`. If it is a `URL` object, it will be automatically converted to an ordinary `options` object.\n\nIf both `url` and `options` are specified, the objects are merged, with the `options` properties taking precedence.\n\nThe optional `callback` parameter will be added as a one-time listener for\nthe `'response'` event.\n\n`http.request()` returns an instance of the {@link ClientRequest} class. The `ClientRequest` instance is a writable stream. If one needs to\nupload a file with a POST request, then write to the `ClientRequest` object.\n\n```js\nimport http from 'node:http';\nimport { Buffer } from 'node:buffer';\n\nconst postData = JSON.stringify({\n  'msg': 'Hello World!',\n});\n\nconst options = {\n  hostname: 'www.google.com',\n  port: 80,\n  path: '/upload',\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    'Content-Length': Buffer.byteLength(postData),\n  },\n};\n\nconst req = http.request(options, (res) => {\n  console.log(`STATUS: ${res.statusCode}`);\n  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);\n  res.setEncoding('utf8');\n  res.on('data', (chunk) => {\n    console.log(`BODY: ${chunk}`);\n  });\n  res.on('end', () => {\n    console.log('No more data in response.');\n  });\n});\n\nreq.on('error', (e) => {\n  console.error(`problem with request: ${e.message}`);\n});\n\n// Write data to request body\nreq.write(postData);\nreq.end();\n```\n\nIn the example `req.end()` was called. With `http.request()` one\nmust always call `req.end()` to signify the end of the request -\neven if there is no data being written to the request body.\n\nIf any error is encountered during the request (be that with DNS resolution,\nTCP level errors, or actual HTTP parse errors) an `'error'` event is emitted\non the returned request object. As with all `'error'` events, if no listeners\nare registered the error will be thrown.\n\nThere are a few special headers that should be noted.\n\n* Sending a 'Connection: keep-alive' will notify Node.js that the connection to\nthe server should be persisted until the next request.\n* Sending a 'Content-Length' header will disable the default chunked encoding.\n* Sending an 'Expect' header will immediately send the request headers.\nUsually, when sending 'Expect: 100-continue', both a timeout and a listener\nfor the `'continue'` event should be set. See RFC 2616 Section 8.2.3 for more\ninformation.\n* Sending an Authorization header will override using the `auth` option\nto compute basic authentication.\n\nExample using a `URL` as `options`:\n\n```js\nconst options = new URL('http://abc:xyz@example.com');\n\nconst req = http.request(options, (res) => {\n  // ...\n});\n```\n\nIn a successful request, the following events will be emitted in the following\norder:\n\n* `'socket'`\n* `'response'`\n   * `'data'` any number of times, on the `res` object\n   (`'data'` will not be emitted at all if the response body is empty, for\n   instance, in most redirects)\n   * `'end'` on the `res` object\n* `'close'`\n\nIn the case of a connection error, the following events will be emitted:\n\n* `'socket'`\n* `'error'`\n* `'close'`\n\nIn the case of a premature connection close before the response is received,\nthe following events will be emitted in the following order:\n\n* `'socket'`\n* `'error'` with an error with message `'Error: socket hang up'` and code `'ECONNRESET'`\n* `'close'`\n\nIn the case of a premature connection close after the response is received,\nthe following events will be emitted in the following order:\n\n* `'socket'`\n* `'response'`\n   * `'data'` any number of times, on the `res` object\n* (connection closed here)\n* `'aborted'` on the `res` object\n* `'close'`\n* `'error'` on the `res` object with an error with message `'Error: aborted'` and code `'ECONNRESET'`\n* `'close'` on the `res` object\n\nIf `req.destroy()` is called before a socket is assigned, the following\nevents will be emitted in the following order:\n\n* (`req.destroy()` called here)\n* `'error'` with an error with message `'Error: socket hang up'` and code `'ECONNRESET'`, or the error with which `req.destroy()` was called\n* `'close'`\n\nIf `req.destroy()` is called before the connection succeeds, the following\nevents will be emitted in the following order:\n\n* `'socket'`\n* (`req.destroy()` called here)\n* `'error'` with an error with message `'Error: socket hang up'` and code `'ECONNRESET'`, or the error with which `req.destroy()` was called\n* `'close'`\n\nIf `req.destroy()` is called after the response is received, the following\nevents will be emitted in the following order:\n\n* `'socket'`\n* `'response'`\n   * `'data'` any number of times, on the `res` object\n* (`req.destroy()` called here)\n* `'aborted'` on the `res` object\n* `'close'`\n* `'error'` on the `res` object with an error with message `'Error: aborted'` and code `'ECONNRESET'`, or the error with which `req.destroy()` was called\n* `'close'` on the `res` object\n\nIf `req.abort()` is called before a socket is assigned, the following\nevents will be emitted in the following order:\n\n* (`req.abort()` called here)\n* `'abort'`\n* `'close'`\n\nIf `req.abort()` is called before the connection succeeds, the following\nevents will be emitted in the following order:\n\n* `'socket'`\n* (`req.abort()` called here)\n* `'abort'`\n* `'error'` with an error with message `'Error: socket hang up'` and code `'ECONNRESET'`\n* `'close'`\n\nIf `req.abort()` is called after the response is received, the following\nevents will be emitted in the following order:\n\n* `'socket'`\n* `'response'`\n   * `'data'` any number of times, on the `res` object\n* (`req.abort()` called here)\n* `'abort'`\n* `'aborted'` on the `res` object\n* `'error'` on the `res` object with an error with message `'Error: aborted'` and code `'ECONNRESET'`.\n* `'close'`\n* `'close'` on the `res` object\n\nSetting the `timeout` option or using the `setTimeout()` function will\nnot abort the request or do anything besides add a `'timeout'` event.\n\nPassing an `AbortSignal` and then calling `abort()` on the corresponding `AbortController` will behave the same way as calling `.destroy()` on the\nrequest. Specifically, the `'error'` event will be emitted with an error with\nthe message `'AbortError: The operation was aborted'`, the code `'ABORT_ERR'` and the `cause`, if one was provided.",
+      "translated": "`socket.connect()` の `options` もサポートされる。\n\nNode.js は HTTP リクエストを行うためにサーバーごとに複数の接続を保持する。この関数は透過的にリクエストを発行できるようにする。\n\n`url` は文字列または `URL` オブジェクトでよい。`url` が文字列の場合、`new URL()` で自動的に解析される。`URL` オブジェクトの場合、通常の `options` オブジェクトに自動的に変換される。\n\n`url` と `options` の両方が指定された場合、オブジェクトはマージされ、`options` のプロパティが優先される。\n\n省略可能な `callback` パラメーターは、`'response'` イベントの一度きりの listener として追加される。\n\n`http.request()` は {@link ClientRequest} クラスのインスタンスを返す。`ClientRequest` インスタンスは書き込み可能ストリームである。POST リクエストでファイルをアップロードする必要がある場合、`ClientRequest` オブジェクトに書き込む。\n\n```js\nimport http from 'node:http';\nimport { Buffer } from 'node:buffer';\n\nconst postData = JSON.stringify({\n  'msg': 'Hello World!',\n});\n\nconst options = {\n  hostname: 'www.google.com',\n  port: 80,\n  path: '/upload',\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    'Content-Length': Buffer.byteLength(postData),\n  },\n};\n\nconst req = http.request(options, (res) => {\n  console.log(`STATUS: ${res.statusCode}`);\n  console.log(`HEADERS: ${JSON.stringify(res.headers)}`);\n  res.setEncoding('utf8');\n  res.on('data', (chunk) => {\n    console.log(`BODY: ${chunk}`);\n  });\n  res.on('end', () => {\n    console.log('No more data in response.');\n  });\n});\n\nreq.on('error', (e) => {\n  console.error(`problem with request: ${e.message}`);\n});\n\n// Write data to request body\nreq.write(postData);\nreq.end();\n```\n\nこの例では `req.end()` が呼ばれた。`http.request()` では、リクエストボディに書き込むデータがなくても、リクエストの終了を示すために常に `req.end()` を呼ばなければならない。\n\nリクエスト中に(DNS 解決・TCP レベルのエラー・実際の HTTP 解析エラーのいずれかで)エラーに遭遇した場合、返されたリクエストオブジェクトで `'error'` イベントが発行される。すべての `'error'` イベントと同様に、listener が登録されていない場合、エラーは投げられる。\n\n注意すべき特別なヘッダーがいくつかある。\n\n* 'Connection: keep-alive' を送信すると、サーバーへの接続を次のリクエストまで永続化すべきことを Node.js に通知する。\n* 'Content-Length' ヘッダーを送信すると、既定のチャンクエンコードが無効になる。\n* 'Expect' ヘッダーを送信すると、リクエストヘッダーが即座に送信される。通常、'Expect: 100-continue' を送信する場合、タイムアウトと `'continue'` イベントの listener の両方を設定すべきである。詳細は RFC 2616 の 8.2.3 節を参照。\n* Authorization ヘッダーを送信すると、`auth` オプションを使った basic 認証の計算がオーバーライドされる。\n\n`URL` を `options` として使う例:\n\n```js\nconst options = new URL('http://abc:xyz@example.com');\n\nconst req = http.request(options, (res) => {\n  // ...\n});\n```\n\n成功したリクエストでは、次のイベントが次の順序で発行される:\n\n* `'socket'`\n* `'response'`\n   * `res` オブジェクトで `'data'` が任意の回数(たとえばほとんどのリダイレクトのように、レスポンスボディが空の場合、`'data'` はまったく発行されない)\n   * `res` オブジェクトで `'end'`\n* `'close'`\n\n接続エラーの場合、次のイベントが発行される:\n\n* `'socket'`\n* `'error'`\n* `'close'`\n\nレスポンスを受信する前に接続が途中で閉じられた場合、次のイベントが次の順序で発行される:\n\n* `'socket'`\n* メッセージ `'Error: socket hang up'` とコード `'ECONNRESET'` を持つエラーとともに `'error'`\n* `'close'`\n\nレスポンスを受信した後に接続が途中で閉じられた場合、次のイベントが次の順序で発行される:\n\n* `'socket'`\n* `'response'`\n   * `res` オブジェクトで `'data'` が任意の回数\n* (ここで接続が閉じられる)\n* `res` オブジェクトで `'aborted'`\n* `'close'`\n* メッセージ `'Error: aborted'` とコード `'ECONNRESET'` を持つエラーとともに `res` オブジェクトで `'error'`\n* `res` オブジェクトで `'close'`\n\nソケットが割り当てられる前に `req.destroy()` が呼ばれた場合、次のイベントが次の順序で発行される:\n\n* (ここで `req.destroy()` が呼ばれる)\n* メッセージ `'Error: socket hang up'` とコード `'ECONNRESET'` を持つエラー、または `req.destroy()` が呼ばれたときのエラーとともに `'error'`\n* `'close'`\n\n接続が成功する前に `req.destroy()` が呼ばれた場合、次のイベントが次の順序で発行される:\n\n* `'socket'`\n* (ここで `req.destroy()` が呼ばれる)\n* メッセージ `'Error: socket hang up'` とコード `'ECONNRESET'` を持つエラー、または `req.destroy()` が呼ばれたときのエラーとともに `'error'`\n* `'close'`\n\nレスポンスを受信した後に `req.destroy()` が呼ばれた場合、次のイベントが次の順序で発行される:\n\n* `'socket'`\n* `'response'`\n   * `res` オブジェクトで `'data'` が任意の回数\n* (ここで `req.destroy()` が呼ばれる)\n* `res` オブジェクトで `'aborted'`\n* `'close'`\n* メッセージ `'Error: aborted'` とコード `'ECONNRESET'` を持つエラー、または `req.destroy()` が呼ばれたときのエラーとともに `res` オブジェクトで `'error'`\n* `res` オブジェクトで `'close'`\n\nソケットが割り当てられる前に `req.abort()` が呼ばれた場合、次のイベントが次の順序で発行される:\n\n* (ここで `req.abort()` が呼ばれる)\n* `'abort'`\n* `'close'`\n\n接続が成功する前に `req.abort()` が呼ばれた場合、次のイベントが次の順序で発行される:\n\n* `'socket'`\n* (ここで `req.abort()` が呼ばれる)\n* `'abort'`\n* メッセージ `'Error: socket hang up'` とコード `'ECONNRESET'` を持つエラーとともに `'error'`\n* `'close'`\n\nレスポンスを受信した後に `req.abort()` が呼ばれた場合、次のイベントが次の順序で発行される:\n\n* `'socket'`\n* `'response'`\n   * `res` オブジェクトで `'data'` が任意の回数\n* (ここで `req.abort()` が呼ばれる)\n* `'abort'`\n* `res` オブジェクトで `'aborted'`\n* メッセージ `'Error: aborted'` とコード `'ECONNRESET'` を持つエラーとともに `res` オブジェクトで `'error'`。\n* `'close'`\n* `res` オブジェクトで `'close'`\n\n`timeout` オプションの設定や `setTimeout()` 関数の使用は、リクエストを中断したり、`'timeout'` イベントの追加以外のことをしたりしない。\n\n`AbortSignal` を渡してから、対応する `AbortController` で `abort()` を呼ぶと、リクエストに対して `.destroy()` を呼ぶのと同じように動作する。具体的には、メッセージ `'AbortError: The operation was aborted'`・コード `'ABORT_ERR'`・(提供されていれば)`cause` を持つエラーとともに `'error'` イベントが発行される。",
+      "symbol": "@types/node/http.d.ts#http.request",
+      "lang": "ja"
+    },
+    "f51c46ef": {
+      "original": "Closes all connections connected to this server.",
+      "translated": "このサーバーに接続されているすべての接続を閉じる。",
+      "symbol": "@types/node/http.d.ts#http.Server.closeAllConnections",
+      "lang": "ja"
+    },
+    "06c2e047": {
+      "original": "Closes all connections connected to this server which are not sending a request\nor waiting for a response.",
+      "translated": "このサーバーに接続されている接続のうち、リクエストを送信していないかレスポンスを待っていないすべての接続を閉じる。",
+      "symbol": "@types/node/http.d.ts#http.Server.closeIdleConnections",
+      "lang": "ja"
+    },
+    "31e94170": {
+      "original": "Limit the amount of time the parser will wait to receive the complete HTTP\nheaders.\n\nIf the timeout expires, the server responds with status 408 without\nforwarding the request to the request listener and then closes the connection.\n\nIt must be set to a non-zero value (e.g. 120 seconds) to protect against\npotential Denial-of-Service attacks in case the server is deployed without a\nreverse proxy in front.",
+      "translated": "パーサーが完全な HTTP ヘッダーを受信するのを待つ時間を制限する。\n\nタイムアウトが切れた場合、サーバーはリクエストをリクエスト listener に転送せずにステータス 408 で応答し、接続を閉じる。\n\nサーバーがリバースプロキシを前段に置かずにデプロイされた場合の潜在的なサービス拒否(DoS)攻撃から保護するため、非ゼロの値(たとえば 120 秒)に設定しなければならない。",
+      "symbol": "@types/node/http.d.ts#http.Server.headersTimeout",
+      "lang": "ja"
+    },
+    "b25fbcaa": {
+      "original": "The number of milliseconds of inactivity a server needs to wait for additional\nincoming data, after it has finished writing the last response, before a socket\nwill be destroyed.\n\nThis timeout value is combined with the\n`server.keepAliveTimeoutBuffer` option to determine the actual socket\ntimeout, calculated as:\nsocketTimeout = keepAliveTimeout + keepAliveTimeoutBuffer\nIf the server receives new data before the keep-alive timeout has fired, it\nwill reset the regular inactivity timeout, i.e., `server.timeout`.\n\nA value of `0` will disable the keep-alive timeout behavior on incoming\nconnections.\nA value of `0` makes the HTTP server behave similarly to Node.js versions prior\nto 8.0.0, which did not have a keep-alive timeout.\n\nThe socket timeout logic is set up on connection, so changing this value only\naffects new connections to the server, not any existing connections.",
+      "translated": "サーバーが最後のレスポンスの書き込みを終えた後、ソケットが破棄される前に、追加の受信データを待つ非アクティブのミリ秒数。\n\nこのタイムアウト値は `server.keepAliveTimeoutBuffer` オプションと組み合わされて実際のソケットタイムアウトを決定し、次のように計算される:\nsocketTimeout = keepAliveTimeout + keepAliveTimeoutBuffer\nサーバーが keep-alive タイムアウトの発火前に新しいデータを受信した場合、通常の非アクティブタイムアウト、すなわち `server.timeout` をリセットする。\n\n値 `0` は受信接続での keep-alive タイムアウトの挙動を無効にする。値 `0` は、keep-alive タイムアウトを持たなかった 8.0.0 より前の Node.js バージョンと同様に HTTP サーバーを動作させる。\n\nソケットタイムアウトのロジックは接続時に設定されるため、この値を変更してもサーバーへの新しい接続にのみ影響し、既存の接続には影響しない。",
+      "symbol": "@types/node/http.d.ts#http.Server.keepAliveTimeout",
+      "lang": "ja"
+    },
+    "68ea77a8": {
+      "original": "An additional buffer time added to the\n`server.keepAliveTimeout` to extend the internal socket timeout.\n\nThis buffer helps reduce connection reset (`ECONNRESET`) errors by increasing\nthe socket timeout slightly beyond the advertised keep-alive timeout.\n\nThis option applies only to new incoming connections.",
+      "translated": "内部のソケットタイムアウトを延長するために `server.keepAliveTimeout` に追加されるバッファ時間。\n\nこのバッファは、ソケットタイムアウトを通知された keep-alive タイムアウトよりわずかに長くすることで、接続リセット(`ECONNRESET`)エラーを減らすのに役立つ。\n\nこのオプションは新しい受信接続にのみ適用される。",
+      "symbol": "@types/node/http.d.ts#http.Server.keepAliveTimeoutBuffer",
+      "lang": "ja"
+    },
+    "d121b2ff": {
+      "original": "Limits maximum incoming headers count. If set to 0, no limit will be applied.",
+      "translated": "受信ヘッダーの最大数を制限する。0 に設定した場合、制限は適用されない。",
+      "symbol": "@types/node/http.d.ts#http.Server.maxHeadersCount",
+      "lang": "ja"
+    },
+    "b207e330": {
+      "original": "The maximum number of requests socket can handle\nbefore closing keep alive connection.\n\nA value of `0` will disable the limit.\n\nWhen the limit is reached it will set the `Connection` header value to `close`,\nbut will not actually close the connection, subsequent requests sent\nafter the limit is reached will get `503 Service Unavailable` as a response.",
+      "translated": "keep-alive 接続を閉じる前にソケットが処理できるリクエストの最大数。\n\n値 `0` は制限を無効にする。\n\n制限に達すると、`Connection` ヘッダーの値が `close` に設定されるが、実際には接続を閉じない。制限に達した後に送信された以降のリクエストは、レスポンスとして `503 Service Unavailable` を受け取る。",
+      "symbol": "@types/node/http.d.ts#http.Server.maxRequestsPerSocket",
+      "lang": "ja"
+    },
+    "e3c7ef56": {
+      "original": "Sets the timeout value in milliseconds for receiving the entire request from\nthe client.\n\nIf the timeout expires, the server responds with status 408 without\nforwarding the request to the request listener and then closes the connection.\n\nIt must be set to a non-zero value (e.g. 120 seconds) to protect against\npotential Denial-of-Service attacks in case the server is deployed without a\nreverse proxy in front.",
+      "translated": "クライアントからリクエスト全体を受信するためのタイムアウト値をミリ秒で設定する。\n\nタイムアウトが切れた場合、サーバーはリクエストをリクエスト listener に転送せずにステータス 408 で応答し、接続を閉じる。\n\nサーバーがリバースプロキシを前段に置かずにデプロイされた場合の潜在的なサービス拒否(DoS)攻撃から保護するため、非ゼロの値(たとえば 120 秒)に設定しなければならない。",
+      "symbol": "@types/node/http.d.ts#http.Server.requestTimeout",
+      "lang": "ja"
+    },
+    "a9edbf53": {
+      "original": "Sets the timeout value for sockets, and emits a `'timeout'` event on\nthe Server object, passing the socket as an argument, if a timeout\noccurs.\n\nIf there is a `'timeout'` event listener on the Server object, then it\nwill be called with the timed-out socket as an argument.\n\nBy default, the Server does not timeout sockets. However, if a callback\nis assigned to the Server's `'timeout'` event, timeouts must be handled\nexplicitly.",
+      "translated": "ソケットのタイムアウト値を設定し、タイムアウトが発生した場合、ソケットを引数として渡して Server オブジェクトで `'timeout'` イベントを発行する。\n\nServer オブジェクトに `'timeout'` イベント listener がある場合、タイムアウトしたソケットを引数として呼ばれる。\n\n既定では、Server はソケットをタイムアウトさせない。ただし、Server の `'timeout'` イベントにコールバックが割り当てられている場合、タイムアウトは明示的に処理しなければならない。",
+      "symbol": "@types/node/http.d.ts#http.Server.setTimeout",
+      "lang": "ja"
+    },
+    "2f1ef334": {
+      "original": "The number of milliseconds of inactivity before a socket is presumed\nto have timed out.\n\nA value of `0` will disable the timeout behavior on incoming connections.\n\nThe socket timeout logic is set up on connection, so changing this\nvalue only affects new connections to the server, not any existing connections.",
+      "translated": "ソケットがタイムアウトしたとみなされるまでの非アクティブのミリ秒数。\n\n値 `0` は受信接続でのタイムアウトの挙動を無効にする。\n\nソケットタイムアウトのロジックは接続時に設定されるため、この値を変更してもサーバーへの新しい接続にのみ影響し、既存の接続には影響しない。",
+      "symbol": "@types/node/http.d.ts#http.Server.timeout",
+      "lang": "ja"
+    },
+    "a24c56bf": {
+      "original": "Sets the interval value in milliseconds to check for request and headers timeout in incomplete requests.",
+      "translated": "不完全なリクエストのリクエストとヘッダーのタイムアウトを確認する間隔値をミリ秒で設定する。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.connectionsCheckingInterval",
+      "lang": "ja"
+    },
+    "ac48e2fe": {
+      "original": "Sets the timeout value in milliseconds for receiving the complete HTTP headers from the client.\nSee {@link Server.headersTimeout} for more information.",
+      "translated": "クライアントから完全な HTTP ヘッダーを受信するためのタイムアウト値をミリ秒で設定する。詳細は {@link Server.headersTimeout} を参照。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.headersTimeout",
+      "lang": "ja"
+    },
+    "35ad575c": {
+      "original": "Optionally overrides all `socket`s' `readableHighWaterMark` and `writableHighWaterMark`.\nThis affects `highWaterMark` property of both `IncomingMessage` and `ServerResponse`.\nDefault:",
+      "translated": "任意で、すべての `socket` の `readableHighWaterMark` と `writableHighWaterMark` をオーバーライドする。これは `IncomingMessage` と `ServerResponse` の両方の `highWaterMark` プロパティに影響する。既定:",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.highWaterMark",
+      "lang": "ja"
+    },
+    "6451df78": {
+      "original": "Specifies the `IncomingMessage` class to be used. Useful for extending the original `IncomingMessage`.",
+      "translated": "使う `IncomingMessage` クラスを指定する。元の `IncomingMessage` を拡張するのに役立つ。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.IncomingMessage",
+      "lang": "ja"
+    },
+    "41b32694": {
+      "original": "Use an insecure HTTP parser that accepts invalid HTTP headers when `true`.\nUsing the insecure parser should be avoided.\nSee --insecure-http-parser for more information.",
+      "translated": "`true` のとき、無効な HTTP ヘッダーを受け付ける安全でない HTTP パーサーを使う。安全でないパーサーの使用は避けるべきである。詳細は --insecure-http-parser を参照。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.insecureHTTPParser",
+      "lang": "ja"
+    },
+    "e51ddb4d": {
+      "original": "It joins the field line values of multiple headers in a request with `, ` instead of discarding the duplicates.",
+      "translated": "リクエスト内の複数のヘッダーのフィールド行値を破棄せず、`, ` で結合する。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.joinDuplicateHeaders",
+      "lang": "ja"
+    },
+    "cbed3a22": {
+      "original": "If set to `true`, it enables keep-alive functionality on the socket immediately after a new incoming connection is received,\nsimilarly on what is done in `socket.setKeepAlive([enable][, initialDelay])`.",
+      "translated": "`true` に設定した場合、`socket.setKeepAlive([enable][, initialDelay])` で行われるのと同様に、新しい受信接続を受け取った直後にソケットで keep-alive 機能を有効にする。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.keepAlive",
+      "lang": "ja"
+    },
+    "423ae71e": {
+      "original": "If set to a positive number, it sets the initial delay before the first keepalive probe is sent on an idle socket.",
+      "translated": "正の数に設定した場合、アイドルソケットで最初の keepalive プローブが送信されるまでの初期遅延を設定する。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.keepAliveInitialDelay",
+      "lang": "ja"
+    },
+    "5c0106bf": {
+      "original": "The number of milliseconds of inactivity a server needs to wait for additional incoming data,\nafter it has finished writing the last response, before a socket will be destroyed.",
+      "translated": "サーバーが最後のレスポンスの書き込みを終えた後、ソケットが破棄される前に、追加の受信データを待つ非アクティブのミリ秒数。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.keepAliveTimeout",
+      "lang": "ja"
+    },
+    "ec977c6a": {
+      "original": "An additional buffer time added to the\n`server.keepAliveTimeout` to extend the internal socket timeout.",
+      "translated": "内部のソケットタイムアウトを延長するために `server.keepAliveTimeout` に追加されるバッファ時間。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.keepAliveTimeoutBuffer",
+      "lang": "ja"
+    },
+    "e515a600": {
+      "original": "Optionally overrides the value of `--max-http-header-size` for requests received by\nthis server, i.e. the maximum length of request headers in bytes.",
+      "translated": "任意で、このサーバーが受信するリクエストについて `--max-http-header-size` の値、すなわちリクエストヘッダーの最大長をバイト単位でオーバーライドする。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.maxHeaderSize",
+      "lang": "ja"
+    },
+    "b6bfcdd6": {
+      "original": "If set to `true`, it disables the use of Nagle's algorithm immediately after a new incoming connection is received.",
+      "translated": "`true` に設定した場合、新しい受信接続を受け取った直後に Nagle アルゴリズムの使用を無効にする。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.noDelay",
+      "lang": "ja"
+    },
+    "888ce32c": {
+      "original": "If set to `true`, an error is thrown when writing to an HTTP response which does not have a body.",
+      "translated": "`true` に設定した場合、ボディを持たない HTTP レスポンスに書き込むとエラーが投げられる。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.rejectNonStandardBodyWrites",
+      "lang": "ja"
+    },
+    "6aff07a0": {
+      "original": "Sets the timeout value in milliseconds for receiving the entire request from the client.",
+      "translated": "クライアントからリクエスト全体を受信するためのタイムアウト値をミリ秒で設定する。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.requestTimeout",
+      "lang": "ja"
+    },
+    "2e45f944": {
+      "original": "If set to `true`, it forces the server to respond with a 400 (Bad Request) status code\nto any HTTP/1.1 request message that lacks a Host header (as mandated by the specification).",
+      "translated": "`true` に設定した場合、(仕様で義務付けられているとおり)Host ヘッダーを欠く HTTP/1.1 リクエストメッセージに対して、サーバーが 400(Bad Request)ステータスコードで応答することを強制する。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.requireHostHeader",
+      "lang": "ja"
+    },
+    "82a4e042": {
+      "original": "Specifies the `ServerResponse` class to be used. Useful for extending the original `ServerResponse`.",
+      "translated": "使う `ServerResponse` クラスを指定する。元の `ServerResponse` を拡張するのに役立つ。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.ServerResponse",
+      "lang": "ja"
+    },
+    "611872ec": {
+      "original": "A list of response headers that should be sent only once.\nIf the header's value is an array, the items will be joined using `; `.",
+      "translated": "一度だけ送信すべきレスポンスヘッダーのリスト。ヘッダーの値が配列の場合、項目は `; ` で結合される。",
+      "symbol": "@types/node/http.d.ts#http.ServerOptions.uniqueHeaders",
+      "lang": "ja"
+    },
+    "a1e619fe": {
+      "original": "This object is created internally by an HTTP server, not by the user. It is\npassed as the second parameter to the `'request'` event.",
+      "translated": "このオブジェクトは、ユーザーではなく HTTP サーバーによって内部的に作成される。`'request'` イベントの第 2 パラメーターとして渡される。",
+      "symbol": "@types/node/http.d.ts#http.ServerResponse",
+      "lang": "ja"
+    },
+    "9cccd67a": {
+      "original": "When using implicit headers (not calling `response.writeHead()` explicitly),\nthis property controls the status code that will be sent to the client when\nthe headers get flushed.\n\n```js\nresponse.statusCode = 404;\n```\n\nAfter response header was sent to the client, this property indicates the\nstatus code which was sent out.",
+      "translated": "暗黙的なヘッダーを使う(`response.writeHead()` を明示的に呼ばない)場合、このプロパティは、ヘッダーがフラッシュされるときにクライアントに送信されるステータスコードを制御する。\n\n```js\nresponse.statusCode = 404;\n```\n\nレスポンスヘッダーがクライアントに送信された後、このプロパティは送信されたステータスコードを示す。",
+      "symbol": "@types/node/http.d.ts#http.ServerResponse.statusCode",
+      "lang": "ja"
+    },
+    "8162b94b": {
+      "original": "When using implicit headers (not calling `response.writeHead()` explicitly),\nthis property controls the status message that will be sent to the client when\nthe headers get flushed. If this is left as `undefined` then the standard\nmessage for the status code will be used.\n\n```js\nresponse.statusMessage = 'Not found';\n```\n\nAfter response header was sent to the client, this property indicates the\nstatus message which was sent out.",
+      "translated": "暗黙的なヘッダーを使う(`response.writeHead()` を明示的に呼ばない)場合、このプロパティは、ヘッダーがフラッシュされるときにクライアントに送信されるステータスメッセージを制御する。これを `undefined` のままにした場合、ステータスコードの標準メッセージが使われる。\n\n```js\nresponse.statusMessage = 'Not found';\n```\n\nレスポンスヘッダーがクライアントに送信された後、このプロパティは送信されたステータスメッセージを示す。",
+      "symbol": "@types/node/http.d.ts#http.ServerResponse.statusMessage",
+      "lang": "ja"
+    },
+    "804526ae": {
+      "original": "If set to `true`, Node.js will check whether the `Content-Length` header value and the size of the body, in bytes, are equal.\nMismatching the `Content-Length` header value will result\nin an `Error` being thrown, identified by `code:``'ERR_HTTP_CONTENT_LENGTH_MISMATCH'`.",
+      "translated": "`true` に設定した場合、Node.js は `Content-Length` ヘッダー値とボディのサイズ(バイト単位)が等しいかどうかを確認する。`Content-Length` ヘッダー値と一致しないと `Error` が投げられ、`code: 'ERR_HTTP_CONTENT_LENGTH_MISMATCH'` で識別される。",
+      "symbol": "@types/node/http.d.ts#http.ServerResponse.strictContentLength",
+      "lang": "ja"
+    },
+    "27e30229": {
+      "original": "Sends an HTTP/1.1 100 Continue message to the client, indicating that\nthe request body should be sent. See the `'checkContinue'` event on `Server`.",
+      "translated": "クライアントに HTTP/1.1 100 Continue メッセージを送信し、リクエストボディを送信すべきことを示す。`Server` の `'checkContinue'` イベントを参照。",
+      "symbol": "@types/node/http.d.ts#http.ServerResponse.writeContinue",
+      "lang": "ja"
+    },
+    "344f4b0f": {
+      "original": "An object containing the values of headers",
+      "translated": "ヘッダーの値を含むオブジェクト",
+      "symbol": "@types/node/http.d.ts#http.ServerResponse.writeEarlyHints",
+      "lang": "ja"
+    },
+    "d548662d": {
+      "original": "Sends an HTTP/1.1 103 Early Hints message to the client with a Link header,\nindicating that the user agent can preload/preconnect the linked resources.\nThe `hints` is an object containing the values of headers to be sent with\nearly hints message. The optional `callback` argument will be called when\nthe response message has been written.\n\n**Example**\n\n```js\nconst earlyHintsLink = '</styles.css>; rel=preload; as=style';\nresponse.writeEarlyHints({\n  'link': earlyHintsLink,\n});\n\nconst earlyHintsLinks = [\n  '</styles.css>; rel=preload; as=style',\n  '</scripts.js>; rel=preload; as=script',\n];\nresponse.writeEarlyHints({\n  'link': earlyHintsLinks,\n  'x-trace-id': 'id for diagnostics',\n});\n\nconst earlyHintsCallback = () => console.log('early hints message sent');\nresponse.writeEarlyHints({\n  'link': earlyHintsLinks,\n}, earlyHintsCallback);\n```",
+      "translated": "Link ヘッダーとともにクライアントに HTTP/1.1 103 Early Hints メッセージを送信し、ユーザーエージェントがリンクされたリソースをプリロード/プリコネクトできることを示す。`hints` は、early hints メッセージとともに送信するヘッダーの値を含むオブジェクトである。省略可能な `callback` 引数は、レスポンスメッセージが書き込まれたときに呼ばれる。\n\n**例**\n\n```js\nconst earlyHintsLink = '</styles.css>; rel=preload; as=style';\nresponse.writeEarlyHints({\n  'link': earlyHintsLink,\n});\n\nconst earlyHintsLinks = [\n  '</styles.css>; rel=preload; as=style',\n  '</scripts.js>; rel=preload; as=script',\n];\nresponse.writeEarlyHints({\n  'link': earlyHintsLinks,\n  'x-trace-id': 'id for diagnostics',\n});\n\nconst earlyHintsCallback = () => console.log('early hints message sent');\nresponse.writeEarlyHints({\n  'link': earlyHintsLinks,\n}, earlyHintsCallback);\n```",
+      "symbol": "@types/node/http.d.ts#http.ServerResponse.writeEarlyHints",
+      "lang": "ja"
+    },
+    "432cb0cb": {
+      "original": "Will be called when the response message has been written",
+      "translated": "レスポンスメッセージが書き込まれたときに呼ばれる",
+      "symbol": "@types/node/http.d.ts#http.ServerResponse.writeEarlyHints",
+      "lang": "ja"
+    },
+    "71689bf6": {
+      "original": "Sends a response header to the request. The status code is a 3-digit HTTP\nstatus code, like `404`. The last argument, `headers`, are the response headers.\nOptionally one can give a human-readable `statusMessage` as the second\nargument.\n\n`headers` may be an `Array` where the keys and values are in the same list.\nIt is _not_ a list of tuples. So, the even-numbered offsets are key values,\nand the odd-numbered offsets are the associated values. The array is in the same\nformat as `request.rawHeaders`.\n\nReturns a reference to the `ServerResponse`, so that calls can be chained.\n\n```js\nconst body = 'hello world';\nresponse\n  .writeHead(200, {\n    'Content-Length': Buffer.byteLength(body),\n    'Content-Type': 'text/plain',\n  })\n  .end(body);\n```\n\nThis method must only be called once on a message and it must\nbe called before `response.end()` is called.\n\nIf `response.write()` or `response.end()` are called before calling\nthis, the implicit/mutable headers will be calculated and call this function.\n\nWhen headers have been set with `response.setHeader()`, they will be merged\nwith any headers passed to `response.writeHead()`, with the headers passed\nto `response.writeHead()` given precedence.\n\nIf this method is called and `response.setHeader()` has not been called,\nit will directly write the supplied header values onto the network channel\nwithout caching internally, and the `response.getHeader()` on the header\nwill not yield the expected result. If progressive population of headers is\ndesired with potential future retrieval and modification, use `response.setHeader()` instead.\n\n```js\n// Returns content-type = text/plain\nconst server = http.createServer((req, res) => {\n  res.setHeader('Content-Type', 'text/html');\n  res.setHeader('X-Foo', 'bar');\n  res.writeHead(200, { 'Content-Type': 'text/plain' });\n  res.end('ok');\n});\n```\n\n`Content-Length` is read in bytes, not characters. Use `Buffer.byteLength()` to determine the length of the body in bytes. Node.js\nwill check whether `Content-Length` and the length of the body which has\nbeen transmitted are equal or not.\n\nAttempting to set a header field name or value that contains invalid characters\nwill result in a [`TypeError`](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-typeerror) being thrown.",
+      "translated": "リクエストにレスポンスヘッダーを送信する。ステータスコードは `404` のような 3 桁の HTTP ステータスコードである。最後の引数 `headers` はレスポンスヘッダーである。任意で、第 2 引数として人間が読める `statusMessage` を指定できる。\n\n`headers` は、キーと値が同じリストにある `Array` でもよい。タプルのリストで_はない_。したがって、偶数番目のオフセットはキーの値、奇数番目のオフセットは関連付けられた値である。この配列は `request.rawHeaders` と同じ形式である。\n\n呼び出しをチェーンできるよう、`ServerResponse` への参照を返す。\n\n```js\nconst body = 'hello world';\nresponse\n  .writeHead(200, {\n    'Content-Length': Buffer.byteLength(body),\n    'Content-Type': 'text/plain',\n  })\n  .end(body);\n```\n\nこのメソッドはメッセージに対して一度だけ呼ばなければならず、`response.end()` が呼ばれる前に呼ばなければならない。\n\nこれを呼ぶ前に `response.write()` または `response.end()` が呼ばれた場合、暗黙的/可変のヘッダーが計算され、この関数が呼ばれる。\n\n`response.setHeader()` でヘッダーが設定されている場合、それらは `response.writeHead()` に渡されたヘッダーとマージされ、`response.writeHead()` に渡されたヘッダーが優先される。\n\nこのメソッドが呼ばれ、`response.setHeader()` が呼ばれていない場合、指定したヘッダー値を内部的にキャッシュせずにネットワークチャネルに直接書き込むため、そのヘッダーに対する `response.getHeader()` は期待される結果を返さない。将来の取得や変更の可能性を伴うヘッダーの段階的な設定が望まれる場合は、代わりに `response.setHeader()` を使うこと。\n\n```js\n// Returns content-type = text/plain\nconst server = http.createServer((req, res) => {\n  res.setHeader('Content-Type', 'text/html');\n  res.setHeader('X-Foo', 'bar');\n  res.writeHead(200, { 'Content-Type': 'text/plain' });\n  res.end('ok');\n});\n```\n\n`Content-Length` は文字数ではなくバイト単位で読まれる。ボディの長さをバイト単位で判定するには `Buffer.byteLength()` を使うこと。Node.js は `Content-Length` と送信されたボディの長さが等しいかどうかを確認する。\n\n無効な文字を含むヘッダーフィールド名または値を設定しようとすると、[`TypeError`](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-typeerror) が投げられる。",
+      "symbol": "@types/node/http.d.ts#http.ServerResponse.writeHead",
+      "lang": "ja"
+    },
+    "cd5003c7": {
+      "original": "Sends a HTTP/1.1 102 Processing message to the client, indicating that\nthe request body should be sent.",
+      "translated": "クライアントに HTTP/1.1 102 Processing メッセージを送信し、リクエストボディを送信すべきことを示す。",
+      "symbol": "@types/node/http.d.ts#http.ServerResponse.writeProcessing",
+      "lang": "ja"
+    },
+    "824888b2": {
+      "original": "Set the maximum number of idle HTTP parsers.",
+      "translated": "アイドルの HTTP パーサーの最大数を設定する。",
+      "symbol": "@types/node/http.d.ts#http.setMaxIdleHTTPParsers",
+      "lang": "ja"
+    },
+    "421edff6": {
+      "original": "Label for error message.",
+      "translated": "エラーメッセージ用のラベル。",
+      "symbol": "@types/node/http.d.ts#http.validateHeaderName",
+      "lang": "ja"
+    },
+    "b956fc3a": {
+      "original": "Performs the low-level validations on the provided `name` that are done when `res.setHeader(name, value)` is called.\n\nPassing illegal value as `name` will result in a `TypeError` being thrown,\nidentified by `code: 'ERR_INVALID_HTTP_TOKEN'`.\n\nIt is not necessary to use this method before passing headers to an HTTP request\nor response. The HTTP module will automatically validate such headers.\n\nExample:\n\n```js\nimport { validateHeaderName } from 'node:http';\n\ntry {\n  validateHeaderName('');\n} catch (err) {\n  console.error(err instanceof TypeError); // --> true\n  console.error(err.code); // --> 'ERR_INVALID_HTTP_TOKEN'\n  console.error(err.message); // --> 'Header name must be a valid HTTP token [\"\"]'\n}\n```",
+      "translated": "`res.setHeader(name, value)` が呼ばれるときに行われる、指定した `name` に対する低レベルの検証を実行する。\n\n不正な値を `name` として渡すと `TypeError` が投げられ、`code: 'ERR_INVALID_HTTP_TOKEN'` で識別される。\n\nHTTP リクエストやレスポンスにヘッダーを渡す前にこのメソッドを使う必要はない。HTTP モジュールはそのようなヘッダーを自動的に検証する。\n\n例:\n\n```js\nimport { validateHeaderName } from 'node:http';\n\ntry {\n  validateHeaderName('');\n} catch (err) {\n  console.error(err instanceof TypeError); // --> true\n  console.error(err.code); // --> 'ERR_INVALID_HTTP_TOKEN'\n  console.error(err.message); // --> 'Header name must be a valid HTTP token [\"\"]'\n}\n```",
+      "symbol": "@types/node/http.d.ts#http.validateHeaderName",
+      "lang": "ja"
+    },
+    "f93d4ff4": {
+      "original": "Performs the low-level validations on the provided `value` that are done when `res.setHeader(name, value)` is called.\n\nPassing illegal value as `value` will result in a `TypeError` being thrown.\n\n* Undefined value error is identified by `code: 'ERR_HTTP_INVALID_HEADER_VALUE'`.\n* Invalid value character error is identified by `code: 'ERR_INVALID_CHAR'`.\n\nIt is not necessary to use this method before passing headers to an HTTP request\nor response. The HTTP module will automatically validate such headers.\n\nExamples:\n\n```js\nimport { validateHeaderValue } from 'node:http';\n\ntry {\n  validateHeaderValue('x-my-header', undefined);\n} catch (err) {\n  console.error(err instanceof TypeError); // --> true\n  console.error(err.code === 'ERR_HTTP_INVALID_HEADER_VALUE'); // --> true\n  console.error(err.message); // --> 'Invalid value \"undefined\" for header \"x-my-header\"'\n}\n\ntry {\n  validateHeaderValue('x-my-header', 'oʊmɪɡə');\n} catch (err) {\n  console.error(err instanceof TypeError); // --> true\n  console.error(err.code === 'ERR_INVALID_CHAR'); // --> true\n  console.error(err.message); // --> 'Invalid character in header content [\"x-my-header\"]'\n}\n```",
+      "translated": "`res.setHeader(name, value)` が呼ばれるときに行われる、指定した `value` に対する低レベルの検証を実行する。\n\n不正な値を `value` として渡すと `TypeError` が投げられる。\n\n* undefined 値のエラーは `code: 'ERR_HTTP_INVALID_HEADER_VALUE'` で識別される。\n* 無効な値の文字のエラーは `code: 'ERR_INVALID_CHAR'` で識別される。\n\nHTTP リクエストやレスポンスにヘッダーを渡す前にこのメソッドを使う必要はない。HTTP モジュールはそのようなヘッダーを自動的に検証する。\n\n例:\n\n```js\nimport { validateHeaderValue } from 'node:http';\n\ntry {\n  validateHeaderValue('x-my-header', undefined);\n} catch (err) {\n  console.error(err instanceof TypeError); // --> true\n  console.error(err.code === 'ERR_HTTP_INVALID_HEADER_VALUE'); // --> true\n  console.error(err.message); // --> 'Invalid value \"undefined\" for header \"x-my-header\"'\n}\n\ntry {\n  validateHeaderValue('x-my-header', 'oʊmɪɡə');\n} catch (err) {\n  console.error(err instanceof TypeError); // --> true\n  console.error(err.code === 'ERR_INVALID_CHAR'); // --> true\n  console.error(err.message); // --> 'Invalid character in header content [\"x-my-header\"]'\n}\n```",
+      "symbol": "@types/node/http.d.ts#http.validateHeaderValue",
+      "lang": "ja"
+    },
+    "bc767772": {
+      "original": "A browser-compatible implementation of `WebSocket`.",
+      "translated": "`WebSocket` のブラウザー互換な実装。",
+      "symbol": "@types/node/http.d.ts#http.WebSocket",
+      "lang": "ja"
+    },
     "f3935692": {
       "original": "The `node:os` module provides operating system-related utility methods and\nproperties. It can be accessed using:\n\n```js\nimport os from 'node:os';\n```",
       "translated": "`node:os` モジュールは、オペレーティングシステム関連のユーティリティメソッドとプロパティを提供する。次のようにアクセスできる:\n\n```js\nimport os from 'node:os';\n```",
