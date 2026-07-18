@@ -22,6 +22,12 @@
       "symbol": "@types/node/buffer.d.ts#buffer.transcode",
       "lang": "ja"
     },
+    "12672191": {
+      "original": "The name of the performance entry.",
+      "translated": "パフォーマンスエントリの名前。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceEntry.name",
+      "lang": "ja"
+    },
     "14610749": {
       "original": "A value that is `\"strip\"` by default,\n`\"transform\"` if Node.js is run with `--experimental-transform-types`, and `false` if\nNode.js is run with `--no-experimental-strip-types`.",
       "translated": "既定では `\"strip\"`、Node.js を `--experimental-transform-types` 付きで実行した場合は `\"transform\"`、`--no-experimental-strip-types` 付きで実行した場合は `false` になる値。",
@@ -7434,13 +7440,13 @@
     },
     "f17450d8": {
       "original": "[Fetch Response Body Info](https://fetch.spec.whatwg.org/#response-body-info)",
-      "translated": "[Fetch Response Body Info](https://fetch.spec.whatwg.org/#response-body-info)",
+      "translated": "[Fetch のレスポンスボディ情報](https://fetch.spec.whatwg.org/#response-body-info)。",
       "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.markResourceTiming",
       "lang": "ja"
     },
     "66d546ca": {
       "original": "[Fetch Timing Info](https://fetch.spec.whatwg.org/#fetch-timing-info)",
-      "translated": "[Fetch Timing Info](https://fetch.spec.whatwg.org/#fetch-timing-info)",
+      "translated": "[Fetch のタイミング情報](https://fetch.spec.whatwg.org/#fetch-timing-info)。",
       "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.markResourceTiming",
       "lang": "ja"
     },
@@ -7508,6 +7514,180 @@
       "original": "Sets the global performance resource timing buffer size to the specified number of \"resource\" type performance entry objects.\n\nBy default the max buffer size is set to 250.",
       "translated": "グローバルなパフォーマンスリソースタイミングバッファのサイズを、指定した数の \"resource\" 型パフォーマンスエントリオブジェクトに設定する。\n\n既定では、最大バッファサイズは 250 に設定される。",
       "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.setResourceTimingBufferSize",
+      "lang": "ja"
+    },
+    "61c5bb73": {
+      "original": "The [`timeOrigin`](https://w3c.github.io/hr-time/#dom-performance-timeorigin) specifies the high resolution millisecond timestamp\nat which the current `node` process began, measured in Unix time.",
+      "translated": "[`timeOrigin`](https://w3c.github.io/hr-time/#dom-performance-timeorigin) は、現在の `node` プロセスが開始した高解像度ミリ秒タイムスタンプを指定する。Unix 時間で測定される。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.timeOrigin",
+      "lang": "ja"
+    },
+    "39a75fd7": {
+      "original": "_This property is an extension by Node.js. It is not available in Web browsers._\n\nWraps a function within a new function that measures the running time of the wrapped function.\nA `PerformanceObserver` must be subscribed to the `'function'` event type in order for the timing details to be accessed.\n\n```js\nimport {\n  performance,\n  PerformanceObserver,\n} from 'node:perf_hooks';\n\nfunction someFunction() {\n  console.log('hello world');\n}\n\nconst wrapped = performance.timerify(someFunction);\n\nconst obs = new PerformanceObserver((list) => {\n  console.log(list.getEntries()[0].duration);\n\n  performance.clearMarks();\n  performance.clearMeasures();\n  obs.disconnect();\n});\nobs.observe({ entryTypes: ['function'] });\n\n// A performance timeline entry will be created\nwrapped();\n```\n\nIf the wrapped function returns a promise, a finally handler will be attached to the promise and the duration will be reported\nonce the finally handler is invoked.",
+      "translated": "_このプロパティは Node.js による拡張である。Web ブラウザーでは利用できない。_\n\n関数を、ラップされた関数の実行時間を測定する新しい関数でラップする。タイミングの詳細にアクセスするには、`PerformanceObserver` が `'function'` イベント型を購読していなければならない。\n\n```js\nimport {\n  performance,\n  PerformanceObserver,\n} from 'node:perf_hooks';\n\nfunction someFunction() {\n  console.log('hello world');\n}\n\nconst wrapped = performance.timerify(someFunction);\n\nconst obs = new PerformanceObserver((list) => {\n  console.log(list.getEntries()[0].duration);\n\n  performance.clearMarks();\n  performance.clearMeasures();\n  obs.disconnect();\n});\nobs.observe({ entryTypes: ['function'] });\n\n// A performance timeline entry will be created\nwrapped();\n```\n\nラップされた関数が promise を返す場合、finally ハンドラが promise に取り付けられ、finally ハンドラが呼ばれたときに継続時間が報告される。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.timerify",
+      "lang": "ja"
+    },
+    "e061df6c": {
+      "original": "An object which is JSON representation of the performance object. It is similar to\n[`window.performance.toJSON`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/toJSON) in browsers.",
+      "translated": "performance オブジェクトの JSON 表現であるオブジェクト。ブラウザーの [`window.performance.toJSON`](https://developer.mozilla.org/en-US/docs/Web/API/Performance/toJSON) に似ている。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.toJSON",
+      "lang": "ja"
+    },
+    "38e31e87": {
+      "original": "The constructor of this class is not exposed to users directly.",
+      "translated": "このクラスのコンストラクターはユーザーに直接公開されていない。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceEntry",
+      "lang": "ja"
+    },
+    "c8882356": {
+      "original": "The total number of milliseconds elapsed for this entry. This value will not\nbe meaningful for all Performance Entry types.",
+      "translated": "このエントリで経過したミリ秒の合計。この値はすべての Performance Entry の型で意味を持つわけではない。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceEntry.duration",
+      "lang": "ja"
+    },
+    "4ef93b09": {
+      "original": "The type of the performance entry. It may be one of:\n\n* `'node'` (Node.js only)\n* `'mark'` (available on the Web)\n* `'measure'` (available on the Web)\n* `'gc'` (Node.js only)\n* `'function'` (Node.js only)\n* `'http2'` (Node.js only)\n* `'http'` (Node.js only)",
+      "translated": "パフォーマンスエントリの型。次のいずれかであり得る:\n\n* `'node'`(Node.js 専用)\n* `'mark'`(Web でも利用可能)\n* `'measure'`(Web でも利用可能)\n* `'gc'`(Node.js 専用)\n* `'function'`(Node.js 専用)\n* `'http2'`(Node.js 専用)\n* `'http'`(Node.js 専用)",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceEntry.entryType",
+      "lang": "ja"
+    },
+    "2ffd8878": {
+      "original": "The high resolution millisecond timestamp marking the starting time of the\nPerformance Entry.",
+      "translated": "Performance Entry の開始時刻を示す高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceEntry.startTime",
+      "lang": "ja"
+    },
+    "db3d9ceb": {
+      "original": "Exposes marks created via the `Performance.mark()` method.",
+      "translated": "`Performance.mark()` メソッドを介して作成されたマークを公開する。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceMark",
+      "lang": "ja"
+    },
+    "259c2e39": {
+      "original": "Exposes measures created via the `Performance.measure()` method.\n\nThe constructor of this class is not exposed to users directly.",
+      "translated": "`Performance.measure()` メソッドを介して作成された measure を公開する。\n\nこのクラスのコンストラクターはユーザーに直接公開されていない。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceMeasure",
+      "lang": "ja"
+    },
+    "1b31b906": {
+      "original": "_This property is an extension by Node.js. It is not available in Web browsers._\n\nProvides timing details for Node.js itself. The constructor of this class\nis not exposed to users.",
+      "translated": "_このプロパティは Node.js による拡張である。Web ブラウザーでは利用できない。_\n\nNode.js 自体のタイミングの詳細を提供する。このクラスのコンストラクターはユーザーに公開されていない。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceNodeTiming",
+      "lang": "ja"
+    },
+    "2e0aabae": {
+      "original": "The high resolution millisecond timestamp at which the Node.js process\ncompleted bootstrapping. If bootstrapping has not yet finished, the property\nhas the value of -1.",
+      "translated": "Node.js プロセスがブートストラップを完了した高解像度ミリ秒タイムスタンプ。ブートストラップがまだ完了していない場合、このプロパティは -1 の値を持つ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceNodeTiming.bootstrapComplete",
+      "lang": "ja"
+    },
+    "7224dd47": {
+      "original": "The high resolution millisecond timestamp at which the Node.js environment was\ninitialized.",
+      "translated": "Node.js 環境が初期化された高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceNodeTiming.environment",
+      "lang": "ja"
+    },
+    "2b8e3250": {
+      "original": "The high resolution millisecond timestamp of the amount of time the event loop\nhas been idle within the event loop's event provider (e.g. `epoll_wait`). This\ndoes not take CPU usage into consideration. If the event loop has not yet\nstarted (e.g., in the first tick of the main script), the property has the\nvalue of 0.",
+      "translated": "イベントループがイベントループのイベントプロバイダー(たとえば `epoll_wait`)内でアイドルだった時間の量の高解像度ミリ秒タイムスタンプ。これは CPU 使用率を考慮しない。イベントループがまだ開始していない場合(たとえばメインスクリプトの最初の tick で)、このプロパティは 0 の値を持つ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceNodeTiming.idleTime",
+      "lang": "ja"
+    },
+    "8fa13c6d": {
+      "original": "The high resolution millisecond timestamp at which the Node.js event loop\nexited. If the event loop has not yet exited, the property has the value of -1\\.\nIt can only have a value of not -1 in a handler of the `'exit'` event.",
+      "translated": "Node.js イベントループが終了した高解像度ミリ秒タイムスタンプ。イベントループがまだ終了していない場合、このプロパティは -1 の値を持つ。-1 以外の値を持てるのは `'exit'` イベントのハンドラ内でのみである。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceNodeTiming.loopExit",
+      "lang": "ja"
+    },
+    "dd1a1f92": {
+      "original": "The high resolution millisecond timestamp at which the Node.js event loop\nstarted. If the event loop has not yet started (e.g., in the first tick of the\nmain script), the property has the value of -1.",
+      "translated": "Node.js イベントループが開始した高解像度ミリ秒タイムスタンプ。イベントループがまだ開始していない場合(たとえばメインスクリプトの最初の tick で)、このプロパティは -1 の値を持つ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceNodeTiming.loopStart",
+      "lang": "ja"
+    },
+    "afda51e4": {
+      "original": "The high resolution millisecond timestamp at which the Node.js process was initialized.",
+      "translated": "Node.js プロセスが初期化された高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceNodeTiming.nodeStart",
+      "lang": "ja"
+    },
+    "65e36227": {
+      "original": "This is a wrapper to the `uv_metrics_info` function.\nIt returns the current set of event loop metrics.\n\nIt is recommended to use this property inside a function whose execution was\nscheduled using `setImmediate` to avoid collecting metrics before finishing all\noperations scheduled during the current loop iteration.",
+      "translated": "これは `uv_metrics_info` 関数のラッパーである。現在のイベントループメトリクスのセットを返す。\n\n現在のループ反復中にスケジュールされたすべての操作を終える前にメトリクスを収集することを避けるため、`setImmediate` を使ってスケジュールされた関数内でこのプロパティを使うことが推奨される。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceNodeTiming.uvMetricsInfo",
+      "lang": "ja"
+    },
+    "093a7552": {
+      "original": "The high resolution millisecond timestamp at which the V8 platform was\ninitialized.",
+      "translated": "V8 プラットフォームが初期化された高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceNodeTiming.v8Start",
+      "lang": "ja"
+    },
+    "2366aa76": {
+      "original": "Disconnects the `PerformanceObserver` instance from all notifications.",
+      "translated": "`PerformanceObserver` インスタンスをすべての通知から切断する。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceObserver.disconnect",
+      "lang": "ja"
+    },
+    "9522998e": {
+      "original": "Subscribes the `PerformanceObserver` instance to notifications of new `PerformanceEntry` instances identified either by `options.entryTypes` or `options.type`:\n\n```js\nimport {\n  performance,\n  PerformanceObserver,\n} from 'node:perf_hooks';\n\nconst obs = new PerformanceObserver((list, observer) => {\n  // Called once asynchronously. `list` contains three items.\n});\nobs.observe({ type: 'mark' });\n\nfor (let n = 0; n < 3; n++)\n  performance.mark(`test${n}`);\n```",
+      "translated": "`PerformanceObserver` インスタンスを、`options.entryTypes` または `options.type` のいずれかで識別される新しい `PerformanceEntry` インスタンスの通知に購読する:\n\n```js\nimport {\n  performance,\n  PerformanceObserver,\n} from 'node:perf_hooks';\n\nconst obs = new PerformanceObserver((list, observer) => {\n  // Called once asynchronously. `list` contains three items.\n});\nobs.observe({ type: 'mark' });\n\nfor (let n = 0; n < 3; n++)\n  performance.mark(`test${n}`);\n```",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceObserver.observe",
+      "lang": "ja"
+    },
+    "2bdc2919": {
+      "original": "Current list of entries stored in the performance observer, emptying it out.",
+      "translated": "performance observer に格納された現在のエントリのリストを返し、それを空にする。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceObserver.takeRecords",
+      "lang": "ja"
+    },
+    "30ff00d0": {
+      "original": "Returns a list of `PerformanceEntry` objects in chronological order\nwith respect to `performanceEntry.startTime`.\n\n```js\nimport {\n  performance,\n  PerformanceObserver,\n} from 'node:perf_hooks';\n\nconst obs = new PerformanceObserver((perfObserverList, observer) => {\n  console.log(perfObserverList.getEntries());\n\n   * [\n   *   PerformanceEntry {\n   *     name: 'test',\n   *     entryType: 'mark',\n   *     startTime: 81.465639,\n   *     duration: 0,\n   *     detail: null\n   *   },\n   *   PerformanceEntry {\n   *     name: 'meow',\n   *     entryType: 'mark',\n   *     startTime: 81.860064,\n   *     duration: 0,\n   *     detail: null\n   *   }\n   * ]\n\n  performance.clearMarks();\n  performance.clearMeasures();\n  observer.disconnect();\n});\nobs.observe({ type: 'mark' });\n\nperformance.mark('test');\nperformance.mark('meow');\n```",
+      "translated": "`performanceEntry.startTime` に関して時系列順に並んだ `PerformanceEntry` オブジェクトのリストを返す。\n\n```js\nimport {\n  performance,\n  PerformanceObserver,\n} from 'node:perf_hooks';\n\nconst obs = new PerformanceObserver((perfObserverList, observer) => {\n  console.log(perfObserverList.getEntries());\n\n   * [\n   *   PerformanceEntry {\n   *     name: 'test',\n   *     entryType: 'mark',\n   *     startTime: 81.465639,\n   *     duration: 0,\n   *     detail: null\n   *   },\n   *   PerformanceEntry {\n   *     name: 'meow',\n   *     entryType: 'mark',\n   *     startTime: 81.860064,\n   *     duration: 0,\n   *     detail: null\n   *   }\n   * ]\n\n  performance.clearMarks();\n  performance.clearMeasures();\n  observer.disconnect();\n});\nobs.observe({ type: 'mark' });\n\nperformance.mark('test');\nperformance.mark('meow');\n```",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceObserverEntryList.getEntries",
+      "lang": "ja"
+    },
+    "642091b2": {
+      "original": "Returns a list of `PerformanceEntry` objects in chronological order\nwith respect to `performanceEntry.startTime` whose `performanceEntry.name` is\nequal to `name`, and optionally, whose `performanceEntry.entryType` is equal to`type`.\n\n```js\nimport {\n  performance,\n  PerformanceObserver,\n} from 'node:perf_hooks';\n\nconst obs = new PerformanceObserver((perfObserverList, observer) => {\n  console.log(perfObserverList.getEntriesByName('meow'));\n\n   * [\n   *   PerformanceEntry {\n   *     name: 'meow',\n   *     entryType: 'mark',\n   *     startTime: 98.545991,\n   *     duration: 0,\n   *     detail: null\n   *   }\n   * ]\n\n  console.log(perfObserverList.getEntriesByName('nope')); // []\n\n  console.log(perfObserverList.getEntriesByName('test', 'mark'));\n\n   * [\n   *   PerformanceEntry {\n   *     name: 'test',\n   *     entryType: 'mark',\n   *     startTime: 63.518931,\n   *     duration: 0,\n   *     detail: null\n   *   }\n   * ]\n\n  console.log(perfObserverList.getEntriesByName('test', 'measure')); // []\n\n  performance.clearMarks();\n  performance.clearMeasures();\n  observer.disconnect();\n});\nobs.observe({ entryTypes: ['mark', 'measure'] });\n\nperformance.mark('test');\nperformance.mark('meow');\n```",
+      "translated": "`performanceEntry.name` が `name` に等しく、任意で `performanceEntry.entryType` が `type` に等しい `PerformanceEntry` オブジェクトのリストを、`performanceEntry.startTime` に関して時系列順に返す。\n\n```js\nimport {\n  performance,\n  PerformanceObserver,\n} from 'node:perf_hooks';\n\nconst obs = new PerformanceObserver((perfObserverList, observer) => {\n  console.log(perfObserverList.getEntriesByName('meow'));\n\n   * [\n   *   PerformanceEntry {\n   *     name: 'meow',\n   *     entryType: 'mark',\n   *     startTime: 98.545991,\n   *     duration: 0,\n   *     detail: null\n   *   }\n   * ]\n\n  console.log(perfObserverList.getEntriesByName('nope')); // []\n\n  console.log(perfObserverList.getEntriesByName('test', 'mark'));\n\n   * [\n   *   PerformanceEntry {\n   *     name: 'test',\n   *     entryType: 'mark',\n   *     startTime: 63.518931,\n   *     duration: 0,\n   *     detail: null\n   *   }\n   * ]\n\n  console.log(perfObserverList.getEntriesByName('test', 'measure')); // []\n\n  performance.clearMarks();\n  performance.clearMeasures();\n  observer.disconnect();\n});\nobs.observe({ entryTypes: ['mark', 'measure'] });\n\nperformance.mark('test');\nperformance.mark('meow');\n```",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceObserverEntryList.getEntriesByName",
+      "lang": "ja"
+    },
+    "95d51a40": {
+      "original": "Returns a list of `PerformanceEntry` objects in chronological order\nwith respect to `performanceEntry.startTime` whose `performanceEntry.entryType` is equal to `type`.\n\n```js\nimport {\n  performance,\n  PerformanceObserver,\n} from 'node:perf_hooks';\n\nconst obs = new PerformanceObserver((perfObserverList, observer) => {\n  console.log(perfObserverList.getEntriesByType('mark'));\n\n   * [\n   *   PerformanceEntry {\n   *     name: 'test',\n   *     entryType: 'mark',\n   *     startTime: 55.897834,\n   *     duration: 0,\n   *     detail: null\n   *   },\n   *   PerformanceEntry {\n   *     name: 'meow',\n   *     entryType: 'mark',\n   *     startTime: 56.350146,\n   *     duration: 0,\n   *     detail: null\n   *   }\n   * ]\n\n  performance.clearMarks();\n  performance.clearMeasures();\n  observer.disconnect();\n});\nobs.observe({ type: 'mark' });\n\nperformance.mark('test');\nperformance.mark('meow');\n```",
+      "translated": "`performanceEntry.entryType` が `type` に等しい `PerformanceEntry` オブジェクトのリストを、`performanceEntry.startTime` に関して時系列順に返す。\n\n```js\nimport {\n  performance,\n  PerformanceObserver,\n} from 'node:perf_hooks';\n\nconst obs = new PerformanceObserver((perfObserverList, observer) => {\n  console.log(perfObserverList.getEntriesByType('mark'));\n\n   * [\n   *   PerformanceEntry {\n   *     name: 'test',\n   *     entryType: 'mark',\n   *     startTime: 55.897834,\n   *     duration: 0,\n   *     detail: null\n   *   },\n   *   PerformanceEntry {\n   *     name: 'meow',\n   *     entryType: 'mark',\n   *     startTime: 56.350146,\n   *     duration: 0,\n   *     detail: null\n   *   }\n   * ]\n\n  performance.clearMarks();\n  performance.clearMeasures();\n  observer.disconnect();\n});\nobs.observe({ type: 'mark' });\n\nperformance.mark('test');\nperformance.mark('meow');\n```",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceObserverEntryList.getEntriesByType",
+      "lang": "ja"
+    },
+    "50f41a3c": {
+      "original": "Provides detailed network timing data regarding the loading of an application's resources.\n\nThe constructor of this class is not exposed to users directly.",
+      "translated": "アプリケーションのリソースの読み込みに関する詳細なネットワークタイミングデータを提供する。\n\nこのクラスのコンストラクターはユーザーに直接公開されていない。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming",
+      "lang": "ja"
+    },
+    "bdffda46": {
+      "original": "The high resolution millisecond timestamp representing the time immediately after Node.js finishes\nestablishing the connection to the server to retrieve the resource.",
+      "translated": "リソースを取得するためにサーバーへの接続の確立を Node.js が完了した直後の時刻を表す高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.connectEnd",
+      "lang": "ja"
+    },
+    "5f9b6bf6": {
+      "original": "The high resolution millisecond timestamp representing the time immediately before Node.js starts to\nestablish the connection to the server to retrieve the resource.",
+      "translated": "リソースを取得するためにサーバーへの接続の確立を Node.js が開始する直前の時刻を表す高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.connectStart",
+      "lang": "ja"
+    },
+    "db3b5bbd": {
+      "original": "A number representing the size (in octets) received from the fetch (HTTP or cache), of the message body, after\nremoving any applied content-codings.",
+      "translated": "適用された content-coding を除去した後の、fetch(HTTP またはキャッシュ)から受信したメッセージボディのサイズ(オクテット単位)を表す数値。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.decodedBodySize",
+      "lang": "ja"
+    },
+    "cfcdd18e": {
+      "original": "The high resolution millisecond timestamp representing the time immediately after the Node.js finished\nthe domain name lookup for the resource.",
+      "translated": "リソースのドメイン名ルックアップを Node.js が完了した直後の時刻を表す高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.domainLookupEnd",
       "lang": "ja"
     },
     "ebe23990": {
