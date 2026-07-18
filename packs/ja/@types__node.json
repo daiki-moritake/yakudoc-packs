@@ -14397,6 +14397,186 @@
       "translated": "要求されたモジュールの specifier。",
       "symbol": "@types/node/vm.d.ts#vm.ModuleRequest.specifier",
       "lang": "ja"
+    },
+    "a1483cb8": {
+      "original": "The `contextified` object that will be used as the `global` when the `code` is compiled and run.",
+      "translated": "`code` がコンパイル・実行されるときに `global` として使われる `contextify` されたオブジェクト。",
+      "symbol": "@types/node/vm.d.ts#vm.runInContext",
+      "lang": "ja"
+    },
+    "41171fae": {
+      "original": "The `vm.runInContext()` method compiles `code`, runs it within the context of\nthe `contextifiedObject`, then returns the result. Running code does not have\naccess to the local scope. The `contextifiedObject` object _must_ have been\npreviously `contextified` using the {@link createContext} method.\n\nIf `options` is a string, then it specifies the filename.\n\nThe following example compiles and executes different scripts using a single `contextified` object:\n\n```js\nimport vm from 'node:vm';\n\nconst contextObject = { globalVar: 1 };\nvm.createContext(contextObject);\n\nfor (let i = 0; i < 10; ++i) {\n  vm.runInContext('globalVar *= 2;', contextObject);\n}\nconsole.log(contextObject);\n// Prints: { globalVar: 1024 }\n```",
+      "translated": "`vm.runInContext()` メソッドは `code` をコンパイルし、`contextifiedObject` のコンテキスト内で実行してから、結果を返す。実行されるコードはローカルスコープにアクセスできない。`contextifiedObject` オブジェクトは、事前に {@link createContext} メソッドを使って `contextify` されて_いなければならない_。\n\n`options` が文字列の場合、ファイル名を指定する。\n\n次の例は、単一の `contextify` されたオブジェクトを使って異なるスクリプトをコンパイル・実行する:\n\n```js\nimport vm from 'node:vm';\n\nconst contextObject = { globalVar: 1 };\nvm.createContext(contextObject);\n\nfor (let i = 0; i < 10; ++i) {\n  vm.runInContext('globalVar *= 2;', contextObject);\n}\nconsole.log(contextObject);\n// Prints: { globalVar: 1024 }\n```",
+      "symbol": "@types/node/vm.d.ts#vm.runInContext",
+      "lang": "ja"
+    },
+    "d7286e7d": {
+      "original": "The JavaScript code to compile and run.",
+      "translated": "コンパイル・実行する JavaScript コード。",
+      "symbol": "@types/node/vm.d.ts#vm.runInContext",
+      "lang": "ja"
+    },
+    "196392e0": {
+      "original": "This method is a shortcut to\n`(new vm.Script(code, options)).runInContext(vm.createContext(options), options)`.\nIf `options` is a string, then it specifies the filename.\n\nIt does several things at once:\n\n1. Creates a new context.\n2. If `contextObject` is an object, contextifies it with the new context.\n   If  `contextObject` is undefined, creates a new object and contextifies it.\n   If `contextObject` is `vm.constants.DONT_CONTEXTIFY`, don't contextify anything.\n3. Compiles the code as a`vm.Script`\n4. Runs the compield code within the created context. The code does not have access to the scope in\n   which this method is called.\n5. Returns the result.\n\nThe following example compiles and executes code that increments a global\nvariable and sets a new one. These globals are contained in the `contextObject`.\n\n```js\nconst vm = require('node:vm');\n\nconst contextObject = {\n  animal: 'cat',\n  count: 2,\n};\n\nvm.runInNewContext('count += 1; name = \"kitty\"', contextObject);\nconsole.log(contextObject);\n// Prints: { animal: 'cat', count: 3, name: 'kitty' }\n\n// This would throw if the context is created from a contextified object.\n// vm.constants.DONT_CONTEXTIFY allows creating contexts with ordinary global objects that\n// can be frozen.\nconst frozenContext = vm.runInNewContext('Object.freeze(globalThis); globalThis;', vm.constants.DONT_CONTEXTIFY);\n```",
+      "translated": "このメソッドは `(new vm.Script(code, options)).runInContext(vm.createContext(options), options)` のショートカットである。`options` が文字列の場合、ファイル名を指定する。\n\n一度にいくつかのことを行う:\n\n1. 新しいコンテキストを作成する。\n2. `contextObject` がオブジェクトの場合、新しいコンテキストで contextify する。`contextObject` が undefined の場合、新しいオブジェクトを作成して contextify する。`contextObject` が `vm.constants.DONT_CONTEXTIFY` の場合、何も contextify しない。\n3. コードを `vm.Script` としてコンパイルする\n4. コンパイルされたコードを、作成されたコンテキスト内で実行する。コードはこのメソッドが呼ばれたスコープにアクセスできない。\n5. 結果を返す。\n\n次の例は、グローバル変数をインクリメントして新しいものを設定するコードをコンパイル・実行する。これらのグローバルは `contextObject` に含まれる。\n\n```js\nconst vm = require('node:vm');\n\nconst contextObject = {\n  animal: 'cat',\n  count: 2,\n};\n\nvm.runInNewContext('count += 1; name = \"kitty\"', contextObject);\nconsole.log(contextObject);\n// Prints: { animal: 'cat', count: 3, name: 'kitty' }\n\n// This would throw if the context is created from a contextified object.\n// vm.constants.DONT_CONTEXTIFY allows creating contexts with ordinary global objects that\n// can be frozen.\nconst frozenContext = vm.runInNewContext('Object.freeze(globalThis); globalThis;', vm.constants.DONT_CONTEXTIFY);\n```",
+      "symbol": "@types/node/vm.d.ts#vm.runInNewContext",
+      "lang": "ja"
+    },
+    "b5fca44e": {
+      "original": "`vm.runInThisContext()` compiles `code`, runs it within the context of the\ncurrent `global` and returns the result. Running code does not have access to\nlocal scope, but does have access to the current `global` object.\n\nIf `options` is a string, then it specifies the filename.\n\nThe following example illustrates using both `vm.runInThisContext()` and\nthe JavaScript [`eval()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) function to run the same code:\n\n```js\nimport vm from 'node:vm';\nlet localVar = 'initial value';\n\nconst vmResult = vm.runInThisContext('localVar = \"vm\";');\nconsole.log(`vmResult: '${vmResult}', localVar: '${localVar}'`);\n// Prints: vmResult: 'vm', localVar: 'initial value'\n\nconst evalResult = eval('localVar = \"eval\";');\nconsole.log(`evalResult: '${evalResult}', localVar: '${localVar}'`);\n// Prints: evalResult: 'eval', localVar: 'eval'\n```\n\nBecause `vm.runInThisContext()` does not have access to the local scope, `localVar` is unchanged. In contrast,\n[`eval()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) _does_ have access to the\nlocal scope, so the value `localVar` is changed. In this way `vm.runInThisContext()` is much like an [indirect `eval()` call](https://es5.github.io/#x10.4.2), e.g.`(0,eval)('code')`.\n\n## Example: Running an HTTP server within a VM\n\nWhen using either `script.runInThisContext()` or {@link runInThisContext}, the code is executed within the current V8 global\ncontext. The code passed to this VM context will have its own isolated scope.\n\nIn order to run a simple web server using the `node:http` module the code passed\nto the context must either import `node:http` on its own, or have a\nreference to the `node:http` module passed to it. For instance:\n\n```js\n'use strict';\nimport vm from 'node:vm';\n\nconst code = `\n((require) => {\nconst http = require('node:http');\n\n  http.createServer((request, response) => {\n    response.writeHead(200, { 'Content-Type': 'text/plain' });\n    response.end('Hello World\\\\n');\n  }).listen(8124);\n\n  console.log('Server running at http://127.0.0.1:8124/');\n})`;\n\nvm.runInThisContext(code)(require);\n```\n\nThe `require()` in the above case shares the state with the context it is\npassed from. This may introduce risks when untrusted code is executed, e.g.\naltering objects in the context in unwanted ways.",
+      "translated": "`vm.runInThisContext()` は `code` をコンパイルし、現在の `global` のコンテキスト内で実行して結果を返す。実行されるコードはローカルスコープにアクセスできないが、現在の `global` オブジェクトにはアクセスできる。\n\n`options` が文字列の場合、ファイル名を指定する。\n\n次の例は、`vm.runInThisContext()` と JavaScript の [`eval()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) 関数の両方を使って同じコードを実行することを示す:\n\n```js\nimport vm from 'node:vm';\nlet localVar = 'initial value';\n\nconst vmResult = vm.runInThisContext('localVar = \"vm\";');\nconsole.log(`vmResult: '${vmResult}', localVar: '${localVar}'`);\n// Prints: vmResult: 'vm', localVar: 'initial value'\n\nconst evalResult = eval('localVar = \"eval\";');\nconsole.log(`evalResult: '${evalResult}', localVar: '${localVar}'`);\n// Prints: evalResult: 'eval', localVar: 'eval'\n```\n\n`vm.runInThisContext()` はローカルスコープにアクセスできないため、`localVar` は変わらない。対照的に、[`eval()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) はローカルスコープにアクセス_できる_ため、`localVar` の値は変わる。この点で `vm.runInThisContext()` は[間接的な `eval()` 呼び出し](https://es5.github.io/#x10.4.2)(たとえば `(0,eval)('code')`)によく似ている。\n\n## 例: VM 内で HTTP サーバーを実行する\n\n`script.runInThisContext()` または {@link runInThisContext} のいずれかを使う場合、コードは現在の V8 グローバルコンテキスト内で実行される。この VM コンテキストに渡されるコードは、それ自身の隔離されたスコープを持つ。\n\n`node:http` モジュールを使って単純な Web サーバーを実行するには、コンテキストに渡されるコードは自身で `node:http` をインポートするか、渡された `node:http` モジュールへの参照を持たなければならない。たとえば:\n\n```js\n'use strict';\nimport vm from 'node:vm';\n\nconst code = `\n((require) => {\nconst http = require('node:http');\n\n  http.createServer((request, response) => {\n    response.writeHead(200, { 'Content-Type': 'text/plain' });\n    response.end('Hello World\\\\n');\n  }).listen(8124);\n\n  console.log('Server running at http://127.0.0.1:8124/');\n})`;\n\nvm.runInThisContext(code)(require);\n```\n\n上記の場合の `require()` は、渡された元のコンテキストと状態を共有する。これは、信頼できないコードが実行されるときにリスクを導入することがある。たとえば、コンテキスト内のオブジェクトを望ましくない方法で変更するなど。",
+      "symbol": "@types/node/vm.d.ts#vm.runInThisContext",
+      "lang": "ja"
+    },
+    "3a07b919": {
+      "original": "Human-readable name of the newly created context.",
+      "translated": "新しく作成されたコンテキストの人間が読める名前。",
+      "symbol": "@types/node/vm.d.ts#vm.RunningScriptInNewContextOptions.contextName",
+      "lang": "ja"
+    },
+    "aa48963e": {
+      "original": "Origin corresponding to the newly created context for display purposes. The origin should be formatted like a URL,\nbut with only the scheme, host, and port (if necessary), like the value of the `url.origin` property of a `URL` object.\nMost notably, this string should omit the trailing slash, as that denotes a path.",
+      "translated": "表示目的で新しく作成されたコンテキストに対応する origin。origin は URL のように書式設定されるべきだが、`URL` オブジェクトの `url.origin` プロパティの値のように、スキーム・ホスト・(必要なら)ポートのみを含むべきである。特に、この文字列は末尾のスラッシュを省くべきである。それはパスを示すからである。",
+      "symbol": "@types/node/vm.d.ts#vm.RunningScriptInNewContextOptions.contextOrigin",
+      "lang": "ja"
+    },
+    "eb03ee46": {
+      "original": "If `true`, the execution will be terminated when `SIGINT` (Ctrl+C) is received.\nExisting handlers for the event that have been attached via `process.on('SIGINT')` will be disabled during script execution, but will continue to work after that.\nIf execution is terminated, an `Error` will be thrown.",
+      "translated": "`true` の場合、`SIGINT`(Ctrl+C)を受け取ると実行が終了される。`process.on('SIGINT')` を介して取り付けられたイベントの既存のハンドラは、スクリプトの実行中は無効になるが、その後も引き続き機能する。実行が終了された場合、`Error` が投げられる。",
+      "symbol": "@types/node/vm.d.ts#vm.RunningScriptOptions.breakOnSigint",
+      "lang": "ja"
+    },
+    "ad06ea8b": {
+      "original": "When `true`, if an `Error` occurs while compiling the `code`, the line of code causing the error is attached to the stack trace.",
+      "translated": "`true` の場合、`code` のコンパイル中に `Error` が発生すると、エラーの原因となったコード行がスタックトレースに付加される。",
+      "symbol": "@types/node/vm.d.ts#vm.RunningScriptOptions.displayErrors",
+      "lang": "ja"
+    },
+    "a46e440d": {
+      "original": "Specifies the number of milliseconds to execute code before terminating execution.\nIf execution is terminated, an `Error` will be thrown. This value must be a strictly positive integer.",
+      "translated": "実行を終了する前にコードを実行するミリ秒数を指定する。実行が終了された場合、`Error` が投げられる。この値は厳密に正の整数でなければならない。",
+      "symbol": "@types/node/vm.d.ts#vm.RunningScriptOptions.timeout",
+      "lang": "ja"
+    },
+    "fc753307": {
+      "original": "Instances of the `vm.Script` class contain precompiled scripts that can be\nexecuted in specific contexts.",
+      "translated": "`vm.Script` クラスのインスタンスは、特定のコンテキストで実行できる、事前コンパイルされたスクリプトを含む。",
+      "symbol": "@types/node/vm.d.ts#vm.Script",
+      "lang": "ja"
+    },
+    "37fe3947": {
+      "original": "When `cachedData` is supplied to create the `vm.Script`, this value will be set\nto either `true` or `false` depending on acceptance of the data by V8.\nOtherwise the value is `undefined`.",
+      "translated": "`cachedData` が `vm.Script` の作成に提供された場合、この値は V8 によるデータの受け入れに応じて `true` または `false` のいずれかに設定される。そうでなければ値は `undefined` である。",
+      "symbol": "@types/node/vm.d.ts#vm.Script.cachedDataRejected",
+      "lang": "ja"
+    },
+    "06ed7b8d": {
+      "original": "Creates a code cache that can be used with the `Script` constructor's `cachedData` option. Returns a `Buffer`. This method may be called at any\ntime and any number of times.\n\nThe code cache of the `Script` doesn't contain any JavaScript observable\nstates. The code cache is safe to be saved along side the script source and\nused to construct new `Script` instances multiple times.\n\nFunctions in the `Script` source can be marked as lazily compiled and they are\nnot compiled at construction of the `Script`. These functions are going to be\ncompiled when they are invoked the first time. The code cache serializes the\nmetadata that V8 currently knows about the `Script` that it can use to speed up\nfuture compilations.\n\n```js\nconst script = new vm.Script(`\nfunction add(a, b) {\n  return a + b;\n}\n\nconst x = add(1, 2);\n`);\n\nconst cacheWithoutAdd = script.createCachedData();\n// In `cacheWithoutAdd` the function `add()` is marked for full compilation\n// upon invocation.\n\nscript.runInThisContext();\n\nconst cacheWithAdd = script.createCachedData();\n// `cacheWithAdd` contains fully compiled function `add()`.\n```",
+      "translated": "`Script` コンストラクターの `cachedData` オプションで使えるコードキャッシュを作成する。`Buffer` を返す。このメソッドはいつでも何度でも呼べる。\n\n`Script` のコードキャッシュには、JavaScript から観測可能な状態は含まれない。コードキャッシュはスクリプトソースと並べて保存し、新しい `Script` インスタンスを複数回構築するために使うことが安全である。\n\n`Script` ソース内の関数は遅延コンパイルとしてマークでき、`Script` の構築時にはコンパイルされない。これらの関数は最初に呼ばれたときにコンパイルされる。コードキャッシュは、V8 が現在 `Script` について把握しているメタデータをシリアライズし、将来のコンパイルを高速化するために使える。\n\n```js\nconst script = new vm.Script(`\nfunction add(a, b) {\n  return a + b;\n}\n\nconst x = add(1, 2);\n`);\n\nconst cacheWithoutAdd = script.createCachedData();\n// In `cacheWithoutAdd` the function `add()` is marked for full compilation\n// upon invocation.\n\nscript.runInThisContext();\n\nconst cacheWithAdd = script.createCachedData();\n// `cacheWithAdd` contains fully compiled function `add()`.\n```",
+      "symbol": "@types/node/vm.d.ts#vm.Script.createCachedData",
+      "lang": "ja"
+    },
+    "fb884b0e": {
+      "original": "A `contextified` object as returned by the `vm.createContext()` method.",
+      "translated": "`vm.createContext()` メソッドが返す `contextify` されたオブジェクト。",
+      "symbol": "@types/node/vm.d.ts#vm.Script.runInContext",
+      "lang": "ja"
+    },
+    "416b6613": {
+      "original": "Runs the compiled code contained by the `vm.Script` object within the given `contextifiedObject` and returns the result. Running code does not have access\nto local scope.\n\nThe following example compiles code that increments a global variable, sets\nthe value of another global variable, then execute the code multiple times.\nThe globals are contained in the `context` object.\n\n```js\nimport vm from 'node:vm';\n\nconst context = {\n  animal: 'cat',\n  count: 2,\n};\n\nconst script = new vm.Script('count += 1; name = \"kitty\";');\n\nvm.createContext(context);\nfor (let i = 0; i < 10; ++i) {\n  script.runInContext(context);\n}\n\nconsole.log(context);\n// Prints: { animal: 'cat', count: 12, name: 'kitty' }\n```\n\nUsing the `timeout` or `breakOnSigint` options will result in new event loops\nand corresponding threads being started, which have a non-zero performance\noverhead.",
+      "translated": "`vm.Script` オブジェクトが含むコンパイル済みのコードを、指定した `contextifiedObject` 内で実行して結果を返す。実行されるコードはローカルスコープにアクセスできない。\n\n次の例は、グローバル変数をインクリメントし、別のグローバル変数の値を設定するコードをコンパイルしてから、そのコードを複数回実行する。グローバルは `context` オブジェクトに含まれる。\n\n```js\nimport vm from 'node:vm';\n\nconst context = {\n  animal: 'cat',\n  count: 2,\n};\n\nconst script = new vm.Script('count += 1; name = \"kitty\";');\n\nvm.createContext(context);\nfor (let i = 0; i < 10; ++i) {\n  script.runInContext(context);\n}\n\nconsole.log(context);\n// Prints: { animal: 'cat', count: 12, name: 'kitty' }\n```\n\n`timeout` または `breakOnSigint` オプションを使うと、新しいイベントループと対応するスレッドが開始され、非ゼロのパフォーマンスオーバーヘッドが生じる。",
+      "symbol": "@types/node/vm.d.ts#vm.Script.runInContext",
+      "lang": "ja"
+    },
+    "256c7745": {
+      "original": "the result of the very last statement executed in the script.",
+      "translated": "スクリプトで実行された一番最後の文の結果。",
+      "symbol": "@types/node/vm.d.ts#vm.Script.runInContext",
+      "lang": "ja"
+    },
+    "3c20116a": {
+      "original": "Either `vm.constants.DONT_CONTEXTIFY` or an object that will be contextified.\nIf `undefined`, an empty contextified object will be created for backwards compatibility.",
+      "translated": "`vm.constants.DONT_CONTEXTIFY`、または contextify されるオブジェクトのいずれか。`undefined` の場合、後方互換性のために空の contextify されたオブジェクトが作成される。",
+      "symbol": "@types/node/vm.d.ts#vm.Script.runInNewContext",
+      "lang": "ja"
+    },
+    "0ae22b2a": {
+      "original": "This method is a shortcut to `script.runInContext(vm.createContext(options), options)`.\nIt does several things at once:\n\n1. Creates a new context.\n2. If `contextObject` is an object, contextifies it with the new context.\n   If  `contextObject` is undefined, creates a new object and contextifies it.\n   If `contextObject` is `vm.constants.DONT_CONTEXTIFY`, don't contextify anything.\n3. Runs the compiled code contained by the `vm.Script` object within the created context. The code\n   does not have access to the scope in which this method is called.\n4. Returns the result.\n\nThe following example compiles code that sets a global variable, then executes\nthe code multiple times in different contexts. The globals are set on and\ncontained within each individual `context`.\n\n```js\nconst vm = require('node:vm');\n\nconst script = new vm.Script('globalVar = \"set\"');\n\nconst contexts = [{}, {}, {}];\ncontexts.forEach((context) => {\n  script.runInNewContext(context);\n});\n\nconsole.log(contexts);\n// Prints: [{ globalVar: 'set' }, { globalVar: 'set' }, { globalVar: 'set' }]\n\n// This would throw if the context is created from a contextified object.\n// vm.constants.DONT_CONTEXTIFY allows creating contexts with ordinary\n// global objects that can be frozen.\nconst freezeScript = new vm.Script('Object.freeze(globalThis); globalThis;');\nconst frozenContext = freezeScript.runInNewContext(vm.constants.DONT_CONTEXTIFY);\n```",
+      "translated": "このメソッドは `script.runInContext(vm.createContext(options), options)` のショートカットである。一度にいくつかのことを行う:\n\n1. 新しいコンテキストを作成する。\n2. `contextObject` がオブジェクトの場合、新しいコンテキストで contextify する。`contextObject` が undefined の場合、新しいオブジェクトを作成して contextify する。`contextObject` が `vm.constants.DONT_CONTEXTIFY` の場合、何も contextify しない。\n3. `vm.Script` オブジェクトが含むコンパイル済みのコードを、作成されたコンテキスト内で実行する。コードはこのメソッドが呼ばれたスコープにアクセスできない。\n4. 結果を返す。\n\n次の例は、グローバル変数を設定するコードをコンパイルしてから、そのコードを異なるコンテキストで複数回実行する。グローバルは個々の `context` に設定され、その中に含まれる。\n\n```js\nconst vm = require('node:vm');\n\nconst script = new vm.Script('globalVar = \"set\"');\n\nconst contexts = [{}, {}, {}];\ncontexts.forEach((context) => {\n  script.runInNewContext(context);\n});\n\nconsole.log(contexts);\n// Prints: [{ globalVar: 'set' }, { globalVar: 'set' }, { globalVar: 'set' }]\n\n// This would throw if the context is created from a contextified object.\n// vm.constants.DONT_CONTEXTIFY allows creating contexts with ordinary\n// global objects that can be frozen.\nconst freezeScript = new vm.Script('Object.freeze(globalThis); globalThis;');\nconst frozenContext = freezeScript.runInNewContext(vm.constants.DONT_CONTEXTIFY);\n```",
+      "symbol": "@types/node/vm.d.ts#vm.Script.runInNewContext",
+      "lang": "ja"
+    },
+    "e5f878b8": {
+      "original": "Runs the compiled code contained by the `vm.Script` within the context of the\ncurrent `global` object. Running code does not have access to local scope, but _does_ have access to the current `global` object.\n\nThe following example compiles code that increments a `global` variable then\nexecutes that code multiple times:\n\n```js\nimport vm from 'node:vm';\n\nglobal.globalVar = 0;\n\nconst script = new vm.Script('globalVar += 1', { filename: 'myfile.vm' });\n\nfor (let i = 0; i < 1000; ++i) {\n  script.runInThisContext();\n}\n\nconsole.log(globalVar);\n\n// 1000\n```",
+      "translated": "`vm.Script` が含むコンパイル済みのコードを、現在の `global` オブジェクトのコンテキスト内で実行する。実行されるコードはローカルスコープにアクセスできないが、現在の `global` オブジェクトには_アクセスできる_。\n\n次の例は、`global` 変数をインクリメントするコードをコンパイルしてから、そのコードを複数回実行する:\n\n```js\nimport vm from 'node:vm';\n\nglobal.globalVar = 0;\n\nconst script = new vm.Script('globalVar += 1', { filename: 'myfile.vm' });\n\nfor (let i = 0; i < 1000; ++i) {\n  script.runInThisContext();\n}\n\nconsole.log(globalVar);\n\n// 1000\n```",
+      "symbol": "@types/node/vm.d.ts#vm.Script.runInThisContext",
+      "lang": "ja"
+    },
+    "f971b368": {
+      "original": "When the script is compiled from a source that contains a source map magic\ncomment, this property will be set to the URL of the source map.\n\n```js\nimport vm from 'node:vm';\n\nconst script = new vm.Script(`\nfunction myFunc() {}\n//# sourceMappingURL=sourcemap.json\n`);\n\nconsole.log(script.sourceMapURL);\n// Prints: sourcemap.json\n```",
+      "translated": "スクリプトがソースマップのマジックコメントを含むソースからコンパイルされた場合、このプロパティはソースマップの URL に設定される。\n\n```js\nimport vm from 'node:vm';\n\nconst script = new vm.Script(`\nfunction myFunc() {}\n//# sourceMappingURL=sourcemap.json\n`);\n\nconsole.log(script.sourceMapURL);\n// Prints: sourcemap.json\n```",
+      "symbol": "@types/node/vm.d.ts#vm.Script.sourceMapURL",
+      "lang": "ja"
+    },
+    "45220e52": {
+      "original": "Provides an optional data with V8's code cache data for the supplied source.",
+      "translated": "指定したソースについて、V8 のコードキャッシュデータを持つ省略可能なデータを提供する。",
+      "symbol": "@types/node/vm.d.ts#vm.ScriptOptions.cachedData",
+      "lang": "ja"
+    },
+    "f4d49f11": {
+      "original": "Used to specify how the modules should be loaded during the evaluation of this script when `import()` is called. This option is\npart of the experimental modules API. We do not recommend using it in a production environment. For detailed information, see\n[Support of dynamic `import()` in compilation APIs](https://nodejs.org/docs/latest-v22.x/api/vm.html#support-of-dynamic-import-in-compilation-apis).",
+      "translated": "`import()` が呼ばれたときに、このスクリプトの評価中にモジュールをどう読み込むべきかを指定するために使う。このオプションは実験的なモジュール API の一部である。本番環境での使用は推奨しない。詳細な情報は [Support of dynamic `import()` in compilation APIs](https://nodejs.org/docs/latest-v22.x/api/vm.html#support-of-dynamic-import-in-compilation-apis) を参照。",
+      "symbol": "@types/node/vm.d.ts#vm.ScriptOptions.importModuleDynamically",
+      "lang": "ja"
+    },
+    "71bd90ad": {
+      "original": "in favor of `script.createCachedData()`",
+      "translated": "`script.createCachedData()` を優先する",
+      "symbol": "@types/node/vm.d.ts#vm.ScriptOptions.produceCachedData",
+      "lang": "ja"
+    },
+    "8460b4ce": {
+      "original": "Creates a new `SourceTextModule` instance.",
+      "translated": "新しい `SourceTextModule` インスタンスを作成する。",
+      "symbol": "@types/node/vm.d.ts#vm.SourceTextModule",
+      "lang": "ja"
+    },
+    "aeb0e231": {
+      "original": "JavaScript Module code to parse",
+      "translated": "解析する JavaScript モジュールコード",
+      "symbol": "@types/node/vm.d.ts#vm.SourceTextModule",
+      "lang": "ja"
+    },
+    "a3e1c43b": {
+      "original": "This feature is only available with the `--experimental-vm-modules` command\nflag enabled.\n\nThe `vm.SourceTextModule` class provides the [Source Text Module Record](https://tc39.es/ecma262/#sec-source-text-module-records) as\ndefined in the ECMAScript specification.",
+      "translated": "この機能は `--experimental-vm-modules` コマンドフラグが有効な場合にのみ利用できる。\n\n`vm.SourceTextModule` クラスは、ECMAScript 仕様で定義された [Source Text Module Record](https://tc39.es/ecma262/#sec-source-text-module-records) を提供する。",
+      "symbol": "@types/node/vm.d.ts#vm.SourceTextModule",
+      "lang": "ja"
+    },
+    "e1ef6889": {
+      "original": "The specifiers of all dependencies of this module. The returned array is frozen to disallow any changes to it.\n\nCorresponds to the [[RequestedModules]] field of [Cyclic Module Records](https://tc39.es/ecma262/#sec-cyclic-module-records)\nin the ECMAScript specification.",
+      "translated": "このモジュールのすべての依存関係の specifier。返される配列は変更を禁止するために凍結される。\n\nECMAScript 仕様の [Cyclic Module Records](https://tc39.es/ecma262/#sec-cyclic-module-records) の [[RequestedModules]] フィールドに対応する。",
+      "symbol": "@types/node/vm.d.ts#vm.SourceTextModule.dependencySpecifiers",
+      "lang": "ja"
+    },
+    "948ad23b": {
+      "original": "Use {@link moduleRequests} instead.",
+      "translated": "代わりに {@link moduleRequests} を使うこと。",
+      "symbol": "@types/node/vm.d.ts#vm.SourceTextModule.dependencySpecifiers",
+      "lang": "ja"
+    },
+    "2e105f0a": {
+      "original": "The requested import dependencies of this module. The returned array is frozen\nto disallow any changes to it.\n\nFor example, given a source text:\n\n```js\nimport foo from 'foo';\nimport fooAlias from 'foo';\nimport bar from './bar.js';\nimport withAttrs from '../with-attrs.ts' with { arbitraryAttr: 'attr-val' };\n```\n\nThe value of the `sourceTextModule.moduleRequests` will be:\n\n```js\n[\n  {\n    specifier: 'foo',\n    attributes: {},\n  },\n  {\n    specifier: 'foo',\n    attributes: {},\n  },\n  {\n    specifier: './bar.js',\n    attributes: {},\n  },\n  {\n    specifier: '../with-attrs.ts',\n    attributes: { arbitraryAttr: 'attr-val' },\n  },\n];\n```",
+      "translated": "このモジュールの要求された import 依存関係。返される配列は変更を禁止するために凍結される。\n\nたとえば、次のソーステキストが与えられた場合:\n\n```js\nimport foo from 'foo';\nimport fooAlias from 'foo';\nimport bar from './bar.js';\nimport withAttrs from '../with-attrs.ts' with { arbitraryAttr: 'attr-val' };\n```\n\n`sourceTextModule.moduleRequests` の値は次になる:\n\n```js\n[\n  {\n    specifier: 'foo',\n    attributes: {},\n  },\n  {\n    specifier: 'foo',\n    attributes: {},\n  },\n  {\n    specifier: './bar.js',\n    attributes: {},\n  },\n  {\n    specifier: '../with-attrs.ts',\n    attributes: { arbitraryAttr: 'attr-val' },\n  },\n];\n```",
+      "symbol": "@types/node/vm.d.ts#vm.SourceTextModule.moduleRequests",
+      "lang": "ja"
+    },
+    "bee0e003": {
+      "original": "String used in stack traces.",
+      "translated": "スタックトレースで使われる文字列。",
+      "symbol": "@types/node/vm.d.ts#vm.SourceTextModuleOptions.identifier",
+      "lang": "ja"
     }
   }
 }
