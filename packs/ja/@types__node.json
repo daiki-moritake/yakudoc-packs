@@ -12322,6 +12322,72 @@
       "symbol": "@types/node/url.d.ts#url.URLSearchParams.get",
       "lang": "ja"
     },
+    "42fc5579": {
+      "original": "Returns the values of all name-value pairs whose name is `name`. If there are\nno such pairs, an empty array is returned.",
+      "translated": "name が `name` であるすべての名前と値のペアの値を返す。そのようなペアがない場合、空配列が返される。",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.getAll",
+      "lang": "ja"
+    },
+    "1cea3303": {
+      "original": "Checks if the `URLSearchParams` object contains key-value pair(s) based on `name` and an optional `value` argument.\n\nIf `value` is provided, returns `true` when name-value pair with\nsame `name` and `value` exists.\n\nIf `value` is not provided, returns `true` if there is at least one name-value\npair whose name is `name`.",
+      "translated": "`URLSearchParams` オブジェクトが、`name` と省略可能な `value` 引数に基づくキーと値のペアを含むかどうかを確認する。\n\n`value` が指定された場合、同じ `name` と `value` を持つ名前と値のペアが存在するときに `true` を返す。\n\n`value` が指定されない場合、name が `name` である名前と値のペアが少なくとも 1 つあれば `true` を返す。",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.has",
+      "lang": "ja"
+    },
+    "a6750936": {
+      "original": "Returns an ES6 `Iterator` over the names of each name-value pair.\n\n```js\nconst params = new URLSearchParams('foo=bar&#x26;foo=baz');\nfor (const name of params.keys()) {\n  console.log(name);\n}\n// Prints:\n//   foo\n//   foo\n```",
+      "translated": "各名前と値のペアの名前を反復する ES6 の `Iterator` を返す。\n\n```js\nconst params = new URLSearchParams('foo=bar&#x26;foo=baz');\nfor (const name of params.keys()) {\n  console.log(name);\n}\n// Prints:\n//   foo\n//   foo\n```",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.keys",
+      "lang": "ja"
+    },
+    "e26365bd": {
+      "original": "Sets the value in the `URLSearchParams` object associated with `name` to `value`. If there are any pre-existing name-value pairs whose names are `name`,\nset the first such pair's value to `value` and remove all others. If not,\nappend the name-value pair to the query string.\n\n```js\nconst params = new URLSearchParams();\nparams.append('foo', 'bar');\nparams.append('foo', 'baz');\nparams.append('abc', 'def');\nconsole.log(params.toString());\n// Prints foo=bar&#x26;foo=baz&#x26;abc=def\n\nparams.set('foo', 'def');\nparams.set('xyz', 'opq');\nconsole.log(params.toString());\n// Prints foo=def&#x26;abc=def&#x26;xyz=opq\n```",
+      "translated": "`URLSearchParams` オブジェクト内で `name` に関連付けられた値を `value` に設定する。name が `name` である既存の名前と値のペアがある場合、最初のそのようなペアの値を `value` に設定し、他のすべてを削除する。ない場合、その名前と値のペアをクエリ文字列に追加する。\n\n```js\nconst params = new URLSearchParams();\nparams.append('foo', 'bar');\nparams.append('foo', 'baz');\nparams.append('abc', 'def');\nconsole.log(params.toString());\n// Prints foo=bar&#x26;foo=baz&#x26;abc=def\n\nparams.set('foo', 'def');\nparams.set('xyz', 'opq');\nconsole.log(params.toString());\n// Prints foo=def&#x26;abc=def&#x26;xyz=opq\n```",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.set",
+      "lang": "ja"
+    },
+    "82caadef": {
+      "original": "The total number of parameter entries.",
+      "translated": "パラメーターエントリの総数。",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.size",
+      "lang": "ja"
+    },
+    "e49c620b": {
+      "original": "Sort all existing name-value pairs in-place by their names. Sorting is done\nwith a [stable sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability), so relative order between name-value pairs\nwith the same name is preserved.\n\nThis method can be used, in particular, to increase cache hits.\n\n```js\nconst params = new URLSearchParams('query[]=abc&#x26;type=search&#x26;query[]=123');\nparams.sort();\nconsole.log(params.toString());\n// Prints query%5B%5D=abc&#x26;query%5B%5D=123&#x26;type=search\n```",
+      "translated": "既存のすべての名前と値のペアを、その名前でその場でソートする。ソートは[安定ソートアルゴリズム](https://en.wikipedia.org/wiki/Sorting_algorithm#Stability)で行われるため、同じ名前の名前と値のペアの間の相対順序は保持される。\n\nこのメソッドは特にキャッシュヒットを増やすために使える。\n\n```js\nconst params = new URLSearchParams('query[]=abc&#x26;type=search&#x26;query[]=123');\nparams.sort();\nconsole.log(params.toString());\n// Prints query%5B%5D=abc&#x26;query%5B%5D=123&#x26;type=search\n```",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.sort",
+      "lang": "ja"
+    },
+    "2612501f": {
+      "original": "Returns the search parameters serialized as a string, with characters\npercent-encoded where necessary.",
+      "translated": "検索パラメーターを文字列としてシリアライズし、必要に応じて文字をパーセントエンコードしたものを返す。",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.toString",
+      "lang": "ja"
+    },
+    "80f9504d": {
+      "original": "Returns an ES6 `Iterator` over the values of each name-value pair.",
+      "translated": "各名前と値のペアの値を反復する ES6 の `Iterator` を返す。",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.values",
+      "lang": "ja"
+    },
+    "f03be273": {
+      "original": "Options object",
+      "translated": "オプションオブジェクト",
+      "symbol": "@types/node/url.d.ts#url.urlToHttpOptions",
+      "lang": "ja"
+    },
+    "a0cd98f8": {
+      "original": "The `WHATWG URL` object to convert to an options object.",
+      "translated": "オプションオブジェクトに変換する `WHATWG URL` オブジェクト。",
+      "symbol": "@types/node/url.d.ts#url.urlToHttpOptions",
+      "lang": "ja"
+    },
+    "eb03fafd": {
+      "original": "This utility function converts a URL object into an ordinary options object as\nexpected by the `http.request()` and `https.request()` APIs.\n\n```js\nimport { urlToHttpOptions } from 'node:url';\nconst myURL = new URL('https://a:b@測試?abc#foo');\n\nconsole.log(urlToHttpOptions(myURL));\n/*\n{\n  protocol: 'https:',\n  hostname: 'xn--g6w251d',\n  hash: '#foo',\n  search: '?abc',\n  pathname: '/',\n  path: '/?abc',\n  href: 'https://a:b@xn--g6w251d/?abc#foo',\n  auth: 'a:b'\n}\n\n```",
+      "translated": "このユーティリティ関数は、URL オブジェクトを、`http.request()` と `https.request()` API が期待する通常のオプションオブジェクトに変換する。\n\n```js\nimport { urlToHttpOptions } from 'node:url';\nconst myURL = new URL('https://a:b@測試?abc#foo');\n\nconsole.log(urlToHttpOptions(myURL));\n/*\n{\n  protocol: 'https:',\n  hostname: 'xn--g6w251d',\n  hash: '#foo',\n  search: '?abc',\n  pathname: '/',\n  path: '/?abc',\n  href: 'https://a:b@xn--g6w251d/?abc#foo',\n  auth: 'a:b'\n}\n\n```",
+      "symbol": "@types/node/url.d.ts#url.urlToHttpOptions",
+      "lang": "ja"
+    },
     "6534767f": {
       "original": "The `node:util` module supports the needs of Node.js internal APIs. Many of the\nutilities are useful for application and module developers as well. To access\nit:\n\n```js\nimport util from 'node:util';\n```",
       "translated": "`node:util` モジュールは、Node.js の内部 API のニーズをサポートする。ユーティリティの多くは、アプリケーションやモジュールの開発者にとっても役立つ。アクセスするには:\n\n```js\nimport util from 'node:util';\n```",
