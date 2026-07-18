@@ -142,6 +142,12 @@
       "symbol": "@types/node/net.d.ts#net.Socket.bytesWritten",
       "lang": "ja"
     },
+    "55105485": {
+      "original": "Provides miscellaneous information about the current state of the `Http2Stream`.\n\nA current state of this `Http2Stream`.",
+      "translated": "`Http2Stream` の現在の状態に関するさまざまな情報を提供する。\n\nこの `Http2Stream` の現在の状態。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.state",
+      "lang": "ja"
+    },
     "56527468": {
       "original": "The conflict handler is invoked with this constant when processing a DELETE or UPDATE change if a row with the required PRIMARY KEY fields is not present in the database.",
       "translated": "DELETE または UPDATE の変更を処理する際、必要な PRIMARY KEY フィールドを持つ行がデータベースに存在しない場合、競合ハンドラはこの定数とともに呼ばれる。",
@@ -6200,6 +6206,180 @@
       "original": "Set to `true` if the `END_STREAM` flag was set in the request or response\nHEADERS frame received, indicating that no additional data should be received\nand the readable side of the `Http2Stream` will be closed.",
       "translated": "受信したリクエストまたはレスポンスの HEADERS フレームに `END_STREAM` フラグが設定されていた場合は `true` に設定され、追加のデータを受信すべきでないこと、`Http2Stream` の読み取り側が閉じられることを示す。",
       "symbol": "@types/node/http2.d.ts#http2.Http2Stream.endAfterHeaders",
+      "lang": "ja"
+    },
+    "e2ad34c3": {
+      "original": "The numeric stream identifier of this `Http2Stream` instance. Set to `undefined` if the stream identifier has not yet been assigned.",
+      "translated": "この `Http2Stream` インスタンスの数値ストリーム識別子。ストリーム識別子がまだ割り当てられていない場合は `undefined` に設定される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.id",
+      "lang": "ja"
+    },
+    "115a0a2b": {
+      "original": "Set to `true` if the `Http2Stream` instance has not yet been assigned a\nnumeric stream identifier.",
+      "translated": "`Http2Stream` インスタンスにまだ数値ストリーム識別子が割り当てられていない場合は `true` に設定される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.pending",
+      "lang": "ja"
+    },
+    "1a2db624": {
+      "original": "Updates the priority for this `Http2Stream` instance.",
+      "translated": "この `Http2Stream` インスタンスの優先度を更新する。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.priority",
+      "lang": "ja"
+    },
+    "cc73d81f": {
+      "original": "Set to the `RST_STREAM` `error code` reported when the `Http2Stream` is\ndestroyed after either receiving an `RST_STREAM` frame from the connected peer,\ncalling `http2stream.close()`, or `http2stream.destroy()`. Will be `undefined` if the `Http2Stream` has not been closed.",
+      "translated": "接続されたピアから `RST_STREAM` フレームを受信するか、`http2stream.close()` または `http2stream.destroy()` を呼んだ後に `Http2Stream` が破棄されたときに報告される `RST_STREAM` `error code` に設定される。`Http2Stream` が閉じられていない場合は `undefined` になる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.rstCode",
+      "lang": "ja"
+    },
+    "a13bc9f5": {
+      "original": "Sends a trailing `HEADERS` frame to the connected HTTP/2 peer. This method\nwill cause the `Http2Stream` to be immediately closed and must only be\ncalled after the `'wantTrailers'` event has been emitted. When sending a\nrequest or sending a response, the `options.waitForTrailers` option must be set\nin order to keep the `Http2Stream` open after the final `DATA` frame so that\ntrailers can be sent.\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  stream.respond(undefined, { waitForTrailers: true });\n  stream.on('wantTrailers', () => {\n    stream.sendTrailers({ xyz: 'abc' });\n  });\n  stream.end('Hello World');\n});\n```\n\nThe HTTP/1 specification forbids trailers from containing HTTP/2 pseudo-header\nfields (e.g. `':method'`, `':path'`, etc).",
+      "translated": "接続された HTTP/2 ピアに末尾の `HEADERS` フレームを送信する。このメソッドは `Http2Stream` を即座に閉じさせるため、`'wantTrailers'` イベントが発行された後にのみ呼ばなければならない。リクエストの送信やレスポンスの送信の際、トレーラーを送信できるように最後の `DATA` フレームの後も `Http2Stream` を開いたままにするには、`options.waitForTrailers` オプションを設定しなければならない。\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  stream.respond(undefined, { waitForTrailers: true });\n  stream.on('wantTrailers', () => {\n    stream.sendTrailers({ xyz: 'abc' });\n  });\n  stream.end('Hello World');\n});\n```\n\nHTTP/1 仕様は、トレーラーが HTTP/2 の擬似ヘッダーフィールド(たとえば `':method'`・`':path'` など)を含むことを禁止している。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.sendTrailers",
+      "lang": "ja"
+    },
+    "37608c8f": {
+      "original": "An object containing the outbound headers sent for this `Http2Stream`.",
+      "translated": "この `Http2Stream` について送信された送信ヘッダーを含むオブジェクト。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.sentHeaders",
+      "lang": "ja"
+    },
+    "0331ae3e": {
+      "original": "An array of objects containing the outbound informational (additional) headers\nsent for this `Http2Stream`.",
+      "translated": "この `Http2Stream` について送信された送信の情報(追加)ヘッダーを含むオブジェクトの配列。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.sentInfoHeaders",
+      "lang": "ja"
+    },
+    "20b81ccc": {
+      "original": "An object containing the outbound trailers sent for this `HttpStream`.",
+      "translated": "この `HttpStream` について送信された送信トレーラーを含むオブジェクト。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.sentTrailers",
+      "lang": "ja"
+    },
+    "8e7b6887": {
+      "original": "A reference to the `Http2Session` instance that owns this `Http2Stream`. The\nvalue will be `undefined` after the `Http2Stream` instance is destroyed.",
+      "translated": "この `Http2Stream` を所有する `Http2Session` インスタンスへの参照。`Http2Stream` インスタンスが破棄された後、値は `undefined` になる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.session",
+      "lang": "ja"
+    },
+    "be840bff": {
+      "original": "```js\nimport http2 from 'node:http2';\nconst client = http2.connect('http://example.org:8000');\nconst { NGHTTP2_CANCEL } = http2.constants;\nconst req = client.request({ ':path': '/' });\n\n// Cancel the stream if there's no activity after 5 seconds\nreq.setTimeout(5000, () => req.close(NGHTTP2_CANCEL));\n```",
+      "translated": "```js\nimport http2 from 'node:http2';\nconst client = http2.connect('http://example.org:8000');\nconst { NGHTTP2_CANCEL } = http2.constants;\nconst req = client.request({ ':path': '/' });\n\n// Cancel the stream if there's no activity after 5 seconds\nreq.setTimeout(5000, () => req.close(NGHTTP2_CANCEL));\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.setTimeout",
+      "lang": "ja"
+    },
+    "4079a1e2": {
+      "original": "A Duplex Stream",
+      "translated": "Duplex ストリーム",
+      "symbol": "@types/node/http2.d.ts#http2.performServerHandshake",
+      "lang": "ja"
+    },
+    "515aca67": {
+      "original": "Any `{@link createServer}` options can be provided.",
+      "translated": "任意の `{@link createServer}` オプションを指定できる。",
+      "symbol": "@types/node/http2.d.ts#http2.performServerHandshake",
+      "lang": "ja"
+    },
+    "04a0ec9a": {
+      "original": "Create an HTTP/2 server session from an existing socket.",
+      "translated": "既存のソケットから HTTP/2 サーバーセッションを作成する。",
+      "symbol": "@types/node/http2.d.ts#http2.performServerHandshake",
+      "lang": "ja"
+    },
+    "951b594d": {
+      "original": "This symbol can be set as a property on the HTTP/2 headers object with\nan array value in order to provide a list of headers considered sensitive.",
+      "translated": "このシンボルは、機密とみなされるヘッダーのリストを提供するために、配列値とともに HTTP/2 ヘッダーオブジェクトのプロパティとして設定できる。",
+      "symbol": "@types/node/http2.d.ts#http2.sensitiveHeaders",
+      "lang": "ja"
+    },
+    "e1bd8e84": {
+      "original": "A description of the alternative service configuration as defined by `RFC 7838`.",
+      "translated": "`RFC 7838` で定義された代替サービス構成の記述。",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Session.altsvc",
+      "lang": "ja"
+    },
+    "8f94b971": {
+      "original": "Either a URL string specifying the origin (or an `Object` with an `origin` property) or the numeric identifier of an active `Http2Stream` as given by the\n`http2stream.id` property.",
+      "translated": "origin を指定する URL 文字列(または `origin` プロパティを持つ `Object`)、あるいは `http2stream.id` プロパティで与えられるアクティブな `Http2Stream` の数値識別子のいずれか。",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Session.altsvc",
+      "lang": "ja"
+    },
+    "4f0981b1": {
+      "original": "Submits an `ALTSVC` frame (as defined by [RFC 7838](https://tools.ietf.org/html/rfc7838)) to the connected client.\n\n```js\nimport http2 from 'node:http2';\n\nconst server = http2.createServer();\nserver.on('session', (session) => {\n  // Set altsvc for origin https://example.org:80\n  session.altsvc('h2=\":8000\"', 'https://example.org:80');\n});\n\nserver.on('stream', (stream) => {\n  // Set altsvc for a specific stream\n  stream.session.altsvc('h2=\":8000\"', stream.id);\n});\n```\n\nSending an `ALTSVC` frame with a specific stream ID indicates that the alternate\nservice is associated with the origin of the given `Http2Stream`.\n\nThe `alt` and origin string _must_ contain only ASCII bytes and are\nstrictly interpreted as a sequence of ASCII bytes. The special value `'clear'`may be passed to clear any previously set alternative service for a given\ndomain.\n\nWhen a string is passed for the `originOrStream` argument, it will be parsed as\na URL and the origin will be derived. For instance, the origin for the\nHTTP URL `'https://example.org/foo/bar'` is the ASCII string`'https://example.org'`. An error will be thrown if either the given string\ncannot be parsed as a URL or if a valid origin cannot be derived.\n\nA `URL` object, or any object with an `origin` property, may be passed as`originOrStream`, in which case the value of the `origin` property will be\nused. The value of the `origin` property _must_ be a properly serialized\nASCII origin.",
+      "translated": "接続されたクライアントに `ALTSVC` フレーム([RFC 7838](https://tools.ietf.org/html/rfc7838) で定義)を送信する。\n\n```js\nimport http2 from 'node:http2';\n\nconst server = http2.createServer();\nserver.on('session', (session) => {\n  // Set altsvc for origin https://example.org:80\n  session.altsvc('h2=\":8000\"', 'https://example.org:80');\n});\n\nserver.on('stream', (stream) => {\n  // Set altsvc for a specific stream\n  stream.session.altsvc('h2=\":8000\"', stream.id);\n});\n```\n\n特定のストリーム ID とともに `ALTSVC` フレームを送信することは、代替サービスが指定した `Http2Stream` の origin に関連付けられていることを示す。\n\n`alt` と origin 文字列は ASCII バイトのみを含まなければならず、ASCII バイトの列として厳密に解釈される。指定したドメインについて以前に設定した代替サービスをクリアするために、特別な値 `'clear'` を渡せる。\n\n`originOrStream` 引数に文字列が渡された場合、それは URL として解析され origin が導出される。たとえば、HTTP URL `'https://example.org/foo/bar'` の origin は ASCII 文字列 `'https://example.org'` である。指定した文字列を URL として解析できないか、有効な origin を導出できない場合、エラーが投げられる。\n\n`URL` オブジェクト、または `origin` プロパティを持つ任意のオブジェクトを `originOrStream` として渡せる。その場合、`origin` プロパティの値が使われる。`origin` プロパティの値は、適切にシリアライズされた ASCII の origin でなければならない。",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Session.altsvc",
+      "lang": "ja"
+    },
+    "60794f80": {
+      "original": "One or more URL Strings passed as separate arguments.",
+      "translated": "別々の引数として渡される 1 つ以上の URL 文字列。",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Session.origin",
+      "lang": "ja"
+    },
+    "bd80dfe4": {
+      "original": "Submits an `ORIGIN` frame (as defined by [RFC 8336](https://tools.ietf.org/html/rfc8336)) to the connected client\nto advertise the set of origins for which the server is capable of providing\nauthoritative responses.\n\n```js\nimport http2 from 'node:http2';\nconst options = getSecureOptionsSomehow();\nconst server = http2.createSecureServer(options);\nserver.on('stream', (stream) => {\n  stream.respond();\n  stream.end('ok');\n});\nserver.on('session', (session) => {\n  session.origin('https://example.com', 'https://example.org');\n});\n```\n\nWhen a string is passed as an `origin`, it will be parsed as a URL and the\norigin will be derived. For instance, the origin for the HTTP URL `'https://example.org/foo/bar'` is the ASCII string` 'https://example.org'`. An error will be thrown if either the given\nstring\ncannot be parsed as a URL or if a valid origin cannot be derived.\n\nA `URL` object, or any object with an `origin` property, may be passed as\nan `origin`, in which case the value of the `origin` property will be\nused. The value of the `origin` property _must_ be a properly serialized\nASCII origin.\n\nAlternatively, the `origins` option may be used when creating a new HTTP/2\nserver using the `http2.createSecureServer()` method:\n\n```js\nimport http2 from 'node:http2';\nconst options = getSecureOptionsSomehow();\noptions.origins = ['https://example.com', 'https://example.org'];\nconst server = http2.createSecureServer(options);\nserver.on('stream', (stream) => {\n  stream.respond();\n  stream.end('ok');\n});\n```",
+      "translated": "接続されたクライアントに `ORIGIN` フレーム([RFC 8336](https://tools.ietf.org/html/rfc8336) で定義)を送信し、サーバーが権威あるレスポンスを提供できる origin のセットを広告する。\n\n```js\nimport http2 from 'node:http2';\nconst options = getSecureOptionsSomehow();\nconst server = http2.createSecureServer(options);\nserver.on('stream', (stream) => {\n  stream.respond();\n  stream.end('ok');\n});\nserver.on('session', (session) => {\n  session.origin('https://example.com', 'https://example.org');\n});\n```\n\n`origin` に文字列が渡された場合、それは URL として解析され origin が導出される。たとえば、HTTP URL `'https://example.org/foo/bar'` の origin は ASCII 文字列 `'https://example.org'` である。指定した文字列を URL として解析できないか、有効な origin を導出できない場合、エラーが投げられる。\n\n`URL` オブジェクト、または `origin` プロパティを持つ任意のオブジェクトを `origin` として渡せる。その場合、`origin` プロパティの値が使われる。`origin` プロパティの値は、適切にシリアライズされた ASCII の origin でなければならない。\n\nあるいは、`http2.createSecureServer()` メソッドを使って新しい HTTP/2 サーバーを作成するときに `origins` オプションを使える:\n\n```js\nimport http2 from 'node:http2';\nconst options = getSecureOptionsSomehow();\noptions.origins = ['https://example.com', 'https://example.org'];\nconst server = http2.createSecureServer(options);\nserver.on('stream', (stream) => {\n  stream.respond();\n  stream.end('ok');\n});\n```",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Session.origin",
+      "lang": "ja"
+    },
+    "d0da2618": {
+      "original": "Sends an additional informational `HEADERS` frame to the connected HTTP/2 peer.",
+      "translated": "接続された HTTP/2 ピアに追加の情報 `HEADERS` フレームを送信する。",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Stream.additionalHeaders",
+      "lang": "ja"
+    },
+    "9350dcc7": {
+      "original": "True if headers were sent, false otherwise (read-only).",
+      "translated": "ヘッダーが送信された場合は true、そうでなければ false(読み取り専用)。",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Stream.headersSent",
+      "lang": "ja"
+    },
+    "25c346a7": {
+      "original": "Read-only property mapped to the `SETTINGS_ENABLE_PUSH` flag of the remote\nclient's most recent `SETTINGS` frame. Will be `true` if the remote peer\naccepts push streams, `false` otherwise. Settings are the same for every `Http2Stream` in the same `Http2Session`.",
+      "translated": "リモートクライアントの最も最近の `SETTINGS` フレームの `SETTINGS_ENABLE_PUSH` フラグにマッピングされる読み取り専用プロパティ。リモートピアがプッシュストリームを受け入れる場合は `true`、そうでなければ `false` になる。設定は同じ `Http2Session` 内のすべての `Http2Stream` で同じである。",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Stream.pushAllowed",
+      "lang": "ja"
+    },
+    "16d9fe54": {
+      "original": "Callback that is called once the push stream has been initiated.",
+      "translated": "プッシュストリームが開始されたときに一度呼ばれるコールバック。",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Stream.pushStream",
+      "lang": "ja"
+    },
+    "abd8b099": {
+      "original": "Initiates a push stream. The callback is invoked with the new `Http2Stream` instance created for the push stream passed as the second argument, or an `Error` passed as the first argument.\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  stream.respond({ ':status': 200 });\n  stream.pushStream({ ':path': '/' }, (err, pushStream, headers) => {\n    if (err) throw err;\n    pushStream.respond({ ':status': 200 });\n    pushStream.end('some pushed data');\n  });\n  stream.end('some data');\n});\n```\n\nSetting the weight of a push stream is not allowed in the `HEADERS` frame. Pass\na `weight` value to `http2stream.priority` with the `silent` option set to `true` to enable server-side bandwidth balancing between concurrent streams.\n\nCalling `http2stream.pushStream()` from within a pushed stream is not permitted\nand will throw an error.",
+      "translated": "プッシュストリームを開始する。コールバックは、プッシュストリーム用に作成された新しい `Http2Stream` インスタンスを第 2 引数として、または `Error` を第 1 引数として呼ばれる。\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  stream.respond({ ':status': 200 });\n  stream.pushStream({ ':path': '/' }, (err, pushStream, headers) => {\n    if (err) throw err;\n    pushStream.respond({ ':status': 200 });\n    pushStream.end('some pushed data');\n  });\n  stream.end('some data');\n});\n```\n\nプッシュストリームの重みを `HEADERS` フレームで設定することは許可されていない。並行するストリーム間のサーバー側の帯域幅バランシングを有効にするには、`silent` オプションを `true` に設定して `weight` 値を `http2stream.priority` に渡す。\n\nプッシュされたストリーム内から `http2stream.pushStream()` を呼ぶことは許可されておらず、エラーが投げられる。",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Stream.pushStream",
+      "lang": "ja"
+    },
+    "3f7b00f3": {
+      "original": "```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  stream.respond({ ':status': 200 });\n  stream.end('some data');\n});\n```\n\nInitiates a response. When the `options.waitForTrailers` option is set, the `'wantTrailers'` event\nwill be emitted immediately after queuing the last chunk of payload data to be sent.\nThe `http2stream.sendTrailers()` method can then be used to send trailing header fields to the peer.\n\nWhen `options.waitForTrailers` is set, the `Http2Stream` will not automatically\nclose when the final `DATA` frame is transmitted. User code must call either `http2stream.sendTrailers()` or `http2stream.close()` to close the `Http2Stream`.\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  stream.respond({ ':status': 200 }, { waitForTrailers: true });\n  stream.on('wantTrailers', () => {\n    stream.sendTrailers({ ABC: 'some value to send' });\n  });\n  stream.end('some data');\n});\n```",
+      "translated": "```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  stream.respond({ ':status': 200 });\n  stream.end('some data');\n});\n```\n\nレスポンスを開始する。`options.waitForTrailers` オプションが設定されている場合、ペイロードデータの最後のチャンクを送信キューに入れた直後に `'wantTrailers'` イベントが発行される。その後 `http2stream.sendTrailers()` メソッドを使って、末尾のヘッダーフィールドをピアに送信できる。\n\n`options.waitForTrailers` が設定されている場合、最後の `DATA` フレームが送信されても `Http2Stream` は自動的に閉じられない。ユーザーコードは `http2stream.sendTrailers()` または `http2stream.close()` のいずれかを呼んで `Http2Stream` を閉じなければならない。\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  stream.respond({ ':status': 200 }, { waitForTrailers: true });\n  stream.on('wantTrailers', () => {\n    stream.sendTrailers({ ABC: 'some value to send' });\n  });\n  stream.end('some data');\n});\n```",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Stream.respond",
+      "lang": "ja"
+    },
+    "507176c8": {
+      "original": "A readable file descriptor.",
+      "translated": "読み取り可能なファイルディスクリプタ。",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Stream.respondWithFD",
+      "lang": "ja"
+    },
+    "826e1bb8": {
+      "original": "Initiates a response whose data is read from the given file descriptor. No\nvalidation is performed on the given file descriptor. If an error occurs while\nattempting to read data using the file descriptor, the `Http2Stream` will be\nclosed using an `RST_STREAM` frame using the standard `INTERNAL_ERROR` code.\n\nWhen used, the `Http2Stream` object's `Duplex` interface will be closed\nautomatically.\n\n```js\nimport http2 from 'node:http2';\nimport fs from 'node:fs';\n\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  const fd = fs.openSync('/some/file', 'r');\n\n  const stat = fs.fstatSync(fd);\n  const headers = {\n    'content-length': stat.size,\n    'last-modified': stat.mtime.toUTCString(),\n    'content-type': 'text/plain; charset=utf-8',\n  };\n  stream.respondWithFD(fd, headers);\n  stream.on('close', () => fs.closeSync(fd));\n});\n```\n\nThe optional `options.statCheck` function may be specified to give user code\nan opportunity to set additional content headers based on the `fs.Stat` details\nof the given fd. If the `statCheck` function is provided, the `http2stream.respondWithFD()` method will\nperform an `fs.fstat()` call to collect details on the provided file descriptor.\n\nThe `offset` and `length` options may be used to limit the response to a\nspecific range subset. This can be used, for instance, to support HTTP Range\nrequests.\n\nThe file descriptor or `FileHandle` is not closed when the stream is closed,\nso it will need to be closed manually once it is no longer needed.\nUsing the same file descriptor concurrently for multiple streams\nis not supported and may result in data loss. Re-using a file descriptor\nafter a stream has finished is supported.\n\nWhen the `options.waitForTrailers` option is set, the `'wantTrailers'` event\nwill be emitted immediately after queuing the last chunk of payload data to be\nsent. The `http2stream.sendTrailers()` method can then be used to sent trailing\nheader fields to the peer.\n\nWhen `options.waitForTrailers` is set, the `Http2Stream` will not automatically\nclose when the final `DATA` frame is transmitted. User code _must_ call either `http2stream.sendTrailers()`\nor `http2stream.close()` to close the `Http2Stream`.\n\n```js\nimport http2 from 'node:http2';\nimport fs from 'node:fs';\n\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  const fd = fs.openSync('/some/file', 'r');\n\n  const stat = fs.fstatSync(fd);\n  const headers = {\n    'content-length': stat.size,\n    'last-modified': stat.mtime.toUTCString(),\n    'content-type': 'text/plain; charset=utf-8',\n  };\n  stream.respondWithFD(fd, headers, { waitForTrailers: true });\n  stream.on('wantTrailers', () => {\n    stream.sendTrailers({ ABC: 'some value to send' });\n  });\n\n  stream.on('close', () => fs.closeSync(fd));\n});\n```",
+      "translated": "指定したファイルディスクリプタからデータを読むレスポンスを開始する。指定したファイルディスクリプタに対して検証は行われない。ファイルディスクリプタを使ってデータを読もうとしてエラーが発生した場合、`Http2Stream` は標準の `INTERNAL_ERROR` コードを使う `RST_STREAM` フレームで閉じられる。\n\n使われると、`Http2Stream` オブジェクトの `Duplex` インターフェースは自動的に閉じられる。\n\n```js\nimport http2 from 'node:http2';\nimport fs from 'node:fs';\n\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  const fd = fs.openSync('/some/file', 'r');\n\n  const stat = fs.fstatSync(fd);\n  const headers = {\n    'content-length': stat.size,\n    'last-modified': stat.mtime.toUTCString(),\n    'content-type': 'text/plain; charset=utf-8',\n  };\n  stream.respondWithFD(fd, headers);\n  stream.on('close', () => fs.closeSync(fd));\n});\n```\n\n省略可能な `options.statCheck` 関数を指定すると、ユーザーコードが指定した fd の `fs.Stat` の詳細に基づいて追加のコンテンツヘッダーを設定する機会を得られる。`statCheck` 関数が指定された場合、`http2stream.respondWithFD()` メソッドは、指定したファイルディスクリプタの詳細を収集するために `fs.fstat()` 呼び出しを実行する。\n\n`offset` と `length` オプションを使って、レスポンスを特定の範囲の部分集合に制限できる。これはたとえば HTTP Range リクエストをサポートするために使える。\n\nファイルディスクリプタまたは `FileHandle` はストリームが閉じられても閉じられないため、不要になったら手動で閉じる必要がある。同じファイルディスクリプタを複数のストリームで並行して使うことはサポートされておらず、データ損失につながることがある。ストリームが終了した後にファイルディスクリプタを再利用することはサポートされている。\n\n`options.waitForTrailers` オプションが設定されている場合、ペイロードデータの最後のチャンクを送信キューに入れた直後に `'wantTrailers'` イベントが発行される。その後 `http2stream.sendTrailers()` メソッドを使って、末尾のヘッダーフィールドをピアに送信できる。\n\n`options.waitForTrailers` が設定されている場合、最後の `DATA` フレームが送信されても `Http2Stream` は自動的に閉じられない。ユーザーコードは `http2stream.sendTrailers()` または `http2stream.close()` のいずれかを必ず呼んで `Http2Stream` を閉じなければならない。\n\n```js\nimport http2 from 'node:http2';\nimport fs from 'node:fs';\n\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  const fd = fs.openSync('/some/file', 'r');\n\n  const stat = fs.fstatSync(fd);\n  const headers = {\n    'content-length': stat.size,\n    'last-modified': stat.mtime.toUTCString(),\n    'content-type': 'text/plain; charset=utf-8',\n  };\n  stream.respondWithFD(fd, headers, { waitForTrailers: true });\n  stream.on('wantTrailers', () => {\n    stream.sendTrailers({ ABC: 'some value to send' });\n  });\n\n  stream.on('close', () => fs.closeSync(fd));\n});\n```",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Stream.respondWithFD",
+      "lang": "ja"
+    },
+    "7b2e3f23": {
+      "original": "Sends a regular file as the response. The `path` must specify a regular file\nor an `'error'` event will be emitted on the `Http2Stream` object.\n\nWhen used, the `Http2Stream` object's `Duplex` interface will be closed\nautomatically.\n\nThe optional `options.statCheck` function may be specified to give user code\nan opportunity to set additional content headers based on the `fs.Stat` details\nof the given file:\n\nIf an error occurs while attempting to read the file data, the `Http2Stream` will be closed using an\n`RST_STREAM` frame using the standard `INTERNAL_ERROR` code.\nIf the `onError` callback is defined, then it will be called. Otherwise, the stream will be destroyed.\n\nExample using a file path:\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  function statCheck(stat, headers) {\n    headers['last-modified'] = stat.mtime.toUTCString();\n  }\n\n  function onError(err) {\n    // stream.respond() can throw if the stream has been destroyed by\n    // the other side.\n    try {\n      if (err.code === 'ENOENT') {\n        stream.respond({ ':status': 404 });\n      } else {\n        stream.respond({ ':status': 500 });\n      }\n    } catch (err) {\n      // Perform actual error handling.\n      console.error(err);\n    }\n    stream.end();\n  }\n\n  stream.respondWithFile('/some/file',\n                         { 'content-type': 'text/plain; charset=utf-8' },\n                         { statCheck, onError });\n});\n```\n\nThe `options.statCheck` function may also be used to cancel the send operation\nby returning `false`. For instance, a conditional request may check the stat\nresults to determine if the file has been modified to return an appropriate `304` response:\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  function statCheck(stat, headers) {\n    // Check the stat here...\n    stream.respond({ ':status': 304 });\n    return false; // Cancel the send operation\n  }\n  stream.respondWithFile('/some/file',\n                         { 'content-type': 'text/plain; charset=utf-8' },\n                         { statCheck });\n});\n```\n\nThe `content-length` header field will be automatically set.\n\nThe `offset` and `length` options may be used to limit the response to a\nspecific range subset. This can be used, for instance, to support HTTP Range\nrequests.\n\nThe `options.onError` function may also be used to handle all the errors\nthat could happen before the delivery of the file is initiated. The\ndefault behavior is to destroy the stream.\n\nWhen the `options.waitForTrailers` option is set, the `'wantTrailers'` event\nwill be emitted immediately after queuing the last chunk of payload data to be\nsent. The `http2stream.sendTrailers()` method can then be used to sent trailing\nheader fields to the peer.\n\nWhen `options.waitForTrailers` is set, the `Http2Stream` will not automatically\nclose when the final `DATA` frame is transmitted. User code must call either`http2stream.sendTrailers()` or `http2stream.close()` to close the`Http2Stream`.\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  stream.respondWithFile('/some/file',\n                         { 'content-type': 'text/plain; charset=utf-8' },\n                         { waitForTrailers: true });\n  stream.on('wantTrailers', () => {\n    stream.sendTrailers({ ABC: 'some value to send' });\n  });\n});\n```",
+      "translated": "通常のファイルをレスポンスとして送信する。`path` は通常のファイルを指定しなければならず、そうでないと `Http2Stream` オブジェクトで `'error'` イベントが発行される。\n\n使われると、`Http2Stream` オブジェクトの `Duplex` インターフェースは自動的に閉じられる。\n\n省略可能な `options.statCheck` 関数を指定すると、ユーザーコードが指定したファイルの `fs.Stat` の詳細に基づいて追加のコンテンツヘッダーを設定する機会を得られる:\n\nファイルデータを読もうとしてエラーが発生した場合、`Http2Stream` は標準の `INTERNAL_ERROR` コードを使う `RST_STREAM` フレームで閉じられる。`onError` コールバックが定義されている場合、それが呼ばれる。そうでなければ、ストリームは破棄される。\n\nファイルパスを使う例:\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  function statCheck(stat, headers) {\n    headers['last-modified'] = stat.mtime.toUTCString();\n  }\n\n  function onError(err) {\n    // stream.respond() can throw if the stream has been destroyed by\n    // the other side.\n    try {\n      if (err.code === 'ENOENT') {\n        stream.respond({ ':status': 404 });\n      } else {\n        stream.respond({ ':status': 500 });\n      }\n    } catch (err) {\n      // Perform actual error handling.\n      console.error(err);\n    }\n    stream.end();\n  }\n\n  stream.respondWithFile('/some/file',\n                         { 'content-type': 'text/plain; charset=utf-8' },\n                         { statCheck, onError });\n});\n```\n\n`options.statCheck` 関数は、`false` を返すことで送信操作をキャンセルするためにも使える。たとえば、条件付きリクエストは stat の結果を確認して、ファイルが変更されたかどうかを判定し、適切な `304` レスポンスを返せる:\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  function statCheck(stat, headers) {\n    // Check the stat here...\n    stream.respond({ ':status': 304 });\n    return false; // Cancel the send operation\n  }\n  stream.respondWithFile('/some/file',\n                         { 'content-type': 'text/plain; charset=utf-8' },\n                         { statCheck });\n});\n```\n\n`content-length` ヘッダーフィールドは自動的に設定される。\n\n`offset` と `length` オプションを使って、レスポンスを特定の範囲の部分集合に制限できる。これはたとえば HTTP Range リクエストをサポートするために使える。\n\n`options.onError` 関数は、ファイルの配信が開始される前に起こり得るすべてのエラーを処理するためにも使える。既定の挙動はストリームを破棄することである。\n\n`options.waitForTrailers` オプションが設定されている場合、ペイロードデータの最後のチャンクを送信キューに入れた直後に `'wantTrailers'` イベントが発行される。その後 `http2stream.sendTrailers()` メソッドを使って、末尾のヘッダーフィールドをピアに送信できる。\n\n`options.waitForTrailers` が設定されている場合、最後の `DATA` フレームが送信されても `Http2Stream` は自動的に閉じられない。ユーザーコードは `http2stream.sendTrailers()` または `http2stream.close()` のいずれかを呼んで `Http2Stream` を閉じなければならない。\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer();\nserver.on('stream', (stream) => {\n  stream.respondWithFile('/some/file',\n                         { 'content-type': 'text/plain; charset=utf-8' },\n                         { waitForTrailers: true });\n  stream.on('wantTrailers', () => {\n    stream.sendTrailers({ ABC: 'some value to send' });\n  });\n});\n```",
+      "symbol": "@types/node/http2.d.ts#http2.ServerHttp2Stream.respondWithFile",
+      "lang": "ja"
+    },
+    "aa2303ac": {
+      "original": "Sets the maximum dynamic table size for deflating header fields.",
+      "translated": "ヘッダーフィールドを deflate する際の最大動的テーブルサイズを設定する。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.maxDeflateDynamicTableSize",
       "lang": "ja"
     },
     "78a6ad93": {
