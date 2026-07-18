@@ -196,6 +196,12 @@
       "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkHost",
       "lang": "ja"
     },
+    "73585146": {
+      "original": "Enables or disables the return of query results as arrays.",
+      "translated": "クエリ結果を配列として返すことを有効または無効にする。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.setReturnArrays",
+      "lang": "ja"
+    },
     "73741370": {
       "original": "Constant for fs.Stats mode property for determining a file's type. File type constant for a directory.",
       "translated": "ファイルの種類を判定するための fs.Stats mode プロパティ用の定数。ディレクトリを表すファイル種類定数。",
@@ -9122,6 +9128,108 @@
       "original": "Zero or more values to bind to anonymous parameters.",
       "translated": "匿名パラメーターにバインドする 0 個以上の値。",
       "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.all",
+      "lang": "ja"
+    },
+    "10cd46ba": {
+      "original": "An array of objects. Each object corresponds to a column\nin the prepared statement, and contains the following properties:",
+      "translated": "オブジェクトの配列。各オブジェクトは prepared statement 内の列に対応し、次のプロパティを含む:",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.columns",
+      "lang": "ja"
+    },
+    "7c7ab3a3": {
+      "original": "This method is used to retrieve information about the columns returned by the\nprepared statement.",
+      "translated": "このメソッドは、prepared statement が返す列に関する情報を取得するために使う。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.columns",
+      "lang": "ja"
+    },
+    "3bc87c04": {
+      "original": "The source SQL text of the prepared statement with parameter\nplaceholders replaced by the values that were used during the most recent\nexecution of this prepared statement. This property is a wrapper around\n[`sqlite3_expanded_sql()`](https://www.sqlite.org/c3ref/expanded_sql.html).",
+      "translated": "パラメータープレースホルダーを、この prepared statement の最も最近の実行中に使われた値で置き換えた、prepared statement のソース SQL テキスト。このプロパティは [`sqlite3_expanded_sql()`](https://www.sqlite.org/c3ref/expanded_sql.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.expandedSQL",
+      "lang": "ja"
+    },
+    "e365c430": {
+      "original": "An object corresponding to the first row returned by executing the prepared statement. The keys and values of the object correspond to the column names and values of the row. If no\nrows were returned from the database then this method returns `undefined`.",
+      "translated": "prepared statement を実行して返された最初の行に対応するオブジェクト。オブジェクトのキーと値は、行の列名と値に対応する。データベースから行が返されなかった場合、このメソッドは `undefined` を返す。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.get",
+      "lang": "ja"
+    },
+    "c62b33e7": {
+      "original": "This method executes a prepared statement and returns the first result as an\nobject. If the prepared statement does not return any results, this method\nreturns `undefined`. The prepared statement [parameters are bound](https://www.sqlite.org/c3ref/bind_blob.html) using the\nvalues in `namedParameters` and `anonymousParameters`.",
+      "translated": "このメソッドは prepared statement を実行し、最初の結果をオブジェクトとして返す。prepared statement が結果を返さない場合、このメソッドは `undefined` を返す。prepared statement の[パラメーターは](https://www.sqlite.org/c3ref/bind_blob.html)、`namedParameters` と `anonymousParameters` の値を使ってバインドされる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.get",
+      "lang": "ja"
+    },
+    "8fe6019b": {
+      "original": "An iterable iterator of objects. Each object corresponds to a row\nreturned by executing the prepared statement. The keys and values of each\nobject correspond to the column names and values of the row.",
+      "translated": "オブジェクトの反復可能なイテレーター。各オブジェクトは、prepared statement を実行して返された行に対応する。各オブジェクトのキーと値は、行の列名と値に対応する。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.iterate",
+      "lang": "ja"
+    },
+    "9f17f896": {
+      "original": "An optional object used to bind named parameters.\nThe keys of this object are used to configure the mapping.",
+      "translated": "名前付きパラメーターをバインドするために使う省略可能なオブジェクト。このオブジェクトのキーがマッピングの構成に使われる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.iterate",
+      "lang": "ja"
+    },
+    "ad3ce1c5": {
+      "original": "This method executes a prepared statement and returns an iterator of\nobjects. If the prepared statement does not return any results, this method\nreturns an empty iterator. The prepared statement [parameters are bound](https://www.sqlite.org/c3ref/bind_blob.html) using\nthe values in `namedParameters` and `anonymousParameters`.",
+      "translated": "このメソッドは prepared statement を実行し、オブジェクトのイテレーターを返す。prepared statement が結果を返さない場合、このメソッドは空のイテレーターを返す。prepared statement の[パラメーターは](https://www.sqlite.org/c3ref/bind_blob.html)、`namedParameters` と `anonymousParameters` の値を使ってバインドされる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.iterate",
+      "lang": "ja"
+    },
+    "26472c91": {
+      "original": "This method executes a prepared statement and returns an object summarizing the\nresulting changes. The prepared statement [parameters are bound](https://www.sqlite.org/c3ref/bind_blob.html) using the\nvalues in `namedParameters` and `anonymousParameters`.",
+      "translated": "このメソッドは prepared statement を実行し、結果として生じた変更を要約するオブジェクトを返す。prepared statement の[パラメーターは](https://www.sqlite.org/c3ref/bind_blob.html)、`namedParameters` と `anonymousParameters` の値を使ってバインドされる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.run",
+      "lang": "ja"
+    },
+    "aa7d823d": {
+      "original": "Enables or disables support for binding named parameters without the prefix character.",
+      "translated": "プレフィックス文字なしで名前付きパラメーターをバインドするサポートを有効または無効にする。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.setAllowBareNamedParameters",
+      "lang": "ja"
+    },
+    "67cd5423": {
+      "original": "The names of SQLite parameters begin with a prefix character. By default,`node:sqlite` requires that this prefix character is present when binding\nparameters. However, with the exception of dollar sign character, these\nprefix characters also require extra quoting when used in object keys.\n\nTo improve ergonomics, this method can be used to also allow bare named\nparameters, which do not require the prefix character in JavaScript code. There\nare several caveats to be aware of when enabling bare named parameters:\n\n* The prefix character is still required in SQL.\n* The prefix character is still allowed in JavaScript. In fact, prefixed names\nwill have slightly better binding performance.\n* Using ambiguous named parameters, such as `$k` and `@k`, in the same prepared\nstatement will result in an exception as it cannot be determined how to bind\na bare name.",
+      "translated": "SQLite パラメーターの名前はプレフィックス文字で始まる。既定では、`node:sqlite` はパラメーターをバインドする際にこのプレフィックス文字が存在することを要求する。ただし、ドル記号を除いて、これらのプレフィックス文字はオブジェクトのキーで使うときに追加の引用符が必要になる。\n\n使い勝手を改善するため、このメソッドを使って bare な名前付きパラメーター(JavaScript コードでプレフィックス文字を必要としない)も許可できる。bare な名前付きパラメーターを有効にする際に注意すべき点がいくつかある:\n\n* SQL ではプレフィックス文字が依然として必要である。\n* JavaScript ではプレフィックス文字が依然として許可される。実際、プレフィックス付きの名前の方がバインドの性能がわずかに良い。\n* 同じ prepared statement で `$k` と `@k` のようなあいまいな名前付きパラメーターを使うと、bare な名前をどうバインドするか決定できないため例外になる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.setAllowBareNamedParameters",
+      "lang": "ja"
+    },
+    "5becdffc": {
+      "original": "By default, if an unknown name is encountered while binding parameters, an\nexception is thrown. This method allows unknown named parameters to be ignored.",
+      "translated": "既定では、パラメーターのバインド中に不明な名前に遭遇すると例外が投げられる。このメソッドは不明な名前付きパラメーターを無視できるようにする。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.setAllowUnknownNamedParameters",
+      "lang": "ja"
+    },
+    "079a29a7": {
+      "original": "Enables or disables support for unknown named parameters.",
+      "translated": "不明な名前付きパラメーターのサポートを有効または無効にする。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.setAllowUnknownNamedParameters",
+      "lang": "ja"
+    },
+    "38c6f50e": {
+      "original": "Enables or disables the use of `BigInt`s when reading `INTEGER` fields from the database.",
+      "translated": "データベースから `INTEGER` フィールドを読むときの `BigInt` の使用を有効または無効にする。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.setReadBigInts",
+      "lang": "ja"
+    },
+    "e62b29b7": {
+      "original": "When reading from the database, SQLite `INTEGER`s are mapped to JavaScript\nnumbers by default. However, SQLite `INTEGER`s can store values larger than\nJavaScript numbers are capable of representing. In such cases, this method can\nbe used to read `INTEGER` data using JavaScript `BigInt`s. This method has no\nimpact on database write operations where numbers and `BigInt`s are both\nsupported at all times.",
+      "translated": "データベースから読むとき、SQLite の `INTEGER` は既定で JavaScript の数値にマッピングされる。ただし、SQLite の `INTEGER` は JavaScript の数値が表現できるよりも大きな値を格納できる。そのような場合、このメソッドを使って JavaScript の `BigInt` を使って `INTEGER` データを読める。このメソッドは、数値と `BigInt` の両方が常にサポートされるデータベース書き込み操作には影響しない。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.setReadBigInts",
+      "lang": "ja"
+    },
+    "966ea721": {
+      "original": "When enabled, query results returned by the `all()`, `get()`, and `iterate()` methods will be returned as arrays instead\nof objects.",
+      "translated": "有効にすると、`all()`・`get()`・`iterate()` メソッドが返すクエリ結果は、オブジェクトではなく配列として返される。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.setReturnArrays",
+      "lang": "ja"
+    },
+    "fbbb064d": {
+      "original": "The source SQL text of the prepared statement. This property is a\nwrapper around [`sqlite3_sql()`](https://www.sqlite.org/c3ref/expanded_sql.html).",
+      "translated": "prepared statement のソース SQL テキスト。このプロパティは [`sqlite3_sql()`](https://www.sqlite.org/c3ref/expanded_sql.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.sourceSQL",
       "lang": "ja"
     },
     "51babc4a": {
