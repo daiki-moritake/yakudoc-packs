@@ -52,6 +52,12 @@
       "symbol": "@types/node/crypto.d.ts#crypto.Certificate.verifySpkac",
       "lang": "ja"
     },
+    "21295107": {
+      "original": "The `v8.stopCoverage()` method allows the user to stop the coverage collection\nstarted by `NODE_V8_COVERAGE`, so that V8 can release the execution count\nrecords and optimize code. This can be used in conjunction with {@link takeCoverage} if the user wants to collect the coverage on demand.",
+      "translated": "`v8.stopCoverage()` メソッドは、`NODE_V8_COVERAGE` が開始したカバレッジ収集をユーザーが停止できるようにし、V8 が実行回数のレコードを解放してコードを最適化できるようにする。ユーザーがオンデマンドでカバレッジを収集したい場合、{@link takeCoverage} と併せて使える。",
+      "symbol": "@types/node/v8.d.ts#v8.stopCoverage",
+      "lang": "ja"
+    },
     "21563505": {
       "original": "Modules are cached in this object when they are required. By deleting a key\nvalue from this object, the next `require` will reload the module.\nThis does not apply to\n[native addons](https://nodejs.org/docs/latest-v22.x/api/addons.html),\nfor which reloading will result in an error.",
       "translated": "モジュールは require されたときにこのオブジェクトにキャッシュされる。このオブジェクトからキーの値を削除すると、次の `require` でモジュールが再読み込みされる。これは[ネイティブアドオン](https://nodejs.org/docs/latest-v22.x/api/addons.html)には適用されず、それらの再読み込みはエラーになる。",
@@ -14144,6 +14150,72 @@
       "original": "The `v8.setFlagsFromString()` method can be used to programmatically set\nV8 command-line flags. This method should be used with care. Changing settings\nafter the VM has started may result in unpredictable behavior, including\ncrashes and data loss; or it may simply do nothing.\n\nThe V8 options available for a version of Node.js may be determined by running `node --v8-options`.\n\nUsage:\n\n```js\n// Print GC events to stdout for one minute.\nimport v8 from 'node:v8';\nv8.setFlagsFromString('--trace_gc');\nsetTimeout(() => { v8.setFlagsFromString('--notrace_gc'); }, 60e3);\n```",
       "translated": "`v8.setFlagsFromString()` メソッドは、V8 のコマンドラインフラグをプログラムから設定するために使える。このメソッドは注意して使うべきである。VM が起動した後に設定を変更すると、クラッシュやデータ損失を含む予測不可能な挙動になることがある。あるいは単に何も起こらないこともある。\n\nある Node.js バージョンで利用可能な V8 オプションは、`node --v8-options` を実行することで判定できる。\n\n使い方:\n\n```js\n// Print GC events to stdout for one minute.\nimport v8 from 'node:v8';\nv8.setFlagsFromString('--trace_gc');\nsetTimeout(() => { v8.setFlagsFromString('--notrace_gc'); }, 60e3);\n```",
       "symbol": "@types/node/v8.d.ts#v8.setFlagsFromString",
+      "lang": "ja"
+    },
+    "05f1c323": {
+      "original": "The API is a no-op if `--heapsnapshot-near-heap-limit` is already set from the command line or the API is called more than once.\n`limit` must be a positive integer. See [`--heapsnapshot-near-heap-limit`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--heapsnapshot-near-heap-limitmax_count) for more information.",
+      "translated": "`--heapsnapshot-near-heap-limit` がすでにコマンドラインから設定されているか、この API が複数回呼ばれた場合、この API は no-op になる。`limit` は正の整数でなければならない。詳細は [`--heapsnapshot-near-heap-limit`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--heapsnapshot-near-heap-limitmax_count) を参照。",
+      "symbol": "@types/node/v8.d.ts#v8.setHeapSnapshotNearHeapLimit",
+      "lang": "ja"
+    },
+    "af96cafe": {
+      "original": "Called when the promise receives a resolution or rejection value. This may occur synchronously in the case of {@link Promise.resolve ()} or\n{@link Promise.reject ()}.",
+      "translated": "promise が解決または拒否の値を受け取ったときに呼ばれる。{@link Promise.resolve ()} や {@link Promise.reject ()} の場合、これは同期的に起こることがある。",
+      "symbol": "@types/node/v8.d.ts#v8.Settled",
+      "lang": "ja"
+    },
+    "f888638e": {
+      "original": "The `v8.startupSnapshot` interface can be used to add serialization and deserialization hooks for custom startup snapshots.\n\n```bash\n$ node --snapshot-blob snapshot.blob --build-snapshot entry.js\n# This launches a process with the snapshot\n$ node --snapshot-blob snapshot.blob\n```\n\nIn the example above, `entry.js` can use methods from the `v8.startupSnapshot` interface to specify how to save information for custom objects\nin the snapshot during serialization and how the information can be used to synchronize these objects during deserialization of the snapshot.\nFor example, if the `entry.js` contains the following script:\n\n```js\n'use strict';\n\nimport fs from 'node:fs';\nimport zlib from 'node:zlib';\nimport path from 'node:path';\nimport assert from 'node:assert';\n\nimport v8 from 'node:v8';\n\nclass BookShelf {\n  storage = new Map();\n\n  // Reading a series of files from directory and store them into storage.\n  constructor(directory, books) {\n    for (const book of books) {\n      this.storage.set(book, fs.readFileSync(path.join(directory, book)));\n    }\n  }\n\n  static compressAll(shelf) {\n    for (const [ book, content ] of shelf.storage) {\n      shelf.storage.set(book, zlib.gzipSync(content));\n    }\n  }\n\n  static decompressAll(shelf) {\n    for (const [ book, content ] of shelf.storage) {\n      shelf.storage.set(book, zlib.gunzipSync(content));\n    }\n  }\n}\n\n// __dirname here is where the snapshot script is placed\n// during snapshot building time.\nconst shelf = new BookShelf(__dirname, [\n  'book1.en_US.txt',\n  'book1.es_ES.txt',\n  'book2.zh_CN.txt',\n]);\n\nassert(v8.startupSnapshot.isBuildingSnapshot());\n// On snapshot serialization, compress the books to reduce size.\nv8.startupSnapshot.addSerializeCallback(BookShelf.compressAll, shelf);\n// On snapshot deserialization, decompress the books.\nv8.startupSnapshot.addDeserializeCallback(BookShelf.decompressAll, shelf);\nv8.startupSnapshot.setDeserializeMainFunction((shelf) => {\n  // process.env and process.argv are refreshed during snapshot\n  // deserialization.\n  const lang = process.env.BOOK_LANG || 'en_US';\n  const book = process.argv[1];\n  const name = `${book}.${lang}.txt`;\n  console.log(shelf.storage.get(name));\n}, shelf);\n```\n\nThe resulted binary will get print the data deserialized from the snapshot during start up, using the refreshed `process.env` and `process.argv` of the launched process:\n\n```bash\n$ BOOK_LANG=es_ES node --snapshot-blob snapshot.blob book1\n# Prints content of book1.es_ES.txt deserialized from the snapshot.\n```\n\nCurrently the application deserialized from a user-land snapshot cannot be snapshotted again, so these APIs are only available to applications that are not deserialized from a user-land snapshot.",
+      "translated": "`v8.startupSnapshot` インターフェースは、カスタムのスタートアップスナップショットのためのシリアライズおよびデシリアライズフックを追加するために使える。\n\n```bash\n$ node --snapshot-blob snapshot.blob --build-snapshot entry.js\n# This launches a process with the snapshot\n$ node --snapshot-blob snapshot.blob\n```\n\n上記の例で、`entry.js` は `v8.startupSnapshot` インターフェースのメソッドを使って、シリアライズ中にスナップショット内でカスタムオブジェクトの情報をどう保存するか、およびスナップショットのデシリアライズ中にこれらのオブジェクトを同期するためにその情報をどう使うかを指定できる。たとえば、`entry.js` が次のスクリプトを含む場合:\n\n```js\n'use strict';\n\nimport fs from 'node:fs';\nimport zlib from 'node:zlib';\nimport path from 'node:path';\nimport assert from 'node:assert';\n\nimport v8 from 'node:v8';\n\nclass BookShelf {\n  storage = new Map();\n\n  // Reading a series of files from directory and store them into storage.\n  constructor(directory, books) {\n    for (const book of books) {\n      this.storage.set(book, fs.readFileSync(path.join(directory, book)));\n    }\n  }\n\n  static compressAll(shelf) {\n    for (const [ book, content ] of shelf.storage) {\n      shelf.storage.set(book, zlib.gzipSync(content));\n    }\n  }\n\n  static decompressAll(shelf) {\n    for (const [ book, content ] of shelf.storage) {\n      shelf.storage.set(book, zlib.gunzipSync(content));\n    }\n  }\n}\n\n// __dirname here is where the snapshot script is placed\n// during snapshot building time.\nconst shelf = new BookShelf(__dirname, [\n  'book1.en_US.txt',\n  'book1.es_ES.txt',\n  'book2.zh_CN.txt',\n]);\n\nassert(v8.startupSnapshot.isBuildingSnapshot());\n// On snapshot serialization, compress the books to reduce size.\nv8.startupSnapshot.addSerializeCallback(BookShelf.compressAll, shelf);\n// On snapshot deserialization, decompress the books.\nv8.startupSnapshot.addDeserializeCallback(BookShelf.decompressAll, shelf);\nv8.startupSnapshot.setDeserializeMainFunction((shelf) => {\n  // process.env and process.argv are refreshed during snapshot\n  // deserialization.\n  const lang = process.env.BOOK_LANG || 'en_US';\n  const book = process.argv[1];\n  const name = `${book}.${lang}.txt`;\n  console.log(shelf.storage.get(name));\n}, shelf);\n```\n\n生成されたバイナリは、起動したプロセスの更新された `process.env` と `process.argv` を使って、起動時にスナップショットからデシリアライズされたデータを出力する:\n\n```bash\n$ BOOK_LANG=es_ES node --snapshot-blob snapshot.blob book1\n# Prints content of book1.es_ES.txt deserialized from the snapshot.\n```\n\n現在、ユーザーランドのスナップショットからデシリアライズされたアプリケーションは再びスナップショットを取れないため、これらの API は、ユーザーランドのスナップショットからデシリアライズされていないアプリケーションでのみ利用できる。",
+      "symbol": "@types/node/v8.d.ts#v8.startupSnapshot",
+      "lang": "ja"
+    },
+    "44eb5365": {
+      "original": "Add a callback that will be called when the Node.js instance is deserialized from a snapshot.\nThe `callback` and the `data` (if provided) will be serialized into the snapshot, they can be used to re-initialize the state of the application or\nto re-acquire resources that the application needs when the application is restarted from the snapshot.",
+      "translated": "Node.js インスタンスがスナップショットからデシリアライズされたときに呼ばれるコールバックを追加する。`callback` と(指定された場合は)`data` はスナップショットにシリアライズされ、アプリケーションがスナップショットから再起動されたときにアプリケーションの状態を再初期化したり、アプリケーションが必要とするリソースを再取得したりするために使える。",
+      "symbol": "@types/node/v8.d.ts#v8.startupSnapshot.addDeserializeCallback",
+      "lang": "ja"
+    },
+    "058777d6": {
+      "original": "Add a callback that will be called when the Node.js instance is about to get serialized into a snapshot and exit.\nThis can be used to release resources that should not or cannot be serialized or to convert user data into a form more suitable for serialization.",
+      "translated": "Node.js インスタンスがスナップショットにシリアライズされて終了しようとするときに呼ばれるコールバックを追加する。これは、シリアライズすべきでない、またはできないリソースを解放したり、ユーザーデータをシリアライズにより適した形式に変換したりするために使える。",
+      "symbol": "@types/node/v8.d.ts#v8.startupSnapshot.addSerializeCallback",
+      "lang": "ja"
+    },
+    "5681fda6": {
+      "original": "Returns true if the Node.js instance is run to build a snapshot.",
+      "translated": "Node.js インスタンスがスナップショットを構築するために実行されている場合は true を返す。",
+      "symbol": "@types/node/v8.d.ts#v8.startupSnapshot.isBuildingSnapshot",
+      "lang": "ja"
+    },
+    "d76eb975": {
+      "original": "This sets the entry point of the Node.js application when it is deserialized from a snapshot. This can be called only once in the snapshot building script.\nIf called, the deserialized application no longer needs an additional entry point script to start up and will simply invoke the callback along with the deserialized\ndata (if provided), otherwise an entry point script still needs to be provided to the deserialized application.",
+      "translated": "これは、Node.js アプリケーションがスナップショットからデシリアライズされたときのエントリポイントを設定する。これはスナップショット構築スクリプト内で一度だけ呼べる。呼ばれた場合、デシリアライズされたアプリケーションは起動のために追加のエントリポイントスクリプトを必要とせず、デシリアライズされたデータ(指定された場合)とともにコールバックを呼ぶだけになる。そうでなければ、デシリアライズされたアプリケーションにはエントリポイントスクリプトが依然として提供される必要がある。",
+      "symbol": "@types/node/v8.d.ts#v8.startupSnapshot.setDeserializeMainFunction",
+      "lang": "ja"
+    },
+    "eb15f4aa": {
+      "original": "The `v8.takeCoverage()` method allows the user to write the coverage started by `NODE_V8_COVERAGE` to disk on demand. This method can be invoked multiple\ntimes during the lifetime of the process. Each time the execution counter will\nbe reset and a new coverage report will be written to the directory specified\nby `NODE_V8_COVERAGE`.\n\nWhen the process is about to exit, one last coverage will still be written to\ndisk unless {@link stopCoverage} is invoked before the process exits.",
+      "translated": "`v8.takeCoverage()` メソッドは、`NODE_V8_COVERAGE` が開始したカバレッジをオンデマンドでディスクに書き込めるようにする。このメソッドはプロセスのライフタイム中に複数回呼べる。呼ばれるたびに実行カウンターがリセットされ、新しいカバレッジレポートが `NODE_V8_COVERAGE` で指定されたディレクトリに書き込まれる。\n\nプロセスが終了しようとするとき、プロセスが終了する前に {@link stopCoverage} が呼ばれない限り、最後にもう 1 回カバレッジがディスクに書き込まれる。",
+      "symbol": "@types/node/v8.d.ts#v8.takeCoverage",
+      "lang": "ja"
+    },
+    "3ed7873c": {
+      "original": "Generates a snapshot of the current V8 heap and writes it to a JSON\nfile. This file is intended to be used with tools such as Chrome\nDevTools. The JSON schema is undocumented and specific to the V8\nengine, and may change from one version of V8 to the next.\n\nA heap snapshot is specific to a single V8 isolate. When using `worker threads`, a heap snapshot generated from the main thread will\nnot contain any information about the workers, and vice versa.\n\nCreating a heap snapshot requires memory about twice the size of the heap at\nthe time the snapshot is created. This results in the risk of OOM killers\nterminating the process.\n\nGenerating a snapshot is a synchronous operation which blocks the event loop\nfor a duration depending on the heap size.\n\n```js\nimport { writeHeapSnapshot } from 'node:v8';\nimport {\n  Worker,\n  isMainThread,\n  parentPort,\n} from 'node:worker_threads';\n\nif (isMainThread) {\n  const worker = new Worker(__filename);\n\n  worker.once('message', (filename) => {\n    console.log(`worker heapdump: ${filename}`);\n    // Now get a heapdump for the main thread.\n    console.log(`main thread heapdump: ${writeHeapSnapshot()}`);\n  });\n\n  // Tell the worker to create a heapdump.\n  worker.postMessage('heapdump');\n} else {\n  parentPort.once('message', (message) => {\n    if (message === 'heapdump') {\n      // Generate a heapdump for the worker\n      // and return the filename to the parent.\n      parentPort.postMessage(writeHeapSnapshot());\n    }\n  });\n}\n```",
+      "translated": "現在の V8 ヒープのスナップショットを生成し、JSON ファイルに書き込む。このファイルは Chrome DevTools などのツールで使うことを意図している。JSON スキーマは文書化されておらず、V8 エンジンに固有で、V8 のバージョンごとに変わることがある。\n\nヒープスナップショットは単一の V8 isolate に固有である。`worker threads` を使う場合、メインスレッドから生成されたヒープスナップショットにはワーカーに関する情報が一切含まれず、その逆も同様である。\n\nヒープスナップショットの作成には、スナップショット作成時のヒープの約 2 倍のサイズのメモリが必要である。これにより、OOM killer がプロセスを終了させるリスクが生じる。\n\nスナップショットの生成は、ヒープサイズに応じた時間だけイベントループをブロックする同期操作である。\n\n```js\nimport { writeHeapSnapshot } from 'node:v8';\nimport {\n  Worker,\n  isMainThread,\n  parentPort,\n} from 'node:worker_threads';\n\nif (isMainThread) {\n  const worker = new Worker(__filename);\n\n  worker.once('message', (filename) => {\n    console.log(`worker heapdump: ${filename}`);\n    // Now get a heapdump for the main thread.\n    console.log(`main thread heapdump: ${writeHeapSnapshot()}`);\n  });\n\n  // Tell the worker to create a heapdump.\n  worker.postMessage('heapdump');\n} else {\n  parentPort.once('message', (message) => {\n    if (message === 'heapdump') {\n      // Generate a heapdump for the worker\n      // and return the filename to the parent.\n      parentPort.postMessage(writeHeapSnapshot());\n    }\n  });\n}\n```",
+      "symbol": "@types/node/v8.d.ts#v8.writeHeapSnapshot",
+      "lang": "ja"
+    },
+    "28c425e0": {
+      "original": "The file path where the V8 heap snapshot is to be saved. If not specified, a file name with the pattern `'Heap-${yyyymmdd}-${hhmmss}-${pid}-${thread_id}.heapsnapshot'` will be\ngenerated, where `{pid}` will be the PID of the Node.js process, `{thread_id}` will be `0` when `writeHeapSnapshot()` is called from the main Node.js thread or the id of a\nworker thread.",
+      "translated": "V8 ヒープスナップショットを保存するファイルパス。指定されない場合、`'Heap-${yyyymmdd}-${hhmmss}-${pid}-${thread_id}.heapsnapshot'` のパターンのファイル名が生成される。ここで `{pid}` は Node.js プロセスの PID、`{thread_id}` は `writeHeapSnapshot()` がメインの Node.js スレッドから呼ばれた場合は `0`、そうでなければワーカースレッドの id になる。",
+      "symbol": "@types/node/v8.d.ts#v8.writeHeapSnapshot",
+      "lang": "ja"
+    },
+    "dabeeaa2": {
+      "original": "The filename where the snapshot was saved.",
+      "translated": "スナップショットが保存されたファイル名。",
+      "symbol": "@types/node/v8.d.ts#v8.writeHeapSnapshot",
       "lang": "ja"
     }
   }
