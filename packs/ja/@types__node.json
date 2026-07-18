@@ -142,6 +142,12 @@
       "symbol": "@types/node/net.d.ts#net.Socket.bytesWritten",
       "lang": "ja"
     },
+    "56527468": {
+      "original": "The conflict handler is invoked with this constant when processing a DELETE or UPDATE change if a row with the required PRIMARY KEY fields is not present in the database.",
+      "translated": "DELETE または UPDATE の変更を処理する際、必要な PRIMARY KEY フィールドを持つ行がデータベースに存在しない場合、競合ハンドラはこの定数とともに呼ばれる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.constants.SQLITE_CHANGESET_NOTFOUND",
+      "lang": "ja"
+    },
     "56760897": {
       "original": "Reads a signed, big-endian 64-bit integer from `buf` at the specified `offset`.\n\nIntegers read from a `Buffer` are interpreted as two's complement signed\nvalues.",
       "translated": "`buf` の指定した `offset` から符号付きビッグエンディアンの 64 ビット整数を読む。\n\n`Buffer` から読んだ整数は 2 の補数の符号付き値として解釈される。",
@@ -8582,6 +8588,360 @@
       "original": "Most of the time the unhandledRejection will be an Error, but this should not be relied upon\nas *anything* can be thrown/rejected, it is therefore unsafe to assume that the value is an Error.",
       "translated": "ほとんどの場合、unhandledRejection は Error だが、_あらゆるもの_が throw/reject され得るため、これに依存すべきではない。したがって、値が Error であると仮定するのは安全でない。",
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.UnhandledRejectionListener",
+      "lang": "ja"
+    },
+    "3c357592": {
+      "original": "The `node:sqlite` module facilitates working with SQLite databases.\nTo access it:\n\n```js\nimport sqlite from 'node:sqlite';\n```\n\nThis module is only available under the `node:` scheme. The following will not\nwork:\n\n```js\nimport sqlite from 'sqlite';\n```\n\nThe following example shows the basic usage of the `node:sqlite` module to open\nan in-memory database, write data to the database, and then read the data back.\n\n```js\nimport { DatabaseSync } from 'node:sqlite';\nconst database = new DatabaseSync(':memory:');\n\n// Execute SQL statements from strings.\ndatabase.exec(`\n  CREATE TABLE data(\n    key INTEGER PRIMARY KEY,\n    value TEXT\n  ) STRICT\n`);\n// Create a prepared statement to insert data into the database.\nconst insert = database.prepare('INSERT INTO data (key, value) VALUES (?, ?)');\n// Execute the prepared statement with bound values.\ninsert.run(1, 'hello');\ninsert.run(2, 'world');\n// Create a prepared statement to read data from the database.\nconst query = database.prepare('SELECT * FROM data ORDER BY key');\n// Execute the prepared statement and log the result set.\nconsole.log(query.all());\n// Prints: [ { key: 1, value: 'hello' }, { key: 2, value: 'world' } ]\n```",
+      "translated": "`node:sqlite` モジュールは SQLite データベースの操作を容易にする。アクセスするには:\n\n```js\nimport sqlite from 'node:sqlite';\n```\n\nこのモジュールは `node:` スキームでのみ利用できる。次は動作しない:\n\n```js\nimport sqlite from 'sqlite';\n```\n\n次の例は、インメモリデータベースを開き、データベースにデータを書き込み、そのデータを読み戻す `node:sqlite` モジュールの基本的な使い方を示す。\n\n```js\nimport { DatabaseSync } from 'node:sqlite';\nconst database = new DatabaseSync(':memory:');\n\n// Execute SQL statements from strings.\ndatabase.exec(`\n  CREATE TABLE data(\n    key INTEGER PRIMARY KEY,\n    value TEXT\n  ) STRICT\n`);\n// Create a prepared statement to insert data into the database.\nconst insert = database.prepare('INSERT INTO data (key, value) VALUES (?, ?)');\n// Execute the prepared statement with bound values.\ninsert.run(1, 'hello');\ninsert.run(2, 'world');\n// Create a prepared statement to read data from the database.\nconst query = database.prepare('SELECT * FROM data ORDER BY key');\n// Execute the prepared statement and log the result set.\nconsole.log(query.all());\n// Prints: [ { key: 1, value: 'hello' }, { key: 2, value: 'world' } ]\n```",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite",
+      "lang": "ja"
+    },
+    "04afdb8a": {
+      "original": "When this function is provided, the `aggregate` method will work as a window function.\nThe function receives the current state and the dropped row value. The return value of this function should be the\nnew state.",
+      "translated": "この関数が提供された場合、`aggregate` メソッドはウィンドウ関数として動作する。この関数は現在の状態と削除された行の値を受け取る。この関数の戻り値は新しい状態であるべきである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.AggregateOptions.inverse",
+      "lang": "ja"
+    },
+    "e5a96626": {
+      "original": "The function to call to get the result of the\naggregation. The function receives the final state and should return the\nresult of the aggregation.",
+      "translated": "集約の結果を取得するために呼ぶ関数。この関数は最終状態を受け取り、集約の結果を返すべきである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.AggregateOptions.result",
+      "lang": "ja"
+    },
+    "7c21333f": {
+      "original": "The identity value for the aggregation function. This value is used when the aggregation\nfunction is initialized. When a `Function` is passed the identity will be its return value.",
+      "translated": "集約関数の単位元(identity)値。この値は集約関数が初期化されるときに使われる。`Function` が渡された場合、単位元はその戻り値になる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.AggregateOptions.start",
+      "lang": "ja"
+    },
+    "60e1cb5c": {
+      "original": "The function to call for each row in the aggregation. The\nfunction receives the current state and the row value. The return value of\nthis function should be the new state.",
+      "translated": "集約内の各行に対して呼ぶ関数。この関数は現在の状態と行の値を受け取る。この関数の戻り値は新しい状態であるべきである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.AggregateOptions.step",
+      "lang": "ja"
+    },
+    "7a663f9c": {
+      "original": "Skip changes that, when targeted table name is supplied to this function, return a truthy value.\nBy default, all changes are attempted.",
+      "translated": "対象のテーブル名がこの関数に渡されたときに truthy な値を返す変更をスキップする。既定では、すべての変更が試みられる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.ApplyChangesetOptions.filter",
+      "lang": "ja"
+    },
+    "f5c05cfa": {
+      "original": "A function that determines how to handle conflicts. The function receives one argument,\nwhich can be one of the following values:\n\n* `SQLITE_CHANGESET_DATA`: A `DELETE` or `UPDATE` change does not contain the expected \"before\" values.\n* `SQLITE_CHANGESET_NOTFOUND`: A row matching the primary key of the `DELETE` or `UPDATE` change does not exist.\n* `SQLITE_CHANGESET_CONFLICT`: An `INSERT` change results in a duplicate primary key.\n* `SQLITE_CHANGESET_FOREIGN_KEY`: Applying a change would result in a foreign key violation.\n* `SQLITE_CHANGESET_CONSTRAINT`: Applying a change results in a `UNIQUE`, `CHECK`, or `NOT NULL` constraint\nviolation.\n\nThe function should return one of the following values:\n\n* `SQLITE_CHANGESET_OMIT`: Omit conflicting changes.\n* `SQLITE_CHANGESET_REPLACE`: Replace existing values with conflicting changes (only valid with\n  `SQLITE_CHANGESET_DATA` or `SQLITE_CHANGESET_CONFLICT` conflicts).\n* `SQLITE_CHANGESET_ABORT`: Abort on conflict and roll back the database.\n\nWhen an error is thrown in the conflict handler or when any other value is returned from the handler,\napplying the changeset is aborted and the database is rolled back.\n\n**Default**: A function that returns `SQLITE_CHANGESET_ABORT`.",
+      "translated": "競合をどう処理するかを決定する関数。この関数は 1 つの引数を受け取り、それは次の値のいずれかであり得る:\n\n* `SQLITE_CHANGESET_DATA`: `DELETE` または `UPDATE` の変更が期待される「before」の値を含んでいない。\n* `SQLITE_CHANGESET_NOTFOUND`: `DELETE` または `UPDATE` の変更の主キーに一致する行が存在しない。\n* `SQLITE_CHANGESET_CONFLICT`: `INSERT` の変更が主キーの重複をもたらす。\n* `SQLITE_CHANGESET_FOREIGN_KEY`: 変更を適用すると外部キー違反になる。\n* `SQLITE_CHANGESET_CONSTRAINT`: 変更を適用すると `UNIQUE`・`CHECK`・`NOT NULL` の制約違反になる。\n\nこの関数は次の値のいずれかを返すべきである:\n\n* `SQLITE_CHANGESET_OMIT`: 競合する変更を省略する。\n* `SQLITE_CHANGESET_REPLACE`: 既存の値を競合する変更で置き換える(`SQLITE_CHANGESET_DATA` または `SQLITE_CHANGESET_CONFLICT` の競合でのみ有効)。\n* `SQLITE_CHANGESET_ABORT`: 競合時に中断してデータベースをロールバックする。\n\n競合ハンドラでエラーが投げられた場合、またはハンドラから他の値が返された場合、チェンジセットの適用は中断され、データベースはロールバックされる。\n\n**既定**: `SQLITE_CHANGESET_ABORT` を返す関数。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.ApplyChangesetOptions.onConflict",
+      "lang": "ja"
+    },
+    "018018b5": {
+      "original": "A promise that fulfills with the total number of backed-up pages upon completion, or rejects if an error occurs.",
+      "translated": "完了時にバックアップされたページの総数で履行される promise。エラーが発生した場合は拒否される。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.backup",
+      "lang": "ja"
+    },
+    "7c3c8f69": {
+      "original": "Optional configuration for the backup. The\nfollowing properties are supported:",
+      "translated": "バックアップの省略可能な構成。次のプロパティがサポートされる:",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.backup",
+      "lang": "ja"
+    },
+    "3b757790": {
+      "original": "The database to backup. The source database must be open.",
+      "translated": "バックアップするデータベース。ソースデータベースは開いていなければならない。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.backup",
+      "lang": "ja"
+    },
+    "5628c273": {
+      "original": "The path where the backup will be created. If the file already exists,\nthe contents will be overwritten.",
+      "translated": "バックアップが作成されるパス。ファイルがすでに存在する場合、内容は上書きされる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.backup",
+      "lang": "ja"
+    },
+    "ef44ee7d": {
+      "original": "This method makes a database backup. This method abstracts the\n[`sqlite3_backup_init()`](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backupinit),\n[`sqlite3_backup_step()`](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backupstep)\nand [`sqlite3_backup_finish()`](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backupfinish) functions.\n\nThe backed-up database can be used normally during the backup process. Mutations coming from the same connection - same\n`DatabaseSync` - object will be reflected in the backup right away. However, mutations from other connections will cause\nthe backup process to restart.\n\n```js\nimport { backup, DatabaseSync } from 'node:sqlite';\n\nconst sourceDb = new DatabaseSync('source.db');\nconst totalPagesTransferred = await backup(sourceDb, 'backup.db', {\n  rate: 1, // Copy one page at a time.\n  progress: ({ totalPages, remainingPages }) => {\n    console.log('Backup in progress', { totalPages, remainingPages });\n  },\n});\n\nconsole.log('Backup completed', totalPagesTransferred);\n```",
+      "translated": "このメソッドはデータベースのバックアップを作成する。このメソッドは [`sqlite3_backup_init()`](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backupinit)・[`sqlite3_backup_step()`](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backupstep)・[`sqlite3_backup_finish()`](https://www.sqlite.org/c3ref/backup_finish.html#sqlite3backupfinish) 関数を抽象化する。\n\nバックアップされるデータベースは、バックアップ処理中も通常どおり使える。同じ接続(同じ `DatabaseSync` オブジェクト)から来る変更は、すぐにバックアップに反映される。ただし、他の接続からの変更はバックアップ処理を再起動させる。\n\n```js\nimport { backup, DatabaseSync } from 'node:sqlite';\n\nconst sourceDb = new DatabaseSync('source.db');\nconst totalPagesTransferred = await backup(sourceDb, 'backup.db', {\n  rate: 1, // Copy one page at a time.\n  progress: ({ totalPages, remainingPages }) => {\n    console.log('Backup in progress', { totalPages, remainingPages });\n  },\n});\n\nconsole.log('Backup completed', totalPagesTransferred);\n```",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.backup",
+      "lang": "ja"
+    },
+    "f1111206": {
+      "original": "An optional callback function that will be called after each backup step. The argument passed\nto this callback is an `Object` with `remainingPages` and `totalPages` properties, describing the current progress\nof the backup operation.",
+      "translated": "各バックアップステップの後に呼ばれる省略可能なコールバック関数。このコールバックに渡される引数は、バックアップ操作の現在の進捗を記述する `remainingPages` と `totalPages` プロパティを持つ `Object` である。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.BackupOptions.progress",
+      "lang": "ja"
+    },
+    "2dfd0635": {
+      "original": "Number of pages to be transmitted in each batch of the backup.",
+      "translated": "バックアップの各バッチで転送されるページ数。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.BackupOptions.rate",
+      "lang": "ja"
+    },
+    "159f3c3a": {
+      "original": "Name of the source database. This can be `'main'` (the default primary database) or any other\ndatabase that have been added with [`ATTACH DATABASE`](https://www.sqlite.org/lang_attach.html)",
+      "translated": "ソースデータベースの名前。これは `'main'`(既定のプライマリデータベース)、または [`ATTACH DATABASE`](https://www.sqlite.org/lang_attach.html) で追加された他の任意のデータベースであり得る",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.BackupOptions.source",
+      "lang": "ja"
+    },
+    "a04103b6": {
+      "original": "Name of the target database. This can be `'main'` (the default primary database) or any other\ndatabase that have been added with [`ATTACH DATABASE`](https://www.sqlite.org/lang_attach.html)",
+      "translated": "ターゲットデータベースの名前。これは `'main'`(既定のプライマリデータベース)、または [`ATTACH DATABASE`](https://www.sqlite.org/lang_attach.html) で追加された他の任意のデータベースであり得る",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.BackupOptions.target",
+      "lang": "ja"
+    },
+    "2ca740dd": {
+      "original": "Abort when a change encounters a conflict and roll back database.",
+      "translated": "変更が競合に遭遇したときに中断してデータベースをロールバックする。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.constants.SQLITE_CHANGESET_ABORT",
+      "lang": "ja"
+    },
+    "bc5bb3a2": {
+      "original": "This constant is passed to the conflict handler while processing an INSERT change if the operation would result in duplicate primary key values.",
+      "translated": "この定数は、操作が主キー値の重複をもたらす場合、INSERT の変更を処理する際に競合ハンドラに渡される。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.constants.SQLITE_CHANGESET_CONFLICT",
+      "lang": "ja"
+    },
+    "a40fa650": {
+      "original": "The conflict handler is invoked with this constant when processing a DELETE or UPDATE change if a row with the required PRIMARY KEY fields is present in the database, but one or more other (non primary-key) fields modified by the update do not contain the expected \"before\" values.",
+      "translated": "DELETE または UPDATE の変更を処理する際、必要な PRIMARY KEY フィールドを持つ行がデータベースに存在するが、更新によって変更される 1 つ以上の他の(主キーでない)フィールドが期待される「before」の値を含んでいない場合、競合ハンドラはこの定数とともに呼ばれる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.constants.SQLITE_CHANGESET_DATA",
+      "lang": "ja"
+    },
+    "428fdfb5": {
+      "original": "If foreign key handling is enabled, and applying a changeset leaves the database in a state containing foreign key violations, the conflict handler is invoked with this constant exactly once before the changeset is committed. If the conflict handler returns `SQLITE_CHANGESET_OMIT`, the changes, including those that caused the foreign key constraint violation, are committed. Or, if it returns `SQLITE_CHANGESET_ABORT`, the changeset is rolled back.",
+      "translated": "外部キー処理が有効で、チェンジセットの適用がデータベースを外部キー違反を含む状態にする場合、チェンジセットがコミットされる前に、競合ハンドラがこの定数とともにちょうど 1 回呼ばれる。競合ハンドラが `SQLITE_CHANGESET_OMIT` を返した場合、外部キー制約違反を引き起こしたものを含む変更がコミットされる。あるいは `SQLITE_CHANGESET_ABORT` を返した場合、チェンジセットはロールバックされる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.constants.SQLITE_CHANGESET_FOREIGN_KEY",
+      "lang": "ja"
+    },
+    "65c86dc3": {
+      "original": "Conflicting changes are omitted.",
+      "translated": "競合する変更は省略される。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.constants.SQLITE_CHANGESET_OMIT",
+      "lang": "ja"
+    },
+    "a6112e53": {
+      "original": "Conflicting changes replace existing values. Note that this value can only be returned when the type of conflict is either `SQLITE_CHANGESET_DATA` or `SQLITE_CHANGESET_CONFLICT`.",
+      "translated": "競合する変更が既存の値を置き換える。この値は、競合の種類が `SQLITE_CHANGESET_DATA` または `SQLITE_CHANGESET_CONFLICT` のいずれかの場合にのみ返せる点に注意すること。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.constants.SQLITE_CHANGESET_REPLACE",
+      "lang": "ja"
+    },
+    "6759ae94": {
+      "original": "Name of the database to track. This is useful when multiple databases have been added using\n[`ATTACH DATABASE`](https://www.sqlite.org/lang_attach.html).",
+      "translated": "追跡するデータベースの名前。これは [`ATTACH DATABASE`](https://www.sqlite.org/lang_attach.html) を使って複数のデータベースが追加された場合に役立つ。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.CreateSessionOptions.db",
+      "lang": "ja"
+    },
+    "3d0b1966": {
+      "original": "A specific table to track changes for. By default, changes to all tables are tracked.",
+      "translated": "変更を追跡する特定のテーブル。既定では、すべてのテーブルへの変更が追跡される。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.CreateSessionOptions.table",
+      "lang": "ja"
+    },
+    "0234b67b": {
+      "original": "Configuration options for the database connection.",
+      "translated": "データベース接続の構成オプション。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync",
+      "lang": "ja"
+    },
+    "ec9189ee": {
+      "original": "Constructs a new `DatabaseSync` instance.",
+      "translated": "新しい `DatabaseSync` インスタンスを構築する。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync",
+      "lang": "ja"
+    },
+    "e29f3fcc": {
+      "original": "The path of the database.\nA SQLite database can be stored in a file or completely [in memory](https://www.sqlite.org/inmemorydb.html).\nTo use a file-backed database, the path should be a file path.\nTo use an in-memory database, the path should be the special name `':memory:'`.",
+      "translated": "データベースのパス。SQLite データベースはファイルに、または完全に[インメモリ](https://www.sqlite.org/inmemorydb.html)に格納できる。ファイルバックのデータベースを使うには、パスはファイルパスであるべきである。インメモリデータベースを使うには、パスは特別な名前 `':memory:'` であるべきである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync",
+      "lang": "ja"
+    },
+    "660c6a8c": {
+      "original": "This class represents a single [connection](https://www.sqlite.org/c3ref/sqlite3.html) to a SQLite database. All APIs\nexposed by this class execute synchronously.",
+      "translated": "このクラスは SQLite データベースへの単一の[接続](https://www.sqlite.org/c3ref/sqlite3.html)を表す。このクラスが公開するすべての API は同期的に実行される。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync",
+      "lang": "ja"
+    },
+    "ba9755e8": {
+      "original": "Closes the database connection. If the database connection is already closed\nthen this is a no-op.",
+      "translated": "データベース接続を閉じる。データベース接続がすでに閉じられている場合、これは no-op である。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.[Symbol.dispose]",
+      "lang": "ja"
+    },
+    "43abdf69": {
+      "original": "Function configuration settings.",
+      "translated": "関数の構成設定。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.aggregate",
+      "lang": "ja"
+    },
+    "73bf3d31": {
+      "original": "Registers a new aggregate function with the SQLite database. This method is a wrapper around\n[`sqlite3_create_window_function()`](https://www.sqlite.org/c3ref/create_function.html).\n\nWhen used as a window function, the `result` function will be called multiple times.\n\n```js\nimport { DatabaseSync } from 'node:sqlite';\n\nconst db = new DatabaseSync(':memory:');\ndb.exec(`\n  CREATE TABLE t3(x, y);\n  INSERT INTO t3 VALUES ('a', 4),\n                        ('b', 5),\n                        ('c', 3),\n                        ('d', 8),\n                        ('e', 1);\n`);\n\ndb.aggregate('sumint', {\n  start: 0,\n  step: (acc, value) => acc + value,\n});\n\ndb.prepare('SELECT sumint(y) as total FROM t3').get(); // { total: 21 }\n```",
+      "translated": "SQLite データベースに新しい集約関数を登録する。このメソッドは [`sqlite3_create_window_function()`](https://www.sqlite.org/c3ref/create_function.html) のラッパーである。\n\nウィンドウ関数として使われる場合、`result` 関数は複数回呼ばれる。\n\n```js\nimport { DatabaseSync } from 'node:sqlite';\n\nconst db = new DatabaseSync(':memory:');\ndb.exec(`\n  CREATE TABLE t3(x, y);\n  INSERT INTO t3 VALUES ('a', 4),\n                        ('b', 5),\n                        ('c', 3),\n                        ('d', 8),\n                        ('e', 1);\n`);\n\ndb.aggregate('sumint', {\n  start: 0,\n  step: (acc, value) => acc + value,\n});\n\ndb.prepare('SELECT sumint(y) as total FROM t3').get(); // { total: 21 }\n```",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.aggregate",
+      "lang": "ja"
+    },
+    "75e39288": {
+      "original": "The name of the SQLite function to create.",
+      "translated": "作成する SQLite 関数の名前。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.aggregate",
+      "lang": "ja"
+    },
+    "ed76c53e": {
+      "original": "A binary changeset or patchset.",
+      "translated": "バイナリのチェンジセットまたはパッチセット。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.applyChangeset",
+      "lang": "ja"
+    },
+    "70bd4253": {
+      "original": "An exception is thrown if the database is not\nopen. This method is a wrapper around\n[`sqlite3changeset_apply()`](https://www.sqlite.org/session/sqlite3changeset_apply.html).\n\n```js\nconst sourceDb = new DatabaseSync(':memory:');\nconst targetDb = new DatabaseSync(':memory:');\n\nsourceDb.exec('CREATE TABLE data(key INTEGER PRIMARY KEY, value TEXT)');\ntargetDb.exec('CREATE TABLE data(key INTEGER PRIMARY KEY, value TEXT)');\n\nconst session = sourceDb.createSession();\n\nconst insert = sourceDb.prepare('INSERT INTO data (key, value) VALUES (?, ?)');\ninsert.run(1, 'hello');\ninsert.run(2, 'world');\n\nconst changeset = session.changeset();\ntargetDb.applyChangeset(changeset);\n// Now that the changeset has been applied, targetDb contains the same data as sourceDb.\n```",
+      "translated": "データベースが開いていない場合は例外が投げられる。このメソッドは [`sqlite3changeset_apply()`](https://www.sqlite.org/session/sqlite3changeset_apply.html) のラッパーである。\n\n```js\nconst sourceDb = new DatabaseSync(':memory:');\nconst targetDb = new DatabaseSync(':memory:');\n\nsourceDb.exec('CREATE TABLE data(key INTEGER PRIMARY KEY, value TEXT)');\ntargetDb.exec('CREATE TABLE data(key INTEGER PRIMARY KEY, value TEXT)');\n\nconst session = sourceDb.createSession();\n\nconst insert = sourceDb.prepare('INSERT INTO data (key, value) VALUES (?, ?)');\ninsert.run(1, 'hello');\ninsert.run(2, 'world');\n\nconst changeset = session.changeset();\ntargetDb.applyChangeset(changeset);\n// Now that the changeset has been applied, targetDb contains the same data as sourceDb.\n```",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.applyChangeset",
+      "lang": "ja"
+    },
+    "32beed7e": {
+      "original": "The configuration options for how the changes will be applied.",
+      "translated": "変更をどう適用するかの構成オプション。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.applyChangeset",
+      "lang": "ja"
+    },
+    "b918e491": {
+      "original": "Whether the changeset was applied successfully without being aborted.",
+      "translated": "チェンジセットが中断されずに正常に適用されたかどうか。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.applyChangeset",
+      "lang": "ja"
+    },
+    "b64037ce": {
+      "original": "Closes the database connection. An exception is thrown if the database is not\nopen. This method is a wrapper around [`sqlite3_close_v2()`](https://www.sqlite.org/c3ref/close.html).",
+      "translated": "データベース接続を閉じる。データベースが開いていない場合は例外が投げられる。このメソッドは [`sqlite3_close_v2()`](https://www.sqlite.org/c3ref/close.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.close",
+      "lang": "ja"
+    },
+    "69a73b04": {
+      "original": "A session handle.",
+      "translated": "セッションハンドル。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.createSession",
+      "lang": "ja"
+    },
+    "5c0565d0": {
+      "original": "Creates and attaches a session to the database. This method is a wrapper around\n[`sqlite3session_create()`](https://www.sqlite.org/session/sqlite3session_create.html) and\n[`sqlite3session_attach()`](https://www.sqlite.org/session/sqlite3session_attach.html).",
+      "translated": "セッションを作成してデータベースにアタッチする。このメソッドは [`sqlite3session_create()`](https://www.sqlite.org/session/sqlite3session_create.html) と [`sqlite3session_attach()`](https://www.sqlite.org/session/sqlite3session_attach.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.createSession",
+      "lang": "ja"
+    },
+    "fa64650f": {
+      "original": "The configuration options for the session.",
+      "translated": "セッションの構成オプション。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.createSession",
+      "lang": "ja"
+    },
+    "1fe7aff5": {
+      "original": "Enables or disables the `loadExtension` SQL function, and the `loadExtension()`\nmethod. When `allowExtension` is `false` when constructing, you cannot enable\nloading extensions for security reasons.",
+      "translated": "`loadExtension` SQL 関数と `loadExtension()` メソッドを有効または無効にする。構築時に `allowExtension` が `false` の場合、セキュリティ上の理由から拡張の読み込みを有効にできない。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.enableLoadExtension",
+      "lang": "ja"
+    },
+    "02347cfb": {
+      "original": "Whether to allow loading extensions.",
+      "translated": "拡張の読み込みを許可するかどうか。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.enableLoadExtension",
+      "lang": "ja"
+    },
+    "9270967a": {
+      "original": "A SQL string to execute.",
+      "translated": "実行する SQL 文字列。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.exec",
+      "lang": "ja"
+    },
+    "279d1858": {
+      "original": "This method allows one or more SQL statements to be executed without returning\nany results. This method is useful when executing SQL statements read from a\nfile. This method is a wrapper around [`sqlite3_exec()`](https://www.sqlite.org/c3ref/exec.html).",
+      "translated": "このメソッドは、結果を返さずに 1 つ以上の SQL 文を実行できるようにする。このメソッドは、ファイルから読んだ SQL 文を実行するときに役立つ。このメソッドは [`sqlite3_exec()`](https://www.sqlite.org/c3ref/exec.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.exec",
+      "lang": "ja"
+    },
+    "06ea5e2e": {
+      "original": "Optional configuration settings for the function.",
+      "translated": "関数の省略可能な構成設定。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.function",
+      "lang": "ja"
+    },
+    "07816f05": {
+      "original": "The JavaScript function to call when the SQLite\nfunction is invoked. The return value of this function should be a valid\nSQLite data type: see\n[Type conversion between JavaScript and SQLite](https://nodejs.org/docs/latest-v22.x/api/sqlite.html#type-conversion-between-javascript-and-sqlite).\nThe result defaults to `NULL` if the return value is `undefined`.",
+      "translated": "SQLite 関数が呼ばれたときに呼ぶ JavaScript 関数。この関数の戻り値は有効な SQLite データ型であるべきである。[JavaScript と SQLite の間の型変換](https://nodejs.org/docs/latest-v22.x/api/sqlite.html#type-conversion-between-javascript-and-sqlite)を参照。戻り値が `undefined` の場合、結果は既定で `NULL` になる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.function",
+      "lang": "ja"
+    },
+    "6552945c": {
+      "original": "This method is used to create SQLite user-defined functions. This method is a\nwrapper around [`sqlite3_create_function_v2()`](https://www.sqlite.org/c3ref/create_function.html).",
+      "translated": "このメソッドは SQLite のユーザー定義関数を作成するために使う。このメソッドは [`sqlite3_create_function_v2()`](https://www.sqlite.org/c3ref/create_function.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.function",
+      "lang": "ja"
+    },
+    "68479d38": {
+      "original": "Whether the database is currently open or not.",
+      "translated": "データベースが現在開いているかどうか。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.isOpen",
+      "lang": "ja"
+    },
+    "e6887404": {
+      "original": "Whether the database is currently within a transaction. This method\nis a wrapper around [`sqlite3_get_autocommit()`](https://sqlite.org/c3ref/get_autocommit.html).",
+      "translated": "データベースが現在トランザクション内にあるかどうか。このメソッドは [`sqlite3_get_autocommit()`](https://sqlite.org/c3ref/get_autocommit.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.isTransaction",
+      "lang": "ja"
+    },
+    "d0c12835": {
+      "original": "Loads a shared library into the database connection. This method is a wrapper\naround [`sqlite3_load_extension()`](https://www.sqlite.org/c3ref/load_extension.html). It is required to enable the\n`allowExtension` option when constructing the `DatabaseSync` instance.",
+      "translated": "共有ライブラリをデータベース接続に読み込む。このメソッドは [`sqlite3_load_extension()`](https://www.sqlite.org/c3ref/load_extension.html) のラッパーである。`DatabaseSync` インスタンスの構築時に `allowExtension` オプションを有効にする必要がある。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.loadExtension",
+      "lang": "ja"
+    },
+    "a198de2c": {
+      "original": "The path to the shared library to load.",
+      "translated": "読み込む共有ライブラリへのパス。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.loadExtension",
+      "lang": "ja"
+    },
+    "167362f8": {
+      "original": "Name of the database. This can be `'main'` (the default primary database) or any other\ndatabase that has been added with [`ATTACH DATABASE`](https://www.sqlite.org/lang_attach.html) **Default:** `'main'`.",
+      "translated": "データベースの名前。これは `'main'`(既定のプライマリデータベース)、または [`ATTACH DATABASE`](https://www.sqlite.org/lang_attach.html) で追加された他の任意のデータベースであり得る。**既定値:** `'main'`。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.location",
+      "lang": "ja"
+    },
+    "409f6893": {
+      "original": "The location of the database file. When using an in-memory database,\nthis method returns null.",
+      "translated": "データベースファイルの場所。インメモリデータベースを使う場合、このメソッドは null を返す。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.location",
+      "lang": "ja"
+    },
+    "eb9864ad": {
+      "original": "This method is a wrapper around [`sqlite3_db_filename()`](https://sqlite.org/c3ref/db_filename.html)",
+      "translated": "このメソッドは [`sqlite3_db_filename()`](https://sqlite.org/c3ref/db_filename.html) のラッパーである",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.location",
+      "lang": "ja"
+    },
+    "f0a49c24": {
+      "original": "Opens the database specified in the `path` argument of the `DatabaseSync`constructor. This method should only be used when the database is not opened via\nthe constructor. An exception is thrown if the database is already open.",
+      "translated": "`DatabaseSync` コンストラクターの `path` 引数で指定されたデータベースを開く。このメソッドは、データベースがコンストラクター経由で開かれていない場合にのみ使うべきである。データベースがすでに開いている場合は例外が投げられる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.open",
+      "lang": "ja"
+    },
+    "cf603503": {
+      "original": "A SQL string to compile to a prepared statement.",
+      "translated": "prepared statement にコンパイルする SQL 文字列。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.prepare",
+      "lang": "ja"
+    },
+    "10ab34c0": {
+      "original": "Compiles a SQL statement into a [prepared statement](https://www.sqlite.org/c3ref/stmt.html). This method is a wrapper\naround [`sqlite3_prepare_v2()`](https://www.sqlite.org/c3ref/prepare.html).",
+      "translated": "SQL 文を [prepared statement](https://www.sqlite.org/c3ref/stmt.html) にコンパイルする。このメソッドは [`sqlite3_prepare_v2()`](https://www.sqlite.org/c3ref/prepare.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.prepare",
+      "lang": "ja"
+    },
+    "f13cbfb6": {
+      "original": "The prepared statement.",
+      "translated": "prepared statement。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSync.prepare",
+      "lang": "ja"
+    },
+    "104b1f73": {
+      "original": "If `true`, allows binding named parameters without the prefix\ncharacter (e.g., `foo` instead of `:foo`).",
+      "translated": "`true` の場合、プレフィックス文字なしで名前付きパラメーターをバインドできるようにする(たとえば `:foo` の代わりに `foo`)。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.allowBareNamedParameters",
       "lang": "ja"
     },
     "51babc4a": {
