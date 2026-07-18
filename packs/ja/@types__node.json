@@ -304,6 +304,18 @@
       "symbol": "@types/node/crypto.d.ts#crypto.Hash.digest",
       "lang": "ja"
     },
+    "97318144": {
+      "original": "Uses a `DefaultDeserializer` with default options to read a JS value\nfrom a buffer.",
+      "translated": "既定オプションの `DefaultDeserializer` を使って、バッファから JS 値を読む。",
+      "symbol": "@types/node/v8.d.ts#v8.deserialize",
+      "lang": "ja"
+    },
+    "97761816": {
+      "original": "It returns an object with a structure similar to the\n[`cppgc::HeapStatistics`](https://v8docs.nodesource.com/node-22.4/d7/d51/heap-statistics_8h_source.html)\nobject. See the [V8 documentation](https://v8docs.nodesource.com/node-22.4/df/d2f/structcppgc_1_1_heap_statistics.html)\nfor more information about the properties of the object.\n\n```js\n// Detailed\n({\n  committed_size_bytes: 131072,\n  resident_size_bytes: 131072,\n  used_size_bytes: 152,\n  space_statistics: [\n    {\n      name: 'NormalPageSpace0',\n      committed_size_bytes: 0,\n      resident_size_bytes: 0,\n      used_size_bytes: 0,\n      page_stats: [{}],\n      free_list_stats: {},\n    },\n    {\n      name: 'NormalPageSpace1',\n      committed_size_bytes: 131072,\n      resident_size_bytes: 131072,\n      used_size_bytes: 152,\n      page_stats: [{}],\n      free_list_stats: {},\n    },\n    {\n      name: 'NormalPageSpace2',\n      committed_size_bytes: 0,\n      resident_size_bytes: 0,\n      used_size_bytes: 0,\n      page_stats: [{}],\n      free_list_stats: {},\n    },\n    {\n      name: 'NormalPageSpace3',\n      committed_size_bytes: 0,\n      resident_size_bytes: 0,\n      used_size_bytes: 0,\n      page_stats: [{}],\n      free_list_stats: {},\n    },\n    {\n      name: 'LargePageSpace',\n      committed_size_bytes: 0,\n      resident_size_bytes: 0,\n      used_size_bytes: 0,\n      page_stats: [{}],\n      free_list_stats: {},\n    },\n  ],\n  type_names: [],\n  detail_level: 'detailed',\n});\n```\n\n```js\n// Brief\n({\n  committed_size_bytes: 131072,\n  resident_size_bytes: 131072,\n  used_size_bytes: 128864,\n  space_statistics: [],\n  type_names: [],\n  detail_level: 'brief',\n});\n```",
+      "translated": "[`cppgc::HeapStatistics`](https://v8docs.nodesource.com/node-22.4/d7/d51/heap-statistics_8h_source.html) オブジェクトに似た構造のオブジェクトを返す。オブジェクトのプロパティの詳細は [V8 のドキュメント](https://v8docs.nodesource.com/node-22.4/df/d2f/structcppgc_1_1_heap_statistics.html)を参照。\n\n```js\n// Detailed\n({\n  committed_size_bytes: 131072,\n  resident_size_bytes: 131072,\n  used_size_bytes: 152,\n  space_statistics: [\n    {\n      name: 'NormalPageSpace0',\n      committed_size_bytes: 0,\n      resident_size_bytes: 0,\n      used_size_bytes: 0,\n      page_stats: [{}],\n      free_list_stats: {},\n    },\n    {\n      name: 'NormalPageSpace1',\n      committed_size_bytes: 131072,\n      resident_size_bytes: 131072,\n      used_size_bytes: 152,\n      page_stats: [{}],\n      free_list_stats: {},\n    },\n    {\n      name: 'NormalPageSpace2',\n      committed_size_bytes: 0,\n      resident_size_bytes: 0,\n      used_size_bytes: 0,\n      page_stats: [{}],\n      free_list_stats: {},\n    },\n    {\n      name: 'NormalPageSpace3',\n      committed_size_bytes: 0,\n      resident_size_bytes: 0,\n      used_size_bytes: 0,\n      page_stats: [{}],\n      free_list_stats: {},\n    },\n    {\n      name: 'LargePageSpace',\n      committed_size_bytes: 0,\n      resident_size_bytes: 0,\n      used_size_bytes: 0,\n      page_stats: [{}],\n      free_list_stats: {},\n    },\n  ],\n  type_names: [],\n  detail_level: 'detailed',\n});\n```\n\n```js\n// Brief\n({\n  committed_size_bytes: 131072,\n  resident_size_bytes: 131072,\n  used_size_bytes: 128864,\n  space_statistics: [],\n  type_names: [],\n  detail_level: 'brief',\n});\n```",
+      "symbol": "@types/node/v8.d.ts#v8.getCppHeapStatistics",
+      "lang": "ja"
+    },
     "97815549": {
       "original": "Cert chains in PEM format. One cert chain should be provided per\nprivate key. Each cert chain should consist of the PEM formatted\ncertificate for a provided private key, followed by the PEM\nformatted intermediate certificates (if any), in order, and not\nincluding the root CA (the root CA must be pre-known to the peer,\nsee ca). When providing multiple cert chains, they do not have to\nbe in the same order as their private keys in key. If the\nintermediate certificates are not provided, the peer will not be\nable to validate the certificate, and the handshake will fail.",
       "translated": "PEM 形式の証明書チェーン。秘密鍵ごとに 1 つの証明書チェーンを提供すべきである。各証明書チェーンは、提供された秘密鍵の PEM 形式の証明書と、それに続く(あれば)PEM 形式の中間証明書を順に含み、ルート CA を含めるべきではない(ルート CA はピアに事前に知られていなければならない。ca を参照)。複数の証明書チェーンを提供する場合、それらは key 内の秘密鍵と同じ順序である必要はない。中間証明書が提供されない場合、ピアは証明書を検証できず、ハンドシェイクは失敗する。",
@@ -13784,6 +13796,174 @@
       "original": "Returns `true` if the value is a built-in [`WeakSet`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet) instance.\n\n```js\nutil.types.isWeakSet(new WeakSet());  // Returns true\n```",
       "translated": "値が組み込みの [`WeakSet`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet) インスタンスの場合は `true` を返す。\n\n```js\nutil.types.isWeakSet(new WeakSet());  // Returns true\n```",
       "symbol": "@types/node/util.d.ts#util/types.isWeakSet",
+      "lang": "ja"
+    },
+    "4bac7140": {
+      "original": "The `node:v8` module exposes APIs that are specific to the version of [V8](https://developers.google.com/v8/) built into the Node.js binary. It can be accessed using:\n\n```js\nimport v8 from 'node:v8';\n```",
+      "translated": "`node:v8` モジュールは、Node.js バイナリに組み込まれた [V8](https://developers.google.com/v8/) のバージョンに固有の API を公開する。次のようにアクセスできる:\n\n```js\nimport v8 from 'node:v8';\n```",
+      "symbol": "@types/node/v8.d.ts#v8",
+      "lang": "ja"
+    },
+    "362aa071": {
+      "original": "Called immediately after a promise continuation executes. This may be after a `then()`, `catch()`, or `finally()` handler or before an await after another await.",
+      "translated": "promise の継続が実行された直後に呼ばれる。これは `then()`・`catch()`・`finally()` ハンドラの後、または別の await の後の await の前であり得る。",
+      "symbol": "@types/node/v8.d.ts#v8.After",
+      "lang": "ja"
+    },
+    "0c9bb33c": {
+      "original": "Called before a promise continuation executes. This can be in the form of `then()`, `catch()`, or `finally()` handlers or an await resuming.\n\nThe before callback will be called 0 to N times. The before callback will typically be called 0 times if no continuation was ever made for the promise.\nThe before callback may be called many times in the case where many continuations have been made from the same promise.",
+      "translated": "promise の継続が実行される前に呼ばれる。これは `then()`・`catch()`・`finally()` ハンドラの形、または await の再開であり得る。\n\nbefore コールバックは 0 から N 回呼ばれる。promise について継続が一度も行われなかった場合、before コールバックは通常 0 回呼ばれる。同じ promise から多くの継続が行われた場合、before コールバックは何度も呼ばれることがある。",
+      "symbol": "@types/node/v8.d.ts#v8.Before",
+      "lang": "ja"
+    },
+    "5c76fa40": {
+      "original": "Returns an integer representing a version tag derived from the V8 version,\ncommand-line flags, and detected CPU features. This is useful for determining\nwhether a `vm.Script` `cachedData` buffer is compatible with this instance\nof V8.\n\n```js\nconsole.log(v8.cachedDataVersionTag()); // 3947234607\n// The value returned by v8.cachedDataVersionTag() is derived from the V8\n// version, command-line flags, and detected CPU features. Test that the value\n// does indeed update when flags are toggled.\nv8.setFlagsFromString('--allow_natives_syntax');\nconsole.log(v8.cachedDataVersionTag()); // 183726201\n```",
+      "translated": "V8 のバージョン・コマンドラインフラグ・検出された CPU 機能から導出されたバージョンタグを表す整数を返す。これは、`vm.Script` の `cachedData` バッファがこの V8 のインスタンスと互換かどうかを判定するのに役立つ。\n\n```js\nconsole.log(v8.cachedDataVersionTag()); // 3947234607\n// The value returned by v8.cachedDataVersionTag() is derived from the V8\n// version, command-line flags, and detected CPU features. Test that the value\n// does indeed update when flags are toggled.\nv8.setFlagsFromString('--allow_natives_syntax');\nconsole.log(v8.cachedDataVersionTag()); // 183726201\n```",
+      "symbol": "@types/node/v8.d.ts#v8.cachedDataVersionTag",
+      "lang": "ja"
+    },
+    "1a0548b9": {
+      "original": "A subclass of `Deserializer` corresponding to the format written by `DefaultSerializer`.",
+      "translated": "`DefaultSerializer` が書き込む形式に対応する `Deserializer` のサブクラス。",
+      "symbol": "@types/node/v8.d.ts#v8.DefaultDeserializer",
+      "lang": "ja"
+    },
+    "6e444d73": {
+      "original": "A subclass of `Serializer` that serializes `TypedArray`(in particular `Buffer`) and `DataView` objects as host objects, and only\nstores the part of their underlying `ArrayBuffer`s that they are referring to.",
+      "translated": "`TypedArray`(特に `Buffer`)と `DataView` オブジェクトをホストオブジェクトとしてシリアライズし、それらが参照している基盤となる `ArrayBuffer` の部分のみを格納する `Serializer` のサブクラス。",
+      "symbol": "@types/node/v8.d.ts#v8.DefaultSerializer",
+      "lang": "ja"
+    },
+    "322f6dcc": {
+      "original": "A buffer returned by {@link serialize}.",
+      "translated": "{@link serialize} が返したバッファ。",
+      "symbol": "@types/node/v8.d.ts#v8.deserialize",
+      "lang": "ja"
+    },
+    "b1fa8a3b": {
+      "original": "Reads the underlying wire format version. Likely mostly to be useful to\nlegacy code reading old wire format versions. May not be called before `.readHeader()`.",
+      "translated": "基盤となるワイヤ形式のバージョンを読む。おそらく主に、古いワイヤ形式のバージョンを読むレガシーコードに役立つ。`.readHeader()` の前には呼べない。",
+      "symbol": "@types/node/v8.d.ts#v8.Deserializer.getWireFormatVersion",
+      "lang": "ja"
+    },
+    "c195688c": {
+      "original": "Read a JS `number` value.\nFor use inside of a custom `deserializer._readHostObject()`.",
+      "translated": "JS の `number` 値を読む。カスタムの `deserializer._readHostObject()` 内で使う。",
+      "symbol": "@types/node/v8.d.ts#v8.Deserializer.readDouble",
+      "lang": "ja"
+    },
+    "6f531f08": {
+      "original": "Reads and validates a header (including the format version).\nMay, for example, reject an invalid or unsupported wire format. In that case,\nan `Error` is thrown.",
+      "translated": "ヘッダー(形式バージョンを含む)を読んで検証する。たとえば、無効またはサポートされないワイヤ形式を拒否することがある。その場合、`Error` が投げられる。",
+      "symbol": "@types/node/v8.d.ts#v8.Deserializer.readHeader",
+      "lang": "ja"
+    },
+    "aaa18463": {
+      "original": "Read raw bytes from the deserializer's internal buffer. The `length` parameter\nmust correspond to the length of the buffer that was passed to `serializer.writeRawBytes()`.\nFor use inside of a custom `deserializer._readHostObject()`.",
+      "translated": "デシリアライザーの内部バッファから生バイトを読む。`length` パラメーターは、`serializer.writeRawBytes()` に渡されたバッファの長さに対応しなければならない。カスタムの `deserializer._readHostObject()` 内で使う。",
+      "symbol": "@types/node/v8.d.ts#v8.Deserializer.readRawBytes",
+      "lang": "ja"
+    },
+    "8da773e1": {
+      "original": "Read a raw 32-bit unsigned integer and return it.\nFor use inside of a custom `deserializer._readHostObject()`.",
+      "translated": "生の 32 ビット符号なし整数を読んで返す。カスタムの `deserializer._readHostObject()` 内で使う。",
+      "symbol": "@types/node/v8.d.ts#v8.Deserializer.readUint32",
+      "lang": "ja"
+    },
+    "3259c97c": {
+      "original": "Read a raw 64-bit unsigned integer and return it as an array `[hi, lo]` with two 32-bit unsigned integer entries.\nFor use inside of a custom `deserializer._readHostObject()`.",
+      "translated": "生の 64 ビット符号なし整数を読み、2 つの 32 ビット符号なし整数エントリを持つ配列 `[hi, lo]` として返す。カスタムの `deserializer._readHostObject()` 内で使う。",
+      "symbol": "@types/node/v8.d.ts#v8.Deserializer.readUint64",
+      "lang": "ja"
+    },
+    "9374836b": {
+      "original": "Deserializes a JavaScript value from the buffer and returns it.",
+      "translated": "バッファから JavaScript 値をデシリアライズして返す。",
+      "symbol": "@types/node/v8.d.ts#v8.Deserializer.readValue",
+      "lang": "ja"
+    },
+    "3f0ab345": {
+      "original": "Marks an `ArrayBuffer` as having its contents transferred out of band.\nPass the corresponding `ArrayBuffer` in the serializing context to `serializer.transferArrayBuffer()` (or return the `id` from `serializer._getSharedArrayBufferId()` in the case of\n`SharedArrayBuffer`s).",
+      "translated": "`ArrayBuffer` を、その内容が帯域外で転送されたものとしてマークする。シリアライズ側のコンテキストで対応する `ArrayBuffer` を `serializer.transferArrayBuffer()` に渡す(`SharedArrayBuffer` の場合は `serializer._getSharedArrayBufferId()` から `id` を返す)。",
+      "symbol": "@types/node/v8.d.ts#v8.Deserializer.transferArrayBuffer",
+      "lang": "ja"
+    },
+    "45297d7e": {
+      "original": "This API collects GC data in current thread.",
+      "translated": "この API は現在のスレッドで GC データを収集する。",
+      "symbol": "@types/node/v8.d.ts#v8.GCProfiler",
+      "lang": "ja"
+    },
+    "a4629677": {
+      "original": "Start collecting GC data.",
+      "translated": "GC データの収集を開始する。",
+      "symbol": "@types/node/v8.d.ts#v8.GCProfiler.start",
+      "lang": "ja"
+    },
+    "37ee8045": {
+      "original": "Stop collecting GC data and return an object. The content of object\nis as follows.\n\n```json\n{\n  \"version\": 1,\n  \"startTime\": 1674059033862,\n  \"statistics\": [\n    {\n      \"gcType\": \"Scavenge\",\n      \"beforeGC\": {\n        \"heapStatistics\": {\n          \"totalHeapSize\": 5005312,\n          \"totalHeapSizeExecutable\": 524288,\n          \"totalPhysicalSize\": 5226496,\n          \"totalAvailableSize\": 4341325216,\n          \"totalGlobalHandlesSize\": 8192,\n          \"usedGlobalHandlesSize\": 2112,\n          \"usedHeapSize\": 4883840,\n          \"heapSizeLimit\": 4345298944,\n          \"mallocedMemory\": 254128,\n          \"externalMemory\": 225138,\n          \"peakMallocedMemory\": 181760\n        },\n        \"heapSpaceStatistics\": [\n          {\n            \"spaceName\": \"read_only_space\",\n            \"spaceSize\": 0,\n            \"spaceUsedSize\": 0,\n            \"spaceAvailableSize\": 0,\n            \"physicalSpaceSize\": 0\n          }\n        ]\n      },\n      \"cost\": 1574.14,\n      \"afterGC\": {\n        \"heapStatistics\": {\n          \"totalHeapSize\": 6053888,\n          \"totalHeapSizeExecutable\": 524288,\n          \"totalPhysicalSize\": 5500928,\n          \"totalAvailableSize\": 4341101384,\n          \"totalGlobalHandlesSize\": 8192,\n          \"usedGlobalHandlesSize\": 2112,\n          \"usedHeapSize\": 4059096,\n          \"heapSizeLimit\": 4345298944,\n          \"mallocedMemory\": 254128,\n          \"externalMemory\": 225138,\n          \"peakMallocedMemory\": 181760\n        },\n        \"heapSpaceStatistics\": [\n          {\n            \"spaceName\": \"read_only_space\",\n            \"spaceSize\": 0,\n            \"spaceUsedSize\": 0,\n            \"spaceAvailableSize\": 0,\n            \"physicalSpaceSize\": 0\n          }\n        ]\n      }\n    }\n  ],\n  \"endTime\": 1674059036865\n}\n```\n\nHere's an example.\n\n```js\nimport { GCProfiler } from 'node:v8';\nconst profiler = new GCProfiler();\nprofiler.start();\nsetTimeout(() => {\n  console.log(profiler.stop());\n}, 1000);\n```",
+      "translated": "GC データの収集を停止し、オブジェクトを返す。オブジェクトの内容は次のとおり。\n\n```json\n{\n  \"version\": 1,\n  \"startTime\": 1674059033862,\n  \"statistics\": [\n    {\n      \"gcType\": \"Scavenge\",\n      \"beforeGC\": {\n        \"heapStatistics\": {\n          \"totalHeapSize\": 5005312,\n          \"totalHeapSizeExecutable\": 524288,\n          \"totalPhysicalSize\": 5226496,\n          \"totalAvailableSize\": 4341325216,\n          \"totalGlobalHandlesSize\": 8192,\n          \"usedGlobalHandlesSize\": 2112,\n          \"usedHeapSize\": 4883840,\n          \"heapSizeLimit\": 4345298944,\n          \"mallocedMemory\": 254128,\n          \"externalMemory\": 225138,\n          \"peakMallocedMemory\": 181760\n        },\n        \"heapSpaceStatistics\": [\n          {\n            \"spaceName\": \"read_only_space\",\n            \"spaceSize\": 0,\n            \"spaceUsedSize\": 0,\n            \"spaceAvailableSize\": 0,\n            \"physicalSpaceSize\": 0\n          }\n        ]\n      },\n      \"cost\": 1574.14,\n      \"afterGC\": {\n        \"heapStatistics\": {\n          \"totalHeapSize\": 6053888,\n          \"totalHeapSizeExecutable\": 524288,\n          \"totalPhysicalSize\": 5500928,\n          \"totalAvailableSize\": 4341101384,\n          \"totalGlobalHandlesSize\": 8192,\n          \"usedGlobalHandlesSize\": 2112,\n          \"usedHeapSize\": 4059096,\n          \"heapSizeLimit\": 4345298944,\n          \"mallocedMemory\": 254128,\n          \"externalMemory\": 225138,\n          \"peakMallocedMemory\": 181760\n        },\n        \"heapSpaceStatistics\": [\n          {\n            \"spaceName\": \"read_only_space\",\n            \"spaceSize\": 0,\n            \"spaceUsedSize\": 0,\n            \"spaceAvailableSize\": 0,\n            \"physicalSpaceSize\": 0\n          }\n        ]\n      }\n    }\n  ],\n  \"endTime\": 1674059036865\n}\n```\n\n次は例である。\n\n```js\nimport { GCProfiler } from 'node:v8';\nconst profiler = new GCProfiler();\nprofiler.start();\nsetTimeout(() => {\n  console.log(profiler.stop());\n}, 1000);\n```",
+      "symbol": "@types/node/v8.d.ts#v8.GCProfiler.stop",
+      "lang": "ja"
+    },
+    "8181d781": {
+      "original": "**Default:** `'detailed'`. Specifies the level of detail in the returned statistics.\nAccepted values are:\n* `'brief'`:  Brief statistics contain only the top-level\nallocated and used\nmemory statistics for the entire heap.\n* `'detailed'`: Detailed statistics also contain a break\ndown per space and page, as well as freelist statistics\nand object type histograms.",
+      "translated": "**既定値:** `'detailed'`。返される統計の詳細レベルを指定する。受け付けられる値は次のとおり:\n* `'brief'`: 簡潔な統計は、ヒープ全体のトップレベルの割り当て済みおよび使用済みメモリの統計のみを含む。\n* `'detailed'`: 詳細な統計は、space とページごとの内訳、freelist の統計、オブジェクト型のヒストグラムも含む。",
+      "symbol": "@types/node/v8.d.ts#v8.getCppHeapStatistics",
+      "lang": "ja"
+    },
+    "e2c82fc6": {
+      "original": "Get statistics about code and its metadata in the heap, see\nV8 [`GetHeapCodeAndMetadataStatistics`](https://v8docs.nodesource.com/node-13.2/d5/dda/classv8_1_1_isolate.html#a6079122af17612ef54ef3348ce170866) API. Returns an object with the\nfollowing properties:\n\n```js\n{\n  code_and_metadata_size: 212208,\n  bytecode_and_metadata_size: 161368,\n  external_script_source_size: 1410794,\n  cpu_profiler_metadata_size: 0,\n}\n```",
+      "translated": "ヒープ内のコードとそのメタデータに関する統計を取得する。V8 の [`GetHeapCodeAndMetadataStatistics`](https://v8docs.nodesource.com/node-13.2/d5/dda/classv8_1_1_isolate.html#a6079122af17612ef54ef3348ce170866) API を参照。次のプロパティを持つオブジェクトを返す:\n\n```js\n{\n  code_and_metadata_size: 212208,\n  bytecode_and_metadata_size: 161368,\n  external_script_source_size: 1410794,\n  cpu_profiler_metadata_size: 0,\n}\n```",
+      "symbol": "@types/node/v8.d.ts#v8.getHeapCodeStatistics",
+      "lang": "ja"
+    },
+    "84d76bf1": {
+      "original": "A Readable containing the V8 heap snapshot.",
+      "translated": "V8 ヒープスナップショットを含む Readable。",
+      "symbol": "@types/node/v8.d.ts#v8.getHeapSnapshot",
+      "lang": "ja"
+    },
+    "cbbcd9b1": {
+      "original": "Generates a snapshot of the current V8 heap and returns a Readable\nStream that may be used to read the JSON serialized representation.\nThis JSON stream format is intended to be used with tools such as\nChrome DevTools. The JSON schema is undocumented and specific to the\nV8 engine. Therefore, the schema may change from one version of V8 to the next.\n\nCreating a heap snapshot requires memory about twice the size of the heap at\nthe time the snapshot is created. This results in the risk of OOM killers\nterminating the process.\n\nGenerating a snapshot is a synchronous operation which blocks the event loop\nfor a duration depending on the heap size.\n\n```js\n// Print heap snapshot to the console\nimport v8 from 'node:v8';\nconst stream = v8.getHeapSnapshot();\nstream.pipe(process.stdout);\n```",
+      "translated": "現在の V8 ヒープのスナップショットを生成し、JSON シリアライズされた表現を読むために使える Readable ストリームを返す。この JSON ストリーム形式は Chrome DevTools などのツールで使うことを意図している。JSON スキーマは文書化されておらず、V8 エンジンに固有である。したがって、スキーマは V8 のバージョンごとに変わることがある。\n\nヒープスナップショットの作成には、スナップショット作成時のヒープの約 2 倍のサイズのメモリが必要である。これにより、OOM killer がプロセスを終了させるリスクが生じる。\n\nスナップショットの生成は、ヒープサイズに応じた時間だけイベントループをブロックする同期操作である。\n\n```js\n// Print heap snapshot to the console\nimport v8 from 'node:v8';\nconst stream = v8.getHeapSnapshot();\nstream.pipe(process.stdout);\n```",
+      "symbol": "@types/node/v8.d.ts#v8.getHeapSnapshot",
+      "lang": "ja"
+    },
+    "0a9c1b45": {
+      "original": "Returns statistics about the V8 heap spaces, i.e. the segments which make up\nthe V8 heap. Neither the ordering of heap spaces, nor the availability of a\nheap space can be guaranteed as the statistics are provided via the\nV8 [`GetHeapSpaceStatistics`](https://v8docs.nodesource.com/node-13.2/d5/dda/classv8_1_1_isolate.html#ac673576f24fdc7a33378f8f57e1d13a4) function and may change from one V8 version to the\nnext.\n\nThe value returned is an array of objects containing the following properties:\n\n```json\n[\n  {\n    \"space_name\": \"new_space\",\n    \"space_size\": 2063872,\n    \"space_used_size\": 951112,\n    \"space_available_size\": 80824,\n    \"physical_space_size\": 2063872\n  },\n  {\n    \"space_name\": \"old_space\",\n    \"space_size\": 3090560,\n    \"space_used_size\": 2493792,\n    \"space_available_size\": 0,\n    \"physical_space_size\": 3090560\n  },\n  {\n    \"space_name\": \"code_space\",\n    \"space_size\": 1260160,\n    \"space_used_size\": 644256,\n    \"space_available_size\": 960,\n    \"physical_space_size\": 1260160\n  },\n  {\n    \"space_name\": \"map_space\",\n    \"space_size\": 1094160,\n    \"space_used_size\": 201608,\n    \"space_available_size\": 0,\n    \"physical_space_size\": 1094160\n  },\n  {\n    \"space_name\": \"large_object_space\",\n    \"space_size\": 0,\n    \"space_used_size\": 0,\n    \"space_available_size\": 1490980608,\n    \"physical_space_size\": 0\n  }\n]\n```",
+      "translated": "V8 のヒープ space、すなわち V8 ヒープを構成するセグメントに関する統計を返す。統計は V8 の [`GetHeapSpaceStatistics`](https://v8docs.nodesource.com/node-13.2/d5/dda/classv8_1_1_isolate.html#ac673576f24fdc7a33378f8f57e1d13a4) 関数を介して提供され、V8 のバージョンごとに変わることがあるため、ヒープ space の順序も、あるヒープ space の存在も保証できない。\n\n返される値は、次のプロパティを持つオブジェクトの配列である:\n\n```json\n[\n  {\n    \"space_name\": \"new_space\",\n    \"space_size\": 2063872,\n    \"space_used_size\": 951112,\n    \"space_available_size\": 80824,\n    \"physical_space_size\": 2063872\n  },\n  {\n    \"space_name\": \"old_space\",\n    \"space_size\": 3090560,\n    \"space_used_size\": 2493792,\n    \"space_available_size\": 0,\n    \"physical_space_size\": 3090560\n  },\n  {\n    \"space_name\": \"code_space\",\n    \"space_size\": 1260160,\n    \"space_used_size\": 644256,\n    \"space_available_size\": 960,\n    \"physical_space_size\": 1260160\n  },\n  {\n    \"space_name\": \"map_space\",\n    \"space_size\": 1094160,\n    \"space_used_size\": 201608,\n    \"space_available_size\": 0,\n    \"physical_space_size\": 1094160\n  },\n  {\n    \"space_name\": \"large_object_space\",\n    \"space_size\": 0,\n    \"space_used_size\": 0,\n    \"space_available_size\": 1490980608,\n    \"physical_space_size\": 0\n  }\n]\n```",
+      "symbol": "@types/node/v8.d.ts#v8.getHeapSpaceStatistics",
+      "lang": "ja"
+    },
+    "a75a1e13": {
+      "original": "Returns an object with the following properties:\n\n`does_zap_garbage` is a 0/1 boolean, which signifies whether the `--zap_code_space` option is enabled or not. This makes V8 overwrite heap\ngarbage with a bit pattern. The RSS footprint (resident set size) gets bigger\nbecause it continuously touches all heap pages and that makes them less likely\nto get swapped out by the operating system.\n\n`number_of_native_contexts` The value of native\\_context is the number of the\ntop-level contexts currently active. Increase of this number over time indicates\na memory leak.\n\n`number_of_detached_contexts` The value of detached\\_context is the number\nof contexts that were detached and not yet garbage collected. This number\nbeing non-zero indicates a potential memory leak.\n\n`total_global_handles_size` The value of total\\_global\\_handles\\_size is the\ntotal memory size of V8 global handles.\n\n`used_global_handles_size` The value of used\\_global\\_handles\\_size is the\nused memory size of V8 global handles.\n\n`external_memory` The value of external\\_memory is the memory size of array\nbuffers and external strings.\n\n```js\n{\n  total_heap_size: 7326976,\n  total_heap_size_executable: 4194304,\n  total_physical_size: 7326976,\n  total_available_size: 1152656,\n  used_heap_size: 3476208,\n  heap_size_limit: 1535115264,\n  malloced_memory: 16384,\n  peak_malloced_memory: 1127496,\n  does_zap_garbage: 0,\n  number_of_native_contexts: 1,\n  number_of_detached_contexts: 0,\n  total_global_handles_size: 8192,\n  used_global_handles_size: 3296,\n  external_memory: 318824\n}\n```",
+      "translated": "次のプロパティを持つオブジェクトを返す:\n\n`does_zap_garbage` は 0/1 の真偽値で、`--zap_code_space` オプションが有効かどうかを示す。これは V8 にヒープのガベージをビットパターンで上書きさせる。すべてのヒープページを継続的に触るため RSS フットプリント(resident set size)は大きくなり、オペレーティングシステムによってスワップアウトされにくくなる。\n\n`number_of_native_contexts` native_context の値は、現在アクティブなトップレベルコンテキストの数である。この数が時間とともに増加することはメモリリークを示す。\n\n`number_of_detached_contexts` detached_context の値は、切り離されまだガベージコレクトされていないコンテキストの数である。この数が 0 でないことは潜在的なメモリリークを示す。\n\n`total_global_handles_size` total_global_handles_size の値は、V8 グローバルハンドルの総メモリサイズである。\n\n`used_global_handles_size` used_global_handles_size の値は、V8 グローバルハンドルの使用済みメモリサイズである。\n\n`external_memory` external_memory の値は、array buffer と外部文字列のメモリサイズである。\n\n```js\n{\n  total_heap_size: 7326976,\n  total_heap_size_executable: 4194304,\n  total_physical_size: 7326976,\n  total_available_size: 1152656,\n  used_heap_size: 3476208,\n  heap_size_limit: 1535115264,\n  malloced_memory: 16384,\n  peak_malloced_memory: 1127496,\n  does_zap_garbage: 0,\n  number_of_native_contexts: 1,\n  number_of_detached_contexts: 0,\n  total_global_handles_size: 8192,\n  used_global_handles_size: 3296,\n  external_memory: 318824\n}\n```",
+      "symbol": "@types/node/v8.d.ts#v8.getHeapStatistics",
+      "lang": "ja"
+    },
+    "ea3f620e": {
+      "original": "If true, expose internals in the heap snapshot.",
+      "translated": "true の場合、ヒープスナップショットに内部情報を公開する。",
+      "symbol": "@types/node/v8.d.ts#v8.HeapSnapshotOptions.exposeInternals",
+      "lang": "ja"
+    },
+    "5c34afd5": {
+      "original": "If true, expose numeric values in artificial fields.",
+      "translated": "true の場合、人工的なフィールドに数値を公開する。",
+      "symbol": "@types/node/v8.d.ts#v8.HeapSnapshotOptions.exposeNumericValues",
+      "lang": "ja"
+    },
+    "cb851bd6": {
+      "original": "Key events in the lifetime of a promise have been categorized into four areas: creation of a promise, before/after a continuation handler is called or\naround an await, and when the promise resolves or rejects.\n\nBecause promises are asynchronous resources whose lifecycle is tracked via the promise hooks mechanism, the `init()`, `before()`, `after()`, and\n`settled()` callbacks must not be async functions as they create more promises which would produce an infinite loop.",
+      "translated": "promise のライフタイムにおける主要なイベントは 4 つの領域に分類されている: promise の作成、継続ハンドラが呼ばれる前/後または await の周辺、promise が解決または拒否されるとき。\n\npromise は promise hooks メカニズムを介してライフサイクルが追跡される非同期リソースであるため、`init()`・`before()`・`after()`・`settled()` コールバックは async 関数であってはならない。それらはより多くの promise を作成し無限ループを生じさせるからである。",
+      "symbol": "@types/node/v8.d.ts#v8.HookCallbacks",
+      "lang": "ja"
+    },
+    "5b43b967": {
+      "original": "Called when a promise is constructed. This does not mean that corresponding before/after events will occur, only that the possibility exists. This will\nhappen if a promise is created without ever getting a continuation.",
+      "translated": "promise が構築されたときに呼ばれる。これは対応する before/after イベントが発生することを意味せず、その可能性が存在することだけを意味する。これは、継続を一度も得ないまま promise が作成された場合に起こる。",
+      "symbol": "@types/node/v8.d.ts#v8.Init",
       "lang": "ja"
     }
   }
