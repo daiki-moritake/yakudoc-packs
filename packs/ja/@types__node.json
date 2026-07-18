@@ -214,6 +214,12 @@
       "symbol": "@types/node/tls.d.ts#tls.TLSSocket.setMaxSendFragment",
       "lang": "ja"
     },
+    "80073062": {
+      "original": "Binary patchset that can be applied to other databases.",
+      "translated": "他のデータベースに適用できるバイナリのパッチセット。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.Session.patchset",
+      "lang": "ja"
+    },
     "81448455": {
       "original": "Creates and returns an `Hmac` object that uses the given `algorithm` and `key`.\nOptional `options` argument controls stream behavior.\n\nThe `algorithm` is dependent on the available algorithms supported by the\nversion of OpenSSL on the platform. Examples are `'sha256'`, `'sha512'`, etc.\nOn recent releases of OpenSSL, `openssl list -digest-algorithms` will\ndisplay the available digest algorithms.\n\nThe `key` is the HMAC key used to generate the cryptographic HMAC hash. If it is\na `KeyObject`, its type must be `secret`. If it is a string, please consider `caveats when using strings as inputs to cryptographic APIs`. If it was\nobtained from a cryptographically secure source of entropy, such as {@link randomBytes} or {@link generateKey}, its length should not\nexceed the block size of `algorithm` (e.g., 512 bits for SHA-256).\n\nExample: generating the sha256 HMAC of a file\n\n```js\nimport {\n  createReadStream,\n} from 'node:fs';\nimport { argv } from 'node:process';\nconst {\n  createHmac,\n} = await import('node:crypto');\n\nconst filename = argv[2];\n\nconst hmac = createHmac('sha256', 'a secret');\n\nconst input = createReadStream(filename);\ninput.on('readable', () => {\n  // Only one element is going to be produced by the\n  // hash stream.\n  const data = input.read();\n  if (data)\n    hmac.update(data);\n  else {\n    console.log(`${hmac.digest('hex')} ${filename}`);\n  }\n});\n```",
       "translated": "指定した `algorithm` と `key` を使う `Hmac` オブジェクトを作成して返す。省略可能な `options` 引数はストリームの挙動を制御する。\n\n`algorithm` は、プラットフォーム上の OpenSSL のバージョンがサポートする利用可能なアルゴリズムに依存する。例として `'sha256'`・`'sha512'` などがある。最近の OpenSSL リリースでは、`openssl list -digest-algorithms` で利用可能なダイジェストアルゴリズムが表示される。\n\n`key` は暗号学的 HMAC ハッシュを生成するために使う HMAC 鍵である。`KeyObject` の場合、その型は `secret` でなければならない。文字列の場合、`caveats when using strings as inputs to cryptographic APIs` を考慮すること。{@link randomBytes} や {@link generateKey} などの暗号学的に安全なエントロピー源から得られた場合、その長さは `algorithm` のブロックサイズ(たとえば SHA-256 では 512 ビット)を超えるべきではない。\n\n例: ファイルの sha256 HMAC を生成する\n\n```js\nimport {\n  createReadStream,\n} from 'node:fs';\nimport { argv } from 'node:process';\nconst {\n  createHmac,\n} = await import('node:crypto');\n\nconst filename = argv[2];\n\nconst hmac = createHmac('sha256', 'a secret');\n\nconst input = createReadStream(filename);\ninput.on('readable', () => {\n  // Only one element is going to be produced by the\n  // hash stream.\n  const data = input.read();\n  if (data)\n    hmac.update(data);\n  else {\n    console.log(`${hmac.digest('hex')} ${filename}`);\n  }\n});\n```",
@@ -8942,6 +8948,180 @@
       "original": "If `true`, allows binding named parameters without the prefix\ncharacter (e.g., `foo` instead of `:foo`).",
       "translated": "`true` の場合、プレフィックス文字なしで名前付きパラメーターをバインドできるようにする(たとえば `:foo` の代わりに `foo`)。",
       "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.allowBareNamedParameters",
+      "lang": "ja"
+    },
+    "b0c4f58a": {
+      "original": "If `true`, the `loadExtension` SQL function\nand the `loadExtension()` method are enabled.\nYou can call `enableLoadExtension(false)` later to disable this feature.",
+      "translated": "`true` の場合、`loadExtension` SQL 関数と `loadExtension()` メソッドが有効になる。後で `enableLoadExtension(false)` を呼んでこの機能を無効にできる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.allowExtension",
+      "lang": "ja"
+    },
+    "1e6c617a": {
+      "original": "If `true`, unknown named parameters are ignored when binding.\nIf `false`, an exception is thrown for unknown named parameters.",
+      "translated": "`true` の場合、バインド時に不明な名前付きパラメーターは無視される。`false` の場合、不明な名前付きパラメーターに対して例外が投げられる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.allowUnknownNamedParameters",
+      "lang": "ja"
+    },
+    "39eb0c7f": {
+      "original": "If `true`, SQLite will accept\n[double-quoted string literals](https://www.sqlite.org/quirks.html#dblquote).\nThis is not recommended but can be\nenabled for compatibility with legacy database schemas.",
+      "translated": "`true` の場合、SQLite は[二重引用符で囲まれた文字列リテラル](https://www.sqlite.org/quirks.html#dblquote)を受け付ける。これは推奨されないが、レガシーなデータベーススキーマとの互換性のために有効にできる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.enableDoubleQuotedStringLiterals",
+      "lang": "ja"
+    },
+    "8742a996": {
+      "original": "If `true`, foreign key constraints\nare enabled. This is recommended but can be disabled for compatibility with\nlegacy database schemas. The enforcement of foreign key constraints can be\nenabled and disabled after opening the database using\n[`PRAGMA foreign_keys`](https://www.sqlite.org/pragma.html#pragma_foreign_keys).",
+      "translated": "`true` の場合、外部キー制約が有効になる。これは推奨されるが、レガシーなデータベーススキーマとの互換性のために無効にできる。外部キー制約の適用は、データベースを開いた後に [`PRAGMA foreign_keys`](https://www.sqlite.org/pragma.html#pragma_foreign_keys) を使って有効・無効にできる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.enableForeignKeyConstraints",
+      "lang": "ja"
+    },
+    "e5a534a8": {
+      "original": "If `true`, the database is opened by the constructor. When\nthis value is `false`, the database must be opened via the `open()` method.",
+      "translated": "`true` の場合、データベースはコンストラクターによって開かれる。この値が `false` の場合、データベースは `open()` メソッドを介して開かなければならない。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.open",
+      "lang": "ja"
+    },
+    "a57de272": {
+      "original": "If `true`, integer fields are read as JavaScript `BigInt` values. If `false`,\ninteger fields are read as JavaScript numbers.",
+      "translated": "`true` の場合、整数フィールドは JavaScript の `BigInt` 値として読まれる。`false` の場合、整数フィールドは JavaScript の数値として読まれる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.readBigInts",
+      "lang": "ja"
+    },
+    "45d8393a": {
+      "original": "If `true`, the database is opened in read-only mode.\nIf the database does not exist, opening it will fail.",
+      "translated": "`true` の場合、データベースは読み取り専用モードで開かれる。データベースが存在しない場合、開くのは失敗する。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.readOnly",
+      "lang": "ja"
+    },
+    "22976aa4": {
+      "original": "If `true`, query results are returned as arrays instead of objects.",
+      "translated": "`true` の場合、クエリ結果はオブジェクトではなく配列として返される。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.returnArrays",
+      "lang": "ja"
+    },
+    "120222a9": {
+      "original": "The [busy timeout](https://sqlite.org/c3ref/busy_timeout.html) in milliseconds. This is the maximum amount of\ntime that SQLite will wait for a database lock to be released before\nreturning an error.",
+      "translated": "[busy timeout](https://sqlite.org/c3ref/busy_timeout.html)(ミリ秒)。これは、SQLite がエラーを返す前にデータベースロックの解放を待つ最大時間である。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.DatabaseSyncOptions.timeout",
+      "lang": "ja"
+    },
+    "8a2ff680": {
+      "original": "If `true`, the [`SQLITE_DETERMINISTIC`](https://www.sqlite.org/c3ref/c_deterministic.html) flag is\nset on the created function.",
+      "translated": "`true` の場合、作成された関数に [`SQLITE_DETERMINISTIC`](https://www.sqlite.org/c3ref/c_deterministic.html) フラグが設定される。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.FunctionOptions.deterministic",
+      "lang": "ja"
+    },
+    "1c670c81": {
+      "original": "If `true`, the [`SQLITE_DIRECTONLY`](https://www.sqlite.org/c3ref/c_directonly.html) flag is set on\nthe created function.",
+      "translated": "`true` の場合、作成された関数に [`SQLITE_DIRECTONLY`](https://www.sqlite.org/c3ref/c_directonly.html) フラグが設定される。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.FunctionOptions.directOnly",
+      "lang": "ja"
+    },
+    "a406764e": {
+      "original": "If `true`, integer arguments to `function`\nare converted to `BigInt`s. If `false`, integer arguments are passed as\nJavaScript numbers.",
+      "translated": "`true` の場合、`function` への整数引数は `BigInt` に変換される。`false` の場合、整数引数は JavaScript の数値として渡される。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.FunctionOptions.useBigIntArguments",
+      "lang": "ja"
+    },
+    "c770eebb": {
+      "original": "If `true`, `function` may be invoked with any number of\narguments (between zero and\n[`SQLITE_MAX_FUNCTION_ARG`](https://www.sqlite.org/limits.html#max_function_arg)). If `false`,\n`function` must be invoked with exactly `function.length` arguments.",
+      "translated": "`true` の場合、`function` は任意の数の引数(0 から [`SQLITE_MAX_FUNCTION_ARG`](https://www.sqlite.org/limits.html#max_function_arg) の間)で呼べる。`false` の場合、`function` はちょうど `function.length` 個の引数で呼ばなければならない。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.FunctionOptions.varargs",
+      "lang": "ja"
+    },
+    "e48bef95": {
+      "original": "Binary changeset that can be applied to other databases.",
+      "translated": "他のデータベースに適用できるバイナリのチェンジセット。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.Session.changeset",
+      "lang": "ja"
+    },
+    "7fd1d5c0": {
+      "original": "Retrieves a changeset containing all changes since the changeset was created. Can be called multiple times.\nAn exception is thrown if the database or the session is not open. This method is a wrapper around\n[`sqlite3session_changeset()`](https://www.sqlite.org/session/sqlite3session_changeset.html).",
+      "translated": "チェンジセットが作成されてからのすべての変更を含むチェンジセットを取得する。複数回呼べる。データベースまたはセッションが開いていない場合は例外が投げられる。このメソッドは [`sqlite3session_changeset()`](https://www.sqlite.org/session/sqlite3session_changeset.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.Session.changeset",
+      "lang": "ja"
+    },
+    "ddfcc85d": {
+      "original": "Closes the session. An exception is thrown if the database or the session is not open. This method is a\nwrapper around\n[`sqlite3session_delete()`](https://www.sqlite.org/session/sqlite3session_delete.html).",
+      "translated": "セッションを閉じる。データベースまたはセッションが開いていない場合は例外が投げられる。このメソッドは [`sqlite3session_delete()`](https://www.sqlite.org/session/sqlite3session_delete.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.Session.close",
+      "lang": "ja"
+    },
+    "0c402345": {
+      "original": "Similar to the method above, but generates a more compact patchset. See\n[Changesets and Patchsets](https://www.sqlite.org/sessionintro.html#changesets_and_patchsets)\nin the documentation of SQLite. An exception is thrown if the database or the session is not open. This method is a\nwrapper around\n[`sqlite3session_patchset()`](https://www.sqlite.org/session/sqlite3session_patchset.html).",
+      "translated": "上記のメソッドに似ているが、よりコンパクトなパッチセットを生成する。SQLite のドキュメントの [Changesets and Patchsets](https://www.sqlite.org/sessionintro.html#changesets_and_patchsets) を参照。データベースまたはセッションが開いていない場合は例外が投げられる。このメソッドは [`sqlite3session_patchset()`](https://www.sqlite.org/session/sqlite3session_patchset.html) のラッパーである。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.Session.patchset",
+      "lang": "ja"
+    },
+    "7c495b23": {
+      "original": "The unaliased name of the column in the origin\ntable, or `null` if the column is the result of an expression or subquery.\nThis property is the result of [`sqlite3_column_origin_name()`](https://www.sqlite.org/c3ref/column_database_name.html).",
+      "translated": "元のテーブルにおける列のエイリアスなしの名前。列が式やサブクエリの結果の場合は `null`。このプロパティは [`sqlite3_column_origin_name()`](https://www.sqlite.org/c3ref/column_database_name.html) の結果である。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementColumnMetadata.column",
+      "lang": "ja"
+    },
+    "d20c4706": {
+      "original": "The unaliased name of the origin database, or\n`null` if the column is the result of an expression or subquery. This\nproperty is the result of [`sqlite3_column_database_name()`](https://www.sqlite.org/c3ref/column_database_name.html).",
+      "translated": "元のデータベースのエイリアスなしの名前。列が式やサブクエリの結果の場合は `null`。このプロパティは [`sqlite3_column_database_name()`](https://www.sqlite.org/c3ref/column_database_name.html) の結果である。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementColumnMetadata.database",
+      "lang": "ja"
+    },
+    "c90be597": {
+      "original": "The name assigned to the column in the result set of a\n`SELECT` statement. This property is the result of\n[`sqlite3_column_name()`](https://www.sqlite.org/c3ref/column_name.html).",
+      "translated": "`SELECT` 文の結果セットで列に割り当てられた名前。このプロパティは [`sqlite3_column_name()`](https://www.sqlite.org/c3ref/column_name.html) の結果である。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementColumnMetadata.name",
+      "lang": "ja"
+    },
+    "d0041059": {
+      "original": "The unaliased name of the origin table, or `null` if\nthe column is the result of an expression or subquery. This property is the\nresult of [`sqlite3_column_table_name()`](https://www.sqlite.org/c3ref/column_database_name.html).",
+      "translated": "元のテーブルのエイリアスなしの名前。列が式やサブクエリの結果の場合は `null`。このプロパティは [`sqlite3_column_table_name()`](https://www.sqlite.org/c3ref/column_database_name.html) の結果である。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementColumnMetadata.table",
+      "lang": "ja"
+    },
+    "06a24b52": {
+      "original": "The declared data type of the column, or `null` if the\ncolumn is the result of an expression or subquery. This property is the\nresult of [`sqlite3_column_decltype()`](https://www.sqlite.org/c3ref/column_decltype.html).",
+      "translated": "列の宣言されたデータ型。列が式やサブクエリの結果の場合は `null`。このプロパティは [`sqlite3_column_decltype()`](https://www.sqlite.org/c3ref/column_decltype.html) の結果である。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementColumnMetadata.type",
+      "lang": "ja"
+    },
+    "a9a78451": {
+      "original": "The number of rows modified, inserted, or deleted by the most recently completed `INSERT`, `UPDATE`, or `DELETE` statement.\nThis field is either a number or a `BigInt` depending on the prepared statement's configuration.\nThis property is the result of [`sqlite3_changes64()`](https://www.sqlite.org/c3ref/changes.html).",
+      "translated": "最も最近完了した `INSERT`・`UPDATE`・`DELETE` 文によって変更・挿入・削除された行数。このフィールドは、prepared statement の構成に応じて数値または `BigInt` のいずれかである。このプロパティは [`sqlite3_changes64()`](https://www.sqlite.org/c3ref/changes.html) の結果である。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementResultingChanges.changes",
+      "lang": "ja"
+    },
+    "5bd35a7c": {
+      "original": "The most recently inserted rowid.\nThis field is either a number or a `BigInt` depending on the prepared statement's configuration.\nThis property is the result of [`sqlite3_last_insert_rowid()`](https://www.sqlite.org/c3ref/last_insert_rowid.html).",
+      "translated": "最も最近挿入された rowid。このフィールドは、prepared statement の構成に応じて数値または `BigInt` のいずれかである。このプロパティは [`sqlite3_last_insert_rowid()`](https://www.sqlite.org/c3ref/last_insert_rowid.html) の結果である。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementResultingChanges.lastInsertRowid",
+      "lang": "ja"
+    },
+    "b81699b6": {
+      "original": "This class represents a single [prepared statement](https://www.sqlite.org/c3ref/stmt.html). This class cannot be\ninstantiated via its constructor. Instead, instances are created via the`database.prepare()` method. All APIs exposed by this class execute\nsynchronously.\n\nA prepared statement is an efficient binary representation of the SQL used to\ncreate it. Prepared statements are parameterizable, and can be invoked multiple\ntimes with different bound values. Parameters also offer protection against [SQL injection](https://en.wikipedia.org/wiki/SQL_injection) attacks. For these reasons, prepared statements are\npreferred\nover hand-crafted SQL strings when handling user input.",
+      "translated": "このクラスは単一の [prepared statement](https://www.sqlite.org/c3ref/stmt.html) を表す。このクラスはコンストラクター経由でインスタンス化できない。代わりに、インスタンスは `database.prepare()` メソッドを介して作成される。このクラスが公開するすべての API は同期的に実行される。\n\nprepared statement は、それを作成するために使われた SQL の効率的なバイナリ表現である。prepared statement はパラメーター化可能で、異なるバインド値で複数回呼べる。パラメーターは [SQL インジェクション](https://en.wikipedia.org/wiki/SQL_injection)攻撃に対する保護も提供する。これらの理由から、ユーザー入力を扱う際は手作りの SQL 文字列よりも prepared statement が好まれる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync",
+      "lang": "ja"
+    },
+    "1abe7f58": {
+      "original": "An array of objects. Each object corresponds to a row returned by executing the prepared statement. The keys and values of each object correspond to the column names and values of\nthe row.",
+      "translated": "オブジェクトの配列。各オブジェクトは、prepared statement を実行して返された行に対応する。各オブジェクトのキーと値は、行の列名と値に対応する。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.all",
+      "lang": "ja"
+    },
+    "5d3f40ed": {
+      "original": "An optional object used to bind named parameters. The keys of this object are used to configure the mapping.",
+      "translated": "名前付きパラメーターをバインドするために使う省略可能なオブジェクト。このオブジェクトのキーがマッピングの構成に使われる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.all",
+      "lang": "ja"
+    },
+    "bd8e41eb": {
+      "original": "This method executes a prepared statement and returns all results as an array of\nobjects. If the prepared statement does not return any results, this method\nreturns an empty array. The prepared statement [parameters are bound](https://www.sqlite.org/c3ref/bind_blob.html) using\nthe values in `namedParameters` and `anonymousParameters`.",
+      "translated": "このメソッドは prepared statement を実行し、すべての結果をオブジェクトの配列として返す。prepared statement が結果を返さない場合、このメソッドは空配列を返す。prepared statement の[パラメーターは](https://www.sqlite.org/c3ref/bind_blob.html)、`namedParameters` と `anonymousParameters` の値を使ってバインドされる。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.all",
+      "lang": "ja"
+    },
+    "0845b5b7": {
+      "original": "Zero or more values to bind to anonymous parameters.",
+      "translated": "匿名パラメーターにバインドする 0 個以上の値。",
+      "symbol": "@types/node/sqlite.d.ts#node:sqlite.StatementSync.all",
       "lang": "ja"
     },
     "51babc4a": {
