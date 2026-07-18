@@ -5662,6 +5662,366 @@
       "symbol": "@types/node/http.d.ts#http.WebSocket",
       "lang": "ja"
     },
+    "35126e4a": {
+      "original": "The `node:http2` module provides an implementation of the [HTTP/2](https://tools.ietf.org/html/rfc7540) protocol.\nIt can be accessed using:\n\n```js\nimport http2 from 'node:http2';\n```",
+      "translated": "`node:http2` モジュールは [HTTP/2](https://tools.ietf.org/html/rfc7540) プロトコルの実装を提供する。次のようにアクセスできる:\n\n```js\nimport http2 from 'node:http2';\n```",
+      "symbol": "@types/node/http2.d.ts#http2",
+      "lang": "ja"
+    },
+    "367ebc36": {
+      "original": "For HTTP/2 Client `Http2Session` instances only, the `http2session.request()` creates and returns an `Http2Stream` instance that can be used to send an\nHTTP/2 request to the connected server.\n\nWhen a `ClientHttp2Session` is first created, the socket may not yet be\nconnected. if `clienthttp2session.request()` is called during this time, the\nactual request will be deferred until the socket is ready to go.\nIf the `session` is closed before the actual request be executed, an `ERR_HTTP2_GOAWAY_SESSION` is thrown.\n\nThis method is only available if `http2session.type` is equal to `http2.constants.NGHTTP2_SESSION_CLIENT`.\n\n```js\nimport http2 from 'node:http2';\nconst clientSession = http2.connect('https://localhost:1234');\nconst {\n  HTTP2_HEADER_PATH,\n  HTTP2_HEADER_STATUS,\n} = http2.constants;\n\nconst req = clientSession.request({ [HTTP2_HEADER_PATH]: '/' });\nreq.on('response', (headers) => {\n  console.log(headers[HTTP2_HEADER_STATUS]);\n  req.on('data', (chunk) => { // ..  });\n  req.on('end', () => { // ..  });\n});\n```\n\nWhen the `options.waitForTrailers` option is set, the `'wantTrailers'` event\nis emitted immediately after queuing the last chunk of payload data to be sent.\nThe `http2stream.sendTrailers()` method can then be called to send trailing\nheaders to the peer.\n\nWhen `options.waitForTrailers` is set, the `Http2Stream` will not automatically\nclose when the final `DATA` frame is transmitted. User code must call either`http2stream.sendTrailers()` or `http2stream.close()` to close the`Http2Stream`.\n\nWhen `options.signal` is set with an `AbortSignal` and then `abort` on the\ncorresponding `AbortController` is called, the request will emit an `'error'`event with an `AbortError` error.\n\nThe `:method` and `:path` pseudo-headers are not specified within `headers`,\nthey respectively default to:\n\n* `:method` \\= `'GET'`\n* `:path` \\= `/`",
+      "translated": "HTTP/2 クライアントの `Http2Session` インスタンス専用で、`http2session.request()` は、接続先のサーバーに HTTP/2 リクエストを送信するために使える `Http2Stream` インスタンスを作成して返す。\n\n`ClientHttp2Session` が最初に作成されたとき、ソケットはまだ接続されていないことがある。この間に `clienthttp2session.request()` が呼ばれた場合、実際のリクエストはソケットが準備できるまで延期される。実際のリクエストが実行される前に `session` が閉じられた場合、`ERR_HTTP2_GOAWAY_SESSION` が投げられる。\n\nこのメソッドは、`http2session.type` が `http2.constants.NGHTTP2_SESSION_CLIENT` に等しい場合にのみ利用できる。\n\n```js\nimport http2 from 'node:http2';\nconst clientSession = http2.connect('https://localhost:1234');\nconst {\n  HTTP2_HEADER_PATH,\n  HTTP2_HEADER_STATUS,\n} = http2.constants;\n\nconst req = clientSession.request({ [HTTP2_HEADER_PATH]: '/' });\nreq.on('response', (headers) => {\n  console.log(headers[HTTP2_HEADER_STATUS]);\n  req.on('data', (chunk) => { // ..  });\n  req.on('end', () => { // ..  });\n});\n```\n\n`options.waitForTrailers` オプションが設定されている場合、ペイロードデータの最後のチャンクを送信キューに入れた直後に `'wantTrailers'` イベントが発行される。その後 `http2stream.sendTrailers()` メソッドを呼んで、末尾のヘッダーをピアに送信できる。\n\n`options.waitForTrailers` が設定されている場合、最後の `DATA` フレームが送信されても `Http2Stream` は自動的に閉じられない。ユーザーコードは `http2stream.sendTrailers()` または `http2stream.close()` のいずれかを呼んで `Http2Stream` を閉じなければならない。\n\n`options.signal` が `AbortSignal` で設定され、対応する `AbortController` で `abort` が呼ばれた場合、リクエストは `AbortError` エラーとともに `'error'` イベントを発行する。\n\n`:method` と `:path` の擬似ヘッダーが `headers` 内で指定されない場合、それぞれ既定で次になる:\n\n* `:method` = `'GET'`\n* `:path` = `/`",
+      "symbol": "@types/node/http2.d.ts#http2.ClientHttp2Session.request",
+      "lang": "ja"
+    },
+    "7f919a25": {
+      "original": "An optional callback that receives the `URL` instance passed to `connect` and the `options` object,\nand returns any `Duplex` stream that is to be used as the connection for this session.",
+      "translated": "`connect` に渡された `URL` インスタンスと `options` オブジェクトを受け取り、このセッションの接続として使う任意の `Duplex` ストリームを返す、省略可能なコールバック。",
+      "symbol": "@types/node/http2.d.ts#http2.ClientSessionOptions.createConnection",
+      "lang": "ja"
+    },
+    "2a5081ab": {
+      "original": "Sets the maximum number of reserved push streams the client will accept at any given time.\nOnce the current number of currently reserved push streams exceeds reaches this limit,\nnew push streams sent by the server will be automatically rejected.\nThe minimum allowed value is 0. The maximum allowed value is 2<sup>32</sup>-1.\nA negative value sets this option to the maximum allowed value.",
+      "translated": "クライアントが任意の時点で受け付ける予約プッシュストリームの最大数を設定する。現在予約されているプッシュストリームの数がこの上限に達すると、サーバーが送信する新しいプッシュストリームは自動的に拒否される。許可される最小値は 0。許可される最大値は 2<sup>32</sup>-1。負の値はこのオプションを許可される最大値に設定する。",
+      "symbol": "@types/node/http2.d.ts#http2.ClientSessionOptions.maxReservedRemoteStreams",
+      "lang": "ja"
+    },
+    "42c1973f": {
+      "original": "The protocol to connect with, if not set in the `authority`.\nValue may be either `'http:'` or `'https:'`.",
+      "translated": "`authority` で設定されていない場合に接続に使うプロトコル。値は `'http:'` または `'https:'` のいずれかであり得る。",
+      "symbol": "@types/node/http2.d.ts#http2.ClientSessionOptions.protocol",
+      "lang": "ja"
+    },
+    "70f7de44": {
+      "original": "Returns a `ClientHttp2Session` instance.\n\n```js\nimport http2 from 'node:http2';\nconst client = http2.connect('https://localhost:1234');\n\n// Use the client\n\nclient.close();\n```",
+      "translated": "`ClientHttp2Session` インスタンスを返す。\n\n```js\nimport http2 from 'node:http2';\nconst client = http2.connect('https://localhost:1234');\n\n// Use the client\n\nclient.close();\n```",
+      "symbol": "@types/node/http2.d.ts#http2.connect",
+      "lang": "ja"
+    },
+    "12d7d4de": {
+      "original": "The remote HTTP/2 server to connect to. This must be in the form of a minimal, valid URL with the `http://` or `https://` prefix, host name, and IP port (if a non-default port\nis used). Userinfo (user ID and password), path, querystring, and fragment details in the URL will be ignored.",
+      "translated": "接続先のリモート HTTP/2 サーバー。これは、`http://` または `https://` プレフィックス・ホスト名・IP ポート(既定でないポートを使う場合)からなる最小限の有効な URL の形でなければならない。URL 内の userinfo(ユーザー ID とパスワード)・パス・クエリ文字列・フラグメントの詳細は無視される。",
+      "symbol": "@types/node/http2.d.ts#http2.connect",
+      "lang": "ja"
+    },
+    "c18045ae": {
+      "original": "Will be registered as a one-time listener of the {@link  'connect'} event.",
+      "translated": "{@link 'connect'} イベントの一度きりの listener として登録される。",
+      "symbol": "@types/node/http2.d.ts#http2.connect",
+      "lang": "ja"
+    },
+    "422e0298": {
+      "original": "Returns a `tls.Server` instance that creates and manages `Http2Session` instances.\n\n```js\nimport http2 from 'node:http2';\nimport fs from 'node:fs';\n\nconst options = {\n  key: fs.readFileSync('server-key.pem'),\n  cert: fs.readFileSync('server-cert.pem'),\n};\n\n// Create a secure HTTP/2 server\nconst server = http2.createSecureServer(options);\n\nserver.on('stream', (stream, headers) => {\n  stream.respond({\n    'content-type': 'text/html; charset=utf-8',\n    ':status': 200,\n  });\n  stream.end('<h1>Hello World</h1>');\n});\n\nserver.listen(8443);\n```",
+      "translated": "`Http2Session` インスタンスを作成・管理する `tls.Server` インスタンスを返す。\n\n```js\nimport http2 from 'node:http2';\nimport fs from 'node:fs';\n\nconst options = {\n  key: fs.readFileSync('server-key.pem'),\n  cert: fs.readFileSync('server-cert.pem'),\n};\n\n// Create a secure HTTP/2 server\nconst server = http2.createSecureServer(options);\n\nserver.on('stream', (stream, headers) => {\n  stream.respond({\n    'content-type': 'text/html; charset=utf-8',\n    ':status': 200,\n  });\n  stream.end('<h1>Hello World</h1>');\n});\n\nserver.listen(8443);\n```",
+      "symbol": "@types/node/http2.d.ts#http2.createSecureServer",
+      "lang": "ja"
+    },
+    "2301bb17": {
+      "original": "Returns a `net.Server` instance that creates and manages `Http2Session` instances.\n\nSince there are no browsers known that support [unencrypted HTTP/2](https://http2.github.io/faq/#does-http2-require-encryption), the use of {@link createSecureServer} is necessary when\ncommunicating\nwith browser clients.\n\n```js\nimport http2 from 'node:http2';\n\n// Create an unencrypted HTTP/2 server.\n// Since there are no browsers known that support\n// unencrypted HTTP/2, the use of `http2.createSecureServer()`\n// is necessary when communicating with browser clients.\nconst server = http2.createServer();\n\nserver.on('stream', (stream, headers) => {\n  stream.respond({\n    'content-type': 'text/html; charset=utf-8',\n    ':status': 200,\n  });\n  stream.end('<h1>Hello World</h1>');\n});\n\nserver.listen(8000);\n```",
+      "translated": "`Http2Session` インスタンスを作成・管理する `net.Server` インスタンスを返す。\n\n[暗号化されていない HTTP/2](https://http2.github.io/faq/#does-http2-require-encryption) をサポートするブラウザーは知られていないため、ブラウザークライアントと通信するときは {@link createSecureServer} の使用が必要である。\n\n```js\nimport http2 from 'node:http2';\n\n// Create an unencrypted HTTP/2 server.\n// Since there are no browsers known that support\n// unencrypted HTTP/2, the use of `http2.createSecureServer()`\n// is necessary when communicating with browser clients.\nconst server = http2.createServer();\n\nserver.on('stream', (stream, headers) => {\n  stream.respond({\n    'content-type': 'text/html; charset=utf-8',\n    ':status': 200,\n  });\n  stream.end('<h1>Hello World</h1>');\n});\n\nserver.listen(8000);\n```",
+      "symbol": "@types/node/http2.d.ts#http2.createServer",
+      "lang": "ja"
+    },
+    "bf024d46": {
+      "original": "See `Compatibility API`",
+      "translated": "`Compatibility API` を参照",
+      "symbol": "@types/node/http2.d.ts#http2.createServer",
+      "lang": "ja"
+    },
+    "a9c69c80": {
+      "original": "Returns an object containing the default settings for an `Http2Session` instance. This method returns a new object instance every time it is called\nso instances returned may be safely modified for use.",
+      "translated": "`Http2Session` インスタンスの既定設定を含むオブジェクトを返す。このメソッドは呼ばれるたびに新しいオブジェクトインスタンスを返すため、返されたインスタンスは使用のために安全に変更できる。",
+      "symbol": "@types/node/http2.d.ts#http2.getDefaultSettings",
+      "lang": "ja"
+    },
+    "64eb16f6": {
+      "original": "Returns a `Buffer` instance containing serialized representation of the given\nHTTP/2 settings as specified in the [HTTP/2](https://tools.ietf.org/html/rfc7540) specification. This is intended\nfor use with the `HTTP2-Settings` header field.\n\n```js\nimport http2 from 'node:http2';\n\nconst packed = http2.getPackedSettings({ enablePush: false });\n\nconsole.log(packed.toString('base64'));\n// Prints: AAIAAAAA\n```",
+      "translated": "[HTTP/2](https://tools.ietf.org/html/rfc7540) 仕様で規定されたとおり、指定した HTTP/2 設定のシリアライズされた表現を含む `Buffer` インスタンスを返す。これは `HTTP2-Settings` ヘッダーフィールドで使うことを意図している。\n\n```js\nimport http2 from 'node:http2';\n\nconst packed = http2.getPackedSettings({ enablePush: false });\n\nconsole.log(packed.toString('base64'));\n// Prints: AAIAAAAA\n```",
+      "symbol": "@types/node/http2.d.ts#http2.getPackedSettings",
+      "lang": "ja"
+    },
+    "c38293b9": {
+      "original": "Returns a `HTTP/2 Settings Object` containing the deserialized settings from\nthe given `Buffer` as generated by `http2.getPackedSettings()`.",
+      "translated": "`http2.getPackedSettings()` が生成した指定の `Buffer` からデシリアライズされた設定を含む `HTTP/2 Settings Object` を返す。",
+      "symbol": "@types/node/http2.d.ts#http2.getUnpackedSettings",
+      "lang": "ja"
+    },
+    "f7a91ed5": {
+      "original": "The packed settings.",
+      "translated": "packed された設定。",
+      "symbol": "@types/node/http2.d.ts#http2.getUnpackedSettings",
+      "lang": "ja"
+    },
+    "13d4779b": {
+      "original": "Throws ERR_HTTP2_INVALID_SETTING_VALUE for invalid settings values.\nThrows ERR_INVALID_ARG_TYPE for invalid settings argument.",
+      "translated": "無効な設定値には ERR_HTTP2_INVALID_SETTING_VALUE を投げる。無効な設定引数には ERR_INVALID_ARG_TYPE を投げる。",
+      "symbol": "@types/node/http2.d.ts#http2.HTTP2ServerCommon.updateSettings",
+      "lang": "ja"
+    },
+    "4696e266": {
+      "original": "A `Http2ServerRequest` object is created by {@link Server} or {@link SecureServer} and passed as the first argument to the `'request'` event. It may be used to access a request status,\nheaders, and\ndata.",
+      "translated": "`Http2ServerRequest` オブジェクトは {@link Server} または {@link SecureServer} によって作成され、`'request'` イベントの第 1 引数として渡される。リクエストのステータス・ヘッダー・データにアクセスするために使える。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest",
+      "lang": "ja"
+    },
+    "5511e125": {
+      "original": "The request authority pseudo header field. Because HTTP/2 allows requests\nto set either `:authority` or `host`, this value is derived from `req.headers[':authority']` if present. Otherwise, it is derived from `req.headers['host']`.",
+      "translated": "リクエストの authority 擬似ヘッダーフィールド。HTTP/2 はリクエストが `:authority` または `host` のいずれかを設定できるため、この値は存在すれば `req.headers[':authority']` から導出される。そうでなければ `req.headers['host']` から導出される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.authority",
+      "lang": "ja"
+    },
+    "20ec37c0": {
+      "original": "The `request.complete` property will be `true` if the request has\nbeen completed, aborted, or destroyed.",
+      "translated": "リクエストが完了・中断・破棄された場合、`request.complete` プロパティは `true` になる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.complete",
+      "lang": "ja"
+    },
+    "3e33feba": {
+      "original": "See `request.socket`.",
+      "translated": "`request.socket` を参照。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.connection",
+      "lang": "ja"
+    },
+    "05bc7e3e": {
+      "original": "Since v13.0.0 - Use `socket`.",
+      "translated": "v13.0.0 以降 - `socket` を使うこと。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.connection",
+      "lang": "ja"
+    },
+    "62738f1b": {
+      "original": "The request/response headers object.\n\nKey-value pairs of header names and values. Header names are lower-cased.\n\n```js\n// Prints something like:\n//\n// { 'user-agent': 'curl/7.22.0',\n//   host: '127.0.0.1:8000',\n//   accept: '*' }\nconsole.log(request.headers);\n```\n\nSee `HTTP/2 Headers Object`.\n\nIn HTTP/2, the request path, host name, protocol, and method are represented as\nspecial headers prefixed with the `:` character (e.g. `':path'`). These special\nheaders will be included in the `request.headers` object. Care must be taken not\nto inadvertently modify these special headers or errors may occur. For instance,\nremoving all headers from the request will cause errors to occur:\n\n```js\nremoveAllHeaders(request.headers);\nassert(request.url);   // Fails because the :path header has been removed\n```",
+      "translated": "リクエスト/レスポンスのヘッダーオブジェクト。\n\nヘッダー名と値のキーと値のペア。ヘッダー名は小文字化される。\n\n```js\n// Prints something like:\n//\n// { 'user-agent': 'curl/7.22.0',\n//   host: '127.0.0.1:8000',\n//   accept: '*' }\nconsole.log(request.headers);\n```\n\n`HTTP/2 Headers Object` を参照。\n\nHTTP/2 では、リクエストのパス・ホスト名・プロトコル・メソッドは、`:` 文字を先頭に付けた特別なヘッダー(たとえば `':path'`)として表される。これらの特別なヘッダーは `request.headers` オブジェクトに含まれる。これらの特別なヘッダーをうっかり変更しないよう注意しなければならず、そうしないとエラーが発生することがある。たとえば、リクエストからすべてのヘッダーを削除するとエラーが発生する:\n\n```js\nremoveAllHeaders(request.headers);\nassert(request.url);   // Fails because the :path header has been removed\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.headers",
+      "lang": "ja"
+    },
+    "66c70d30": {
+      "original": "In case of server request, the HTTP version sent by the client. In the case of\nclient response, the HTTP version of the connected-to server. Returns `'2.0'`.\n\nAlso `message.httpVersionMajor` is the first integer and `message.httpVersionMinor` is the second.",
+      "translated": "サーバーリクエストの場合、クライアントが送信した HTTP バージョン。クライアントレスポンスの場合、接続先サーバーの HTTP バージョン。`'2.0'` を返す。\n\nまた、`message.httpVersionMajor` は 1 つ目の整数、`message.httpVersionMinor` は 2 つ目である。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.httpVersion",
+      "lang": "ja"
+    },
+    "0a47d558": {
+      "original": "The request method as a string. Read-only. Examples: `'GET'`, `'DELETE'`.",
+      "translated": "リクエストのメソッドを文字列で表したもの。読み取り専用。例: `'GET'`・`'DELETE'`。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.method",
+      "lang": "ja"
+    },
+    "7d616c90": {
+      "original": "The request scheme pseudo header field indicating the scheme\nportion of the target URL.",
+      "translated": "ターゲット URL の scheme 部分を示す、リクエストの scheme 擬似ヘッダーフィールド。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.scheme",
+      "lang": "ja"
+    },
+    "e8a79157": {
+      "original": "Sets the `Http2Stream`'s timeout value to `msecs`. If a callback is\nprovided, then it is added as a listener on the `'timeout'` event on\nthe response object.\n\nIf no `'timeout'` listener is added to the request, the response, or\nthe server, then `Http2Stream`s are destroyed when they time out. If a\nhandler is assigned to the request, the response, or the server's `'timeout'`events, timed out sockets must be handled explicitly.",
+      "translated": "`Http2Stream` のタイムアウト値を `msecs` に設定する。コールバックが指定された場合、レスポンスオブジェクトの `'timeout'` イベントの listener として追加される。\n\nリクエスト・レスポンス・サーバーに `'timeout'` listener が追加されていない場合、`Http2Stream` はタイムアウトすると破棄される。リクエスト・レスポンス・サーバーの `'timeout'` イベントにハンドラが割り当てられている場合、タイムアウトしたソケットは明示的に処理しなければならない。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.setTimeout",
+      "lang": "ja"
+    },
+    "12d9137f": {
+      "original": "Returns a `Proxy` object that acts as a `net.Socket` (or `tls.TLSSocket`) but\napplies getters, setters, and methods based on HTTP/2 logic.\n\n`destroyed`, `readable`, and `writable` properties will be retrieved from and\nset on `request.stream`.\n\n`destroy`, `emit`, `end`, `on` and `once` methods will be called on `request.stream`.\n\n`setTimeout` method will be called on `request.stream.session`.\n\n`pause`, `read`, `resume`, and `write` will throw an error with code `ERR_HTTP2_NO_SOCKET_MANIPULATION`. See `Http2Session and Sockets` for\nmore information.\n\nAll other interactions will be routed directly to the socket. With TLS support,\nuse `request.socket.getPeerCertificate()` to obtain the client's\nauthentication details.",
+      "translated": "`net.Socket`(または `tls.TLSSocket`)として振る舞うが、HTTP/2 のロジックに基づいてゲッター・セッター・メソッドを適用する `Proxy` オブジェクトを返す。\n\n`destroyed`・`readable`・`writable` プロパティは `request.stream` から取得・設定される。\n\n`destroy`・`emit`・`end`・`on`・`once` メソッドは `request.stream` で呼ばれる。\n\n`setTimeout` メソッドは `request.stream.session` で呼ばれる。\n\n`pause`・`read`・`resume`・`write` はコード `ERR_HTTP2_NO_SOCKET_MANIPULATION` のエラーを投げる。詳細は `Http2Session and Sockets` を参照。\n\n他のすべてのやり取りは直接ソケットにルーティングされる。TLS サポートでは、クライアントの認証詳細を取得するために `request.socket.getPeerCertificate()` を使う。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.socket",
+      "lang": "ja"
+    },
+    "45d55919": {
+      "original": "The `Http2Stream` object backing the request.",
+      "translated": "リクエストの裏付けとなる `Http2Stream` オブジェクト。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.stream",
+      "lang": "ja"
+    },
+    "c82b820c": {
+      "original": "Request URL string. This contains only the URL that is present in the actual\nHTTP request. If the request is:\n\n```http\nGET /status?name=ryan HTTP/1.1\nAccept: text/plain\n```\n\nThen `request.url` will be:\n\n```js\n'/status?name=ryan'\n```\n\nTo parse the url into its parts, `new URL()` can be used:\n\n```console\n$ node\n> new URL('/status?name=ryan', 'http://example.com')\nURL {\n  href: 'http://example.com/status?name=ryan',\n  origin: 'http://example.com',\n  protocol: 'http:',\n  username: '',\n  password: '',\n  host: 'example.com',\n  hostname: 'example.com',\n  port: '',\n  pathname: '/status',\n  search: '?name=ryan',\n  searchParams: URLSearchParams { 'name' => 'ryan' },\n  hash: ''\n}\n```",
+      "translated": "リクエストの URL 文字列。これは実際の HTTP リクエストに存在する URL のみを含む。リクエストが次の場合:\n\n```http\nGET /status?name=ryan HTTP/1.1\nAccept: text/plain\n```\n\nこのとき `request.url` は次になる:\n\n```js\n'/status?name=ryan'\n```\n\nurl をその各部に解析するには、`new URL()` を使える:\n\n```console\n$ node\n> new URL('/status?name=ryan', 'http://example.com')\nURL {\n  href: 'http://example.com/status?name=ryan',\n  origin: 'http://example.com',\n  protocol: 'http:',\n  username: '',\n  password: '',\n  host: 'example.com',\n  hostname: 'example.com',\n  port: '',\n  pathname: '/status',\n  search: '?name=ryan',\n  searchParams: URLSearchParams { 'name' => 'ryan' },\n  hash: ''\n}\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerRequest.url",
+      "lang": "ja"
+    },
+    "a7e4570d": {
+      "original": "This method adds HTTP trailing headers (a header but at the end of the\nmessage) to the response.\n\nAttempting to set a header field name or value that contains invalid characters\nwill result in a `TypeError` being thrown.",
+      "translated": "このメソッドは、レスポンスに HTTP の末尾ヘッダー(ヘッダーだがメッセージの末尾にある)を追加する。\n\n無効な文字を含むヘッダーフィールド名または値を設定しようとすると、`TypeError` が投げられる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.addTrailers",
+      "lang": "ja"
+    },
+    "344bc600": {
+      "original": "Append a single header value to the header object.\n\nIf the value is an array, this is equivalent to calling this method multiple times.\n\nIf there were no previous values for the header, this is equivalent to calling {@link setHeader}.\n\nAttempting to set a header field name or value that contains invalid characters will result in a\n[TypeError](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-typeerror) being thrown.\n\n```js\n// Returns headers including \"set-cookie: a\" and \"set-cookie: b\"\nconst server = http2.createServer((req, res) => {\n  res.setHeader('set-cookie', 'a');\n  res.appendHeader('set-cookie', 'b');\n  res.writeHead(200);\n  res.end('ok');\n});\n```",
+      "translated": "ヘッダーオブジェクトに単一のヘッダー値を追加する。\n\n値が配列の場合、これはこのメソッドを複数回呼ぶのと同等である。\n\nそのヘッダーに以前の値がなかった場合、これは {@link setHeader} を呼ぶのと同等である。\n\n無効な文字を含むヘッダーフィールド名または値を設定しようとすると、[TypeError](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-typeerror) が投げられる。\n\n```js\n// Returns headers including \"set-cookie: a\" and \"set-cookie: b\"\nconst server = http2.createServer((req, res) => {\n  res.setHeader('set-cookie', 'a');\n  res.appendHeader('set-cookie', 'b');\n  res.writeHead(200);\n  res.end('ok');\n});\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.appendHeader",
+      "lang": "ja"
+    },
+    "6779a658": {
+      "original": "See `response.socket`.",
+      "translated": "`response.socket` を参照。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.connection",
+      "lang": "ja"
+    },
+    "fe3e78df": {
+      "original": "An object describing the headers",
+      "translated": "ヘッダーを記述するオブジェクト",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.createPushResponse",
+      "lang": "ja"
+    },
+    "2abdd958": {
+      "original": "Call `http2stream.pushStream()` with the given headers, and wrap the\ngiven `Http2Stream` on a newly created `Http2ServerResponse` as the callback\nparameter if successful. When `Http2ServerRequest` is closed, the callback is\ncalled with an error `ERR_HTTP2_INVALID_STREAM`.",
+      "translated": "指定したヘッダーで `http2stream.pushStream()` を呼び、成功した場合は新しく作成された `Http2ServerResponse` 上で指定した `Http2Stream` をコールバックパラメーターとしてラップする。`Http2ServerRequest` が閉じられると、コールバックはエラー `ERR_HTTP2_INVALID_STREAM` とともに呼ばれる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.createPushResponse",
+      "lang": "ja"
+    },
+    "97dd2f2d": {
+      "original": "Called once `http2stream.pushStream()` is finished, or either when the attempt to create the pushed `Http2Stream` has failed or has been rejected, or the state of\n`Http2ServerRequest` is closed prior to calling the `http2stream.pushStream()` method",
+      "translated": "`http2stream.pushStream()` が完了したとき、またはプッシュされた `Http2Stream` の作成の試みが失敗もしくは拒否されたとき、または `http2stream.pushStream()` メソッドを呼ぶ前に `Http2ServerRequest` の状態が閉じられたときに、一度呼ばれる",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.createPushResponse",
+      "lang": "ja"
+    },
+    "28e63f05": {
+      "original": "This method signals to the server that all of the response headers and body\nhave been sent; that server should consider this message complete.\nThe method, `response.end()`, MUST be called on each response.\n\nIf `data` is specified, it is equivalent to calling `response.write(data, encoding)` followed by `response.end(callback)`.\n\nIf `callback` is specified, it will be called when the response stream\nis finished.",
+      "translated": "このメソッドは、すべてのレスポンスヘッダーとボディが送信されたこと、サーバーがこのメッセージを完了とみなすべきことをサーバーに通知する。メソッド `response.end()` は各レスポンスで必ず呼ばなければならない。\n\n`data` が指定された場合、`response.write(data, encoding)` を呼んでから `response.end(callback)` を呼ぶのと同等である。\n\n`callback` が指定された場合、レスポンスストリームが終了したときに呼ばれる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.end",
+      "lang": "ja"
+    },
+    "38050b68": {
+      "original": "Boolean value that indicates whether the response has completed. Starts\nas `false`. After `response.end()` executes, the value will be `true`.",
+      "translated": "レスポンスが完了したかどうかを示す真偽値。`false` として始まる。`response.end()` が実行された後、値は `true` になる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.finished",
+      "lang": "ja"
+    },
+    "48ac36ed": {
+      "original": "Since v13.4.0,v12.16.0 - Use `writableEnded`.",
+      "translated": "v13.4.0,v12.16.0 以降 - `writableEnded` を使うこと。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.finished",
+      "lang": "ja"
+    },
+    "cf704dd8": {
+      "original": "Reads out a header that has already been queued but not sent to the client.\nThe name is case-insensitive.\n\n```js\nconst contentType = response.getHeader('content-type');\n```",
+      "translated": "すでにキューに入れられているが、まだクライアントに送信されていないヘッダーを読み出す。名前は大文字小文字を区別しない。\n\n```js\nconst contentType = response.getHeader('content-type');\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.getHeader",
+      "lang": "ja"
+    },
+    "d9ad69a0": {
+      "original": "Returns an array containing the unique names of the current outgoing headers.\nAll header names are lowercase.\n\n```js\nresponse.setHeader('Foo', 'bar');\nresponse.setHeader('Set-Cookie', ['foo=bar', 'bar=baz']);\n\nconst headerNames = response.getHeaderNames();\n// headerNames === ['foo', 'set-cookie']\n```",
+      "translated": "現在の送信ヘッダーの一意な名前を含む配列を返す。すべてのヘッダー名は小文字である。\n\n```js\nresponse.setHeader('Foo', 'bar');\nresponse.setHeader('Set-Cookie', ['foo=bar', 'bar=baz']);\n\nconst headerNames = response.getHeaderNames();\n// headerNames === ['foo', 'set-cookie']\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.getHeaderNames",
+      "lang": "ja"
+    },
+    "b1800a21": {
+      "original": "Returns a shallow copy of the current outgoing headers. Since a shallow copy\nis used, array values may be mutated without additional calls to various\nheader-related http module methods. The keys of the returned object are the\nheader names and the values are the respective header values. All header names\nare lowercase.\n\nThe object returned by the `response.getHeaders()` method _does not_ prototypically inherit from the JavaScript `Object`. This means that typical `Object` methods such as `obj.toString()`,\n`obj.hasOwnProperty()`, and others\nare not defined and _will not work_.\n\n```js\nresponse.setHeader('Foo', 'bar');\nresponse.setHeader('Set-Cookie', ['foo=bar', 'bar=baz']);\n\nconst headers = response.getHeaders();\n// headers === { foo: 'bar', 'set-cookie': ['foo=bar', 'bar=baz'] }\n```",
+      "translated": "現在の送信ヘッダーの浅いコピーを返す。浅いコピーが使われるため、さまざまなヘッダー関連の http モジュールメソッドを追加で呼ばずに配列の値を変更できる。返されるオブジェクトのキーはヘッダー名で、値はそれぞれのヘッダー値である。すべてのヘッダー名は小文字である。\n\n`response.getHeaders()` メソッドが返すオブジェクトは、JavaScript の `Object` からプロトタイプ的に継承_しない_。これは、`obj.toString()`・`obj.hasOwnProperty()` などの典型的な `Object` メソッドが定義されておらず、_機能しない_ことを意味する。\n\n```js\nresponse.setHeader('Foo', 'bar');\nresponse.setHeader('Set-Cookie', ['foo=bar', 'bar=baz']);\n\nconst headers = response.getHeaders();\n// headers === { foo: 'bar', 'set-cookie': ['foo=bar', 'bar=baz'] }\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.getHeaders",
+      "lang": "ja"
+    },
+    "3ffc6f18": {
+      "original": "Returns `true` if the header identified by `name` is currently set in the\noutgoing headers. The header name matching is case-insensitive.\n\n```js\nconst hasContentType = response.hasHeader('content-type');\n```",
+      "translated": "`name` で識別されるヘッダーが現在送信ヘッダーに設定されている場合は `true` を返す。ヘッダー名の照合は大文字小文字を区別しない。\n\n```js\nconst hasContentType = response.hasHeader('content-type');\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.hasHeader",
+      "lang": "ja"
+    },
+    "5ae4e7b1": {
+      "original": "Removes a header that has been queued for implicit sending.\n\n```js\nresponse.removeHeader('Content-Encoding');\n```",
+      "translated": "暗黙的な送信のためにキューに入れられたヘッダーを削除する。\n\n```js\nresponse.removeHeader('Content-Encoding');\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.removeHeader",
+      "lang": "ja"
+    },
+    "bcdad46f": {
+      "original": "A reference to the original HTTP2 `request` object.",
+      "translated": "元の HTTP2 `request` オブジェクトへの参照。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.req",
+      "lang": "ja"
+    },
+    "bee9e112": {
+      "original": "When true, the Date header will be automatically generated and sent in\nthe response if it is not already present in the headers. Defaults to true.\n\nThis should only be disabled for testing; HTTP requires the Date header\nin responses.",
+      "translated": "true の場合、Date ヘッダーがヘッダーにまだ存在しなければ自動的に生成されレスポンスで送信される。既定は true。\n\nこれはテストのためにのみ無効にすべきである。HTTP はレスポンスに Date ヘッダーを要求する。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.sendDate",
+      "lang": "ja"
+    },
+    "fee6d6a5": {
+      "original": "Sets a single header value for implicit headers. If this header already exists\nin the to-be-sent headers, its value will be replaced. Use an array of strings\nhere to send multiple headers with the same name.\n\n```js\nresponse.setHeader('Content-Type', 'text/html; charset=utf-8');\n```\n\nor\n\n```js\nresponse.setHeader('Set-Cookie', ['type=ninja', 'language=javascript']);\n```\n\nAttempting to set a header field name or value that contains invalid characters\nwill result in a `TypeError` being thrown.\n\nWhen headers have been set with `response.setHeader()`, they will be merged\nwith any headers passed to `response.writeHead()`, with the headers passed\nto `response.writeHead()` given precedence.\n\n```js\n// Returns content-type = text/plain\nconst server = http2.createServer((req, res) => {\n  res.setHeader('Content-Type', 'text/html; charset=utf-8');\n  res.setHeader('X-Foo', 'bar');\n  res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });\n  res.end('ok');\n});\n```",
+      "translated": "暗黙的なヘッダーに単一のヘッダー値を設定する。このヘッダーが送信予定のヘッダーにすでに存在する場合、その値は置き換えられる。同じ名前で複数のヘッダーを送信するには、文字列の配列を使う。\n\n```js\nresponse.setHeader('Content-Type', 'text/html; charset=utf-8');\n```\n\nまたは\n\n```js\nresponse.setHeader('Set-Cookie', ['type=ninja', 'language=javascript']);\n```\n\n無効な文字を含むヘッダーフィールド名または値を設定しようとすると、`TypeError` が投げられる。\n\n`response.setHeader()` でヘッダーが設定されている場合、それらは `response.writeHead()` に渡されたヘッダーとマージされ、`response.writeHead()` に渡されたヘッダーが優先される。\n\n```js\n// Returns content-type = text/plain\nconst server = http2.createServer((req, res) => {\n  res.setHeader('Content-Type', 'text/html; charset=utf-8');\n  res.setHeader('X-Foo', 'bar');\n  res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });\n  res.end('ok');\n});\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.setHeader",
+      "lang": "ja"
+    },
+    "63ce8a0f": {
+      "original": "Sets the `Http2Stream`'s timeout value to `msecs`. If a callback is\nprovided, then it is added as a listener on the `'timeout'` event on\nthe response object.\n\nIf no `'timeout'` listener is added to the request, the response, or\nthe server, then `Http2Stream` s are destroyed when they time out. If a\nhandler is assigned to the request, the response, or the server's `'timeout'` events, timed out sockets must be handled explicitly.",
+      "translated": "`Http2Stream` のタイムアウト値を `msecs` に設定する。コールバックが指定された場合、レスポンスオブジェクトの `'timeout'` イベントの listener として追加される。\n\nリクエスト・レスポンス・サーバーに `'timeout'` listener が追加されていない場合、`Http2Stream` はタイムアウトすると破棄される。リクエスト・レスポンス・サーバーの `'timeout'` イベントにハンドラが割り当てられている場合、タイムアウトしたソケットは明示的に処理しなければならない。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.setTimeout",
+      "lang": "ja"
+    },
+    "f3fcd0ae": {
+      "original": "Returns a `Proxy` object that acts as a `net.Socket` (or `tls.TLSSocket`) but\napplies getters, setters, and methods based on HTTP/2 logic.\n\n`destroyed`, `readable`, and `writable` properties will be retrieved from and\nset on `response.stream`.\n\n`destroy`, `emit`, `end`, `on` and `once` methods will be called on `response.stream`.\n\n`setTimeout` method will be called on `response.stream.session`.\n\n`pause`, `read`, `resume`, and `write` will throw an error with code `ERR_HTTP2_NO_SOCKET_MANIPULATION`. See `Http2Session and Sockets` for\nmore information.\n\nAll other interactions will be routed directly to the socket.\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer((req, res) => {\n  const ip = req.socket.remoteAddress;\n  const port = req.socket.remotePort;\n  res.end(`Your IP address is ${ip} and your source port is ${port}.`);\n}).listen(3000);\n```",
+      "translated": "`net.Socket`(または `tls.TLSSocket`)として振る舞うが、HTTP/2 のロジックに基づいてゲッター・セッター・メソッドを適用する `Proxy` オブジェクトを返す。\n\n`destroyed`・`readable`・`writable` プロパティは `response.stream` から取得・設定される。\n\n`destroy`・`emit`・`end`・`on`・`once` メソッドは `response.stream` で呼ばれる。\n\n`setTimeout` メソッドは `response.stream.session` で呼ばれる。\n\n`pause`・`read`・`resume`・`write` はコード `ERR_HTTP2_NO_SOCKET_MANIPULATION` のエラーを投げる。詳細は `Http2Session and Sockets` を参照。\n\n他のすべてのやり取りは直接ソケットにルーティングされる。\n\n```js\nimport http2 from 'node:http2';\nconst server = http2.createServer((req, res) => {\n  const ip = req.socket.remoteAddress;\n  const port = req.socket.remotePort;\n  res.end(`Your IP address is ${ip} and your source port is ${port}.`);\n}).listen(3000);\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.socket",
+      "lang": "ja"
+    },
+    "74edec0c": {
+      "original": "Status message is not supported by HTTP/2 (RFC 7540 8.1.2.4). It returns\nan empty string.",
+      "translated": "ステータスメッセージは HTTP/2 ではサポートされない(RFC 7540 8.1.2.4)。空文字列を返す。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.statusMessage",
+      "lang": "ja"
+    },
+    "738d3e3a": {
+      "original": "The `Http2Stream` object backing the response.",
+      "translated": "レスポンスの裏付けとなる `Http2Stream` オブジェクト。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.stream",
+      "lang": "ja"
+    },
+    "ddf60621": {
+      "original": "If this method is called and `response.writeHead()` has not been called,\nit will switch to implicit header mode and flush the implicit headers.\n\nThis sends a chunk of the response body. This method may\nbe called multiple times to provide successive parts of the body.\n\nIn the `node:http` module, the response body is omitted when the\nrequest is a HEAD request. Similarly, the `204` and `304` responses _must not_ include a message body.\n\n`chunk` can be a string or a buffer. If `chunk` is a string,\nthe second parameter specifies how to encode it into a byte stream.\nBy default the `encoding` is `'utf8'`. `callback` will be called when this chunk\nof data is flushed.\n\nThis is the raw HTTP body and has nothing to do with higher-level multi-part\nbody encodings that may be used.\n\nThe first time `response.write()` is called, it will send the buffered\nheader information and the first chunk of the body to the client. The second\ntime `response.write()` is called, Node.js assumes data will be streamed,\nand sends the new data separately. That is, the response is buffered up to the\nfirst chunk of the body.\n\nReturns `true` if the entire data was flushed successfully to the kernel\nbuffer. Returns `false` if all or part of the data was queued in user memory.`'drain'` will be emitted when the buffer is free again.",
+      "translated": "このメソッドが呼ばれ、`response.writeHead()` が呼ばれていない場合、暗黙的ヘッダーモードに切り替わり、暗黙的なヘッダーをフラッシュする。\n\nこれはレスポンスボディのチャンクを送信する。このメソッドは、ボディの連続する部分を提供するために複数回呼べる。\n\n`node:http` モジュールでは、リクエストが HEAD リクエストの場合、レスポンスボディは省略される。同様に、`204` と `304` のレスポンスはメッセージボディを含めては_ならない_。\n\n`chunk` は文字列またはバッファでよい。`chunk` が文字列の場合、第 2 パラメーターはそれをバイトストリームにどうエンコードするかを指定する。既定では `encoding` は `'utf8'` である。`callback` はこのデータチャンクがフラッシュされたときに呼ばれる。\n\nこれは生の HTTP ボディであり、使われることのあるより高レベルなマルチパートボディエンコードとは無関係である。\n\n`response.write()` が最初に呼ばれたとき、バッファリングされたヘッダー情報とボディの最初のチャンクをクライアントに送信する。`response.write()` が 2 回目に呼ばれたとき、Node.js はデータがストリーミングされると仮定し、新しいデータを別々に送信する。すなわち、レスポンスはボディの最初のチャンクまでバッファリングされる。\n\nデータ全体がカーネルバッファに正常にフラッシュされた場合は `true` を返す。データの全部または一部がユーザーメモリにキューされた場合は `false` を返す。バッファが再び空になると `'drain'` が発行される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.write",
+      "lang": "ja"
+    },
+    "d5083dd6": {
+      "original": "Sends a status `100 Continue` to the client, indicating that the request body\nshould be sent. See the `'checkContinue'` event on `Http2Server` and `Http2SecureServer`.",
+      "translated": "クライアントにステータス `100 Continue` を送信し、リクエストボディを送信すべきことを示す。`Http2Server` と `Http2SecureServer` の `'checkContinue'` イベントを参照。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.writeContinue",
+      "lang": "ja"
+    },
+    "7aba8e87": {
+      "original": "Sends a status `103 Early Hints` to the client with a Link header,\nindicating that the user agent can preload/preconnect the linked resources.\nThe `hints` is an object containing the values of headers to be sent with\nearly hints message.\n\n**Example**\n\n```js\nconst earlyHintsLink = '</styles.css>; rel=preload; as=style';\nresponse.writeEarlyHints({\n  'link': earlyHintsLink,\n});\n\nconst earlyHintsLinks = [\n  '</styles.css>; rel=preload; as=style',\n  '</scripts.js>; rel=preload; as=script',\n];\nresponse.writeEarlyHints({\n  'link': earlyHintsLinks,\n});\n```",
+      "translated": "Link ヘッダーとともにクライアントにステータス `103 Early Hints` を送信し、ユーザーエージェントがリンクされたリソースをプリロード/プリコネクトできることを示す。`hints` は、early hints メッセージとともに送信するヘッダーの値を含むオブジェクトである。\n\n**例**\n\n```js\nconst earlyHintsLink = '</styles.css>; rel=preload; as=style';\nresponse.writeEarlyHints({\n  'link': earlyHintsLink,\n});\n\nconst earlyHintsLinks = [\n  '</styles.css>; rel=preload; as=style',\n  '</scripts.js>; rel=preload; as=script',\n];\nresponse.writeEarlyHints({\n  'link': earlyHintsLinks,\n});\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.writeEarlyHints",
+      "lang": "ja"
+    },
+    "16954bce": {
+      "original": "Sends a response header to the request. The status code is a 3-digit HTTP\nstatus code, like `404`. The last argument, `headers`, are the response headers.\n\nReturns a reference to the `Http2ServerResponse`, so that calls can be chained.\n\nFor compatibility with `HTTP/1`, a human-readable `statusMessage` may be\npassed as the second argument. However, because the `statusMessage` has no\nmeaning within HTTP/2, the argument will have no effect and a process warning\nwill be emitted.\n\n```js\nconst body = 'hello world';\nresponse.writeHead(200, {\n  'Content-Length': Buffer.byteLength(body),\n  'Content-Type': 'text/plain; charset=utf-8',\n});\n```\n\n`Content-Length` is given in bytes not characters. The`Buffer.byteLength()` API may be used to determine the number of bytes in a\ngiven encoding. On outbound messages, Node.js does not check if Content-Length\nand the length of the body being transmitted are equal or not. However, when\nreceiving messages, Node.js will automatically reject messages when the `Content-Length` does not match the actual payload size.\n\nThis method may be called at most one time on a message before `response.end()` is called.\n\nIf `response.write()` or `response.end()` are called before calling\nthis, the implicit/mutable headers will be calculated and call this function.\n\nWhen headers have been set with `response.setHeader()`, they will be merged\nwith any headers passed to `response.writeHead()`, with the headers passed\nto `response.writeHead()` given precedence.\n\n```js\n// Returns content-type = text/plain\nconst server = http2.createServer((req, res) => {\n  res.setHeader('Content-Type', 'text/html; charset=utf-8');\n  res.setHeader('X-Foo', 'bar');\n  res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });\n  res.end('ok');\n});\n```\n\nAttempting to set a header field name or value that contains invalid characters\nwill result in a `TypeError` being thrown.",
+      "translated": "リクエストにレスポンスヘッダーを送信する。ステータスコードは `404` のような 3 桁の HTTP ステータスコードである。最後の引数 `headers` はレスポンスヘッダーである。\n\n呼び出しをチェーンできるよう、`Http2ServerResponse` への参照を返す。\n\n`HTTP/1` との互換性のため、人間が読める `statusMessage` を第 2 引数として渡せる。ただし、`statusMessage` は HTTP/2 内では意味を持たないため、この引数は効果がなく、プロセス警告が発行される。\n\n```js\nconst body = 'hello world';\nresponse.writeHead(200, {\n  'Content-Length': Buffer.byteLength(body),\n  'Content-Type': 'text/plain; charset=utf-8',\n});\n```\n\n`Content-Length` は文字数ではなくバイト数で与えられる。指定したエンコーディングでのバイト数を判定するには `Buffer.byteLength()` API を使える。送信メッセージでは、Node.js は Content-Length と送信されるボディの長さが等しいかどうかを確認しない。ただし、メッセージを受信するとき、Node.js は `Content-Length` が実際のペイロードサイズと一致しないメッセージを自動的に拒否する。\n\nこのメソッドは、`response.end()` が呼ばれる前に、メッセージに対して最大 1 回呼べる。\n\nこれを呼ぶ前に `response.write()` または `response.end()` が呼ばれた場合、暗黙的/可変のヘッダーが計算され、この関数が呼ばれる。\n\n`response.setHeader()` でヘッダーが設定されている場合、それらは `response.writeHead()` に渡されたヘッダーとマージされ、`response.writeHead()` に渡されたヘッダーが優先される。\n\n```js\n// Returns content-type = text/plain\nconst server = http2.createServer((req, res) => {\n  res.setHeader('Content-Type', 'text/html; charset=utf-8');\n  res.setHeader('X-Foo', 'bar');\n  res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });\n  res.end('ok');\n});\n```\n\n無効な文字を含むヘッダーフィールド名または値を設定しようとすると、`TypeError` が投げられる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2ServerResponse.writeHead",
+      "lang": "ja"
+    },
+    "ccbef07c": {
+      "original": "Value will be `undefined` if the `Http2Session` is not yet connected to a\nsocket, `h2c` if the `Http2Session` is not connected to a `TLSSocket`, or\nwill return the value of the connected `TLSSocket`'s own `alpnProtocol` property.",
+      "translated": "`Http2Session` がまだソケットに接続されていない場合、値は `undefined` になる。`Http2Session` が `TLSSocket` に接続されていない場合は `h2c` になる。そうでなければ、接続された `TLSSocket` 自身の `alpnProtocol` プロパティの値を返す。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.alpnProtocol",
+      "lang": "ja"
+    },
+    "550ac1b0": {
+      "original": "Gracefully closes the `Http2Session`, allowing any existing streams to\ncomplete on their own and preventing new `Http2Stream` instances from being\ncreated. Once closed, `http2session.destroy()`_might_ be called if there\nare no open `Http2Stream` instances.\n\nIf specified, the `callback` function is registered as a handler for the`'close'` event.",
+      "translated": "`Http2Session` を穏やかに閉じ、既存のストリームがそれぞれ完了できるようにし、新しい `Http2Stream` インスタンスの作成を防ぐ。いったん閉じられると、開いている `Http2Stream` インスタンスがない場合、`http2session.destroy()` が呼ばれる_ことがある_。\n\n指定された場合、`callback` 関数は `'close'` イベントのハンドラとして登録される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.close",
+      "lang": "ja"
+    },
+    "02ed0016": {
+      "original": "Will be `true` if this `Http2Session` instance has been closed, otherwise `false`.",
+      "translated": "この `Http2Session` インスタンスが閉じられている場合は `true`、そうでなければ `false` になる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.closed",
+      "lang": "ja"
+    },
+    "cb4f1520": {
+      "original": "Will be `true` if this `Http2Session` instance is still connecting, will be set\nto `false` before emitting `connect` event and/or calling the `http2.connect` callback.",
+      "translated": "この `Http2Session` インスタンスがまだ接続中の場合は `true` になる。`connect` イベントを発行する前、かつ/または `http2.connect` コールバックを呼ぶ前に `false` に設定される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.connecting",
+      "lang": "ja"
+    },
+    "53bbb12c": {
+      "original": "An `Error` object if the `Http2Session` is being destroyed due to an error.",
+      "translated": "`Http2Session` がエラーのために破棄される場合の `Error` オブジェクト。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.destroy",
+      "lang": "ja"
+    },
+    "169bd41e": {
+      "original": "Immediately terminates the `Http2Session` and the associated `net.Socket` or `tls.TLSSocket`.\n\nOnce destroyed, the `Http2Session` will emit the `'close'` event. If `error` is not undefined, an `'error'` event will be emitted immediately before the `'close'` event.\n\nIf there are any remaining open `Http2Streams` associated with the `Http2Session`, those will also be destroyed.",
+      "translated": "`Http2Session` と関連する `net.Socket` または `tls.TLSSocket` を即座に終了する。\n\nいったん破棄されると、`Http2Session` は `'close'` イベントを発行する。`error` が undefined でない場合、`'close'` イベントの直前に `'error'` イベントが発行される。\n\n`Http2Session` に関連する開いている `Http2Stream` が残っている場合、それらも破棄される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.destroy",
+      "lang": "ja"
+    },
     "78a6ad93": {
       "original": "The directory name of the current module. This is the same as the\n`path.dirname()` of the `__filename`.",
       "translated": "現在のモジュールのディレクトリ名。これは `__filename` の `path.dirname()` と同じである。",
