@@ -70,6 +70,12 @@
       "symbol": "@types/node/crypto.d.ts#crypto.constants.defaultCoreCipherList",
       "lang": "ja"
     },
+    "22326939": {
+      "original": "Specifies the column number offset that is displayed in stack traces produced by this script.",
+      "translated": "このスクリプトが生成するスタックトレースに表示される列番号のオフセットを指定する。",
+      "symbol": "@types/node/vm.d.ts#vm.BaseOptions.columnOffset",
+      "lang": "ja"
+    },
     "23911876": {
       "original": "Passing `chunk` as `null` signals the end of the stream (EOF) and behaves the\nsame as `readable.push(null)`, after which no more data can be written. The EOF\nsignal is put at the end of the buffer and any buffered data will still be\nflushed.\n\nThe `readable.unshift()` method pushes a chunk of data back into the internal\nbuffer. This is useful in certain situations where a stream is being consumed by\ncode that needs to \"un-consume\" some amount of data that it has optimistically\npulled out of the source, so that the data can be passed on to some other party.\n\nThe `stream.unshift(chunk)` method cannot be called after the `'end'` event\nhas been emitted or a runtime error will be thrown.\n\nDevelopers using `stream.unshift()` often should consider switching to\nuse of a `Transform` stream instead. See the `API for stream implementers` section for more information.\n\n```js\n// Pull off a header delimited by \\n\\n.\n// Use unshift() if we get too much.\n// Call the callback with (error, header, stream).\nimport { StringDecoder } from 'node:string_decoder';\nfunction parseHeader(stream, callback) {\n  stream.on('error', callback);\n  stream.on('readable', onReadable);\n  const decoder = new StringDecoder('utf8');\n  let header = '';\n  function onReadable() {\n    let chunk;\n    while (null !== (chunk = stream.read())) {\n      const str = decoder.write(chunk);\n      if (str.includes('\\n\\n')) {\n        // Found the header boundary.\n        const split = str.split(/\\n\\n/);\n        header += split.shift();\n        const remaining = split.join('\\n\\n');\n        const buf = Buffer.from(remaining, 'utf8');\n        stream.removeListener('error', callback);\n        // Remove the 'readable' listener before unshifting.\n        stream.removeListener('readable', onReadable);\n        if (buf.length)\n          stream.unshift(buf);\n        // Now the body of the message can be read from the stream.\n        callback(null, header, stream);\n        return;\n      }\n      // Still reading the header.\n      header += str;\n    }\n  }\n}\n```\n\nUnlike {@link push}, `stream.unshift(chunk)` will not\nend the reading process by resetting the internal reading state of the stream.\nThis can cause unexpected results if `readable.unshift()` is called during a\nread (i.e. from within a {@link _read} implementation on a\ncustom stream). Following the call to `readable.unshift()` with an immediate {@link push} will reset the reading state appropriately,\nhowever it is best to simply avoid calling `readable.unshift()` while in the\nprocess of performing a read.",
       "translated": "`chunk` を `null` として渡すとストリームの終了(EOF)を通知し、`readable.push(null)` と同じように動作する。それ以降はデータを書き込めなくなる。EOF 信号はバッファの末尾に置かれ、バッファリングされたデータはそれでもフラッシュされる。\n\n`readable.unshift()` メソッドは、データのチャンクを内部バッファに戻す。これは、ストリームを消費するコードが、ソースから楽観的に取り出した一定量のデータを「消費し直す(un-consume)」必要があり、そのデータを別の当事者に渡せるようにする特定の状況で役立つ。\n\n`stream.unshift(chunk)` メソッドは、`'end'` イベントが発行された後には呼べない。呼ぶと実行時エラーが投げられる。\n\n`stream.unshift()` を頻繁に使う開発者は、代わりに `Transform` ストリームの使用への切り替えを検討すべきである。詳細は `API for stream implementers` セクションを参照。\n\n```js\n// Pull off a header delimited by \\n\\n.\n// Use unshift() if we get too much.\n// Call the callback with (error, header, stream).\nimport { StringDecoder } from 'node:string_decoder';\nfunction parseHeader(stream, callback) {\n  stream.on('error', callback);\n  stream.on('readable', onReadable);\n  const decoder = new StringDecoder('utf8');\n  let header = '';\n  function onReadable() {\n    let chunk;\n    while (null !== (chunk = stream.read())) {\n      const str = decoder.write(chunk);\n      if (str.includes('\\n\\n')) {\n        // Found the header boundary.\n        const split = str.split(/\\n\\n/);\n        header += split.shift();\n        const remaining = split.join('\\n\\n');\n        const buf = Buffer.from(remaining, 'utf8');\n        stream.removeListener('error', callback);\n        // Remove the 'readable' listener before unshifting.\n        stream.removeListener('readable', onReadable);\n        if (buf.length)\n          stream.unshift(buf);\n        // Now the body of the message can be read from the stream.\n        callback(null, header, stream);\n        return;\n      }\n      // Still reading the header.\n      header += str;\n    }\n  }\n}\n```\n\n{@link push} とは異なり、`stream.unshift(chunk)` はストリームの内部読み取り状態をリセットして読み取り処理を終了させることはない。これは、読み取り中(すなわちカスタムストリームの {@link _read} 実装内)に `readable.unshift()` が呼ばれると予期しない結果を引き起こすことがある。`readable.unshift()` の呼び出しの直後に {@link push} を続けると読み取り状態が適切にリセットされるが、読み取りを実行している最中は単に `readable.unshift()` の呼び出しを避けるのが最善である。",
@@ -122,6 +128,12 @@
       "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating readable, writable and executable by others.",
       "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。その他による読み取り・書き込み・実行が可能なことを示すファイルモード。",
       "symbol": "@types/node/fs.d.ts#fs.constants.S_IRWXO",
+      "lang": "ja"
+    },
+    "47302309": {
+      "original": "This feature is only available with the `--experimental-vm-modules` command\nflag enabled.\n\nThe `vm.Module` class provides a low-level interface for using\nECMAScript modules in VM contexts. It is the counterpart of the `vm.Script` class that closely mirrors [Module Record](https://262.ecma-international.org/14.0/#sec-abstract-module-records) s as\ndefined in the ECMAScript\nspecification.\n\nUnlike `vm.Script` however, every `vm.Module` object is bound to a context from\nits creation. Operations on `vm.Module` objects are intrinsically asynchronous,\nin contrast with the synchronous nature of `vm.Script` objects. The use of\n'async' functions can help with manipulating `vm.Module` objects.\n\nUsing a `vm.Module` object requires three distinct steps: creation/parsing,\nlinking, and evaluation. These three steps are illustrated in the following\nexample.\n\nThis implementation lies at a lower level than the `ECMAScript Module\nloader`. There is also no way to interact with the Loader yet, though\nsupport is planned.\n\n```js\nimport vm from 'node:vm';\n\nconst contextifiedObject = vm.createContext({\n  secret: 42,\n  print: console.log,\n});\n\n// Step 1\n//\n// Create a Module by constructing a new `vm.SourceTextModule` object. This\n// parses the provided source text, throwing a `SyntaxError` if anything goes\n// wrong. By default, a Module is created in the top context. But here, we\n// specify `contextifiedObject` as the context this Module belongs to.\n//\n// Here, we attempt to obtain the default export from the module \"foo\", and\n// put it into local binding \"secret\".\n\nconst bar = new vm.SourceTextModule(`\n  import s from 'foo';\n  s;\n  print(s);\n`, { context: contextifiedObject });\n\n// Step 2\n//\n// \"Link\" the imported dependencies of this Module to it.\n//\n// The provided linking callback (the \"linker\") accepts two arguments: the\n// parent module (`bar` in this case) and the string that is the specifier of\n// the imported module. The callback is expected to return a Module that\n// corresponds to the provided specifier, with certain requirements documented\n// in `module.link()`.\n//\n// If linking has not started for the returned Module, the same linker\n// callback will be called on the returned Module.\n//\n// Even top-level Modules without dependencies must be explicitly linked. The\n// callback provided would never be called, however.\n//\n// The link() method returns a Promise that will be resolved when all the\n// Promises returned by the linker resolve.\n//\n// Note: This is a contrived example in that the linker function creates a new\n// \"foo\" module every time it is called. In a full-fledged module system, a\n// cache would probably be used to avoid duplicated modules.\n\nasync function linker(specifier, referencingModule) {\n  if (specifier === 'foo') {\n    return new vm.SourceTextModule(`\n      // The \"secret\" variable refers to the global variable we added to\n      // \"contextifiedObject\" when creating the context.\n      export default secret;\n    `, { context: referencingModule.context });\n\n    // Using `contextifiedObject` instead of `referencingModule.context`\n    // here would work as well.\n  }\n  throw new Error(`Unable to resolve dependency: ${specifier}`);\n}\nawait bar.link(linker);\n\n// Step 3\n//\n// Evaluate the Module. The evaluate() method returns a promise which will\n// resolve after the module has finished evaluating.\n\n// Prints 42.\nawait bar.evaluate();\n```",
+      "translated": "この機能は `--experimental-vm-modules` コマンドフラグが有効な場合にのみ利用できる。\n\n`vm.Module` クラスは、VM コンテキストで ECMAScript モジュールを使うための低レベルのインターフェースを提供する。これは、ECMAScript 仕様で定義された [Module Record](https://262.ecma-international.org/14.0/#sec-abstract-module-records) を密接に反映する `vm.Script` クラスの対応物である。\n\nただし `vm.Script` とは異なり、すべての `vm.Module` オブジェクトはその作成時にコンテキストに束縛される。`vm.Module` オブジェクトの操作は本質的に非同期であり、`vm.Script` オブジェクトの同期的な性質とは対照的である。'async' 関数を使うと `vm.Module` オブジェクトの操作に役立つ。\n\n`vm.Module` オブジェクトの使用には 3 つの異なるステップが必要である: 作成/解析、リンク、評価。これら 3 つのステップは次の例で示される。\n\nこの実装は `ECMAScript Module loader` より低いレベルにある。まだローダーとやり取りする方法もないが、サポートは計画されている。\n\n```js\nimport vm from 'node:vm';\n\nconst contextifiedObject = vm.createContext({\n  secret: 42,\n  print: console.log,\n});\n\n// Step 1\n//\n// Create a Module by constructing a new `vm.SourceTextModule` object. This\n// parses the provided source text, throwing a `SyntaxError` if anything goes\n// wrong. By default, a Module is created in the top context. But here, we\n// specify `contextifiedObject` as the context this Module belongs to.\n//\n// Here, we attempt to obtain the default export from the module \"foo\", and\n// put it into local binding \"secret\".\n\nconst bar = new vm.SourceTextModule(`\n  import s from 'foo';\n  s;\n  print(s);\n`, { context: contextifiedObject });\n\n// Step 2\n//\n// \"Link\" the imported dependencies of this Module to it.\n//\n// The provided linking callback (the \"linker\") accepts two arguments: the\n// parent module (`bar` in this case) and the string that is the specifier of\n// the imported module. The callback is expected to return a Module that\n// corresponds to the provided specifier, with certain requirements documented\n// in `module.link()`.\n//\n// If linking has not started for the returned Module, the same linker\n// callback will be called on the returned Module.\n//\n// Even top-level Modules without dependencies must be explicitly linked. The\n// callback provided would never be called, however.\n//\n// The link() method returns a Promise that will be resolved when all the\n// Promises returned by the linker resolve.\n//\n// Note: This is a contrived example in that the linker function creates a new\n// \"foo\" module every time it is called. In a full-fledged module system, a\n// cache would probably be used to avoid duplicated modules.\n\nasync function linker(specifier, referencingModule) {\n  if (specifier === 'foo') {\n    return new vm.SourceTextModule(`\n      // The \"secret\" variable refers to the global variable we added to\n      // \"contextifiedObject\" when creating the context.\n      export default secret;\n    `, { context: referencingModule.context });\n\n    // Using `contextifiedObject` instead of `referencingModule.context`\n    // here would work as well.\n  }\n  throw new Error(`Unable to resolve dependency: ${specifier}`);\n}\nawait bar.link(linker);\n\n// Step 3\n//\n// Evaluate the Module. The evaluate() method returns a promise which will\n// resolve after the module has finished evaluating.\n\n// Prints 42.\nawait bar.evaluate();\n```",
+      "symbol": "@types/node/vm.d.ts#vm.Module",
       "lang": "ja"
     },
     "48727216": {
@@ -14216,6 +14228,174 @@
       "original": "The filename where the snapshot was saved.",
       "translated": "スナップショットが保存されたファイル名。",
       "symbol": "@types/node/v8.d.ts#v8.writeHeapSnapshot",
+      "lang": "ja"
+    },
+    "f463b209": {
+      "original": "The `node:vm` module enables compiling and running code within V8 Virtual\nMachine contexts.\n\n**The `node:vm` module is not a security**\n**mechanism. Do not use it to run untrusted code.**\n\nJavaScript code can be compiled and run immediately or\ncompiled, saved, and run later.\n\nA common use case is to run the code in a different V8 Context. This means\ninvoked code has a different global object than the invoking code.\n\nOne can provide the context by `contextifying` an\nobject. The invoked code treats any property in the context like a\nglobal variable. Any changes to global variables caused by the invoked\ncode are reflected in the context object.\n\n```js\nimport vm from 'node:vm';\n\nconst x = 1;\n\nconst context = { x: 2 };\nvm.createContext(context); // Contextify the object.\n\nconst code = 'x += 40; var y = 17;';\n// `x` and `y` are global variables in the context.\n// Initially, x has the value 2 because that is the value of context.x.\nvm.runInContext(code, context);\n\nconsole.log(context.x); // 42\nconsole.log(context.y); // 17\n\nconsole.log(x); // 1; y is not defined.\n```",
+      "translated": "`node:vm` モジュールは、V8 の仮想マシンコンテキスト内でコードをコンパイル・実行できるようにする。\n\n**`node:vm` モジュールはセキュリティの仕組みではない。信頼できないコードを実行するために使わないこと。**\n\nJavaScript コードは、すぐにコンパイル・実行することも、コンパイル・保存して後で実行することもできる。\n\n一般的なユースケースは、コードを別の V8 コンテキストで実行することである。これは、呼び出されるコードが呼び出す側のコードと異なるグローバルオブジェクトを持つことを意味する。\n\nオブジェクトを `contextify` することでコンテキストを提供できる。呼び出されるコードは、コンテキスト内の任意のプロパティをグローバル変数のように扱う。呼び出されるコードによるグローバル変数への変更は、コンテキストオブジェクトに反映される。\n\n```js\nimport vm from 'node:vm';\n\nconst x = 1;\n\nconst context = { x: 2 };\nvm.createContext(context); // Contextify the object.\n\nconst code = 'x += 40; var y = 17;';\n// `x` and `y` are global variables in the context.\n// Initially, x has the value 2 because that is the value of context.x.\nvm.runInContext(code, context);\n\nconsole.log(context.x); // 42\nconsole.log(context.y); // 17\n\nconsole.log(x); // 1; y is not defined.\n```",
+      "symbol": "@types/node/vm.d.ts#vm",
+      "lang": "ja"
+    },
+    "4f7eabd3": {
+      "original": "Specifies the filename used in stack traces produced by this script.",
+      "translated": "このスクリプトが生成するスタックトレースで使われるファイル名を指定する。",
+      "symbol": "@types/node/vm.d.ts#vm.BaseOptions.filename",
+      "lang": "ja"
+    },
+    "fc47d2f9": {
+      "original": "Specifies the line number offset that is displayed in stack traces produced by this script.",
+      "translated": "このスクリプトが生成するスタックトレースに表示される行番号のオフセットを指定する。",
+      "symbol": "@types/node/vm.d.ts#vm.BaseOptions.lineOffset",
+      "lang": "ja"
+    },
+    "5965550e": {
+      "original": "An array of strings containing all parameters for the function.",
+      "translated": "関数のすべてのパラメーターを含む文字列の配列。",
+      "symbol": "@types/node/vm.d.ts#vm.compileFunction",
+      "lang": "ja"
+    },
+    "9e087080": {
+      "original": "Compiles the given code into the provided context (if no context is\nsupplied, the current context is used), and returns it wrapped inside a\nfunction with the given `params`.",
+      "translated": "指定したコードを、提供されたコンテキスト(コンテキストが指定されない場合は現在のコンテキスト)にコンパイルし、指定した `params` を持つ関数の中にラップして返す。",
+      "symbol": "@types/node/vm.d.ts#vm.compileFunction",
+      "lang": "ja"
+    },
+    "2b652b63": {
+      "original": "The body of the function to compile.",
+      "translated": "コンパイルする関数の本体。",
+      "symbol": "@types/node/vm.d.ts#vm.compileFunction",
+      "lang": "ja"
+    },
+    "4a72f703": {
+      "original": "An array containing a collection of context extensions (objects wrapping the current scope) to be applied while compiling",
+      "translated": "コンパイル中に適用する、コンテキスト拡張(現在のスコープをラップするオブジェクト)のコレクションを含む配列。",
+      "symbol": "@types/node/vm.d.ts#vm.CompileFunctionOptions.contextExtensions",
+      "lang": "ja"
+    },
+    "0c8b04ae": {
+      "original": "The sandbox/context in which the said function should be compiled in.",
+      "translated": "その関数をコンパイルするサンドボックス/コンテキスト。",
+      "symbol": "@types/node/vm.d.ts#vm.CompileFunctionOptions.parsingContext",
+      "lang": "ja"
+    },
+    "8293f472": {
+      "original": "Returns an object containing commonly used constants for VM operations.",
+      "translated": "VM 操作でよく使われる定数を含むオブジェクトを返す。",
+      "symbol": "@types/node/vm.d.ts#vm.constants",
+      "lang": "ja"
+    },
+    "34b4d599": {
+      "original": "This constant, when used as the `contextObject` argument in vm APIs, instructs Node.js to create\na context without wrapping its global object with another object in a Node.js-specific manner.\nAs a result, the `globalThis` value inside the new context would behave more closely to an ordinary\none.\n\nWhen `vm.constants.DONT_CONTEXTIFY` is used as the `contextObject` argument to {@link createContext},\nthe returned object is a proxy-like object to the global object in the newly created context with\nfewer Node.js-specific quirks. It is reference equal to the `globalThis` value in the new context,\ncan be modified from outside the context, and can be used to access built-ins in the new context directly.",
+      "translated": "この定数は、vm API の `contextObject` 引数として使われると、そのグローバルオブジェクトを Node.js 固有の方法で別のオブジェクトでラップせずにコンテキストを作成するよう Node.js に指示する。その結果、新しいコンテキスト内の `globalThis` 値は通常のものに近い挙動をする。\n\n`vm.constants.DONT_CONTEXTIFY` が {@link createContext} の `contextObject` 引数として使われると、返されるオブジェクトは、新しく作成されたコンテキスト内のグローバルオブジェクトへの、Node.js 固有の癖がより少ないプロキシのようなオブジェクトになる。それは新しいコンテキストの `globalThis` 値と参照が等しく、コンテキストの外から変更でき、新しいコンテキスト内の組み込みに直接アクセスするために使える。",
+      "symbol": "@types/node/vm.d.ts#vm.constants.DONT_CONTEXTIFY",
+      "lang": "ja"
+    },
+    "e21d16c7": {
+      "original": "A constant that can be used as the `importModuleDynamically` option to `vm.Script`\nand `vm.compileFunction()` so that Node.js uses the default ESM loader from the main\ncontext to load the requested module.\n\nFor detailed information, see [Support of dynamic `import()` in compilation APIs](https://nodejs.org/docs/latest-v22.x/api/vm.html#support-of-dynamic-import-in-compilation-apis).",
+      "translated": "`vm.Script` と `vm.compileFunction()` の `importModuleDynamically` オプションとして使える定数で、Node.js がメインコンテキストの既定の ESM ローダーを使って要求されたモジュールを読み込むようにする。\n\n詳細な情報は [Support of dynamic `import()` in compilation APIs](https://nodejs.org/docs/latest-v22.x/api/vm.html#support-of-dynamic-import-in-compilation-apis) を参照。",
+      "symbol": "@types/node/vm.d.ts#vm.constants.USE_MAIN_CONTEXT_DEFAULT_LOADER",
+      "lang": "ja"
+    },
+    "f758cfc4": {
+      "original": "contextified object.",
+      "translated": "contextify されたオブジェクト。",
+      "symbol": "@types/node/vm.d.ts#vm.createContext",
+      "lang": "ja"
+    },
+    "f11fcd88": {
+      "original": "If the given `contextObject` is an object, the `vm.createContext()` method will\n[prepare that object](https://nodejs.org/docs/latest-v22.x/api/vm.html#what-does-it-mean-to-contextify-an-object)\nand return a reference to it so that it can be used in calls to {@link runInContext} or\n[`script.runInContext()`](https://nodejs.org/docs/latest-v22.x/api/vm.html#scriptrunincontextcontextifiedobject-options).\nInside such scripts, the global object will be wrapped by the `contextObject`, retaining all of its\nexisting properties but also having the built-in objects and functions any standard\n[global object](https://es5.github.io/#x15.1) has. Outside of scripts run by the vm module, global\nvariables will remain unchanged.\n\n```js\nconst vm = require('node:vm');\n\nglobal.globalVar = 3;\n\nconst context = { globalVar: 1 };\nvm.createContext(context);\n\nvm.runInContext('globalVar *= 2;', context);\n\nconsole.log(context);\n// Prints: { globalVar: 2 }\n\nconsole.log(global.globalVar);\n// Prints: 3\n```\n\nIf `contextObject` is omitted (or passed explicitly as `undefined`), a new,\nempty contextified object will be returned.\n\nWhen the global object in the newly created context is contextified, it has some quirks\ncompared to ordinary global objects. For example, it cannot be frozen. To create a context\nwithout the contextifying quirks, pass `vm.constants.DONT_CONTEXTIFY` as the `contextObject`\nargument. See the documentation of `vm.constants.DONT_CONTEXTIFY` for details.\n\nThe `vm.createContext()` method is primarily useful for creating a single\ncontext that can be used to run multiple scripts. For instance, if emulating a\nweb browser, the method can be used to create a single context representing a\nwindow's global object, then run all `<script>` tags together within that\ncontext.\n\nThe provided `name` and `origin` of the context are made visible through the\nInspector API.",
+      "translated": "指定した `contextObject` がオブジェクトの場合、`vm.createContext()` メソッドは[そのオブジェクトを準備し](https://nodejs.org/docs/latest-v22.x/api/vm.html#what-does-it-mean-to-contextify-an-object)、{@link runInContext} や [`script.runInContext()`](https://nodejs.org/docs/latest-v22.x/api/vm.html#scriptrunincontextcontextifiedobject-options) の呼び出しで使えるようにその参照を返す。そのようなスクリプト内では、グローバルオブジェクトが `contextObject` によってラップされ、その既存のすべてのプロパティを保持しつつ、任意の標準の[グローバルオブジェクト](https://es5.github.io/#x15.1)が持つ組み込みのオブジェクトと関数も持つ。vm モジュールが実行するスクリプトの外では、グローバル変数は変わらないままである。\n\n```js\nconst vm = require('node:vm');\n\nglobal.globalVar = 3;\n\nconst context = { globalVar: 1 };\nvm.createContext(context);\n\nvm.runInContext('globalVar *= 2;', context);\n\nconsole.log(context);\n// Prints: { globalVar: 2 }\n\nconsole.log(global.globalVar);\n// Prints: 3\n```\n\n`contextObject` が省略された(または明示的に `undefined` として渡された)場合、新しい空の contextify されたオブジェクトが返される。\n\n新しく作成されたコンテキスト内のグローバルオブジェクトが contextify されると、通常のグローバルオブジェクトと比べていくつかの癖を持つ。たとえば、それを凍結できない。contextify の癖のないコンテキストを作成するには、`contextObject` 引数として `vm.constants.DONT_CONTEXTIFY` を渡す。詳細は `vm.constants.DONT_CONTEXTIFY` のドキュメントを参照。\n\n`vm.createContext()` メソッドは主に、複数のスクリプトを実行するために使える単一のコンテキストを作成するのに役立つ。たとえば、Web ブラウザーをエミュレートする場合、このメソッドを使って window のグローバルオブジェクトを表す単一のコンテキストを作成してから、そのコンテキスト内ですべての `<script>` タグをまとめて実行できる。\n\n提供されたコンテキストの `name` と `origin` は、Inspector API を通じて可視化される。",
+      "symbol": "@types/node/vm.d.ts#vm.createContext",
+      "lang": "ja"
+    },
+    "6a1829fa": {
+      "original": "If set to false any calls to eval or function constructors (Function, GeneratorFunction, etc)\nwill throw an EvalError.",
+      "translated": "false に設定した場合、eval や関数コンストラクター(Function・GeneratorFunction など)への呼び出しは EvalError を投げる。",
+      "symbol": "@types/node/vm.d.ts#vm.CreateContextOptions.codeGeneration.strings",
+      "lang": "ja"
+    },
+    "8ad344ed": {
+      "original": "If set to false any attempt to compile a WebAssembly module will throw a WebAssembly.CompileError.",
+      "translated": "false に設定した場合、WebAssembly モジュールをコンパイルしようとすると WebAssembly.CompileError を投げる。",
+      "symbol": "@types/node/vm.d.ts#vm.CreateContextOptions.codeGeneration.wasm",
+      "lang": "ja"
+    },
+    "6a405d15": {
+      "original": "If set to `afterEvaluate`, microtasks will be run immediately after the script has run.",
+      "translated": "`afterEvaluate` に設定した場合、スクリプトが実行された直後にマイクロタスクが実行される。",
+      "symbol": "@types/node/vm.d.ts#vm.CreateContextOptions.microtaskMode",
+      "lang": "ja"
+    },
+    "5b5fc90b": {
+      "original": "Corresponds to the newly created context for display purposes.\nThe origin should be formatted like a `URL`, but with only the scheme, host, and port (if necessary),\nlike the value of the `url.origin` property of a URL object.\nMost notably, this string should omit the trailing slash, as that denotes a path.",
+      "translated": "表示目的で新しく作成されたコンテキストに対応する。origin は `URL` のように書式設定されるべきだが、URL オブジェクトの `url.origin` プロパティの値のように、スキーム・ホスト・(必要なら)ポートのみを含むべきである。特に、この文字列は末尾のスラッシュを省くべきである。それはパスを示すからである。",
+      "symbol": "@types/node/vm.d.ts#vm.CreateContextOptions.origin",
+      "lang": "ja"
+    },
+    "ca93f777": {
+      "original": "Returns `true` if the given `object` object has been contextified using {@link createContext},\nor if it's the global object of a context created using `vm.constants.DONT_CONTEXTIFY`.",
+      "translated": "指定した `object` オブジェクトが {@link createContext} を使って contextify されている場合、または `vm.constants.DONT_CONTEXTIFY` を使って作成されたコンテキストのグローバルオブジェクトである場合、`true` を返す。",
+      "symbol": "@types/node/vm.d.ts#vm.isContext",
+      "lang": "ja"
+    },
+    "0c230ea2": {
+      "original": "Measure the memory known to V8 and used by all contexts known to the\ncurrent V8 isolate, or the main context.\n\nThe format of the object that the returned Promise may resolve with is\nspecific to the V8 engine and may change from one version of V8 to the next.\n\nThe returned result is different from the statistics returned by `v8.getHeapSpaceStatistics()` in that `vm.measureMemory()` measure the\nmemory reachable by each V8 specific contexts in the current instance of\nthe V8 engine, while the result of `v8.getHeapSpaceStatistics()` measure\nthe memory occupied by each heap space in the current V8 instance.\n\n```js\nimport vm from 'node:vm';\n// Measure the memory used by the main context.\nvm.measureMemory({ mode: 'summary' })\n  // This is the same as vm.measureMemory()\n  .then((result) => {\n    // The current format is:\n    // {\n    //   total: {\n    //      jsMemoryEstimate: 2418479, jsMemoryRange: [ 2418479, 2745799 ]\n    //    }\n    // }\n    console.log(result);\n  });\n\nconst context = vm.createContext({ a: 1 });\nvm.measureMemory({ mode: 'detailed', execution: 'eager' })\n  .then((result) => {\n    // Reference the context here so that it won't be GC'ed\n    // until the measurement is complete.\n    console.log(context.a);\n    // {\n    //   total: {\n    //     jsMemoryEstimate: 2574732,\n    //     jsMemoryRange: [ 2574732, 2904372 ]\n    //   },\n    //   current: {\n    //     jsMemoryEstimate: 2438996,\n    //     jsMemoryRange: [ 2438996, 2768636 ]\n    //   },\n    //   other: [\n    //     {\n    //       jsMemoryEstimate: 135736,\n    //       jsMemoryRange: [ 135736, 465376 ]\n    //     }\n    //   ]\n    // }\n    console.log(result);\n  });\n```",
+      "translated": "V8 が把握し、現在の V8 isolate が把握するすべてのコンテキスト、またはメインコンテキストが使うメモリを測定する。\n\n返される Promise が解決し得るオブジェクトの形式は V8 エンジンに固有で、V8 のバージョンごとに変わることがある。\n\n返される結果は `v8.getHeapSpaceStatistics()` が返す統計と異なる。`vm.measureMemory()` は現在の V8 エンジンのインスタンス内の各 V8 固有コンテキストから到達可能なメモリを測定するのに対し、`v8.getHeapSpaceStatistics()` の結果は現在の V8 インスタンス内の各ヒープ space が占有するメモリを測定する。\n\n```js\nimport vm from 'node:vm';\n// Measure the memory used by the main context.\nvm.measureMemory({ mode: 'summary' })\n  // This is the same as vm.measureMemory()\n  .then((result) => {\n    // The current format is:\n    // {\n    //   total: {\n    //      jsMemoryEstimate: 2418479, jsMemoryRange: [ 2418479, 2745799 ]\n    //    }\n    // }\n    console.log(result);\n  });\n\nconst context = vm.createContext({ a: 1 });\nvm.measureMemory({ mode: 'detailed', execution: 'eager' })\n  .then((result) => {\n    // Reference the context here so that it won't be GC'ed\n    // until the measurement is complete.\n    console.log(context.a);\n    // {\n    //   total: {\n    //     jsMemoryEstimate: 2574732,\n    //     jsMemoryRange: [ 2574732, 2904372 ]\n    //   },\n    //   current: {\n    //     jsMemoryEstimate: 2438996,\n    //     jsMemoryRange: [ 2438996, 2768636 ]\n    //   },\n    //   other: [\n    //     {\n    //       jsMemoryEstimate: 135736,\n    //       jsMemoryRange: [ 135736, 465376 ]\n    //     }\n    //   ]\n    // }\n    console.log(result);\n  });\n```",
+      "symbol": "@types/node/vm.d.ts#vm.measureMemory",
+      "lang": "ja"
+    },
+    "7eb8b5fb": {
+      "original": "If the `module.status` is `'errored'`, this property contains the exception\nthrown by the module during evaluation. If the status is anything else,\naccessing this property will result in a thrown exception.\n\nThe value `undefined` cannot be used for cases where there is not a thrown\nexception due to possible ambiguity with `throw undefined;`.\n\nCorresponds to the `[[EvaluationError]]` field of [Cyclic Module Record](https://tc39.es/ecma262/#sec-cyclic-module-records) s\nin the ECMAScript specification.",
+      "translated": "`module.status` が `'errored'` の場合、このプロパティは評価中にモジュールが投げた例外を含む。status が他の何かの場合、このプロパティにアクセスすると例外が投げられる。\n\n投げられた例外がない場合には値 `undefined` を使えない。`throw undefined;` とのあいまいさが生じ得るからである。\n\nECMAScript 仕様の [Cyclic Module Record](https://tc39.es/ecma262/#sec-cyclic-module-records) の `[[EvaluationError]]` フィールドに対応する。",
+      "symbol": "@types/node/vm.d.ts#vm.Module.error",
+      "lang": "ja"
+    },
+    "c6dc0f0a": {
+      "original": "Evaluate the module.\n\nThis must be called after the module has been linked; otherwise it will reject.\nIt could be called also when the module has already been evaluated, in which\ncase it will either do nothing if the initial evaluation ended in success\n(`module.status` is `'evaluated'`) or it will re-throw the exception that the\ninitial evaluation resulted in (`module.status` is `'errored'`).\n\nThis method cannot be called while the module is being evaluated\n(`module.status` is `'evaluating'`).\n\nCorresponds to the [Evaluate() concrete method](https://tc39.es/ecma262/#sec-moduleevaluation) field of [Cyclic Module Record](https://tc39.es/ecma262/#sec-cyclic-module-records) s in the\nECMAScript specification.",
+      "translated": "モジュールを評価する。\n\nこれはモジュールがリンクされた後に呼ばなければならず、そうでなければ拒否する。モジュールがすでに評価されているときにも呼べる。その場合、最初の評価が成功で終わった(`module.status` が `'evaluated'`)なら何もしないか、最初の評価が生じた例外を再スロー(`module.status` が `'errored'`)する。\n\nこのメソッドは、モジュールが評価中(`module.status` が `'evaluating'`)の間は呼べない。\n\nECMAScript 仕様の [Cyclic Module Record](https://tc39.es/ecma262/#sec-cyclic-module-records) の [Evaluate() 具体メソッド](https://tc39.es/ecma262/#sec-moduleevaluation)フィールドに対応する。",
+      "symbol": "@types/node/vm.d.ts#vm.Module.evaluate",
+      "lang": "ja"
+    },
+    "33efb955": {
+      "original": "The identifier of the current module, as set in the constructor.",
+      "translated": "コンストラクターで設定された、現在のモジュールの識別子。",
+      "symbol": "@types/node/vm.d.ts#vm.Module.identifier",
+      "lang": "ja"
+    },
+    "be41af55": {
+      "original": "Link module dependencies. This method must be called before evaluation, and\ncan only be called once per module.\n\nThe function is expected to return a `Module` object or a `Promise` that\neventually resolves to a `Module` object. The returned `Module` must satisfy the\nfollowing two invariants:\n\n* It must belong to the same context as the parent `Module`.\n* Its `status` must not be `'errored'`.\n\nIf the returned `Module`'s `status` is `'unlinked'`, this method will be\nrecursively called on the returned `Module` with the same provided `linker` function.\n\n`link()` returns a `Promise` that will either get resolved when all linking\ninstances resolve to a valid `Module`, or rejected if the linker function either\nthrows an exception or returns an invalid `Module`.\n\nThe linker function roughly corresponds to the implementation-defined [HostResolveImportedModule](https://tc39.es/ecma262/#sec-hostresolveimportedmodule) abstract operation in the\nECMAScript\nspecification, with a few key differences:\n\n* The linker function is allowed to be asynchronous while [HostResolveImportedModule](https://tc39.es/ecma262/#sec-hostresolveimportedmodule) is synchronous.\n\nThe actual [HostResolveImportedModule](https://tc39.es/ecma262/#sec-hostresolveimportedmodule) implementation used during module\nlinking is one that returns the modules linked during linking. Since at\nthat point all modules would have been fully linked already, the [HostResolveImportedModule](https://tc39.es/ecma262/#sec-hostresolveimportedmodule) implementation is fully synchronous per\nspecification.\n\nCorresponds to the [Link() concrete method](https://tc39.es/ecma262/#sec-moduledeclarationlinking) field of [Cyclic Module Record](https://tc39.es/ecma262/#sec-cyclic-module-records) s in\nthe ECMAScript specification.",
+      "translated": "モジュールの依存関係をリンクする。このメソッドは評価の前に呼ばなければならず、モジュールごとに一度だけ呼べる。\n\nこの関数は `Module` オブジェクト、または最終的に `Module` オブジェクトに解決する `Promise` を返すことが期待される。返される `Module` は次の 2 つの不変条件を満たさなければならない:\n\n* 親 `Module` と同じコンテキストに属さなければならない。\n* その `status` は `'errored'` であってはならない。\n\n返された `Module` の `status` が `'unlinked'` の場合、このメソッドは同じ提供された `linker` 関数で、返された `Module` に対して再帰的に呼ばれる。\n\n`link()` は、すべてのリンクインスタンスが有効な `Module` に解決したときに解決するか、linker 関数が例外を投げるか無効な `Module` を返した場合に拒否する `Promise` を返す。\n\nlinker 関数は、ECMAScript 仕様の実装定義の [HostResolveImportedModule](https://tc39.es/ecma262/#sec-hostresolveimportedmodule) 抽象操作におおよそ対応するが、いくつかの重要な違いがある:\n\n* linker 関数は非同期であることが許可されるが、[HostResolveImportedModule](https://tc39.es/ecma262/#sec-hostresolveimportedmodule) は同期である。\n\nモジュールのリンク中に使われる実際の [HostResolveImportedModule](https://tc39.es/ecma262/#sec-hostresolveimportedmodule) 実装は、リンク中にリンクされたモジュールを返すものである。その時点ですべてのモジュールはすでに完全にリンクされているため、[HostResolveImportedModule](https://tc39.es/ecma262/#sec-hostresolveimportedmodule) 実装は仕様どおり完全に同期である。\n\nECMAScript 仕様の [Cyclic Module Record](https://tc39.es/ecma262/#sec-cyclic-module-records) の [Link() 具体メソッド](https://tc39.es/ecma262/#sec-moduledeclarationlinking)フィールドに対応する。",
+      "symbol": "@types/node/vm.d.ts#vm.Module.link",
+      "lang": "ja"
+    },
+    "02c557e5": {
+      "original": "The namespace object of the module. This is only available after linking\n(`module.link()`) has completed.\n\nCorresponds to the [GetModuleNamespace](https://tc39.es/ecma262/#sec-getmodulenamespace) abstract operation in the ECMAScript\nspecification.",
+      "translated": "モジュールの namespace オブジェクト。これはリンク(`module.link()`)が完了した後にのみ利用できる。\n\nECMAScript 仕様の [GetModuleNamespace](https://tc39.es/ecma262/#sec-getmodulenamespace) 抽象操作に対応する。",
+      "symbol": "@types/node/vm.d.ts#vm.Module.namespace",
+      "lang": "ja"
+    },
+    "bfe1efae": {
+      "original": "The current status of the module. Will be one of:\n\n* `'unlinked'`: `module.link()` has not yet been called.\n* `'linking'`: `module.link()` has been called, but not all Promises returned\nby the linker function have been resolved yet.\n* `'linked'`: The module has been linked successfully, and all of its\ndependencies are linked, but `module.evaluate()` has not yet been called.\n* `'evaluating'`: The module is being evaluated through a `module.evaluate()` on\nitself or a parent module.\n* `'evaluated'`: The module has been successfully evaluated.\n* `'errored'`: The module has been evaluated, but an exception was thrown.\n\nOther than `'errored'`, this status string corresponds to the specification's [Cyclic Module Record](https://tc39.es/ecma262/#sec-cyclic-module-records)'s `[[Status]]` field. `'errored'`\ncorresponds to `'evaluated'` in the specification, but with `[[EvaluationError]]` set to a\nvalue that is not `undefined`.",
+      "translated": "モジュールの現在の status。次のいずれかになる:\n\n* `'unlinked'`: `module.link()` がまだ呼ばれていない。\n* `'linking'`: `module.link()` が呼ばれたが、linker 関数が返したすべての Promise がまだ解決していない。\n* `'linked'`: モジュールが正常にリンクされ、そのすべての依存関係もリンクされているが、`module.evaluate()` はまだ呼ばれていない。\n* `'evaluating'`: モジュールが、自身または親モジュールに対する `module.evaluate()` を通じて評価されている。\n* `'evaluated'`: モジュールが正常に評価された。\n* `'errored'`: モジュールが評価されたが、例外が投げられた。\n\n`'errored'` を除いて、この status 文字列は仕様の [Cyclic Module Record](https://tc39.es/ecma262/#sec-cyclic-module-records) の `[[Status]]` フィールドに対応する。`'errored'` は仕様の `'evaluated'` に対応するが、`[[EvaluationError]]` が `undefined` でない値に設定されている。",
+      "symbol": "@types/node/vm.d.ts#vm.Module.status",
+      "lang": "ja"
+    },
+    "1f280789": {
+      "original": "A `ModuleRequest` represents the request to import a module with given import attributes and phase.",
+      "translated": "`ModuleRequest` は、指定した import 属性とフェーズでモジュールをインポートする要求を表す。",
+      "symbol": "@types/node/vm.d.ts#vm.ModuleRequest",
+      "lang": "ja"
+    },
+    "6af2bdc6": {
+      "original": "The `\"with\"` value passed to the `WithClause` in a `ImportDeclaration`, or an empty object if no value was\nprovided.",
+      "translated": "`ImportDeclaration` の `WithClause` に渡された `\"with\"` の値。値が提供されなかった場合は空のオブジェクト。",
+      "symbol": "@types/node/vm.d.ts#vm.ModuleRequest.attributes",
+      "lang": "ja"
+    },
+    "15833a4b": {
+      "original": "The specifier of the requested module.",
+      "translated": "要求されたモジュールの specifier。",
+      "symbol": "@types/node/vm.d.ts#vm.ModuleRequest.specifier",
       "lang": "ja"
     }
   }
