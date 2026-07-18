@@ -76,6 +76,12 @@
       "symbol": "@types/node/util.d.ts#util.TextDecoder.ignoreBOM",
       "lang": "ja"
     },
+    "31944169": {
+      "original": "Like `url.fileURLToPath(...)` except that instead of returning a string\nrepresentation of the path, a `Buffer` is returned. This conversion is\nhelpful when the input URL contains percent-encoded segments that are\nnot valid UTF-8 / Unicode sequences.",
+      "translated": "`url.fileURLToPath(...)` と同様だが、パスの文字列表現を返す代わりに `Buffer` を返す。この変換は、入力 URL が有効な UTF-8 / Unicode 列でないパーセントエンコードされたセグメントを含む場合に役立つ。",
+      "symbol": "@types/node/url.d.ts#url.fileURLToPathBuffer",
+      "lang": "ja"
+    },
     "34979629": {
       "original": "The certificate issuer, described in the same terms as the `subject`.",
       "translated": "証明書の issuer。`subject` と同じ用語で記述される。",
@@ -11960,6 +11966,180 @@
       "original": "An optional Buffer instance containing a TLS session.",
       "translated": "TLS セッションを含む省略可能な Buffer インスタンス。",
       "symbol": "@types/node/tls.d.ts#tls.TLSSocketOptions.session",
+      "lang": "ja"
+    },
+    "fc22a5ac": {
+      "original": "The `node:url` module provides utilities for URL resolution and parsing. It can\nbe accessed using:\n\n```js\nimport url from 'node:url';\n```",
+      "translated": "`node:url` モジュールは、URL の解決と解析のためのユーティリティを提供する。次のようにアクセスできる:\n\n```js\nimport url from 'node:url';\n```",
+      "symbol": "@types/node/url.d.ts#url",
+      "lang": "ja"
+    },
+    "91b6b04f": {
+      "original": "Returns the [Punycode](https://tools.ietf.org/html/rfc5891#section-4.4) ASCII serialization of the `domain`. If `domain` is an\ninvalid domain, the empty string is returned.\n\nIt performs the inverse operation to {@link domainToUnicode}.\n\n```js\nimport url from 'node:url';\n\nconsole.log(url.domainToASCII('español.com'));\n// Prints xn--espaol-zwa.com\nconsole.log(url.domainToASCII('中文.com'));\n// Prints xn--fiq228c.com\nconsole.log(url.domainToASCII('xn--iñvalid.com'));\n// Prints an empty string\n```",
+      "translated": "`domain` の [Punycode](https://tools.ietf.org/html/rfc5891#section-4.4) ASCII シリアライズを返す。`domain` が無効なドメインの場合、空文字列が返される。\n\nこれは {@link domainToUnicode} の逆の操作を実行する。\n\n```js\nimport url from 'node:url';\n\nconsole.log(url.domainToASCII('español.com'));\n// Prints xn--espaol-zwa.com\nconsole.log(url.domainToASCII('中文.com'));\n// Prints xn--fiq228c.com\nconsole.log(url.domainToASCII('xn--iñvalid.com'));\n// Prints an empty string\n```",
+      "symbol": "@types/node/url.d.ts#url.domainToASCII",
+      "lang": "ja"
+    },
+    "45882a94": {
+      "original": "Returns the Unicode serialization of the `domain`. If `domain` is an invalid\ndomain, the empty string is returned.\n\nIt performs the inverse operation to {@link domainToASCII}.\n\n```js\nimport url from 'node:url';\n\nconsole.log(url.domainToUnicode('xn--espaol-zwa.com'));\n// Prints español.com\nconsole.log(url.domainToUnicode('xn--fiq228c.com'));\n// Prints 中文.com\nconsole.log(url.domainToUnicode('xn--iñvalid.com'));\n// Prints an empty string\n```",
+      "translated": "`domain` の Unicode シリアライズを返す。`domain` が無効なドメインの場合、空文字列が返される。\n\nこれは {@link domainToASCII} の逆の操作を実行する。\n\n```js\nimport url from 'node:url';\n\nconsole.log(url.domainToUnicode('xn--espaol-zwa.com'));\n// Prints español.com\nconsole.log(url.domainToUnicode('xn--fiq228c.com'));\n// Prints 中文.com\nconsole.log(url.domainToUnicode('xn--iñvalid.com'));\n// Prints an empty string\n```",
+      "symbol": "@types/node/url.d.ts#url.domainToUnicode",
+      "lang": "ja"
+    },
+    "d7696a0f": {
+      "original": "The file URL string or URL object to convert to a path.",
+      "translated": "パスに変換するファイル URL 文字列または URL オブジェクト。",
+      "symbol": "@types/node/url.d.ts#url.fileURLToPath",
+      "lang": "ja"
+    },
+    "09f00e06": {
+      "original": "The fully-resolved platform-specific Node.js file path.",
+      "translated": "完全に解決されたプラットフォーム固有の Node.js ファイルパス。",
+      "symbol": "@types/node/url.d.ts#url.fileURLToPath",
+      "lang": "ja"
+    },
+    "ae7c695a": {
+      "original": "This function ensures the correct decodings of percent-encoded characters as\nwell as ensuring a cross-platform valid absolute path string.\n\n```js\nimport { fileURLToPath } from 'node:url';\n\nconst __filename = fileURLToPath(import.meta.url);\n\nnew URL('file:///C:/path/').pathname;      // Incorrect: /C:/path/\nfileURLToPath('file:///C:/path/');         // Correct:   C:\\path\\ (Windows)\n\nnew URL('file://nas/foo.txt').pathname;    // Incorrect: /foo.txt\nfileURLToPath('file://nas/foo.txt');       // Correct:   \\\\nas\\foo.txt (Windows)\n\nnew URL('file:///你好.txt').pathname;      // Incorrect: /%E4%BD%A0%E5%A5%BD.txt\nfileURLToPath('file:///你好.txt');         // Correct:   /你好.txt (POSIX)\n\nnew URL('file:///hello world').pathname;   // Incorrect: /hello%20world\nfileURLToPath('file:///hello world');      // Correct:   /hello world (POSIX)\n```",
+      "translated": "この関数は、パーセントエンコードされた文字の正しいデコードと、クロスプラットフォームで有効な絶対パス文字列を保証する。\n\n```js\nimport { fileURLToPath } from 'node:url';\n\nconst __filename = fileURLToPath(import.meta.url);\n\nnew URL('file:///C:/path/').pathname;      // Incorrect: /C:/path/\nfileURLToPath('file:///C:/path/');         // Correct:   C:\\path\\ (Windows)\n\nnew URL('file://nas/foo.txt').pathname;    // Incorrect: /foo.txt\nfileURLToPath('file://nas/foo.txt');       // Correct:   \\\\nas\\foo.txt (Windows)\n\nnew URL('file:///你好.txt').pathname;      // Incorrect: /%E4%BD%A0%E5%A5%BD.txt\nfileURLToPath('file:///你好.txt');         // Correct:   /你好.txt (POSIX)\n\nnew URL('file:///hello world').pathname;   // Incorrect: /hello%20world\nfileURLToPath('file:///hello world');      // Correct:   /hello world (POSIX)\n```",
+      "symbol": "@types/node/url.d.ts#url.fileURLToPath",
+      "lang": "ja"
+    },
+    "362ae032": {
+      "original": "The fully-resolved platform-specific Node.js file path\nas a `Buffer`.",
+      "translated": "完全に解決されたプラットフォーム固有の Node.js ファイルパスを `Buffer` として返したもの。",
+      "symbol": "@types/node/url.d.ts#url.fileURLToPathBuffer",
+      "lang": "ja"
+    },
+    "1bb3595e": {
+      "original": "`true` if the `path` should be return as a windows filepath, `false` for posix, and `undefined` for the system default.",
+      "translated": "`path` を windows のファイルパスとして返すべき場合は `true`、posix の場合は `false`、システムの既定の場合は `undefined`。",
+      "symbol": "@types/node/url.d.ts#url.FileUrlToPathOptions.windows",
+      "lang": "ja"
+    },
+    "2c1b093b": {
+      "original": "A URL object (as returned by `url.parse()` or constructed otherwise). If a string, it is converted to an object by passing it to `url.parse()`.",
+      "translated": "URL オブジェクト(`url.parse()` が返したもの、または別途構築されたもの)。文字列の場合、`url.parse()` に渡してオブジェクトに変換される。",
+      "symbol": "@types/node/url.d.ts#url.format",
+      "lang": "ja"
+    },
+    "74317e19": {
+      "original": "The `url.format()` method returns a formatted URL string derived from `urlObject`.\n\n```js\nimport url from 'node:url';\nurl.format({\n  protocol: 'https',\n  hostname: 'example.com',\n  pathname: '/some/path',\n  query: {\n    page: 1,\n    format: 'json',\n  },\n});\n\n// => 'https://example.com/some/path?page=1&#x26;format=json'\n```\n\nIf `urlObject` is not an object or a string, `url.format()` will throw a `TypeError`.\n\nThe formatting process operates as follows:\n\n* A new empty string `result` is created.\n* If `urlObject.protocol` is a string, it is appended as-is to `result`.\n* Otherwise, if `urlObject.protocol` is not `undefined` and is not a string, an `Error` is thrown.\n* For all string values of `urlObject.protocol` that _do not end_ with an ASCII\ncolon (`:`) character, the literal string `:` will be appended to `result`.\n* If either of the following conditions is true, then the literal string `//` will be appended to `result`:\n   * `urlObject.slashes` property is true;\n   * `urlObject.protocol` begins with `http`, `https`, `ftp`, `gopher`, or `file`;\n* If the value of the `urlObject.auth` property is truthy, and either `urlObject.host` or `urlObject.hostname` are not `undefined`, the value of `urlObject.auth` will be coerced into a string\nand appended to `result` followed by the literal string `@`.\n* If the `urlObject.host` property is `undefined` then:\n   * If the `urlObject.hostname` is a string, it is appended to `result`.\n   * Otherwise, if `urlObject.hostname` is not `undefined` and is not a string,\n   an `Error` is thrown.\n   * If the `urlObject.port` property value is truthy, and `urlObject.hostname` is not `undefined`:\n         * The literal string `:` is appended to `result`, and\n         * The value of `urlObject.port` is coerced to a string and appended to `result`.\n* Otherwise, if the `urlObject.host` property value is truthy, the value of `urlObject.host` is coerced to a string and appended to `result`.\n* If the `urlObject.pathname` property is a string that is not an empty string:\n   * If the `urlObject.pathname` _does not start_ with an ASCII forward slash\n   (`/`), then the literal string `'/'` is appended to `result`.\n   * The value of `urlObject.pathname` is appended to `result`.\n* Otherwise, if `urlObject.pathname` is not `undefined` and is not a string, an `Error` is thrown.\n* If the `urlObject.search` property is `undefined` and if the `urlObject.query`property is an `Object`, the literal string `?` is appended to `result` followed by the output of calling the\n`querystring` module's `stringify()` method passing the value of `urlObject.query`.\n* Otherwise, if `urlObject.search` is a string:\n   * If the value of `urlObject.search` _does not start_ with the ASCII question\n   mark (`?`) character, the literal string `?` is appended to `result`.\n   * The value of `urlObject.search` is appended to `result`.\n* Otherwise, if `urlObject.search` is not `undefined` and is not a string, an `Error` is thrown.\n* If the `urlObject.hash` property is a string:\n   * If the value of `urlObject.hash` _does not start_ with the ASCII hash (`#`)\n   character, the literal string `#` is appended to `result`.\n   * The value of `urlObject.hash` is appended to `result`.\n* Otherwise, if the `urlObject.hash` property is not `undefined` and is not a\nstring, an `Error` is thrown.\n* `result` is returned.",
+      "translated": "`url.format()` メソッドは、`urlObject` から導出された書式設定された URL 文字列を返す。\n\n```js\nimport url from 'node:url';\nurl.format({\n  protocol: 'https',\n  hostname: 'example.com',\n  pathname: '/some/path',\n  query: {\n    page: 1,\n    format: 'json',\n  },\n});\n\n// => 'https://example.com/some/path?page=1&#x26;format=json'\n```\n\n`urlObject` がオブジェクトでも文字列でもない場合、`url.format()` は `TypeError` を投げる。\n\n書式設定処理は次のように動作する:\n\n* 新しい空文字列 `result` が作成される。\n* `urlObject.protocol` が文字列の場合、そのまま `result` に付加される。\n* そうでなく、`urlObject.protocol` が `undefined` でなく文字列でもない場合、`Error` が投げられる。\n* ASCII コロン(`:`)で_終わらない_すべての文字列値の `urlObject.protocol` について、リテラル文字列 `:` が `result` に付加される。\n* 次のいずれかの条件が真の場合、リテラル文字列 `//` が `result` に付加される:\n   * `urlObject.slashes` プロパティが true;\n   * `urlObject.protocol` が `http`・`https`・`ftp`・`gopher`・`file` で始まる;\n* `urlObject.auth` プロパティの値が truthy で、`urlObject.host` または `urlObject.hostname` のいずれかが `undefined` でない場合、`urlObject.auth` の値が文字列に強制変換され、リテラル文字列 `@` を続けて `result` に付加される。\n* `urlObject.host` プロパティが `undefined` の場合:\n   * `urlObject.hostname` が文字列の場合、`result` に付加される。\n   * そうでなく、`urlObject.hostname` が `undefined` でなく文字列でもない場合、`Error` が投げられる。\n   * `urlObject.port` プロパティの値が truthy で、`urlObject.hostname` が `undefined` でない場合:\n         * リテラル文字列 `:` が `result` に付加され、\n         * `urlObject.port` の値が文字列に強制変換され `result` に付加される。\n* そうでなく、`urlObject.host` プロパティの値が truthy の場合、`urlObject.host` の値が文字列に強制変換され `result` に付加される。\n* `urlObject.pathname` プロパティが空文字列でない文字列の場合:\n   * `urlObject.pathname` が ASCII のスラッシュ(`/`)で_始まらない_場合、リテラル文字列 `'/'` が `result` に付加される。\n   * `urlObject.pathname` の値が `result` に付加される。\n* そうでなく、`urlObject.pathname` が `undefined` でなく文字列でもない場合、`Error` が投げられる。\n* `urlObject.search` プロパティが `undefined` で `urlObject.query` プロパティが `Object` の場合、リテラル文字列 `?` が `result` に付加され、`urlObject.query` の値を渡して `querystring` モジュールの `stringify()` メソッドを呼んだ出力が続けて付加される。\n* そうでなく、`urlObject.search` が文字列の場合:\n   * `urlObject.search` の値が ASCII の疑問符(`?`)で_始まらない_場合、リテラル文字列 `?` が `result` に付加される。\n   * `urlObject.search` の値が `result` に付加される。\n* そうでなく、`urlObject.search` が `undefined` でなく文字列でもない場合、`Error` が投げられる。\n* `urlObject.hash` プロパティが文字列の場合:\n   * `urlObject.hash` の値が ASCII のハッシュ(`#`)で_始まらない_場合、リテラル文字列 `#` が `result` に付加される。\n   * `urlObject.hash` の値が `result` に付加される。\n* そうでなく、`urlObject.hash` プロパティが `undefined` でなく文字列でもない場合、`Error` が投げられる。\n* `result` が返される。",
+      "symbol": "@types/node/url.d.ts#url.format",
+      "lang": "ja"
+    },
+    "d3cb0ee7": {
+      "original": "`URL` class is a global reference for `import { URL } from 'url'`\nhttps://nodejs.org/api/url.html#the-whatwg-url-api",
+      "translated": "`URL` クラスは `import { URL } from 'url'` のグローバル参照である\nhttps://nodejs.org/api/url.html#the-whatwg-url-api",
+      "symbol": "@types/node/url.d.ts#url.global.URL",
+      "lang": "ja"
+    },
+    "c0d5500c": {
+      "original": "`URLSearchParams` class is a global reference for `import { URLSearchParams } from 'node:url'`\nhttps://nodejs.org/api/url.html#class-urlsearchparams",
+      "translated": "`URLSearchParams` クラスは `import { URLSearchParams } from 'node:url'` のグローバル参照である\nhttps://nodejs.org/api/url.html#class-urlsearchparams",
+      "symbol": "@types/node/url.d.ts#url.global.URLSearchParams",
+      "lang": "ja"
+    },
+    "2bdb0d85": {
+      "original": "If `true`, the `query` property will always be set to an object returned by the {@link querystring} module's `parse()` method. If `false`, the `query` property\non the returned URL object will be an unparsed, undecoded string.",
+      "translated": "`true` の場合、`query` プロパティは常に {@link querystring} モジュールの `parse()` メソッドが返すオブジェクトに設定される。`false` の場合、返される URL オブジェクトの `query` プロパティは、解析もデコードもされていない文字列になる。",
+      "symbol": "@types/node/url.d.ts#url.parse",
+      "lang": "ja"
+    },
+    "fb3f30c5": {
+      "original": "If `true`, the first token after the literal string `//` and preceding the next `/` will be interpreted as the `host`. For instance, given `//foo/bar`, the\nresult would be `{host: 'foo', pathname: '/bar'}` rather than `{pathname: '//foo/bar'}`.",
+      "translated": "`true` の場合、リテラル文字列 `//` の後で次の `/` の前にある最初のトークンが `host` として解釈される。たとえば `//foo/bar` が与えられた場合、結果は `{pathname: '//foo/bar'}` ではなく `{host: 'foo', pathname: '/bar'}` になる。",
+      "symbol": "@types/node/url.d.ts#url.parse",
+      "lang": "ja"
+    },
+    "4e26d5fc": {
+      "original": "The `url.parse()` method takes a URL string, parses it, and returns a URL\nobject.\n\nA `TypeError` is thrown if `urlString` is not a string.\n\nA `URIError` is thrown if the `auth` property is present but cannot be decoded.\n\n`url.parse()` uses a lenient, non-standard algorithm for parsing URL\nstrings. It is prone to security issues such as [host name spoofing](https://hackerone.com/reports/678487) and incorrect handling of usernames and passwords. Do not use with untrusted\ninput. CVEs are not issued for `url.parse()` vulnerabilities. Use the `WHATWG URL` API instead.",
+      "translated": "`url.parse()` メソッドは URL 文字列を受け取り、解析して URL オブジェクトを返す。\n\n`urlString` が文字列でない場合、`TypeError` が投げられる。\n\n`auth` プロパティが存在するがデコードできない場合、`URIError` が投げられる。\n\n`url.parse()` は、URL 文字列の解析に寛容で非標準なアルゴリズムを使う。[ホスト名スプーフィング](https://hackerone.com/reports/678487)や、ユーザー名とパスワードの不正な処理などのセキュリティ問題を起こしやすい。信頼できない入力には使わないこと。`url.parse()` の脆弱性に対して CVE は発行されない。代わりに `WHATWG URL` API を使うこと。",
+      "symbol": "@types/node/url.d.ts#url.parse",
+      "lang": "ja"
+    },
+    "360cef83": {
+      "original": "The URL string to parse.",
+      "translated": "解析する URL 文字列。",
+      "symbol": "@types/node/url.d.ts#url.parse",
+      "lang": "ja"
+    },
+    "6091cd5b": {
+      "original": "Use the WHATWG URL API instead.",
+      "translated": "代わりに WHATWG URL API を使うこと。",
+      "symbol": "@types/node/url.d.ts#url.parse",
+      "lang": "ja"
+    },
+    "9851a597": {
+      "original": "The file URL object.",
+      "translated": "ファイル URL オブジェクト。",
+      "symbol": "@types/node/url.d.ts#url.pathToFileURL",
+      "lang": "ja"
+    },
+    "4149cad3": {
+      "original": "The path to convert to a File URL.",
+      "translated": "File URL に変換するパス。",
+      "symbol": "@types/node/url.d.ts#url.pathToFileURL",
+      "lang": "ja"
+    },
+    "9caa695a": {
+      "original": "This function ensures that `path` is resolved absolutely, and that the URL\ncontrol characters are correctly encoded when converting into a File URL.\n\n```js\nimport { pathToFileURL } from 'node:url';\n\nnew URL('/foo#1', 'file:');           // Incorrect: file:///foo#1\npathToFileURL('/foo#1');              // Correct:   file:///foo%231 (POSIX)\n\nnew URL('/some/path%.c', 'file:');    // Incorrect: file:///some/path%.c\npathToFileURL('/some/path%.c');       // Correct:   file:///some/path%25.c (POSIX)\n```",
+      "translated": "この関数は、`path` が絶対的に解決され、File URL に変換する際に URL の制御文字が正しくエンコードされることを保証する。\n\n```js\nimport { pathToFileURL } from 'node:url';\n\nnew URL('/foo#1', 'file:');           // Incorrect: file:///foo#1\npathToFileURL('/foo#1');              // Correct:   file:///foo%231 (POSIX)\n\nnew URL('/some/path%.c', 'file:');    // Incorrect: file:///some/path%.c\npathToFileURL('/some/path%.c');       // Correct:   file:///some/path%25.c (POSIX)\n```",
+      "symbol": "@types/node/url.d.ts#url.pathToFileURL",
+      "lang": "ja"
+    },
+    "b1b82626": {
+      "original": "The `url.resolve()` method resolves a target URL relative to a base URL in a\nmanner similar to that of a web browser resolving an anchor tag.\n\n```js\nimport url from 'node:url';\nurl.resolve('/one/two/three', 'four');         // '/one/two/four'\nurl.resolve('http://example.com/', '/one');    // 'http://example.com/one'\nurl.resolve('http://example.com/one', '/two'); // 'http://example.com/two'\n```\n\nTo achieve the same result using the WHATWG URL API:\n\n```js\nfunction resolve(from, to) {\n  const resolvedUrl = new URL(to, new URL(from, 'resolve://'));\n  if (resolvedUrl.protocol === 'resolve:') {\n    // `from` is a relative URL.\n    const { pathname, search, hash } = resolvedUrl;\n    return pathname + search + hash;\n  }\n  return resolvedUrl.toString();\n}\n\nresolve('/one/two/three', 'four');         // '/one/two/four'\nresolve('http://example.com/', '/one');    // 'http://example.com/one'\nresolve('http://example.com/one', '/two'); // 'http://example.com/two'\n```",
+      "translated": "`url.resolve()` メソッドは、Web ブラウザーがアンカータグを解決するのと同様の方法で、ベース URL を基準にターゲット URL を解決する。\n\n```js\nimport url from 'node:url';\nurl.resolve('/one/two/three', 'four');         // '/one/two/four'\nurl.resolve('http://example.com/', '/one');    // 'http://example.com/one'\nurl.resolve('http://example.com/one', '/two'); // 'http://example.com/two'\n```\n\nWHATWG URL API を使って同じ結果を得るには:\n\n```js\nfunction resolve(from, to) {\n  const resolvedUrl = new URL(to, new URL(from, 'resolve://'));\n  if (resolvedUrl.protocol === 'resolve:') {\n    // `from` is a relative URL.\n    const { pathname, search, hash } = resolvedUrl;\n    return pathname + search + hash;\n  }\n  return resolvedUrl.toString();\n}\n\nresolve('/one/two/three', 'four');         // '/one/two/four'\nresolve('http://example.com/', '/one');    // 'http://example.com/one'\nresolve('http://example.com/one', '/two'); // 'http://example.com/two'\n```",
+      "symbol": "@types/node/url.d.ts#url.resolve",
+      "lang": "ja"
+    },
+    "1c0e7ef1": {
+      "original": "The base URL to use if `to` is a relative URL.",
+      "translated": "`to` が相対 URL の場合に使うベース URL。",
+      "symbol": "@types/node/url.d.ts#url.resolve",
+      "lang": "ja"
+    },
+    "bef83d0c": {
+      "original": "The target URL to resolve.",
+      "translated": "解決するターゲット URL。",
+      "symbol": "@types/node/url.d.ts#url.resolve",
+      "lang": "ja"
+    },
+    "d6c06a06": {
+      "original": "Browser-compatible `URL` class, implemented by following the WHATWG URL\nStandard. [Examples of parsed URLs](https://url.spec.whatwg.org/#example-url-parsing) may be found in the Standard itself.\nThe `URL` class is also available on the global object.\n\nIn accordance with browser conventions, all properties of `URL` objects\nare implemented as getters and setters on the class prototype, rather than as\ndata properties on the object itself. Thus, unlike `legacy urlObject`s,\nusing the `delete` keyword on any properties of `URL` objects (e.g. `delete myURL.protocol`, `delete myURL.pathname`, etc) has no effect but will still\nreturn `true`.",
+      "translated": "WHATWG URL Standard に従って実装された、ブラウザー互換の `URL` クラス。[解析された URL の例](https://url.spec.whatwg.org/#example-url-parsing)は Standard 自体にある。`URL` クラスはグローバルオブジェクトでも利用できる。\n\nブラウザーの慣例に従い、`URL` オブジェクトのすべてのプロパティは、オブジェクト自体のデータプロパティとしてではなく、クラスプロトタイプ上のゲッターとセッターとして実装されている。したがって、`legacy urlObject` とは異なり、`URL` オブジェクトの任意のプロパティに `delete` キーワードを使っても(たとえば `delete myURL.protocol`・`delete myURL.pathname` など)効果はないが、それでも `true` を返す。",
+      "symbol": "@types/node/url.d.ts#url.URL",
+      "lang": "ja"
+    },
+    "d62f93aa": {
+      "original": "Checks if an `input` relative to the `base` can be parsed to a `URL`.\n\n```js\nconst isValid = URL.canParse('/foo', 'https://example.org/'); // true\n\nconst isNotValid = URL.canParse('/foo'); // false\n```",
+      "translated": "`base` を基準とした `input` が `URL` に解析できるかどうかを確認する。\n\n```js\nconst isValid = URL.canParse('/foo', 'https://example.org/'); // true\n\nconst isNotValid = URL.canParse('/foo'); // false\n```",
+      "symbol": "@types/node/url.d.ts#url.URL.canParse",
+      "lang": "ja"
+    },
+    "37c895e6": {
+      "original": "The absolute or relative input URL to parse. If `input` is relative, then `base` is required. If `input` is absolute, the `base` is ignored. If `input` is not a string, it is\n`converted to a string` first.",
+      "translated": "解析する絶対または相対の入力 URL。`input` が相対の場合、`base` が必須である。`input` が絶対の場合、`base` は無視される。`input` が文字列でない場合、まず `文字列に変換される`。",
+      "symbol": "@types/node/url.d.ts#url.URL.canParse",
+      "lang": "ja"
+    },
+    "2526c04f": {
+      "original": "The base URL to resolve against if the `input` is not absolute. If `base` is not a string, it is `converted to a string` first.",
+      "translated": "`input` が絶対でない場合に解決の起点となるベース URL。`base` が文字列でない場合、まず `文字列に変換される`。",
+      "symbol": "@types/node/url.d.ts#url.URL.canParse",
+      "lang": "ja"
+    },
+    "9a7434c7": {
+      "original": "Creates a `'blob:nodedata:...'` URL string that represents the given `Blob` object and can be used to retrieve the `Blob` later.\n\n```js\nimport {\n  Blob,\n  resolveObjectURL,\n} from 'node:buffer';\n\nconst blob = new Blob(['hello']);\nconst id = URL.createObjectURL(blob);\n\n// later...\n\nconst otherBlob = resolveObjectURL(id);\nconsole.log(otherBlob.size);\n```\n\nThe data stored by the registered `Blob` will be retained in memory until `URL.revokeObjectURL()` is called to remove it.\n\n`Blob` objects are registered within the current thread. If using Worker\nThreads, `Blob` objects registered within one Worker will not be available\nto other workers or the main thread.",
+      "translated": "指定した `Blob` オブジェクトを表し、後で `Blob` を取得するために使える `'blob:nodedata:...'` URL 文字列を作成する。\n\n```js\nimport {\n  Blob,\n  resolveObjectURL,\n} from 'node:buffer';\n\nconst blob = new Blob(['hello']);\nconst id = URL.createObjectURL(blob);\n\n// later...\n\nconst otherBlob = resolveObjectURL(id);\nconsole.log(otherBlob.size);\n```\n\n登録された `Blob` が格納したデータは、`URL.revokeObjectURL()` が呼ばれて削除されるまでメモリに保持される。\n\n`Blob` オブジェクトは現在のスレッド内で登録される。Worker Threads を使う場合、あるワーカー内で登録された `Blob` オブジェクトは、他のワーカーやメインスレッドでは利用できない。",
+      "symbol": "@types/node/url.d.ts#url.URL.createObjectURL",
+      "lang": "ja"
+    },
+    "2b6fbd7b": {
+      "original": "Gets and sets the fragment portion of the URL.\n\n```js\nconst myURL = new URL('https://example.org/foo#bar');\nconsole.log(myURL.hash);\n// Prints #bar\n\nmyURL.hash = 'baz';\nconsole.log(myURL.href);\n// Prints https://example.org/foo#baz\n```\n\nInvalid URL characters included in the value assigned to the `hash` property\nare `percent-encoded`. The selection of which characters to\npercent-encode may vary somewhat from what the {@link parse} and {@link format} methods would produce.",
+      "translated": "URL のフラグメント部分を取得・設定する。\n\n```js\nconst myURL = new URL('https://example.org/foo#bar');\nconsole.log(myURL.hash);\n// Prints #bar\n\nmyURL.hash = 'baz';\nconsole.log(myURL.href);\n// Prints https://example.org/foo#baz\n```\n\n`hash` プロパティに代入された値に含まれる無効な URL 文字は `パーセントエンコード` される。パーセントエンコードする文字の選択は、{@link parse} と {@link format} メソッドが生成するものとやや異なることがある。",
+      "symbol": "@types/node/url.d.ts#url.URL.hash",
       "lang": "ja"
     },
     "6534767f": {
