@@ -70,6 +70,12 @@
       "symbol": "@types/node/tls.d.ts#tls.PeerCertificate.issuer",
       "lang": "ja"
     },
+    "38174421": {
+      "original": "An object whose key-value pairs represent the assertions for the module to import",
+      "translated": "インポートするモジュールのアサーションを表すキーと値のペアを持つオブジェクト",
+      "symbol": "@types/node/module.d.ts#module.Module.ResolveHookContext.importAttributes",
+      "lang": "ja"
+    },
     "42814359": {
       "original": "PEM formatted CRLs (Certificate Revocation Lists).",
       "translated": "PEM 形式の CRL(証明書失効リスト)。",
@@ -5966,6 +5972,252 @@
       "original": "The format optionally supplied by the `resolve` hook chain (can be an intermediary value).",
       "translated": "`resolve` フックチェーンによって任意で提供される format(中間値であり得る)。",
       "symbol": "@types/node/module.d.ts#module.Module.LoadHookContext.format",
+      "lang": "ja"
+    },
+    "ea812e39": {
+      "original": "Deregister the hook instance.",
+      "translated": "フックインスタンスの登録を解除する。",
+      "symbol": "@types/node/module.d.ts#module.Module.ModuleHooks.deregister",
+      "lang": "ja"
+    },
+    "5ba2da47": {
+      "original": "Customization hooks to be registered; this should be\nthe same string that would be passed to `import()`, except that if it is\nrelative, it is resolved relative to `parentURL`.",
+      "translated": "登録するカスタマイズフック。これは `import()` に渡すのと同じ文字列であるべきだが、相対の場合は `parentURL` を基準に解決される。",
+      "symbol": "@types/node/module.d.ts#module.Module.register",
+      "lang": "ja"
+    },
+    "a3bc3308": {
+      "original": "f you want to resolve `specifier` relative to a base\nURL, such as `import.meta.url`, you can pass that URL here.",
+      "translated": "`specifier` を `import.meta.url` などのベース URL を基準に解決したい場合、その URL をここに渡せる。",
+      "symbol": "@types/node/module.d.ts#module.Module.register",
+      "lang": "ja"
+    },
+    "931baef6": {
+      "original": "Register a module that exports hooks that customize Node.js module\nresolution and loading behavior. See\n[Customization hooks](https://nodejs.org/docs/latest-v22.x/api/module.html#customization-hooks).\n\nThis feature requires `--allow-worker` if used with the\n[Permission Model](https://nodejs.org/docs/latest-v22.x/api/permissions.html#permission-model).",
+      "translated": "Node.js のモジュール解決と読み込みの挙動をカスタマイズするフックをエクスポートするモジュールを登録する。[Customization hooks](https://nodejs.org/docs/latest-v22.x/api/module.html#customization-hooks) を参照。\n\nこの機能は、[Permission Model](https://nodejs.org/docs/latest-v22.x/api/permissions.html#permission-model) とともに使う場合、`--allow-worker` を必要とする。",
+      "symbol": "@types/node/module.d.ts#module.Module.register",
+      "lang": "ja"
+    },
+    "24257b5f": {
+      "original": "Register [hooks](https://nodejs.org/docs/latest-v22.x/api/module.html#customization-hooks)\nthat customize Node.js module resolution and loading behavior.",
+      "translated": "Node.js のモジュール解決と読み込みの挙動をカスタマイズする[フック](https://nodejs.org/docs/latest-v22.x/api/module.html#customization-hooks)を登録する。",
+      "symbol": "@types/node/module.d.ts#module.Module.registerHooks",
+      "lang": "ja"
+    },
+    "c7e4c7c3": {
+      "original": "See [load hook](https://nodejs.org/docs/latest-v22.x/api/module.html#loadurl-context-nextload).",
+      "translated": "[load フック](https://nodejs.org/docs/latest-v22.x/api/module.html#loadurl-context-nextload)を参照。",
+      "symbol": "@types/node/module.d.ts#module.Module.RegisterHooksOptions.load",
+      "lang": "ja"
+    },
+    "51ea79ea": {
+      "original": "See [resolve hook](https://nodejs.org/docs/latest-v22.x/api/module.html#resolvespecifier-context-nextresolve).",
+      "translated": "[resolve フック](https://nodejs.org/docs/latest-v22.x/api/module.html#resolvespecifier-context-nextresolve)を参照。",
+      "symbol": "@types/node/module.d.ts#module.Module.RegisterHooksOptions.resolve",
+      "lang": "ja"
+    },
+    "28d3a425": {
+      "original": "Any arbitrary, cloneable JavaScript value to pass into the\n{@link initialize} hook.",
+      "translated": "{@link initialize} フックに渡す、任意のクローン可能な JavaScript 値。",
+      "symbol": "@types/node/module.d.ts#module.Module.RegisterOptions.data",
+      "lang": "ja"
+    },
+    "822d2b16": {
+      "original": "If you want to resolve `specifier` relative to a\nbase URL, such as `import.meta.url`, you can pass that URL here. This\nproperty is ignored if the `parentURL` is supplied as the second argument.",
+      "translated": "`specifier` を `import.meta.url` などのベース URL を基準に解決したい場合、その URL をここに渡せる。第 2 引数として `parentURL` が指定された場合、このプロパティは無視される。",
+      "symbol": "@types/node/module.d.ts#module.Module.RegisterOptions.parentURL",
+      "lang": "ja"
+    },
+    "60ef9406": {
+      "original": "[Transferable objects](https://nodejs.org/docs/latest-v22.x/api/worker_threads.html#portpostmessagevalue-transferlist)\nto be passed into the `initialize` hook.",
+      "translated": "`initialize` フックに渡す[転送可能なオブジェクト](https://nodejs.org/docs/latest-v22.x/api/worker_threads.html#portpostmessagevalue-transferlist)。",
+      "symbol": "@types/node/module.d.ts#module.Module.RegisterOptions.transferList",
+      "lang": "ja"
+    },
+    "865bd740": {
+      "original": "A hint to the load hook (it might be ignored); can be an intermediary value.",
+      "translated": "load フックへのヒント(無視されることがある)。中間値であり得る。",
+      "symbol": "@types/node/module.d.ts#module.Module.ResolveFnOutput.format",
+      "lang": "ja"
+    },
+    "124944a8": {
+      "original": "The import attributes to use when caching the module (optional; if excluded the input will be used)",
+      "translated": "モジュールをキャッシュするときに使う import 属性(省略可能。除外された場合は入力が使われる)",
+      "symbol": "@types/node/module.d.ts#module.Module.ResolveFnOutput.importAttributes",
+      "lang": "ja"
+    },
+    "84caf332": {
+      "original": "A signal that this hook intends to terminate the chain of `resolve` hooks.",
+      "translated": "このフックが `resolve` フックのチェーンを終了させる意図があることを示す信号。",
+      "symbol": "@types/node/module.d.ts#module.Module.ResolveFnOutput.shortCircuit",
+      "lang": "ja"
+    },
+    "df01c6d3": {
+      "original": "The absolute URL to which this input resolves",
+      "translated": "この入力が解決される絶対 URL",
+      "symbol": "@types/node/module.d.ts#module.Module.ResolveFnOutput.url",
+      "lang": "ja"
+    },
+    "2294aa02": {
+      "original": "The `resolve` hook chain is responsible for telling Node.js where to find and\nhow to cache a given `import` statement or expression, or `require` call. It can\noptionally return a format (such as `'module'`) as a hint to the `load` hook. If\na format is specified, the `load` hook is ultimately responsible for providing\nthe final `format` value (and it is free to ignore the hint provided by\n`resolve`); if `resolve` provides a `format`, a custom `load` hook is required\neven if only to pass the value to the Node.js default `load` hook.",
+      "translated": "`resolve` フックチェーンは、指定した `import` 文や式、または `require` 呼び出しをどこで見つけどうキャッシュするかを Node.js に伝える責任を負う。任意で、`load` フックへのヒントとして format(たとえば `'module'`)を返せる。format が指定された場合、最終的な `format` 値を提供する責任は最終的に `load` フックにある(そして `resolve` が提供したヒントを無視してよい)。`resolve` が `format` を提供する場合、たとえその値を Node.js の既定の `load` フックに渡すだけであっても、カスタムの `load` フックが必要である。",
+      "symbol": "@types/node/module.d.ts#module.Module.ResolveHook",
+      "lang": "ja"
+    },
+    "b62387ee": {
+      "original": "Export conditions of the relevant `package.json`",
+      "translated": "関連する `package.json` の export 条件",
+      "symbol": "@types/node/module.d.ts#module.Module.ResolveHookContext.conditions",
+      "lang": "ja"
+    },
+    "1941bbc8": {
+      "original": "The module importing this one, or undefined if this is the Node.js entry point",
+      "translated": "このモジュールをインポートするモジュール。これが Node.js のエントリポイントの場合は undefined",
+      "symbol": "@types/node/module.d.ts#module.Module.ResolveHookContext.parentURL",
+      "lang": "ja"
+    },
+    "d819580c": {
+      "original": "This function enables or disables the [Source Map v3](https://tc39.es/ecma426/) support for\nstack traces.\n\nIt provides same features as launching Node.js process with commandline options\n`--enable-source-maps`, with additional options to alter the support for files\nin `node_modules` or generated codes.\n\nOnly source maps in JavaScript files that are loaded after source maps has been\nenabled will be parsed and loaded. Preferably, use the commandline options\n`--enable-source-maps` to avoid losing track of source maps of modules loaded\nbefore this API call.",
+      "translated": "この関数は、スタックトレースの [Source Map v3](https://tc39.es/ecma426/) サポートを有効または無効にする。\n\nコマンドラインオプション `--enable-source-maps` を付けて Node.js プロセスを起動するのと同じ機能を提供し、加えて `node_modules` 内のファイルや生成されたコードのサポートを変更する追加のオプションを持つ。\n\nソースマップが有効化された後に読み込まれた JavaScript ファイル内のソースマップのみが解析・読み込みされる。この API 呼び出しの前に読み込まれたモジュールのソースマップを見失わないよう、なるべくコマンドラインオプション `--enable-source-maps` を使うこと。",
+      "symbol": "@types/node/module.d.ts#module.Module.setSourceMapsSupport",
+      "lang": "ja"
+    },
+    "a0e314a0": {
+      "original": "If enabling the support for generated code from `eval` or `new Function`.",
+      "translated": "`eval` や `new Function` からの生成されたコードのサポートを有効にするかどうか。",
+      "symbol": "@types/node/module.d.ts#module.Module.SetSourceMapsSupportOptions.generatedCode",
+      "lang": "ja"
+    },
+    "bfaced02": {
+      "original": "If enabling the support for files in `node_modules`.",
+      "translated": "`node_modules` 内のファイルのサポートを有効にするかどうか。",
+      "symbol": "@types/node/module.d.ts#module.Module.SetSourceMapsSupportOptions.nodeModules",
+      "lang": "ja"
+    },
+    "89cef325": {
+      "original": "Given a line offset and column offset in the generated source\nfile, returns an object representing the SourceMap range in the\noriginal file if found, or an empty object if not.\n\nThe object returned contains the following keys:\n\nThe returned value represents the raw range as it appears in the\nSourceMap, based on zero-indexed offsets, _not_ 1-indexed line and\ncolumn numbers as they appear in Error messages and CallSite\nobjects.\n\nTo get the corresponding 1-indexed line and column numbers from a\nlineNumber and columnNumber as they are reported by Error stacks\nand CallSite objects, use `sourceMap.findOrigin(lineNumber, columnNumber)`",
+      "translated": "生成されたソースファイル内の行オフセットと列オフセットが与えられたとき、見つかった場合は元のファイル内の SourceMap 範囲を表すオブジェクトを、見つからない場合は空のオブジェクトを返す。\n\n返されるオブジェクトは次のキーを含む:\n\n返される値は、SourceMap に現れるとおりの生の範囲を表し、ゼロ始まりのオフセットに基づく。Error メッセージや CallSite オブジェクトに現れるような 1 始まりの行番号・列番号では_ない_。\n\nError スタックや CallSite オブジェクトが報告する lineNumber と columnNumber から対応する 1 始まりの行番号・列番号を取得するには、`sourceMap.findOrigin(lineNumber, columnNumber)` を使う",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceMap.findEntry",
+      "lang": "ja"
+    },
+    "22bbfa7a": {
+      "original": "The zero-indexed column number offset in the generated source",
+      "translated": "生成されたソース内のゼロ始まりの列番号オフセット",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceMap.findEntry",
+      "lang": "ja"
+    },
+    "53910f64": {
+      "original": "The zero-indexed line number offset in the generated source",
+      "translated": "生成されたソース内のゼロ始まりの行番号オフセット",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceMap.findEntry",
+      "lang": "ja"
+    },
+    "06fc7fa1": {
+      "original": "Given a 1-indexed `lineNumber` and `columnNumber` from a call site in the generated source,\nfind the corresponding call site location in the original source.\n\nIf the `lineNumber` and `columnNumber` provided are not found in any source map,\nthen an empty object is returned.",
+      "translated": "生成されたソース内の呼び出し箇所からの 1 始まりの `lineNumber` と `columnNumber` が与えられたとき、元のソース内の対応する呼び出し箇所の位置を見つける。\n\n指定した `lineNumber` と `columnNumber` がどのソースマップにも見つからない場合、空のオブジェクトが返される。",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceMap.findOrigin",
+      "lang": "ja"
+    },
+    "6ad1bd6c": {
+      "original": "The 1-indexed column number of the call site in the generated source",
+      "translated": "生成されたソース内の呼び出し箇所の 1 始まりの列番号",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceMap.findOrigin",
+      "lang": "ja"
+    },
+    "d0ab4e95": {
+      "original": "The 1-indexed line number of the call site in the generated source",
+      "translated": "生成されたソース内の呼び出し箇所の 1 始まりの行番号",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceMap.findOrigin",
+      "lang": "ja"
+    },
+    "9d882893": {
+      "original": "Getter for the payload used to construct the `SourceMap` instance.",
+      "translated": "`SourceMap` インスタンスを構築するために使われた payload のゲッター。",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceMap.payload",
+      "lang": "ja"
+    },
+    "965b3453": {
+      "original": "If the source maps support is enabled",
+      "translated": "ソースマップサポートが有効かどうか",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceMapsSupport.enabled",
+      "lang": "ja"
+    },
+    "c3b8b28c": {
+      "original": "If the support is enabled for generated code from `eval` or `new Function`.",
+      "translated": "`eval` や `new Function` からの生成されたコードのサポートが有効かどうか。",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceMapsSupport.generatedCode",
+      "lang": "ja"
+    },
+    "072a2aa5": {
+      "original": "If the support is enabled for files in `node_modules`.",
+      "translated": "`node_modules` 内のファイルのサポートが有効かどうか。",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceMapsSupport.nodeModules",
+      "lang": "ja"
+    },
+    "08ba4546": {
+      "original": "The 1-indexed columnNumber of the corresponding call site in the original source",
+      "translated": "元のソース内の対応する呼び出し箇所の 1 始まりの columnNumber",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceOrigin.columnNumber",
+      "lang": "ja"
+    },
+    "102753bc": {
+      "original": "The file name of the original source, as reported in the SourceMap",
+      "translated": "SourceMap に報告されるとおりの、元のソースのファイル名",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceOrigin.fileName",
+      "lang": "ja"
+    },
+    "4174e49a": {
+      "original": "The 1-indexed lineNumber of the corresponding call site in the original source",
+      "translated": "元のソース内の対応する呼び出し箇所の 1 始まりの lineNumber",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceOrigin.lineNumber",
+      "lang": "ja"
+    },
+    "63ed4d5d": {
+      "original": "The name of the range in the source map, if one was provided",
+      "translated": "ソースマップ内の範囲の名前(それが提供された場合)",
+      "symbol": "@types/node/module.d.ts#module.Module.SourceOrigin.name",
+      "lang": "ja"
+    },
+    "ecdb66c7": {
+      "original": "`module.stripTypeScriptTypes()` removes type annotations from TypeScript code. It\ncan be used to strip type annotations from TypeScript code before running it\nwith `vm.runInContext()` or `vm.compileFunction()`.\nBy default, it will throw an error if the code contains TypeScript features\nthat require transformation such as `Enums`,\nsee [type-stripping](https://nodejs.org/docs/latest-v22.x/api/typescript.md#type-stripping) for more information.\nWhen mode is `'transform'`, it also transforms TypeScript features to JavaScript,\nsee [transform TypeScript features](https://nodejs.org/docs/latest-v22.x/api/typescript.md#typescript-features) for more information.\nWhen mode is `'strip'`, source maps are not generated, because locations are preserved.\nIf `sourceMap` is provided, when mode is `'strip'`, an error will be thrown.\n\n_WARNING_: The output of this function should not be considered stable across Node.js versions,\ndue to changes in the TypeScript parser.\n\n```js\nimport { stripTypeScriptTypes } from 'node:module';\nconst code = 'const a: number = 1;';\nconst strippedCode = stripTypeScriptTypes(code);\nconsole.log(strippedCode);\n// Prints: const a         = 1;\n```\n\nIf `sourceUrl` is provided, it will be used appended as a comment at the end of the output:\n\n```js\nimport { stripTypeScriptTypes } from 'node:module';\nconst code = 'const a: number = 1;';\nconst strippedCode = stripTypeScriptTypes(code, { mode: 'strip', sourceUrl: 'source.ts' });\nconsole.log(strippedCode);\n// Prints: const a         = 1\\n\\n//# sourceURL=source.ts;\n```\n\nWhen `mode` is `'transform'`, the code is transformed to JavaScript:\n\n```js\nimport { stripTypeScriptTypes } from 'node:module';\nconst code = `\n  namespace MathUtil {\n    export const add = (a: number, b: number) => a + b;\n  }`;\nconst strippedCode = stripTypeScriptTypes(code, { mode: 'transform', sourceMap: true });\nconsole.log(strippedCode);\n// Prints:\n// var MathUtil;\n// (function(MathUtil) {\n//     MathUtil.add = (a, b)=>a + b;\n// })(MathUtil || (MathUtil = {}));\n// # sourceMappingURL=data:application/json;base64, ...\n```",
+      "translated": "`module.stripTypeScriptTypes()` は TypeScript コードから型注釈を削除する。`vm.runInContext()` や `vm.compileFunction()` で実行する前に、TypeScript コードから型注釈を取り除くために使える。既定では、コードが `Enums` などの変換を必要とする TypeScript の機能を含む場合はエラーを投げる。詳細は [type-stripping](https://nodejs.org/docs/latest-v22.x/api/typescript.md#type-stripping) を参照。mode が `'transform'` の場合、TypeScript の機能を JavaScript にも変換する。詳細は [transform TypeScript features](https://nodejs.org/docs/latest-v22.x/api/typescript.md#typescript-features) を参照。mode が `'strip'` の場合、位置が保持されるため、ソースマップは生成されない。mode が `'strip'` のときに `sourceMap` が指定された場合、エラーが投げられる。\n\n_警告_: TypeScript パーサーの変更のため、この関数の出力は Node.js のバージョン間で安定しているとみなすべきではない。\n\n```js\nimport { stripTypeScriptTypes } from 'node:module';\nconst code = 'const a: number = 1;';\nconst strippedCode = stripTypeScriptTypes(code);\nconsole.log(strippedCode);\n// Prints: const a         = 1;\n```\n\n`sourceUrl` が指定された場合、出力の末尾にコメントとして付加される:\n\n```js\nimport { stripTypeScriptTypes } from 'node:module';\nconst code = 'const a: number = 1;';\nconst strippedCode = stripTypeScriptTypes(code, { mode: 'strip', sourceUrl: 'source.ts' });\nconsole.log(strippedCode);\n// Prints: const a         = 1\\n\\n//# sourceURL=source.ts;\n```\n\n`mode` が `'transform'` の場合、コードは JavaScript に変換される:\n\n```js\nimport { stripTypeScriptTypes } from 'node:module';\nconst code = `\n  namespace MathUtil {\n    export const add = (a: number, b: number) => a + b;\n  }`;\nconst strippedCode = stripTypeScriptTypes(code, { mode: 'transform', sourceMap: true });\nconsole.log(strippedCode);\n// Prints:\n// var MathUtil;\n// (function(MathUtil) {\n//     MathUtil.add = (a, b)=>a + b;\n// })(MathUtil || (MathUtil = {}));\n// # sourceMappingURL=data:application/json;base64, ...\n```",
+      "symbol": "@types/node/module.d.ts#module.Module.stripTypeScriptTypes",
+      "lang": "ja"
+    },
+    "24cf2593": {
+      "original": "The code to strip type annotations from.",
+      "translated": "型注釈を取り除く対象のコード。",
+      "symbol": "@types/node/module.d.ts#module.Module.stripTypeScriptTypes",
+      "lang": "ja"
+    },
+    "cca9c745": {
+      "original": "The code with type annotations stripped.",
+      "translated": "型注釈が取り除かれたコード。",
+      "symbol": "@types/node/module.d.ts#module.Module.stripTypeScriptTypes",
+      "lang": "ja"
+    },
+    "4705a34c": {
+      "original": "Possible values are:\n* `'strip'` Only strip type annotations without performing the transformation of TypeScript features.\n* `'transform'` Strip type annotations and transform TypeScript features to JavaScript.",
+      "translated": "可能な値は次のとおり:\n* `'strip'` TypeScript の機能の変換を行わずに、型注釈のみを取り除く。\n* `'transform'` 型注釈を取り除き、TypeScript の機能を JavaScript に変換する。",
+      "symbol": "@types/node/module.d.ts#module.Module.StripTypeScriptTypesOptions.mode",
+      "lang": "ja"
+    },
+    "beafe22f": {
+      "original": "Only when `mode` is `'transform'`, if `true`, a source map\nwill be generated for the transformed code.",
+      "translated": "`mode` が `'transform'` の場合にのみ、`true` なら変換されたコードのソースマップが生成される。",
+      "symbol": "@types/node/module.d.ts#module.Module.StripTypeScriptTypesOptions.sourceMap",
+      "lang": "ja"
+    },
+    "fb51a99f": {
+      "original": "Specifies the source url used in the source map.",
+      "translated": "ソースマップで使うソース URL を指定する。",
+      "symbol": "@types/node/module.d.ts#module.Module.StripTypeScriptTypesOptions.sourceUrl",
+      "lang": "ja"
+    },
+    "4c41cfb6": {
+      "original": "The `module.syncBuiltinESMExports()` method updates all the live bindings for\nbuiltin `ES Modules` to match the properties of the `CommonJS` exports. It\ndoes not add or remove exported names from the `ES Modules`.\n\n```js\nimport fs from 'node:fs';\nimport assert from 'node:assert';\nimport { syncBuiltinESMExports } from 'node:module';\n\nfs.readFile = newAPI;\n\ndelete fs.readFileSync;\n\nfunction newAPI() {\n  // ...\n}\n\nfs.newAPI = newAPI;\n\nsyncBuiltinESMExports();\n\nimport('node:fs').then((esmFS) => {\n  // It syncs the existing readFile property with the new value\n  assert.strictEqual(esmFS.readFile, newAPI);\n  // readFileSync has been deleted from the required fs\n  assert.strictEqual('readFileSync' in fs, false);\n  // syncBuiltinESMExports() does not remove readFileSync from esmFS\n  assert.strictEqual('readFileSync' in esmFS, true);\n  // syncBuiltinESMExports() does not add names\n  assert.strictEqual(esmFS.newAPI, undefined);\n});\n```",
+      "translated": "`module.syncBuiltinESMExports()` メソッドは、組み込みの `ES Modules` のすべてのライブバインディングを `CommonJS` の exports のプロパティに一致するよう更新する。`ES Modules` からエクスポート名を追加・削除することはない。\n\n```js\nimport fs from 'node:fs';\nimport assert from 'node:assert';\nimport { syncBuiltinESMExports } from 'node:module';\n\nfs.readFile = newAPI;\n\ndelete fs.readFileSync;\n\nfunction newAPI() {\n  // ...\n}\n\nfs.newAPI = newAPI;\n\nsyncBuiltinESMExports();\n\nimport('node:fs').then((esmFS) => {\n  // It syncs the existing readFile property with the new value\n  assert.strictEqual(esmFS.readFile, newAPI);\n  // readFileSync has been deleted from the required fs\n  assert.strictEqual('readFileSync' in fs, false);\n  // syncBuiltinESMExports() does not remove readFileSync from esmFS\n  assert.strictEqual('readFileSync' in esmFS, true);\n  // syncBuiltinESMExports() does not add names\n  assert.strictEqual(esmFS.newAPI, undefined);\n});\n```",
+      "symbol": "@types/node/module.d.ts#module.Module.syncBuiltinESMExports",
       "lang": "ja"
     },
     "dbd26389": {
