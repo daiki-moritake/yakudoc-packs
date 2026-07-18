@@ -256,6 +256,18 @@
       "symbol": "@types/node/module.d.ts#module.global.NodeModule",
       "lang": "ja"
     },
+    "91766456": {
+      "original": "**Strict assertion mode**\n\nAn alias of {@link notStrictEqual}.\n\n**Legacy assertion mode**\n\n> Stability: 3 - Legacy: Use {@link notStrictEqual} instead.\n\nTests shallow, coercive inequality with the [`!=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality). `NaN` is\nspecially handled and treated as being identical if both sides are `NaN`.\n\n```js\nimport assert from 'node:assert';\n\nassert.notEqual(1, 2);\n// OK\n\nassert.notEqual(1, 1);\n// AssertionError: 1 != 1\n\nassert.notEqual(1, '1');\n// AssertionError: 1 != '1'\n```\n\nIf the values are equal, an `AssertionError` is thrown with a `message` property set equal to the value of the `message` parameter. If the `message` parameter is undefined, a default error\nmessage is assigned. If the `message` parameter is an instance of an `Error` then it will be thrown instead of the `AssertionError`.",
+      "translated": "**strict アサーションモード**\n\n{@link notStrictEqual} のエイリアス。\n\n**レガシーアサーションモード**\n\n> Stability: 3 - レガシー: 代わりに {@link notStrictEqual} を使うこと。\n\n[`!=` 演算子](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality)を使って、浅く強制的な不等価性をテストする。`NaN` は特別に扱われ、両辺が `NaN` の場合は同一とみなされる。\n\n```js\nimport assert from 'node:assert';\n\nassert.notEqual(1, 2);\n// OK\n\nassert.notEqual(1, 1);\n// AssertionError: 1 != 1\n\nassert.notEqual(1, '1');\n// AssertionError: 1 != '1'\n```\n\n値が等しい場合、`message` パラメーターの値に等しい `message` プロパティを持つ `AssertionError` が投げられる。`message` パラメーターが undefined の場合、既定のエラーメッセージが割り当てられる。`message` パラメーターが `Error` のインスタンスの場合、`AssertionError` の代わりにそれが投げられる。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.notEqual",
+      "lang": "ja"
+    },
+    "94250677": {
+      "original": "The `actual` property on the error instance.",
+      "translated": "エラーインスタンスの `actual` プロパティ。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionErrorOptions.actual",
+      "lang": "ja"
+    },
     "94553477": {
       "original": "Returns an iterator over each of the name-value pairs in the parameters.\nEach item of the iterator is a JavaScript `Array`. The first item of the array\nis the `name`, the second item of the array is the `value`.",
       "translated": "パラメーター内の各名前と値のペアを反復するイテレーターを返す。イテレーターの各項目は JavaScript の `Array` である。配列の 1 つ目の項目は `name`、2 つ目の項目は `value` である。",
@@ -290,6 +302,306 @@
       "original": "number of bytes to retrieve from keying material",
       "translated": "鍵素材から取得するバイト数",
       "symbol": "@types/node/tls.d.ts#tls.TLSSocket.exportKeyingMaterial",
+      "lang": "ja"
+    },
+    "6717b3ca": {
+      "original": "The `node:assert` module provides a set of assertion functions for verifying\ninvariants.",
+      "translated": "`node:assert` モジュールは、不変条件を検証するための一連のアサーション関数を提供する。",
+      "symbol": "@types/node/assert.d.ts#assert",
+      "lang": "ja"
+    },
+    "3c2a33d6": {
+      "original": "An alias of {@link assert.ok}.",
+      "translated": "{@link assert.ok} のエイリアス。",
+      "symbol": "@types/node/assert.d.ts#assert.assert",
+      "lang": "ja"
+    },
+    "e85e5ae3": {
+      "original": "The input that is checked for being truthy.",
+      "translated": "truthy かどうかを確認する入力。",
+      "symbol": "@types/node/assert.d.ts#assert.assert",
+      "lang": "ja"
+    },
+    "0253cb76": {
+      "original": "Creates a new assertion instance. The `diff` option controls the verbosity of diffs in assertion error messages.\n\n```js\nconst { Assert } = require('node:assert');\nconst assertInstance = new Assert({ diff: 'full' });\nassertInstance.deepStrictEqual({ a: 1 }, { a: 2 });\n// Shows a full diff in the error message.\n```\n\n**Important**: When destructuring assertion methods from an `Assert` instance,\nthe methods lose their connection to the instance's configuration options (such as `diff` and `strict` settings).\nThe destructured methods will fall back to default behavior instead.\n\n```js\nconst myAssert = new Assert({ diff: 'full' });\n\n// This works as expected - uses 'full' diff\nmyAssert.strictEqual({ a: 1 }, { b: { c: 1 } });\n\n// This loses the 'full' diff setting - falls back to default 'simple' diff\nconst { strictEqual } = myAssert;\nstrictEqual({ a: 1 }, { b: { c: 1 } });\n```\n\nWhen destructured, methods lose access to the instance's `this` context and revert to default assertion behavior\n(diff: 'simple', non-strict mode).\nTo maintain custom options when using destructured methods, avoid\ndestructuring and call methods directly on the instance.",
+      "translated": "新しいアサーションインスタンスを作成する。`diff` オプションは、アサーションエラーメッセージ内の diff の詳細度を制御する。\n\n```js\nconst { Assert } = require('node:assert');\nconst assertInstance = new Assert({ diff: 'full' });\nassertInstance.deepStrictEqual({ a: 1 }, { a: 2 });\n// Shows a full diff in the error message.\n```\n\n**重要**: `Assert` インスタンスからアサーションメソッドを分割代入すると、メソッドはインスタンスの構成オプション(`diff` や `strict` の設定など)への結び付きを失う。分割代入されたメソッドは代わりに既定の挙動にフォールバックする。\n\n```js\nconst myAssert = new Assert({ diff: 'full' });\n\n// This works as expected - uses 'full' diff\nmyAssert.strictEqual({ a: 1 }, { b: { c: 1 } });\n\n// This loses the 'full' diff setting - falls back to default 'simple' diff\nconst { strictEqual } = myAssert;\nstrictEqual({ a: 1 }, { b: { c: 1 } });\n```\n\n分割代入されると、メソッドはインスタンスの `this` コンテキストへのアクセスを失い、既定のアサーション挙動(diff: 'simple'、非 strict モード)に戻る。分割代入されたメソッドを使う際にカスタムオプションを維持するには、分割代入を避け、インスタンス上で直接メソッドを呼ぶこと。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.Assert",
+      "lang": "ja"
+    },
+    "ed0db08e": {
+      "original": "The `Assert` class allows creating independent assertion instances with custom options.",
+      "translated": "`Assert` クラスは、カスタムオプションを持つ独立したアサーションインスタンスを作成できるようにする。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.Assert",
+      "lang": "ja"
+    },
+    "dc1e565c": {
+      "original": "Indicates the failure of an assertion. All errors thrown by the `node:assert` module will be instances of the `AssertionError` class.",
+      "translated": "アサーションの失敗を示す。`node:assert` モジュールが投げるすべてのエラーは `AssertionError` クラスのインスタンスである。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionError",
+      "lang": "ja"
+    },
+    "b1da112f": {
+      "original": "Set to the `actual` argument for methods such as {@link assert.strictEqual ()}.",
+      "translated": "{@link assert.strictEqual ()} などのメソッドの `actual` 引数に設定される。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionError.actual",
+      "lang": "ja"
+    },
+    "2e79f4a6": {
+      "original": "Value is always `ERR_ASSERTION` to show that the error is an assertion error.",
+      "translated": "エラーがアサーションエラーであることを示すため、値は常に `ERR_ASSERTION`。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionError.code",
+      "lang": "ja"
+    },
+    "fe99081b": {
+      "original": "Set to the `expected` argument for methods such as {@link assert.strictEqual ()}.",
+      "translated": "{@link assert.strictEqual ()} などのメソッドの `expected` 引数に設定される。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionError.expected",
+      "lang": "ja"
+    },
+    "3b982b8d": {
+      "original": "Indicates if the message was auto-generated (`true`) or not.",
+      "translated": "メッセージが自動生成された(`true`)かどうかを示す。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionError.generatedMessage",
+      "lang": "ja"
+    },
+    "81ad6dd5": {
+      "original": "Set to the passed in operator value.",
+      "translated": "渡された operator の値に設定される。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionError.operator",
+      "lang": "ja"
+    },
+    "02e028da": {
+      "original": "The `expected` property on the error instance.",
+      "translated": "エラーインスタンスの `expected` プロパティ。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionErrorOptions.expected",
+      "lang": "ja"
+    },
+    "8f6432cd": {
+      "original": "If provided, the error message is set to this value.",
+      "translated": "指定された場合、エラーメッセージがこの値に設定される。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionErrorOptions.message",
+      "lang": "ja"
+    },
+    "4ffbb965": {
+      "original": "The `operator` property on the error instance.",
+      "translated": "エラーインスタンスの `operator` プロパティ。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionErrorOptions.operator",
+      "lang": "ja"
+    },
+    "b7e27321": {
+      "original": "If provided, the generated stack trace omits frames before this function.",
+      "translated": "指定された場合、生成されるスタックトレースはこの関数より前のフレームを省略する。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertionErrorOptions.stackStartFn",
+      "lang": "ja"
+    },
+    "651fbb19": {
+      "original": "If set to `'full'`, shows the full diff in assertion errors.",
+      "translated": "`'full'` に設定した場合、アサーションエラーで完全な diff を表示する。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertOptions.diff",
+      "lang": "ja"
+    },
+    "abf35e09": {
+      "original": "If set to `true`, non-strict methods behave like their\ncorresponding strict methods.",
+      "translated": "`true` に設定した場合、非 strict メソッドは対応する strict メソッドのように動作する。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.AssertOptions.strict",
+      "lang": "ja"
+    },
+    "6b2e8f83": {
+      "original": "Deprecated",
+      "translated": "非推奨",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker",
+      "lang": "ja"
+    },
+    "ee56f71d": {
+      "original": "This feature is deprecated and will be removed in a future version.\nPlease consider using alternatives such as the `mock` helper function.",
+      "translated": "この機能は非推奨であり、将来のバージョンで削除される。代わりに `mock` ヘルパー関数などの代替を検討すること。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker",
+      "lang": "ja"
+    },
+    "b9a8edfa": {
+      "original": "A function that wraps `fn`.",
+      "translated": "`fn` をラップする関数。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker.calls",
+      "lang": "ja"
+    },
+    "1ec7b44d": {
+      "original": "The wrapper function is expected to be called exactly `exact` times. If the\nfunction has not been called exactly `exact` times when `tracker.verify()` is called, then `tracker.verify()` will throw an\nerror.\n\n```js\nimport assert from 'node:assert';\n\n// Creates call tracker.\nconst tracker = new assert.CallTracker();\n\nfunction func() {}\n\n// Returns a function that wraps func() that must be called exact times\n// before tracker.verify().\nconst callsfunc = tracker.calls(func);\n```",
+      "translated": "ラッパー関数はちょうど `exact` 回呼ばれることが期待される。`tracker.verify()` が呼ばれたときに関数がちょうど `exact` 回呼ばれていない場合、`tracker.verify()` はエラーを投げる。\n\n```js\nimport assert from 'node:assert';\n\n// Creates call tracker.\nconst tracker = new assert.CallTracker();\n\nfunction func() {}\n\n// Returns a function that wraps func() that must be called exact times\n// before tracker.verify().\nconst callsfunc = tracker.calls(func);\n```",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker.calls",
+      "lang": "ja"
+    },
+    "d97424db": {
+      "original": "An array with all the calls to a tracked function.",
+      "translated": "追跡対象の関数へのすべての呼び出しを含む配列。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker.getCalls",
+      "lang": "ja"
+    },
+    "0ec2a18a": {
+      "original": "Example:\n\n```js\nimport assert from 'node:assert';\n\nconst tracker = new assert.CallTracker();\n\nfunction func() {}\nconst callsfunc = tracker.calls(func);\ncallsfunc(1, 2, 3);\n\nassert.deepStrictEqual(tracker.getCalls(callsfunc),\n                       [{ thisArg: undefined, arguments: [1, 2, 3] }]);\n```",
+      "translated": "例:\n\n```js\nimport assert from 'node:assert';\n\nconst tracker = new assert.CallTracker();\n\nfunction func() {}\nconst callsfunc = tracker.calls(func);\ncallsfunc(1, 2, 3);\n\nassert.deepStrictEqual(tracker.getCalls(callsfunc),\n                       [{ thisArg: undefined, arguments: [1, 2, 3] }]);\n```",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker.getCalls",
+      "lang": "ja"
+    },
+    "feb82726": {
+      "original": "An array of objects containing information about the wrapper functions returned by {@link tracker.calls ()}.",
+      "translated": "{@link tracker.calls ()} が返したラッパー関数に関する情報を含むオブジェクトの配列。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker.report",
+      "lang": "ja"
+    },
+    "eb2b1145": {
+      "original": "The arrays contains information about the expected and actual number of calls of\nthe functions that have not been called the expected number of times.\n\n```js\nimport assert from 'node:assert';\n\n// Creates call tracker.\nconst tracker = new assert.CallTracker();\n\nfunction func() {}\n\n// Returns a function that wraps func() that must be called exact times\n// before tracker.verify().\nconst callsfunc = tracker.calls(func, 2);\n\n// Returns an array containing information on callsfunc()\nconsole.log(tracker.report());\n// [\n//  {\n//    message: 'Expected the func function to be executed 2 time(s) but was\n//    executed 0 time(s).',\n//    actual: 0,\n//    expected: 2,\n//    operator: 'func',\n//    stack: stack trace\n//  }\n// ]\n```",
+      "translated": "この配列は、期待された回数呼ばれなかった関数の、期待される呼び出し回数と実際の呼び出し回数に関する情報を含む。\n\n```js\nimport assert from 'node:assert';\n\n// Creates call tracker.\nconst tracker = new assert.CallTracker();\n\nfunction func() {}\n\n// Returns a function that wraps func() that must be called exact times\n// before tracker.verify().\nconst callsfunc = tracker.calls(func, 2);\n\n// Returns an array containing information on callsfunc()\nconsole.log(tracker.report());\n// [\n//  {\n//    message: 'Expected the func function to be executed 2 time(s) but was\n//    executed 0 time(s).',\n//    actual: 0,\n//    expected: 2,\n//    operator: 'func',\n//    stack: stack trace\n//  }\n// ]\n```",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker.report",
+      "lang": "ja"
+    },
+    "6159b4b1": {
+      "original": "a tracked function to reset.",
+      "translated": "リセットする追跡対象の関数。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker.reset",
+      "lang": "ja"
+    },
+    "decdd3f2": {
+      "original": "Reset calls of the call tracker. If a tracked function is passed as an argument, the calls will be reset for it.\nIf no arguments are passed, all tracked functions will be reset.\n\n```js\nimport assert from 'node:assert';\n\nconst tracker = new assert.CallTracker();\n\nfunction func() {}\nconst callsfunc = tracker.calls(func);\n\ncallsfunc();\n// Tracker was called once\nassert.strictEqual(tracker.getCalls(callsfunc).length, 1);\n\ntracker.reset(callsfunc);\nassert.strictEqual(tracker.getCalls(callsfunc).length, 0);\n```",
+      "translated": "コールトラッカーの呼び出しをリセットする。追跡対象の関数が引数として渡された場合、その関数の呼び出しがリセットされる。引数が渡されない場合、すべての追跡対象の関数がリセットされる。\n\n```js\nimport assert from 'node:assert';\n\nconst tracker = new assert.CallTracker();\n\nfunction func() {}\nconst callsfunc = tracker.calls(func);\n\ncallsfunc();\n// Tracker was called once\nassert.strictEqual(tracker.getCalls(callsfunc).length, 1);\n\ntracker.reset(callsfunc);\nassert.strictEqual(tracker.getCalls(callsfunc).length, 0);\n```",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker.reset",
+      "lang": "ja"
+    },
+    "26bd5116": {
+      "original": "Iterates through the list of functions passed to {@link tracker.calls ()} and will throw an error for functions that\nhave not been called the expected number of times.\n\n```js\nimport assert from 'node:assert';\n\n// Creates call tracker.\nconst tracker = new assert.CallTracker();\n\nfunction func() {}\n\n// Returns a function that wraps func() that must be called exact times\n// before tracker.verify().\nconst callsfunc = tracker.calls(func, 2);\n\ncallsfunc();\n\n// Will throw an error since callsfunc() was only called once.\ntracker.verify();\n```",
+      "translated": "{@link tracker.calls ()} に渡された関数のリストを反復し、期待された回数呼ばれなかった関数に対してエラーを投げる。\n\n```js\nimport assert from 'node:assert';\n\n// Creates call tracker.\nconst tracker = new assert.CallTracker();\n\nfunction func() {}\n\n// Returns a function that wraps func() that must be called exact times\n// before tracker.verify().\nconst callsfunc = tracker.calls(func, 2);\n\ncallsfunc();\n\n// Will throw an error since callsfunc() was only called once.\ntracker.verify();\n```",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTracker.verify",
+      "lang": "ja"
+    },
+    "2e7a5005": {
+      "original": "The actual number of times the function was called.",
+      "translated": "関数が実際に呼ばれた回数。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTrackerReportInformation.actual",
+      "lang": "ja"
+    },
+    "a091a2c4": {
+      "original": "The number of times the function was expected to be called.",
+      "translated": "関数が呼ばれることが期待された回数。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTrackerReportInformation.expected",
+      "lang": "ja"
+    },
+    "18cb9112": {
+      "original": "The name of the function that is wrapped.",
+      "translated": "ラップされている関数の名前。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTrackerReportInformation.operator",
+      "lang": "ja"
+    },
+    "ecbf9896": {
+      "original": "A stack trace of the function.",
+      "translated": "関数のスタックトレース。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.CallTrackerReportInformation.stack",
+      "lang": "ja"
+    },
+    "518c1ae9": {
+      "original": "**Strict assertion mode**\n\nAn alias of {@link deepStrictEqual}.\n\n**Legacy assertion mode**\n\n> Stability: 3 - Legacy: Use {@link deepStrictEqual} instead.\n\nTests for deep equality between the `actual` and `expected` parameters. Consider\nusing {@link deepStrictEqual} instead. {@link deepEqual} can have\nsurprising results.\n\n_Deep equality_ means that the enumerable \"own\" properties of child objects\nare also recursively evaluated by the following rules.",
+      "translated": "**strict アサーションモード**\n\n{@link deepStrictEqual} のエイリアス。\n\n**レガシーアサーションモード**\n\n> Stability: 3 - レガシー: 代わりに {@link deepStrictEqual} を使うこと。\n\n`actual` と `expected` パラメーターの間の深い等価性をテストする。代わりに {@link deepStrictEqual} の使用を検討すること。{@link deepEqual} は意外な結果になることがある。\n\n_深い等価性_とは、子オブジェクトの列挙可能な「自身の」プロパティも、次の規則によって再帰的に評価されることを意味する。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.deepEqual",
+      "lang": "ja"
+    },
+    "cdb0a03e": {
+      "original": "Tests for deep equality between the `actual` and `expected` parameters.\n\"Deep\" equality means that the enumerable \"own\" properties of child objects\nare recursively evaluated also by the following rules.",
+      "translated": "`actual` と `expected` パラメーターの間の深い等価性をテストする。「深い」等価性とは、子オブジェクトの列挙可能な「自身の」プロパティも、次の規則によって再帰的に評価されることを意味する。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.deepStrictEqual",
+      "lang": "ja"
+    },
+    "b4ac4489": {
+      "original": "Expects the `string` input not to match the regular expression.\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.doesNotMatch('I will fail', /fail/);\n// AssertionError [ERR_ASSERTION]: The input was expected to not match the ...\n\nassert.doesNotMatch(123, /pass/);\n// AssertionError [ERR_ASSERTION]: The \"string\" argument must be of type string.\n\nassert.doesNotMatch('I will pass', /different/);\n// OK\n```\n\nIf the values do match, or if the `string` argument is of another type than `string`, an `{@link AssertionError}` is thrown with a `message` property set equal\nto the value of the `message` parameter. If the `message` parameter is\nundefined, a default error message is assigned. If the `message` parameter is an\ninstance of an [Error](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-error) then it will be thrown instead of the `{@link AssertionError}`.",
+      "translated": "`string` 入力が正規表現に一致しないことを期待する。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.doesNotMatch('I will fail', /fail/);\n// AssertionError [ERR_ASSERTION]: The input was expected to not match the ...\n\nassert.doesNotMatch(123, /pass/);\n// AssertionError [ERR_ASSERTION]: The \"string\" argument must be of type string.\n\nassert.doesNotMatch('I will pass', /different/);\n// OK\n```\n\n値が一致する場合、または `string` 引数が `string` 以外の型の場合、`message` パラメーターの値に等しい `message` プロパティを持つ `{@link AssertionError}` が投げられる。`message` パラメーターが undefined の場合、既定のエラーメッセージが割り当てられる。`message` パラメーターが [Error](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-error) のインスタンスの場合、`{@link AssertionError}` の代わりにそれが投げられる。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.doesNotMatch",
+      "lang": "ja"
+    },
+    "4ad5ac9c": {
+      "original": "Awaits the `asyncFn` promise or, if `asyncFn` is a function, immediately\ncalls the function and awaits the returned promise to complete. It will then\ncheck that the promise is not rejected.\n\nIf `asyncFn` is a function and it throws an error synchronously, `assert.doesNotReject()` will return a rejected `Promise` with that error. If\nthe function does not return a promise, `assert.doesNotReject()` will return a\nrejected `Promise` with an [ERR_INVALID_RETURN_VALUE](https://nodejs.org/docs/latest-v22.x/api/errors.html#err_invalid_return_value) error. In both cases\nthe error handler is skipped.\n\nUsing `assert.doesNotReject()` is actually not useful because there is little\nbenefit in catching a rejection and then rejecting it again. Instead, consider\nadding a comment next to the specific code path that should not reject and keep\nerror messages as expressive as possible.\n\nIf specified, `error` can be a [`Class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes),\n[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions), or a validation\nfunction. See {@link throws} for more details.\n\nBesides the async nature to await the completion behaves identically to {@link doesNotThrow}.\n\n```js\nimport assert from 'node:assert/strict';\n\nawait assert.doesNotReject(\n  async () => {\n    throw new TypeError('Wrong value');\n  },\n  SyntaxError,\n);\n```\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.doesNotReject(Promise.reject(new TypeError('Wrong value')))\n  .then(() => {\n    // ...\n  });\n```",
+      "translated": "`asyncFn` の promise を await するか、`asyncFn` が関数の場合は即座に関数を呼んで返された promise の完了を await する。その後、promise が拒否されていないことを確認する。\n\n`asyncFn` が関数で同期的にエラーを投げた場合、`assert.doesNotReject()` はそのエラーとともに拒否された `Promise` を返す。関数が promise を返さない場合、`assert.doesNotReject()` は [ERR_INVALID_RETURN_VALUE](https://nodejs.org/docs/latest-v22.x/api/errors.html#err_invalid_return_value) エラーとともに拒否された `Promise` を返す。どちらの場合もエラーハンドラはスキップされる。\n\n拒否をキャッチしてから再び拒否することにはほとんど利点がないため、`assert.doesNotReject()` を使うのは実際には有用でない。代わりに、拒否すべきでない特定のコードパスの隣にコメントを追加し、エラーメッセージをできるだけ表現力豊かに保つことを検討すること。\n\n指定された場合、`error` は [`Class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)・[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)・検証関数のいずれかであり得る。詳細は {@link throws} を参照。\n\n完了を await する非同期的な性質を除けば、{@link doesNotThrow} と同一に動作する。\n\n```js\nimport assert from 'node:assert/strict';\n\nawait assert.doesNotReject(\n  async () => {\n    throw new TypeError('Wrong value');\n  },\n  SyntaxError,\n);\n```\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.doesNotReject(Promise.reject(new TypeError('Wrong value')))\n  .then(() => {\n    // ...\n  });\n```",
+      "symbol": "@types/node/assert.d.ts#assert.assert.doesNotReject",
+      "lang": "ja"
+    },
+    "747b3ee8": {
+      "original": "Asserts that the function `fn` does not throw an error.\n\nUsing `assert.doesNotThrow()` is actually not useful because there\nis no benefit in catching an error and then rethrowing it. Instead, consider\nadding a comment next to the specific code path that should not throw and keep\nerror messages as expressive as possible.\n\nWhen `assert.doesNotThrow()` is called, it will immediately call the `fn` function.\n\nIf an error is thrown and it is the same type as that specified by the `error` parameter, then an `AssertionError` is thrown. If the error is of a\ndifferent type, or if the `error` parameter is undefined, the error is\npropagated back to the caller.\n\nIf specified, `error` can be a [`Class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes),\n[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions), or a validation\nfunction. See {@link throws} for more details.\n\nThe following, for instance, will throw the `TypeError` because there is no\nmatching error type in the assertion:\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.doesNotThrow(\n  () => {\n    throw new TypeError('Wrong value');\n  },\n  SyntaxError,\n);\n```\n\nHowever, the following will result in an `AssertionError` with the message\n'Got unwanted exception...':\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.doesNotThrow(\n  () => {\n    throw new TypeError('Wrong value');\n  },\n  TypeError,\n);\n```\n\nIf an `AssertionError` is thrown and a value is provided for the `message` parameter, the value of `message` will be appended to the `AssertionError` message:\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.doesNotThrow(\n  () => {\n    throw new TypeError('Wrong value');\n  },\n  /Wrong value/,\n  'Whoops',\n);\n// Throws: AssertionError: Got unwanted exception: Whoops\n```",
+      "translated": "関数 `fn` がエラーを投げないことをアサートする。\n\nエラーをキャッチしてから再スローすることには利点がないため、`assert.doesNotThrow()` を使うのは実際には有用でない。代わりに、投げるべきでない特定のコードパスの隣にコメントを追加し、エラーメッセージをできるだけ表現力豊かに保つことを検討すること。\n\n`assert.doesNotThrow()` が呼ばれると、即座に `fn` 関数を呼ぶ。\n\nエラーが投げられ、それが `error` パラメーターで指定されたのと同じ型の場合、`AssertionError` が投げられる。エラーが異なる型の場合、または `error` パラメーターが undefined の場合、エラーは呼び出し元に伝播される。\n\n指定された場合、`error` は [`Class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)・[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)・検証関数のいずれかであり得る。詳細は {@link throws} を参照。\n\nたとえば次は、アサーションに一致するエラー型がないため `TypeError` を投げる:\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.doesNotThrow(\n  () => {\n    throw new TypeError('Wrong value');\n  },\n  SyntaxError,\n);\n```\n\nただし次は、メッセージ 'Got unwanted exception...' を持つ `AssertionError` になる:\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.doesNotThrow(\n  () => {\n    throw new TypeError('Wrong value');\n  },\n  TypeError,\n);\n```\n\n`AssertionError` が投げられ `message` パラメーターに値が指定された場合、`message` の値が `AssertionError` メッセージに付加される:\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.doesNotThrow(\n  () => {\n    throw new TypeError('Wrong value');\n  },\n  /Wrong value/,\n  'Whoops',\n);\n// Throws: AssertionError: Got unwanted exception: Whoops\n```",
+      "symbol": "@types/node/assert.d.ts#assert.assert.doesNotThrow",
+      "lang": "ja"
+    },
+    "1a2cef4a": {
+      "original": "**Strict assertion mode**\n\nAn alias of {@link strictEqual}.\n\n**Legacy assertion mode**\n\n> Stability: 3 - Legacy: Use {@link strictEqual} instead.\n\nTests shallow, coercive equality between the `actual` and `expected` parameters\nusing the [`==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality). `NaN` is specially handled\nand treated as being identical if both sides are `NaN`.\n\n```js\nimport assert from 'node:assert';\n\nassert.equal(1, 1);\n// OK, 1 == 1\nassert.equal(1, '1');\n// OK, 1 == '1'\nassert.equal(NaN, NaN);\n// OK\n\nassert.equal(1, 2);\n// AssertionError: 1 == 2\nassert.equal({ a: { b: 1 } }, { a: { b: 1 } });\n// AssertionError: { a: { b: 1 } } == { a: { b: 1 } }\n```\n\nIf the values are not equal, an `AssertionError` is thrown with a `message` property set equal to the value of the `message` parameter. If the `message` parameter is undefined, a default\nerror message is assigned. If the `message` parameter is an instance of an `Error` then it will be thrown instead of the `AssertionError`.",
+      "translated": "**strict アサーションモード**\n\n{@link strictEqual} のエイリアス。\n\n**レガシーアサーションモード**\n\n> Stability: 3 - レガシー: 代わりに {@link strictEqual} を使うこと。\n\n[`==` 演算子](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality)を使って、`actual` と `expected` パラメーターの間の浅く強制的な等価性をテストする。`NaN` は特別に扱われ、両辺が `NaN` の場合は同一とみなされる。\n\n```js\nimport assert from 'node:assert';\n\nassert.equal(1, 1);\n// OK, 1 == 1\nassert.equal(1, '1');\n// OK, 1 == '1'\nassert.equal(NaN, NaN);\n// OK\n\nassert.equal(1, 2);\n// AssertionError: 1 == 2\nassert.equal({ a: { b: 1 } }, { a: { b: 1 } });\n// AssertionError: { a: { b: 1 } } == { a: { b: 1 } }\n```\n\n値が等しくない場合、`message` パラメーターの値に等しい `message` プロパティを持つ `AssertionError` が投げられる。`message` パラメーターが undefined の場合、既定のエラーメッセージが割り当てられる。`message` パラメーターが `Error` のインスタンスの場合、`AssertionError` の代わりにそれが投げられる。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.equal",
+      "lang": "ja"
+    },
+    "46ac8fd6": {
+      "original": "since v10.0.0 - use fail([message]) or other assert functions instead.",
+      "translated": "v10.0.0 以降 - 代わりに fail([message]) や他の assert 関数を使うこと。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.fail",
+      "lang": "ja"
+    },
+    "2a71b583": {
+      "original": "Throws an `AssertionError` with the provided error message or a default\nerror message. If the `message` parameter is an instance of an `Error` then\nit will be thrown instead of the `AssertionError`.\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.fail();\n// AssertionError [ERR_ASSERTION]: Failed\n\nassert.fail('boom');\n// AssertionError [ERR_ASSERTION]: boom\n\nassert.fail(new TypeError('need array'));\n// TypeError: need array\n```\n\nUsing `assert.fail()` with more than two arguments is possible but deprecated.\nSee below for further details.",
+      "translated": "指定したエラーメッセージまたは既定のエラーメッセージとともに `AssertionError` を投げる。`message` パラメーターが `Error` のインスタンスの場合、`AssertionError` の代わりにそれが投げられる。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.fail();\n// AssertionError [ERR_ASSERTION]: Failed\n\nassert.fail('boom');\n// AssertionError [ERR_ASSERTION]: boom\n\nassert.fail(new TypeError('need array'));\n// TypeError: need array\n```\n\n`assert.fail()` を 2 つより多い引数で使うことは可能だが非推奨である。詳細は下記を参照。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.fail",
+      "lang": "ja"
+    },
+    "6c701938": {
+      "original": "Throws `value` if `value` is not `undefined` or `null`. This is useful when\ntesting the `error` argument in callbacks. The stack trace contains all frames\nfrom the error passed to `ifError()` including the potential new frames for `ifError()` itself.\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.ifError(null);\n// OK\nassert.ifError(0);\n// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: 0\nassert.ifError('error');\n// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: 'error'\nassert.ifError(new Error());\n// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: Error\n\n// Create some random error frames.\nlet err;\n(function errorFrame() {\n  err = new Error('test error');\n})();\n\n(function ifErrorFrame() {\n  assert.ifError(err);\n})();\n// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: test error\n//     at ifErrorFrame\n//     at errorFrame\n```",
+      "translated": "`value` が `undefined` でも `null` でもない場合、`value` を投げる。これはコールバックの `error` 引数をテストするときに役立つ。スタックトレースには、`ifError()` 自体の潜在的な新しいフレームを含め、`ifError()` に渡されたエラーからのすべてのフレームが含まれる。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.ifError(null);\n// OK\nassert.ifError(0);\n// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: 0\nassert.ifError('error');\n// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: 'error'\nassert.ifError(new Error());\n// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: Error\n\n// Create some random error frames.\nlet err;\n(function errorFrame() {\n  err = new Error('test error');\n})();\n\n(function ifErrorFrame() {\n  assert.ifError(err);\n})();\n// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: test error\n//     at ifErrorFrame\n//     at errorFrame\n```",
+      "symbol": "@types/node/assert.d.ts#assert.assert.ifError",
+      "lang": "ja"
+    },
+    "0a5bdec6": {
+      "original": "Expects the `string` input to match the regular expression.\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.match('I will fail', /pass/);\n// AssertionError [ERR_ASSERTION]: The input did not match the regular ...\n\nassert.match(123, /pass/);\n// AssertionError [ERR_ASSERTION]: The \"string\" argument must be of type string.\n\nassert.match('I will pass', /pass/);\n// OK\n```\n\nIf the values do not match, or if the `string` argument is of another type than `string`, an `{@link AssertionError}` is thrown with a `message` property set equal\nto the value of the `message` parameter. If the `message` parameter is\nundefined, a default error message is assigned. If the `message` parameter is an\ninstance of an [Error](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-error) then it will be thrown instead of the `{@link AssertionError}`.",
+      "translated": "`string` 入力が正規表現に一致することを期待する。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.match('I will fail', /pass/);\n// AssertionError [ERR_ASSERTION]: The input did not match the regular ...\n\nassert.match(123, /pass/);\n// AssertionError [ERR_ASSERTION]: The \"string\" argument must be of type string.\n\nassert.match('I will pass', /pass/);\n// OK\n```\n\n値が一致しない場合、または `string` 引数が `string` 以外の型の場合、`message` パラメーターの値に等しい `message` プロパティを持つ `{@link AssertionError}` が投げられる。`message` パラメーターが undefined の場合、既定のエラーメッセージが割り当てられる。`message` パラメーターが [Error](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-error) のインスタンスの場合、`{@link AssertionError}` の代わりにそれが投げられる。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.match",
+      "lang": "ja"
+    },
+    "02ce14ce": {
+      "original": "**Strict assertion mode**\n\nAn alias of {@link notDeepStrictEqual}.\n\n**Legacy assertion mode**\n\n> Stability: 3 - Legacy: Use {@link notDeepStrictEqual} instead.\n\nTests for any deep inequality. Opposite of {@link deepEqual}.\n\n```js\nimport assert from 'node:assert';\n\nconst obj1 = {\n  a: {\n    b: 1,\n  },\n};\nconst obj2 = {\n  a: {\n    b: 2,\n  },\n};\nconst obj3 = {\n  a: {\n    b: 1,\n  },\n};\nconst obj4 = { __proto__: obj1 };\n\nassert.notDeepEqual(obj1, obj1);\n// AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }\n\nassert.notDeepEqual(obj1, obj2);\n// OK\n\nassert.notDeepEqual(obj1, obj3);\n// AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }\n\nassert.notDeepEqual(obj1, obj4);\n// OK\n```\n\nIf the values are deeply equal, an `AssertionError` is thrown with a `message` property set equal to the value of the `message` parameter. If the `message` parameter is undefined, a default\nerror message is assigned. If the `message` parameter is an instance of an `Error` then it will be thrown\ninstead of the `AssertionError`.",
+      "translated": "**strict アサーションモード**\n\n{@link notDeepStrictEqual} のエイリアス。\n\n**レガシーアサーションモード**\n\n> Stability: 3 - レガシー: 代わりに {@link notDeepStrictEqual} を使うこと。\n\n任意の深い不等価性をテストする。{@link deepEqual} の反対。\n\n```js\nimport assert from 'node:assert';\n\nconst obj1 = {\n  a: {\n    b: 1,\n  },\n};\nconst obj2 = {\n  a: {\n    b: 2,\n  },\n};\nconst obj3 = {\n  a: {\n    b: 1,\n  },\n};\nconst obj4 = { __proto__: obj1 };\n\nassert.notDeepEqual(obj1, obj1);\n// AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }\n\nassert.notDeepEqual(obj1, obj2);\n// OK\n\nassert.notDeepEqual(obj1, obj3);\n// AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }\n\nassert.notDeepEqual(obj1, obj4);\n// OK\n```\n\n値が深く等しい場合、`message` パラメーターの値に等しい `message` プロパティを持つ `AssertionError` が投げられる。`message` パラメーターが undefined の場合、既定のエラーメッセージが割り当てられる。`message` パラメーターが `Error` のインスタンスの場合、`AssertionError` の代わりにそれが投げられる。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.notDeepEqual",
+      "lang": "ja"
+    },
+    "5b148da0": {
+      "original": "Tests for deep strict inequality. Opposite of {@link deepStrictEqual}.\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.notDeepStrictEqual({ a: 1 }, { a: '1' });\n// OK\n```\n\nIf the values are deeply and strictly equal, an `AssertionError` is thrown\nwith a `message` property set equal to the value of the `message` parameter. If\nthe `message` parameter is undefined, a default error message is assigned. If\nthe `message` parameter is an instance of an `Error` then it will be thrown\ninstead of the `AssertionError`.",
+      "translated": "深い strict 不等価性をテストする。{@link deepStrictEqual} の反対。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.notDeepStrictEqual({ a: 1 }, { a: '1' });\n// OK\n```\n\n値が深くかつ厳密に等しい場合、`message` パラメーターの値に等しい `message` プロパティを持つ `AssertionError` が投げられる。`message` パラメーターが undefined の場合、既定のエラーメッセージが割り当てられる。`message` パラメーターが `Error` のインスタンスの場合、`AssertionError` の代わりにそれが投げられる。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.notDeepStrictEqual",
+      "lang": "ja"
+    },
+    "0610a608": {
+      "original": "Tests strict inequality between the `actual` and `expected` parameters as\ndetermined by [`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is).\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.notStrictEqual(1, 2);\n// OK\n\nassert.notStrictEqual(1, 1);\n// AssertionError [ERR_ASSERTION]: Expected \"actual\" to be strictly unequal to:\n//\n// 1\n\nassert.notStrictEqual(1, '1');\n// OK\n```\n\nIf the values are strictly equal, an `AssertionError` is thrown with a `message` property set equal to the value of the `message` parameter. If the `message` parameter is undefined, a\ndefault error message is assigned. If the `message` parameter is an instance of an `Error` then it will be thrown\ninstead of the `AssertionError`.",
+      "translated": "[`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) が判定するとおり、`actual` と `expected` パラメーターの間の strict 不等価性をテストする。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.notStrictEqual(1, 2);\n// OK\n\nassert.notStrictEqual(1, 1);\n// AssertionError [ERR_ASSERTION]: Expected \"actual\" to be strictly unequal to:\n//\n// 1\n\nassert.notStrictEqual(1, '1');\n// OK\n```\n\n値が厳密に等しい場合、`message` パラメーターの値に等しい `message` プロパティを持つ `AssertionError` が投げられる。`message` パラメーターが undefined の場合、既定のエラーメッセージが割り当てられる。`message` パラメーターが `Error` のインスタンスの場合、`AssertionError` の代わりにそれが投げられる。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.notStrictEqual",
+      "lang": "ja"
+    },
+    "618da7d8": {
+      "original": "Tests if `value` is truthy. It is equivalent to `assert.equal(!!value, true, message)`.\n\nIf `value` is not truthy, an `AssertionError` is thrown with a `message` property set equal to the value of the `message` parameter. If the `message` parameter is `undefined`, a default\nerror message is assigned. If the `message` parameter is an instance of an `Error` then it will be thrown instead of the `AssertionError`.\nIf no arguments are passed in at all `message` will be set to the string:`` 'No value argument passed to `assert.ok()`' ``.\n\nBe aware that in the `repl` the error message will be different to the one\nthrown in a file! See below for further details.\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.ok(true);\n// OK\nassert.ok(1);\n// OK\n\nassert.ok();\n// AssertionError: No value argument passed to `assert.ok()`\n\nassert.ok(false, 'it\\'s false');\n// AssertionError: it's false\n\n// In the repl:\nassert.ok(typeof 123 === 'string');\n// AssertionError: false == true\n\n// In a file (e.g. test.js):\nassert.ok(typeof 123 === 'string');\n// AssertionError: The expression evaluated to a falsy value:\n//\n//   assert.ok(typeof 123 === 'string')\n\nassert.ok(false);\n// AssertionError: The expression evaluated to a falsy value:\n//\n//   assert.ok(false)\n\nassert.ok(0);\n// AssertionError: The expression evaluated to a falsy value:\n//\n//   assert.ok(0)\n```\n\n```js\nimport assert from 'node:assert/strict';\n\n// Using `assert()` works the same:\nassert(0);\n// AssertionError: The expression evaluated to a falsy value:\n//\n//   assert(0)\n```",
+      "translated": "`value` が truthy かどうかをテストする。これは `assert.equal(!!value, true, message)` と同等である。\n\n`value` が truthy でない場合、`message` パラメーターの値に等しい `message` プロパティを持つ `AssertionError` が投げられる。`message` パラメーターが `undefined` の場合、既定のエラーメッセージが割り当てられる。`message` パラメーターが `Error` のインスタンスの場合、`AssertionError` の代わりにそれが投げられる。引数がまったく渡されない場合、`message` は文字列 `` 'No value argument passed to `assert.ok()`' `` に設定される。\n\n`repl` では、エラーメッセージがファイル内で投げられるものと異なることに注意すること。詳細は下記を参照。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.ok(true);\n// OK\nassert.ok(1);\n// OK\n\nassert.ok();\n// AssertionError: No value argument passed to `assert.ok()`\n\nassert.ok(false, 'it\\'s false');\n// AssertionError: it's false\n\n// In the repl:\nassert.ok(typeof 123 === 'string');\n// AssertionError: false == true\n\n// In a file (e.g. test.js):\nassert.ok(typeof 123 === 'string');\n// AssertionError: The expression evaluated to a falsy value:\n//\n//   assert.ok(typeof 123 === 'string')\n\nassert.ok(false);\n// AssertionError: The expression evaluated to a falsy value:\n//\n//   assert.ok(false)\n\nassert.ok(0);\n// AssertionError: The expression evaluated to a falsy value:\n//\n//   assert.ok(0)\n```\n\n```js\nimport assert from 'node:assert/strict';\n\n// Using `assert()` works the same:\nassert(0);\n// AssertionError: The expression evaluated to a falsy value:\n//\n//   assert(0)\n```",
+      "symbol": "@types/node/assert.d.ts#assert.assert.ok",
+      "lang": "ja"
+    },
+    "77af19e8": {
+      "original": "Tests for partial deep equality between the `actual` and `expected` parameters.\n\"Deep\" equality means that the enumerable \"own\" properties of child objects\nare recursively evaluated also by the following rules. \"Partial\" equality means\nthat only properties that exist on the `expected` parameter are going to be\ncompared.\n\nThis method always passes the same test cases as `assert.deepStrictEqual()`,\nbehaving as a super set of it.",
+      "translated": "`actual` と `expected` パラメーターの間の部分的な深い等価性をテストする。「深い」等価性とは、子オブジェクトの列挙可能な「自身の」プロパティも、次の規則によって再帰的に評価されることを意味する。「部分的」な等価性とは、`expected` パラメーターに存在するプロパティのみが比較されることを意味する。\n\nこのメソッドは常に `assert.deepStrictEqual()` と同じテストケースに合格し、そのスーパーセットとして振る舞う。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.partialDeepStrictEqual",
+      "lang": "ja"
+    },
+    "90b52c80": {
+      "original": "Awaits the `asyncFn` promise or, if `asyncFn` is a function, immediately\ncalls the function and awaits the returned promise to complete. It will then\ncheck that the promise is rejected.\n\nIf `asyncFn` is a function and it throws an error synchronously, `assert.rejects()` will return a rejected `Promise` with that error. If the\nfunction does not return a promise, `assert.rejects()` will return a rejected `Promise` with an [ERR_INVALID_RETURN_VALUE](https://nodejs.org/docs/latest-v22.x/api/errors.html#err_invalid_return_value)\nerror. In both cases the error handler is skipped.\n\nBesides the async nature to await the completion behaves identically to {@link throws}.\n\nIf specified, `error` can be a [`Class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes),\n[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions), a validation function,\nan object where each property will be tested for, or an instance of error where\neach property will be tested for including the non-enumerable `message` and `name` properties.\n\nIf specified, `message` will be the message provided by the `{@link AssertionError}` if the `asyncFn` fails to reject.\n\n```js\nimport assert from 'node:assert/strict';\n\nawait assert.rejects(\n  async () => {\n    throw new TypeError('Wrong value');\n  },\n  {\n    name: 'TypeError',\n    message: 'Wrong value',\n  },\n);\n```\n\n```js\nimport assert from 'node:assert/strict';\n\nawait assert.rejects(\n  async () => {\n    throw new TypeError('Wrong value');\n  },\n  (err) => {\n    assert.strictEqual(err.name, 'TypeError');\n    assert.strictEqual(err.message, 'Wrong value');\n    return true;\n  },\n);\n```\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.rejects(\n  Promise.reject(new Error('Wrong value')),\n  Error,\n).then(() => {\n  // ...\n});\n```\n\n`error` cannot be a string. If a string is provided as the second argument, then `error` is assumed to\nbe omitted and the string will be used for `message` instead. This can lead to easy-to-miss mistakes. Please read the\nexample in {@link throws} carefully if using a string as the second argument gets considered.",
+      "translated": "`asyncFn` の promise を await するか、`asyncFn` が関数の場合は即座に関数を呼んで返された promise の完了を await する。その後、promise が拒否されていることを確認する。\n\n`asyncFn` が関数で同期的にエラーを投げた場合、`assert.rejects()` はそのエラーとともに拒否された `Promise` を返す。関数が promise を返さない場合、`assert.rejects()` は [ERR_INVALID_RETURN_VALUE](https://nodejs.org/docs/latest-v22.x/api/errors.html#err_invalid_return_value) エラーとともに拒否された `Promise` を返す。どちらの場合もエラーハンドラはスキップされる。\n\n完了を await する非同期的な性質を除けば、{@link throws} と同一に動作する。\n\n指定された場合、`error` は [`Class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)・[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)・検証関数、各プロパティがテストされるオブジェクト、または列挙不可の `message` と `name` プロパティを含む各プロパティがテストされるエラーのインスタンスのいずれかであり得る。\n\n指定された場合、`asyncFn` が拒否に失敗したとき、`message` が `{@link AssertionError}` が提供するメッセージになる。\n\n```js\nimport assert from 'node:assert/strict';\n\nawait assert.rejects(\n  async () => {\n    throw new TypeError('Wrong value');\n  },\n  {\n    name: 'TypeError',\n    message: 'Wrong value',\n  },\n);\n```\n\n```js\nimport assert from 'node:assert/strict';\n\nawait assert.rejects(\n  async () => {\n    throw new TypeError('Wrong value');\n  },\n  (err) => {\n    assert.strictEqual(err.name, 'TypeError');\n    assert.strictEqual(err.message, 'Wrong value');\n    return true;\n  },\n);\n```\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.rejects(\n  Promise.reject(new Error('Wrong value')),\n  Error,\n).then(() => {\n  // ...\n});\n```\n\n`error` は文字列にできない。文字列が第 2 引数として提供された場合、`error` は省略されたとみなされ、その文字列は代わりに `message` に使われる。これは見落としやすいミスにつながることがある。第 2 引数として文字列を使うことを検討する場合は、{@link throws} の例を注意深く読むこと。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.rejects",
+      "lang": "ja"
+    },
+    "c2750c87": {
+      "original": "Tests strict equality between the `actual` and `expected` parameters as\ndetermined by [`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is).\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.strictEqual(1, 2);\n// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:\n//\n// 1 !== 2\n\nassert.strictEqual(1, 1);\n// OK\n\nassert.strictEqual('Hello foobar', 'Hello World!');\n// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:\n// + actual - expected\n//\n// + 'Hello foobar'\n// - 'Hello World!'\n//          ^\n\nconst apples = 1;\nconst oranges = 2;\nassert.strictEqual(apples, oranges, `apples ${apples} !== oranges ${oranges}`);\n// AssertionError [ERR_ASSERTION]: apples 1 !== oranges 2\n\nassert.strictEqual(1, '1', new TypeError('Inputs are not identical'));\n// TypeError: Inputs are not identical\n```\n\nIf the values are not strictly equal, an `AssertionError` is thrown with a `message` property set equal to the value of the `message` parameter. If the `message` parameter is undefined, a\ndefault error message is assigned. If the `message` parameter is an instance of an `Error` then it will be thrown\ninstead of the `AssertionError`.",
+      "translated": "[`Object.is()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) が判定するとおり、`actual` と `expected` パラメーターの間の strict 等価性をテストする。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.strictEqual(1, 2);\n// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:\n//\n// 1 !== 2\n\nassert.strictEqual(1, 1);\n// OK\n\nassert.strictEqual('Hello foobar', 'Hello World!');\n// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:\n// + actual - expected\n//\n// + 'Hello foobar'\n// - 'Hello World!'\n//          ^\n\nconst apples = 1;\nconst oranges = 2;\nassert.strictEqual(apples, oranges, `apples ${apples} !== oranges ${oranges}`);\n// AssertionError [ERR_ASSERTION]: apples 1 !== oranges 2\n\nassert.strictEqual(1, '1', new TypeError('Inputs are not identical'));\n// TypeError: Inputs are not identical\n```\n\n値が厳密に等しくない場合、`message` パラメーターの値に等しい `message` プロパティを持つ `AssertionError` が投げられる。`message` パラメーターが undefined の場合、既定のエラーメッセージが割り当てられる。`message` パラメーターが `Error` のインスタンスの場合、`AssertionError` の代わりにそれが投げられる。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.strictEqual",
+      "lang": "ja"
+    },
+    "9e733b3a": {
+      "original": "Expects the function `fn` to throw an error.\n\nIf specified, `error` can be a [`Class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes),\n[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions), a validation function,\na validation object where each property will be tested for strict deep equality,\nor an instance of error where each property will be tested for strict deep\nequality including the non-enumerable `message` and `name` properties. When\nusing an object, it is also possible to use a regular expression, when\nvalidating against a string property. See below for examples.\n\nIf specified, `message` will be appended to the message provided by the `AssertionError` if the `fn` call fails to throw or in case the error validation\nfails.\n\nCustom validation object/error instance:\n\n```js\nimport assert from 'node:assert/strict';\n\nconst err = new TypeError('Wrong value');\nerr.code = 404;\nerr.foo = 'bar';\nerr.info = {\n  nested: true,\n  baz: 'text',\n};\nerr.reg = /abc/i;\n\nassert.throws(\n  () => {\n    throw err;\n  },\n  {\n    name: 'TypeError',\n    message: 'Wrong value',\n    info: {\n      nested: true,\n      baz: 'text',\n    },\n    // Only properties on the validation object will be tested for.\n    // Using nested objects requires all properties to be present. Otherwise\n    // the validation is going to fail.\n  },\n);\n\n// Using regular expressions to validate error properties:\nassert.throws(\n  () => {\n    throw err;\n  },\n  {\n    // The `name` and `message` properties are strings and using regular\n    // expressions on those will match against the string. If they fail, an\n    // error is thrown.\n    name: /^TypeError$/,\n    message: /Wrong/,\n    foo: 'bar',\n    info: {\n      nested: true,\n      // It is not possible to use regular expressions for nested properties!\n      baz: 'text',\n    },\n    // The `reg` property contains a regular expression and only if the\n    // validation object contains an identical regular expression, it is going\n    // to pass.\n    reg: /abc/i,\n  },\n);\n\n// Fails due to the different `message` and `name` properties:\nassert.throws(\n  () => {\n    const otherErr = new Error('Not found');\n    // Copy all enumerable properties from `err` to `otherErr`.\n    for (const [key, value] of Object.entries(err)) {\n      otherErr[key] = value;\n    }\n    throw otherErr;\n  },\n  // The error's `message` and `name` properties will also be checked when using\n  // an error as validation object.\n  err,\n);\n```\n\nValidate instanceof using constructor:\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  Error,\n);\n```\n\nValidate error message using [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions):\n\nUsing a regular expression runs `.toString` on the error object, and will\ntherefore also include the error name.\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  /^Error: Wrong value$/,\n);\n```\n\nCustom error validation:\n\nThe function must return `true` to indicate all internal validations passed.\nIt will otherwise fail with an `AssertionError`.\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  (err) => {\n    assert(err instanceof Error);\n    assert(/value/.test(err));\n    // Avoid returning anything from validation functions besides `true`.\n    // Otherwise, it's not clear what part of the validation failed. Instead,\n    // throw an error about the specific validation that failed (as done in this\n    // example) and add as much helpful debugging information to that error as\n    // possible.\n    return true;\n  },\n  'unexpected error',\n);\n```\n\n`error` cannot be a string. If a string is provided as the second\nargument, then `error` is assumed to be omitted and the string will be used for `message` instead. This can lead to easy-to-miss mistakes. Using the same\nmessage as the thrown error message is going to result in an `ERR_AMBIGUOUS_ARGUMENT` error. Please read the example below carefully if using\na string as the second argument gets considered:\n\n```js\nimport assert from 'node:assert/strict';\n\nfunction throwingFirst() {\n  throw new Error('First');\n}\n\nfunction throwingSecond() {\n  throw new Error('Second');\n}\n\nfunction notThrowing() {}\n\n// The second argument is a string and the input function threw an Error.\n// The first case will not throw as it does not match for the error message\n// thrown by the input function!\nassert.throws(throwingFirst, 'Second');\n// In the next example the message has no benefit over the message from the\n// error and since it is not clear if the user intended to actually match\n// against the error message, Node.js throws an `ERR_AMBIGUOUS_ARGUMENT` error.\nassert.throws(throwingSecond, 'Second');\n// TypeError [ERR_AMBIGUOUS_ARGUMENT]\n\n// The string is only used (as message) in case the function does not throw:\nassert.throws(notThrowing, 'Second');\n// AssertionError [ERR_ASSERTION]: Missing expected exception: Second\n\n// If it was intended to match for the error message do this instead:\n// It does not throw because the error messages match.\nassert.throws(throwingSecond, /Second$/);\n\n// If the error message does not match, an AssertionError is thrown.\nassert.throws(throwingFirst, /Second$/);\n// AssertionError [ERR_ASSERTION]\n```\n\nDue to the confusing error-prone notation, avoid a string as the second\nargument.",
+      "translated": "関数 `fn` がエラーを投げることを期待する。\n\n指定された場合、`error` は [`Class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)・[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)・検証関数、各プロパティが strict な深い等価性でテストされる検証オブジェクト、または列挙不可の `message` と `name` プロパティを含む各プロパティが strict な深い等価性でテストされるエラーのインスタンスのいずれかであり得る。オブジェクトを使う場合、文字列プロパティに対して検証するときは正規表現も使える。例は下記を参照。\n\n指定された場合、`fn` の呼び出しが投げるのに失敗したとき、またはエラー検証が失敗した場合、`message` が `AssertionError` が提供するメッセージに付加される。\n\nカスタム検証オブジェクト/エラーインスタンス:\n\n```js\nimport assert from 'node:assert/strict';\n\nconst err = new TypeError('Wrong value');\nerr.code = 404;\nerr.foo = 'bar';\nerr.info = {\n  nested: true,\n  baz: 'text',\n};\nerr.reg = /abc/i;\n\nassert.throws(\n  () => {\n    throw err;\n  },\n  {\n    name: 'TypeError',\n    message: 'Wrong value',\n    info: {\n      nested: true,\n      baz: 'text',\n    },\n    // Only properties on the validation object will be tested for.\n    // Using nested objects requires all properties to be present. Otherwise\n    // the validation is going to fail.\n  },\n);\n\n// Using regular expressions to validate error properties:\nassert.throws(\n  () => {\n    throw err;\n  },\n  {\n    // The `name` and `message` properties are strings and using regular\n    // expressions on those will match against the string. If they fail, an\n    // error is thrown.\n    name: /^TypeError$/,\n    message: /Wrong/,\n    foo: 'bar',\n    info: {\n      nested: true,\n      // It is not possible to use regular expressions for nested properties!\n      baz: 'text',\n    },\n    // The `reg` property contains a regular expression and only if the\n    // validation object contains an identical regular expression, it is going\n    // to pass.\n    reg: /abc/i,\n  },\n);\n\n// Fails due to the different `message` and `name` properties:\nassert.throws(\n  () => {\n    const otherErr = new Error('Not found');\n    // Copy all enumerable properties from `err` to `otherErr`.\n    for (const [key, value] of Object.entries(err)) {\n      otherErr[key] = value;\n    }\n    throw otherErr;\n  },\n  // The error's `message` and `name` properties will also be checked when using\n  // an error as validation object.\n  err,\n);\n```\n\nコンストラクターを使って instanceof を検証する:\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  Error,\n);\n```\n\n[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) を使ってエラーメッセージを検証する:\n\n正規表現を使うとエラーオブジェクトに対して `.toString` が実行されるため、エラー名も含まれる。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  /^Error: Wrong value$/,\n);\n```\n\nカスタムエラー検証:\n\n関数は、すべての内部検証が合格したことを示すために `true` を返さなければならない。そうでなければ `AssertionError` で失敗する。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  (err) => {\n    assert(err instanceof Error);\n    assert(/value/.test(err));\n    // Avoid returning anything from validation functions besides `true`.\n    // Otherwise, it's not clear what part of the validation failed. Instead,\n    // throw an error about the specific validation that failed (as done in this\n    // example) and add as much helpful debugging information to that error as\n    // possible.\n    return true;\n  },\n  'unexpected error',\n);\n```\n\n`error` は文字列にできない。文字列が第 2 引数として提供された場合、`error` は省略されたとみなされ、その文字列は代わりに `message` に使われる。これは見落としやすいミスにつながることがある。投げられたエラーメッセージと同じメッセージを使うと `ERR_AMBIGUOUS_ARGUMENT` エラーになる。第 2 引数として文字列を使うことを検討する場合は、下記の例を注意深く読むこと:\n\n```js\nimport assert from 'node:assert/strict';\n\nfunction throwingFirst() {\n  throw new Error('First');\n}\n\nfunction throwingSecond() {\n  throw new Error('Second');\n}\n\nfunction notThrowing() {}\n\n// The second argument is a string and the input function threw an Error.\n// The first case will not throw as it does not match for the error message\n// thrown by the input function!\nassert.throws(throwingFirst, 'Second');\n// In the next example the message has no benefit over the message from the\n// error and since it is not clear if the user intended to actually match\n// against the error message, Node.js throws an `ERR_AMBIGUOUS_ARGUMENT` error.\nassert.throws(throwingSecond, 'Second');\n// TypeError [ERR_AMBIGUOUS_ARGUMENT]\n\n// The string is only used (as message) in case the function does not throw:\nassert.throws(notThrowing, 'Second');\n// AssertionError [ERR_ASSERTION]: Missing expected exception: Second\n\n// If it was intended to match for the error message do this instead:\n// It does not throw because the error messages match.\nassert.throws(throwingSecond, /Second$/);\n\n// If the error message does not match, an AssertionError is thrown.\nassert.throws(throwingFirst, /Second$/);\n// AssertionError [ERR_ASSERTION]\n```\n\n紛らわしくエラーを起こしやすい記法のため、第 2 引数として文字列を使うのは避けること。",
+      "symbol": "@types/node/assert.d.ts#assert.assert.throws",
       "lang": "ja"
     },
     "d72894a9": {
