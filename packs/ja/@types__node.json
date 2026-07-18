@@ -28,6 +28,12 @@
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.typescript",
       "lang": "ja"
     },
+    "16552694": {
+      "original": "`PerformanceMark` is a global reference for `import { PerformanceMark } from 'node:perf_hooks'`",
+      "translated": "`PerformanceMark` は `import { PerformanceMark } from 'node:perf_hooks'` のグローバル参照である",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.global.PerformanceMark",
+      "lang": "ja"
+    },
     "17463102": {
       "original": "Constant for fs.open(). Flag indicating that if the file exists and is a regular file, and the file is opened successfully for write access, its length shall be truncated to zero.",
       "translated": "fs.open() 用の定数。ファイルが存在して通常のファイルであり、書き込みアクセス用に正常に開かれた場合、その長さがゼロに切り詰められるべきことを示すフラグ。",
@@ -7148,6 +7154,360 @@
       "original": "Windows specific pathing.\nSame as parent object on windows",
       "translated": "Windows 固有のパス処理。\nwindows では親オブジェクトと同じ",
       "symbol": "@types/node/path.d.ts#path.path.PlatformPath.win32",
+      "lang": "ja"
+    },
+    "1d8f3ff5": {
+      "original": "This module provides an implementation of a subset of the W3C [Web Performance APIs](https://w3c.github.io/perf-timing-primer/) as well as additional APIs for\nNode.js-specific performance measurements.\n\nNode.js supports the following [Web Performance APIs](https://w3c.github.io/perf-timing-primer/):\n\n* [High Resolution Time](https://www.w3.org/TR/hr-time-2)\n* [Performance Timeline](https://w3c.github.io/performance-timeline/)\n* [User Timing](https://www.w3.org/TR/user-timing/)\n* [Resource Timing](https://www.w3.org/TR/resource-timing-2/)\n\n```js\nimport { PerformanceObserver, performance } from 'node:perf_hooks';\n\nconst obs = new PerformanceObserver((items) => {\n  console.log(items.getEntries()[0].duration);\n  performance.clearMarks();\n});\nobs.observe({ type: 'measure' });\nperformance.measure('Start to Now');\n\nperformance.mark('A');\ndoSomeLongRunningProcess(() => {\n  performance.measure('A to Now', 'A');\n\n  performance.mark('B');\n  performance.measure('A to B', 'A', 'B');\n});\n```",
+      "translated": "このモジュールは、W3C の [Web Performance API](https://w3c.github.io/perf-timing-primer/) の部分集合の実装と、Node.js 固有のパフォーマンス測定のための追加 API を提供する。\n\nNode.js は次の [Web Performance API](https://w3c.github.io/perf-timing-primer/) をサポートする:\n\n* [High Resolution Time](https://www.w3.org/TR/hr-time-2)\n* [Performance Timeline](https://w3c.github.io/performance-timeline/)\n* [User Timing](https://www.w3.org/TR/user-timing/)\n* [Resource Timing](https://www.w3.org/TR/resource-timing-2/)\n\n```js\nimport { PerformanceObserver, performance } from 'node:perf_hooks';\n\nconst obs = new PerformanceObserver((items) => {\n  console.log(items.getEntries()[0].duration);\n  performance.clearMarks();\n});\nobs.observe({ type: 'measure' });\nperformance.measure('Start to Now');\n\nperformance.mark('A');\ndoSomeLongRunningProcess(() => {\n  performance.measure('A to Now', 'A');\n\n  performance.mark('B');\n  performance.measure('A to B', 'A', 'B');\n});\n```",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks",
+      "lang": "ja"
+    },
+    "31e2e031": {
+      "original": "Returns a `RecordableHistogram`.",
+      "translated": "`RecordableHistogram` を返す。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.createHistogram",
+      "lang": "ja"
+    },
+    "07b91765": {
+      "original": "The number of accuracy digits. Must be a number between 1 and 5.",
+      "translated": "精度の桁数。1 から 5 の間の数値でなければならない。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.CreateHistogramOptions.figures",
+      "lang": "ja"
+    },
+    "77d2b53e": {
+      "original": "The maximum recordable value. Must be an integer value greater than min.",
+      "translated": "記録可能な最大値。min より大きい整数値でなければならない。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.CreateHistogramOptions.highest",
+      "lang": "ja"
+    },
+    "954efb0f": {
+      "original": "The minimum recordable value. Must be an integer value greater than 0.",
+      "translated": "記録可能な最小値。0 より大きい整数値でなければならない。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.CreateHistogramOptions.lowest",
+      "lang": "ja"
+    },
+    "a42d8808": {
+      "original": "The sampling rate in milliseconds.\nMust be greater than zero.",
+      "translated": "サンプリングレート(ミリ秒)。0 より大きくなければならない。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.EventLoopMonitorOptions.resolution",
+      "lang": "ja"
+    },
+    "d25338f7": {
+      "original": "The result of a previous call to `eventLoopUtilization()` prior to `utilization1`.",
+      "translated": "`utilization1` より前の、以前の `eventLoopUtilization()` の呼び出しの結果。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.EventLoopUtilityFunction",
+      "lang": "ja"
+    },
+    "bc997328": {
+      "original": "The result of a previous call to `eventLoopUtilization()`.",
+      "translated": "以前の `eventLoopUtilization()` の呼び出しの結果。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.EventLoopUtilityFunction",
+      "lang": "ja"
+    },
+    "56ef1a76": {
+      "original": "`performance` is a global reference for `import { performance } from 'node:perf_hooks'`",
+      "translated": "`performance` は `import { performance } from 'node:perf_hooks'` のグローバル参照である",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.global.performance",
+      "lang": "ja"
+    },
+    "22fe3d50": {
+      "original": "`PerformanceEntry` is a global reference for `import { PerformanceEntry } from 'node:perf_hooks'`",
+      "translated": "`PerformanceEntry` は `import { PerformanceEntry } from 'node:perf_hooks'` のグローバル参照である",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.global.PerformanceEntry",
+      "lang": "ja"
+    },
+    "7bd2f594": {
+      "original": "`PerformanceMeasure` is a global reference for `import { PerformanceMeasure } from 'node:perf_hooks'`",
+      "translated": "`PerformanceMeasure` は `import { PerformanceMeasure } from 'node:perf_hooks'` のグローバル参照である",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.global.PerformanceMeasure",
+      "lang": "ja"
+    },
+    "7cf199ce": {
+      "original": "`PerformanceObserver` is a global reference for `import { PerformanceObserver } from 'node:perf_hooks'`",
+      "translated": "`PerformanceObserver` は `import { PerformanceObserver } from 'node:perf_hooks'` のグローバル参照である",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.global.PerformanceObserver",
+      "lang": "ja"
+    },
+    "6f1c91b6": {
+      "original": "`PerformanceObserverEntryList` is a global reference for `import { PerformanceObserverEntryList } from 'node:perf_hooks'`",
+      "translated": "`PerformanceObserverEntryList` は `import { PerformanceObserverEntryList } from 'node:perf_hooks'` のグローバル参照である",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.global.PerformanceObserverEntryList",
+      "lang": "ja"
+    },
+    "98b5ecdf": {
+      "original": "`PerformanceResourceTiming` is a global reference for `import { PerformanceResourceTiming } from 'node:perf_hooks'`",
+      "translated": "`PerformanceResourceTiming` は `import { PerformanceResourceTiming } from 'node:perf_hooks'` のグローバル参照である",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.global.PerformanceResourceTiming",
+      "lang": "ja"
+    },
+    "208388a8": {
+      "original": "The number of samples recorded by the histogram.",
+      "translated": "ヒストグラムが記録したサンプル数。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.count",
+      "lang": "ja"
+    },
+    "40a135b4": {
+      "original": "The number of samples recorded by the histogram.\nv17.4.0, v16.14.0",
+      "translated": "ヒストグラムが記録したサンプル数。\nv17.4.0, v16.14.0",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.countBigInt",
+      "lang": "ja"
+    },
+    "03dc896b": {
+      "original": "The number of times the event loop delay exceeded the maximum 1 hour event\nloop delay threshold.",
+      "translated": "イベントループ遅延が最大 1 時間のイベントループ遅延しきい値を超えた回数。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.exceeds",
+      "lang": "ja"
+    },
+    "36279e43": {
+      "original": "The number of times the event loop delay exceeded the maximum 1 hour event loop delay threshold.",
+      "translated": "イベントループ遅延が最大 1 時間のイベントループ遅延しきい値を超えた回数。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.exceedsBigInt",
+      "lang": "ja"
+    },
+    "d9cf4b00": {
+      "original": "The maximum recorded event loop delay.",
+      "translated": "記録されたイベントループ遅延の最大値。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.max",
+      "lang": "ja"
+    },
+    "3a172966": {
+      "original": "The maximum recorded event loop delay.\nv17.4.0, v16.14.0",
+      "translated": "記録されたイベントループ遅延の最大値。\nv17.4.0, v16.14.0",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.maxBigInt",
+      "lang": "ja"
+    },
+    "039d55d7": {
+      "original": "The mean of the recorded event loop delays.",
+      "translated": "記録されたイベントループ遅延の平均。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.mean",
+      "lang": "ja"
+    },
+    "cc608a96": {
+      "original": "The minimum recorded event loop delay.",
+      "translated": "記録されたイベントループ遅延の最小値。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.min",
+      "lang": "ja"
+    },
+    "d3e61ee5": {
+      "original": "The minimum recorded event loop delay.\nv17.4.0, v16.14.0",
+      "translated": "記録されたイベントループ遅延の最小値。\nv17.4.0, v16.14.0",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.minBigInt",
+      "lang": "ja"
+    },
+    "2232887a": {
+      "original": "A percentile value in the range (0, 100].",
+      "translated": "範囲 (0, 100] のパーセンタイル値。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.percentile",
+      "lang": "ja"
+    },
+    "bd3cef82": {
+      "original": "Returns the value at the given percentile.",
+      "translated": "指定したパーセンタイルの値を返す。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.percentile",
+      "lang": "ja"
+    },
+    "064f1674": {
+      "original": "Returns a `Map` object detailing the accumulated percentile distribution.",
+      "translated": "累積したパーセンタイル分布を詳述する `Map` オブジェクトを返す。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.percentiles",
+      "lang": "ja"
+    },
+    "95a43bbe": {
+      "original": "Resets the collected histogram data.",
+      "translated": "収集したヒストグラムデータをリセットする。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.reset",
+      "lang": "ja"
+    },
+    "0d95923d": {
+      "original": "The standard deviation of the recorded event loop delays.",
+      "translated": "記録されたイベントループ遅延の標準偏差。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Histogram.stddev",
+      "lang": "ja"
+    },
+    "87a0c4bf": {
+      "original": "Disables the update interval timer. Returns `true` if the timer was\nstopped, `false` if it was already stopped.",
+      "translated": "更新間隔タイマーを無効にする。タイマーが停止された場合は `true`、すでに停止されていた場合は `false` を返す。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.IntervalHistogram.disable",
+      "lang": "ja"
+    },
+    "fb08ab4f": {
+      "original": "Enables the update interval timer. Returns `true` if the timer was\nstarted, `false` if it was already started.",
+      "translated": "更新間隔タイマーを有効にする。タイマーが開始された場合は `true`、すでに開始されていた場合は `false` を返す。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.IntervalHistogram.enable",
+      "lang": "ja"
+    },
+    "f7b92dee": {
+      "original": "Additional optional detail to include with the mark.",
+      "translated": "マークに含める、追加の省略可能な詳細。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.MarkOptions.detail",
+      "lang": "ja"
+    },
+    "a729e29f": {
+      "original": "An optional timestamp to be used as the mark time.",
+      "translated": "マーク時刻として使う省略可能なタイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.MarkOptions.startTime",
+      "lang": "ja"
+    },
+    "80c1535a": {
+      "original": "Duration between start and end times.",
+      "translated": "開始時刻と終了時刻の間の継続時間。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.MeasureOptions.duration",
+      "lang": "ja"
+    },
+    "9b24be29": {
+      "original": "Timestamp to be used as the end time, or a string identifying a previously recorded mark.",
+      "translated": "終了時刻として使うタイムスタンプ、または以前記録されたマークを識別する文字列。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.MeasureOptions.end",
+      "lang": "ja"
+    },
+    "ebb63e0c": {
+      "original": "Timestamp to be used as the start time, or a string identifying a previously recorded mark.",
+      "translated": "開始時刻として使うタイムスタンプ、または以前記録されたマークを識別する文字列。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.MeasureOptions.start",
+      "lang": "ja"
+    },
+    "5087d332": {
+      "original": "_This property is an extension by Node.js. It is not available in Web browsers._\n\nCreates an `IntervalHistogram` object that samples and reports the event loop\ndelay over time. The delays will be reported in nanoseconds.\n\nUsing a timer to detect approximate event loop delay works because the\nexecution of timers is tied specifically to the lifecycle of the libuv\nevent loop. That is, a delay in the loop will cause a delay in the execution\nof the timer, and those delays are specifically what this API is intended to\ndetect.\n\n```js\nimport { monitorEventLoopDelay } from 'node:perf_hooks';\nconst h = monitorEventLoopDelay({ resolution: 20 });\nh.enable();\n// Do something.\nh.disable();\nconsole.log(h.min);\nconsole.log(h.max);\nconsole.log(h.mean);\nconsole.log(h.stddev);\nconsole.log(h.percentiles);\nconsole.log(h.percentile(50));\nconsole.log(h.percentile(99));\n```",
+      "translated": "_このプロパティは Node.js による拡張である。Web ブラウザーでは利用できない。_\n\n時間経過に伴うイベントループ遅延をサンプリングして報告する `IntervalHistogram` オブジェクトを作成する。遅延はナノ秒で報告される。\n\nタイマーの実行が libuv イベントループのライフサイクルに特に結び付いているため、タイマーを使っておおよそのイベントループ遅延を検出できる。すなわち、ループの遅延はタイマーの実行の遅延を引き起こし、それらの遅延こそがこの API が検出しようとするものである。\n\n```js\nimport { monitorEventLoopDelay } from 'node:perf_hooks';\nconst h = monitorEventLoopDelay({ resolution: 20 });\nh.enable();\n// Do something.\nh.disable();\nconsole.log(h.min);\nconsole.log(h.max);\nconsole.log(h.mean);\nconsole.log(h.stddev);\nconsole.log(h.percentiles);\nconsole.log(h.percentile(50));\nconsole.log(h.percentile(99));\n```",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.monitorEventLoopDelay",
+      "lang": "ja"
+    },
+    "735a3937": {
+      "original": "When `performanceEntry.entryType` is equal to 'gc', the `performance.flags`\nproperty contains additional information about garbage collection operation.\nSee perf_hooks.constants for valid values.",
+      "translated": "`performanceEntry.entryType` が 'gc' に等しい場合、`performance.flags` プロパティはガベージコレクション操作に関する追加情報を含む。有効な値は perf_hooks.constants を参照。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.NodeGCPerformanceDetail.flags",
+      "lang": "ja"
+    },
+    "7ee32964": {
+      "original": "When `performanceEntry.entryType` is equal to 'gc', the `performance.kind` property identifies\nthe type of garbage collection operation that occurred.\nSee perf_hooks.constants for valid values.",
+      "translated": "`performanceEntry.entryType` が 'gc' に等しい場合、`performance.kind` プロパティは発生したガベージコレクション操作の種類を識別する。有効な値は perf_hooks.constants を参照。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.NodeGCPerformanceDetail.kind",
+      "lang": "ja"
+    },
+    "69434dfd": {
+      "original": "If `name` is not provided, removes all `PerformanceMark` objects from the Performance Timeline.\nIf `name` is provided, removes only the named mark.",
+      "translated": "`name` が指定されない場合、Performance Timeline からすべての `PerformanceMark` オブジェクトを削除する。`name` が指定された場合、その名前のマークのみを削除する。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.clearMarks",
+      "lang": "ja"
+    },
+    "59412fd9": {
+      "original": "If `name` is not provided, removes all `PerformanceMeasure` objects from the Performance Timeline.\nIf `name` is provided, removes only the named measure.",
+      "translated": "`name` が指定されない場合、Performance Timeline からすべての `PerformanceMeasure` オブジェクトを削除する。`name` が指定された場合、その名前の measure のみを削除する。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.clearMeasures",
+      "lang": "ja"
+    },
+    "b386ef96": {
+      "original": "If `name` is not provided, removes all `PerformanceResourceTiming` objects from the Resource Timeline.\nIf `name` is provided, removes only the named resource.",
+      "translated": "`name` が指定されない場合、Resource Timeline からすべての `PerformanceResourceTiming` オブジェクトを削除する。`name` が指定された場合、その名前のリソースのみを削除する。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.clearResourceTimings",
+      "lang": "ja"
+    },
+    "73e06b18": {
+      "original": "eventLoopUtilization is similar to CPU utilization except that it is calculated using high precision wall-clock time.\nIt represents the percentage of time the event loop has spent outside the event loop's event provider (e.g. epoll_wait).\nNo other CPU idle time is taken into consideration.",
+      "translated": "eventLoopUtilization は CPU 使用率に似ているが、高精度の実時間(wall-clock time)を使って計算される点が異なる。イベントループがイベントループのイベントプロバイダー(たとえば epoll_wait)の外で費やした時間の割合を表す。他の CPU アイドル時間は一切考慮されない。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.eventLoopUtilization",
+      "lang": "ja"
+    },
+    "a6d7ec5a": {
+      "original": "Returns a list of `PerformanceEntry` objects in chronological order with respect to `performanceEntry.startTime`.\nIf you are only interested in performance entries of certain types or that have certain names, see\n`performance.getEntriesByType()` and `performance.getEntriesByName()`.",
+      "translated": "`performanceEntry.startTime` に関して時系列順に並んだ `PerformanceEntry` オブジェクトのリストを返す。特定の型のパフォーマンスエントリや特定の名前を持つエントリのみに関心がある場合は、`performance.getEntriesByType()` と `performance.getEntriesByName()` を参照。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.getEntries",
+      "lang": "ja"
+    },
+    "e9799aa8": {
+      "original": "Returns a list of `PerformanceEntry` objects in chronological order with respect to `performanceEntry.startTime`\nwhose `performanceEntry.name` is equal to `name`, and optionally, whose `performanceEntry.entryType` is equal to `type`.",
+      "translated": "`performanceEntry.name` が `name` に等しく、任意で `performanceEntry.entryType` が `type` に等しい `PerformanceEntry` オブジェクトのリストを、`performanceEntry.startTime` に関して時系列順に返す。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.getEntriesByName",
+      "lang": "ja"
+    },
+    "ef53f041": {
+      "original": "Returns a list of `PerformanceEntry` objects in chronological order with respect to `performanceEntry.startTime`\nwhose `performanceEntry.entryType` is equal to `type`.",
+      "translated": "`performanceEntry.entryType` が `type` に等しい `PerformanceEntry` オブジェクトのリストを、`performanceEntry.startTime` に関して時系列順に返す。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.getEntriesByType",
+      "lang": "ja"
+    },
+    "37a1f5db": {
+      "original": "Creates a new `PerformanceMark` entry in the Performance Timeline.\nA `PerformanceMark` is a subclass of `PerformanceEntry` whose `performanceEntry.entryType` is always `'mark'`,\nand whose `performanceEntry.duration` is always `0`.\nPerformance marks are used to mark specific significant moments in the Performance Timeline.\n\nThe created `PerformanceMark` entry is put in the global Performance Timeline and can be queried with\n`performance.getEntries`, `performance.getEntriesByName`, and `performance.getEntriesByType`. When the observation is\nperformed, the entries should be cleared from the global Performance Timeline manually with `performance.clearMarks`.",
+      "translated": "Performance Timeline に新しい `PerformanceMark` エントリを作成する。`PerformanceMark` は `PerformanceEntry` のサブクラスで、その `performanceEntry.entryType` は常に `'mark'`、その `performanceEntry.duration` は常に `0` である。パフォーマンスマークは、Performance Timeline 内の特定の重要な瞬間をマークするために使われる。\n\n作成された `PerformanceMark` エントリはグローバルな Performance Timeline に置かれ、`performance.getEntries`・`performance.getEntriesByName`・`performance.getEntriesByType` で問い合わせできる。観測が実行されたら、エントリは `performance.clearMarks` を使って手動でグローバルな Performance Timeline から削除すべきである。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.mark",
+      "lang": "ja"
+    },
+    "f17450d8": {
+      "original": "[Fetch Response Body Info](https://fetch.spec.whatwg.org/#response-body-info)",
+      "translated": "[Fetch Response Body Info](https://fetch.spec.whatwg.org/#response-body-info)",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.markResourceTiming",
+      "lang": "ja"
+    },
+    "66d546ca": {
+      "original": "[Fetch Timing Info](https://fetch.spec.whatwg.org/#fetch-timing-info)",
+      "translated": "[Fetch Timing Info](https://fetch.spec.whatwg.org/#fetch-timing-info)",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.markResourceTiming",
+      "lang": "ja"
+    },
+    "81951d79": {
+      "original": "Creates a new `PerformanceResourceTiming` entry in the Resource Timeline.\nA `PerformanceResourceTiming` is a subclass of `PerformanceEntry` whose `performanceEntry.entryType` is always `'resource'`.\nPerformance resources are used to mark moments in the Resource Timeline.",
+      "translated": "Resource Timeline に新しい `PerformanceResourceTiming` エントリを作成する。`PerformanceResourceTiming` は `PerformanceEntry` のサブクラスで、その `performanceEntry.entryType` は常に `'resource'` である。パフォーマンスリソースは、Resource Timeline 内の瞬間をマークするために使われる。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.markResourceTiming",
+      "lang": "ja"
+    },
+    "007107f4": {
+      "original": "The cache mode must be an empty string ('') or 'local'",
+      "translated": "キャッシュモードは空文字列('')または 'local' でなければならない",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.markResourceTiming",
+      "lang": "ja"
+    },
+    "7c4d3058": {
+      "original": "The delivery type. Default: ''.",
+      "translated": "配信タイプ。既定: ''。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.markResourceTiming",
+      "lang": "ja"
+    },
+    "3d11b183": {
+      "original": "The initiator name, e.g: 'fetch'",
+      "translated": "イニシエーター名。例: 'fetch'",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.markResourceTiming",
+      "lang": "ja"
+    },
+    "6cb1b9d0": {
+      "original": "The resource url",
+      "translated": "リソースの url",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.markResourceTiming",
+      "lang": "ja"
+    },
+    "9994a80d": {
+      "original": "The response's status code",
+      "translated": "レスポンスのステータスコード",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.markResourceTiming",
+      "lang": "ja"
+    },
+    "fb20f65b": {
+      "original": "Creates a new PerformanceMeasure entry in the Performance Timeline.\nA PerformanceMeasure is a subclass of PerformanceEntry whose performanceEntry.entryType is always 'measure',\nand whose performanceEntry.duration measures the number of milliseconds elapsed since startMark and endMark.\n\nThe startMark argument may identify any existing PerformanceMark in the the Performance Timeline, or may identify\nany of the timestamp properties provided by the PerformanceNodeTiming class. If the named startMark does not exist,\nthen startMark is set to timeOrigin by default.\n\nThe endMark argument must identify any existing PerformanceMark in the the Performance Timeline or any of the timestamp\nproperties provided by the PerformanceNodeTiming class. If the named endMark does not exist, an error will be thrown.",
+      "translated": "Performance Timeline に新しい PerformanceMeasure エントリを作成する。PerformanceMeasure は PerformanceEntry のサブクラスで、その performanceEntry.entryType は常に 'measure'、その performanceEntry.duration は startMark と endMark の間に経過したミリ秒数を測定する。\n\nstartMark 引数は、Performance Timeline 内の既存の任意の PerformanceMark を識別するか、PerformanceNodeTiming クラスが提供するタイムスタンプのプロパティのいずれかを識別できる。指定した名前の startMark が存在しない場合、startMark は既定で timeOrigin に設定される。\n\nendMark 引数は、Performance Timeline 内の既存の任意の PerformanceMark、または PerformanceNodeTiming クラスが提供するタイムスタンプのプロパティのいずれかを識別しなければならない。指定した名前の endMark が存在しない場合、エラーが投げられる。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.measure",
+      "lang": "ja"
+    },
+    "c57ba7be": {
+      "original": "The PerformanceMeasure entry that was created",
+      "translated": "作成された PerformanceMeasure エントリ",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.measure",
+      "lang": "ja"
+    },
+    "0feb3af8": {
+      "original": "_This property is an extension by Node.js. It is not available in Web browsers._\n\nAn instance of the `PerformanceNodeTiming` class that provides performance metrics for specific Node.js operational milestones.",
+      "translated": "_このプロパティは Node.js による拡張である。Web ブラウザーでは利用できない。_\n\n特定の Node.js の運用マイルストーンに対するパフォーマンスメトリクスを提供する `PerformanceNodeTiming` クラスのインスタンス。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.nodeTiming",
+      "lang": "ja"
+    },
+    "add04e79": {
+      "original": "Returns the current high resolution millisecond timestamp, where 0 represents the start of the current `node` process.",
+      "translated": "現在の高解像度ミリ秒タイムスタンプを返す。0 は現在の `node` プロセスの開始を表す。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.now",
+      "lang": "ja"
+    },
+    "78ca2ea2": {
+      "original": "Sets the global performance resource timing buffer size to the specified number of \"resource\" type performance entry objects.\n\nBy default the max buffer size is set to 250.",
+      "translated": "グローバルなパフォーマンスリソースタイミングバッファのサイズを、指定した数の \"resource\" 型パフォーマンスエントリオブジェクトに設定する。\n\n既定では、最大バッファサイズは 250 に設定される。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.Performance.setResourceTimingBufferSize",
       "lang": "ja"
     },
     "ebe23990": {
