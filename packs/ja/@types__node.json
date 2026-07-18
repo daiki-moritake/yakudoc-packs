@@ -94,6 +94,12 @@
       "symbol": "@types/node/module.d.ts#module.Module.ResolveHookContext.importAttributes",
       "lang": "ja"
     },
+    "41126723": {
+      "original": "If `value` is provided, removes all name-value pairs\nwhere name is `name` and value is `value`.\n\nIf `value` is not provided, removes all name-value pairs whose name is `name`.",
+      "translated": "`value` が指定された場合、name が `name` かつ value が `value` であるすべての名前と値のペアを削除する。\n\n`value` が指定されない場合、name が `name` であるすべての名前と値のペアを削除する。",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.delete",
+      "lang": "ja"
+    },
     "42814359": {
       "original": "PEM formatted CRLs (Certificate Revocation Lists).",
       "translated": "PEM 形式の CRL(証明書失効リスト)。",
@@ -12140,6 +12146,180 @@
       "original": "Gets and sets the fragment portion of the URL.\n\n```js\nconst myURL = new URL('https://example.org/foo#bar');\nconsole.log(myURL.hash);\n// Prints #bar\n\nmyURL.hash = 'baz';\nconsole.log(myURL.href);\n// Prints https://example.org/foo#baz\n```\n\nInvalid URL characters included in the value assigned to the `hash` property\nare `percent-encoded`. The selection of which characters to\npercent-encode may vary somewhat from what the {@link parse} and {@link format} methods would produce.",
       "translated": "URL のフラグメント部分を取得・設定する。\n\n```js\nconst myURL = new URL('https://example.org/foo#bar');\nconsole.log(myURL.hash);\n// Prints #bar\n\nmyURL.hash = 'baz';\nconsole.log(myURL.href);\n// Prints https://example.org/foo#baz\n```\n\n`hash` プロパティに代入された値に含まれる無効な URL 文字は `パーセントエンコード` される。パーセントエンコードする文字の選択は、{@link parse} と {@link format} メソッドが生成するものとやや異なることがある。",
       "symbol": "@types/node/url.d.ts#url.URL.hash",
+      "lang": "ja"
+    },
+    "c9bc29c4": {
+      "original": "Gets and sets the host portion of the URL.\n\n```js\nconst myURL = new URL('https://example.org:81/foo');\nconsole.log(myURL.host);\n// Prints example.org:81\n\nmyURL.host = 'example.com:82';\nconsole.log(myURL.href);\n// Prints https://example.com:82/foo\n```\n\nInvalid host values assigned to the `host` property are ignored.",
+      "translated": "URL の host 部分を取得・設定する。\n\n```js\nconst myURL = new URL('https://example.org:81/foo');\nconsole.log(myURL.host);\n// Prints example.org:81\n\nmyURL.host = 'example.com:82';\nconsole.log(myURL.href);\n// Prints https://example.com:82/foo\n```\n\n`host` プロパティに代入された無効な host 値は無視される。",
+      "symbol": "@types/node/url.d.ts#url.URL.host",
+      "lang": "ja"
+    },
+    "4cf28f0e": {
+      "original": "Gets and sets the host name portion of the URL. The key difference between`url.host` and `url.hostname` is that `url.hostname` does _not_ include the\nport.\n\n```js\nconst myURL = new URL('https://example.org:81/foo');\nconsole.log(myURL.hostname);\n// Prints example.org\n\n// Setting the hostname does not change the port\nmyURL.hostname = 'example.com';\nconsole.log(myURL.href);\n// Prints https://example.com:81/foo\n\n// Use myURL.host to change the hostname and port\nmyURL.host = 'example.org:82';\nconsole.log(myURL.href);\n// Prints https://example.org:82/foo\n```\n\nInvalid host name values assigned to the `hostname` property are ignored.",
+      "translated": "URL の host 名部分を取得・設定する。`url.host` と `url.hostname` の主な違いは、`url.hostname` がポートを_含まない_ことである。\n\n```js\nconst myURL = new URL('https://example.org:81/foo');\nconsole.log(myURL.hostname);\n// Prints example.org\n\n// Setting the hostname does not change the port\nmyURL.hostname = 'example.com';\nconsole.log(myURL.href);\n// Prints https://example.com:81/foo\n\n// Use myURL.host to change the hostname and port\nmyURL.host = 'example.org:82';\nconsole.log(myURL.href);\n// Prints https://example.org:82/foo\n```\n\n`hostname` プロパティに代入された無効な host 名の値は無視される。",
+      "symbol": "@types/node/url.d.ts#url.URL.hostname",
+      "lang": "ja"
+    },
+    "6faf25c5": {
+      "original": "Gets and sets the serialized URL.\n\n```js\nconst myURL = new URL('https://example.org/foo');\nconsole.log(myURL.href);\n// Prints https://example.org/foo\n\nmyURL.href = 'https://example.com/bar';\nconsole.log(myURL.href);\n// Prints https://example.com/bar\n```\n\nGetting the value of the `href` property is equivalent to calling {@link toString}.\n\nSetting the value of this property to a new value is equivalent to creating a\nnew `URL` object using `new URL(value)`. Each of the `URL` object's properties will be modified.\n\nIf the value assigned to the `href` property is not a valid URL, a `TypeError` will be thrown.",
+      "translated": "シリアライズされた URL を取得・設定する。\n\n```js\nconst myURL = new URL('https://example.org/foo');\nconsole.log(myURL.href);\n// Prints https://example.org/foo\n\nmyURL.href = 'https://example.com/bar';\nconsole.log(myURL.href);\n// Prints https://example.com/bar\n```\n\n`href` プロパティの値を取得することは {@link toString} を呼ぶのと同等である。\n\nこのプロパティの値を新しい値に設定することは、`new URL(value)` を使って新しい `URL` オブジェクトを作成するのと同等である。`URL` オブジェクトの各プロパティが変更される。\n\n`href` プロパティに代入された値が有効な URL でない場合、`TypeError` が投げられる。",
+      "symbol": "@types/node/url.d.ts#url.URL.href",
+      "lang": "ja"
+    },
+    "2608946b": {
+      "original": "Gets the read-only serialization of the URL's origin.\n\n```js\nconst myURL = new URL('https://example.org/foo/bar?baz');\nconsole.log(myURL.origin);\n// Prints https://example.org\n```\n\n```js\nconst idnURL = new URL('https://測試');\nconsole.log(idnURL.origin);\n// Prints https://xn--g6w251d\n\nconsole.log(idnURL.hostname);\n// Prints xn--g6w251d\n```",
+      "translated": "URL の origin の読み取り専用のシリアライズを取得する。\n\n```js\nconst myURL = new URL('https://example.org/foo/bar?baz');\nconsole.log(myURL.origin);\n// Prints https://example.org\n```\n\n```js\nconst idnURL = new URL('https://測試');\nconsole.log(idnURL.origin);\n// Prints https://xn--g6w251d\n\nconsole.log(idnURL.hostname);\n// Prints xn--g6w251d\n```",
+      "symbol": "@types/node/url.d.ts#url.URL.origin",
+      "lang": "ja"
+    },
+    "e5ed401a": {
+      "original": "Parses a string as a URL. If `base` is provided, it will be used as the base\nURL for the purpose of resolving non-absolute `input` URLs. Returns `null`\nif the parameters can't be resolved to a valid URL.",
+      "translated": "文字列を URL として解析する。`base` が指定された場合、非絶対の `input` URL を解決する目的でベース URL として使われる。パラメーターを有効な URL に解決できない場合は `null` を返す。",
+      "symbol": "@types/node/url.d.ts#url.URL.parse",
+      "lang": "ja"
+    },
+    "159605ee": {
+      "original": "The absolute or relative input URL to parse. If `input`\nis relative, then `base` is required. If `input` is absolute, the `base`\nis ignored. If `input` is not a string, it is [converted to a string](https://tc39.es/ecma262/#sec-tostring) first.",
+      "translated": "解析する絶対または相対の入力 URL。`input` が相対の場合、`base` が必須である。`input` が絶対の場合、`base` は無視される。`input` が文字列でない場合、まず[文字列に変換される](https://tc39.es/ecma262/#sec-tostring)。",
+      "symbol": "@types/node/url.d.ts#url.URL.parse",
+      "lang": "ja"
+    },
+    "a68611f2": {
+      "original": "The base URL to resolve against if the `input` is not\nabsolute. If `base` is not a string, it is [converted to a string](https://tc39.es/ecma262/#sec-tostring) first.",
+      "translated": "`input` が絶対でない場合に解決の起点となるベース URL。`base` が文字列でない場合、まず[文字列に変換される](https://tc39.es/ecma262/#sec-tostring)。",
+      "symbol": "@types/node/url.d.ts#url.URL.parse",
+      "lang": "ja"
+    },
+    "f1f4e508": {
+      "original": "Gets and sets the password portion of the URL.\n\n```js\nconst myURL = new URL('https://abc:xyz@example.com');\nconsole.log(myURL.password);\n// Prints xyz\n\nmyURL.password = '123';\nconsole.log(myURL.href);\n// Prints https://abc:123@example.com/\n```\n\nInvalid URL characters included in the value assigned to the `password` property\nare `percent-encoded`. The selection of which characters to\npercent-encode may vary somewhat from what the {@link parse} and {@link format} methods would produce.",
+      "translated": "URL の password 部分を取得・設定する。\n\n```js\nconst myURL = new URL('https://abc:xyz@example.com');\nconsole.log(myURL.password);\n// Prints xyz\n\nmyURL.password = '123';\nconsole.log(myURL.href);\n// Prints https://abc:123@example.com/\n```\n\n`password` プロパティに代入された値に含まれる無効な URL 文字は `パーセントエンコード` される。パーセントエンコードする文字の選択は、{@link parse} と {@link format} メソッドが生成するものとやや異なることがある。",
+      "symbol": "@types/node/url.d.ts#url.URL.password",
+      "lang": "ja"
+    },
+    "fc0beb95": {
+      "original": "Gets and sets the path portion of the URL.\n\n```js\nconst myURL = new URL('https://example.org/abc/xyz?123');\nconsole.log(myURL.pathname);\n// Prints /abc/xyz\n\nmyURL.pathname = '/abcdef';\nconsole.log(myURL.href);\n// Prints https://example.org/abcdef?123\n```\n\nInvalid URL characters included in the value assigned to the `pathname` property are `percent-encoded`. The selection of which characters\nto percent-encode may vary somewhat from what the {@link parse} and {@link format} methods would produce.",
+      "translated": "URL の path 部分を取得・設定する。\n\n```js\nconst myURL = new URL('https://example.org/abc/xyz?123');\nconsole.log(myURL.pathname);\n// Prints /abc/xyz\n\nmyURL.pathname = '/abcdef';\nconsole.log(myURL.href);\n// Prints https://example.org/abcdef?123\n```\n\n`pathname` プロパティに代入された値に含まれる無効な URL 文字は `パーセントエンコード` される。パーセントエンコードする文字の選択は、{@link parse} と {@link format} メソッドが生成するものとやや異なることがある。",
+      "symbol": "@types/node/url.d.ts#url.URL.pathname",
+      "lang": "ja"
+    },
+    "f31cc3cd": {
+      "original": "Gets and sets the port portion of the URL.\n\nThe port value may be a number or a string containing a number in the range `0` to `65535` (inclusive). Setting the value to the default port of the `URL` objects given `protocol` will\nresult in the `port` value becoming\nthe empty string (`''`).\n\nThe port value can be an empty string in which case the port depends on\nthe protocol/scheme:\n\n<omitted>\n\nUpon assigning a value to the port, the value will first be converted to a\nstring using `.toString()`.\n\nIf that string is invalid but it begins with a number, the leading number is\nassigned to `port`.\nIf the number lies outside the range denoted above, it is ignored.\n\n```js\nconst myURL = new URL('https://example.org:8888');\nconsole.log(myURL.port);\n// Prints 8888\n\n// Default ports are automatically transformed to the empty string\n// (HTTPS protocol's default port is 443)\nmyURL.port = '443';\nconsole.log(myURL.port);\n// Prints the empty string\nconsole.log(myURL.href);\n// Prints https://example.org/\n\nmyURL.port = 1234;\nconsole.log(myURL.port);\n// Prints 1234\nconsole.log(myURL.href);\n// Prints https://example.org:1234/\n\n// Completely invalid port strings are ignored\nmyURL.port = 'abcd';\nconsole.log(myURL.port);\n// Prints 1234\n\n// Leading numbers are treated as a port number\nmyURL.port = '5678abcd';\nconsole.log(myURL.port);\n// Prints 5678\n\n// Non-integers are truncated\nmyURL.port = 1234.5678;\nconsole.log(myURL.port);\n// Prints 1234\n\n// Out-of-range numbers which are not represented in scientific notation\n// will be ignored.\nmyURL.port = 1e10; // 10000000000, will be range-checked as described below\nconsole.log(myURL.port);\n// Prints 1234\n```\n\nNumbers which contain a decimal point,\nsuch as floating-point numbers or numbers in scientific notation,\nare not an exception to this rule.\nLeading numbers up to the decimal point will be set as the URL's port,\nassuming they are valid:\n\n```js\nmyURL.port = 4.567e21;\nconsole.log(myURL.port);\n// Prints 4 (because it is the leading number in the string '4.567e21')\n```",
+      "translated": "URL の port 部分を取得・設定する。\n\nport 値は、数値、または `0` から `65535`(両端を含む)の範囲の数値を含む文字列でよい。`URL` オブジェクトの指定された `protocol` の既定ポートに値を設定すると、`port` 値は空文字列(`''`)になる。\n\nport 値は空文字列にでき、その場合ポートはプロトコル/スキームに依存する:\n\n<omitted>\n\nport に値を代入すると、その値はまず `.toString()` を使って文字列に変換される。\n\nその文字列が無効だが数値で始まる場合、先頭の数値が `port` に割り当てられる。数値が上記の範囲外にある場合、無視される。\n\n```js\nconst myURL = new URL('https://example.org:8888');\nconsole.log(myURL.port);\n// Prints 8888\n\n// Default ports are automatically transformed to the empty string\n// (HTTPS protocol's default port is 443)\nmyURL.port = '443';\nconsole.log(myURL.port);\n// Prints the empty string\nconsole.log(myURL.href);\n// Prints https://example.org/\n\nmyURL.port = 1234;\nconsole.log(myURL.port);\n// Prints 1234\nconsole.log(myURL.href);\n// Prints https://example.org:1234/\n\n// Completely invalid port strings are ignored\nmyURL.port = 'abcd';\nconsole.log(myURL.port);\n// Prints 1234\n\n// Leading numbers are treated as a port number\nmyURL.port = '5678abcd';\nconsole.log(myURL.port);\n// Prints 5678\n\n// Non-integers are truncated\nmyURL.port = 1234.5678;\nconsole.log(myURL.port);\n// Prints 1234\n\n// Out-of-range numbers which are not represented in scientific notation\n// will be ignored.\nmyURL.port = 1e10; // 10000000000, will be range-checked as described below\nconsole.log(myURL.port);\n// Prints 1234\n```\n\n浮動小数点数や科学的記数法の数値など、小数点を含む数値もこの規則の例外ではない。小数点までの先頭の数値が、有効であれば URL のポートとして設定される:\n\n```js\nmyURL.port = 4.567e21;\nconsole.log(myURL.port);\n// Prints 4 (because it is the leading number in the string '4.567e21')\n```",
+      "symbol": "@types/node/url.d.ts#url.URL.port",
+      "lang": "ja"
+    },
+    "75a5fcc5": {
+      "original": "Gets and sets the protocol portion of the URL.\n\n```js\nconst myURL = new URL('https://example.org');\nconsole.log(myURL.protocol);\n// Prints https:\n\nmyURL.protocol = 'ftp';\nconsole.log(myURL.href);\n// Prints ftp://example.org/\n```\n\nInvalid URL protocol values assigned to the `protocol` property are ignored.",
+      "translated": "URL の protocol 部分を取得・設定する。\n\n```js\nconst myURL = new URL('https://example.org');\nconsole.log(myURL.protocol);\n// Prints https:\n\nmyURL.protocol = 'ftp';\nconsole.log(myURL.href);\n// Prints ftp://example.org/\n```\n\n`protocol` プロパティに代入された無効な URL プロトコル値は無視される。",
+      "symbol": "@types/node/url.d.ts#url.URL.protocol",
+      "lang": "ja"
+    },
+    "0687a501": {
+      "original": "Removes the stored `Blob` identified by the given ID. Attempting to revoke a\nID that isn't registered will silently fail.",
+      "translated": "指定した ID で識別される格納済みの `Blob` を削除する。登録されていない ID を取り消そうとすると静かに失敗する。",
+      "symbol": "@types/node/url.d.ts#url.URL.revokeObjectURL",
+      "lang": "ja"
+    },
+    "046f6356": {
+      "original": "Gets and sets the serialized query portion of the URL.\n\n```js\nconst myURL = new URL('https://example.org/abc?123');\nconsole.log(myURL.search);\n// Prints ?123\n\nmyURL.search = 'abc=xyz';\nconsole.log(myURL.href);\n// Prints https://example.org/abc?abc=xyz\n```\n\nAny invalid URL characters appearing in the value assigned the `search` property will be `percent-encoded`. The selection of which\ncharacters to percent-encode may vary somewhat from what the {@link parse} and {@link format} methods would produce.",
+      "translated": "URL のシリアライズされた query 部分を取得・設定する。\n\n```js\nconst myURL = new URL('https://example.org/abc?123');\nconsole.log(myURL.search);\n// Prints ?123\n\nmyURL.search = 'abc=xyz';\nconsole.log(myURL.href);\n// Prints https://example.org/abc?abc=xyz\n```\n\n`search` プロパティに代入された値に含まれる無効な URL 文字は `パーセントエンコード` される。パーセントエンコードする文字の選択は、{@link parse} と {@link format} メソッドが生成するものとやや異なることがある。",
+      "symbol": "@types/node/url.d.ts#url.URL.search",
+      "lang": "ja"
+    },
+    "0f2b74fc": {
+      "original": "Gets the `URLSearchParams` object representing the query parameters of the\nURL. This property is read-only but the `URLSearchParams` object it provides\ncan be used to mutate the URL instance; to replace the entirety of query\nparameters of the URL, use the {@link search} setter. See `URLSearchParams` documentation for details.\n\nUse care when using `.searchParams` to modify the `URL` because,\nper the WHATWG specification, the `URLSearchParams` object uses\ndifferent rules to determine which characters to percent-encode. For\ninstance, the `URL` object will not percent encode the ASCII tilde (`~`)\ncharacter, while `URLSearchParams` will always encode it:\n\n```js\nconst myURL = new URL('https://example.org/abc?foo=~bar');\n\nconsole.log(myURL.search);  // prints ?foo=~bar\n\n// Modify the URL via searchParams...\nmyURL.searchParams.sort();\n\nconsole.log(myURL.search);  // prints ?foo=%7Ebar\n```",
+      "translated": "URL のクエリパラメーターを表す `URLSearchParams` オブジェクトを取得する。このプロパティは読み取り専用だが、それが提供する `URLSearchParams` オブジェクトを使って URL インスタンスを変更できる。URL のクエリパラメーター全体を置き換えるには {@link search} セッターを使う。詳細は `URLSearchParams` のドキュメントを参照。\n\n`.searchParams` を使って `URL` を変更する際は注意すること。WHATWG 仕様により、`URLSearchParams` オブジェクトはパーセントエンコードする文字を決定するために異なる規則を使うからである。たとえば、`URL` オブジェクトは ASCII のチルダ(`~`)文字をパーセントエンコードしないが、`URLSearchParams` は常にそれをエンコードする:\n\n```js\nconst myURL = new URL('https://example.org/abc?foo=~bar');\n\nconsole.log(myURL.search);  // prints ?foo=~bar\n\n// Modify the URL via searchParams...\nmyURL.searchParams.sort();\n\nconsole.log(myURL.search);  // prints ?foo=%7Ebar\n```",
+      "symbol": "@types/node/url.d.ts#url.URL.searchParams",
+      "lang": "ja"
+    },
+    "566be03a": {
+      "original": "The `toJSON()` method on the `URL` object returns the serialized URL. The\nvalue returned is equivalent to that of {@link href} and {@link toString}.\n\nThis method is automatically called when an `URL` object is serialized\nwith [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify).\n\n```js\nconst myURLs = [\n  new URL('https://www.example.com'),\n  new URL('https://test.example.org'),\n];\nconsole.log(JSON.stringify(myURLs));\n// Prints [\"https://www.example.com/\",\"https://test.example.org/\"]\n```",
+      "translated": "`URL` オブジェクトの `toJSON()` メソッドは、シリアライズされた URL を返す。返される値は {@link href} と {@link toString} の値と同等である。\n\nこのメソッドは、`URL` オブジェクトが [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) でシリアライズされるときに自動的に呼ばれる。\n\n```js\nconst myURLs = [\n  new URL('https://www.example.com'),\n  new URL('https://test.example.org'),\n];\nconsole.log(JSON.stringify(myURLs));\n// Prints [\"https://www.example.com/\",\"https://test.example.org/\"]\n```",
+      "symbol": "@types/node/url.d.ts#url.URL.toJSON",
+      "lang": "ja"
+    },
+    "86425a43": {
+      "original": "The `toString()` method on the `URL` object returns the serialized URL. The\nvalue returned is equivalent to that of {@link href} and {@link toJSON}.",
+      "translated": "`URL` オブジェクトの `toString()` メソッドは、シリアライズされた URL を返す。返される値は {@link href} と {@link toJSON} の値と同等である。",
+      "symbol": "@types/node/url.d.ts#url.URL.toString",
+      "lang": "ja"
+    },
+    "a7c1219e": {
+      "original": "Gets and sets the username portion of the URL.\n\n```js\nconst myURL = new URL('https://abc:xyz@example.com');\nconsole.log(myURL.username);\n// Prints abc\n\nmyURL.username = '123';\nconsole.log(myURL.href);\n// Prints https://123:xyz@example.com/\n```\n\nAny invalid URL characters appearing in the value assigned the `username` property will be `percent-encoded`. The selection of which\ncharacters to percent-encode may vary somewhat from what the {@link parse} and {@link format} methods would produce.",
+      "translated": "URL の username 部分を取得・設定する。\n\n```js\nconst myURL = new URL('https://abc:xyz@example.com');\nconsole.log(myURL.username);\n// Prints abc\n\nmyURL.username = '123';\nconsole.log(myURL.href);\n// Prints https://123:xyz@example.com/\n```\n\n`username` プロパティに代入された値に現れる無効な URL 文字は `パーセントエンコード` される。パーセントエンコードする文字の選択は、{@link parse} と {@link format} メソッドが生成するものとやや異なることがある。",
+      "symbol": "@types/node/url.d.ts#url.URL.username",
+      "lang": "ja"
+    },
+    "39a05e10": {
+      "original": "`true` if the serialized URL string should include the username and password, `false` otherwise.",
+      "translated": "シリアライズされた URL 文字列にユーザー名とパスワードを含めるべき場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/url.d.ts#url.URLFormatOptions.auth",
+      "lang": "ja"
+    },
+    "a2dc4e8b": {
+      "original": "`true` if the serialized URL string should include the fragment, `false` otherwise.",
+      "translated": "シリアライズされた URL 文字列にフラグメントを含めるべき場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/url.d.ts#url.URLFormatOptions.fragment",
+      "lang": "ja"
+    },
+    "7aea8473": {
+      "original": "`true` if the serialized URL string should include the search query, `false` otherwise.",
+      "translated": "シリアライズされた URL 文字列に検索クエリを含めるべき場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/url.d.ts#url.URLFormatOptions.search",
+      "lang": "ja"
+    },
+    "0284d73c": {
+      "original": "`true` if Unicode characters appearing in the host component of the URL string should be encoded directly as opposed to\nbeing Punycode encoded.",
+      "translated": "URL 文字列の host コンポーネントに現れる Unicode 文字を、Punycode エンコードするのではなく直接エンコードすべき場合は `true`。",
+      "symbol": "@types/node/url.d.ts#url.URLFormatOptions.unicode",
+      "lang": "ja"
+    },
+    "a7a57048": {
+      "original": "The `URLSearchParams` API provides read and write access to the query of a `URL`. The `URLSearchParams` class can also be used standalone with one of the\nfour following constructors.\nThe `URLSearchParams` class is also available on the global object.\n\nThe WHATWG `URLSearchParams` interface and the `querystring` module have\nsimilar purpose, but the purpose of the `querystring` module is more\ngeneral, as it allows the customization of delimiter characters (`&#x26;` and `=`).\nOn the other hand, this API is designed purely for URL query strings.\n\n```js\nconst myURL = new URL('https://example.org/?abc=123');\nconsole.log(myURL.searchParams.get('abc'));\n// Prints 123\n\nmyURL.searchParams.append('abc', 'xyz');\nconsole.log(myURL.href);\n// Prints https://example.org/?abc=123&#x26;abc=xyz\n\nmyURL.searchParams.delete('abc');\nmyURL.searchParams.set('a', 'b');\nconsole.log(myURL.href);\n// Prints https://example.org/?a=b\n\nconst newSearchParams = new URLSearchParams(myURL.searchParams);\n// The above is equivalent to\n// const newSearchParams = new URLSearchParams(myURL.search);\n\nnewSearchParams.append('a', 'c');\nconsole.log(myURL.href);\n// Prints https://example.org/?a=b\nconsole.log(newSearchParams.toString());\n// Prints a=b&#x26;a=c\n\n// newSearchParams.toString() is implicitly called\nmyURL.search = newSearchParams;\nconsole.log(myURL.href);\n// Prints https://example.org/?a=b&#x26;a=c\nnewSearchParams.delete('a');\nconsole.log(myURL.href);\n// Prints https://example.org/?a=b&#x26;a=c\n```",
+      "translated": "`URLSearchParams` API は、`URL` のクエリへの読み書きアクセスを提供する。`URLSearchParams` クラスは、次の 4 つのコンストラクターのいずれかを使って単独でも使える。`URLSearchParams` クラスはグローバルオブジェクトでも利用できる。\n\nWHATWG の `URLSearchParams` インターフェースと `querystring` モジュールは似た目的を持つが、`querystring` モジュールの目的の方がより一般的で、区切り文字(`&` と `=`)のカスタマイズを許可する。一方、この API は純粋に URL のクエリ文字列のために設計されている。\n\n```js\nconst myURL = new URL('https://example.org/?abc=123');\nconsole.log(myURL.searchParams.get('abc'));\n// Prints 123\n\nmyURL.searchParams.append('abc', 'xyz');\nconsole.log(myURL.href);\n// Prints https://example.org/?abc=123&#x26;abc=xyz\n\nmyURL.searchParams.delete('abc');\nmyURL.searchParams.set('a', 'b');\nconsole.log(myURL.href);\n// Prints https://example.org/?a=b\n\nconst newSearchParams = new URLSearchParams(myURL.searchParams);\n// The above is equivalent to\n// const newSearchParams = new URLSearchParams(myURL.search);\n\nnewSearchParams.append('a', 'c');\nconsole.log(myURL.href);\n// Prints https://example.org/?a=b\nconsole.log(newSearchParams.toString());\n// Prints a=b&#x26;a=c\n\n// newSearchParams.toString() is implicitly called\nmyURL.search = newSearchParams;\nconsole.log(myURL.href);\n// Prints https://example.org/?a=b&#x26;a=c\nnewSearchParams.delete('a');\nconsole.log(myURL.href);\n// Prints https://example.org/?a=b&#x26;a=c\n```",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams",
+      "lang": "ja"
+    },
+    "58d642bb": {
+      "original": "Append a new name-value pair to the query string.",
+      "translated": "クエリ文字列に新しい名前と値のペアを追加する。",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.append",
+      "lang": "ja"
+    },
+    "bf489f66": {
+      "original": "Returns an ES6 `Iterator` over each of the name-value pairs in the query.\nEach item of the iterator is a JavaScript `Array`. The first item of the `Array` is the `name`, the second item of the `Array` is the `value`.\n\nAlias for `urlSearchParams[Symbol.iterator]()`.",
+      "translated": "クエリ内の各名前と値のペアを反復する ES6 の `Iterator` を返す。イテレーターの各項目は JavaScript の `Array` である。`Array` の 1 つ目の項目は `name`、2 つ目の項目は `value` である。\n\n`urlSearchParams[Symbol.iterator]()` のエイリアス。",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.entries",
+      "lang": "ja"
+    },
+    "11ef8cea": {
+      "original": "Invoked for each name-value pair in the query",
+      "translated": "クエリ内の各名前と値のペアに対して呼ばれる",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.forEach",
+      "lang": "ja"
+    },
+    "614e0b55": {
+      "original": "Iterates over each name-value pair in the query and invokes the given function.\n\n```js\nconst myURL = new URL('https://example.org/?a=b&#x26;c=d');\nmyURL.searchParams.forEach((value, name, searchParams) => {\n  console.log(name, value, myURL.searchParams === searchParams);\n});\n// Prints:\n//   a b true\n//   c d true\n```",
+      "translated": "クエリ内の各名前と値のペアを反復し、指定した関数を呼ぶ。\n\n```js\nconst myURL = new URL('https://example.org/?a=b&#x26;c=d');\nmyURL.searchParams.forEach((value, name, searchParams) => {\n  console.log(name, value, myURL.searchParams === searchParams);\n});\n// Prints:\n//   a b true\n//   c d true\n```",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.forEach",
+      "lang": "ja"
+    },
+    "04b99e5e": {
+      "original": "To be used as `this` value for when `fn` is called",
+      "translated": "`fn` が呼ばれるときの `this` 値として使われる",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.forEach",
+      "lang": "ja"
+    },
+    "a50cb2c3": {
+      "original": "or `null` if there is no name-value pair with the given `name`.",
+      "translated": "指定した `name` の名前と値のペアがない場合は `null`。",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.get",
+      "lang": "ja"
+    },
+    "6837a791": {
+      "original": "Returns the value of the first name-value pair whose name is `name`. If there\nare no such pairs, `null` is returned.",
+      "translated": "name が `name` である最初の名前と値のペアの値を返す。そのようなペアがない場合、`null` が返される。",
+      "symbol": "@types/node/url.d.ts#url.URLSearchParams.get",
       "lang": "ja"
     },
     "6534767f": {
