@@ -7690,6 +7690,114 @@
       "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.domainLookupEnd",
       "lang": "ja"
     },
+    "b582abb8": {
+      "original": "The high resolution millisecond timestamp immediately before the Node.js starts the domain name lookup\nfor the resource.",
+      "translated": "リソースのドメイン名ルックアップを Node.js が開始する直前の高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.domainLookupStart",
+      "lang": "ja"
+    },
+    "fc780ad5": {
+      "original": "A number representing the size (in octets) received from the fetch (HTTP or cache), of the payload body, before\nremoving any applied content-codings.",
+      "translated": "適用された content-coding を除去する前の、fetch(HTTP またはキャッシュ)から受信したペイロードボディのサイズ(オクテット単位)を表す数値。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.encodedBodySize",
+      "lang": "ja"
+    },
+    "91a39564": {
+      "original": "The high resolution millisecond timestamp immediately before the Node.js starts to fetch the resource.",
+      "translated": "リソースの取得を Node.js が開始する直前の高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.fetchStart",
+      "lang": "ja"
+    },
+    "07ae07e6": {
+      "original": "The high resolution millisecond timestamp that will be created immediately after receiving\nthe last byte of the response of the last redirect.",
+      "translated": "最後のリダイレクトのレスポンスの最後のバイトを受信した直後に作成される高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.redirectEnd",
+      "lang": "ja"
+    },
+    "028521c7": {
+      "original": "The high resolution millisecond timestamp that represents the start time of the fetch which\ninitiates the redirect.",
+      "translated": "リダイレクトを開始する fetch の開始時刻を表す高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.redirectStart",
+      "lang": "ja"
+    },
+    "8f7b4034": {
+      "original": "The high resolution millisecond timestamp representing the time immediately before Node.js receives the\nfirst byte of the response from the server.",
+      "translated": "サーバーからのレスポンスの最初のバイトを Node.js が受信する直前の時刻を表す高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.requestStart",
+      "lang": "ja"
+    },
+    "2c8171e0": {
+      "original": "The high resolution millisecond timestamp representing the time immediately after Node.js receives the\nlast byte of the resource or immediately before the transport connection is closed, whichever comes first.",
+      "translated": "リソースの最後のバイトを Node.js が受信した直後、またはトランスポート接続が閉じられる直前の、いずれか早い方の時刻を表す高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.responseEnd",
+      "lang": "ja"
+    },
+    "b49bec71": {
+      "original": "The high resolution millisecond timestamp representing the time immediately before Node.js starts the\nhandshake process to secure the current connection.",
+      "translated": "現在の接続をセキュアにするためのハンドシェイク処理を Node.js が開始する直前の時刻を表す高解像度ミリ秒タイムスタンプ。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.secureConnectionStart",
+      "lang": "ja"
+    },
+    "1a848b3a": {
+      "original": "Returns a `object` that is the JSON representation of the `PerformanceResourceTiming` object",
+      "translated": "`PerformanceResourceTiming` オブジェクトの JSON 表現である `object` を返す",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.toJSON",
+      "lang": "ja"
+    },
+    "e728dcc4": {
+      "original": "A number representing the size (in octets) of the fetched resource. The size includes the response header\nfields plus the response payload body.",
+      "translated": "取得されたリソースのサイズ(オクテット単位)を表す数値。サイズにはレスポンスヘッダーフィールドとレスポンスペイロードボディが含まれる。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.transferSize",
+      "lang": "ja"
+    },
+    "95ba1e1e": {
+      "original": "The high resolution millisecond timestamp at immediately before dispatching the `fetch`\nrequest. If the resource is not intercepted by a worker the property will always return 0.",
+      "translated": "`fetch` リクエストをディスパッチする直前の高解像度ミリ秒タイムスタンプ。リソースがワーカーによってインターセプトされない場合、このプロパティは常に 0 を返す。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceResourceTiming.workerStart",
+      "lang": "ja"
+    },
+    "41be3f6f": {
+      "original": "Adds the values from `other` to this histogram.",
+      "translated": "`other` の値をこのヒストグラムに追加する。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.RecordableHistogram.add",
+      "lang": "ja"
+    },
+    "61c691b0": {
+      "original": "The amount to record in the histogram.",
+      "translated": "ヒストグラムに記録する量。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.RecordableHistogram.record",
+      "lang": "ja"
+    },
+    "f58e8766": {
+      "original": "Calculates the amount of time (in nanoseconds) that has passed since the\nprevious call to `recordDelta()` and records that amount in the histogram.",
+      "translated": "前回の `recordDelta()` の呼び出しから経過した時間(ナノ秒)を計算し、その量をヒストグラムに記録する。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.RecordableHistogram.recordDelta",
+      "lang": "ja"
+    },
+    "11b2e9d7": {
+      "original": "A histogram object created using `perf_hooks.createHistogram()` that will record runtime\ndurations in nanoseconds.",
+      "translated": "`perf_hooks.createHistogram()` を使って作成されたヒストグラムオブジェクト。実行時間をナノ秒で記録する。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.TimerifyOptions.histogram",
+      "lang": "ja"
+    },
+    "31823d2a": {
+      "original": "Number of events that have been processed by the event handler.",
+      "translated": "イベントハンドラが処理したイベント数。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.UVMetrics.events",
+      "lang": "ja"
+    },
+    "765b6bac": {
+      "original": "Number of events that were waiting to be processed when the event provider was called.",
+      "translated": "イベントプロバイダーが呼ばれたときに処理を待っていたイベント数。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.UVMetrics.eventsWaiting",
+      "lang": "ja"
+    },
+    "777ea873": {
+      "original": "Number of event loop iterations.",
+      "translated": "イベントループの反復回数。",
+      "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.UVMetrics.loopCount",
+      "lang": "ja"
+    },
     "ebe23990": {
       "original": "A unique identifier for the warning instance being emitted.",
       "translated": "発生させる警告インスタンスの一意な識別子。",
