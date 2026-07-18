@@ -13965,6 +13965,186 @@
       "translated": "promise が構築されたときに呼ばれる。これは対応する before/after イベントが発生することを意味せず、その可能性が存在することだけを意味する。これは、継続を一度も得ないまま promise が作成された場合に起こる。",
       "symbol": "@types/node/v8.d.ts#v8.Init",
       "lang": "ja"
+    },
+    "314542ed": {
+      "original": "The promise being created.",
+      "translated": "作成されている promise。",
+      "symbol": "@types/node/v8.d.ts#v8.Init",
+      "lang": "ja"
+    },
+    "dc4b78cc": {
+      "original": "The promise continued from, if applicable.",
+      "translated": "該当する場合、継続元の promise。",
+      "symbol": "@types/node/v8.d.ts#v8.Init",
+      "lang": "ja"
+    },
+    "bc24277c": {
+      "original": "V8 only supports `Latin-1/ISO-8859-1` and `UTF16` as the underlying representation of a string.\nIf the `content` uses `Latin-1/ISO-8859-1` as the underlying representation, this function will return true;\notherwise, it returns false.\n\nIf this method returns false, that does not mean that the string contains some characters not in `Latin-1/ISO-8859-1`.\nSometimes a `Latin-1` string may also be represented as `UTF16`.\n\n```js\nconst { isStringOneByteRepresentation } = require('node:v8');\n\nconst Encoding = {\n  latin1: 1,\n  utf16le: 2,\n};\nconst buffer = Buffer.alloc(100);\nfunction writeString(input) {\n  if (isStringOneByteRepresentation(input)) {\n    buffer.writeUint8(Encoding.latin1);\n    buffer.writeUint32LE(input.length, 1);\n    buffer.write(input, 5, 'latin1');\n  } else {\n    buffer.writeUint8(Encoding.utf16le);\n    buffer.writeUint32LE(input.length * 2, 1);\n    buffer.write(input, 5, 'utf16le');\n  }\n}\nwriteString('hello');\nwriteString('你好');\n```",
+      "translated": "V8 は文字列の基盤となる表現として `Latin-1/ISO-8859-1` と `UTF16` のみをサポートする。`content` が基盤となる表現として `Latin-1/ISO-8859-1` を使う場合、この関数は true を返す。そうでなければ false を返す。\n\nこのメソッドが false を返しても、それは文字列が `Latin-1/ISO-8859-1` にない文字を含むことを意味しない。`Latin-1` 文字列が `UTF16` として表されることもある。\n\n```js\nconst { isStringOneByteRepresentation } = require('node:v8');\n\nconst Encoding = {\n  latin1: 1,\n  utf16le: 2,\n};\nconst buffer = Buffer.alloc(100);\nfunction writeString(input) {\n  if (isStringOneByteRepresentation(input)) {\n    buffer.writeUint8(Encoding.latin1);\n    buffer.writeUint32LE(input.length, 1);\n    buffer.write(input, 5, 'latin1');\n  } else {\n    buffer.writeUint8(Encoding.utf16le);\n    buffer.writeUint32LE(input.length * 2, 1);\n    buffer.write(input, 5, 'utf16le');\n  }\n}\nwriteString('hello');\nwriteString('你好');\n```",
+      "symbol": "@types/node/v8.d.ts#v8.isStringOneByteRepresentation",
+      "lang": "ja"
+    },
+    "e4bfdacb": {
+      "original": "The `promiseHooks` interface can be used to track promise lifecycle events.",
+      "translated": "`promiseHooks` インターフェースは、promise のライフサイクルイベントを追跡するために使える。",
+      "symbol": "@types/node/v8.d.ts#v8.promiseHooks",
+      "lang": "ja"
+    },
+    "10681a00": {
+      "original": "Registers functions to be called for different lifetime events of each promise.\nThe callbacks `init()`/`before()`/`after()`/`settled()` are called for the respective events during a promise's lifetime.\nAll callbacks are optional. For example, if only promise creation needs to be tracked, then only the init callback needs to be passed.\nThe hook callbacks must be plain functions. Providing async functions will throw as it would produce an infinite microtask loop.",
+      "translated": "各 promise のさまざまなライフタイムイベントで呼ばれる関数を登録する。コールバック `init()`/`before()`/`after()`/`settled()` は、promise のライフタイム中のそれぞれのイベントで呼ばれる。すべてのコールバックは省略可能である。たとえば、promise の作成のみを追跡する必要がある場合、init コールバックのみを渡せばよい。フックコールバックはプレーンな関数でなければならない。async 関数を提供すると無限のマイクロタスクループを生じるため、投げられる。",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.createHook",
+      "lang": "ja"
+    },
+    "e8c4d0c9": {
+      "original": "The {@link HookCallbacks | Hook Callbacks} to register",
+      "translated": "登録する {@link HookCallbacks | Hook Callbacks}",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.createHook",
+      "lang": "ja"
+    },
+    "7e624c07": {
+      "original": "Used for disabling hooks",
+      "translated": "フックの無効化に使う",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.createHook",
+      "lang": "ja"
+    },
+    "962be83e": {
+      "original": "The {@link After | `after` callback} to call after a promise continuation executes.",
+      "translated": "promise の継続が実行された後に呼ぶ {@link After | `after` コールバック}。",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.onAfter",
+      "lang": "ja"
+    },
+    "b130a3d7": {
+      "original": "The `after` hook must be a plain function. Providing an async function will throw as it would produce an infinite microtask loop.",
+      "translated": "`after` フックはプレーンな関数でなければならない。async 関数を提供すると無限のマイクロタスクループを生じるため、投げられる。",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.onAfter",
+      "lang": "ja"
+    },
+    "3e50ce09": {
+      "original": "The {@link Before | `before` callback} to call before a promise continuation executes.",
+      "translated": "promise の継続が実行される前に呼ぶ {@link Before | `before` コールバック}。",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.onBefore",
+      "lang": "ja"
+    },
+    "1f9318ad": {
+      "original": "The `before` hook must be a plain function. Providing an async function will throw as it would produce an infinite microtask loop.",
+      "translated": "`before` フックはプレーンな関数でなければならない。async 関数を提供すると無限のマイクロタスクループを生じるため、投げられる。",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.onBefore",
+      "lang": "ja"
+    },
+    "2c31a5b6": {
+      "original": "Call to stop the hook.",
+      "translated": "フックを停止するために呼ぶ。",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.onInit",
+      "lang": "ja"
+    },
+    "6202f5f7": {
+      "original": "The {@link Init | `init` callback} to call when a promise is created.",
+      "translated": "promise が作成されたときに呼ぶ {@link Init | `init` コールバック}。",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.onInit",
+      "lang": "ja"
+    },
+    "c69c27a1": {
+      "original": "The `init` hook must be a plain function. Providing an async function will throw as it would produce an infinite microtask loop.",
+      "translated": "`init` フックはプレーンな関数でなければならない。async 関数を提供すると無限のマイクロタスクループを生じるため、投げられる。",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.onInit",
+      "lang": "ja"
+    },
+    "49dbbf17": {
+      "original": "The {@link Settled | `settled` callback} to call when a promise is created.",
+      "translated": "promise が作成されたときに呼ぶ {@link Settled | `settled` コールバック}。",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.onSettled",
+      "lang": "ja"
+    },
+    "8fb0796f": {
+      "original": "The `settled` hook must be a plain function. Providing an async function will throw as it would produce an infinite microtask loop.",
+      "translated": "`settled` フックはプレーンな関数でなければならない。async 関数を提供すると無限のマイクロタスクループを生じるため、投げられる。",
+      "symbol": "@types/node/v8.d.ts#v8.PromiseHooks.onSettled",
+      "lang": "ja"
+    },
+    "3614fe02": {
+      "original": "The constructor that can be used to search on the prototype chain in order to filter target objects in the heap.",
+      "translated": "ヒープ内の対象オブジェクトをフィルタリングするために、プロトタイプチェーン上で検索するために使えるコンストラクター。",
+      "symbol": "@types/node/v8.d.ts#v8.queryObjects",
+      "lang": "ja"
+    },
+    "f792442a": {
+      "original": "This is similar to the [`queryObjects()` console API](https://developer.chrome.com/docs/devtools/console/utilities#queryObjects-function)\nprovided by the Chromium DevTools console. It can be used to search for objects that have the matching constructor on its prototype chain\nin the heap after a full garbage collection, which can be useful for memory leak regression tests. To avoid surprising results, users should\navoid using this API on constructors whose implementation they don't control, or on constructors that can be invoked by other parties in the\napplication.\n\nTo avoid accidental leaks, this API does not return raw references to the objects found. By default, it returns the count of the objects\nfound. If `options.format` is `'summary'`, it returns an array containing brief string representations for each object. The visibility provided\nin this API is similar to what the heap snapshot provides, while users can save the cost of serialization and parsing and directly filter the\ntarget objects during the search.\n\nOnly objects created in the current execution context are included in the results.\n\n```js\nimport { queryObjects } from 'node:v8';\nclass A { foo = 'bar'; }\nconsole.log(queryObjects(A)); // 0\nconst a = new A();\nconsole.log(queryObjects(A)); // 1\n// [ \"A { foo: 'bar' }\" ]\nconsole.log(queryObjects(A, { format: 'summary' }));\n\nclass B extends A { bar = 'qux'; }\nconst b = new B();\nconsole.log(queryObjects(B)); // 1\n// [ \"B { foo: 'bar', bar: 'qux' }\" ]\nconsole.log(queryObjects(B, { format: 'summary' }));\n\n// Note that, when there are child classes inheriting from a constructor,\n// the constructor also shows up in the prototype chain of the child\n// classes's prototoype, so the child classes's prototoype would also be\n// included in the result.\nconsole.log(queryObjects(A));  // 3\n// [ \"B { foo: 'bar', bar: 'qux' }\", 'A {}', \"A { foo: 'bar' }\" ]\nconsole.log(queryObjects(A, { format: 'summary' }));\n```",
+      "translated": "これは Chromium DevTools コンソールが提供する [`queryObjects()` コンソール API](https://developer.chrome.com/docs/devtools/console/utilities#queryObjects-function) に似ている。フルガベージコレクションの後、ヒープ内でプロトタイプチェーンに一致するコンストラクターを持つオブジェクトを検索するために使え、メモリリークのリグレッションテストに役立つ。意外な結果を避けるため、ユーザーは実装を制御していないコンストラクターや、アプリケーション内で他の当事者が呼び出せるコンストラクターに対してこの API を使うのを避けるべきである。\n\n偶発的なリークを避けるため、この API は見つかったオブジェクトへの生の参照を返さない。既定では、見つかったオブジェクトの数を返す。`options.format` が `'summary'` の場合、各オブジェクトの簡潔な文字列表現を含む配列を返す。この API が提供する可視性はヒープスナップショットが提供するものに似ているが、ユーザーはシリアライズと解析のコストを節約でき、検索中に対象オブジェクトを直接フィルタリングできる。\n\n結果には、現在の実行コンテキストで作成されたオブジェクトのみが含まれる。\n\n```js\nimport { queryObjects } from 'node:v8';\nclass A { foo = 'bar'; }\nconsole.log(queryObjects(A)); // 0\nconst a = new A();\nconsole.log(queryObjects(A)); // 1\n// [ \"A { foo: 'bar' }\" ]\nconsole.log(queryObjects(A, { format: 'summary' }));\n\nclass B extends A { bar = 'qux'; }\nconst b = new B();\nconsole.log(queryObjects(B)); // 1\n// [ \"B { foo: 'bar', bar: 'qux' }\" ]\nconsole.log(queryObjects(B, { format: 'summary' }));\n\n// Note that, when there are child classes inheriting from a constructor,\n// the constructor also shows up in the prototype chain of the child\n// classes's prototoype, so the child classes's prototoype would also be\n// included in the result.\nconsole.log(queryObjects(A));  // 3\n// [ \"B { foo: 'bar', bar: 'qux' }\", 'A {}', \"A { foo: 'bar' }\" ]\nconsole.log(queryObjects(A, { format: 'summary' }));\n```",
+      "symbol": "@types/node/v8.d.ts#v8.queryObjects",
+      "lang": "ja"
+    },
+    "55d3f189": {
+      "original": "Uses a `DefaultSerializer` to serialize `value` into a buffer.\n\n`ERR_BUFFER_TOO_LARGE` will be thrown when trying to\nserialize a huge object which requires buffer\nlarger than `buffer.constants.MAX_LENGTH`.",
+      "translated": "`DefaultSerializer` を使って `value` をバッファにシリアライズする。\n\n`buffer.constants.MAX_LENGTH` より大きなバッファを必要とする巨大なオブジェクトをシリアライズしようとすると、`ERR_BUFFER_TOO_LARGE` が投げられる。",
+      "symbol": "@types/node/v8.d.ts#v8.serialize",
+      "lang": "ja"
+    },
+    "f1abf119": {
+      "original": "Returns the stored internal buffer. This serializer should not be used once\nthe buffer is released. Calling this method results in undefined behavior\nif a previous write has failed.",
+      "translated": "格納された内部バッファを返す。バッファが解放されたら、このシリアライザーは使うべきではない。以前の書き込みが失敗している場合、このメソッドを呼ぶと未定義の挙動になる。",
+      "symbol": "@types/node/v8.d.ts#v8.Serializer.releaseBuffer",
+      "lang": "ja"
+    },
+    "e957f792": {
+      "original": "A 32-bit unsigned integer.",
+      "translated": "32 ビット符号なし整数。",
+      "symbol": "@types/node/v8.d.ts#v8.Serializer.transferArrayBuffer",
+      "lang": "ja"
+    },
+    "11428a96": {
+      "original": "An `ArrayBuffer` instance.",
+      "translated": "`ArrayBuffer` インスタンス。",
+      "symbol": "@types/node/v8.d.ts#v8.Serializer.transferArrayBuffer",
+      "lang": "ja"
+    },
+    "d7e6823d": {
+      "original": "Marks an `ArrayBuffer` as having its contents transferred out of band.\nPass the corresponding `ArrayBuffer` in the deserializing context to `deserializer.transferArrayBuffer()`.",
+      "translated": "`ArrayBuffer` を、その内容が帯域外で転送されたものとしてマークする。デシリアライズ側のコンテキストで対応する `ArrayBuffer` を `deserializer.transferArrayBuffer()` に渡す。",
+      "symbol": "@types/node/v8.d.ts#v8.Serializer.transferArrayBuffer",
+      "lang": "ja"
+    },
+    "c2c83ff9": {
+      "original": "Write a JS `number` value.\nFor use inside of a custom `serializer._writeHostObject()`.",
+      "translated": "JS の `number` 値を書き込む。カスタムの `serializer._writeHostObject()` 内で使う。",
+      "symbol": "@types/node/v8.d.ts#v8.Serializer.writeDouble",
+      "lang": "ja"
+    },
+    "2b7b1f45": {
+      "original": "Writes out a header, which includes the serialization format version.",
+      "translated": "シリアライズ形式のバージョンを含むヘッダーを書き出す。",
+      "symbol": "@types/node/v8.d.ts#v8.Serializer.writeHeader",
+      "lang": "ja"
+    },
+    "c0fa3c60": {
+      "original": "Write raw bytes into the serializer's internal buffer. The deserializer\nwill require a way to compute the length of the buffer.\nFor use inside of a custom `serializer._writeHostObject()`.",
+      "translated": "シリアライザーの内部バッファに生バイトを書き込む。デシリアライザーはバッファの長さを計算する手段を必要とする。カスタムの `serializer._writeHostObject()` 内で使う。",
+      "symbol": "@types/node/v8.d.ts#v8.Serializer.writeRawBytes",
+      "lang": "ja"
+    },
+    "55b22a22": {
+      "original": "Write a raw 32-bit unsigned integer.\nFor use inside of a custom `serializer._writeHostObject()`.",
+      "translated": "生の 32 ビット符号なし整数を書き込む。カスタムの `serializer._writeHostObject()` 内で使う。",
+      "symbol": "@types/node/v8.d.ts#v8.Serializer.writeUint32",
+      "lang": "ja"
+    },
+    "d8c172c8": {
+      "original": "Write a raw 64-bit unsigned integer, split into high and low 32-bit parts.\nFor use inside of a custom `serializer._writeHostObject()`.",
+      "translated": "生の 64 ビット符号なし整数を、上位と下位の 32 ビット部分に分けて書き込む。カスタムの `serializer._writeHostObject()` 内で使う。",
+      "symbol": "@types/node/v8.d.ts#v8.Serializer.writeUint64",
+      "lang": "ja"
+    },
+    "5b86366c": {
+      "original": "Serializes a JavaScript value and adds the serialized representation to the\ninternal buffer.\n\nThis throws an error if `value` cannot be serialized.",
+      "translated": "JavaScript 値をシリアライズし、そのシリアライズされた表現を内部バッファに追加する。\n\n`value` をシリアライズできない場合、エラーを投げる。",
+      "symbol": "@types/node/v8.d.ts#v8.Serializer.writeValue",
+      "lang": "ja"
+    },
+    "03095567": {
+      "original": "The `v8.setFlagsFromString()` method can be used to programmatically set\nV8 command-line flags. This method should be used with care. Changing settings\nafter the VM has started may result in unpredictable behavior, including\ncrashes and data loss; or it may simply do nothing.\n\nThe V8 options available for a version of Node.js may be determined by running `node --v8-options`.\n\nUsage:\n\n```js\n// Print GC events to stdout for one minute.\nimport v8 from 'node:v8';\nv8.setFlagsFromString('--trace_gc');\nsetTimeout(() => { v8.setFlagsFromString('--notrace_gc'); }, 60e3);\n```",
+      "translated": "`v8.setFlagsFromString()` メソッドは、V8 のコマンドラインフラグをプログラムから設定するために使える。このメソッドは注意して使うべきである。VM が起動した後に設定を変更すると、クラッシュやデータ損失を含む予測不可能な挙動になることがある。あるいは単に何も起こらないこともある。\n\nある Node.js バージョンで利用可能な V8 オプションは、`node --v8-options` を実行することで判定できる。\n\n使い方:\n\n```js\n// Print GC events to stdout for one minute.\nimport v8 from 'node:v8';\nv8.setFlagsFromString('--trace_gc');\nsetTimeout(() => { v8.setFlagsFromString('--notrace_gc'); }, 60e3);\n```",
+      "symbol": "@types/node/v8.d.ts#v8.setFlagsFromString",
+      "lang": "ja"
     }
   }
 }
