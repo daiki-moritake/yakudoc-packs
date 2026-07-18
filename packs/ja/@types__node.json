@@ -226,6 +226,12 @@
       "symbol": "@types/node/fs.d.ts#fs.constants.S_IFDIR",
       "lang": "ja"
     },
+    "75719066": {
+      "original": "If `dns.V4MAPPED` is specified, return resolved IPv6 addresses as\nwell as IPv4 mapped IPv6 addresses.",
+      "translated": "`dns.V4MAPPED` が指定された場合、解決された IPv6 アドレスに加えて、IPv4 マップされた IPv6 アドレスも返す。",
+      "symbol": "@types/node/dns.d.ts#dns.ALL",
+      "lang": "ja"
+    },
     "78751117": {
       "original": "Closes the `Http2Stream` instance by sending an `RST_STREAM` frame to the\nconnected HTTP/2 peer.",
       "translated": "接続された HTTP/2 ピアに `RST_STREAM` フレームを送信して `Http2Stream` インスタンスを閉じる。",
@@ -3050,6 +3056,180 @@
       "original": "Verifies that this certificate was signed by the given public key.\nDoes not perform any other validation checks on the certificate.",
       "translated": "この証明書が指定した公開鍵によって署名されたことを検証する。証明書に対して他の検証チェックは実行しない。",
       "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.verify",
+      "lang": "ja"
+    },
+    "d6ed006e": {
+      "original": "The `node:dns` module enables name resolution. For example, use it to look up IP\naddresses of host names.\n\nAlthough named for the [Domain Name System (DNS)](https://en.wikipedia.org/wiki/Domain_Name_System), it does not always use the\nDNS protocol for lookups. {@link lookup} uses the operating system\nfacilities to perform name resolution. It may not need to perform any network\ncommunication. To perform name resolution the way other applications on the same\nsystem do, use {@link lookup}.\n\n```js\nimport dns from 'node:dns';\n\ndns.lookup('example.org', (err, address, family) => {\n  console.log('address: %j family: IPv%s', address, family);\n});\n// address: \"93.184.216.34\" family: IPv4\n```\n\nAll other functions in the `node:dns` module connect to an actual DNS server to\nperform name resolution. They will always use the network to perform DNS\nqueries. These functions do not use the same set of configuration files used by {@link lookup} (e.g. `/etc/hosts`). Use these functions to always perform\nDNS queries, bypassing other name-resolution facilities.\n\n```js\nimport dns from 'node:dns';\n\ndns.resolve4('archive.org', (err, addresses) => {\n  if (err) throw err;\n\n  console.log(`addresses: ${JSON.stringify(addresses)}`);\n\n  addresses.forEach((a) => {\n    dns.reverse(a, (err, hostnames) => {\n      if (err) {\n        throw err;\n      }\n      console.log(`reverse for ${a}: ${JSON.stringify(hostnames)}`);\n    });\n  });\n});\n```\n\nSee the [Implementation considerations section](https://nodejs.org/docs/latest-v22.x/api/dns.html#implementation-considerations) for more information.",
+      "translated": "`node:dns` モジュールは名前解決を可能にする。たとえば、ホスト名の IP アドレスを調べるために使う。\n\n[Domain Name System(DNS)](https://en.wikipedia.org/wiki/Domain_Name_System)にちなんで名付けられているが、ルックアップに常に DNS プロトコルを使うわけではない。{@link lookup} は名前解決を実行するためにオペレーティングシステムの機能を使う。ネットワーク通信をまったく行う必要がないこともある。同じシステム上の他のアプリケーションと同じ方法で名前解決を行うには、{@link lookup} を使う。\n\n```js\nimport dns from 'node:dns';\n\ndns.lookup('example.org', (err, address, family) => {\n  console.log('address: %j family: IPv%s', address, family);\n});\n// address: \"93.184.216.34\" family: IPv4\n```\n\n`node:dns` モジュールの他のすべての関数は、名前解決を実行するために実際の DNS サーバーに接続する。それらは DNS クエリを実行するために常にネットワークを使う。これらの関数は、{@link lookup} が使うのと同じ構成ファイルのセット(たとえば `/etc/hosts`)を使わない。他の名前解決機能をバイパスして常に DNS クエリを実行するには、これらの関数を使う。\n\n```js\nimport dns from 'node:dns';\n\ndns.resolve4('archive.org', (err, addresses) => {\n  if (err) throw err;\n\n  console.log(`addresses: ${JSON.stringify(addresses)}`);\n\n  addresses.forEach((a) => {\n    dns.reverse(a, (err, hostnames) => {\n      if (err) {\n        throw err;\n      }\n      console.log(`reverse for ${a}: ${JSON.stringify(hostnames)}`);\n    });\n  });\n});\n```\n\n詳細は [Implementation considerations セクション](https://nodejs.org/docs/latest-v22.x/api/dns.html#implementation-considerations)を参照。",
+      "symbol": "@types/node/dns.d.ts#dns",
+      "lang": "ja"
+    },
+    "74add1e3": {
+      "original": "Limits returned address types to the types of non-loopback addresses configured on the system. For example, IPv4 addresses are\nonly returned if the current system has at least one IPv4 address configured.",
+      "translated": "返されるアドレス型を、システムに構成された非ループバックアドレスの型に制限する。たとえば、IPv4 アドレスは、現在のシステムに少なくとも 1 つの IPv4 アドレスが構成されている場合にのみ返される。",
+      "symbol": "@types/node/dns.d.ts#dns.ADDRCONFIG",
+      "lang": "ja"
+    },
+    "01a5c925": {
+      "original": "Use `AnyARecord` or `AnyAaaaRecord` instead.",
+      "translated": "代わりに `AnyARecord` または `AnyAaaaRecord` を使うこと。",
+      "symbol": "@types/node/dns.d.ts#dns.AnyRecordWithTtl",
+      "lang": "ja"
+    },
+    "68b7268d": {
+      "original": "Get the default value for `order` in {@link lookup} and [`dnsPromises.lookup()`](https://nodejs.org/docs/latest-v22.x/api/dns.html#dnspromiseslookuphostname-options).\nThe value could be:\n\n* `ipv4first`: for `order` defaulting to `ipv4first`.\n* `ipv6first`: for `order` defaulting to `ipv6first`.\n* `verbatim`: for `order` defaulting to `verbatim`.",
+      "translated": "{@link lookup} と [`dnsPromises.lookup()`](https://nodejs.org/docs/latest-v22.x/api/dns.html#dnspromiseslookuphostname-options) の `order` の既定値を取得する。値は次のいずれかであり得る:\n\n* `ipv4first`: `order` が既定で `ipv4first`。\n* `ipv6first`: `order` が既定で `ipv6first`。\n* `verbatim`: `order` が既定で `verbatim`。",
+      "symbol": "@types/node/dns.d.ts#dns.getDefaultResultOrder",
+      "lang": "ja"
+    },
+    "6cfb397e": {
+      "original": "Returns an array of IP address strings, formatted according to [RFC 5952](https://tools.ietf.org/html/rfc5952#section-6),\nthat are currently configured for DNS resolution. A string will include a port\nsection if a custom port is used.\n\n```js\n[\n  '4.4.4.4',\n  '2001:4860:4860::8888',\n  '4.4.4.4:1053',\n  '[2001:4860:4860::8888]:1053',\n]\n```",
+      "translated": "現在 DNS 解決用に構成されている、[RFC 5952](https://tools.ietf.org/html/rfc5952#section-6) に従って書式設定された IP アドレス文字列の配列を返す。カスタムポートが使われている場合、文字列にはポートのセクションが含まれる。\n\n```js\n[\n  '4.4.4.4',\n  '2001:4860:4860::8888',\n  '4.4.4.4:1053',\n  '[2001:4860:4860::8888]:1053',\n]\n```",
+      "symbol": "@types/node/dns.d.ts#dns.getServers",
+      "lang": "ja"
+    },
+    "d390ecc0": {
+      "original": "Resolves a host name (e.g. `'nodejs.org'`) into the first found A (IPv4) or\nAAAA (IPv6) record. All `option` properties are optional. If `options` is an\ninteger, then it must be `4` or `6` – if `options` is `0` or not provided, then\nIPv4 and IPv6 addresses are both returned if found.\n\nWith the `all` option set to `true`, the arguments for `callback` change to `(err, addresses)`, with `addresses` being an array of objects with the\nproperties `address` and `family`.\n\nOn error, `err` is an `Error` object, where `err.code` is the error code.\nKeep in mind that `err.code` will be set to `'ENOTFOUND'` not only when\nthe host name does not exist but also when the lookup fails in other ways\nsuch as no available file descriptors.\n\n`dns.lookup()` does not necessarily have anything to do with the DNS protocol.\nThe implementation uses an operating system facility that can associate names\nwith addresses and vice versa. This implementation can have subtle but\nimportant consequences on the behavior of any Node.js program. Please take some\ntime to consult the [Implementation considerations section](https://nodejs.org/docs/latest-v22.x/api/dns.html#implementation-considerations)\nbefore using `dns.lookup()`.\n\nExample usage:\n\n```js\nimport dns from 'node:dns';\nconst options = {\n  family: 6,\n  hints: dns.ADDRCONFIG | dns.V4MAPPED,\n};\ndns.lookup('example.com', options, (err, address, family) =>\n  console.log('address: %j family: IPv%s', address, family));\n// address: \"2606:2800:220:1:248:1893:25c8:1946\" family: IPv6\n\n// When options.all is true, the result will be an Array.\noptions.all = true;\ndns.lookup('example.com', options, (err, addresses) =>\n  console.log('addresses: %j', addresses));\n// addresses: [{\"address\":\"2606:2800:220:1:248:1893:25c8:1946\",\"family\":6}]\n```\n\nIf this method is invoked as its [util.promisify()](https://nodejs.org/docs/latest-v22.x/api/util.html#utilpromisifyoriginal) ed\nversion, and `all` is not set to `true`, it returns a `Promise` for an `Object` with `address` and `family` properties.",
+      "translated": "ホスト名(たとえば `'nodejs.org'`)を、最初に見つかった A(IPv4)または AAAA(IPv6)レコードに解決する。すべての `option` プロパティは省略可能である。`options` が整数の場合、`4` または `6` でなければならない。`options` が `0` または指定されない場合、IPv4 と IPv6 のアドレスが見つかれば両方返される。\n\n`all` オプションを `true` に設定すると、`callback` の引数は `(err, addresses)` に変わり、`addresses` は `address` と `family` プロパティを持つオブジェクトの配列になる。\n\nエラー時、`err` は `Error` オブジェクトで、`err.code` はエラーコードである。ホスト名が存在しない場合だけでなく、利用可能なファイルディスクリプタがないなど他の方法でルックアップが失敗した場合にも `err.code` が `'ENOTFOUND'` に設定される点に注意すること。\n\n`dns.lookup()` は必ずしも DNS プロトコルと関係があるわけではない。実装は、名前とアドレスを相互に関連付けられるオペレーティングシステムの機能を使う。この実装は、任意の Node.js プログラムの挙動に微妙だが重要な影響を与えることがある。`dns.lookup()` を使う前に、[Implementation considerations セクション](https://nodejs.org/docs/latest-v22.x/api/dns.html#implementation-considerations)を参照する時間を取ること。\n\n使用例:\n\n```js\nimport dns from 'node:dns';\nconst options = {\n  family: 6,\n  hints: dns.ADDRCONFIG | dns.V4MAPPED,\n};\ndns.lookup('example.com', options, (err, address, family) =>\n  console.log('address: %j family: IPv%s', address, family));\n// address: \"2606:2800:220:1:248:1893:25c8:1946\" family: IPv6\n\n// When options.all is true, the result will be an Array.\noptions.all = true;\ndns.lookup('example.com', options, (err, addresses) =>\n  console.log('addresses: %j', addresses));\n// addresses: [{\"address\":\"2606:2800:220:1:248:1893:25c8:1946\",\"family\":6}]\n```\n\nこのメソッドが [util.promisify()](https://nodejs.org/docs/latest-v22.x/api/util.html#utilpromisifyoriginal) された版として呼ばれ、`all` が `true` に設定されていない場合、`address` と `family` プロパティを持つ `Object` のための `Promise` を返す。",
+      "symbol": "@types/node/dns.d.ts#dns.lookup",
+      "lang": "ja"
+    },
+    "e94b522c": {
+      "original": "A string representation of an IPv4 or IPv6 address.",
+      "translated": "IPv4 または IPv6 アドレスの文字列表現。",
+      "symbol": "@types/node/dns.d.ts#dns.LookupAddress.address",
+      "lang": "ja"
+    },
+    "70d9d388": {
+      "original": "`4` or `6`, denoting the family of `address`, or `0` if the address is not an IPv4 or IPv6 address. `0` is a likely indicator of a\nbug in the name resolution service used by the operating system.",
+      "translated": "`address` のファミリーを示す `4` または `6`。アドレスが IPv4 でも IPv6 でもない場合は `0`。`0` は、オペレーティングシステムが使う名前解決サービスのバグを示している可能性が高い。",
+      "symbol": "@types/node/dns.d.ts#dns.LookupAddress.family",
+      "lang": "ja"
+    },
+    "416ede65": {
+      "original": "When `true`, the callback returns all resolved addresses in an array. Otherwise, returns a single address.",
+      "translated": "`true` の場合、コールバックは解決されたすべてのアドレスを配列で返す。そうでなければ単一のアドレスを返す。",
+      "symbol": "@types/node/dns.d.ts#dns.LookupOptions.all",
+      "lang": "ja"
+    },
+    "f35f0aac": {
+      "original": "The record family. Must be `4`, `6`, or `0`. For backward compatibility reasons, `'IPv4'` and `'IPv6'` are interpreted\nas `4` and `6` respectively. The value 0 indicates that either an IPv4 or IPv6 address is returned. If the value `0` is used\nwith `{ all: true } (see below)`, both IPv4 and IPv6 addresses are returned.",
+      "translated": "レコードのファミリー。`4`・`6`・`0` のいずれかでなければならない。後方互換性のため、`'IPv4'` と `'IPv6'` はそれぞれ `4` と `6` として解釈される。値 0 は IPv4 または IPv6 のアドレスが返されることを示す。値 `0` が `{ all: true }`(下記を参照)とともに使われた場合、IPv4 と IPv6 の両方のアドレスが返される。",
+      "symbol": "@types/node/dns.d.ts#dns.LookupOptions.family",
+      "lang": "ja"
+    },
+    "290aa4ac": {
+      "original": "One or more [supported `getaddrinfo`](https://nodejs.org/docs/latest-v22.x/api/dns.html#supported-getaddrinfo-flags) flags. Multiple flags may be\npassed by bitwise `OR`ing their values.",
+      "translated": "1 つ以上の[サポートされる `getaddrinfo`](https://nodejs.org/docs/latest-v22.x/api/dns.html#supported-getaddrinfo-flags) フラグ。複数のフラグは、その値をビット単位で `OR` して渡せる。",
+      "symbol": "@types/node/dns.d.ts#dns.LookupOptions.hints",
+      "lang": "ja"
+    },
+    "2b22a649": {
+      "original": "When `verbatim`, the resolved addresses are return unsorted. When `ipv4first`, the resolved addresses are sorted\nby placing IPv4 addresses before IPv6 addresses. When `ipv6first`, the resolved addresses are sorted by placing IPv6\naddresses before IPv4 addresses. Default value is configurable using\n{@link setDefaultResultOrder} or [`--dns-result-order`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--dns-result-orderorder).",
+      "translated": "`verbatim` の場合、解決されたアドレスはソートされずに返される。`ipv4first` の場合、解決されたアドレスは IPv4 アドレスを IPv6 アドレスより前に置いてソートされる。`ipv6first` の場合、解決されたアドレスは IPv6 アドレスを IPv4 アドレスより前に置いてソートされる。既定値は {@link setDefaultResultOrder} または [`--dns-result-order`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--dns-result-orderorder) を使って設定できる。",
+      "symbol": "@types/node/dns.d.ts#dns.LookupOptions.order",
+      "lang": "ja"
+    },
+    "97f63478": {
+      "original": "Please use `order` option",
+      "translated": "`order` オプションを使うこと",
+      "symbol": "@types/node/dns.d.ts#dns.LookupOptions.verbatim",
+      "lang": "ja"
+    },
+    "f283136e": {
+      "original": "When `true`, the callback receives IPv4 and IPv6 addresses in the order the DNS resolver returned them. When `false`, IPv4\naddresses are placed before IPv6 addresses. This option will be deprecated in favor of `order`. When both are specified,\n`order` has higher precedence. New code should only use `order`. Default value is configurable using {@link setDefaultResultOrder}",
+      "translated": "`true` の場合、コールバックは DNS リゾルバーが返した順序で IPv4 と IPv6 のアドレスを受け取る。`false` の場合、IPv4 アドレスが IPv6 アドレスより前に置かれる。このオプションは `order` を優先して非推奨になる。両方が指定された場合、`order` の方が優先度が高い。新しいコードは `order` のみを使うべきである。既定値は {@link setDefaultResultOrder} を使って設定できる",
+      "symbol": "@types/node/dns.d.ts#dns.LookupOptions.verbatim",
+      "lang": "ja"
+    },
+    "c9d74ad5": {
+      "original": "Resolves the given `address` and `port` into a host name and service using\nthe operating system's underlying `getnameinfo` implementation.\n\nIf `address` is not a valid IP address, a `TypeError` will be thrown.\nThe `port` will be coerced to a number. If it is not a legal port, a `TypeError` will be thrown.\n\nOn an error, `err` is an [`Error`](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-error) object,\nwhere `err.code` is the error code.\n\n```js\nimport dns from 'node:dns';\ndns.lookupService('127.0.0.1', 22, (err, hostname, service) => {\n  console.log(hostname, service);\n  // Prints: localhost ssh\n});\n```\n\nIf this method is invoked as its [util.promisify()](https://nodejs.org/docs/latest-v22.x/api/util.html#utilpromisifyoriginal) ed\nversion, it returns a `Promise` for an `Object` with `hostname` and `service` properties.",
+      "translated": "オペレーティングシステムの基盤となる `getnameinfo` 実装を使って、指定した `address` と `port` をホスト名とサービスに解決する。\n\n`address` が有効な IP アドレスでない場合、`TypeError` が投げられる。`port` は数値に強制変換される。それが正当なポートでない場合、`TypeError` が投げられる。\n\nエラー時、`err` は [`Error`](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-error) オブジェクトで、`err.code` はエラーコードである。\n\n```js\nimport dns from 'node:dns';\ndns.lookupService('127.0.0.1', 22, (err, hostname, service) => {\n  console.log(hostname, service);\n  // Prints: localhost ssh\n});\n```\n\nこのメソッドが [util.promisify()](https://nodejs.org/docs/latest-v22.x/api/util.html#utilpromisifyoriginal) された版として呼ばれた場合、`hostname` と `service` プロパティを持つ `Object` のための `Promise` を返す。",
+      "symbol": "@types/node/dns.d.ts#dns.lookupService",
+      "lang": "ja"
+    },
+    "15f0de09": {
+      "original": "Host name to resolve.",
+      "translated": "解決するホスト名。",
+      "symbol": "@types/node/dns.d.ts#dns.resolve",
+      "lang": "ja"
+    },
+    "03bd8a58": {
+      "original": "Resource record type.",
+      "translated": "リソースレコード型。",
+      "symbol": "@types/node/dns.d.ts#dns.resolve",
+      "lang": "ja"
+    },
+    "b572e783": {
+      "original": "Uses the DNS protocol to resolve a host name (e.g. `'nodejs.org'`) into an array\nof the resource records. The `callback` function has arguments `(err, records)`. When successful, `records` will be an array of resource\nrecords. The type and structure of individual results varies based on `rrtype`:\n\n<omitted>\n\nOn error, `err` is an [`Error`](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-error) object,\nwhere `err.code` is one of the `DNS error codes`.",
+      "translated": "DNS プロトコルを使って、ホスト名(たとえば `'nodejs.org'`)をリソースレコードの配列に解決する。`callback` 関数は引数 `(err, records)` を持つ。成功時、`records` はリソースレコードの配列になる。個々の結果の型と構造は `rrtype` に応じて変わる:\n\n<omitted>\n\nエラー時、`err` は [`Error`](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-error) オブジェクトで、`err.code` は `DNS error codes` のいずれかである。",
+      "symbol": "@types/node/dns.d.ts#dns.resolve",
+      "lang": "ja"
+    },
+    "267968d9": {
+      "original": "Uses the DNS protocol to resolve a IPv4 addresses (`A` records) for the `hostname`. The `addresses` argument passed to the `callback` function\nwill contain an array of IPv4 addresses (e.g.`['74.125.79.104', '74.125.79.105', '74.125.79.106']`).",
+      "translated": "DNS プロトコルを使って、`hostname` の IPv4 アドレス(`A` レコード)を解決する。`callback` 関数に渡される `addresses` 引数は、IPv4 アドレスの配列(たとえば `['74.125.79.104', '74.125.79.105', '74.125.79.106']`)を含む。",
+      "symbol": "@types/node/dns.d.ts#dns.resolve4",
+      "lang": "ja"
+    },
+    "eca999d2": {
+      "original": "Uses the DNS protocol to resolve IPv6 addresses (`AAAA` records) for the `hostname`. The `addresses` argument passed to the `callback` function\nwill contain an array of IPv6 addresses.",
+      "translated": "DNS プロトコルを使って、`hostname` の IPv6 アドレス(`AAAA` レコード)を解決する。`callback` 関数に渡される `addresses` 引数は、IPv6 アドレスの配列を含む。",
+      "symbol": "@types/node/dns.d.ts#dns.resolve6",
+      "lang": "ja"
+    },
+    "6881a79b": {
+      "original": "Uses the DNS protocol to resolve all records (also known as `ANY` or `*` query).\nThe `ret` argument passed to the `callback` function will be an array containing\nvarious types of records. Each object has a property `type` that indicates the\ntype of the current record. And depending on the `type`, additional properties\nwill be present on the object:\n\n<omitted>\n\nHere is an example of the `ret` object passed to the callback:\n\n```js\n[ { type: 'A', address: '127.0.0.1', ttl: 299 },\n  { type: 'CNAME', value: 'example.com' },\n  { type: 'MX', exchange: 'alt4.aspmx.l.example.com', priority: 50 },\n  { type: 'NS', value: 'ns1.example.com' },\n  { type: 'TXT', entries: [ 'v=spf1 include:_spf.example.com ~all' ] },\n  { type: 'SOA',\n    nsname: 'ns1.example.com',\n    hostmaster: 'admin.example.com',\n    serial: 156696742,\n    refresh: 900,\n    retry: 900,\n    expire: 1800,\n    minttl: 60 } ]\n```\n\nDNS server operators may choose not to respond to `ANY` queries. It may be better to call individual methods like {@link resolve4}, {@link resolveMx}, and so on. For more details, see\n[RFC 8482](https://tools.ietf.org/html/rfc8482).",
+      "translated": "DNS プロトコルを使って、すべてのレコードを解決する(`ANY` または `*` クエリとも呼ばれる)。`callback` 関数に渡される `ret` 引数は、さまざまな型のレコードを含む配列になる。各オブジェクトは、現在のレコードの型を示す `type` プロパティを持つ。そして `type` に応じて、追加のプロパティがオブジェクトに存在する:\n\n<omitted>\n\n次はコールバックに渡される `ret` オブジェクトの例である:\n\n```js\n[ { type: 'A', address: '127.0.0.1', ttl: 299 },\n  { type: 'CNAME', value: 'example.com' },\n  { type: 'MX', exchange: 'alt4.aspmx.l.example.com', priority: 50 },\n  { type: 'NS', value: 'ns1.example.com' },\n  { type: 'TXT', entries: [ 'v=spf1 include:_spf.example.com ~all' ] },\n  { type: 'SOA',\n    nsname: 'ns1.example.com',\n    hostmaster: 'admin.example.com',\n    serial: 156696742,\n    refresh: 900,\n    retry: 900,\n    expire: 1800,\n    minttl: 60 } ]\n```\n\nDNS サーバーの運用者は `ANY` クエリに応答しないことを選べる。{@link resolve4}・{@link resolveMx} などの個々のメソッドを呼ぶ方が良いかもしれない。詳細は [RFC 8482](https://tools.ietf.org/html/rfc8482) を参照。",
+      "symbol": "@types/node/dns.d.ts#dns.resolveAny",
+      "lang": "ja"
+    },
+    "16ee1536": {
+      "original": "Uses the DNS protocol to resolve `CAA` records for the `hostname`. The `addresses` argument passed to the `callback` function\nwill contain an array of certification authority authorization records\navailable for the `hostname` (e.g. `[{critical: 0, iodef: 'mailto:pki@example.com'}, {critical: 128, issue: 'pki.example.com'}]`).",
+      "translated": "DNS プロトコルを使って、`hostname` の `CAA` レコードを解決する。`callback` 関数に渡される `addresses` 引数は、`hostname` について利用可能な認証局承認レコードの配列(たとえば `[{critical: 0, iodef: 'mailto:pki@example.com'}, {critical: 128, issue: 'pki.example.com'}]`)を含む。",
+      "symbol": "@types/node/dns.d.ts#dns.resolveCaa",
+      "lang": "ja"
+    },
+    "4a1e5be8": {
+      "original": "Uses the DNS protocol to resolve `CNAME` records for the `hostname`. The `addresses` argument passed to the `callback` function\nwill contain an array of canonical name records available for the `hostname` (e.g. `['bar.example.com']`).",
+      "translated": "DNS プロトコルを使って、`hostname` の `CNAME` レコードを解決する。`callback` 関数に渡される `addresses` 引数は、`hostname` について利用可能な正規名レコードの配列(たとえば `['bar.example.com']`)を含む。",
+      "symbol": "@types/node/dns.d.ts#dns.resolveCname",
+      "lang": "ja"
+    },
+    "a2b7c608": {
+      "original": "Uses the DNS protocol to resolve mail exchange records (`MX` records) for the `hostname`. The `addresses` argument passed to the `callback` function will\ncontain an array of objects containing both a `priority` and `exchange` property (e.g. `[{priority: 10, exchange: 'mx.example.com'}, ...]`).",
+      "translated": "DNS プロトコルを使って、`hostname` のメール交換レコード(`MX` レコード)を解決する。`callback` 関数に渡される `addresses` 引数は、`priority` と `exchange` の両プロパティを含むオブジェクトの配列(たとえば `[{priority: 10, exchange: 'mx.example.com'}, ...]`)を含む。",
+      "symbol": "@types/node/dns.d.ts#dns.resolveMx",
+      "lang": "ja"
+    },
+    "0785a816": {
+      "original": "Uses the DNS protocol to resolve regular expression-based records (`NAPTR` records) for the `hostname`. The `addresses` argument passed to the `callback` function will contain an array of\nobjects with the following properties:\n\n* `flags`\n* `service`\n* `regexp`\n* `replacement`\n* `order`\n* `preference`\n\n```js\n{\n  flags: 's',\n  service: 'SIP+D2U',\n  regexp: '',\n  replacement: '_sip._udp.example.com',\n  order: 30,\n  preference: 100\n}\n```",
+      "translated": "DNS プロトコルを使って、`hostname` の正規表現ベースのレコード(`NAPTR` レコード)を解決する。`callback` 関数に渡される `addresses` 引数は、次のプロパティを持つオブジェクトの配列を含む:\n\n* `flags`\n* `service`\n* `regexp`\n* `replacement`\n* `order`\n* `preference`\n\n```js\n{\n  flags: 's',\n  service: 'SIP+D2U',\n  regexp: '',\n  replacement: '_sip._udp.example.com',\n  order: 30,\n  preference: 100\n}\n```",
+      "symbol": "@types/node/dns.d.ts#dns.resolveNaptr",
+      "lang": "ja"
+    },
+    "092bc1a4": {
+      "original": "Uses the DNS protocol to resolve name server records (`NS` records) for the `hostname`. The `addresses` argument passed to the `callback` function will\ncontain an array of name server records available for `hostname` (e.g. `['ns1.example.com', 'ns2.example.com']`).",
+      "translated": "DNS プロトコルを使って、`hostname` のネームサーバーレコード(`NS` レコード)を解決する。`callback` 関数に渡される `addresses` 引数は、`hostname` について利用可能なネームサーバーレコードの配列(たとえば `['ns1.example.com', 'ns2.example.com']`)を含む。",
+      "symbol": "@types/node/dns.d.ts#dns.resolveNs",
+      "lang": "ja"
+    },
+    "ced60201": {
+      "original": "Uses the DNS protocol to resolve pointer records (`PTR` records) for the `hostname`. The `addresses` argument passed to the `callback` function will\nbe an array of strings containing the reply records.",
+      "translated": "DNS プロトコルを使って、`hostname` のポインターレコード(`PTR` レコード)を解決する。`callback` 関数に渡される `addresses` 引数は、応答レコードを含む文字列の配列になる。",
+      "symbol": "@types/node/dns.d.ts#dns.resolvePtr",
+      "lang": "ja"
+    },
+    "ccdc5dcf": {
+      "original": "An independent resolver for DNS requests.\n\nCreating a new resolver uses the default server settings. Setting\nthe servers used for a resolver using [`resolver.setServers()`](https://nodejs.org/docs/latest-v22.x/api/dns.html#dnssetserversservers) does not affect\nother resolvers:\n\n```js\nimport { Resolver } from 'node:dns';\nconst resolver = new Resolver();\nresolver.setServers(['4.4.4.4']);\n\n// This request will use the server at 4.4.4.4, independent of global settings.\nresolver.resolve4('example.org', (err, addresses) => {\n  // ...\n});\n```\n\nThe following methods from the `node:dns` module are available:\n\n* `resolver.getServers()`\n* `resolver.resolve()`\n* `resolver.resolve4()`\n* `resolver.resolve6()`\n* `resolver.resolveAny()`\n* `resolver.resolveCaa()`\n* `resolver.resolveCname()`\n* `resolver.resolveMx()`\n* `resolver.resolveNaptr()`\n* `resolver.resolveNs()`\n* `resolver.resolvePtr()`\n* `resolver.resolveSoa()`\n* `resolver.resolveSrv()`\n* `resolver.resolveTxt()`\n* `resolver.reverse()`\n* `resolver.setServers()`",
+      "translated": "DNS リクエストのための独立したリゾルバー。\n\n新しいリゾルバーを作成すると、既定のサーバー設定が使われる。[`resolver.setServers()`](https://nodejs.org/docs/latest-v22.x/api/dns.html#dnssetserversservers) を使ってリゾルバーに使うサーバーを設定しても、他のリゾルバーには影響しない:\n\n```js\nimport { Resolver } from 'node:dns';\nconst resolver = new Resolver();\nresolver.setServers(['4.4.4.4']);\n\n// This request will use the server at 4.4.4.4, independent of global settings.\nresolver.resolve4('example.org', (err, addresses) => {\n  // ...\n});\n```\n\n`node:dns` モジュールの次のメソッドが利用できる:\n\n* `resolver.getServers()`\n* `resolver.resolve()`\n* `resolver.resolve4()`\n* `resolver.resolve6()`\n* `resolver.resolveAny()`\n* `resolver.resolveCaa()`\n* `resolver.resolveCname()`\n* `resolver.resolveMx()`\n* `resolver.resolveNaptr()`\n* `resolver.resolveNs()`\n* `resolver.resolvePtr()`\n* `resolver.resolveSoa()`\n* `resolver.resolveSrv()`\n* `resolver.resolveTxt()`\n* `resolver.reverse()`\n* `resolver.setServers()`",
+      "symbol": "@types/node/dns.d.ts#dns.Resolver",
+      "lang": "ja"
+    },
+    "0adbe716": {
+      "original": "Cancel all outstanding DNS queries made by this resolver. The corresponding\ncallbacks will be called with an error with code `ECANCELLED`.",
+      "translated": "このリゾルバーが行った未処理のすべての DNS クエリをキャンセルする。対応するコールバックは、コード `ECANCELLED` のエラーとともに呼ばれる。",
+      "symbol": "@types/node/dns.d.ts#dns.Resolver.cancel",
       "lang": "ja"
     },
     "73f2cc3a": {
