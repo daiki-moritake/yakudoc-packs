@@ -6262,12 +6262,6 @@
       "symbol": "@types/node/http2.d.ts#http2.Http2Stream.session",
       "lang": "ja"
     },
-    "be840bff": {
-      "original": "```js\nimport http2 from 'node:http2';\nconst client = http2.connect('http://example.org:8000');\nconst { NGHTTP2_CANCEL } = http2.constants;\nconst req = client.request({ ':path': '/' });\n\n// Cancel the stream if there's no activity after 5 seconds\nreq.setTimeout(5000, () => req.close(NGHTTP2_CANCEL));\n```",
-      "translated": "```js\nimport http2 from 'node:http2';\nconst client = http2.connect('http://example.org:8000');\nconst { NGHTTP2_CANCEL } = http2.constants;\nconst req = client.request({ ':path': '/' });\n\n// Cancel the stream if there's no activity after 5 seconds\nreq.setTimeout(5000, () => req.close(NGHTTP2_CANCEL));\n```",
-      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.setTimeout",
-      "lang": "ja"
-    },
     "4079a1e2": {
       "original": "A Duplex Stream",
       "translated": "Duplex ストリーム",
@@ -6380,6 +6374,72 @@
       "original": "Sets the maximum dynamic table size for deflating header fields.",
       "translated": "ヘッダーフィールドを deflate する際の最大動的テーブルサイズを設定する。",
       "symbol": "@types/node/http2.d.ts#http2.SessionOptions.maxDeflateDynamicTableSize",
+      "lang": "ja"
+    },
+    "9acb7479": {
+      "original": "Sets the maximum number of header entries.\nThis is similar to `server.maxHeadersCount` or `request.maxHeadersCount` in the `node:http` module.\nThe minimum value is `1`.",
+      "translated": "ヘッダーエントリの最大数を設定する。これは `node:http` モジュールの `server.maxHeadersCount` や `request.maxHeadersCount` に似ている。最小値は `1`。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.maxHeaderListPairs",
+      "lang": "ja"
+    },
+    "82bf0a4f": {
+      "original": "Sets the maximum number of outstanding, unacknowledged pings.",
+      "translated": "未処理で確認応答されていない ping の最大数を設定する。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.maxOutstandingPings",
+      "lang": "ja"
+    },
+    "fb1e02d9": {
+      "original": "Sets the maximum allowed size for a serialized, compressed block of headers.\nAttempts to send headers that exceed this limit will result in\na `'frameError'` event being emitted and the stream being closed and destroyed.",
+      "translated": "シリアライズされ圧縮されたヘッダーブロックの許可される最大サイズを設定する。この上限を超えるヘッダーを送信しようとすると、`'frameError'` イベントが発行され、ストリームが閉じられて破棄される。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.maxSendHeaderBlockLength",
+      "lang": "ja"
+    },
+    "d12ae61f": {
+      "original": "Sets the maximum memory that the `Http2Session` is permitted to use.\nThe value is expressed in terms of number of megabytes, e.g. `1` equal 1 megabyte.\nThe minimum value allowed is `1`.\nThis is a credit based limit, existing `Http2Stream`s may cause this limit to be exceeded,\nbut new `Http2Stream` instances will be rejected while this limit is exceeded.\nThe current number of `Http2Stream` sessions, the current memory use of the header compression tables,\ncurrent data queued to be sent, and unacknowledged `PING` and `SETTINGS` frames are all counted towards the current limit.",
+      "translated": "`Http2Session` が使用を許可される最大メモリを設定する。値はメガバイト数で表される。たとえば `1` は 1 メガバイトに等しい。許可される最小値は `1`。これはクレジットベースの上限で、既存の `Http2Stream` がこの上限を超えさせることがあるが、この上限を超えている間、新しい `Http2Stream` インスタンスは拒否される。現在の `Http2Stream` セッション数、ヘッダー圧縮テーブルの現在のメモリ使用量、現在送信キューにあるデータ、確認応答されていない `PING` と `SETTINGS` フレームは、すべて現在の上限にカウントされる。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.maxSessionMemory",
+      "lang": "ja"
+    },
+    "41ce6ceb": {
+      "original": "Sets the maximum number of settings entries per `SETTINGS` frame.\nThe minimum value allowed is `1`.",
+      "translated": "`SETTINGS` フレームごとの設定エントリの最大数を設定する。許可される最小値は `1`。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.maxSettings",
+      "lang": "ja"
+    },
+    "eca2b085": {
+      "original": "Strategy used for determining the amount of padding to use for `HEADERS` and `DATA` frames.",
+      "translated": "`HEADERS` と `DATA` フレームに使うパディング量を決定するために使う戦略。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.paddingStrategy",
+      "lang": "ja"
+    },
+    "739bdb7b": {
+      "original": "Sets the maximum number of concurrent streams for the remote peer as if a `SETTINGS` frame had been received.\nWill be overridden if the remote peer sets its own value for `maxConcurrentStreams`.",
+      "translated": "`SETTINGS` フレームが受信されたかのように、リモートピアの並行ストリームの最大数を設定する。リモートピアが `maxConcurrentStreams` に独自の値を設定した場合はオーバーライドされる。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.peerMaxConcurrentStreams",
+      "lang": "ja"
+    },
+    "656b0d74": {
+      "original": "The array of integer values determines the settings types,\nwhich are included in the `CustomSettings`-property of the received remoteSettings.\nPlease see the `CustomSettings`-property of the `Http2Settings` object for more information, on the allowed setting types.",
+      "translated": "整数値の配列は設定型を決定し、それらは受信した remoteSettings の `CustomSettings` プロパティに含まれる。許可される設定型の詳細は `Http2Settings` オブジェクトの `CustomSettings` プロパティを参照。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.remoteCustomSettings",
+      "lang": "ja"
+    },
+    "0e13914f": {
+      "original": "The initial settings to send to the remote peer upon connection.",
+      "translated": "接続時にリモートピアに送信する初期設定。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.settings",
+      "lang": "ja"
+    },
+    "49965ce3": {
+      "original": "If `true`, it turns on strict leading\nand trailing whitespace validation for HTTP/2 header field names and values\nas per [RFC-9113](https://www.rfc-editor.org/rfc/rfc9113.html#section-8.2.1).",
+      "translated": "`true` の場合、[RFC-9113](https://www.rfc-editor.org/rfc/rfc9113.html#section-8.2.1) に従って、HTTP/2 ヘッダーフィールド名と値の先頭・末尾の空白の厳密な検証を有効にする。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.strictFieldWhitespaceValidation",
+      "lang": "ja"
+    },
+    "c79072c3": {
+      "original": "Specifies a timeout in milliseconds that\na server should wait when an [`'unknownProtocol'`][] is emitted. If the\nsocket has not been destroyed by that time the server will destroy it.",
+      "translated": "[`'unknownProtocol'`][] が発行されたときにサーバーが待つべきタイムアウト(ミリ秒)を指定する。その時までにソケットが破棄されていない場合、サーバーはそれを破棄する。",
+      "symbol": "@types/node/http2.d.ts#http2.SessionOptions.unknownProtocolTimeout",
       "lang": "ja"
     },
     "78a6ad93": {
