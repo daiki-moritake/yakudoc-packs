@@ -3232,6 +3232,102 @@
       "symbol": "@types/node/dns.d.ts#dns.Resolver.cancel",
       "lang": "ja"
     },
+    "2c6df005": {
+      "original": "A string representation of an IPv4 address.",
+      "translated": "IPv4 アドレスの文字列表現。",
+      "symbol": "@types/node/dns.d.ts#dns.Resolver.setLocalAddress",
+      "lang": "ja"
+    },
+    "7c1308ba": {
+      "original": "A string representation of an IPv6 address.",
+      "translated": "IPv6 アドレスの文字列表現。",
+      "symbol": "@types/node/dns.d.ts#dns.Resolver.setLocalAddress",
+      "lang": "ja"
+    },
+    "b46bf846": {
+      "original": "The resolver instance will send its requests from the specified IP address.\nThis allows programs to specify outbound interfaces when used on multi-homed\nsystems.\n\nIf a v4 or v6 address is not specified, it is set to the default and the\noperating system will choose a local address automatically.\n\nThe resolver will use the v4 local address when making requests to IPv4 DNS\nservers, and the v6 local address when making requests to IPv6 DNS servers.\nThe `rrtype` of resolution requests has no impact on the local address used.",
+      "translated": "リゾルバーインスタンスは、指定した IP アドレスからリクエストを送信する。これにより、マルチホームのシステムで使う場合にプログラムがアウトバウンドインターフェースを指定できる。\n\nv4 または v6 のアドレスが指定されない場合、既定に設定され、オペレーティングシステムがローカルアドレスを自動的に選ぶ。\n\nリゾルバーは、IPv4 DNS サーバーへリクエストを行うときは v4 のローカルアドレスを、IPv6 DNS サーバーへリクエストを行うときは v6 のローカルアドレスを使う。解決リクエストの `rrtype` は、使われるローカルアドレスに影響しない。",
+      "symbol": "@types/node/dns.d.ts#dns.Resolver.setLocalAddress",
+      "lang": "ja"
+    },
+    "41cf3b69": {
+      "original": "The max retry timeout, in milliseconds.",
+      "translated": "最大の再試行タイムアウト(ミリ秒)。",
+      "symbol": "@types/node/dns.d.ts#dns.ResolverOptions.maxTimeout",
+      "lang": "ja"
+    },
+    "d056fb0c": {
+      "original": "Query timeout in milliseconds, or `-1` to use the default timeout.",
+      "translated": "クエリのタイムアウト(ミリ秒)。既定のタイムアウトを使うには `-1`。",
+      "symbol": "@types/node/dns.d.ts#dns.ResolverOptions.timeout",
+      "lang": "ja"
+    },
+    "dbf19b01": {
+      "original": "The number of tries the resolver will try contacting each name server before giving up.",
+      "translated": "リゾルバーが諦める前に各ネームサーバーへの接続を試みる回数。",
+      "symbol": "@types/node/dns.d.ts#dns.ResolverOptions.tries",
+      "lang": "ja"
+    },
+    "d43fddcb": {
+      "original": "Uses the DNS protocol to resolve a start of authority record (`SOA` record) for\nthe `hostname`. The `address` argument passed to the `callback` function will\nbe an object with the following properties:\n\n* `nsname`\n* `hostmaster`\n* `serial`\n* `refresh`\n* `retry`\n* `expire`\n* `minttl`\n\n```js\n{\n  nsname: 'ns.example.com',\n  hostmaster: 'root.example.com',\n  serial: 2013101809,\n  refresh: 10000,\n  retry: 2400,\n  expire: 604800,\n  minttl: 3600\n}\n```",
+      "translated": "DNS プロトコルを使って、`hostname` の start of authority レコード(`SOA` レコード)を解決する。`callback` 関数に渡される `address` 引数は、次のプロパティを持つオブジェクトになる:\n\n* `nsname`\n* `hostmaster`\n* `serial`\n* `refresh`\n* `retry`\n* `expire`\n* `minttl`\n\n```js\n{\n  nsname: 'ns.example.com',\n  hostmaster: 'root.example.com',\n  serial: 2013101809,\n  refresh: 10000,\n  retry: 2400,\n  expire: 604800,\n  minttl: 3600\n}\n```",
+      "symbol": "@types/node/dns.d.ts#dns.resolveSoa",
+      "lang": "ja"
+    },
+    "df508528": {
+      "original": "Uses the DNS protocol to resolve service records (`SRV` records) for the `hostname`. The `addresses` argument passed to the `callback` function will\nbe an array of objects with the following properties:\n\n* `priority`\n* `weight`\n* `port`\n* `name`\n\n```js\n{\n  priority: 10,\n  weight: 5,\n  port: 21223,\n  name: 'service.example.com'\n}\n```",
+      "translated": "DNS プロトコルを使って、`hostname` のサービスレコード(`SRV` レコード)を解決する。`callback` 関数に渡される `addresses` 引数は、次のプロパティを持つオブジェクトの配列になる:\n\n* `priority`\n* `weight`\n* `port`\n* `name`\n\n```js\n{\n  priority: 10,\n  weight: 5,\n  port: 21223,\n  name: 'service.example.com'\n}\n```",
+      "symbol": "@types/node/dns.d.ts#dns.resolveSrv",
+      "lang": "ja"
+    },
+    "479dff21": {
+      "original": "Uses the DNS protocol to resolve certificate associations (`TLSA` records) for\nthe `hostname`. The `records` argument passed to the `callback` function is an\narray of objects with these properties:\n\n* `certUsage`\n* `selector`\n* `match`\n* `data`\n\n```js\n{\n  certUsage: 3,\n  selector: 1,\n  match: 1,\n  data: [ArrayBuffer]\n}\n```",
+      "translated": "DNS プロトコルを使って、`hostname` の証明書関連付け(`TLSA` レコード)を解決する。`callback` 関数に渡される `records` 引数は、次のプロパティを持つオブジェクトの配列である:\n\n* `certUsage`\n* `selector`\n* `match`\n* `data`\n\n```js\n{\n  certUsage: 3,\n  selector: 1,\n  match: 1,\n  data: [ArrayBuffer]\n}\n```",
+      "symbol": "@types/node/dns.d.ts#dns.resolveTlsa",
+      "lang": "ja"
+    },
+    "183565b9": {
+      "original": "Uses the DNS protocol to resolve text queries (`TXT` records) for the `hostname`. The `records` argument passed to the `callback` function is a\ntwo-dimensional array of the text records available for `hostname` (e.g.`[ ['v=spf1 ip4:0.0.0.0 ', '~all' ] ]`). Each sub-array contains TXT chunks of\none record. Depending on the use case, these could be either joined together or\ntreated separately.",
+      "translated": "DNS プロトコルを使って、`hostname` のテキストクエリ(`TXT` レコード)を解決する。`callback` 関数に渡される `records` 引数は、`hostname` について利用可能なテキストレコードの 2 次元配列(たとえば `[ ['v=spf1 ip4:0.0.0.0 ', '~all' ] ]`)である。各サブ配列は 1 つのレコードの TXT チャンクを含む。ユースケースに応じて、これらは結合するか別々に扱うことができる。",
+      "symbol": "@types/node/dns.d.ts#dns.resolveTxt",
+      "lang": "ja"
+    },
+    "94e7af29": {
+      "original": "Performs a reverse DNS query that resolves an IPv4 or IPv6 address to an\narray of host names.\n\nOn error, `err` is an [`Error`](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-error) object, where `err.code` is\none of the [DNS error codes](https://nodejs.org/docs/latest-v22.x/api/dns.html#error-codes).",
+      "translated": "IPv4 または IPv6 アドレスをホスト名の配列に解決する逆引き DNS クエリを実行する。\n\nエラー時、`err` は [`Error`](https://nodejs.org/docs/latest-v22.x/api/errors.html#class-error) オブジェクトで、`err.code` は [DNS error codes](https://nodejs.org/docs/latest-v22.x/api/dns.html#error-codes) のいずれかである。",
+      "symbol": "@types/node/dns.d.ts#dns.reverse",
+      "lang": "ja"
+    },
+    "f7f17d06": {
+      "original": "must be `'ipv4first'`, `'ipv6first'` or `'verbatim'`.",
+      "translated": "`'ipv4first'`・`'ipv6first'`・`'verbatim'` のいずれかでなければならない。",
+      "symbol": "@types/node/dns.d.ts#dns.setDefaultResultOrder",
+      "lang": "ja"
+    },
+    "831b1a70": {
+      "original": "Set the default value of `order` in {@link lookup} and [`dnsPromises.lookup()`](https://nodejs.org/docs/latest-v22.x/api/dns.html#dnspromiseslookuphostname-options).\nThe value could be:\n\n* `ipv4first`: sets default `order` to `ipv4first`.\n* `ipv6first`: sets default `order` to `ipv6first`.\n* `verbatim`: sets default `order` to `verbatim`.\n\nThe default is `verbatim` and {@link setDefaultResultOrder} have higher\npriority than [`--dns-result-order`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--dns-result-orderorder). When using\n[worker threads](https://nodejs.org/docs/latest-v22.x/api/worker_threads.html), {@link setDefaultResultOrder} from the main\nthread won't affect the default dns orders in workers.",
+      "translated": "{@link lookup} と [`dnsPromises.lookup()`](https://nodejs.org/docs/latest-v22.x/api/dns.html#dnspromiseslookuphostname-options) の `order` の既定値を設定する。値は次のいずれかであり得る:\n\n* `ipv4first`: 既定の `order` を `ipv4first` に設定する。\n* `ipv6first`: 既定の `order` を `ipv6first` に設定する。\n* `verbatim`: 既定の `order` を `verbatim` に設定する。\n\n既定は `verbatim` で、{@link setDefaultResultOrder} は [`--dns-result-order`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--dns-result-orderorder) より優先度が高い。[ワーカースレッド](https://nodejs.org/docs/latest-v22.x/api/worker_threads.html)を使う場合、メインスレッドからの {@link setDefaultResultOrder} はワーカー内の既定の dns 順序に影響しない。",
+      "symbol": "@types/node/dns.d.ts#dns.setDefaultResultOrder",
+      "lang": "ja"
+    },
+    "e3070ef9": {
+      "original": "array of [RFC 5952](https://datatracker.ietf.org/doc/html/rfc5952#section-6) formatted addresses",
+      "translated": "[RFC 5952](https://datatracker.ietf.org/doc/html/rfc5952#section-6) 形式のアドレスの配列",
+      "symbol": "@types/node/dns.d.ts#dns.setServers",
+      "lang": "ja"
+    },
+    "6deb293b": {
+      "original": "Sets the IP address and port of servers to be used when performing DNS\nresolution. The `servers` argument is an array of [RFC 5952](https://tools.ietf.org/html/rfc5952#section-6) formatted\naddresses. If the port is the IANA default DNS port (53) it can be omitted.\n\n```js\ndns.setServers([\n  '4.4.4.4',\n  '[2001:4860:4860::8888]',\n  '4.4.4.4:1053',\n  '[2001:4860:4860::8888]:1053',\n]);\n```\n\nAn error will be thrown if an invalid address is provided.\n\nThe `dns.setServers()` method must not be called while a DNS query is in\nprogress.\n\nThe {@link setServers} method affects only {@link resolve}, `dns.resolve*()` and {@link reverse} (and specifically _not_ {@link lookup}).\n\nThis method works much like [resolve.conf](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).\nThat is, if attempting to resolve with the first server provided results in a `NOTFOUND` error, the `resolve()` method will _not_ attempt to resolve with\nsubsequent servers provided. Fallback DNS servers will only be used if the\nearlier ones time out or result in some other error.",
+      "translated": "DNS 解決を実行するときに使うサーバーの IP アドレスとポートを設定する。`servers` 引数は [RFC 5952](https://tools.ietf.org/html/rfc5952#section-6) 形式のアドレスの配列である。ポートが IANA の既定 DNS ポート(53)の場合は省略できる。\n\n```js\ndns.setServers([\n  '4.4.4.4',\n  '[2001:4860:4860::8888]',\n  '4.4.4.4:1053',\n  '[2001:4860:4860::8888]:1053',\n]);\n```\n\n無効なアドレスが指定された場合、エラーが投げられる。\n\n`dns.setServers()` メソッドは、DNS クエリが進行中の間は呼んではならない。\n\n{@link setServers} メソッドは {@link resolve}・`dns.resolve*()`・{@link reverse} のみに影響する(特に {@link lookup} には影響_しない_)。\n\nこのメソッドは [resolve.conf](https://man7.org/linux/man-pages/man5/resolv.conf.5.html) とほぼ同じように機能する。すなわち、指定した最初のサーバーで解決を試みて `NOTFOUND` エラーになった場合、`resolve()` メソッドは指定した後続のサーバーで解決を試み_ない_。フォールバック DNS サーバーは、先のサーバーがタイムアウトするか他のエラーになった場合にのみ使われる。",
+      "symbol": "@types/node/dns.d.ts#dns.setServers",
+      "lang": "ja"
+    },
+    "14c52ab3": {
+      "original": "If the IPv6 family was specified, but no IPv6 addresses were found, then return IPv4 mapped IPv6 addresses. It is not supported\non some operating systems (e.g. FreeBSD 10.1).",
+      "translated": "IPv6 ファミリーが指定されたが IPv6 アドレスが見つからなかった場合、IPv4 マップされた IPv6 アドレスを返す。一部のオペレーティングシステム(たとえば FreeBSD 10.1)ではサポートされない。",
+      "symbol": "@types/node/dns.d.ts#dns.V4MAPPED",
+      "lang": "ja"
+    },
     "73f2cc3a": {
       "original": "Much of the Node.js core API is built around an idiomatic asynchronous\nevent-driven architecture in which certain kinds of objects (called \"emitters\")\nemit named events that cause `Function` objects (\"listeners\") to be called.\n\nFor instance: a `net.Server` object emits an event each time a peer\nconnects to it; a `fs.ReadStream` emits an event when the file is opened;\na `stream` emits an event whenever data is available to be read.\n\nAll objects that emit events are instances of the `EventEmitter` class. These\nobjects expose an `eventEmitter.on()` function that allows one or more\nfunctions to be attached to named events emitted by the object. Typically,\nevent names are camel-cased strings but any valid JavaScript property key\ncan be used.\n\nWhen the `EventEmitter` object emits an event, all of the functions attached\nto that specific event are called _synchronously_. Any values returned by the\ncalled listeners are _ignored_ and discarded.\n\nThe following example shows a simple `EventEmitter` instance with a single\nlistener. The `eventEmitter.on()` method is used to register listeners, while\nthe `eventEmitter.emit()` method is used to trigger the event.\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
       "translated": "Node.js のコア API の多くは、慣用的な非同期のイベント駆動アーキテクチャを中心に構築されている。そこでは特定の種類のオブジェクト(「emitter」と呼ばれる)が名前付きイベントを発行し、それによって `Function` オブジェクト(「listener」)が呼ばれる。\n\nたとえば: `net.Server` オブジェクトはピアが接続するたびにイベントを発行する。`fs.ReadStream` はファイルが開かれたときにイベントを発行する。`stream` はデータが読める状態になるたびにイベントを発行する。\n\nイベントを発行するすべてのオブジェクトは `EventEmitter` クラスのインスタンスである。これらのオブジェクトは、オブジェクトが発行する名前付きイベントに 1 つ以上の関数を結び付けられる `eventEmitter.on()` 関数を公開する。通常、イベント名はキャメルケースの文字列だが、有効な JavaScript のプロパティキーであれば何でも使える。\n\n`EventEmitter` オブジェクトがイベントを発行すると、その特定のイベントに結び付けられたすべての関数が_同期的に_呼ばれる。呼ばれた listener が返す値は_無視_され、破棄される。\n\n次の例は、単一の listener を持つ単純な `EventEmitter` インスタンスを示す。listener の登録には `eventEmitter.on()` メソッドを、イベントのトリガーには `eventEmitter.emit()` メソッドを使う。\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
