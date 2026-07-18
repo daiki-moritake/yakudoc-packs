@@ -208,6 +208,12 @@
       "symbol": "@types/node/fs.d.ts#fs.constants.S_IFDIR",
       "lang": "ja"
     },
+    "78751117": {
+      "original": "Closes the `Http2Stream` instance by sending an `RST_STREAM` frame to the\nconnected HTTP/2 peer.",
+      "translated": "接続された HTTP/2 ピアに `RST_STREAM` フレームを送信して `Http2Stream` インスタンスを閉じる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.close",
+      "lang": "ja"
+    },
     "79209074": {
       "original": "`stream.transform` options",
       "translated": "`stream.transform` のオプション",
@@ -6020,6 +6026,180 @@
       "original": "Immediately terminates the `Http2Session` and the associated `net.Socket` or `tls.TLSSocket`.\n\nOnce destroyed, the `Http2Session` will emit the `'close'` event. If `error` is not undefined, an `'error'` event will be emitted immediately before the `'close'` event.\n\nIf there are any remaining open `Http2Streams` associated with the `Http2Session`, those will also be destroyed.",
       "translated": "`Http2Session` と関連する `net.Socket` または `tls.TLSSocket` を即座に終了する。\n\nいったん破棄されると、`Http2Session` は `'close'` イベントを発行する。`error` が undefined でない場合、`'close'` イベントの直前に `'error'` イベントが発行される。\n\n`Http2Session` に関連する開いている `Http2Stream` が残っている場合、それらも破棄される。",
       "symbol": "@types/node/http2.d.ts#http2.Http2Session.destroy",
+      "lang": "ja"
+    },
+    "bdd70b75": {
+      "original": "The HTTP/2 error code to send in the final `GOAWAY` frame. If unspecified, and `error` is not undefined, the default is `INTERNAL_ERROR`, otherwise defaults to `NO_ERROR`.",
+      "translated": "最後の `GOAWAY` フレームで送信する HTTP/2 エラーコード。指定されず `error` が undefined でない場合、既定は `INTERNAL_ERROR`、そうでなければ既定は `NO_ERROR`。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.destroy",
+      "lang": "ja"
+    },
+    "31bb7684": {
+      "original": "Will be `true` if this `Http2Session` instance has been destroyed and must no\nlonger be used, otherwise `false`.",
+      "translated": "この `Http2Session` インスタンスが破棄されもう使ってはならない場合は `true`、そうでなければ `false` になる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.destroyed",
+      "lang": "ja"
+    },
+    "0e690018": {
+      "original": "Value is `undefined` if the `Http2Session` session socket has not yet been\nconnected, `true` if the `Http2Session` is connected with a `TLSSocket`,\nand `false` if the `Http2Session` is connected to any other kind of socket\nor stream.",
+      "translated": "`Http2Session` セッションのソケットがまだ接続されていない場合、値は `undefined`。`Http2Session` が `TLSSocket` に接続されている場合は `true`、`Http2Session` が他の種類のソケットやストリームに接続されている場合は `false`。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.encrypted",
+      "lang": "ja"
+    },
+    "e1d373da": {
+      "original": "A `TypedArray` or `DataView` instance containing additional data to be carried within the `GOAWAY` frame.",
+      "translated": "`GOAWAY` フレーム内で運ばれる追加データを含む `TypedArray` または `DataView` インスタンス。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.goaway",
+      "lang": "ja"
+    },
+    "4df9cd2b": {
+      "original": "An HTTP/2 error code",
+      "translated": "HTTP/2 エラーコード",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.goaway",
+      "lang": "ja"
+    },
+    "7eb7f913": {
+      "original": "The numeric ID of the last processed `Http2Stream`",
+      "translated": "最後に処理された `Http2Stream` の数値 ID",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.goaway",
+      "lang": "ja"
+    },
+    "8640dfd9": {
+      "original": "Transmits a `GOAWAY` frame to the connected peer _without_ shutting down the`Http2Session`.",
+      "translated": "`Http2Session` をシャットダウン_せずに_、接続されたピアに `GOAWAY` フレームを送信する。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.goaway",
+      "lang": "ja"
+    },
+    "93a2eb34": {
+      "original": "A prototype-less object describing the current local settings of this `Http2Session`.\nThe local settings are local to _this_`Http2Session` instance.",
+      "translated": "この `Http2Session` の現在のローカル設定を記述する、プロトタイプなしのオブジェクト。ローカル設定は_この_ `Http2Session` インスタンスにローカルである。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.localSettings",
+      "lang": "ja"
+    },
+    "8b1e4b4b": {
+      "original": "If the `Http2Session` is connected to a `TLSSocket`, the `originSet` property\nwill return an `Array` of origins for which the `Http2Session` may be\nconsidered authoritative.\n\nThe `originSet` property is only available when using a secure TLS connection.",
+      "translated": "`Http2Session` が `TLSSocket` に接続されている場合、`originSet` プロパティは、`Http2Session` が権威を持つとみなせる origin の `Array` を返す。\n\n`originSet` プロパティは、セキュアな TLS 接続を使う場合にのみ利用できる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.originSet",
+      "lang": "ja"
+    },
+    "d683083b": {
+      "original": "Indicates whether the `Http2Session` is currently waiting for acknowledgment of\na sent `SETTINGS` frame. Will be `true` after calling the `http2session.settings()` method.\nWill be `false` once all sent `SETTINGS` frames have been acknowledged.",
+      "translated": "`Http2Session` が現在、送信した `SETTINGS` フレームの確認応答を待っているかどうかを示す。`http2session.settings()` メソッドを呼んだ後は `true` になる。送信したすべての `SETTINGS` フレームが確認応答されると `false` になる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.pendingSettingsAck",
+      "lang": "ja"
+    },
+    "b0378fb9": {
+      "original": "Optional ping payload.",
+      "translated": "省略可能な ping のペイロード。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.ping",
+      "lang": "ja"
+    },
+    "f3ce5a5e": {
+      "original": "Sends a `PING` frame to the connected HTTP/2 peer. A `callback` function must\nbe provided. The method will return `true` if the `PING` was sent, `false` otherwise.\n\nThe maximum number of outstanding (unacknowledged) pings is determined by the `maxOutstandingPings` configuration option. The default maximum is 10.\n\nIf provided, the `payload` must be a `Buffer`, `TypedArray`, or `DataView` containing 8 bytes of data that will be transmitted with the `PING` and\nreturned with the ping acknowledgment.\n\nThe callback will be invoked with three arguments: an error argument that will\nbe `null` if the `PING` was successfully acknowledged, a `duration` argument\nthat reports the number of milliseconds elapsed since the ping was sent and the\nacknowledgment was received, and a `Buffer` containing the 8-byte `PING` payload.\n\n```js\nsession.ping(Buffer.from('abcdefgh'), (err, duration, payload) => {\n  if (!err) {\n    console.log(`Ping acknowledged in ${duration} milliseconds`);\n    console.log(`With payload '${payload.toString()}'`);\n  }\n});\n```\n\nIf the `payload` argument is not specified, the default payload will be the\n64-bit timestamp (little endian) marking the start of the `PING` duration.",
+      "translated": "接続された HTTP/2 ピアに `PING` フレームを送信する。`callback` 関数を提供しなければならない。このメソッドは、`PING` が送信された場合は `true`、そうでなければ `false` を返す。\n\n未処理(確認応答されていない)の ping の最大数は、`maxOutstandingPings` 構成オプションによって決まる。既定の最大値は 10。\n\n提供された場合、`payload` は、`PING` とともに送信され ping の確認応答とともに返される 8 バイトのデータを含む `Buffer`・`TypedArray`・`DataView` でなければならない。\n\nコールバックは 3 つの引数とともに呼ばれる: `PING` が正常に確認応答された場合は `null` になるエラー引数、ping が送信されてから確認応答が受信されるまでに経過したミリ秒数を報告する `duration` 引数、8 バイトの `PING` ペイロードを含む `Buffer`。\n\n```js\nsession.ping(Buffer.from('abcdefgh'), (err, duration, payload) => {\n  if (!err) {\n    console.log(`Ping acknowledged in ${duration} milliseconds`);\n    console.log(`With payload '${payload.toString()}'`);\n  }\n});\n```\n\n`payload` 引数が指定されない場合、既定のペイロードは、`PING` の継続時間の開始を示す 64 ビットタイムスタンプ(リトルエンディアン)になる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.ping",
+      "lang": "ja"
+    },
+    "0f41f8ca": {
+      "original": "Calls `ref()` on this `Http2Session` instance's underlying `net.Socket`.",
+      "translated": "この `Http2Session` インスタンスの基盤となる `net.Socket` に対して `ref()` を呼ぶ。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.ref",
+      "lang": "ja"
+    },
+    "0fccdff5": {
+      "original": "A prototype-less object describing the current remote settings of this`Http2Session`.\nThe remote settings are set by the _connected_ HTTP/2 peer.",
+      "translated": "この `Http2Session` の現在のリモート設定を記述する、プロトタイプなしのオブジェクト。リモート設定は_接続された_ HTTP/2 ピアによって設定される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.remoteSettings",
+      "lang": "ja"
+    },
+    "fd245044": {
+      "original": "Sets the local endpoint's window size.\nThe `windowSize` is the total window size to set, not\nthe delta.\n\n```js\nimport http2 from 'node:http2';\n\nconst server = http2.createServer();\nconst expectedWindowSize = 2 ** 20;\nserver.on('connect', (session) => {\n\n  // Set local window size to be 2 ** 20\n  session.setLocalWindowSize(expectedWindowSize);\n});\n```",
+      "translated": "ローカルエンドポイントのウィンドウサイズを設定する。`windowSize` は設定する合計ウィンドウサイズであり、差分ではない。\n\n```js\nimport http2 from 'node:http2';\n\nconst server = http2.createServer();\nconst expectedWindowSize = 2 ** 20;\nserver.on('connect', (session) => {\n\n  // Set local window size to be 2 ** 20\n  session.setLocalWindowSize(expectedWindowSize);\n});\n```",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.setLocalWindowSize",
+      "lang": "ja"
+    },
+    "9d67b39a": {
+      "original": "Used to set a callback function that is called when there is no activity on\nthe `Http2Session` after `msecs` milliseconds. The given `callback` is\nregistered as a listener on the `'timeout'` event.",
+      "translated": "`msecs` ミリ秒後に `Http2Session` でアクティビティがないときに呼ばれるコールバック関数を設定するために使う。指定した `callback` は `'timeout'` イベントの listener として登録される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.setTimeout",
+      "lang": "ja"
+    },
+    "65c51554": {
+      "original": "Callback that is called once the session is connected or right away if the session is already connected.",
+      "translated": "セッションが接続されたとき、またはセッションがすでに接続されている場合は即座に呼ばれるコールバック。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.settings",
+      "lang": "ja"
+    },
+    "dec4982b": {
+      "original": "Updates the current local settings for this `Http2Session` and sends a new `SETTINGS` frame to the connected HTTP/2 peer.\n\nOnce called, the `http2session.pendingSettingsAck` property will be `true` while the session is waiting for the remote peer to acknowledge the new\nsettings.\n\nThe new settings will not become effective until the `SETTINGS` acknowledgment\nis received and the `'localSettings'` event is emitted. It is possible to send\nmultiple `SETTINGS` frames while acknowledgment is still pending.",
+      "translated": "この `Http2Session` の現在のローカル設定を更新し、接続された HTTP/2 ピアに新しい `SETTINGS` フレームを送信する。\n\nいったん呼ばれると、セッションがリモートピアの新しい設定の確認応答を待っている間、`http2session.pendingSettingsAck` プロパティは `true` になる。\n\n新しい設定は、`SETTINGS` 確認応答が受信され `'localSettings'` イベントが発行されるまで有効にならない。確認応答がまだ保留中の間に複数の `SETTINGS` フレームを送信できる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.settings",
+      "lang": "ja"
+    },
+    "071707f6": {
+      "original": "Returns a `Proxy` object that acts as a `net.Socket` (or `tls.TLSSocket`) but\nlimits available methods to ones safe to use with HTTP/2.\n\n`destroy`, `emit`, `end`, `pause`, `read`, `resume`, and `write` will throw\nan error with code `ERR_HTTP2_NO_SOCKET_MANIPULATION`. See `Http2Session and Sockets` for more information.\n\n`setTimeout` method will be called on this `Http2Session`.\n\nAll other interactions will be routed directly to the socket.",
+      "translated": "`net.Socket`(または `tls.TLSSocket`)として振る舞うが、利用可能なメソッドを HTTP/2 で安全に使えるものに制限する `Proxy` オブジェクトを返す。\n\n`destroy`・`emit`・`end`・`pause`・`read`・`resume`・`write` はコード `ERR_HTTP2_NO_SOCKET_MANIPULATION` のエラーを投げる。詳細は `Http2Session and Sockets` を参照。\n\n`setTimeout` メソッドはこの `Http2Session` で呼ばれる。\n\n他のすべてのやり取りは直接ソケットにルーティングされる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.socket",
+      "lang": "ja"
+    },
+    "f36f1a0c": {
+      "original": "Provides miscellaneous information about the current state of the`Http2Session`.\n\nAn object describing the current status of this `Http2Session`.",
+      "translated": "`Http2Session` の現在の状態に関するさまざまな情報を提供する。\n\nこの `Http2Session` の現在の状態を記述するオブジェクト。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.state",
+      "lang": "ja"
+    },
+    "2c3f8442": {
+      "original": "The `http2session.type` will be equal to `http2.constants.NGHTTP2_SESSION_SERVER` if this `Http2Session` instance is a\nserver, and `http2.constants.NGHTTP2_SESSION_CLIENT` if the instance is a\nclient.",
+      "translated": "この `Http2Session` インスタンスがサーバーの場合、`http2session.type` は `http2.constants.NGHTTP2_SESSION_SERVER` に等しく、インスタンスがクライアントの場合は `http2.constants.NGHTTP2_SESSION_CLIENT` に等しくなる。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.type",
+      "lang": "ja"
+    },
+    "e190f9c4": {
+      "original": "Calls `unref()` on this `Http2Session`instance's underlying `net.Socket`.",
+      "translated": "この `Http2Session` インスタンスの基盤となる `net.Socket` に対して `unref()` を呼ぶ。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Session.unref",
+      "lang": "ja"
+    },
+    "2cbc4379": {
+      "original": "Set to `true` if the `Http2Stream` instance was aborted abnormally. When set,\nthe `'aborted'` event will have been emitted.",
+      "translated": "`Http2Stream` インスタンスが異常に中断された場合は `true` に設定される。設定されると、`'aborted'` イベントが発行されている。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.aborted",
+      "lang": "ja"
+    },
+    "9ac5e261": {
+      "original": "This property shows the number of characters currently buffered to be written.\nSee `net.Socket.bufferSize` for details.",
+      "translated": "このプロパティは、書き込みのために現在バッファリングされている文字数を示す。詳細は `net.Socket.bufferSize` を参照。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.bufferSize",
+      "lang": "ja"
+    },
+    "3ed5adc9": {
+      "original": "An optional function registered to listen for the `'close'` event.",
+      "translated": "`'close'` イベントをリッスンするために登録される省略可能な関数。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.close",
+      "lang": "ja"
+    },
+    "173c636b": {
+      "original": "Unsigned 32-bit integer identifying the error code.",
+      "translated": "エラーコードを識別する符号なし 32 ビット整数。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.close",
+      "lang": "ja"
+    },
+    "e94a0d04": {
+      "original": "Set to `true` if the `Http2Stream` instance has been closed.",
+      "translated": "`Http2Stream` インスタンスが閉じられている場合は `true` に設定される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.closed",
+      "lang": "ja"
+    },
+    "fb03b6a6": {
+      "original": "Set to `true` if the `Http2Stream` instance has been destroyed and is no longer\nusable.",
+      "translated": "`Http2Stream` インスタンスが破棄されもう使えない場合は `true` に設定される。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.destroyed",
+      "lang": "ja"
+    },
+    "cb9df0d9": {
+      "original": "Set to `true` if the `END_STREAM` flag was set in the request or response\nHEADERS frame received, indicating that no additional data should be received\nand the readable side of the `Http2Stream` will be closed.",
+      "translated": "受信したリクエストまたはレスポンスの HEADERS フレームに `END_STREAM` フラグが設定されていた場合は `true` に設定され、追加のデータを受信すべきでないこと、`Http2Stream` の読み取り側が閉じられることを示す。",
+      "symbol": "@types/node/http2.d.ts#http2.Http2Stream.endAfterHeaders",
       "lang": "ja"
     },
     "78a6ad93": {
