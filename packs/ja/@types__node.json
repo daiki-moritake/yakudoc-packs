@@ -202,6 +202,12 @@
       "symbol": "@types/node/crypto.d.ts#crypto.DiffieHellman.computeSecret",
       "lang": "ja"
     },
+    "60327657": {
+      "original": "Runs a function synchronously outside of a context and returns its\nreturn value. The store is not accessible within the callback function or\nthe asynchronous operations created within the callback. Any `getStore()` call done within the callback function will always return `undefined`.\n\nThe optional `args` are passed to the callback function.\n\nIf the callback function throws an error, the error is thrown by `exit()` too.\nThe stacktrace is not impacted by this call and the context is re-entered.\n\nExample:\n\n```js\n// Within a call to run\ntry {\n  asyncLocalStorage.getStore(); // Returns the store object or value\n  asyncLocalStorage.exit(() => {\n    asyncLocalStorage.getStore(); // Returns undefined\n    throw new Error();\n  });\n} catch (e) {\n  asyncLocalStorage.getStore(); // Returns the same object or value\n  // The error will be caught here\n}\n```",
+      "translated": "コンテキストの外で関数を同期的に実行し、その戻り値を返す。ストアは、コールバック関数内やコールバック内で作成された非同期操作からはアクセスできない。コールバック関数内で行われる `getStore()` の呼び出しは常に `undefined` を返す。\n\n省略可能な `args` はコールバック関数に渡される。\n\nコールバック関数がエラーを投げた場合、そのエラーは `exit()` によっても投げられる。この呼び出しによってスタックトレースは影響を受けず、コンテキストに再び入る。\n\n例:\n\n```js\n// Within a call to run\ntry {\n  asyncLocalStorage.getStore(); // Returns the store object or value\n  asyncLocalStorage.exit(() => {\n    asyncLocalStorage.getStore(); // Returns undefined\n    throw new Error();\n  });\n} catch (e) {\n  asyncLocalStorage.getStore(); // Returns the same object or value\n  // The error will be caught here\n}\n```",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncLocalStorage.exit",
+      "lang": "ja"
+    },
     "62027729": {
       "original": "Number of bytes to skip before starting to read. Must satisfy `0 <= offset <= buf.length - 1`.",
       "translated": "読み始める前にスキップするバイト数。`0 <= offset <= buf.length - 1` を満たさなければならない。",
@@ -674,6 +680,180 @@
       "original": "Expects the function `fn` to throw an error.\n\nIf specified, `error` can be a [`Class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes),\n[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions), a validation function,\na validation object where each property will be tested for strict deep equality,\nor an instance of error where each property will be tested for strict deep\nequality including the non-enumerable `message` and `name` properties. When\nusing an object, it is also possible to use a regular expression, when\nvalidating against a string property. See below for examples.\n\nIf specified, `message` will be appended to the message provided by the `AssertionError` if the `fn` call fails to throw or in case the error validation\nfails.\n\nCustom validation object/error instance:\n\n```js\nimport assert from 'node:assert/strict';\n\nconst err = new TypeError('Wrong value');\nerr.code = 404;\nerr.foo = 'bar';\nerr.info = {\n  nested: true,\n  baz: 'text',\n};\nerr.reg = /abc/i;\n\nassert.throws(\n  () => {\n    throw err;\n  },\n  {\n    name: 'TypeError',\n    message: 'Wrong value',\n    info: {\n      nested: true,\n      baz: 'text',\n    },\n    // Only properties on the validation object will be tested for.\n    // Using nested objects requires all properties to be present. Otherwise\n    // the validation is going to fail.\n  },\n);\n\n// Using regular expressions to validate error properties:\nassert.throws(\n  () => {\n    throw err;\n  },\n  {\n    // The `name` and `message` properties are strings and using regular\n    // expressions on those will match against the string. If they fail, an\n    // error is thrown.\n    name: /^TypeError$/,\n    message: /Wrong/,\n    foo: 'bar',\n    info: {\n      nested: true,\n      // It is not possible to use regular expressions for nested properties!\n      baz: 'text',\n    },\n    // The `reg` property contains a regular expression and only if the\n    // validation object contains an identical regular expression, it is going\n    // to pass.\n    reg: /abc/i,\n  },\n);\n\n// Fails due to the different `message` and `name` properties:\nassert.throws(\n  () => {\n    const otherErr = new Error('Not found');\n    // Copy all enumerable properties from `err` to `otherErr`.\n    for (const [key, value] of Object.entries(err)) {\n      otherErr[key] = value;\n    }\n    throw otherErr;\n  },\n  // The error's `message` and `name` properties will also be checked when using\n  // an error as validation object.\n  err,\n);\n```\n\nValidate instanceof using constructor:\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  Error,\n);\n```\n\nValidate error message using [`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions):\n\nUsing a regular expression runs `.toString` on the error object, and will\ntherefore also include the error name.\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  /^Error: Wrong value$/,\n);\n```\n\nCustom error validation:\n\nThe function must return `true` to indicate all internal validations passed.\nIt will otherwise fail with an `AssertionError`.\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  (err) => {\n    assert(err instanceof Error);\n    assert(/value/.test(err));\n    // Avoid returning anything from validation functions besides `true`.\n    // Otherwise, it's not clear what part of the validation failed. Instead,\n    // throw an error about the specific validation that failed (as done in this\n    // example) and add as much helpful debugging information to that error as\n    // possible.\n    return true;\n  },\n  'unexpected error',\n);\n```\n\n`error` cannot be a string. If a string is provided as the second\nargument, then `error` is assumed to be omitted and the string will be used for `message` instead. This can lead to easy-to-miss mistakes. Using the same\nmessage as the thrown error message is going to result in an `ERR_AMBIGUOUS_ARGUMENT` error. Please read the example below carefully if using\na string as the second argument gets considered:\n\n```js\nimport assert from 'node:assert/strict';\n\nfunction throwingFirst() {\n  throw new Error('First');\n}\n\nfunction throwingSecond() {\n  throw new Error('Second');\n}\n\nfunction notThrowing() {}\n\n// The second argument is a string and the input function threw an Error.\n// The first case will not throw as it does not match for the error message\n// thrown by the input function!\nassert.throws(throwingFirst, 'Second');\n// In the next example the message has no benefit over the message from the\n// error and since it is not clear if the user intended to actually match\n// against the error message, Node.js throws an `ERR_AMBIGUOUS_ARGUMENT` error.\nassert.throws(throwingSecond, 'Second');\n// TypeError [ERR_AMBIGUOUS_ARGUMENT]\n\n// The string is only used (as message) in case the function does not throw:\nassert.throws(notThrowing, 'Second');\n// AssertionError [ERR_ASSERTION]: Missing expected exception: Second\n\n// If it was intended to match for the error message do this instead:\n// It does not throw because the error messages match.\nassert.throws(throwingSecond, /Second$/);\n\n// If the error message does not match, an AssertionError is thrown.\nassert.throws(throwingFirst, /Second$/);\n// AssertionError [ERR_ASSERTION]\n```\n\nDue to the confusing error-prone notation, avoid a string as the second\nargument.",
       "translated": "関数 `fn` がエラーを投げることを期待する。\n\n指定された場合、`error` は [`Class`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)・[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)・検証関数、各プロパティが strict な深い等価性でテストされる検証オブジェクト、または列挙不可の `message` と `name` プロパティを含む各プロパティが strict な深い等価性でテストされるエラーのインスタンスのいずれかであり得る。オブジェクトを使う場合、文字列プロパティに対して検証するときは正規表現も使える。例は下記を参照。\n\n指定された場合、`fn` の呼び出しが投げるのに失敗したとき、またはエラー検証が失敗した場合、`message` が `AssertionError` が提供するメッセージに付加される。\n\nカスタム検証オブジェクト/エラーインスタンス:\n\n```js\nimport assert from 'node:assert/strict';\n\nconst err = new TypeError('Wrong value');\nerr.code = 404;\nerr.foo = 'bar';\nerr.info = {\n  nested: true,\n  baz: 'text',\n};\nerr.reg = /abc/i;\n\nassert.throws(\n  () => {\n    throw err;\n  },\n  {\n    name: 'TypeError',\n    message: 'Wrong value',\n    info: {\n      nested: true,\n      baz: 'text',\n    },\n    // Only properties on the validation object will be tested for.\n    // Using nested objects requires all properties to be present. Otherwise\n    // the validation is going to fail.\n  },\n);\n\n// Using regular expressions to validate error properties:\nassert.throws(\n  () => {\n    throw err;\n  },\n  {\n    // The `name` and `message` properties are strings and using regular\n    // expressions on those will match against the string. If they fail, an\n    // error is thrown.\n    name: /^TypeError$/,\n    message: /Wrong/,\n    foo: 'bar',\n    info: {\n      nested: true,\n      // It is not possible to use regular expressions for nested properties!\n      baz: 'text',\n    },\n    // The `reg` property contains a regular expression and only if the\n    // validation object contains an identical regular expression, it is going\n    // to pass.\n    reg: /abc/i,\n  },\n);\n\n// Fails due to the different `message` and `name` properties:\nassert.throws(\n  () => {\n    const otherErr = new Error('Not found');\n    // Copy all enumerable properties from `err` to `otherErr`.\n    for (const [key, value] of Object.entries(err)) {\n      otherErr[key] = value;\n    }\n    throw otherErr;\n  },\n  // The error's `message` and `name` properties will also be checked when using\n  // an error as validation object.\n  err,\n);\n```\n\nコンストラクターを使って instanceof を検証する:\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  Error,\n);\n```\n\n[`RegExp`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) を使ってエラーメッセージを検証する:\n\n正規表現を使うとエラーオブジェクトに対して `.toString` が実行されるため、エラー名も含まれる。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  /^Error: Wrong value$/,\n);\n```\n\nカスタムエラー検証:\n\n関数は、すべての内部検証が合格したことを示すために `true` を返さなければならない。そうでなければ `AssertionError` で失敗する。\n\n```js\nimport assert from 'node:assert/strict';\n\nassert.throws(\n  () => {\n    throw new Error('Wrong value');\n  },\n  (err) => {\n    assert(err instanceof Error);\n    assert(/value/.test(err));\n    // Avoid returning anything from validation functions besides `true`.\n    // Otherwise, it's not clear what part of the validation failed. Instead,\n    // throw an error about the specific validation that failed (as done in this\n    // example) and add as much helpful debugging information to that error as\n    // possible.\n    return true;\n  },\n  'unexpected error',\n);\n```\n\n`error` は文字列にできない。文字列が第 2 引数として提供された場合、`error` は省略されたとみなされ、その文字列は代わりに `message` に使われる。これは見落としやすいミスにつながることがある。投げられたエラーメッセージと同じメッセージを使うと `ERR_AMBIGUOUS_ARGUMENT` エラーになる。第 2 引数として文字列を使うことを検討する場合は、下記の例を注意深く読むこと:\n\n```js\nimport assert from 'node:assert/strict';\n\nfunction throwingFirst() {\n  throw new Error('First');\n}\n\nfunction throwingSecond() {\n  throw new Error('Second');\n}\n\nfunction notThrowing() {}\n\n// The second argument is a string and the input function threw an Error.\n// The first case will not throw as it does not match for the error message\n// thrown by the input function!\nassert.throws(throwingFirst, 'Second');\n// In the next example the message has no benefit over the message from the\n// error and since it is not clear if the user intended to actually match\n// against the error message, Node.js throws an `ERR_AMBIGUOUS_ARGUMENT` error.\nassert.throws(throwingSecond, 'Second');\n// TypeError [ERR_AMBIGUOUS_ARGUMENT]\n\n// The string is only used (as message) in case the function does not throw:\nassert.throws(notThrowing, 'Second');\n// AssertionError [ERR_ASSERTION]: Missing expected exception: Second\n\n// If it was intended to match for the error message do this instead:\n// It does not throw because the error messages match.\nassert.throws(throwingSecond, /Second$/);\n\n// If the error message does not match, an AssertionError is thrown.\nassert.throws(throwingFirst, /Second$/);\n// AssertionError [ERR_ASSERTION]\n```\n\n紛らわしくエラーを起こしやすい記法のため、第 2 引数として文字列を使うのは避けること。",
       "symbol": "@types/node/assert.d.ts#assert.assert.throws",
+      "lang": "ja"
+    },
+    "0add63a1": {
+      "original": "We strongly discourage the use of the `async_hooks` API.\nOther APIs that can cover most of its use cases include:\n\n* [`AsyncLocalStorage`](https://nodejs.org/docs/latest-v22.x/api/async_context.html#class-asynclocalstorage) tracks async context\n* [`process.getActiveResourcesInfo()`](https://nodejs.org/docs/latest-v22.x/api/process.html#processgetactiveresourcesinfo) tracks active resources\n\nThe `node:async_hooks` module provides an API to track asynchronous resources.\nIt can be accessed using:\n\n```js\nimport async_hooks from 'node:async_hooks';\n```",
+      "translated": "`async_hooks` API の使用は強く推奨しない。そのユースケースの大半をカバーできる他の API には次がある:\n\n* [`AsyncLocalStorage`](https://nodejs.org/docs/latest-v22.x/api/async_context.html#class-asynclocalstorage) は非同期コンテキストを追跡する\n* [`process.getActiveResourcesInfo()`](https://nodejs.org/docs/latest-v22.x/api/process.html#processgetactiveresourcesinfo) はアクティブなリソースを追跡する\n\n`node:async_hooks` モジュールは、非同期リソースを追跡する API を提供する。次のようにアクセスできる:\n\n```js\nimport async_hooks from 'node:async_hooks';\n```",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks",
+      "lang": "ja"
+    },
+    "cd6a8772": {
+      "original": "Disable the callbacks for a given AsyncHook instance from the global pool of AsyncHook callbacks to be executed. Once a hook has been disabled it will not be called again until enabled.",
+      "translated": "実行される AsyncHook コールバックのグローバルプールから、指定した AsyncHook インスタンスのコールバックを無効にする。いったんフックが無効になると、有効化されるまで再び呼ばれない。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncHook.disable",
+      "lang": "ja"
+    },
+    "588c35b8": {
+      "original": "Enable the callbacks for a given AsyncHook instance. If no callbacks are provided enabling is a noop.",
+      "translated": "指定した AsyncHook インスタンスのコールバックを有効にする。コールバックが提供されない場合、有効化は no-op である。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncHook.enable",
+      "lang": "ja"
+    },
+    "0fdb1b6c": {
+      "original": "This class creates stores that stay coherent through asynchronous operations.\n\nWhile you can create your own implementation on top of the `node:async_hooks` module, `AsyncLocalStorage` should be preferred as it is a performant and memory\nsafe implementation that involves significant optimizations that are non-obvious\nto implement.\n\nThe following example uses `AsyncLocalStorage` to build a simple logger\nthat assigns IDs to incoming HTTP requests and includes them in messages\nlogged within each request.\n\n```js\nimport http from 'node:http';\nimport { AsyncLocalStorage } from 'node:async_hooks';\n\nconst asyncLocalStorage = new AsyncLocalStorage();\n\nfunction logWithId(msg) {\n  const id = asyncLocalStorage.getStore();\n  console.log(`${id !== undefined ? id : '-'}:`, msg);\n}\n\nlet idSeq = 0;\nhttp.createServer((req, res) => {\n  asyncLocalStorage.run(idSeq++, () => {\n    logWithId('start');\n    // Imagine any chain of async operations here\n    setImmediate(() => {\n      logWithId('finish');\n      res.end();\n    });\n  });\n}).listen(8080);\n\nhttp.get('http://localhost:8080');\nhttp.get('http://localhost:8080');\n// Prints:\n//   0: start\n//   0: finish\n//   1: start\n//   1: finish\n```\n\nEach instance of `AsyncLocalStorage` maintains an independent storage context.\nMultiple instances can safely exist simultaneously without risk of interfering\nwith each other's data.",
+      "translated": "このクラスは、非同期操作を通じて一貫性を保つストアを作成する。\n\n`node:async_hooks` モジュールの上に独自の実装を作成できるが、`AsyncLocalStorage` は、実装が自明でない大幅な最適化を含む、高性能でメモリ安全な実装であるため、こちらを優先すべきである。\n\n次の例は、`AsyncLocalStorage` を使って、受信する HTTP リクエストに ID を割り当て、各リクエスト内でログに記録されるメッセージにそれらを含める単純なロガーを構築する。\n\n```js\nimport http from 'node:http';\nimport { AsyncLocalStorage } from 'node:async_hooks';\n\nconst asyncLocalStorage = new AsyncLocalStorage();\n\nfunction logWithId(msg) {\n  const id = asyncLocalStorage.getStore();\n  console.log(`${id !== undefined ? id : '-'}:`, msg);\n}\n\nlet idSeq = 0;\nhttp.createServer((req, res) => {\n  asyncLocalStorage.run(idSeq++, () => {\n    logWithId('start');\n    // Imagine any chain of async operations here\n    setImmediate(() => {\n      logWithId('finish');\n      res.end();\n    });\n  });\n}).listen(8080);\n\nhttp.get('http://localhost:8080');\nhttp.get('http://localhost:8080');\n// Prints:\n//   0: start\n//   0: finish\n//   1: start\n//   1: finish\n```\n\n`AsyncLocalStorage` の各インスタンスは、独立したストレージコンテキストを保持する。複数のインスタンスが、互いのデータに干渉するリスクなく同時に安全に存在できる。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncLocalStorage",
+      "lang": "ja"
+    },
+    "2cdb0856": {
+      "original": "A new function that calls `fn` within the captured execution context.",
+      "translated": "キャプチャされた実行コンテキスト内で `fn` を呼ぶ新しい関数。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncLocalStorage.bind",
+      "lang": "ja"
+    },
+    "2dc5242d": {
+      "original": "Disables the instance of `AsyncLocalStorage`. All subsequent calls\nto `asyncLocalStorage.getStore()` will return `undefined` until `asyncLocalStorage.run()` or `asyncLocalStorage.enterWith()` is called again.\n\nWhen calling `asyncLocalStorage.disable()`, all current contexts linked to the\ninstance will be exited.\n\nCalling `asyncLocalStorage.disable()` is required before the `asyncLocalStorage` can be garbage collected. This does not apply to stores\nprovided by the `asyncLocalStorage`, as those objects are garbage collected\nalong with the corresponding async resources.\n\nUse this method when the `asyncLocalStorage` is not in use anymore\nin the current process.",
+      "translated": "`AsyncLocalStorage` のインスタンスを無効にする。以降の `asyncLocalStorage.getStore()` の呼び出しはすべて、`asyncLocalStorage.run()` または `asyncLocalStorage.enterWith()` が再び呼ばれるまで `undefined` を返す。\n\n`asyncLocalStorage.disable()` を呼ぶと、インスタンスにリンクされた現在のすべてのコンテキストが抜けられる。\n\n`asyncLocalStorage` がガベージコレクトされる前に `asyncLocalStorage.disable()` を呼ぶ必要がある。これは `asyncLocalStorage` が提供するストアには適用されない。それらのオブジェクトは対応する非同期リソースとともにガベージコレクトされるからである。\n\n現在のプロセスで `asyncLocalStorage` がもう使われていないときにこのメソッドを使う。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncLocalStorage.disable",
+      "lang": "ja"
+    },
+    "a7519829": {
+      "original": "Transitions into the context for the remainder of the current\nsynchronous execution and then persists the store through any following\nasynchronous calls.\n\nExample:\n\n```js\nconst store = { id: 1 };\n// Replaces previous store with the given store object\nasyncLocalStorage.enterWith(store);\nasyncLocalStorage.getStore(); // Returns the store object\nsomeAsyncOperation(() => {\n  asyncLocalStorage.getStore(); // Returns the same object\n});\n```\n\nThis transition will continue for the _entire_ synchronous execution.\nThis means that if, for example, the context is entered within an event\nhandler subsequent event handlers will also run within that context unless\nspecifically bound to another context with an `AsyncResource`. That is why `run()` should be preferred over `enterWith()` unless there are strong reasons\nto use the latter method.\n\n```js\nconst store = { id: 1 };\n\nemitter.on('my-event', () => {\n  asyncLocalStorage.enterWith(store);\n});\nemitter.on('my-event', () => {\n  asyncLocalStorage.getStore(); // Returns the same object\n});\n\nasyncLocalStorage.getStore(); // Returns undefined\nemitter.emit('my-event');\nasyncLocalStorage.getStore(); // Returns the same object\n```",
+      "translated": "現在の同期実行の残りの間、コンテキストに遷移し、その後、続くすべての非同期呼び出しを通じてストアを保持する。\n\n例:\n\n```js\nconst store = { id: 1 };\n// Replaces previous store with the given store object\nasyncLocalStorage.enterWith(store);\nasyncLocalStorage.getStore(); // Returns the store object\nsomeAsyncOperation(() => {\n  asyncLocalStorage.getStore(); // Returns the same object\n});\n```\n\nこの遷移は_同期実行全体_を通じて続く。これは、たとえばイベントハンドラ内でコンテキストに入った場合、以降のイベントハンドラも、`AsyncResource` で特に別のコンテキストにバインドされない限り、そのコンテキスト内で実行されることを意味する。だからこそ、後者のメソッドを使う強い理由がない限り、`enterWith()` より `run()` が優先されるべきである。\n\n```js\nconst store = { id: 1 };\n\nemitter.on('my-event', () => {\n  asyncLocalStorage.enterWith(store);\n});\nemitter.on('my-event', () => {\n  asyncLocalStorage.getStore(); // Returns the same object\n});\n\nasyncLocalStorage.getStore(); // Returns undefined\nemitter.emit('my-event');\nasyncLocalStorage.getStore(); // Returns the same object\n```",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncLocalStorage.enterWith",
+      "lang": "ja"
+    },
+    "291ba631": {
+      "original": "Returns the current store.\nIf called outside of an asynchronous context initialized by\ncalling `asyncLocalStorage.run()` or `asyncLocalStorage.enterWith()`, it\nreturns `undefined`.",
+      "translated": "現在のストアを返す。`asyncLocalStorage.run()` または `asyncLocalStorage.enterWith()` を呼んで初期化された非同期コンテキストの外で呼ばれた場合、`undefined` を返す。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncLocalStorage.getStore",
+      "lang": "ja"
+    },
+    "4f12d22b": {
+      "original": "Runs a function synchronously within a context and returns its\nreturn value. The store is not accessible outside of the callback function.\nThe store is accessible to any asynchronous operations created within the\ncallback.\n\nThe optional `args` are passed to the callback function.\n\nIf the callback function throws an error, the error is thrown by `run()` too.\nThe stacktrace is not impacted by this call and the context is exited.\n\nExample:\n\n```js\nconst store = { id: 2 };\ntry {\n  asyncLocalStorage.run(store, () => {\n    asyncLocalStorage.getStore(); // Returns the store object\n    setTimeout(() => {\n      asyncLocalStorage.getStore(); // Returns the store object\n    }, 200);\n    throw new Error();\n  });\n} catch (e) {\n  asyncLocalStorage.getStore(); // Returns undefined\n  // The error will be caught here\n}\n```",
+      "translated": "コンテキスト内で関数を同期的に実行し、その戻り値を返す。ストアはコールバック関数の外からはアクセスできない。ストアは、コールバック内で作成された任意の非同期操作からアクセスできる。\n\n省略可能な `args` はコールバック関数に渡される。\n\nコールバック関数がエラーを投げた場合、そのエラーは `run()` によっても投げられる。この呼び出しによってスタックトレースは影響を受けず、コンテキストが抜けられる。\n\n例:\n\n```js\nconst store = { id: 2 };\ntry {\n  asyncLocalStorage.run(store, () => {\n    asyncLocalStorage.getStore(); // Returns the store object\n    setTimeout(() => {\n      asyncLocalStorage.getStore(); // Returns the store object\n    }, 200);\n    throw new Error();\n  });\n} catch (e) {\n  asyncLocalStorage.getStore(); // Returns undefined\n  // The error will be caught here\n}\n```",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncLocalStorage.run",
+      "lang": "ja"
+    },
+    "504751a6": {
+      "original": "A new function with the signature `(fn: (...args) : R, ...args) : R`.",
+      "translated": "シグネチャ `(fn: (...args) : R, ...args) : R` を持つ新しい関数。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncLocalStorage.snapshot",
+      "lang": "ja"
+    },
+    "99ecef53": {
+      "original": "Captures the current execution context and returns a function that accepts a\nfunction as an argument. Whenever the returned function is called, it\ncalls the function passed to it within the captured context.\n\n```js\nconst asyncLocalStorage = new AsyncLocalStorage();\nconst runInAsyncScope = asyncLocalStorage.run(123, () => AsyncLocalStorage.snapshot());\nconst result = asyncLocalStorage.run(321, () => runInAsyncScope(() => asyncLocalStorage.getStore()));\nconsole.log(result);  // returns 123\n```\n\nAsyncLocalStorage.snapshot() can replace the use of AsyncResource for simple\nasync context tracking purposes, for example:\n\n```js\nclass Foo {\n  #runInAsyncScope = AsyncLocalStorage.snapshot();\n\n  get() { return this.#runInAsyncScope(() => asyncLocalStorage.getStore()); }\n}\n\nconst foo = asyncLocalStorage.run(123, () => new Foo());\nconsole.log(asyncLocalStorage.run(321, () => foo.get())); // returns 123\n```",
+      "translated": "現在の実行コンテキストをキャプチャし、関数を引数として受け付ける関数を返す。返された関数が呼ばれるたびに、それに渡された関数をキャプチャされたコンテキスト内で呼ぶ。\n\n```js\nconst asyncLocalStorage = new AsyncLocalStorage();\nconst runInAsyncScope = asyncLocalStorage.run(123, () => AsyncLocalStorage.snapshot());\nconst result = asyncLocalStorage.run(321, () => runInAsyncScope(() => asyncLocalStorage.getStore()));\nconsole.log(result);  // returns 123\n```\n\nAsyncLocalStorage.snapshot() は、単純な非同期コンテキスト追跡の目的で AsyncResource の使用を置き換えられる。たとえば:\n\n```js\nclass Foo {\n  #runInAsyncScope = AsyncLocalStorage.snapshot();\n\n  get() { return this.#runInAsyncScope(() => asyncLocalStorage.getStore()); }\n}\n\nconst foo = asyncLocalStorage.run(123, () => new Foo());\nconsole.log(asyncLocalStorage.run(321, () => foo.get())); // returns 123\n```",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncLocalStorage.snapshot",
+      "lang": "ja"
+    },
+    "ec447a54": {
+      "original": "AsyncResource() is meant to be extended. Instantiating a\nnew AsyncResource() also triggers init. If triggerAsyncId is omitted then\nasync_hook.executionAsyncId() is used.",
+      "translated": "AsyncResource() は拡張されることを意図している。新しい AsyncResource() をインスタンス化すると init もトリガーされる。triggerAsyncId が省略された場合、async_hook.executionAsyncId() が使われる。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource",
+      "lang": "ja"
+    },
+    "90fc244e": {
+      "original": "The class `AsyncResource` is designed to be extended by the embedder's async\nresources. Using this, users can easily trigger the lifetime events of their\nown resources.\n\nThe `init` hook will trigger when an `AsyncResource` is instantiated.\n\nThe following is an overview of the `AsyncResource` API.\n\n```js\nimport { AsyncResource, executionAsyncId } from 'node:async_hooks';\n\n// AsyncResource() is meant to be extended. Instantiating a\n// new AsyncResource() also triggers init. If triggerAsyncId is omitted then\n// async_hook.executionAsyncId() is used.\nconst asyncResource = new AsyncResource(\n  type, { triggerAsyncId: executionAsyncId(), requireManualDestroy: false },\n);\n\n// Run a function in the execution context of the resource. This will\n// * establish the context of the resource\n// * trigger the AsyncHooks before callbacks\n// * call the provided function `fn` with the supplied arguments\n// * trigger the AsyncHooks after callbacks\n// * restore the original execution context\nasyncResource.runInAsyncScope(fn, thisArg, ...args);\n\n// Call AsyncHooks destroy callbacks.\nasyncResource.emitDestroy();\n\n// Return the unique ID assigned to the AsyncResource instance.\nasyncResource.asyncId();\n\n// Return the trigger ID for the AsyncResource instance.\nasyncResource.triggerAsyncId();\n```",
+      "translated": "`AsyncResource` クラスは、埋め込み側の非同期リソースによって拡張されるよう設計されている。これを使うと、ユーザーは自身のリソースのライフタイムイベントを簡単にトリガーできる。\n\n`AsyncResource` がインスタンス化されると `init` フックがトリガーされる。\n\n次は `AsyncResource` API の概要である。\n\n```js\nimport { AsyncResource, executionAsyncId } from 'node:async_hooks';\n\n// AsyncResource() is meant to be extended. Instantiating a\n// new AsyncResource() also triggers init. If triggerAsyncId is omitted then\n// async_hook.executionAsyncId() is used.\nconst asyncResource = new AsyncResource(\n  type, { triggerAsyncId: executionAsyncId(), requireManualDestroy: false },\n);\n\n// Run a function in the execution context of the resource. This will\n// * establish the context of the resource\n// * trigger the AsyncHooks before callbacks\n// * call the provided function `fn` with the supplied arguments\n// * trigger the AsyncHooks after callbacks\n// * restore the original execution context\nasyncResource.runInAsyncScope(fn, thisArg, ...args);\n\n// Call AsyncHooks destroy callbacks.\nasyncResource.emitDestroy();\n\n// Return the unique ID assigned to the AsyncResource instance.\nasyncResource.asyncId();\n\n// Return the trigger ID for the AsyncResource instance.\nasyncResource.triggerAsyncId();\n```",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource",
+      "lang": "ja"
+    },
+    "c839272b": {
+      "original": "The ID of the execution context that created\nthis async event (default: `executionAsyncId()`), or an\nAsyncResourceOptions object (since v9.3.0)",
+      "translated": "この非同期イベントを作成した実行コンテキストの ID(既定: `executionAsyncId()`)、または AsyncResourceOptions オブジェクト(v9.3.0 以降)",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource",
+      "lang": "ja"
+    },
+    "cea926ce": {
+      "original": "The type of async event.",
+      "translated": "非同期イベントの型。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource",
+      "lang": "ja"
+    },
+    "60d038e7": {
+      "original": "The unique `asyncId` assigned to the resource.",
+      "translated": "リソースに割り当てられた一意な `asyncId`。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.asyncId",
+      "lang": "ja"
+    },
+    "73acc0aa": {
+      "original": "An optional name to associate with the underlying `AsyncResource`.",
+      "translated": "基盤となる `AsyncResource` に関連付ける省略可能な名前。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.bind",
+      "lang": "ja"
+    },
+    "9ec5ea0c": {
+      "original": "Binds the given function to execute to this `AsyncResource`'s scope.",
+      "translated": "指定した関数を、この `AsyncResource` のスコープで実行するようバインドする。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.bind",
+      "lang": "ja"
+    },
+    "2ee34916": {
+      "original": "Binds the given function to the current execution context.",
+      "translated": "指定した関数を現在の実行コンテキストにバインドする。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.bind",
+      "lang": "ja"
+    },
+    "2ffa2d6d": {
+      "original": "The function to bind to the current `AsyncResource`.",
+      "translated": "現在の `AsyncResource` にバインドする関数。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.bind",
+      "lang": "ja"
+    },
+    "162d5a25": {
+      "original": "The function to bind to the current execution context.",
+      "translated": "現在の実行コンテキストにバインドする関数。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.bind",
+      "lang": "ja"
+    },
+    "124523ee": {
+      "original": "A reference to `asyncResource`.",
+      "translated": "`asyncResource` への参照。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.emitDestroy",
+      "lang": "ja"
+    },
+    "a54415a6": {
+      "original": "Call all `destroy` hooks. This should only ever be called once. An error will\nbe thrown if it is called more than once. This **must** be manually called. If\nthe resource is left to be collected by the GC then the `destroy` hooks will\nnever be called.",
+      "translated": "すべての `destroy` フックを呼ぶ。これは一度だけ呼ぶべきである。複数回呼ばれた場合、エラーが投げられる。これは**必ず**手動で呼ばなければならない。リソースが GC によって回収されるに任せた場合、`destroy` フックは決して呼ばれない。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.emitDestroy",
+      "lang": "ja"
+    },
+    "08256d59": {
+      "original": "Call the provided function with the provided arguments in the execution context\nof the async resource. This will establish the context, trigger the AsyncHooks\nbefore callbacks, call the function, trigger the AsyncHooks after callbacks, and\nthen restore the original execution context.",
+      "translated": "非同期リソースの実行コンテキストで、指定した引数とともに指定した関数を呼ぶ。これはコンテキストを確立し、AsyncHooks の before コールバックをトリガーし、関数を呼び、AsyncHooks の after コールバックをトリガーしてから、元の実行コンテキストを復元する。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.runInAsyncScope",
+      "lang": "ja"
+    },
+    "b3b39e86": {
+      "original": "Optional arguments to pass to the function.",
+      "translated": "関数に渡す省略可能な引数。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.runInAsyncScope",
+      "lang": "ja"
+    },
+    "b5be1e58": {
+      "original": "The function to call in the execution context of this async resource.",
+      "translated": "この非同期リソースの実行コンテキストで呼ぶ関数。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.runInAsyncScope",
+      "lang": "ja"
+    },
+    "28b48a6e": {
+      "original": "The receiver to be used for the function call.",
+      "translated": "関数呼び出しに使われるレシーバー。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.runInAsyncScope",
+      "lang": "ja"
+    },
+    "9983cc8a": {
+      "original": "The same `triggerAsyncId` that is passed to the `AsyncResource` constructor.",
+      "translated": "`AsyncResource` コンストラクターに渡されたのと同じ `triggerAsyncId`。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResource.triggerAsyncId",
+      "lang": "ja"
+    },
+    "f1b2f652": {
+      "original": "Disables automatic `emitDestroy` when the object is garbage collected.\nThis usually does not need to be set (even if `emitDestroy` is called\nmanually), unless the resource's `asyncId` is retrieved and the\nsensitive API's `emitDestroy` is called with it.",
+      "translated": "オブジェクトがガベージコレクトされたときの自動的な `emitDestroy` を無効にする。リソースの `asyncId` が取得され、sensitive API の `emitDestroy` がそれとともに呼ばれる場合を除き、これを設定する必要は通常ない(`emitDestroy` を手動で呼ぶ場合でも)。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResourceOptions.requireManualDestroy",
       "lang": "ja"
     },
     "d72894a9": {
