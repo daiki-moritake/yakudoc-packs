@@ -14577,6 +14577,60 @@
       "translated": "スタックトレースで使われる文字列。",
       "symbol": "@types/node/vm.d.ts#vm.SourceTextModuleOptions.identifier",
       "lang": "ja"
+    },
+    "8e19e20f": {
+      "original": "Called during evaluation of this module to initialize the `import.meta`.",
+      "translated": "このモジュールの評価中に `import.meta` を初期化するために呼ばれる。",
+      "symbol": "@types/node/vm.d.ts#vm.SourceTextModuleOptions.initializeImportMeta",
+      "lang": "ja"
+    },
+    "6d3c2ada": {
+      "original": "Array of names that will be exported from the module.",
+      "translated": "モジュールからエクスポートされる名前の配列。",
+      "symbol": "@types/node/vm.d.ts#vm.SyntheticModule",
+      "lang": "ja"
+    },
+    "dda7e3f1": {
+      "original": "Called when the module is evaluated.",
+      "translated": "モジュールが評価されるときに呼ばれる。",
+      "symbol": "@types/node/vm.d.ts#vm.SyntheticModule",
+      "lang": "ja"
+    },
+    "9934c8d0": {
+      "original": "Creates a new `SyntheticModule` instance.",
+      "translated": "新しい `SyntheticModule` インスタンスを作成する。",
+      "symbol": "@types/node/vm.d.ts#vm.SyntheticModule",
+      "lang": "ja"
+    },
+    "2e4db19a": {
+      "original": "This feature is only available with the `--experimental-vm-modules` command\nflag enabled.\n\nThe `vm.SyntheticModule` class provides the [Synthetic Module Record](https://heycam.github.io/webidl/#synthetic-module-records) as\ndefined in the WebIDL specification. The purpose of synthetic modules is to\nprovide a generic interface for exposing non-JavaScript sources to ECMAScript\nmodule graphs.\n\n```js\nimport vm from 'node:vm';\n\nconst source = '{ \"a\": 1 }';\nconst module = new vm.SyntheticModule(['default'], function() {\n  const obj = JSON.parse(source);\n  this.setExport('default', obj);\n});\n\n// Use `module` in linking...\n```",
+      "translated": "この機能は `--experimental-vm-modules` コマンドフラグが有効な場合にのみ利用できる。\n\n`vm.SyntheticModule` クラスは、WebIDL 仕様で定義された [Synthetic Module Record](https://heycam.github.io/webidl/#synthetic-module-records) を提供する。合成モジュールの目的は、非 JavaScript のソースを ECMAScript モジュールグラフに公開するための汎用インターフェースを提供することである。\n\n```js\nimport vm from 'node:vm';\n\nconst source = '{ \"a\": 1 }';\nconst module = new vm.SyntheticModule(['default'], function() {\n  const obj = JSON.parse(source);\n  this.setExport('default', obj);\n});\n\n// Use `module` in linking...\n```",
+      "symbol": "@types/node/vm.d.ts#vm.SyntheticModule",
+      "lang": "ja"
+    },
+    "b339d121": {
+      "original": "Name of the export to set.",
+      "translated": "設定するエクスポートの名前。",
+      "symbol": "@types/node/vm.d.ts#vm.SyntheticModule.setExport",
+      "lang": "ja"
+    },
+    "0c82f2c4": {
+      "original": "The value to set the export to.",
+      "translated": "エクスポートに設定する値。",
+      "symbol": "@types/node/vm.d.ts#vm.SyntheticModule.setExport",
+      "lang": "ja"
+    },
+    "e71fac28": {
+      "original": "This method is used after the module is linked to set the values of exports. If\nit is called before the module is linked, an `ERR_VM_MODULE_STATUS` error\nwill be thrown.\n\n```js\nimport vm from 'node:vm';\n\nconst m = new vm.SyntheticModule(['x'], () => {\n  m.setExport('x', 1);\n});\n\nawait m.link(() => {});\nawait m.evaluate();\n\nassert.strictEqual(m.namespace.x, 1);\n```",
+      "translated": "このメソッドは、モジュールがリンクされた後にエクスポートの値を設定するために使う。モジュールがリンクされる前に呼ばれた場合、`ERR_VM_MODULE_STATUS` エラーが投げられる。\n\n```js\nimport vm from 'node:vm';\n\nconst m = new vm.SyntheticModule(['x'], () => {\n  m.setExport('x', 1);\n});\n\nawait m.link(() => {});\nawait m.evaluate();\n\nassert.strictEqual(m.namespace.x, 1);\n```",
+      "symbol": "@types/node/vm.d.ts#vm.SyntheticModule.setExport",
+      "lang": "ja"
+    },
+    "5cd35da5": {
+      "original": "The contextified object as returned by the `vm.createContext()` method, to compile and evaluate this module in.",
+      "translated": "このモジュールをコンパイル・評価する対象の、`vm.createContext()` メソッドが返す contextify されたオブジェクト。",
+      "symbol": "@types/node/vm.d.ts#vm.SyntheticModuleOptions.context",
+      "lang": "ja"
     }
   }
 }
