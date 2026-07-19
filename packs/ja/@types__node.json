@@ -244,6 +244,12 @@
       "symbol": "@types/node/fs.d.ts#fs.constants.S_IFDIR",
       "lang": "ja"
     },
+    "74073469": {
+      "original": "Opposite of `unref()`. Calling `ref()` on a previously `unref()`ed port does _not_ let the program exit if it's the only active handle left (the default\nbehavior). If the port is `ref()`ed, calling `ref()` again has no effect.\n\nIf listeners are attached or removed using `.on('message')`, the port\nis `ref()`ed and `unref()`ed automatically depending on whether\nlisteners for the event exist.",
+      "translated": "`unref()` の逆。以前 `unref()` されたポートに対して `ref()` を呼んでも、それが残った唯一のアクティブなハンドルであってもプログラムを終了させ_ない_(既定の挙動)。ポートが `ref()` されている場合、再び `ref()` を呼んでも効果はない。\n\n`.on('message')` を使って listener が取り付け・削除される場合、そのイベントの listener が存在するかどうかに応じて、ポートは自動的に `ref()` および `unref()` される。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.MessagePort.ref",
+      "lang": "ja"
+    },
     "75719066": {
       "original": "If `dns.V4MAPPED` is specified, return resolved IPv6 addresses as\nwell as IPv4 mapped IPv6 addresses.",
       "translated": "`dns.V4MAPPED` が指定された場合、解決された IPv6 アドレスに加えて、IPv4 マップされた IPv6 アドレスも返す。",
@@ -344,6 +350,12 @@
       "original": "Asynchronous rename(2) - Change the name or location of a file or directory.",
       "translated": "非同期 rename(2) - ファイルまたはディレクトリの名前や場所を変更する。",
       "symbol": "@types/node/fs.d.ts#fs.rename.__promisify__",
+      "lang": "ja"
+    },
+    "98540773": {
+      "original": "The message port to transfer.",
+      "translated": "転送する message port。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.moveMessagePortToContext",
       "lang": "ja"
     },
     "99737814": {
@@ -14630,6 +14642,174 @@
       "original": "The contextified object as returned by the `vm.createContext()` method, to compile and evaluate this module in.",
       "translated": "このモジュールをコンパイル・評価する対象の、`vm.createContext()` メソッドが返す contextify されたオブジェクト。",
       "symbol": "@types/node/vm.d.ts#vm.SyntheticModuleOptions.context",
+      "lang": "ja"
+    },
+    "9b8c2777": {
+      "original": "The `node:worker_threads` module enables the use of threads that execute\nJavaScript in parallel. To access it:\n\n```js\nimport worker from 'node:worker_threads';\n```\n\nWorkers (threads) are useful for performing CPU-intensive JavaScript operations.\nThey do not help much with I/O-intensive work. The Node.js built-in\nasynchronous I/O operations are more efficient than Workers can be.\n\nUnlike `child_process` or `cluster`, `worker_threads` can share memory. They do\nso by transferring `ArrayBuffer` instances or sharing `SharedArrayBuffer` instances.\n\n```js\nimport {\n  Worker,\n  isMainThread,\n  parentPort,\n  workerData,\n} from 'node:worker_threads';\n\nif (!isMainThread) {\n  const { parse } = await import('some-js-parsing-library');\n  const script = workerData;\n  parentPort.postMessage(parse(script));\n}\n\nexport default function parseJSAsync(script) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(new URL(import.meta.url), {\n      workerData: script,\n    });\n    worker.on('message', resolve);\n    worker.on('error', reject);\n    worker.on('exit', (code) => {\n      if (code !== 0)\n        reject(new Error(`Worker stopped with exit code ${code}`));\n    });\n  });\n};\n```\n\nThe above example spawns a Worker thread for each `parseJSAsync()` call. In\npractice, use a pool of Workers for these kinds of tasks. Otherwise, the\noverhead of creating Workers would likely exceed their benefit.\n\nWhen implementing a worker pool, use the `AsyncResource` API to inform\ndiagnostic tools (e.g. to provide asynchronous stack traces) about the\ncorrelation between tasks and their outcomes. See `\"Using AsyncResource for a Worker thread pool\"` in the `async_hooks` documentation for an example implementation.\n\nWorker threads inherit non-process-specific options by default. Refer to `Worker constructor options` to know how to customize worker thread options,\nspecifically `argv` and `execArgv` options.",
+      "translated": "`node:worker_threads` モジュールは、JavaScript を並列に実行するスレッドの使用を可能にする。アクセスするには:\n\n```js\nimport worker from 'node:worker_threads';\n```\n\nワーカー(スレッド)は CPU 負荷の高い JavaScript 操作を実行するのに役立つ。I/O 負荷の高い作業にはあまり役立たない。Node.js の組み込みの非同期 I/O 操作の方が、ワーカーよりも効率的である。\n\n`child_process` や `cluster` とは異なり、`worker_threads` はメモリを共有できる。`ArrayBuffer` インスタンスを転送するか `SharedArrayBuffer` インスタンスを共有することでそれを行う。\n\n```js\nimport {\n  Worker,\n  isMainThread,\n  parentPort,\n  workerData,\n} from 'node:worker_threads';\n\nif (!isMainThread) {\n  const { parse } = await import('some-js-parsing-library');\n  const script = workerData;\n  parentPort.postMessage(parse(script));\n}\n\nexport default function parseJSAsync(script) {\n  return new Promise((resolve, reject) => {\n    const worker = new Worker(new URL(import.meta.url), {\n      workerData: script,\n    });\n    worker.on('message', resolve);\n    worker.on('error', reject);\n    worker.on('exit', (code) => {\n      if (code !== 0)\n        reject(new Error(`Worker stopped with exit code ${code}`));\n    });\n  });\n};\n```\n\n上記の例は、`parseJSAsync()` の呼び出しごとにワーカースレッドを生成する。実際には、この種のタスクにはワーカーのプールを使うこと。そうしないと、ワーカーを作成するオーバーヘッドがその利点を上回る可能性が高い。\n\nワーカープールを実装する場合、`AsyncResource` API を使って、タスクとその結果の相関について診断ツールに(たとえば非同期スタックトレースを提供するために)通知する。実装例は `async_hooks` のドキュメントの `\"Using AsyncResource for a Worker thread pool\"` を参照。\n\nワーカースレッドは既定でプロセス固有でないオプションを継承する。ワーカースレッドのオプション、特に `argv` と `execArgv` オプションをカスタマイズする方法を知るには `Worker constructor options` を参照。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads",
+      "lang": "ja"
+    },
+    "d5b25651": {
+      "original": "Instances of `BroadcastChannel` allow asynchronous one-to-many communication\nwith all other `BroadcastChannel` instances bound to the same channel name.\n\n```js\n'use strict';\n\nimport {\n  isMainThread,\n  BroadcastChannel,\n  Worker,\n} from 'node:worker_threads';\n\nconst bc = new BroadcastChannel('hello');\n\nif (isMainThread) {\n  let c = 0;\n  bc.onmessage = (event) => {\n    console.log(event.data);\n    if (++c === 10) bc.close();\n  };\n  for (let n = 0; n < 10; n++)\n    new Worker(__filename);\n} else {\n  bc.postMessage('hello from every worker');\n  bc.close();\n}\n```",
+      "translated": "`BroadcastChannel` のインスタンスは、同じチャネル名にバインドされた他のすべての `BroadcastChannel` インスタンスとの非同期な 1 対多の通信を可能にする。\n\n```js\n'use strict';\n\nimport {\n  isMainThread,\n  BroadcastChannel,\n  Worker,\n} from 'node:worker_threads';\n\nconst bc = new BroadcastChannel('hello');\n\nif (isMainThread) {\n  let c = 0;\n  bc.onmessage = (event) => {\n    console.log(event.data);\n    if (++c === 10) bc.close();\n  };\n  for (let n = 0; n < 10; n++)\n    new Worker(__filename);\n} else {\n  bc.postMessage('hello from every worker');\n  bc.close();\n}\n```",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.BroadcastChannel",
+      "lang": "ja"
+    },
+    "8df85fae": {
+      "original": "Closes the `BroadcastChannel` connection.",
+      "translated": "`BroadcastChannel` 接続を閉じる。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.BroadcastChannel.close",
+      "lang": "ja"
+    },
+    "06eaf85f": {
+      "original": "Invoked with a single \\`MessageEvent\\` argument when a message is received.",
+      "translated": "メッセージを受信したときに単一の `MessageEvent` 引数とともに呼ばれる。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.BroadcastChannel.onmessage",
+      "lang": "ja"
+    },
+    "b773ff66": {
+      "original": "Invoked with a received message cannot be deserialized.",
+      "translated": "受信したメッセージをデシリアライズできないときに呼ばれる。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.BroadcastChannel.onmessageerror",
+      "lang": "ja"
+    },
+    "b99ab2d1": {
+      "original": "Any cloneable JavaScript value.",
+      "translated": "任意のクローン可能な JavaScript 値。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.BroadcastChannel.postMessage",
+      "lang": "ja"
+    },
+    "01aa064b": {
+      "original": "Any arbitrary, cloneable JavaScript value that can be used as a {Map} key.",
+      "translated": "{Map} のキーとして使える、任意のクローン可能な JavaScript 値。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.getEnvironmentData",
+      "lang": "ja"
+    },
+    "d9d4ac39": {
+      "original": "Within a worker thread, `worker.getEnvironmentData()` returns a clone\nof data passed to the spawning thread's `worker.setEnvironmentData()`.\nEvery new `Worker` receives its own copy of the environment data\nautomatically.\n\n```js\nimport {\n  Worker,\n  isMainThread,\n  setEnvironmentData,\n  getEnvironmentData,\n} from 'node:worker_threads';\n\nif (isMainThread) {\n  setEnvironmentData('Hello', 'World!');\n  const worker = new Worker(__filename);\n} else {\n  console.log(getEnvironmentData('Hello'));  // Prints 'World!'.\n}\n```",
+      "translated": "ワーカースレッド内で、`worker.getEnvironmentData()` は、生成側スレッドの `worker.setEnvironmentData()` に渡されたデータのクローンを返す。すべての新しい `Worker` は、環境データの自身のコピーを自動的に受け取る。\n\n```js\nimport {\n  Worker,\n  isMainThread,\n  setEnvironmentData,\n  getEnvironmentData,\n} from 'node:worker_threads';\n\nif (isMainThread) {\n  setEnvironmentData('Hello', 'World!');\n  const worker = new Worker(__filename);\n} else {\n  console.log(getEnvironmentData('Hello'));  // Prints 'World!'.\n}\n```",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.getEnvironmentData",
+      "lang": "ja"
+    },
+    "f93b7584": {
+      "original": "`BroadcastChannel` class is a global reference for `import { BroadcastChannel } from 'worker_threads'`\nhttps://nodejs.org/api/globals.html#broadcastchannel",
+      "translated": "`BroadcastChannel` クラスは `import { BroadcastChannel } from 'worker_threads'` のグローバル参照である\nhttps://nodejs.org/api/globals.html#broadcastchannel",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.global.BroadcastChannel",
+      "lang": "ja"
+    },
+    "5eb26661": {
+      "original": "`MessageChannel` class is a global reference for `import { MessageChannel } from 'worker_threads'`\nhttps://nodejs.org/api/globals.html#messagechannel",
+      "translated": "`MessageChannel` クラスは `import { MessageChannel } from 'worker_threads'` のグローバル参照である\nhttps://nodejs.org/api/globals.html#messagechannel",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.global.MessageChannel",
+      "lang": "ja"
+    },
+    "3380af81": {
+      "original": "`MessagePort` class is a global reference for `import { MessagePort } from 'worker_threads'`\nhttps://nodejs.org/api/globals.html#messageport",
+      "translated": "`MessagePort` クラスは `import { MessagePort } from 'worker_threads'` のグローバル参照である\nhttps://nodejs.org/api/globals.html#messageport",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.global.MessagePort",
+      "lang": "ja"
+    },
+    "c39c3d8b": {
+      "original": "Check if an object is marked as not transferable with\n{@link markAsUntransferable}.",
+      "translated": "オブジェクトが {@link markAsUntransferable} で転送不可としてマークされているかどうかを確認する。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.isMarkedAsUntransferable",
+      "lang": "ja"
+    },
+    "27f03265": {
+      "original": "Mark an object as not cloneable. If `object` is used as `message` in\na `port.postMessage()` call, an error is thrown. This is a no-op if `object` is a\nprimitive value.\n\nThis has no effect on `ArrayBuffer`, or any `Buffer` like objects.\n\nThis operation cannot be undone.\n\n```js\nconst { markAsUncloneable } = require('node:worker_threads');\n\nconst anyObject = { foo: 'bar' };\nmarkAsUncloneable(anyObject);\nconst { port1 } = new MessageChannel();\ntry {\n  // This will throw an error, because anyObject is not cloneable.\n  port1.postMessage(anyObject)\n} catch (error) {\n  // error.name === 'DataCloneError'\n}\n```\n\nThere is no equivalent to this API in browsers.",
+      "translated": "オブジェクトをクローン不可としてマークする。`object` が `port.postMessage()` 呼び出しの `message` として使われた場合、エラーが投げられる。`object` がプリミティブ値の場合、これは no-op である。\n\nこれは `ArrayBuffer` や任意の `Buffer` のようなオブジェクトには影響しない。\n\nこの操作は取り消せない。\n\n```js\nconst { markAsUncloneable } = require('node:worker_threads');\n\nconst anyObject = { foo: 'bar' };\nmarkAsUncloneable(anyObject);\nconst { port1 } = new MessageChannel();\ntry {\n  // This will throw an error, because anyObject is not cloneable.\n  port1.postMessage(anyObject)\n} catch (error) {\n  // error.name === 'DataCloneError'\n}\n```\n\nブラウザーにはこの API に相当するものはない。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.markAsUncloneable",
+      "lang": "ja"
+    },
+    "639221b3": {
+      "original": "Mark an object as not transferable. If `object` occurs in the transfer list of\na `port.postMessage()` call, it is ignored.\n\nIn particular, this makes sense for objects that can be cloned, rather than\ntransferred, and which are used by other objects on the sending side.\nFor example, Node.js marks the `ArrayBuffer`s it uses for its `Buffer pool` with this.\n\nThis operation cannot be undone.\n\n```js\nimport { MessageChannel, markAsUntransferable } from 'node:worker_threads';\n\nconst pooledBuffer = new ArrayBuffer(8);\nconst typedArray1 = new Uint8Array(pooledBuffer);\nconst typedArray2 = new Float64Array(pooledBuffer);\n\nmarkAsUntransferable(pooledBuffer);\n\nconst { port1 } = new MessageChannel();\nport1.postMessage(typedArray1, [ typedArray1.buffer ]);\n\n// The following line prints the contents of typedArray1 -- it still owns\n// its memory and has been cloned, not transferred. Without\n// `markAsUntransferable()`, this would print an empty Uint8Array.\n// typedArray2 is intact as well.\nconsole.log(typedArray1);\nconsole.log(typedArray2);\n```\n\nThere is no equivalent to this API in browsers.",
+      "translated": "オブジェクトを転送不可としてマークする。`object` が `port.postMessage()` 呼び出しの転送リストに現れた場合、無視される。\n\n特に、これは転送されるのではなくクローンでき、送信側で他のオブジェクトが使うオブジェクトにとって理にかなっている。たとえば、Node.js は `Buffer pool` に使う `ArrayBuffer` にこれをマークする。\n\nこの操作は取り消せない。\n\n```js\nimport { MessageChannel, markAsUntransferable } from 'node:worker_threads';\n\nconst pooledBuffer = new ArrayBuffer(8);\nconst typedArray1 = new Uint8Array(pooledBuffer);\nconst typedArray2 = new Float64Array(pooledBuffer);\n\nmarkAsUntransferable(pooledBuffer);\n\nconst { port1 } = new MessageChannel();\nport1.postMessage(typedArray1, [ typedArray1.buffer ]);\n\n// The following line prints the contents of typedArray1 -- it still owns\n// its memory and has been cloned, not transferred. Without\n// `markAsUntransferable()`, this would print an empty Uint8Array.\n// typedArray2 is intact as well.\nconsole.log(typedArray1);\nconsole.log(typedArray2);\n```\n\nブラウザーにはこの API に相当するものはない。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.markAsUntransferable",
+      "lang": "ja"
+    },
+    "2e42005a": {
+      "original": "Instances of the `worker.MessageChannel` class represent an asynchronous,\ntwo-way communications channel.\nThe `MessageChannel` has no methods of its own. `new MessageChannel()` yields an object with `port1` and `port2` properties, which refer to linked `MessagePort` instances.\n\n```js\nimport { MessageChannel } from 'node:worker_threads';\n\nconst { port1, port2 } = new MessageChannel();\nport1.on('message', (message) => console.log('received', message));\nport2.postMessage({ foo: 'bar' });\n// Prints: received { foo: 'bar' } from the `port1.on('message')` listener\n```",
+      "translated": "`worker.MessageChannel` クラスのインスタンスは、非同期な双方向の通信チャネルを表す。`MessageChannel` はそれ自身のメソッドを持たない。`new MessageChannel()` は、リンクされた `MessagePort` インスタンスを指す `port1` と `port2` プロパティを持つオブジェクトを返す。\n\n```js\nimport { MessageChannel } from 'node:worker_threads';\n\nconst { port1, port2 } = new MessageChannel();\nport1.on('message', (message) => console.log('received', message));\nport2.postMessage({ foo: 'bar' });\n// Prints: received { foo: 'bar' } from the `port1.on('message')` listener\n```",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.MessageChannel",
+      "lang": "ja"
+    },
+    "18f3e33b": {
+      "original": "Instances of the `worker.MessagePort` class represent one end of an\nasynchronous, two-way communications channel. It can be used to transfer\nstructured data, memory regions and other `MessagePort`s between different `Worker`s.\n\nThis implementation matches [browser `MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) s.",
+      "translated": "`worker.MessagePort` クラスのインスタンスは、非同期な双方向の通信チャネルの一端を表す。異なる `Worker` 間で構造化データ・メモリ領域・他の `MessagePort` を転送するために使える。\n\nこの実装は[ブラウザーの `MessagePort`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort) と一致する。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.MessagePort",
+      "lang": "ja"
+    },
+    "6a177890": {
+      "original": "Disables further sending of messages on either side of the connection.\nThis method can be called when no further communication will happen over this `MessagePort`.\n\nThe `'close' event` is emitted on both `MessagePort` instances that\nare part of the channel.",
+      "translated": "接続のいずれかの側でメッセージのそれ以上の送信を無効にする。このメソッドは、この `MessagePort` を通じてそれ以上の通信が起こらないときに呼べる。\n\nチャネルの一部である両方の `MessagePort` インスタンスで `'close' イベント` が発行される。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.MessagePort.close",
+      "lang": "ja"
+    },
+    "e70df940": {
+      "original": "If true, the `MessagePort` object will keep the Node.js event loop active.",
+      "translated": "true の場合、`MessagePort` オブジェクトは Node.js イベントループをアクティブに保つ。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.MessagePort.hasRef",
+      "lang": "ja"
+    },
+    "858f592d": {
+      "original": "Sends a JavaScript value to the receiving side of this channel. `value` is transferred in a way which is compatible with\nthe [HTML structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).\n\nIn particular, the significant differences to `JSON` are:\n\n* `value` may contain circular references.\n* `value` may contain instances of builtin JS types such as `RegExp`s, `BigInt`s, `Map`s, `Set`s, etc.\n* `value` may contain typed arrays, both using `ArrayBuffer`s\nand `SharedArrayBuffer`s.\n* `value` may contain [`WebAssembly.Module`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module) instances.\n* `value` may not contain native (C++-backed) objects other than:\n\n```js\nimport { MessageChannel } from 'node:worker_threads';\nconst { port1, port2 } = new MessageChannel();\n\nport1.on('message', (message) => console.log(message));\n\nconst circularData = {};\ncircularData.foo = circularData;\n// Prints: { foo: [Circular] }\nport2.postMessage(circularData);\n```\n\n`transferList` may be a list of [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), `MessagePort`, and `FileHandle` objects.\nAfter transferring, they are not usable on the sending side of the channel\nanymore (even if they are not contained in `value`). Unlike with `child processes`, transferring handles such as network sockets is currently\nnot supported.\n\nIf `value` contains [`SharedArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) instances, those are accessible\nfrom either thread. They cannot be listed in `transferList`.\n\n`value` may still contain `ArrayBuffer` instances that are not in `transferList`; in that case, the underlying memory is copied rather than moved.\n\n```js\nimport { MessageChannel } from 'node:worker_threads';\nconst { port1, port2 } = new MessageChannel();\n\nport1.on('message', (message) => console.log(message));\n\nconst uint8Array = new Uint8Array([ 1, 2, 3, 4 ]);\n// This posts a copy of `uint8Array`:\nport2.postMessage(uint8Array);\n// This does not copy data, but renders `uint8Array` unusable:\nport2.postMessage(uint8Array, [ uint8Array.buffer ]);\n\n// The memory for the `sharedUint8Array` is accessible from both the\n// original and the copy received by `.on('message')`:\nconst sharedUint8Array = new Uint8Array(new SharedArrayBuffer(4));\nport2.postMessage(sharedUint8Array);\n\n// This transfers a freshly created message port to the receiver.\n// This can be used, for example, to create communication channels between\n// multiple `Worker` threads that are children of the same parent thread.\nconst otherChannel = new MessageChannel();\nport2.postMessage({ port: otherChannel.port1 }, [ otherChannel.port1 ]);\n```\n\nThe message object is cloned immediately, and can be modified after\nposting without having side effects.\n\nFor more information on the serialization and deserialization mechanisms\nbehind this API, see the `serialization API of the node:v8 module`.",
+      "translated": "このチャネルの受信側に JavaScript 値を送信する。`value` は [HTML structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) と互換な方法で転送される。\n\n特に、`JSON` との重要な違いは次のとおり:\n\n* `value` は循環参照を含められる。\n* `value` は `RegExp`・`BigInt`・`Map`・`Set` などの組み込み JS 型のインスタンスを含められる。\n* `value` は `ArrayBuffer` と `SharedArrayBuffer` の両方を使う型付き配列を含められる。\n* `value` は [`WebAssembly.Module`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Module) インスタンスを含められる。\n* `value` は、次のもの以外のネイティブ(C++ 裏付け)オブジェクトを含められない:\n\n```js\nimport { MessageChannel } from 'node:worker_threads';\nconst { port1, port2 } = new MessageChannel();\n\nport1.on('message', (message) => console.log(message));\n\nconst circularData = {};\ncircularData.foo = circularData;\n// Prints: { foo: [Circular] }\nport2.postMessage(circularData);\n```\n\n`transferList` は [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer)・`MessagePort`・`FileHandle` オブジェクトのリストでよい。転送後、それらは(`value` に含まれていなくても)チャネルの送信側でもう使えなくなる。`child processes` とは異なり、ネットワークソケットなどのハンドルの転送は現在サポートされていない。\n\n`value` が [`SharedArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) インスタンスを含む場合、それらはどちらのスレッドからもアクセスできる。それらを `transferList` に列挙できない。\n\n`value` は依然として `transferList` にない `ArrayBuffer` インスタンスを含められる。その場合、基盤となるメモリは移動ではなくコピーされる。\n\n```js\nimport { MessageChannel } from 'node:worker_threads';\nconst { port1, port2 } = new MessageChannel();\n\nport1.on('message', (message) => console.log(message));\n\nconst uint8Array = new Uint8Array([ 1, 2, 3, 4 ]);\n// This posts a copy of `uint8Array`:\nport2.postMessage(uint8Array);\n// This does not copy data, but renders `uint8Array` unusable:\nport2.postMessage(uint8Array, [ uint8Array.buffer ]);\n\n// The memory for the `sharedUint8Array` is accessible from both the\n// original and the copy received by `.on('message')`:\nconst sharedUint8Array = new Uint8Array(new SharedArrayBuffer(4));\nport2.postMessage(sharedUint8Array);\n\n// This transfers a freshly created message port to the receiver.\n// This can be used, for example, to create communication channels between\n// multiple `Worker` threads that are children of the same parent thread.\nconst otherChannel = new MessageChannel();\nport2.postMessage({ port: otherChannel.port1 }, [ otherChannel.port1 ]);\n```\n\nメッセージオブジェクトは即座にクローンされ、送信後に副作用なく変更できる。\n\nこの API の裏にあるシリアライズとデシリアライズの仕組みの詳細は、`node:v8 モジュールの serialization API` を参照。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.MessagePort.postMessage",
+      "lang": "ja"
+    },
+    "9a775ee1": {
+      "original": "Starts receiving messages on this `MessagePort`. When using this port\nas an event emitter, this is called automatically once `'message'` listeners are attached.\n\nThis method exists for parity with the Web `MessagePort` API. In Node.js,\nit is only useful for ignoring messages when no event listener is present.\nNode.js also diverges in its handling of `.onmessage`. Setting it\nautomatically calls `.start()`, but unsetting it lets messages queue up\nuntil a new handler is set or the port is discarded.",
+      "translated": "この `MessagePort` でメッセージの受信を開始する。このポートをイベント emitter として使う場合、これは `'message'` listener が取り付けられると自動的に呼ばれる。\n\nこのメソッドは Web の `MessagePort` API との互換性のために存在する。Node.js では、イベント listener が存在しないときにメッセージを無視するためにのみ役立つ。Node.js は `.onmessage` の扱いでも異なる。それを設定すると自動的に `.start()` が呼ばれるが、未設定にすると、新しいハンドラが設定されるかポートが破棄されるまでメッセージがキューにたまる。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.MessagePort.start",
+      "lang": "ja"
+    },
+    "b32f7115": {
+      "original": "Calling `unref()` on a port allows the thread to exit if this is the only\nactive handle in the event system. If the port is already `unref()`ed calling `unref()` again has no effect.\n\nIf listeners are attached or removed using `.on('message')`, the port is `ref()`ed and `unref()`ed automatically depending on whether\nlisteners for the event exist.",
+      "translated": "ポートに対して `unref()` を呼ぶと、これがイベントシステム内で唯一のアクティブなハンドルである場合にスレッドが終了できるようになる。ポートがすでに `unref()` されている場合、再び `unref()` を呼んでも効果はない。\n\n`.on('message')` を使って listener が取り付け・削除される場合、そのイベントの listener が存在するかどうかに応じて、ポートは自動的に `ref()` および `unref()` される。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.MessagePort.unref",
+      "lang": "ja"
+    },
+    "4f4b3fdc": {
+      "original": "Transfer a `MessagePort` to a different `vm` Context. The original `port` object is rendered unusable, and the returned `MessagePort` instance\ntakes its place.\n\nThe returned `MessagePort` is an object in the target context and\ninherits from its global `Object` class. Objects passed to the [`port.onmessage()`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort/onmessage) listener are also created in the\ntarget context\nand inherit from its global `Object` class.\n\nHowever, the created `MessagePort` no longer inherits from [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget), and only\n[`port.onmessage()`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort/onmessage) can be used to receive\nevents using it.",
+      "translated": "`MessagePort` を別の `vm` コンテキストに転送する。元の `port` オブジェクトは使えなくなり、返される `MessagePort` インスタンスがその代わりになる。\n\n返される `MessagePort` はターゲットコンテキスト内のオブジェクトで、そのグローバルな `Object` クラスから継承する。[`port.onmessage()`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort/onmessage) listener に渡されるオブジェクトもターゲットコンテキストで作成され、そのグローバルな `Object` クラスから継承する。\n\nただし、作成された `MessagePort` はもう [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) から継承せず、[`port.onmessage()`](https://developer.mozilla.org/en-US/docs/Web/API/MessagePort/onmessage) のみを使ってそれでイベントを受信できる。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.moveMessagePortToContext",
+      "lang": "ja"
+    },
+    "a2d85d98": {
+      "original": "If one or more `MessagePort`-like objects are passed in value, a `transferList` is required for those items\nor `ERR_MISSING_MESSAGE_PORT_IN_TRANSFER_LIST` is thrown. See `port.postMessage()` for more information.",
+      "translated": "1 つ以上の `MessagePort` のようなオブジェクトが value に渡された場合、それらの項目には `transferList` が必須であり、そうでないと `ERR_MISSING_MESSAGE_PORT_IN_TRANSFER_LIST` が投げられる。詳細は `port.postMessage()` を参照。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.postMessageToThread",
+      "lang": "ja"
+    },
+    "09318636": {
+      "original": "Sends a value to another worker, identified by its thread ID.",
+      "translated": "スレッド ID で識別される別のワーカーに値を送信する。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.postMessageToThread",
+      "lang": "ja"
+    },
+    "8273652a": {
+      "original": "The target thread ID. If the thread ID is invalid, a `ERR_WORKER_MESSAGING_FAILED` error will be thrown.\nIf the target thread ID is the current thread ID, a `ERR_WORKER_MESSAGING_SAME_THREAD` error will be thrown.",
+      "translated": "ターゲットスレッド ID。スレッド ID が無効な場合、`ERR_WORKER_MESSAGING_FAILED` エラーが投げられる。ターゲットスレッド ID が現在のスレッド ID の場合、`ERR_WORKER_MESSAGING_SAME_THREAD` エラーが投げられる。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.postMessageToThread",
+      "lang": "ja"
+    },
+    "61ab54de": {
+      "original": "The value to send.",
+      "translated": "送信する値。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.postMessageToThread",
+      "lang": "ja"
+    },
+    "a0150b1e": {
+      "original": "Time to wait for the message to be delivered in milliseconds. By default it's `undefined`, which means wait forever.\nIf the operation times out, a `ERR_WORKER_MESSAGING_TIMEOUT` error is thrown.",
+      "translated": "メッセージが配送されるのを待つ時間(ミリ秒)。既定では `undefined` で、これは永遠に待つことを意味する。操作がタイムアウトした場合、`ERR_WORKER_MESSAGING_TIMEOUT` エラーが投げられる。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.postMessageToThread",
+      "lang": "ja"
+    },
+    "ad15467f": {
+      "original": "Receive a single message from a given `MessagePort`. If no message is available,`undefined` is returned, otherwise an object with a single `message` property\nthat contains the message payload, corresponding to the oldest message in the `MessagePort`'s queue.\n\n```js\nimport { MessageChannel, receiveMessageOnPort } from 'node:worker_threads';\nconst { port1, port2 } = new MessageChannel();\nport1.postMessage({ hello: 'world' });\n\nconsole.log(receiveMessageOnPort(port2));\n// Prints: { message: { hello: 'world' } }\nconsole.log(receiveMessageOnPort(port2));\n// Prints: undefined\n```\n\nWhen this function is used, no `'message'` event is emitted and the `onmessage` listener is not invoked.",
+      "translated": "指定した `MessagePort` から単一のメッセージを受信する。メッセージがない場合、`undefined` が返される。そうでなければ、メッセージのペイロードを含む単一の `message` プロパティを持つオブジェクトが返され、これは `MessagePort` のキュー内の最も古いメッセージに対応する。\n\n```js\nimport { MessageChannel, receiveMessageOnPort } from 'node:worker_threads';\nconst { port1, port2 } = new MessageChannel();\nport1.postMessage({ hello: 'world' });\n\nconsole.log(receiveMessageOnPort(port2));\n// Prints: { message: { hello: 'world' } }\nconsole.log(receiveMessageOnPort(port2));\n// Prints: undefined\n```\n\nこの関数を使う場合、`'message'` イベントは発行されず、`onmessage` listener は呼ばれない。",
+      "symbol": "@types/node/worker_threads.d.ts#worker_threads.receiveMessageOnPort",
       "lang": "ja"
     }
   }
