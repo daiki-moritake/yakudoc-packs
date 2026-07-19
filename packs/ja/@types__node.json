@@ -856,6 +856,150 @@
       "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResourceOptions.requireManualDestroy",
       "lang": "ja"
     },
+    "437cbd29": {
+      "original": "The ID of the execution context that created this async event.",
+      "translated": "この非同期イベントを作成した実行コンテキストの ID。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncResourceOptions.triggerAsyncId",
+      "lang": "ja"
+    },
+    "c529bb1d": {
+      "original": "A map of provider types to the corresponding numeric id.\nThis map contains all the event types that might be emitted by the `async_hooks.init()` event.",
+      "translated": "プロバイダー型を対応する数値 id にマッピングする map。この map は、`async_hooks.init()` イベントが発行し得るすべてのイベント型を含む。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.asyncWrapProviders",
+      "lang": "ja"
+    },
+    "43ca9792": {
+      "original": "Instance used for disabling and enabling hooks",
+      "translated": "フックの無効化と有効化に使うインスタンス",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.createHook",
+      "lang": "ja"
+    },
+    "411bfa1e": {
+      "original": "Registers functions to be called for different lifetime events of each async\noperation.\n\nThe callbacks `init()`/`before()`/`after()`/`destroy()` are called for the\nrespective asynchronous event during a resource's lifetime.\n\nAll callbacks are optional. For example, if only resource cleanup needs to\nbe tracked, then only the `destroy` callback needs to be passed. The\nspecifics of all functions that can be passed to `callbacks` is in the `Hook Callbacks` section.\n\n```js\nimport { createHook } from 'node:async_hooks';\n\nconst asyncHook = createHook({\n  init(asyncId, type, triggerAsyncId, resource) { },\n  destroy(asyncId) { },\n});\n```\n\nThe callbacks will be inherited via the prototype chain:\n\n```js\nclass MyAsyncCallbacks {\n  init(asyncId, type, triggerAsyncId, resource) { }\n  destroy(asyncId) {}\n}\n\nclass MyAddedCallbacks extends MyAsyncCallbacks {\n  before(asyncId) { }\n  after(asyncId) { }\n}\n\nconst asyncHook = async_hooks.createHook(new MyAddedCallbacks());\n```\n\nBecause promises are asynchronous resources whose lifecycle is tracked\nvia the async hooks mechanism, the `init()`, `before()`, `after()`, and`destroy()` callbacks _must not_ be async functions that return promises.",
+      "translated": "各非同期操作のさまざまなライフタイムイベントで呼ばれる関数を登録する。\n\nコールバック `init()`/`before()`/`after()`/`destroy()` は、リソースのライフタイム中のそれぞれの非同期イベントで呼ばれる。\n\nすべてのコールバックは省略可能である。たとえば、リソースのクリーンアップのみを追跡する必要がある場合、`destroy` コールバックのみを渡せばよい。`callbacks` に渡せるすべての関数の詳細は `Hook Callbacks` セクションにある。\n\n```js\nimport { createHook } from 'node:async_hooks';\n\nconst asyncHook = createHook({\n  init(asyncId, type, triggerAsyncId, resource) { },\n  destroy(asyncId) { },\n});\n```\n\nコールバックはプロトタイプチェーンを介して継承される:\n\n```js\nclass MyAsyncCallbacks {\n  init(asyncId, type, triggerAsyncId, resource) { }\n  destroy(asyncId) {}\n}\n\nclass MyAddedCallbacks extends MyAsyncCallbacks {\n  before(asyncId) { }\n  after(asyncId) { }\n}\n\nconst asyncHook = async_hooks.createHook(new MyAddedCallbacks());\n```\n\npromise は async hooks メカニズムを介してライフサイクルが追跡される非同期リソースであるため、`init()`・`before()`・`after()`・`destroy()` コールバックは promise を返す async 関数であっては_ならない_。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.createHook",
+      "lang": "ja"
+    },
+    "28407e79": {
+      "original": "The `Hook Callbacks` to register",
+      "translated": "登録する `Hook Callbacks`",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.createHook",
+      "lang": "ja"
+    },
+    "aa86bcef": {
+      "original": "```js\nimport { executionAsyncId } from 'node:async_hooks';\nimport fs from 'node:fs';\n\nconsole.log(executionAsyncId());  // 1 - bootstrap\nconst path = '.';\nfs.open(path, 'r', (err, fd) => {\n  console.log(executionAsyncId());  // 6 - open()\n});\n```\n\nThe ID returned from `executionAsyncId()` is related to execution timing, not\ncausality (which is covered by `triggerAsyncId()`):\n\n```js\nconst server = net.createServer((conn) => {\n  // Returns the ID of the server, not of the new connection, because the\n  // callback runs in the execution scope of the server's MakeCallback().\n  async_hooks.executionAsyncId();\n\n}).listen(port, () => {\n  // Returns the ID of a TickObject (process.nextTick()) because all\n  // callbacks passed to .listen() are wrapped in a nextTick().\n  async_hooks.executionAsyncId();\n});\n```\n\nPromise contexts may not get precise `executionAsyncIds` by default.\nSee the section on [promise execution tracking](https://nodejs.org/docs/latest-v22.x/api/async_hooks.html#promise-execution-tracking).",
+      "translated": "```js\nimport { executionAsyncId } from 'node:async_hooks';\nimport fs from 'node:fs';\n\nconsole.log(executionAsyncId());  // 1 - bootstrap\nconst path = '.';\nfs.open(path, 'r', (err, fd) => {\n  console.log(executionAsyncId());  // 6 - open()\n});\n```\n\n`executionAsyncId()` が返す ID は、因果関係(これは `triggerAsyncId()` がカバーする)ではなく実行タイミングに関係する:\n\n```js\nconst server = net.createServer((conn) => {\n  // Returns the ID of the server, not of the new connection, because the\n  // callback runs in the execution scope of the server's MakeCallback().\n  async_hooks.executionAsyncId();\n\n}).listen(port, () => {\n  // Returns the ID of a TickObject (process.nextTick()) because all\n  // callbacks passed to .listen() are wrapped in a nextTick().\n  async_hooks.executionAsyncId();\n});\n```\n\npromise コンテキストは既定では正確な `executionAsyncId` を得ないことがある。[promise execution tracking](https://nodejs.org/docs/latest-v22.x/api/async_hooks.html#promise-execution-tracking) のセクションを参照。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.executionAsyncId",
+      "lang": "ja"
+    },
+    "2c54d361": {
+      "original": "The `asyncId` of the current execution context. Useful to track when something calls.",
+      "translated": "現在の実行コンテキストの `asyncId`。何かがいつ呼ぶかを追跡するのに役立つ。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.executionAsyncId",
+      "lang": "ja"
+    },
+    "eee1ea96": {
+      "original": "Resource objects returned by `executionAsyncResource()` are most often internal\nNode.js handle objects with undocumented APIs. Using any functions or properties\non the object is likely to crash your application and should be avoided.\n\nUsing `executionAsyncResource()` in the top-level execution context will\nreturn an empty object as there is no handle or request object to use,\nbut having an object representing the top-level can be helpful.\n\n```js\nimport { open } from 'node:fs';\nimport { executionAsyncId, executionAsyncResource } from 'node:async_hooks';\n\nconsole.log(executionAsyncId(), executionAsyncResource());  // 1 {}\nopen(new URL(import.meta.url), 'r', (err, fd) => {\n  console.log(executionAsyncId(), executionAsyncResource());  // 7 FSReqWrap\n});\n```\n\nThis can be used to implement continuation local storage without the\nuse of a tracking `Map` to store the metadata:\n\n```js\nimport { createServer } from 'node:http';\nimport {\n  executionAsyncId,\n  executionAsyncResource,\n  createHook,\n} from 'node:async_hooks';\nconst sym = Symbol('state'); // Private symbol to avoid pollution\n\ncreateHook({\n  init(asyncId, type, triggerAsyncId, resource) {\n    const cr = executionAsyncResource();\n    if (cr) {\n      resource[sym] = cr[sym];\n    }\n  },\n}).enable();\n\nconst server = createServer((req, res) => {\n  executionAsyncResource()[sym] = { state: req.url };\n  setTimeout(function() {\n    res.end(JSON.stringify(executionAsyncResource()[sym]));\n  }, 100);\n}).listen(3000);\n```",
+      "translated": "`executionAsyncResource()` が返すリソースオブジェクトは、ほとんどの場合、文書化されていない API を持つ内部の Node.js ハンドルオブジェクトである。オブジェクトの任意の関数やプロパティを使うと、アプリケーションがクラッシュする可能性が高いため、避けるべきである。\n\nトップレベルの実行コンテキストで `executionAsyncResource()` を使うと、使うべきハンドルやリクエストオブジェクトがないため空のオブジェクトが返されるが、トップレベルを表すオブジェクトがあることは役立つことがある。\n\n```js\nimport { open } from 'node:fs';\nimport { executionAsyncId, executionAsyncResource } from 'node:async_hooks';\n\nconsole.log(executionAsyncId(), executionAsyncResource());  // 1 {}\nopen(new URL(import.meta.url), 'r', (err, fd) => {\n  console.log(executionAsyncId(), executionAsyncResource());  // 7 FSReqWrap\n});\n```\n\nこれは、メタデータを格納する追跡用 `Map` を使わずに、継続ローカルストレージを実装するために使える:\n\n```js\nimport { createServer } from 'node:http';\nimport {\n  executionAsyncId,\n  executionAsyncResource,\n  createHook,\n} from 'node:async_hooks';\nconst sym = Symbol('state'); // Private symbol to avoid pollution\n\ncreateHook({\n  init(asyncId, type, triggerAsyncId, resource) {\n    const cr = executionAsyncResource();\n    if (cr) {\n      resource[sym] = cr[sym];\n    }\n  },\n}).enable();\n\nconst server = createServer((req, res) => {\n  executionAsyncResource()[sym] = { state: req.url };\n  setTimeout(function() {\n    res.end(JSON.stringify(executionAsyncResource()[sym]));\n  }, 100);\n}).listen(3000);\n```",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.executionAsyncResource",
+      "lang": "ja"
+    },
+    "52dd69fd": {
+      "original": "The resource representing the current execution. Useful to store data within the resource.",
+      "translated": "現在の実行を表すリソース。リソース内にデータを格納するのに役立つ。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.executionAsyncResource",
+      "lang": "ja"
+    },
+    "329eeb57": {
+      "original": "Called immediately after the callback specified in `before` is completed.\n\nIf an uncaught exception occurs during execution of the callback, then `after` will run after the `'uncaughtException'` event is emitted or a `domain`'s handler runs.",
+      "translated": "`before` で指定されたコールバックが完了した直後に呼ばれる。\n\nコールバックの実行中にキャッチされない例外が発生した場合、`after` は `'uncaughtException'` イベントが発行されるか `domain` のハンドラが実行された後に実行される。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.after",
+      "lang": "ja"
+    },
+    "443da3c7": {
+      "original": "the unique identifier assigned to the resource which has executed the callback.",
+      "translated": "コールバックを実行したリソースに割り当てられた一意な識別子。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.after",
+      "lang": "ja"
+    },
+    "60d547d7": {
+      "original": "the unique identifier assigned to the resource about to execute the callback.",
+      "translated": "コールバックを実行しようとしているリソースに割り当てられた一意な識別子。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.before",
+      "lang": "ja"
+    },
+    "a96328be": {
+      "original": "When an asynchronous operation is initiated or completes a callback is called to notify the user.\nThe before callback is called just before said callback is executed.",
+      "translated": "非同期操作が開始または完了すると、ユーザーに通知するためにコールバックが呼ばれる。before コールバックは、その said コールバックが実行される直前に呼ばれる。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.before",
+      "lang": "ja"
+    },
+    "b995e36b": {
+      "original": "a unique ID for the async resource",
+      "translated": "非同期リソースの一意な ID",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.destroy",
+      "lang": "ja"
+    },
+    "582c65e0": {
+      "original": "Called after the resource corresponding to asyncId is destroyed",
+      "translated": "asyncId に対応するリソースが破棄された後に呼ばれる",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.destroy",
+      "lang": "ja"
+    },
+    "5051a09d": {
+      "original": "A unique ID for the async resource",
+      "translated": "非同期リソースの一意な ID",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.init",
+      "lang": "ja"
+    },
+    "26dd42a2": {
+      "original": "Called when a class is constructed that has the possibility to emit an asynchronous event.",
+      "translated": "非同期イベントを発行する可能性を持つクラスが構築されたときに呼ばれる。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.init",
+      "lang": "ja"
+    },
+    "4dd137a7": {
+      "original": "Reference to the resource representing the async operation, needs to be released during destroy",
+      "translated": "非同期操作を表すリソースへの参照。destroy 中に解放する必要がある",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.init",
+      "lang": "ja"
+    },
+    "e5cfae4b": {
+      "original": "The type of the async resource",
+      "translated": "非同期リソースの型",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.init",
+      "lang": "ja"
+    },
+    "a2e2a4a0": {
+      "original": "The unique ID of the async resource in whose execution context this async resource was created",
+      "translated": "この非同期リソースがその実行コンテキストで作成された非同期リソースの一意な ID",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.init",
+      "lang": "ja"
+    },
+    "844bc482": {
+      "original": "Called when a promise has resolve() called. This may not be in the same execution id\nas the promise itself.",
+      "translated": "promise で resolve() が呼ばれたときに呼ばれる。これは promise 自体と同じ実行 id ではないことがある。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.promiseResolve",
+      "lang": "ja"
+    },
+    "273257ee": {
+      "original": "the unique id for the promise that was resolve()d.",
+      "translated": "resolve() された promise の一意な id。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.HookCallbacks.promiseResolve",
+      "lang": "ja"
+    },
+    "1bdd4efe": {
+      "original": "```js\nconst server = net.createServer((conn) => {\n  // The resource that caused (or triggered) this callback to be called\n  // was that of the new connection. Thus the return value of triggerAsyncId()\n  // is the asyncId of \"conn\".\n  async_hooks.triggerAsyncId();\n\n}).listen(port, () => {\n  // Even though all callbacks passed to .listen() are wrapped in a nextTick()\n  // the callback itself exists because the call to the server's .listen()\n  // was made. So the return value would be the ID of the server.\n  async_hooks.triggerAsyncId();\n});\n```\n\nPromise contexts may not get valid `triggerAsyncId`s by default. See\nthe section on [promise execution tracking](https://nodejs.org/docs/latest-v22.x/api/async_hooks.html#promise-execution-tracking).",
+      "translated": "```js\nconst server = net.createServer((conn) => {\n  // The resource that caused (or triggered) this callback to be called\n  // was that of the new connection. Thus the return value of triggerAsyncId()\n  // is the asyncId of \"conn\".\n  async_hooks.triggerAsyncId();\n\n}).listen(port, () => {\n  // Even though all callbacks passed to .listen() are wrapped in a nextTick()\n  // the callback itself exists because the call to the server's .listen()\n  // was made. So the return value would be the ID of the server.\n  async_hooks.triggerAsyncId();\n});\n```\n\npromise コンテキストは既定では有効な `triggerAsyncId` を得ないことがある。[promise execution tracking](https://nodejs.org/docs/latest-v22.x/api/async_hooks.html#promise-execution-tracking) のセクションを参照。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.triggerAsyncId",
+      "lang": "ja"
+    },
+    "b7b4e5ab": {
+      "original": "The ID of the resource responsible for calling the callback that is currently being executed.",
+      "translated": "現在実行されているコールバックを呼ぶ責任を負うリソースの ID。",
+      "symbol": "@types/node/async_hooks.d.ts#async_hooks.triggerAsyncId",
+      "lang": "ja"
+    },
     "d72894a9": {
       "original": "`Buffer` objects are used to represent a fixed-length sequence of bytes. Many\nNode.js APIs support `Buffer`s.\n\nThe `Buffer` class is a subclass of JavaScript's [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) class and\nextends it with methods that cover additional use cases. Node.js APIs accept\nplain [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) s wherever `Buffer`s are supported as well.\n\nWhile the `Buffer` class is available within the global scope, it is still\nrecommended to explicitly reference it via an import or require statement.\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Creates a zero-filled Buffer of length 10.\nconst buf1 = Buffer.alloc(10);\n\n// Creates a Buffer of length 10,\n// filled with bytes which all have the value `1`.\nconst buf2 = Buffer.alloc(10, 1);\n\n// Creates an uninitialized buffer of length 10.\n// This is faster than calling Buffer.alloc() but the returned\n// Buffer instance might contain old data that needs to be\n// overwritten using fill(), write(), or other functions that fill the Buffer's\n// contents.\nconst buf3 = Buffer.allocUnsafe(10);\n\n// Creates a Buffer containing the bytes [1, 2, 3].\nconst buf4 = Buffer.from([1, 2, 3]);\n\n// Creates a Buffer containing the bytes [1, 1, 1, 1] – the entries\n// are all truncated using `(value &#x26; 255)` to fit into the range 0–255.\nconst buf5 = Buffer.from([257, 257.5, -255, '1']);\n\n// Creates a Buffer containing the UTF-8-encoded bytes for the string 'tést':\n// [0x74, 0xc3, 0xa9, 0x73, 0x74] (in hexadecimal notation)\n// [116, 195, 169, 115, 116] (in decimal notation)\nconst buf6 = Buffer.from('tést');\n\n// Creates a Buffer containing the Latin-1 bytes [0x74, 0xe9, 0x73, 0x74].\nconst buf7 = Buffer.from('tést', 'latin1');\n```",
       "translated": "`Buffer` オブジェクトは、固定長のバイト列を表すために使われる。多くの Node.js API が `Buffer` をサポートする。\n\n`Buffer` クラスは JavaScript の [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) クラスのサブクラスで、追加のユースケースをカバーするメソッドで拡張している。Node.js API は、`Buffer` がサポートされる場所ではプレーンな [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) も受け付ける。\n\n`Buffer` クラスはグローバルスコープ内で利用できるが、それでも import または require 文で明示的に参照することが推奨される。\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Creates a zero-filled Buffer of length 10.\nconst buf1 = Buffer.alloc(10);\n\n// Creates a Buffer of length 10,\n// filled with bytes which all have the value `1`.\nconst buf2 = Buffer.alloc(10, 1);\n\n// Creates an uninitialized buffer of length 10.\n// This is faster than calling Buffer.alloc() but the returned\n// Buffer instance might contain old data that needs to be\n// overwritten using fill(), write(), or other functions that fill the Buffer's\n// contents.\nconst buf3 = Buffer.allocUnsafe(10);\n\n// Creates a Buffer containing the bytes [1, 2, 3].\nconst buf4 = Buffer.from([1, 2, 3]);\n\n// Creates a Buffer containing the bytes [1, 1, 1, 1] – the entries\n// are all truncated using `(value &#x26; 255)` to fit into the range 0–255.\nconst buf5 = Buffer.from([257, 257.5, -255, '1']);\n\n// Creates a Buffer containing the UTF-8-encoded bytes for the string 'tést':\n// [0x74, 0xc3, 0xa9, 0x73, 0x74] (in hexadecimal notation)\n// [116, 195, 169, 115, 116] (in decimal notation)\nconst buf6 = Buffer.from('tést');\n\n// Creates a Buffer containing the Latin-1 bytes [0x74, 0xe9, 0x73, 0x74].\nconst buf7 = Buffer.from('tést', 'latin1');\n```",
