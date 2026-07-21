@@ -4996,6 +4996,102 @@
       "symbol": "@types/node/dns.d.ts#dns.V4MAPPED",
       "lang": "ja"
     },
+    "d0c99abf": {
+      "original": "**This module is pending deprecation.** Once a replacement API has been\nfinalized, this module will be fully deprecated. Most developers should\n**not** have cause to use this module. Users who absolutely must have\nthe functionality that domains provide may rely on it for the time being\nbut should expect to have to migrate to a different solution\nin the future.\n\nDomains provide a way to handle multiple different IO operations as a\nsingle group. If any of the event emitters or callbacks registered to a\ndomain emit an `'error'` event, or throw an error, then the domain object\nwill be notified, rather than losing the context of the error in the `process.on('uncaughtException')` handler, or causing the program to\nexit immediately with an error code.",
+      "translated": "**このモジュールは非推奨化の保留中である。**代替 API が確定次第、このモジュールは完全に非推奨化される。ほとんどの開発者は、このモジュールを使う理由が**ない**はずである。ドメインが提供する機能がどうしても必要なユーザーは、当面はこれに依存してよいが、将来は別のソリューションへ移行する必要があると想定しておくべきである。\n\nドメインは、複数の異なる IO 操作を単一のグループとして扱う方法を提供する。ドメインに登録されたイベントエミッターやコールバックのいずれかが `'error'` イベントを発行するか、エラーを投げた場合、`process.on('uncaughtException')` ハンドラーでエラーのコンテキストを失ったり、プログラムがエラーコードとともにただちに終了したりする代わりに、ドメインオブジェクトに通知される。",
+      "symbol": "@types/node/domain.d.ts#domain",
+      "lang": "ja"
+    },
+    "9ab047e3": {
+      "original": "Since v1.4.2 - Deprecated",
+      "translated": "v1.4.2 以降 - 非推奨",
+      "symbol": "@types/node/domain.d.ts#domain",
+      "lang": "ja"
+    },
+    "09b413a5": {
+      "original": "The `Domain` class encapsulates the functionality of routing errors and\nuncaught exceptions to the active `Domain` object.\n\nTo handle the errors that it catches, listen to its `'error'` event.",
+      "translated": "`Domain` クラスは、エラーと未捕捉例外をアクティブな `Domain` オブジェクトへルーティングする機能をカプセル化する。\n\n捕捉したエラーを処理するには、その `'error'` イベントをリッスンする。",
+      "symbol": "@types/node/domain.d.ts#domain.Domain",
+      "lang": "ja"
+    },
+    "5854b3df": {
+      "original": "emitter or timer to be added to the domain",
+      "translated": "ドメインに追加するエミッターまたはタイマー",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.add",
+      "lang": "ja"
+    },
+    "0ab3d478": {
+      "original": "Explicitly adds an emitter to the domain. If any event handlers called by\nthe emitter throw an error, or if the emitter emits an `'error'` event, it\nwill be routed to the domain's `'error'` event, just like with implicit\nbinding.\n\nThis also works with timers that are returned from `setInterval()` and `setTimeout()`. If their callback function throws, it will be caught by\nthe domain `'error'` handler.\n\nIf the Timer or `EventEmitter` was already bound to a domain, it is removed\nfrom that one, and bound to this one instead.",
+      "translated": "エミッターをドメインに明示的に追加する。そのエミッターによって呼ばれるイベントハンドラーがエラーを投げるか、エミッターが `'error'` イベントを発行した場合、暗黙的なバインドと同様に、ドメインの `'error'` イベントへルーティングされる。\n\nこれは `setInterval()` や `setTimeout()` から返されるタイマーでも機能する。それらのコールバック関数がスローすると、ドメインの `'error'` ハンドラーによって捕捉される。\n\nタイマーまたは `EventEmitter` が既に別のドメインにバインドされていた場合、そのドメインから削除され、代わりにこのドメインにバインドされる。",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.add",
+      "lang": "ja"
+    },
+    "3a546e74": {
+      "original": "The bound function",
+      "translated": "バインドされた関数",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.bind",
+      "lang": "ja"
+    },
+    "54057a73": {
+      "original": "The callback function",
+      "translated": "コールバック関数",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.bind",
+      "lang": "ja"
+    },
+    "85be5d91": {
+      "original": "The returned function will be a wrapper around the supplied callback\nfunction. When the returned function is called, any errors that are\nthrown will be routed to the domain's `'error'` event.\n\n```js\nconst d = domain.create();\n\nfunction readSomeFile(filename, cb) {\n  fs.readFile(filename, 'utf8', d.bind((er, data) => {\n    // If this throws, it will also be passed to the domain.\n    return cb(er, data ? JSON.parse(data) : null);\n  }));\n}\n\nd.on('error', (er) => {\n  // An error occurred somewhere. If we throw it now, it will crash the program\n  // with the normal line number and stack message.\n});\n```",
+      "translated": "返される関数は、指定されたコールバック関数のラッパーになる。返された関数が呼ばれると、投げられたエラーはすべてドメインの `'error'` イベントへルーティングされる。\n\n```js\nconst d = domain.create();\n\nfunction readSomeFile(filename, cb) {\n  fs.readFile(filename, 'utf8', d.bind((er, data) => {\n    // If this throws, it will also be passed to the domain.\n    return cb(er, data ? JSON.parse(data) : null);\n  }));\n}\n\nd.on('error', (er) => {\n  // An error occurred somewhere. If we throw it now, it will crash the program\n  // with the normal line number and stack message.\n});\n```",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.bind",
+      "lang": "ja"
+    },
+    "3c3bdc77": {
+      "original": "The `enter()` method is plumbing used by the `run()`, `bind()`, and `intercept()` methods to set the active domain. It sets `domain.active` and `process.domain` to the domain, and implicitly\npushes the domain onto the domain\nstack managed by the domain module (see {@link exit} for details on the\ndomain stack). The call to `enter()` delimits the beginning of a chain of\nasynchronous calls and I/O operations bound to a domain.\n\nCalling `enter()` changes only the active domain, and does not alter the domain\nitself. `enter()` and `exit()` can be called an arbitrary number of times on a\nsingle domain.",
+      "translated": "`enter()` メソッドは、アクティブなドメインを設定するために `run()`・`bind()`・`intercept()` メソッドが使う下回りの仕組みである。`domain.active` と `process.domain` をそのドメインに設定し、domain モジュールが管理するドメインスタックにそのドメインを暗黙的にプッシュする(ドメインスタックの詳細は {@link exit} を参照)。`enter()` の呼び出しは、ドメインにバインドされた一連の非同期呼び出しと I/O 操作の始まりを区切る。\n\n`enter()` の呼び出しはアクティブなドメインを変更するだけで、ドメイン自体は変更しない。`enter()` と `exit()` は単一のドメインに対して任意の回数呼べる。",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.enter",
+      "lang": "ja"
+    },
+    "9ad70d5d": {
+      "original": "The `exit()` method exits the current domain, popping it off the domain stack.\nAny time execution is going to switch to the context of a different chain of\nasynchronous calls, it's important to ensure that the current domain is exited.\nThe call to `exit()` delimits either the end of or an interruption to the chain\nof asynchronous calls and I/O operations bound to a domain.\n\nIf there are multiple, nested domains bound to the current execution context, `exit()` will exit any domains nested within this domain.\n\nCalling `exit()` changes only the active domain, and does not alter the domain\nitself. `enter()` and `exit()` can be called an arbitrary number of times on a\nsingle domain.",
+      "translated": "`exit()` メソッドは、現在のドメインを終了し、ドメインスタックからポップする。実行が別の非同期呼び出しチェーンのコンテキストへ切り替わろうとするときは常に、現在のドメインが終了されていることを保証することが重要である。`exit()` の呼び出しは、ドメインにバインドされた一連の非同期呼び出しと I/O 操作の終わり、または中断を区切る。\n\n現在の実行コンテキストにバインドされた入れ子のドメインが複数ある場合、`exit()` はこのドメイン内に入れ子になったドメインをすべて終了する。\n\n`exit()` の呼び出しはアクティブなドメインを変更するだけで、ドメイン自体は変更しない。`enter()` と `exit()` は単一のドメインに対して任意の回数呼べる。",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.exit",
+      "lang": "ja"
+    },
+    "1b0a0d5f": {
+      "original": "The intercepted function",
+      "translated": "インターセプトされた関数",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.intercept",
+      "lang": "ja"
+    },
+    "5f1aaf94": {
+      "original": "This method is almost identical to {@link bind}. However, in\naddition to catching thrown errors, it will also intercept `Error` objects sent as the first argument to the function.\n\nIn this way, the common `if (err) return callback(err);` pattern can be replaced\nwith a single error handler in a single place.\n\n```js\nconst d = domain.create();\n\nfunction readSomeFile(filename, cb) {\n  fs.readFile(filename, 'utf8', d.intercept((data) => {\n    // Note, the first argument is never passed to the\n    // callback since it is assumed to be the 'Error' argument\n    // and thus intercepted by the domain.\n\n    // If this throws, it will also be passed to the domain\n    // so the error-handling logic can be moved to the 'error'\n    // event on the domain instead of being repeated throughout\n    // the program.\n    return cb(null, JSON.parse(data));\n  }));\n}\n\nd.on('error', (er) => {\n  // An error occurred somewhere. If we throw it now, it will crash the program\n  // with the normal line number and stack message.\n});\n```",
+      "translated": "このメソッドは {@link bind} とほぼ同一である。ただし、投げられたエラーを捕捉することに加えて、関数の第 1 引数として送られた `Error` オブジェクトもインターセプトする。\n\nこの方法により、よくある `if (err) return callback(err);` パターンを、単一の場所にある単一のエラーハンドラーに置き換えられる。\n\n```js\nconst d = domain.create();\n\nfunction readSomeFile(filename, cb) {\n  fs.readFile(filename, 'utf8', d.intercept((data) => {\n    // Note, the first argument is never passed to the\n    // callback since it is assumed to be the 'Error' argument\n    // and thus intercepted by the domain.\n\n    // If this throws, it will also be passed to the domain\n    // so the error-handling logic can be moved to the 'error'\n    // event on the domain instead of being repeated throughout\n    // the program.\n    return cb(null, JSON.parse(data));\n  }));\n}\n\nd.on('error', (er) => {\n  // An error occurred somewhere. If we throw it now, it will crash the program\n  // with the normal line number and stack message.\n});\n```",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.intercept",
+      "lang": "ja"
+    },
+    "47adfce3": {
+      "original": "An array of timers and event emitters that have been explicitly added\nto the domain.",
+      "translated": "ドメインに明示的に追加されたタイマーとイベントエミッターの配列。",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.members",
+      "lang": "ja"
+    },
+    "1a0993bb": {
+      "original": "emitter or timer to be removed from the domain",
+      "translated": "ドメインから削除するエミッターまたはタイマー",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.remove",
+      "lang": "ja"
+    },
+    "c310afa5": {
+      "original": "The opposite of {@link add}. Removes domain handling from the\nspecified emitter.",
+      "translated": "{@link add} の逆。指定されたエミッターからドメイン処理を削除する。",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.remove",
+      "lang": "ja"
+    },
+    "d55af857": {
+      "original": "Run the supplied function in the context of the domain, implicitly\nbinding all event emitters, timers, and low-level requests that are\ncreated in that context. Optionally, arguments can be passed to\nthe function.\n\nThis is the most basic way to use a domain.\n\n```js\nimport domain from 'node:domain';\nimport fs from 'node:fs';\nconst d = domain.create();\nd.on('error', (er) => {\n  console.error('Caught error!', er);\n});\nd.run(() => {\n  process.nextTick(() => {\n    setTimeout(() => { // Simulating some various async stuff\n      fs.open('non-existent file', 'r', (er, fd) => {\n        if (er) throw er;\n        // proceed...\n      });\n    }, 100);\n  });\n});\n```\n\nIn this example, the `d.on('error')` handler will be triggered, rather\nthan crashing the program.",
+      "translated": "指定された関数をドメインのコンテキストで実行し、そのコンテキストで作成されるすべてのイベントエミッター・タイマー・低レベルリクエストを暗黙的にバインドする。任意で、関数に引数を渡せる。\n\nこれはドメインを使う最も基本的な方法である。\n\n```js\nimport domain from 'node:domain';\nimport fs from 'node:fs';\nconst d = domain.create();\nd.on('error', (er) => {\n  console.error('Caught error!', er);\n});\nd.run(() => {\n  process.nextTick(() => {\n    setTimeout(() => { // Simulating some various async stuff\n      fs.open('non-existent file', 'r', (er, fd) => {\n        if (er) throw er;\n        // proceed...\n      });\n    }, 100);\n  });\n});\n```\n\nこの例では、プログラムがクラッシュする代わりに `d.on('error')` ハンドラーがトリガーされる。",
+      "symbol": "@types/node/domain.d.ts#domain.Domain.run",
+      "lang": "ja"
+    },
     "73f2cc3a": {
       "original": "Much of the Node.js core API is built around an idiomatic asynchronous\nevent-driven architecture in which certain kinds of objects (called \"emitters\")\nemit named events that cause `Function` objects (\"listeners\") to be called.\n\nFor instance: a `net.Server` object emits an event each time a peer\nconnects to it; a `fs.ReadStream` emits an event when the file is opened;\na `stream` emits an event whenever data is available to be read.\n\nAll objects that emit events are instances of the `EventEmitter` class. These\nobjects expose an `eventEmitter.on()` function that allows one or more\nfunctions to be attached to named events emitted by the object. Typically,\nevent names are camel-cased strings but any valid JavaScript property key\ncan be used.\n\nWhen the `EventEmitter` object emits an event, all of the functions attached\nto that specific event are called _synchronously_. Any values returned by the\ncalled listeners are _ignored_ and discarded.\n\nThe following example shows a simple `EventEmitter` instance with a single\nlistener. The `eventEmitter.on()` method is used to register listeners, while\nthe `eventEmitter.emit()` method is used to trigger the event.\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
       "translated": "Node.js のコア API の多くは、慣用的な非同期のイベント駆動アーキテクチャを中心に構築されている。そこでは特定の種類のオブジェクト(「emitter」と呼ばれる)が名前付きイベントを発行し、それによって `Function` オブジェクト(「listener」)が呼ばれる。\n\nたとえば: `net.Server` オブジェクトはピアが接続するたびにイベントを発行する。`fs.ReadStream` はファイルが開かれたときにイベントを発行する。`stream` はデータが読める状態になるたびにイベントを発行する。\n\nイベントを発行するすべてのオブジェクトは `EventEmitter` クラスのインスタンスである。これらのオブジェクトは、オブジェクトが発行する名前付きイベントに 1 つ以上の関数を結び付けられる `eventEmitter.on()` 関数を公開する。通常、イベント名はキャメルケースの文字列だが、有効な JavaScript のプロパティキーであれば何でも使える。\n\n`EventEmitter` オブジェクトがイベントを発行すると、その特定のイベントに結び付けられたすべての関数が_同期的に_呼ばれる。呼ばれた listener が返す値は_無視_され、破棄される。\n\n次の例は、単一の listener を持つ単純な `EventEmitter` インスタンスを示す。listener の登録には `eventEmitter.on()` メソッドを、イベントのトリガーには `eventEmitter.emit()` メソッドを使う。\n\n```js\nimport { EventEmitter } from 'node:events';\n\nclass MyEmitter extends EventEmitter {}\n\nconst myEmitter = new MyEmitter();\nmyEmitter.on('event', () => {\n  console.log('an event occurred!');\n});\nmyEmitter.emit('event');\n```",
@@ -9244,6 +9340,72 @@
       "symbol": "@types/node/http2.d.ts#http2.SessionOptions.unknownProtocolTimeout",
       "lang": "ja"
     },
+    "7ed3e6d9": {
+      "original": "HTTPS is the HTTP protocol over TLS/SSL. In Node.js this is implemented as a\nseparate module.",
+      "translated": "HTTPS は、TLS/SSL 上の HTTP プロトコルである。Node.js では、これは別モジュールとして実装されている。",
+      "symbol": "@types/node/https.d.ts#https",
+      "lang": "ja"
+    },
+    "872c86db": {
+      "original": "An `Agent` object for HTTPS similar to `http.Agent`. See {@link request} for more information.",
+      "translated": "`http.Agent` に似た HTTPS 用の `Agent` オブジェクト。詳細は {@link request} を参照。",
+      "symbol": "@types/node/https.d.ts#https.Agent",
+      "lang": "ja"
+    },
+    "50af0d45": {
+      "original": "```js\n// curl -k https://localhost:8000/\nimport https from 'node:https';\nimport fs from 'node:fs';\n\nconst options = {\n  key: fs.readFileSync('test/fixtures/keys/agent2-key.pem'),\n  cert: fs.readFileSync('test/fixtures/keys/agent2-cert.pem'),\n};\n\nhttps.createServer(options, (req, res) => {\n  res.writeHead(200);\n  res.end('hello world\\n');\n}).listen(8000);\n```\n\nOr\n\n```js\nimport https from 'node:https';\nimport fs from 'node:fs';\n\nconst options = {\n  pfx: fs.readFileSync('test/fixtures/test_cert.pfx'),\n  passphrase: 'sample',\n};\n\nhttps.createServer(options, (req, res) => {\n  res.writeHead(200);\n  res.end('hello world\\n');\n}).listen(8000);\n```",
+      "translated": "```js\n// curl -k https://localhost:8000/\nimport https from 'node:https';\nimport fs from 'node:fs';\n\nconst options = {\n  key: fs.readFileSync('test/fixtures/keys/agent2-key.pem'),\n  cert: fs.readFileSync('test/fixtures/keys/agent2-cert.pem'),\n};\n\nhttps.createServer(options, (req, res) => {\n  res.writeHead(200);\n  res.end('hello world\\n');\n}).listen(8000);\n```\n\nまたは\n\n```js\nimport https from 'node:https';\nimport fs from 'node:fs';\n\nconst options = {\n  pfx: fs.readFileSync('test/fixtures/test_cert.pfx'),\n  passphrase: 'sample',\n};\n\nhttps.createServer(options, (req, res) => {\n  res.writeHead(200);\n  res.end('hello world\\n');\n}).listen(8000);\n```",
+      "symbol": "@types/node/https.d.ts#https.createServer",
+      "lang": "ja"
+    },
+    "87e0325a": {
+      "original": "A listener to be added to the `'request'` event.",
+      "translated": "`'request'` イベントに追加するリスナー。",
+      "symbol": "@types/node/https.d.ts#https.createServer",
+      "lang": "ja"
+    },
+    "938baf0c": {
+      "original": "Accepts `options` from `createServer`, `createSecureContext` and `createServer`.",
+      "translated": "`createServer`・`createSecureContext`・`createServer` からの `options` を受け付ける。",
+      "symbol": "@types/node/https.d.ts#https.createServer",
+      "lang": "ja"
+    },
+    "2d52a1fd": {
+      "original": "Accepts the same `options` as {@link request}, with the `method` always set to `GET`.",
+      "translated": "{@link request} と同じ `options` を受け付けるが、`method` は常に `GET` に設定される。",
+      "symbol": "@types/node/https.d.ts#https.get",
+      "lang": "ja"
+    },
+    "60135adc": {
+      "original": "Like `http.get()` but for HTTPS.\n\n`options` can be an object, a string, or a `URL` object. If `options` is a\nstring, it is automatically parsed with `new URL()`. If it is a `URL` object, it will be automatically converted to an ordinary `options` object.\n\n```js\nimport https from 'node:https';\n\nhttps.get('https://encrypted.google.com/', (res) => {\n  console.log('statusCode:', res.statusCode);\n  console.log('headers:', res.headers);\n\n  res.on('data', (d) => {\n    process.stdout.write(d);\n  });\n\n}).on('error', (e) => {\n  console.error(e);\n});\n```",
+      "translated": "`http.get()` に似ているが、HTTPS 用。\n\n`options` はオブジェクト・文字列・`URL` オブジェクトのいずれかである。`options` が文字列の場合、`new URL()` で自動的にパースされる。`URL` オブジェクトの場合、通常の `options` オブジェクトに自動的に変換される。\n\n```js\nimport https from 'node:https';\n\nhttps.get('https://encrypted.google.com/', (res) => {\n  console.log('statusCode:', res.statusCode);\n  console.log('headers:', res.headers);\n\n  res.on('data', (d) => {\n    process.stdout.write(d);\n  });\n\n}).on('error', (e) => {\n  console.error(e);\n});\n```",
+      "symbol": "@types/node/https.d.ts#https.get",
+      "lang": "ja"
+    },
+    "ff46bdc9": {
+      "original": "Accepts all `options` from `request`, with some differences in default values:",
+      "translated": "`request` からのすべての `options` を受け付けるが、既定値にいくつかの違いがある:",
+      "symbol": "@types/node/https.d.ts#https.request",
+      "lang": "ja"
+    },
+    "ba0cc5b4": {
+      "original": "Makes a request to a secure web server.\n\nThe following additional `options` from `tls.connect()` are also accepted: `ca`, `cert`, `ciphers`, `clientCertEngine`, `crl`, `dhparam`, `ecdhCurve`, `honorCipherOrder`, `key`, `passphrase`,\n`pfx`, `rejectUnauthorized`, `secureOptions`, `secureProtocol`, `servername`, `sessionIdContext`, `highWaterMark`.\n\n`options` can be an object, a string, or a `URL` object. If `options` is a\nstring, it is automatically parsed with `new URL()`. If it is a `URL` object, it will be automatically converted to an ordinary `options` object.\n\n`https.request()` returns an instance of the `http.ClientRequest` class. The `ClientRequest` instance is a writable stream. If one needs to\nupload a file with a POST request, then write to the `ClientRequest` object.\n\n```js\nimport https from 'node:https';\n\nconst options = {\n  hostname: 'encrypted.google.com',\n  port: 443,\n  path: '/',\n  method: 'GET',\n};\n\nconst req = https.request(options, (res) => {\n  console.log('statusCode:', res.statusCode);\n  console.log('headers:', res.headers);\n\n  res.on('data', (d) => {\n    process.stdout.write(d);\n  });\n});\n\nreq.on('error', (e) => {\n  console.error(e);\n});\nreq.end();\n```\n\nExample using options from `tls.connect()`:\n\n```js\nconst options = {\n  hostname: 'encrypted.google.com',\n  port: 443,\n  path: '/',\n  method: 'GET',\n  key: fs.readFileSync('test/fixtures/keys/agent2-key.pem'),\n  cert: fs.readFileSync('test/fixtures/keys/agent2-cert.pem'),\n};\noptions.agent = new https.Agent(options);\n\nconst req = https.request(options, (res) => {\n  // ...\n});\n```\n\nAlternatively, opt out of connection pooling by not using an `Agent`.\n\n```js\nconst options = {\n  hostname: 'encrypted.google.com',\n  port: 443,\n  path: '/',\n  method: 'GET',\n  key: fs.readFileSync('test/fixtures/keys/agent2-key.pem'),\n  cert: fs.readFileSync('test/fixtures/keys/agent2-cert.pem'),\n  agent: false,\n};\n\nconst req = https.request(options, (res) => {\n  // ...\n});\n```\n\nExample using a `URL` as `options`:\n\n```js\nconst options = new URL('https://abc:xyz@example.com');\n\nconst req = https.request(options, (res) => {\n  // ...\n});\n```\n\nExample pinning on certificate fingerprint, or the public key (similar to`pin-sha256`):\n\n```js\nimport tls from 'node:tls';\nimport https from 'node:https';\nimport crypto from 'node:crypto';\n\nfunction sha256(s) {\n  return crypto.createHash('sha256').update(s).digest('base64');\n}\nconst options = {\n  hostname: 'github.com',\n  port: 443,\n  path: '/',\n  method: 'GET',\n  checkServerIdentity: function(host, cert) {\n    // Make sure the certificate is issued to the host we are connected to\n    const err = tls.checkServerIdentity(host, cert);\n    if (err) {\n      return err;\n    }\n\n    // Pin the public key, similar to HPKP pin-sha256 pinning\n    const pubkey256 = 'pL1+qb9HTMRZJmuC/bB/ZI9d302BYrrqiVuRyW+DGrU=';\n    if (sha256(cert.pubkey) !== pubkey256) {\n      const msg = 'Certificate verification error: ' +\n        `The public key of '${cert.subject.CN}' ` +\n        'does not match our pinned fingerprint';\n      return new Error(msg);\n    }\n\n    // Pin the exact certificate, rather than the pub key\n    const cert256 = '25:FE:39:32:D9:63:8C:8A:FC:A1:9A:29:87:' +\n      'D8:3E:4C:1D:98:DB:71:E4:1A:48:03:98:EA:22:6A:BD:8B:93:16';\n    if (cert.fingerprint256 !== cert256) {\n      const msg = 'Certificate verification error: ' +\n        `The certificate of '${cert.subject.CN}' ` +\n        'does not match our pinned fingerprint';\n      return new Error(msg);\n    }\n\n    // This loop is informational only.\n    // Print the certificate and public key fingerprints of all certs in the\n    // chain. Its common to pin the public key of the issuer on the public\n    // internet, while pinning the public key of the service in sensitive\n    // environments.\n    do {\n      console.log('Subject Common Name:', cert.subject.CN);\n      console.log('  Certificate SHA256 fingerprint:', cert.fingerprint256);\n\n      hash = crypto.createHash('sha256');\n      console.log('  Public key ping-sha256:', sha256(cert.pubkey));\n\n      lastprint256 = cert.fingerprint256;\n      cert = cert.issuerCertificate;\n    } while (cert.fingerprint256 !== lastprint256);\n\n  },\n};\n\noptions.agent = new https.Agent(options);\nconst req = https.request(options, (res) => {\n  console.log('All OK. Server matched our pinned cert or public key');\n  console.log('statusCode:', res.statusCode);\n  // Print the HPKP values\n  console.log('headers:', res.headers['public-key-pins']);\n\n  res.on('data', (d) => {});\n});\n\nreq.on('error', (e) => {\n  console.error(e.message);\n});\nreq.end();\n```\n\nOutputs for example:\n\n```text\nSubject Common Name: github.com\n  Certificate SHA256 fingerprint: 25:FE:39:32:D9:63:8C:8A:FC:A1:9A:29:87:D8:3E:4C:1D:98:DB:71:E4:1A:48:03:98:EA:22:6A:BD:8B:93:16\n  Public key ping-sha256: pL1+qb9HTMRZJmuC/bB/ZI9d302BYrrqiVuRyW+DGrU=\nSubject Common Name: DigiCert SHA2 Extended Validation Server CA\n  Certificate SHA256 fingerprint: 40:3E:06:2A:26:53:05:91:13:28:5B:AF:80:A0:D4:AE:42:2C:84:8C:9F:78:FA:D0:1F:C9:4B:C5:B8:7F:EF:1A\n  Public key ping-sha256: RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=\nSubject Common Name: DigiCert High Assurance EV Root CA\n  Certificate SHA256 fingerprint: 74:31:E5:F4:C3:C1:CE:46:90:77:4F:0B:61:E0:54:40:88:3B:A9:A0:1E:D0:0B:A6:AB:D7:80:6E:D3:B1:18:CF\n  Public key ping-sha256: WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=\nAll OK. Server matched our pinned cert or public key\nstatusCode: 200\nheaders: max-age=0; pin-sha256=\"WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=\"; pin-sha256=\"RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=\";\npin-sha256=\"k2v657xBsOVe1PQRwOsHsw3bsGT2VzIqz5K+59sNQws=\"; pin-sha256=\"K87oWBWM9UZfyddvDfoxL+8lpNyoUB2ptGtn0fv6G2Q=\"; pin-sha256=\"IQBnNBEiFuhj+8x6X8XLgh01V9Ic5/V3IRQLNFFc7v4=\";\npin-sha256=\"iie1VXtL7HzAMF+/PVPR9xzT80kQxdZeJ+zduCB3uj0=\"; pin-sha256=\"LvRiGEjRqfzurezaWuj8Wie2gyHMrW5Q06LspMnox7A=\"; includeSubDomains\n```",
+      "translated": "セキュアな Web サーバーへリクエストを行う。\n\n`tls.connect()` からの次の追加 `options` も受け付ける: `ca`・`cert`・`ciphers`・`clientCertEngine`・`crl`・`dhparam`・`ecdhCurve`・`honorCipherOrder`・`key`・`passphrase`・`pfx`・`rejectUnauthorized`・`secureOptions`・`secureProtocol`・`servername`・`sessionIdContext`・`highWaterMark`。\n\n`options` はオブジェクト・文字列・`URL` オブジェクトのいずれかである。`options` が文字列の場合、`new URL()` で自動的にパースされる。`URL` オブジェクトの場合、通常の `options` オブジェクトに自動的に変換される。\n\n`https.request()` は `http.ClientRequest` クラスのインスタンスを返す。`ClientRequest` インスタンスは書き込み可能なストリームである。POST リクエストでファイルをアップロードする必要がある場合は、`ClientRequest` オブジェクトに書き込む。\n\n```js\nimport https from 'node:https';\n\nconst options = {\n  hostname: 'encrypted.google.com',\n  port: 443,\n  path: '/',\n  method: 'GET',\n};\n\nconst req = https.request(options, (res) => {\n  console.log('statusCode:', res.statusCode);\n  console.log('headers:', res.headers);\n\n  res.on('data', (d) => {\n    process.stdout.write(d);\n  });\n});\n\nreq.on('error', (e) => {\n  console.error(e);\n});\nreq.end();\n```\n\n`tls.connect()` からのオプションを使う例:\n\n```js\nconst options = {\n  hostname: 'encrypted.google.com',\n  port: 443,\n  path: '/',\n  method: 'GET',\n  key: fs.readFileSync('test/fixtures/keys/agent2-key.pem'),\n  cert: fs.readFileSync('test/fixtures/keys/agent2-cert.pem'),\n};\noptions.agent = new https.Agent(options);\n\nconst req = https.request(options, (res) => {\n  // ...\n});\n```\n\nあるいは、`Agent` を使わないことでコネクションプーリングをオプトアウトする。\n\n```js\nconst options = {\n  hostname: 'encrypted.google.com',\n  port: 443,\n  path: '/',\n  method: 'GET',\n  key: fs.readFileSync('test/fixtures/keys/agent2-key.pem'),\n  cert: fs.readFileSync('test/fixtures/keys/agent2-cert.pem'),\n  agent: false,\n};\n\nconst req = https.request(options, (res) => {\n  // ...\n});\n```\n\n`options` として `URL` を使う例:\n\n```js\nconst options = new URL('https://abc:xyz@example.com');\n\nconst req = https.request(options, (res) => {\n  // ...\n});\n```\n\n証明書のフィンガープリント、または公開鍵(`pin-sha256` に類似)でピン留めする例:\n\n```js\nimport tls from 'node:tls';\nimport https from 'node:https';\nimport crypto from 'node:crypto';\n\nfunction sha256(s) {\n  return crypto.createHash('sha256').update(s).digest('base64');\n}\nconst options = {\n  hostname: 'github.com',\n  port: 443,\n  path: '/',\n  method: 'GET',\n  checkServerIdentity: function(host, cert) {\n    // Make sure the certificate is issued to the host we are connected to\n    const err = tls.checkServerIdentity(host, cert);\n    if (err) {\n      return err;\n    }\n\n    // Pin the public key, similar to HPKP pin-sha256 pinning\n    const pubkey256 = 'pL1+qb9HTMRZJmuC/bB/ZI9d302BYrrqiVuRyW+DGrU=';\n    if (sha256(cert.pubkey) !== pubkey256) {\n      const msg = 'Certificate verification error: ' +\n        `The public key of '${cert.subject.CN}' ` +\n        'does not match our pinned fingerprint';\n      return new Error(msg);\n    }\n\n    // Pin the exact certificate, rather than the pub key\n    const cert256 = '25:FE:39:32:D9:63:8C:8A:FC:A1:9A:29:87:' +\n      'D8:3E:4C:1D:98:DB:71:E4:1A:48:03:98:EA:22:6A:BD:8B:93:16';\n    if (cert.fingerprint256 !== cert256) {\n      const msg = 'Certificate verification error: ' +\n        `The certificate of '${cert.subject.CN}' ` +\n        'does not match our pinned fingerprint';\n      return new Error(msg);\n    }\n\n    // This loop is informational only.\n    // Print the certificate and public key fingerprints of all certs in the\n    // chain. Its common to pin the public key of the issuer on the public\n    // internet, while pinning the public key of the service in sensitive\n    // environments.\n    do {\n      console.log('Subject Common Name:', cert.subject.CN);\n      console.log('  Certificate SHA256 fingerprint:', cert.fingerprint256);\n\n      hash = crypto.createHash('sha256');\n      console.log('  Public key ping-sha256:', sha256(cert.pubkey));\n\n      lastprint256 = cert.fingerprint256;\n      cert = cert.issuerCertificate;\n    } while (cert.fingerprint256 !== lastprint256);\n\n  },\n};\n\noptions.agent = new https.Agent(options);\nconst req = https.request(options, (res) => {\n  console.log('All OK. Server matched our pinned cert or public key');\n  console.log('statusCode:', res.statusCode);\n  // Print the HPKP values\n  console.log('headers:', res.headers['public-key-pins']);\n\n  res.on('data', (d) => {});\n});\n\nreq.on('error', (e) => {\n  console.error(e.message);\n});\nreq.end();\n```\n\n出力例:\n\n```text\nSubject Common Name: github.com\n  Certificate SHA256 fingerprint: 25:FE:39:32:D9:63:8C:8A:FC:A1:9A:29:87:D8:3E:4C:1D:98:DB:71:E4:1A:48:03:98:EA:22:6A:BD:8B:93:16\n  Public key ping-sha256: pL1+qb9HTMRZJmuC/bB/ZI9d302BYrrqiVuRyW+DGrU=\nSubject Common Name: DigiCert SHA2 Extended Validation Server CA\n  Certificate SHA256 fingerprint: 40:3E:06:2A:26:53:05:91:13:28:5B:AF:80:A0:D4:AE:42:2C:84:8C:9F:78:FA:D0:1F:C9:4B:C5:B8:7F:EF:1A\n  Public key ping-sha256: RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=\nSubject Common Name: DigiCert High Assurance EV Root CA\n  Certificate SHA256 fingerprint: 74:31:E5:F4:C3:C1:CE:46:90:77:4F:0B:61:E0:54:40:88:3B:A9:A0:1E:D0:0B:A6:AB:D7:80:6E:D3:B1:18:CF\n  Public key ping-sha256: WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=\nAll OK. Server matched our pinned cert or public key\nstatusCode: 200\nheaders: max-age=0; pin-sha256=\"WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=\"; pin-sha256=\"RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=\";\npin-sha256=\"k2v657xBsOVe1PQRwOsHsw3bsGT2VzIqz5K+59sNQws=\"; pin-sha256=\"K87oWBWM9UZfyddvDfoxL+8lpNyoUB2ptGtn0fv6G2Q=\"; pin-sha256=\"IQBnNBEiFuhj+8x6X8XLgh01V9Ic5/V3IRQLNFFc7v4=\";\npin-sha256=\"iie1VXtL7HzAMF+/PVPR9xzT80kQxdZeJ+zduCB3uj0=\"; pin-sha256=\"LvRiGEjRqfzurezaWuj8Wie2gyHMrW5Q06LspMnox7A=\"; includeSubDomains\n```",
+      "symbol": "@types/node/https.d.ts#https.request",
+      "lang": "ja"
+    },
+    "8c77055a": {
+      "original": "See `http.Server` for more information.",
+      "translated": "詳細は `http.Server` を参照。",
+      "symbol": "@types/node/https.d.ts#https.Server",
+      "lang": "ja"
+    },
+    "fd69188e": {
+      "original": "Closes all connections connected to this server which are not sending a request or waiting for a response.",
+      "translated": "このサーバーに接続されているコネクションのうち、リクエストを送信中でもレスポンスを待機中でもないすべてのコネクションを閉じる。",
+      "symbol": "@types/node/https.d.ts#https.Server.closeIdleConnections",
+      "lang": "ja"
+    },
     "78a6ad93": {
       "original": "The directory name of the current module. This is the same as the\n`path.dirname()` of the `__filename`.",
       "translated": "現在のモジュールのディレクトリ名。これは `__filename` の `path.dirname()` と同じである。",
@@ -12226,6 +12388,96 @@
       "symbol": "@types/node/punycode.d.ts#punycode.ucs2",
       "lang": "ja"
     },
+    "e0401c7b": {
+      "original": "The `node:querystring` module provides utilities for parsing and formatting URL\nquery strings. It can be accessed using:\n\n```js\nimport querystring from 'node:querystring';\n```\n\n`querystring` is more performant than `URLSearchParams` but is not a\nstandardized API. Use `URLSearchParams` when performance is not critical or\nwhen compatibility with browser code is desirable.",
+      "translated": "`node:querystring` モジュールは、URL クエリ文字列をパースおよびフォーマットするためのユーティリティを提供する。次のようにアクセスできる:\n\n```js\nimport querystring from 'node:querystring';\n```\n\n`querystring` は `URLSearchParams` より高性能だが、標準化された API ではない。パフォーマンスが重要でない場合や、ブラウザーのコードとの互換性が望ましい場合は `URLSearchParams` を使うこと。",
+      "symbol": "@types/node/querystring.d.ts#querystring",
+      "lang": "ja"
+    },
+    "a9cab332": {
+      "original": "The querystring.decode() function is an alias for querystring.parse().",
+      "translated": "querystring.decode() 関数は querystring.parse() のエイリアスである。",
+      "symbol": "@types/node/querystring.d.ts#querystring.decode",
+      "lang": "ja"
+    },
+    "b54763c0": {
+      "original": "The querystring.encode() function is an alias for querystring.stringify().",
+      "translated": "querystring.encode() 関数は querystring.stringify() のエイリアスである。",
+      "symbol": "@types/node/querystring.d.ts#querystring.encode",
+      "lang": "ja"
+    },
+    "7604e7e1": {
+      "original": "The `querystring.escape()` method performs URL percent-encoding on the given `str` in a manner that is optimized for the specific requirements of URL\nquery strings.\n\nThe `querystring.escape()` method is used by `querystring.stringify()` and is\ngenerally not expected to be used directly. It is exported primarily to allow\napplication code to provide a replacement percent-encoding implementation if\nnecessary by assigning `querystring.escape` to an alternative function.",
+      "translated": "`querystring.escape()` メソッドは、URL クエリ文字列の固有の要件に最適化された方法で、指定された `str` に対して URL パーセントエンコーディングを実行する。\n\n`querystring.escape()` メソッドは `querystring.stringify()` によって使われ、通常は直接使われることを想定していない。これは主に、必要に応じて `querystring.escape` を代替関数に割り当てることで、アプリケーションコードが置き換え用のパーセントエンコーディング実装を提供できるようにエクスポートされている。",
+      "symbol": "@types/node/querystring.d.ts#querystring.escape",
+      "lang": "ja"
+    },
+    "c2e7d611": {
+      "original": "The `querystring.parse()` method parses a URL query string (`str`) into a\ncollection of key and value pairs.\n\nFor example, the query string `'foo=bar&#x26;abc=xyz&#x26;abc=123'` is parsed into:\n\n```json\n{\n  \"foo\": \"bar\",\n  \"abc\": [\"xyz\", \"123\"]\n}\n```\n\nThe object returned by the `querystring.parse()` method _does not_ prototypically inherit from the JavaScript `Object`. This means that typical `Object` methods such as `obj.toString()`,\n`obj.hasOwnProperty()`, and others\nare not defined and _will not work_.\n\nBy default, percent-encoded characters within the query string will be assumed\nto use UTF-8 encoding. If an alternative character encoding is used, then an\nalternative `decodeURIComponent` option will need to be specified:\n\n```js\n// Assuming gbkDecodeURIComponent function already exists...\n\nquerystring.parse('w=%D6%D0%CE%C4&#x26;foo=bar', null, null,\n                  { decodeURIComponent: gbkDecodeURIComponent });\n```",
+      "translated": "`querystring.parse()` メソッドは、URL クエリ文字列(`str`)をキーと値のペアのコレクションにパースする。\n\nたとえば、クエリ文字列 `'foo=bar&#x26;abc=xyz&#x26;abc=123'` は次のようにパースされる:\n\n```json\n{\n  \"foo\": \"bar\",\n  \"abc\": [\"xyz\", \"123\"]\n}\n```\n\n`querystring.parse()` メソッドが返すオブジェクトは、JavaScript の `Object` からプロトタイプ継承_しない_。これは、`obj.toString()`・`obj.hasOwnProperty()` などの典型的な `Object` メソッドが定義されておらず、_機能しない_ことを意味する。\n\n既定では、クエリ文字列内のパーセントエンコードされた文字は UTF-8 エンコーディングを使うと想定される。別の文字エンコーディングが使われている場合は、代替の `decodeURIComponent` オプションを指定する必要がある:\n\n```js\n// Assuming gbkDecodeURIComponent function already exists...\n\nquerystring.parse('w=%D6%D0%CE%C4&#x26;foo=bar', null, null,\n                  { decodeURIComponent: gbkDecodeURIComponent });\n```",
+      "symbol": "@types/node/querystring.d.ts#querystring.parse",
+      "lang": "ja"
+    },
+    "027fc525": {
+      "original": "The substring used to delimit keys and values in the query string.",
+      "translated": "クエリ文字列内でキーと値を区切るために使われる部分文字列。",
+      "symbol": "@types/node/querystring.d.ts#querystring.parse",
+      "lang": "ja"
+    },
+    "c26bed14": {
+      "original": "The URL query string to parse",
+      "translated": "パースする URL クエリ文字列",
+      "symbol": "@types/node/querystring.d.ts#querystring.parse",
+      "lang": "ja"
+    },
+    "5b7427d7": {
+      "original": "The function to use when decoding percent-encoded characters in the query string.",
+      "translated": "クエリ文字列内のパーセントエンコードされた文字をデコードするときに使う関数。",
+      "symbol": "@types/node/querystring.d.ts#querystring.ParseOptions.decodeURIComponent",
+      "lang": "ja"
+    },
+    "c2ef8e87": {
+      "original": "Specifies the maximum number of keys to parse. Specify `0` to remove key counting limitations.",
+      "translated": "パースするキーの最大数を指定する。キー数の制限を解除するには `0` を指定する。",
+      "symbol": "@types/node/querystring.d.ts#querystring.ParseOptions.maxKeys",
+      "lang": "ja"
+    },
+    "7572abd2": {
+      "original": ". The substring used to delimit keys and values in the query string.",
+      "translated": "。クエリ文字列内でキーと値を区切るために使われる部分文字列。",
+      "symbol": "@types/node/querystring.d.ts#querystring.stringify",
+      "lang": "ja"
+    },
+    "fca51c94": {
+      "original": "The `querystring.stringify()` method produces a URL query string from a\ngiven `obj` by iterating through the object's \"own properties\".\n\nIt serializes the following types of values passed in `obj`: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type) |\n[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type) |\n[bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) |\n[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type) |\n[string\\[\\]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type) |\n[number\\[\\]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type) |\n[bigint\\[\\]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) |\n[boolean\\[\\]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type) The numeric values must be finite. Any other input values will be coerced to\nempty strings.\n\n```js\nquerystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });\n// Returns 'foo=bar&#x26;baz=qux&#x26;baz=quux&#x26;corge='\n\nquerystring.stringify({ foo: 'bar', baz: 'qux' }, ';', ':');\n// Returns 'foo:bar;baz:qux'\n```\n\nBy default, characters requiring percent-encoding within the query string will\nbe encoded as UTF-8\\. If an alternative encoding is required, then an alternative `encodeURIComponent` option will need to be specified:\n\n```js\n// Assuming gbkEncodeURIComponent function already exists,\n\nquerystring.stringify({ w: '中文', foo: 'bar' }, null, null,\n                      { encodeURIComponent: gbkEncodeURIComponent });\n```",
+      "translated": "`querystring.stringify()` メソッドは、指定された `obj` の「自身のプロパティ」を反復処理することで、URL クエリ文字列を生成する。\n\n`obj` に渡された次の型の値をシリアライズする: [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type) |\n[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type) |\n[bigint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) |\n[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type) |\n[string\\[\\]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type) |\n[number\\[\\]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type) |\n[bigint\\[\\]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) |\n[boolean\\[\\]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type) 数値は有限でなければならない。それ以外の入力値は空文字列に強制変換される。\n\n```js\nquerystring.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });\n// Returns 'foo=bar&#x26;baz=qux&#x26;baz=quux&#x26;corge='\n\nquerystring.stringify({ foo: 'bar', baz: 'qux' }, ';', ':');\n// Returns 'foo:bar;baz:qux'\n```\n\n既定では、クエリ文字列内でパーセントエンコーディングを要する文字は UTF-8 としてエンコードされる。別のエンコーディングが必要な場合は、代替の `encodeURIComponent` オプションを指定する必要がある:\n\n```js\n// Assuming gbkEncodeURIComponent function already exists,\n\nquerystring.stringify({ w: '中文', foo: 'bar' }, null, null,\n                      { encodeURIComponent: gbkEncodeURIComponent });\n```",
+      "symbol": "@types/node/querystring.d.ts#querystring.stringify",
+      "lang": "ja"
+    },
+    "1cdf7219": {
+      "original": "The object to serialize into a URL query string",
+      "translated": "URL クエリ文字列にシリアライズするオブジェクト",
+      "symbol": "@types/node/querystring.d.ts#querystring.stringify",
+      "lang": "ja"
+    },
+    "01afacc4": {
+      "original": "The substring used to delimit key and value pairs in the query string.",
+      "translated": "クエリ文字列内でキーと値のペアを区切るために使われる部分文字列。",
+      "symbol": "@types/node/querystring.d.ts#querystring.stringify",
+      "lang": "ja"
+    },
+    "adbd2919": {
+      "original": "The function to use when converting URL-unsafe characters to percent-encoding in the query string.",
+      "translated": "クエリ文字列内で URL に安全でない文字をパーセントエンコーディングに変換するときに使う関数。",
+      "symbol": "@types/node/querystring.d.ts#querystring.StringifyOptions.encodeURIComponent",
+      "lang": "ja"
+    },
+    "ca1c5204": {
+      "original": "The `querystring.unescape()` method performs decoding of URL percent-encoded\ncharacters on the given `str`.\n\nThe `querystring.unescape()` method is used by `querystring.parse()` and is\ngenerally not expected to be used directly. It is exported primarily to allow\napplication code to provide a replacement decoding implementation if\nnecessary by assigning `querystring.unescape` to an alternative function.\n\nBy default, the `querystring.unescape()` method will attempt to use the\nJavaScript built-in `decodeURIComponent()` method to decode. If that fails,\na safer equivalent that does not throw on malformed URLs will be used.",
+      "translated": "`querystring.unescape()` メソッドは、指定された `str` に対して URL パーセントエンコードされた文字のデコードを実行する。\n\n`querystring.unescape()` メソッドは `querystring.parse()` によって使われ、通常は直接使われることを想定していない。これは主に、必要に応じて `querystring.unescape` を代替関数に割り当てることで、アプリケーションコードが置き換え用のデコード実装を提供できるようにエクスポートされている。\n\n既定では、`querystring.unescape()` メソッドは JavaScript 組み込みの `decodeURIComponent()` メソッドを使ってデコードしようとする。それが失敗した場合、不正な URL に対して例外を投げない、より安全な同等物が使われる。",
+      "symbol": "@types/node/querystring.d.ts#querystring.unescape",
+      "lang": "ja"
+    },
     "fcdca2b9": {
       "original": "The `node:readline` module provides an interface for reading data from a [Readable](https://nodejs.org/docs/latest-v22.x/api/stream.html#readable-streams) stream\n(such as [`process.stdin`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdin)) one line at a time.\n\nTo use the promise-based APIs:\n\n```js\nimport * as readline from 'node:readline/promises';\n```\n\nTo use the callback and sync APIs:\n\n```js\nimport * as readline from 'node:readline';\n```\n\nThe following simple example illustrates the basic use of the `node:readline` module.\n\n```js\nimport * as readline from 'node:readline/promises';\nimport { stdin as input, stdout as output } from 'node:process';\n\nconst rl = readline.createInterface({ input, output });\n\nconst answer = await rl.question('What do you think of Node.js? ');\n\nconsole.log(`Thank you for your valuable feedback: ${answer}`);\n\nrl.close();\n```\n\nOnce this code is invoked, the Node.js application will not terminate until the `readline.Interface` is closed because the interface waits for data to be\nreceived on the `input` stream.",
       "translated": "`node:readline` モジュールは、[Readable](https://nodejs.org/docs/latest-v22.x/api/stream.html#readable-streams) ストリーム(たとえば [`process.stdin`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdin))からデータを 1 行ずつ読み取るためのインターフェイスを提供する。\n\nPromise ベースの API を使うには:\n\n```js\nimport * as readline from 'node:readline/promises';\n```\n\nコールバックおよび同期 API を使うには:\n\n```js\nimport * as readline from 'node:readline';\n```\n\n次の簡単な例は、`node:readline` モジュールの基本的な使い方を示す。\n\n```js\nimport * as readline from 'node:readline/promises';\nimport { stdin as input, stdout as output } from 'node:process';\n\nconst rl = readline.createInterface({ input, output });\n\nconst answer = await rl.question('What do you think of Node.js? ');\n\nconsole.log(`Thank you for your valuable feedback: ${answer}`);\n\nrl.close();\n```\n\nこのコードが呼び出されると、`readline.Interface` が閉じられるまで Node.js アプリケーションは終了しない。これは、インターフェイスが `input` ストリームでデータを受信するのを待つためである。",
@@ -14288,6 +14540,60 @@
       "original": "The bytes to decode.",
       "translated": "デコードするバイト。",
       "symbol": "@types/node/string_decoder.d.ts#string_decoder.StringDecoder.write",
+      "lang": "ja"
+    },
+    "42a9b008": {
+      "original": "The `timers/promises` API provides an alternative set of timer functions\nthat return `Promise` objects. The API is accessible via\n`require('node:timers/promises')`.\n\n```js\nimport {\n  setTimeout,\n  setImmediate,\n  setInterval,\n} from 'node:timers/promises';\n```",
+      "translated": "`timers/promises` API は、`Promise` オブジェクトを返す代替のタイマー関数群を提供する。この API は `require('node:timers/promises')` を介してアクセスできる。\n\n```js\nimport {\n  setTimeout,\n  setImmediate,\n  setInterval,\n} from 'node:timers/promises';\n```",
+      "symbol": "@types/node/timers/promises.d.ts#timers/promises",
+      "lang": "ja"
+    },
+    "871a452c": {
+      "original": "An experimental API defined by the [Scheduling APIs](https://github.com/WICG/scheduling-apis) draft specification\nbeing developed as a standard Web Platform API.\n\nCalling `timersPromises.scheduler.wait(delay, options)` is roughly equivalent\nto calling `timersPromises.setTimeout(delay, undefined, options)` except that\nthe `ref` option is not supported.\n\n```js\nimport { scheduler } from 'node:timers/promises';\n\nawait scheduler.wait(1000); // Wait one second before continuing\n```",
+      "translated": "標準の Web Platform API として開発が進められている [Scheduling APIs](https://github.com/WICG/scheduling-apis) ドラフト仕様で定義された実験的な API。\n\n`timersPromises.scheduler.wait(delay, options)` の呼び出しは、`ref` オプションがサポートされない点を除けば、`timersPromises.setTimeout(delay, undefined, options)` の呼び出しとおおむね同等である。\n\n```js\nimport { scheduler } from 'node:timers/promises';\n\nawait scheduler.wait(1000); // Wait one second before continuing\n```",
+      "symbol": "@types/node/timers/promises.d.ts#timers/promises.Scheduler.wait",
+      "lang": "ja"
+    },
+    "89d6fa31": {
+      "original": "The number of milliseconds to wait before resolving the\npromise.",
+      "translated": "Promise を解決する前に待機するミリ秒数。",
+      "symbol": "@types/node/timers/promises.d.ts#timers/promises.Scheduler.wait",
+      "lang": "ja"
+    },
+    "5c176917": {
+      "original": "An experimental API defined by the [Scheduling APIs](https://github.com/WICG/scheduling-apis) draft specification\nbeing developed as a standard Web Platform API.\n\nCalling `timersPromises.scheduler.yield()` is equivalent to calling\n`timersPromises.setImmediate()` with no arguments.",
+      "translated": "標準の Web Platform API として開発が進められている [Scheduling APIs](https://github.com/WICG/scheduling-apis) ドラフト仕様で定義された実験的な API。\n\n`timersPromises.scheduler.yield()` の呼び出しは、引数なしで `timersPromises.setImmediate()` を呼ぶのと同等である。",
+      "symbol": "@types/node/timers/promises.d.ts#timers/promises.Scheduler.yield",
+      "lang": "ja"
+    },
+    "238965e3": {
+      "original": "A value with which the iterator returns.",
+      "translated": "イテレーターが返す値。",
+      "symbol": "@types/node/timers/promises.d.ts#timers/promises.setInterval",
+      "lang": "ja"
+    },
+    "0e4d2974": {
+      "original": "Returns an async iterator that generates values in an interval of `delay` ms.\nIf `ref` is `true`, you need to call `next()` of async iterator explicitly\nor implicitly to keep the event loop alive.\n\n```js\nimport {\n  setInterval,\n} from 'node:timers/promises';\n\nconst interval = 100;\nfor await (const startTime of setInterval(interval, Date.now())) {\n  const now = Date.now();\n  console.log(now);\n  if ((now - startTime) > 1000)\n    break;\n}\nconsole.log(Date.now());\n```",
+      "translated": "`delay` ミリ秒の間隔で値を生成する非同期イテレーターを返す。`ref` が `true` の場合、イベントループを生かし続けるには、非同期イテレーターの `next()` を明示的または暗黙的に呼ぶ必要がある。\n\n```js\nimport {\n  setInterval,\n} from 'node:timers/promises';\n\nconst interval = 100;\nfor await (const startTime of setInterval(interval, Date.now())) {\n  const now = Date.now();\n  console.log(now);\n  if ((now - startTime) > 1000)\n    break;\n}\nconsole.log(Date.now());\n```",
+      "symbol": "@types/node/timers/promises.d.ts#timers/promises.setInterval",
+      "lang": "ja"
+    },
+    "4f2a718c": {
+      "original": "The number of milliseconds to wait between iterations.\n**Default:** `1`.",
+      "translated": "各反復の間に待機するミリ秒数。**既定値:** `1`。",
+      "symbol": "@types/node/timers/promises.d.ts#timers/promises.setInterval",
+      "lang": "ja"
+    },
+    "e8e9ac0e": {
+      "original": "A value with which the promise is fulfilled.",
+      "translated": "Promise が解決される際の値。",
+      "symbol": "@types/node/timers/promises.d.ts#timers/promises.setTimeout",
+      "lang": "ja"
+    },
+    "bb283fa1": {
+      "original": "The number of milliseconds to wait before fulfilling the\npromise. **Default:** `1`.",
+      "translated": "Promise を解決する前に待機するミリ秒数。**既定値:** `1`。",
+      "symbol": "@types/node/timers/promises.d.ts#timers/promises.setTimeout",
       "lang": "ja"
     },
     "20202caf": {
@@ -17564,6 +17870,90 @@
       "original": "The contextified object as returned by the `vm.createContext()` method, to compile and evaluate this module in.",
       "translated": "このモジュールをコンパイル・評価する対象の、`vm.createContext()` メソッドが返す contextify されたオブジェクト。",
       "symbol": "@types/node/vm.d.ts#vm.SyntheticModuleOptions.context",
+      "lang": "ja"
+    },
+    "9a19e40c": {
+      "original": "**The `node:wasi` module does not currently provide the**\n**comprehensive file system security properties provided by some WASI runtimes.**\n**Full support for secure file system sandboxing may or may not be implemented in**\n**future. In the mean time, do not rely on it to run untrusted code.**\n\nThe WASI API provides an implementation of the [WebAssembly System Interface](https://wasi.dev/) specification. WASI gives WebAssembly applications access to the underlying\noperating system via a collection of POSIX-like functions.\n\n```js\nimport { readFile } from 'node:fs/promises';\nimport { WASI } from 'node:wasi';\nimport { argv, env } from 'node:process';\n\nconst wasi = new WASI({\n  version: 'preview1',\n  args: argv,\n  env,\n  preopens: {\n    '/local': '/some/real/path/that/wasm/can/access',\n  },\n});\n\nconst wasm = await WebAssembly.compile(\n  await readFile(new URL('./demo.wasm', import.meta.url)),\n);\nconst instance = await WebAssembly.instantiate(wasm, wasi.getImportObject());\n\nwasi.start(instance);\n```\n\nTo run the above example, create a new WebAssembly text format file named `demo.wat`:\n\n```text\n(module\n    ;; Import the required fd_write WASI function which will write the given io vectors to stdout\n    ;; The function signature for fd_write is:\n    ;; (File Descriptor, *iovs, iovs_len, nwritten) -> Returns number of bytes written\n    (import \"wasi_snapshot_preview1\" \"fd_write\" (func $fd_write (param i32 i32 i32 i32) (result i32)))\n\n    (memory 1)\n    (export \"memory\" (memory 0))\n\n    ;; Write 'hello world\\n' to memory at an offset of 8 bytes\n    ;; Note the trailing newline which is required for the text to appear\n    (data (i32.const 8) \"hello world\\n\")\n\n    (func $main (export \"_start\")\n        ;; Creating a new io vector within linear memory\n        (i32.store (i32.const 0) (i32.const 8))  ;; iov.iov_base - This is a pointer to the start of the 'hello world\\n' string\n        (i32.store (i32.const 4) (i32.const 12))  ;; iov.iov_len - The length of the 'hello world\\n' string\n\n        (call $fd_write\n            (i32.const 1) ;; file_descriptor - 1 for stdout\n            (i32.const 0) ;; *iovs - The pointer to the iov array, which is stored at memory location 0\n            (i32.const 1) ;; iovs_len - We're printing 1 string stored in an iov - so one.\n            (i32.const 20) ;; nwritten - A place in memory to store the number of bytes written\n        )\n        drop ;; Discard the number of bytes written from the top of the stack\n    )\n)\n```\n\nUse [wabt](https://github.com/WebAssembly/wabt) to compile `.wat` to `.wasm`\n\n```bash\nwat2wasm demo.wat\n```",
+      "translated": "**`node:wasi` モジュールは、現時点では一部の WASI ランタイムが提供する**\n**包括的なファイルシステムセキュリティ特性を提供しない。**\n**セキュアなファイルシステムサンドボックスの完全なサポートは、将来実装される場合もされない場合もある。**\n**それまでの間、信頼できないコードを実行するためにこれに依存しないこと。**\n\nWASI API は、[WebAssembly System Interface](https://wasi.dev/) 仕様の実装を提供する。WASI は、POSIX ライクな関数群を介して、WebAssembly アプリケーションに基盤となるオペレーティングシステムへのアクセスを与える。\n\n```js\nimport { readFile } from 'node:fs/promises';\nimport { WASI } from 'node:wasi';\nimport { argv, env } from 'node:process';\n\nconst wasi = new WASI({\n  version: 'preview1',\n  args: argv,\n  env,\n  preopens: {\n    '/local': '/some/real/path/that/wasm/can/access',\n  },\n});\n\nconst wasm = await WebAssembly.compile(\n  await readFile(new URL('./demo.wasm', import.meta.url)),\n);\nconst instance = await WebAssembly.instantiate(wasm, wasi.getImportObject());\n\nwasi.start(instance);\n```\n\n上記の例を実行するには、`demo.wat` という名前の新しい WebAssembly テキスト形式ファイルを作成する:\n\n```text\n(module\n    ;; Import the required fd_write WASI function which will write the given io vectors to stdout\n    ;; The function signature for fd_write is:\n    ;; (File Descriptor, *iovs, iovs_len, nwritten) -> Returns number of bytes written\n    (import \"wasi_snapshot_preview1\" \"fd_write\" (func $fd_write (param i32 i32 i32 i32) (result i32)))\n\n    (memory 1)\n    (export \"memory\" (memory 0))\n\n    ;; Write 'hello world\\n' to memory at an offset of 8 bytes\n    ;; Note the trailing newline which is required for the text to appear\n    (data (i32.const 8) \"hello world\\n\")\n\n    (func $main (export \"_start\")\n        ;; Creating a new io vector within linear memory\n        (i32.store (i32.const 0) (i32.const 8))  ;; iov.iov_base - This is a pointer to the start of the 'hello world\\n' string\n        (i32.store (i32.const 4) (i32.const 12))  ;; iov.iov_len - The length of the 'hello world\\n' string\n\n        (call $fd_write\n            (i32.const 1) ;; file_descriptor - 1 for stdout\n            (i32.const 0) ;; *iovs - The pointer to the iov array, which is stored at memory location 0\n            (i32.const 1) ;; iovs_len - We're printing 1 string stored in an iov - so one.\n            (i32.const 20) ;; nwritten - A place in memory to store the number of bytes written\n        )\n        drop ;; Discard the number of bytes written from the top of the stack\n    )\n)\n```\n\n[wabt](https://github.com/WebAssembly/wabt) を使って `.wat` を `.wasm` にコンパイルする\n\n```bash\nwat2wasm demo.wat\n```",
+      "symbol": "@types/node/wasi.d.ts#wasi",
+      "lang": "ja"
+    },
+    "10f683f5": {
+      "original": "The `WASI` class provides the WASI system call API and additional convenience\nmethods for working with WASI-based applications. Each `WASI` instance\nrepresents a distinct environment.",
+      "translated": "`WASI` クラスは、WASI システムコール API と、WASI ベースのアプリケーションを扱うための追加の便利メソッドを提供する。各 `WASI` インスタンスは、独立した環境を表す。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASI",
+      "lang": "ja"
+    },
+    "c4ffaaf1": {
+      "original": "Return an import object that can be passed to `WebAssembly.instantiate()` if no other WASM imports are needed beyond those provided by WASI.\n\nIf version `unstable` was passed into the constructor it will return:\n\n```js\n{ wasi_unstable: wasi.wasiImport }\n```\n\nIf version `preview1` was passed into the constructor or no version was specified it will return:\n\n```js\n{ wasi_snapshot_preview1: wasi.wasiImport }\n```",
+      "translated": "WASI が提供するもの以外に WASM のインポートが必要ない場合に、`WebAssembly.instantiate()` に渡せるインポートオブジェクトを返す。\n\nコンストラクターにバージョン `unstable` が渡された場合は、次を返す:\n\n```js\n{ wasi_unstable: wasi.wasiImport }\n```\n\nコンストラクターにバージョン `preview1` が渡された場合、またはバージョンが指定されなかった場合は、次を返す:\n\n```js\n{ wasi_snapshot_preview1: wasi.wasiImport }\n```",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASI.getImportObject",
+      "lang": "ja"
+    },
+    "0aedcb10": {
+      "original": "Attempt to initialize `instance` as a WASI reactor by invoking its `_initialize()` export, if it is present. If `instance` contains a `_start()` export, then an exception is thrown.\n\n`initialize()` requires that `instance` exports a [`WebAssembly.Memory`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory) named `memory`.\nIf `instance` does not have a `memory` export an exception is thrown.\n\nIf `initialize()` is called more than once, an exception is thrown.",
+      "translated": "`instance` の `_initialize()` エクスポートが存在する場合、それを呼び出すことで `instance` を WASI リアクターとして初期化しようとする。`instance` が `_start()` エクスポートを含む場合は、例外が投げられる。\n\n`initialize()` は、`instance` が `memory` という名前の [`WebAssembly.Memory`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory) をエクスポートしていることを要求する。`instance` に `memory` エクスポートがない場合は、例外が投げられる。\n\n`initialize()` が複数回呼ばれた場合は、例外が投げられる。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASI.initialize",
+      "lang": "ja"
+    },
+    "f359372a": {
+      "original": "Attempt to begin execution of `instance` as a WASI command by invoking its `_start()` export. If `instance` does not contain a `_start()` export, or if `instance` contains an `_initialize()`\nexport, then an exception is thrown.\n\n`start()` requires that `instance` exports a [`WebAssembly.Memory`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory) named `memory`. If\n`instance` does not have a `memory` export an exception is thrown.\n\nIf `start()` is called more than once, an exception is thrown.",
+      "translated": "`instance` の `_start()` エクスポートを呼び出すことで、`instance` を WASI コマンドとして実行開始しようとする。`instance` が `_start()` エクスポートを含まない場合、または `instance` が `_initialize()` エクスポートを含む場合は、例外が投げられる。\n\n`start()` は、`instance` が `memory` という名前の [`WebAssembly.Memory`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Memory) をエクスポートしていることを要求する。`instance` に `memory` エクスポートがない場合は、例外が投げられる。\n\n`start()` が複数回呼ばれた場合は、例外が投げられる。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASI.start",
+      "lang": "ja"
+    },
+    "0f1e2b32": {
+      "original": "`wasiImport` is an object that implements the WASI system call API. This object\nshould be passed as the `wasi_snapshot_preview1` import during the instantiation\nof a [`WebAssembly.Instance`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Instance).",
+      "translated": "`wasiImport` は、WASI システムコール API を実装するオブジェクトである。このオブジェクトは、[`WebAssembly.Instance`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WebAssembly/Instance) のインスタンス化時に `wasi_snapshot_preview1` インポートとして渡すべきである。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASI.wasiImport",
+      "lang": "ja"
+    },
+    "6c800961": {
+      "original": "An array of strings that the WebAssembly application will\nsee as command line arguments. The first argument is the virtual path to the\nWASI command itself.",
+      "translated": "WebAssembly アプリケーションがコマンドライン引数として認識する文字列の配列。最初の引数は、WASI コマンド自体への仮想パスである。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASIOptions.args",
+      "lang": "ja"
+    },
+    "aebdd7ab": {
+      "original": "An object similar to `process.env` that the WebAssembly\napplication will see as its environment.",
+      "translated": "WebAssembly アプリケーションがその環境として認識する、`process.env` に似たオブジェクト。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASIOptions.env",
+      "lang": "ja"
+    },
+    "f41dacaa": {
+      "original": "This object represents the WebAssembly application's\nsandbox directory structure. The string keys of `preopens` are treated as\ndirectories within the sandbox. The corresponding values in `preopens` are\nthe real paths to those directories on the host machine.",
+      "translated": "このオブジェクトは、WebAssembly アプリケーションのサンドボックスのディレクトリ構造を表す。`preopens` の文字列キーは、サンドボックス内のディレクトリとして扱われる。`preopens` の対応する値は、ホストマシン上のそれらのディレクトリへの実際のパスである。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASIOptions.preopens",
+      "lang": "ja"
+    },
+    "493cad75": {
+      "original": "By default, when WASI applications call `__wasi_proc_exit()`\n`wasi.start()` will return with the exit code specified rather than terminatng the process.\nSetting this option to `false` will cause the Node.js process to exit with\nthe specified exit code instead.",
+      "translated": "既定では、WASI アプリケーションが `__wasi_proc_exit()` を呼ぶと、`wasi.start()` はプロセスを終了させるのではなく、指定された終了コードとともに戻る。このオプションを `false` に設定すると、代わりに Node.js プロセスが指定された終了コードで終了する。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASIOptions.returnOnExit",
+      "lang": "ja"
+    },
+    "5ffe507b": {
+      "original": "The file descriptor used as standard error in the WebAssembly application.",
+      "translated": "WebAssembly アプリケーションで標準エラー出力として使われるファイルディスクリプター。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASIOptions.stderr",
+      "lang": "ja"
+    },
+    "4a170e23": {
+      "original": "The file descriptor used as standard input in the WebAssembly application.",
+      "translated": "WebAssembly アプリケーションで標準入力として使われるファイルディスクリプター。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASIOptions.stdin",
+      "lang": "ja"
+    },
+    "f3d2b748": {
+      "original": "The file descriptor used as standard output in the WebAssembly application.",
+      "translated": "WebAssembly アプリケーションで標準出力として使われるファイルディスクリプター。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASIOptions.stdout",
+      "lang": "ja"
+    },
+    "55888c1d": {
+      "original": "The version of WASI requested.\nCurrently the only supported versions are `'unstable'` and `'preview1'`. This option is mandatory.",
+      "translated": "要求される WASI のバージョン。現時点でサポートされているバージョンは `'unstable'` と `'preview1'` のみである。このオプションは必須である。",
+      "symbol": "@types/node/wasi.d.ts#wasi.WASIOptions.version",
       "lang": "ja"
     },
     "9b8c2777": {
