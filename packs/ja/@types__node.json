@@ -3712,6 +3712,180 @@
       "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.verify",
       "lang": "ja"
     },
+    "10045d02": {
+      "original": "The `node:dgram` module provides an implementation of UDP datagram sockets.\n\n```js\nimport dgram from 'node:dgram';\n\nconst server = dgram.createSocket('udp4');\n\nserver.on('error', (err) => {\n  console.error(`server error:\\n${err.stack}`);\n  server.close();\n});\n\nserver.on('message', (msg, rinfo) => {\n  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);\n});\n\nserver.on('listening', () => {\n  const address = server.address();\n  console.log(`server listening ${address.address}:${address.port}`);\n});\n\nserver.bind(41234);\n// Prints: server listening 0.0.0.0:41234\n```",
+      "translated": "`node:dgram` モジュールは、UDP データグラムソケットの実装を提供する。\n\n```js\nimport dgram from 'node:dgram';\n\nconst server = dgram.createSocket('udp4');\n\nserver.on('error', (err) => {\n  console.error(`server error:\\n${err.stack}`);\n  server.close();\n});\n\nserver.on('message', (msg, rinfo) => {\n  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);\n});\n\nserver.on('listening', () => {\n  const address = server.address();\n  console.log(`server listening ${address.address}:${address.port}`);\n});\n\nserver.bind(41234);\n// Prints: server listening 0.0.0.0:41234\n```",
+      "symbol": "@types/node/dgram.d.ts#dgram",
+      "lang": "ja"
+    },
+    "685f4367": {
+      "original": "Attached as a listener for `'message'` events. Optional.",
+      "translated": "`'message'` イベントの listener として取り付けられる。省略可能。",
+      "symbol": "@types/node/dgram.d.ts#dgram.createSocket",
+      "lang": "ja"
+    },
+    "b14b4a4f": {
+      "original": "Available options are:",
+      "translated": "利用可能なオプションは次のとおり:",
+      "symbol": "@types/node/dgram.d.ts#dgram.createSocket",
+      "lang": "ja"
+    },
+    "d71e0444": {
+      "original": "Creates a `dgram.Socket` object. Once the socket is created, calling `socket.bind()` will instruct the socket to begin listening for datagram\nmessages. When `address` and `port` are not passed to `socket.bind()` the\nmethod will bind the socket to the \"all interfaces\" address on a random port\n(it does the right thing for both `udp4` and `udp6` sockets). The bound address\nand port can be retrieved using `socket.address().address` and `socket.address().port`.\n\nIf the `signal` option is enabled, calling `.abort()` on the corresponding `AbortController` is similar to calling `.close()` on the socket:\n\n```js\nconst controller = new AbortController();\nconst { signal } = controller;\nconst server = dgram.createSocket({ type: 'udp4', signal });\nserver.on('message', (msg, rinfo) => {\n  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);\n});\n// Later, when you want to close the server.\ncontroller.abort();\n```",
+      "translated": "`dgram.Socket` オブジェクトを作成する。ソケットが作成されたら、`socket.bind()` を呼ぶとソケットにデータグラムメッセージのリッスンを開始するよう指示する。`address` と `port` が `socket.bind()` に渡されない場合、このメソッドはランダムなポートの「全インターフェース」アドレスにソケットをバインドする(`udp4` と `udp6` の両方のソケットで適切に処理する)。バインドされたアドレスとポートは、`socket.address().address` と `socket.address().port` を使って取得できる。\n\n`signal` オプションが有効な場合、対応する `AbortController` で `.abort()` を呼ぶことは、ソケットで `.close()` を呼ぶのに似ている:\n\n```js\nconst controller = new AbortController();\nconst { signal } = controller;\nconst server = dgram.createSocket({ type: 'udp4', signal });\nserver.on('message', (msg, rinfo) => {\n  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);\n});\n// Later, when you want to close the server.\ncontroller.abort();\n```",
+      "symbol": "@types/node/dgram.d.ts#dgram.createSocket",
+      "lang": "ja"
+    },
+    "49fb0a5a": {
+      "original": "Encapsulates the datagram functionality.\n\nNew instances of `dgram.Socket` are created using {@link createSocket}.\nThe `new` keyword is not to be used to create `dgram.Socket` instances.",
+      "translated": "データグラム機能をカプセル化する。\n\n`dgram.Socket` の新しいインスタンスは {@link createSocket} を使って作成される。`dgram.Socket` インスタンスの作成に `new` キーワードを使ってはならない。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket",
+      "lang": "ja"
+    },
+    "ed7355ca": {
+      "original": "Calls `socket.close()` and returns a promise that fulfills when the socket has closed.",
+      "translated": "`socket.close()` を呼び、ソケットが閉じられたときに履行される promise を返す。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.[Symbol.asyncDispose]",
+      "lang": "ja"
+    },
+    "9bc9431a": {
+      "original": "Tells the kernel to join a multicast group at the given `multicastAddress` and `multicastInterface` using the `IP_ADD_MEMBERSHIP` socket option. If the `multicastInterface` argument is not\nspecified, the operating system will choose\none interface and will add membership to it. To add membership to every\navailable interface, call `addMembership` multiple times, once per interface.\n\nWhen called on an unbound socket, this method will implicitly bind to a random\nport, listening on all interfaces.\n\nWhen sharing a UDP socket across multiple `cluster` workers, the`socket.addMembership()` function must be called only once or an`EADDRINUSE` error will occur:\n\n```js\nimport cluster from 'node:cluster';\nimport dgram from 'node:dgram';\n\nif (cluster.isPrimary) {\n  cluster.fork(); // Works ok.\n  cluster.fork(); // Fails with EADDRINUSE.\n} else {\n  const s = dgram.createSocket('udp4');\n  s.bind(1234, () => {\n    s.addMembership('224.0.0.114');\n  });\n}\n```",
+      "translated": "`IP_ADD_MEMBERSHIP` ソケットオプションを使って、指定した `multicastAddress` と `multicastInterface` でマルチキャストグループに参加するようカーネルに指示する。`multicastInterface` 引数が指定されない場合、オペレーティングシステムが 1 つのインターフェースを選んでそれにメンバーシップを追加する。利用可能なすべてのインターフェースにメンバーシップを追加するには、`addMembership` をインターフェースごとに 1 回ずつ複数回呼ぶ。\n\nバインドされていないソケットで呼ばれた場合、このメソッドは暗黙的にランダムなポートにバインドし、すべてのインターフェースでリッスンする。\n\n複数の `cluster` ワーカー間で UDP ソケットを共有する場合、`socket.addMembership()` 関数は一度だけ呼ばなければならず、そうでないと `EADDRINUSE` エラーが発生する:\n\n```js\nimport cluster from 'node:cluster';\nimport dgram from 'node:dgram';\n\nif (cluster.isPrimary) {\n  cluster.fork(); // Works ok.\n  cluster.fork(); // Fails with EADDRINUSE.\n} else {\n  const s = dgram.createSocket('udp4');\n  s.bind(1234, () => {\n    s.addMembership('224.0.0.114');\n  });\n}\n```",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.addMembership",
+      "lang": "ja"
+    },
+    "b248c2ca": {
+      "original": "Returns an object containing the address information for a socket.\nFor UDP sockets, this object will contain `address`, `family`, and `port` properties.\n\nThis method throws `EBADF` if called on an unbound socket.",
+      "translated": "ソケットのアドレス情報を含むオブジェクトを返す。UDP ソケットの場合、このオブジェクトは `address`・`family`・`port` プロパティを含む。\n\nこのメソッドは、バインドされていないソケットで呼ばれた場合 `EBADF` を投げる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.address",
+      "lang": "ja"
+    },
+    "a757a936": {
+      "original": "Tells the kernel to join a source-specific multicast channel at the given `sourceAddress` and `groupAddress`, using the `multicastInterface` with the `IP_ADD_SOURCE_MEMBERSHIP` socket\noption. If the `multicastInterface` argument\nis not specified, the operating system will choose one interface and will add\nmembership to it. To add membership to every available interface, call `socket.addSourceSpecificMembership()` multiple times, once per interface.\n\nWhen called on an unbound socket, this method will implicitly bind to a random\nport, listening on all interfaces.",
+      "translated": "`IP_ADD_SOURCE_MEMBERSHIP` ソケットオプションを使い、`multicastInterface` を使って、指定した `sourceAddress` と `groupAddress` で source-specific マルチキャストチャネルに参加するようカーネルに指示する。`multicastInterface` 引数が指定されない場合、オペレーティングシステムが 1 つのインターフェースを選んでそれにメンバーシップを追加する。利用可能なすべてのインターフェースにメンバーシップを追加するには、`socket.addSourceSpecificMembership()` をインターフェースごとに 1 回ずつ複数回呼ぶ。\n\nバインドされていないソケットで呼ばれた場合、このメソッドは暗黙的にランダムなポートにバインドし、すべてのインターフェースでリッスンする。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.addSourceSpecificMembership",
+      "lang": "ja"
+    },
+    "ad876a8c": {
+      "original": "For UDP sockets, causes the `dgram.Socket` to listen for datagram\nmessages on a named `port` and optional `address`. If `port` is not\nspecified or is `0`, the operating system will attempt to bind to a\nrandom port. If `address` is not specified, the operating system will\nattempt to listen on all addresses. Once binding is complete, a `'listening'` event is emitted and the optional `callback` function is\ncalled.\n\nSpecifying both a `'listening'` event listener and passing a `callback` to the `socket.bind()` method is not harmful but not very\nuseful.\n\nA bound datagram socket keeps the Node.js process running to receive\ndatagram messages.\n\nIf binding fails, an `'error'` event is generated. In rare case (e.g.\nattempting to bind with a closed socket), an `Error` may be thrown.\n\nExample of a UDP server listening on port 41234:\n\n```js\nimport dgram from 'node:dgram';\n\nconst server = dgram.createSocket('udp4');\n\nserver.on('error', (err) => {\n  console.error(`server error:\\n${err.stack}`);\n  server.close();\n});\n\nserver.on('message', (msg, rinfo) => {\n  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);\n});\n\nserver.on('listening', () => {\n  const address = server.address();\n  console.log(`server listening ${address.address}:${address.port}`);\n});\n\nserver.bind(41234);\n// Prints: server listening 0.0.0.0:41234\n```",
+      "translated": "UDP ソケットの場合、名前付きの `port` と省略可能な `address` で `dgram.Socket` にデータグラムメッセージをリッスンさせる。`port` が指定されないか `0` の場合、オペレーティングシステムはランダムなポートへのバインドを試みる。`address` が指定されない場合、オペレーティングシステムはすべてのアドレスでのリッスンを試みる。バインドが完了すると `'listening'` イベントが発行され、省略可能な `callback` 関数が呼ばれる。\n\n`'listening'` イベント listener を指定し、かつ `socket.bind()` メソッドに `callback` を渡すことは、有害ではないがあまり有用でない。\n\nバインドされたデータグラムソケットは、データグラムメッセージを受信するために Node.js プロセスを実行し続ける。\n\nバインドが失敗した場合、`'error'` イベントが生成される。まれなケース(たとえば閉じられたソケットでバインドを試みる)では、`Error` が投げられることがある。\n\nポート 41234 でリッスンする UDP サーバーの例:\n\n```js\nimport dgram from 'node:dgram';\n\nconst server = dgram.createSocket('udp4');\n\nserver.on('error', (err) => {\n  console.error(`server error:\\n${err.stack}`);\n  server.close();\n});\n\nserver.on('message', (msg, rinfo) => {\n  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);\n});\n\nserver.on('listening', () => {\n  const address = server.address();\n  console.log(`server listening ${address.address}:${address.port}`);\n});\n\nserver.bind(41234);\n// Prints: server listening 0.0.0.0:41234\n```",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.bind",
+      "lang": "ja"
+    },
+    "6cc1e418": {
+      "original": "with no parameters. Called when binding is complete.",
+      "translated": "パラメーターなし。バインドが完了したときに呼ばれる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.bind",
+      "lang": "ja"
+    },
+    "0f92b876": {
+      "original": "Called when the socket has been closed.",
+      "translated": "ソケットが閉じられたときに呼ばれる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.close",
+      "lang": "ja"
+    },
+    "00972f32": {
+      "original": "Close the underlying socket and stop listening for data on it. If a callback is\nprovided, it is added as a listener for the `'close'` event.",
+      "translated": "基盤となるソケットを閉じ、その上でのデータのリッスンを停止する。コールバックが指定された場合、`'close'` イベントの listener として追加される。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.close",
+      "lang": "ja"
+    },
+    "368fb5c4": {
+      "original": "Associates the `dgram.Socket` to a remote address and port. Every\nmessage sent by this handle is automatically sent to that destination. Also,\nthe socket will only receive messages from that remote peer.\nTrying to call `connect()` on an already connected socket will result\nin an `ERR_SOCKET_DGRAM_IS_CONNECTED` exception. If `address` is not\nprovided, `'127.0.0.1'` (for `udp4` sockets) or `'::1'` (for `udp6` sockets)\nwill be used by default. Once the connection is complete, a `'connect'` event\nis emitted and the optional `callback` function is called. In case of failure,\nthe `callback` is called or, failing this, an `'error'` event is emitted.",
+      "translated": "`dgram.Socket` をリモートアドレスとポートに関連付ける。このハンドルが送信するすべてのメッセージは自動的にその宛先に送られる。また、ソケットはそのリモートピアからのメッセージのみを受信する。すでに接続されたソケットで `connect()` を呼ぼうとすると `ERR_SOCKET_DGRAM_IS_CONNECTED` 例外になる。`address` が指定されない場合、`'127.0.0.1'`(`udp4` ソケット用)または `'::1'`(`udp6` ソケット用)が既定で使われる。接続が完了すると `'connect'` イベントが発行され、省略可能な `callback` 関数が呼ばれる。失敗した場合、`callback` が呼ばれるか、それがなければ `'error'` イベントが発行される。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.connect",
+      "lang": "ja"
+    },
+    "74f315e1": {
+      "original": "Called when the connection is completed or on error.",
+      "translated": "接続が完了したとき、またはエラー時に呼ばれる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.connect",
+      "lang": "ja"
+    },
+    "e1e72c30": {
+      "original": "A synchronous function that disassociates a connected `dgram.Socket` from\nits remote address. Trying to call `disconnect()` on an unbound or already\ndisconnected socket will result in an `ERR_SOCKET_DGRAM_NOT_CONNECTED` exception.",
+      "translated": "接続された `dgram.Socket` をそのリモートアドレスから切り離す同期関数。バインドされていないか、すでに切断されたソケットで `disconnect()` を呼ぼうとすると `ERR_SOCKET_DGRAM_NOT_CONNECTED` 例外になる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.disconnect",
+      "lang": "ja"
+    },
+    "fd6ac5ea": {
+      "original": "Instructs the kernel to leave a multicast group at `multicastAddress` using the `IP_DROP_MEMBERSHIP` socket option. This method is automatically called by the\nkernel when the socket is closed or the process terminates, so most apps will\nnever have reason to call this.\n\nIf `multicastInterface` is not specified, the operating system will attempt to\ndrop membership on all valid interfaces.",
+      "translated": "`IP_DROP_MEMBERSHIP` ソケットオプションを使って、`multicastAddress` でマルチキャストグループから離脱するようカーネルに指示する。このメソッドは、ソケットが閉じられるかプロセスが終了するときにカーネルによって自動的に呼ばれるため、ほとんどのアプリはこれを呼ぶ理由がない。\n\n`multicastInterface` が指定されない場合、オペレーティングシステムはすべての有効なインターフェースでメンバーシップの削除を試みる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.dropMembership",
+      "lang": "ja"
+    },
+    "7f627ec7": {
+      "original": "Instructs the kernel to leave a source-specific multicast channel at the given `sourceAddress` and `groupAddress` using the `IP_DROP_SOURCE_MEMBERSHIP` socket option. This method is\nautomatically called by the kernel when the\nsocket is closed or the process terminates, so most apps will never have\nreason to call this.\n\nIf `multicastInterface` is not specified, the operating system will attempt to\ndrop membership on all valid interfaces.",
+      "translated": "`IP_DROP_SOURCE_MEMBERSHIP` ソケットオプションを使って、指定した `sourceAddress` と `groupAddress` で source-specific マルチキャストチャネルから離脱するようカーネルに指示する。このメソッドは、ソケットが閉じられるかプロセスが終了するときにカーネルによって自動的に呼ばれるため、ほとんどのアプリはこれを呼ぶ理由がない。\n\n`multicastInterface` が指定されない場合、オペレーティングシステムはすべての有効なインターフェースでメンバーシップの削除を試みる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.dropSourceSpecificMembership",
+      "lang": "ja"
+    },
+    "8a8c5769": {
+      "original": "the `SO_RCVBUF` socket receive buffer size in bytes.",
+      "translated": "`SO_RCVBUF` ソケット受信バッファのサイズ(バイト単位)。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.getRecvBufferSize",
+      "lang": "ja"
+    },
+    "e0b98344": {
+      "original": "This method throws `ERR_SOCKET_BUFFER_SIZE` if called on an unbound socket.",
+      "translated": "このメソッドは、バインドされていないソケットで呼ばれた場合 `ERR_SOCKET_BUFFER_SIZE` を投げる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.getRecvBufferSize",
+      "lang": "ja"
+    },
+    "b3657014": {
+      "original": "the `SO_SNDBUF` socket send buffer size in bytes.",
+      "translated": "`SO_SNDBUF` ソケット送信バッファのサイズ(バイト単位)。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.getSendBufferSize",
+      "lang": "ja"
+    },
+    "5bdb0f98": {
+      "original": "Number of send requests currently in the queue awaiting to be processed.",
+      "translated": "現在キューにあり処理を待っている送信リクエストの数。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.getSendQueueCount",
+      "lang": "ja"
+    },
+    "c04499e6": {
+      "original": "Number of bytes queued for sending.",
+      "translated": "送信のためにキューされたバイト数。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.getSendQueueSize",
+      "lang": "ja"
+    },
+    "71b6287b": {
+      "original": "By default, binding a socket will cause it to block the Node.js process from\nexiting as long as the socket is open. The `socket.unref()` method can be used\nto exclude the socket from the reference counting that keeps the Node.js\nprocess active. The `socket.ref()` method adds the socket back to the reference\ncounting and restores the default behavior.\n\nCalling `socket.ref()` multiples times will have no additional effect.\n\nThe `socket.ref()` method returns a reference to the socket so calls can be\nchained.",
+      "translated": "既定では、ソケットをバインドすると、ソケットが開いている限り Node.js プロセスの終了をブロックさせる。`socket.unref()` メソッドを使うと、Node.js プロセスをアクティブに保つ参照カウントからソケットを除外できる。`socket.ref()` メソッドはソケットを参照カウントに戻し、既定の挙動を復元する。\n\n`socket.ref()` を複数回呼んでも追加の効果はない。\n\n`socket.ref()` メソッドはソケットへの参照を返すため、呼び出しをチェーンできる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.ref",
+      "lang": "ja"
+    },
+    "a3670a4e": {
+      "original": "Returns an object containing the `address`, `family`, and `port` of the remote\nendpoint. This method throws an `ERR_SOCKET_DGRAM_NOT_CONNECTED` exception\nif the socket is not connected.",
+      "translated": "リモートエンドポイントの `address`・`family`・`port` を含むオブジェクトを返す。このメソッドは、ソケットが接続されていない場合 `ERR_SOCKET_DGRAM_NOT_CONNECTED` 例外を投げる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.remoteAddress",
+      "lang": "ja"
+    },
+    "cc61b9f6": {
+      "original": "Broadcasts a datagram on the socket.\nFor connectionless sockets, the destination `port` and `address` must be\nspecified. Connected sockets, on the other hand, will use their associated\nremote endpoint, so the `port` and `address` arguments must not be set.\n\nThe `msg` argument contains the message to be sent.\nDepending on its type, different behavior can apply. If `msg` is a `Buffer`,\nany `TypedArray` or a `DataView`,\nthe `offset` and `length` specify the offset within the `Buffer` where the\nmessage begins and the number of bytes in the message, respectively.\nIf `msg` is a `String`, then it is automatically converted to a `Buffer` with `'utf8'` encoding. With messages that\ncontain multi-byte characters, `offset` and `length` will be calculated with\nrespect to `byte length` and not the character position.\nIf `msg` is an array, `offset` and `length` must not be specified.\n\nThe `address` argument is a string. If the value of `address` is a host name,\nDNS will be used to resolve the address of the host. If `address` is not\nprovided or otherwise nullish, `'127.0.0.1'` (for `udp4` sockets) or `'::1'` (for `udp6` sockets) will be used by default.\n\nIf the socket has not been previously bound with a call to `bind`, the socket\nis assigned a random port number and is bound to the \"all interfaces\" address\n(`'0.0.0.0'` for `udp4` sockets, `'::0'` for `udp6` sockets.)\n\nAn optional `callback` function may be specified to as a way of reporting\nDNS errors or for determining when it is safe to reuse the `buf` object.\nDNS lookups delay the time to send for at least one tick of the\nNode.js event loop.\n\nThe only way to know for sure that the datagram has been sent is by using a `callback`. If an error occurs and a `callback` is given, the error will be\npassed as the first argument to the `callback`. If a `callback` is not given,\nthe error is emitted as an `'error'` event on the `socket` object.\n\nOffset and length are optional but both _must_ be set if either are used.\nThey are supported only when the first argument is a `Buffer`, a `TypedArray`,\nor a `DataView`.\n\nThis method throws `ERR_SOCKET_BAD_PORT` if called on an unbound socket.\n\nExample of sending a UDP packet to a port on `localhost`;\n\n```js\nimport dgram from 'node:dgram';\nimport { Buffer } from 'node:buffer';\n\nconst message = Buffer.from('Some bytes');\nconst client = dgram.createSocket('udp4');\nclient.send(message, 41234, 'localhost', (err) => {\n  client.close();\n});\n```\n\nExample of sending a UDP packet composed of multiple buffers to a port on`127.0.0.1`;\n\n```js\nimport dgram from 'node:dgram';\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from('Some ');\nconst buf2 = Buffer.from('bytes');\nconst client = dgram.createSocket('udp4');\nclient.send([buf1, buf2], 41234, (err) => {\n  client.close();\n});\n```\n\nSending multiple buffers might be faster or slower depending on the\napplication and operating system. Run benchmarks to\ndetermine the optimal strategy on a case-by-case basis. Generally speaking,\nhowever, sending multiple buffers is faster.\n\nExample of sending a UDP packet using a socket connected to a port on `localhost`:\n\n```js\nimport dgram from 'node:dgram';\nimport { Buffer } from 'node:buffer';\n\nconst message = Buffer.from('Some bytes');\nconst client = dgram.createSocket('udp4');\nclient.connect(41234, 'localhost', (err) => {\n  client.send(message, (err) => {\n    client.close();\n  });\n});\n```",
+      "translated": "ソケットでデータグラムをブロードキャストする。コネクションレスなソケットの場合、宛先の `port` と `address` を指定しなければならない。一方、接続されたソケットは、関連付けられたリモートエンドポイントを使うため、`port` と `address` 引数を設定してはならない。\n\n`msg` 引数は送信するメッセージを含む。その型に応じて異なる挙動が適用される。`msg` が `Buffer`・任意の `TypedArray`・`DataView` の場合、`offset` と `length` はそれぞれ、メッセージが始まる `Buffer` 内のオフセットとメッセージ内のバイト数を指定する。`msg` が `String` の場合、`'utf8'` エンコーディングで自動的に `Buffer` に変換される。マルチバイト文字を含むメッセージでは、`offset` と `length` は文字位置ではなく `バイト長` に関して計算される。`msg` が配列の場合、`offset` と `length` を指定してはならない。\n\n`address` 引数は文字列である。`address` の値がホスト名の場合、DNS を使ってホストのアドレスが解決される。`address` が指定されないかその他 nullish の場合、`'127.0.0.1'`(`udp4` ソケット用)または `'::1'`(`udp6` ソケット用)が既定で使われる。\n\nソケットが以前 `bind` の呼び出しでバインドされていない場合、ソケットにはランダムなポート番号が割り当てられ、「全インターフェース」アドレス(`udp4` ソケットでは `'0.0.0.0'`、`udp6` ソケットでは `'::0'`)にバインドされる。\n\n省略可能な `callback` 関数を指定して、DNS エラーを報告したり、`buf` オブジェクトを再利用しても安全なタイミングを判定したりできる。DNS ルックアップは、送信までの時間を Node.js イベントループの少なくとも 1 tick 分遅延させる。\n\nデータグラムが送信されたことを確実に知る唯一の方法は `callback` を使うことである。エラーが発生し `callback` が指定されている場合、エラーは `callback` の第 1 引数として渡される。`callback` が指定されていない場合、エラーは `socket` オブジェクトで `'error'` イベントとして発行される。\n\noffset と length は省略可能だが、いずれかを使う場合は両方を_必ず_設定しなければならない。それらは、第 1 引数が `Buffer`・`TypedArray`・`DataView` の場合にのみサポートされる。\n\nこのメソッドは、バインドされていないソケットで呼ばれた場合 `ERR_SOCKET_BAD_PORT` を投げる。\n\n`localhost` のポートに UDP パケットを送信する例:\n\n```js\nimport dgram from 'node:dgram';\nimport { Buffer } from 'node:buffer';\n\nconst message = Buffer.from('Some bytes');\nconst client = dgram.createSocket('udp4');\nclient.send(message, 41234, 'localhost', (err) => {\n  client.close();\n});\n```\n\n複数のバッファで構成された UDP パケットを `127.0.0.1` のポートに送信する例:\n\n```js\nimport dgram from 'node:dgram';\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from('Some ');\nconst buf2 = Buffer.from('bytes');\nconst client = dgram.createSocket('udp4');\nclient.send([buf1, buf2], 41234, (err) => {\n  client.close();\n});\n```\n\n複数のバッファを送信することは、アプリケーションとオペレーティングシステムに応じて速くも遅くもなり得る。ケースごとに最適な戦略を判定するにはベンチマークを実行すること。ただし一般的に言えば、複数のバッファを送信する方が速い。\n\n`localhost` のポートに接続されたソケットを使って UDP パケットを送信する例:\n\n```js\nimport dgram from 'node:dgram';\nimport { Buffer } from 'node:buffer';\n\nconst message = Buffer.from('Some bytes');\nconst client = dgram.createSocket('udp4');\nclient.connect(41234, 'localhost', (err) => {\n  client.send(message, (err) => {\n    client.close();\n  });\n});\n```",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.send",
+      "lang": "ja"
+    },
+    "dae01a58": {
+      "original": "Called when the message has been sent.",
+      "translated": "メッセージが送信されたときに呼ばれる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.send",
+      "lang": "ja"
+    },
+    "b54418c2": {
+      "original": "Destination host name or IP address.",
+      "translated": "宛先ホスト名または IP アドレス。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.send",
+      "lang": "ja"
+    },
+    "aaff89f8": {
+      "original": "Destination port.",
+      "translated": "宛先ポート。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.send",
+      "lang": "ja"
+    },
     "f5cc1097": {
       "original": "The `node:diagnostics_channel` module provides an API to create named channels\nto report arbitrary message data for diagnostics purposes.\n\nIt can be accessed using:\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n```\n\nIt is intended that a module writer wanting to report diagnostics messages\nwill create one or many top-level channels to report messages through.\nChannels may also be acquired at runtime but it is not encouraged\ndue to the additional overhead of doing so. Channels may be exported for\nconvenience, but as long as the name is known it can be acquired anywhere.\n\nIf you intend for your module to produce diagnostics data for others to\nconsume it is recommended that you include documentation of what named\nchannels are used along with the shape of the message data. Channel names\nshould generally include the module name to avoid collisions with data from\nother modules.",
       "translated": "`node:diagnostics_channel` モジュールは、診断目的で任意のメッセージデータを報告するための名前付きチャネルを作成する API を提供する。\n\n次のようにアクセスできる:\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n```\n\n診断メッセージを報告したいモジュール作成者は、メッセージを報告する 1 つ以上のトップレベルチャネルを作成することが意図されている。チャネルは実行時にも取得できるが、それに伴う追加のオーバーヘッドのため推奨されない。チャネルは便宜のためエクスポートできるが、名前が分かっていればどこでも取得できる。\n\nモジュールが他者に消費してもらうための診断データを生成することを意図する場合、どの名前付きチャネルが使われるか、およびメッセージデータの形をドキュメント化することが推奨される。チャネル名は、他のモジュールのデータとの衝突を避けるため、一般にモジュール名を含めるべきである。",
