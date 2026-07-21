@@ -12322,6 +12322,132 @@
       "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.crlfDelay",
       "lang": "ja"
     },
+    "72c31cb8": {
+      "original": "The duration `readline` will wait for a character\n(when reading an ambiguous key sequence in milliseconds\none that can both form a complete key sequence using the input read so far\nand can take additional input to complete a longer key sequence).",
+      "translated": "`readline` が文字を待つ時間(あいまいなキーシーケンス、すなわちこれまでに読み取った入力で完全なキーシーケンスを形成できると同時に、より長いキーシーケンスを完成させるために追加入力を受け取ることもできるものを読み取るとき、ミリ秒単位)。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.escapeCodeTimeout",
+      "lang": "ja"
+    },
+    "c899daa7": {
+      "original": "Initial list of history lines.\nThis option makes sense only if `terminal` is set to `true` by the user or by an internal `output` check,\notherwise the history caching mechanism is not initialized at all.",
+      "translated": "履歴行の初期リスト。このオプションは、ユーザーによって、または内部の `output` チェックによって `terminal` が `true` に設定されている場合にのみ意味を持つ。そうでなければ、履歴キャッシュ機構はまったく初期化されない。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.history",
+      "lang": "ja"
+    },
+    "77d73f57": {
+      "original": "Maximum number of history lines retained.\nTo disable the history set this value to `0`.\nThis option makes sense only if `terminal` is set to `true` by the user or by an internal `output` check,\notherwise the history caching mechanism is not initialized at all.",
+      "translated": "保持する履歴行の最大数。履歴を無効にするには、この値を `0` に設定する。このオプションは、ユーザーによって、または内部の `output` チェックによって `terminal` が `true` に設定されている場合にのみ意味を持つ。そうでなければ、履歴キャッシュ機構はまったく初期化されない。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.historySize",
+      "lang": "ja"
+    },
+    "818b03c0": {
+      "original": "The [`Readable`](https://nodejs.org/docs/latest-v22.x/api/stream.html#readable-streams) stream to listen to",
+      "translated": "リッスンする [`Readable`](https://nodejs.org/docs/latest-v22.x/api/stream.html#readable-streams) ストリーム。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.input",
+      "lang": "ja"
+    },
+    "42090c19": {
+      "original": "The [`Writable`](https://nodejs.org/docs/latest-v22.x/api/stream.html#writable-streams) stream to write readline data to.",
+      "translated": "readline データを書き込む [`Writable`](https://nodejs.org/docs/latest-v22.x/api/stream.html#writable-streams) ストリーム。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.output",
+      "lang": "ja"
+    },
+    "4397d69a": {
+      "original": "The prompt string to use.",
+      "translated": "使用するプロンプト文字列。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.prompt",
+      "lang": "ja"
+    },
+    "8505bbc7": {
+      "original": "If `true`, when a new input line added to the history list duplicates an older one,\nthis removes the older line from the list.",
+      "translated": "`true` の場合、履歴リストに追加された新しい入力行が古いものと重複するとき、古い行をリストから削除する。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.removeHistoryDuplicates",
+      "lang": "ja"
+    },
+    "8925ea59": {
+      "original": "Allows closing the interface using an AbortSignal.\nAborting the signal will internally call `close` on the interface.",
+      "translated": "AbortSignal を使ってインターフェイスを閉じることを可能にする。シグナルを中止すると、内部でインターフェイスの `close` が呼ばれる。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.signal",
+      "lang": "ja"
+    },
+    "9e115afe": {
+      "original": "The number of spaces a tab is equal to (minimum 1).",
+      "translated": "タブが相当するスペースの数(最小 1)。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.tabSize",
+      "lang": "ja"
+    },
+    "bfc18bc4": {
+      "original": "`true` if the `input` and `output` streams should be treated like a TTY,\nand have ANSI/VT100 escape codes written to it.\nDefault: checking `isTTY` on the `output` stream upon instantiation.",
+      "translated": "`input` と `output` のストリームを TTY のように扱い、ANSI/VT100 エスケープコードを書き込むべき場合は `true`。既定: インスタンス化時に `output` ストリームの `isTTY` を確認する。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.terminal",
+      "lang": "ja"
+    },
+    "b21a525b": {
+      "original": "The `readlinePromises.createInterface()` method creates a new `readlinePromises.Interface` instance.\n\n```js\nimport readlinePromises from 'node:readline/promises';\nconst rl = readlinePromises.createInterface({\n  input: process.stdin,\n  output: process.stdout,\n});\n```\n\nOnce the `readlinePromises.Interface` instance is created, the most common case\nis to listen for the `'line'` event:\n\n```js\nrl.on('line', (line) => {\n  console.log(`Received: ${line}`);\n});\n```\n\nIf `terminal` is `true` for this instance then the `output` stream will get\nthe best compatibility if it defines an `output.columns` property and emits\na `'resize'` event on the `output` if or when the columns ever change\n(`process.stdout` does this automatically when it is a TTY).",
+      "translated": "`readlinePromises.createInterface()` メソッドは、新しい `readlinePromises.Interface` インスタンスを作成する。\n\n```js\nimport readlinePromises from 'node:readline/promises';\nconst rl = readlinePromises.createInterface({\n  input: process.stdin,\n  output: process.stdout,\n});\n```\n\n`readlinePromises.Interface` インスタンスが作成されると、最も一般的なケースは `'line'` イベントをリッスンすることである:\n\n```js\nrl.on('line', (line) => {\n  console.log(`Received: ${line}`);\n});\n```\n\nこのインスタンスで `terminal` が `true` の場合、`output` ストリームは `output.columns` プロパティを定義し、列数が変化したときに `output` で `'resize'` イベントを発行すると、最も高い互換性が得られる(`process.stdout` が TTY のときは自動的にこれを行う)。",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.createInterface",
+      "lang": "ja"
+    },
+    "a0740664": {
+      "original": "Instances of the `readlinePromises.Interface` class are constructed using the `readlinePromises.createInterface()` method. Every instance is associated with a\nsingle `input` `Readable` stream and a single `output` `Writable` stream.\nThe `output` stream is used to print prompts for user input that arrives on,\nand is read from, the `input` stream.",
+      "translated": "`readlinePromises.Interface` クラスのインスタンスは、`readlinePromises.createInterface()` メソッドを使って構築される。各インスタンスは、単一の `input` `Readable` ストリームと単一の `output` `Writable` ストリームに関連付けられる。`output` ストリームは、`input` ストリームに到達してそこから読み取られるユーザー入力のためのプロンプトを表示するために使われる。",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.Interface",
+      "lang": "ja"
+    },
+    "d961dfd8": {
+      "original": "A promise that is fulfilled with the user's input in response to the `query`.",
+      "translated": "`query` に対するユーザーの入力で解決される Promise。",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.Interface.question",
+      "lang": "ja"
+    },
+    "a5858a69": {
+      "original": "The `rl.question()` method displays the `query` by writing it to the `output`,\nwaits for user input to be provided on `input`, then invokes the `callback` function passing the provided input as the first argument.\n\nWhen called, `rl.question()` will resume the `input` stream if it has been\npaused.\n\nIf the `Interface` was created with `output` set to `null` or `undefined` the `query` is not written.\n\nIf the question is called after `rl.close()`, it returns a rejected promise.\n\nExample usage:\n\n```js\nconst answer = await rl.question('What is your favorite food? ');\nconsole.log(`Oh, so your favorite food is ${answer}`);\n```\n\nUsing an `AbortSignal` to cancel a question.\n\n```js\nconst signal = AbortSignal.timeout(10_000);\n\nsignal.addEventListener('abort', () => {\n  console.log('The food question timed out');\n}, { once: true });\n\nconst answer = await rl.question('What is your favorite food? ', { signal });\nconsole.log(`Oh, so your favorite food is ${answer}`);\n```",
+      "translated": "`rl.question()` メソッドは、`query` を `output` に書き込むことで表示し、`input` でユーザー入力が提供されるのを待ち、提供された入力を第 1 引数として `callback` 関数を呼び出す。\n\n呼び出されると、`rl.question()` は一時停止されていた `input` ストリームを再開する。\n\n`Interface` が `output` を `null` または `undefined` に設定して作成された場合、`query` は書き込まれない。\n\n`rl.close()` の後に question が呼ばれた場合、拒否された Promise を返す。\n\n使用例:\n\n```js\nconst answer = await rl.question('What is your favorite food? ');\nconsole.log(`Oh, so your favorite food is ${answer}`);\n```\n\n`AbortSignal` を使って質問をキャンセルする:\n\n```js\nconst signal = AbortSignal.timeout(10_000);\n\nsignal.addEventListener('abort', () => {\n  console.log('The food question timed out');\n}, { once: true });\n\nconst answer = await rl.question('What is your favorite food? ', { signal });\nconsole.log(`Oh, so your favorite food is ${answer}`);\n```",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.Interface.question",
+      "lang": "ja"
+    },
+    "1ebfe308": {
+      "original": "A TTY stream.",
+      "translated": "TTY ストリーム。",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.Readline",
+      "lang": "ja"
+    },
+    "6227d259": {
+      "original": "The `rl.clearLine()` method adds to the internal list of pending action an\naction that clears current line of the associated `stream` in a specified\ndirection identified by `dir`.\nCall `rl.commit()` to see the effect of this method, unless `autoCommit: true` was passed to the constructor.",
+      "translated": "`rl.clearLine()` メソッドは、関連付けられた `stream` の現在の行を、`dir` で指定された方向にクリアするアクションを、内部の保留アクションリストに追加する。コンストラクターに `autoCommit: true` を渡していない限り、このメソッドの効果を確認するには `rl.commit()` を呼ぶ。",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.Readline.clearLine",
+      "lang": "ja"
+    },
+    "2c959e50": {
+      "original": "The `rl.clearScreenDown()` method adds to the internal list of pending action an\naction that clears the associated stream from the current position of the\ncursor down.\nCall `rl.commit()` to see the effect of this method, unless `autoCommit: true` was passed to the constructor.",
+      "translated": "`rl.clearScreenDown()` メソッドは、関連付けられたストリームをカーソルの現在位置から下方向にクリアするアクションを、内部の保留アクションリストに追加する。コンストラクターに `autoCommit: true` を渡していない限り、このメソッドの効果を確認するには `rl.commit()` を呼ぶ。",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.Readline.clearScreenDown",
+      "lang": "ja"
+    },
+    "844484cb": {
+      "original": "The `rl.commit()` method sends all the pending actions to the associated `stream` and clears the internal list of pending actions.",
+      "translated": "`rl.commit()` メソッドは、すべての保留アクションを関連付けられた `stream` に送り、内部の保留アクションリストをクリアする。",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.Readline.commit",
+      "lang": "ja"
+    },
+    "f60730aa": {
+      "original": "The `rl.cursorTo()` method adds to the internal list of pending action an action\nthat moves cursor to the specified position in the associated `stream`.\nCall `rl.commit()` to see the effect of this method, unless `autoCommit: true` was passed to the constructor.",
+      "translated": "`rl.cursorTo()` メソッドは、関連付けられた `stream` 内の指定された位置にカーソルを移動するアクションを、内部の保留アクションリストに追加する。コンストラクターに `autoCommit: true` を渡していない限り、このメソッドの効果を確認するには `rl.commit()` を呼ぶ。",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.Readline.cursorTo",
+      "lang": "ja"
+    },
+    "5adbf007": {
+      "original": "The `rl.moveCursor()` method adds to the internal list of pending action an\naction that moves the cursor _relative_ to its current position in the\nassociated `stream`.\nCall `rl.commit()` to see the effect of this method, unless `autoCommit: true` was passed to the constructor.",
+      "translated": "`rl.moveCursor()` メソッドは、関連付けられた `stream` 内でカーソルを現在位置を基準として_相対的に_移動するアクションを、内部の保留アクションリストに追加する。コンストラクターに `autoCommit: true` を渡していない限り、このメソッドの効果を確認するには `rl.commit()` を呼ぶ。",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.Readline.moveCursor",
+      "lang": "ja"
+    },
+    "ac7a0301": {
+      "original": "The `rl.rollback` methods clears the internal list of pending actions without\nsending it to the associated `stream`.",
+      "translated": "`rl.rollback` メソッドは、内部の保留アクションリストを、関連付けられた `stream` に送ることなくクリアする。",
+      "symbol": "@types/node/readline/promises.d.ts#readline/promises.Readline.rollback",
+      "lang": "ja"
+    },
     "5502a6b0": {
       "original": "The `node:repl` module provides a Read-Eval-Print-Loop (REPL) implementation\nthat is available both as a standalone program or includible in other\napplications. It can be accessed using:\n\n```js\nimport repl from 'node:repl';\n```",
       "translated": "`node:repl` モジュールは、スタンドアロンプログラムとしても、他のアプリケーションに組み込めるものとしても利用できる Read-Eval-Print-Loop(REPL)実装を提供する。次のようにアクセスできる:\n\n```js\nimport repl from 'node:repl';\n```",
