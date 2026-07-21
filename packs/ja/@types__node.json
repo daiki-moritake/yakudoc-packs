@@ -3886,6 +3886,72 @@
       "symbol": "@types/node/dgram.d.ts#dgram.Socket.send",
       "lang": "ja"
     },
+    "8fbf1320": {
+      "original": "Message to be sent.",
+      "translated": "送信するメッセージ。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.send",
+      "lang": "ja"
+    },
+    "01ebff22": {
+      "original": "Number of bytes in the message.",
+      "translated": "メッセージ内のバイト数。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.send",
+      "lang": "ja"
+    },
+    "3943f957": {
+      "original": "Offset in the buffer where the message starts.",
+      "translated": "メッセージが始まるバッファ内のオフセット。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.send",
+      "lang": "ja"
+    },
+    "9ccd9af8": {
+      "original": "Sets or clears the `SO_BROADCAST` socket option. When set to `true`, UDP\npackets may be sent to a local interface's broadcast address.\n\nThis method throws `EBADF` if called on an unbound socket.",
+      "translated": "`SO_BROADCAST` ソケットオプションを設定またはクリアする。`true` に設定した場合、UDP パケットをローカルインターフェースのブロードキャストアドレスに送信できる。\n\nこのメソッドは、バインドされていないソケットで呼ばれた場合 `EBADF` を投げる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.setBroadcast",
+      "lang": "ja"
+    },
+    "da0df4d8": {
+      "original": "_All references to scope in this section are referring to [IPv6 Zone Indices](https://en.wikipedia.org/wiki/IPv6_address#Scoped_literal_IPv6_addresses), which are defined by [RFC\n4007](https://tools.ietf.org/html/rfc4007). In string form, an IP_\n_with a scope index is written as `'IP%scope'` where scope is an interface name_\n_or interface number._\n\nSets the default outgoing multicast interface of the socket to a chosen\ninterface or back to system interface selection. The `multicastInterface` must\nbe a valid string representation of an IP from the socket's family.\n\nFor IPv4 sockets, this should be the IP configured for the desired physical\ninterface. All packets sent to multicast on the socket will be sent on the\ninterface determined by the most recent successful use of this call.\n\nFor IPv6 sockets, `multicastInterface` should include a scope to indicate the\ninterface as in the examples that follow. In IPv6, individual `send` calls can\nalso use explicit scope in addresses, so only packets sent to a multicast\naddress without specifying an explicit scope are affected by the most recent\nsuccessful use of this call.\n\nThis method throws `EBADF` if called on an unbound socket.\n\n#### Example: IPv6 outgoing multicast interface\n\nOn most systems, where scope format uses the interface name:\n\n```js\nconst socket = dgram.createSocket('udp6');\n\nsocket.bind(1234, () => {\n  socket.setMulticastInterface('::%eth1');\n});\n```\n\nOn Windows, where scope format uses an interface number:\n\n```js\nconst socket = dgram.createSocket('udp6');\n\nsocket.bind(1234, () => {\n  socket.setMulticastInterface('::%2');\n});\n```\n\n#### Example: IPv4 outgoing multicast interface\n\nAll systems use an IP of the host on the desired physical interface:\n\n```js\nconst socket = dgram.createSocket('udp4');\n\nsocket.bind(1234, () => {\n  socket.setMulticastInterface('10.0.0.2');\n});\n```",
+      "translated": "_このセクションでの scope へのすべての言及は、[RFC 4007](https://tools.ietf.org/html/rfc4007) で定義された [IPv6 ゾーンインデックス](https://en.wikipedia.org/wiki/IPv6_address#Scoped_literal_IPv6_addresses)を指す。文字列形式では、scope インデックス付きの IP は `'IP%scope'` と書かれ、scope はインターフェース名またはインターフェース番号である。_\n\nソケットの既定の送信マルチキャストインターフェースを、選択したインターフェースに設定するか、システムのインターフェース選択に戻す。`multicastInterface` は、ソケットのファミリーからの有効な IP 文字列表現でなければならない。\n\nIPv4 ソケットの場合、これは目的の物理インターフェースに設定された IP であるべきである。ソケットでマルチキャストに送信されるすべてのパケットは、この呼び出しの最も最近の成功した使用によって決定されるインターフェースで送信される。\n\nIPv6 ソケットの場合、`multicastInterface` は、後続の例のようにインターフェースを示す scope を含めるべきである。IPv6 では、個々の `send` 呼び出しもアドレスに明示的な scope を使えるため、明示的な scope を指定せずにマルチキャストアドレスに送信されたパケットのみが、この呼び出しの最も最近の成功した使用の影響を受ける。\n\nこのメソッドは、バインドされていないソケットで呼ばれた場合 `EBADF` を投げる。\n\n#### 例: IPv6 の送信マルチキャストインターフェース\n\nscope 形式がインターフェース名を使うほとんどのシステムで:\n\n```js\nconst socket = dgram.createSocket('udp6');\n\nsocket.bind(1234, () => {\n  socket.setMulticastInterface('::%eth1');\n});\n```\n\nscope 形式がインターフェース番号を使う Windows で:\n\n```js\nconst socket = dgram.createSocket('udp6');\n\nsocket.bind(1234, () => {\n  socket.setMulticastInterface('::%2');\n});\n```\n\n#### 例: IPv4 の送信マルチキャストインターフェース\n\nすべてのシステムは、目的の物理インターフェース上のホストの IP を使う:\n\n```js\nconst socket = dgram.createSocket('udp4');\n\nsocket.bind(1234, () => {\n  socket.setMulticastInterface('10.0.0.2');\n});\n```",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.setMulticastInterface",
+      "lang": "ja"
+    },
+    "713c0314": {
+      "original": "Sets or clears the `IP_MULTICAST_LOOP` socket option. When set to `true`,\nmulticast packets will also be received on the local interface.\n\nThis method throws `EBADF` if called on an unbound socket.",
+      "translated": "`IP_MULTICAST_LOOP` ソケットオプションを設定またはクリアする。`true` に設定した場合、マルチキャストパケットはローカルインターフェースでも受信される。\n\nこのメソッドは、バインドされていないソケットで呼ばれた場合 `EBADF` を投げる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.setMulticastLoopback",
+      "lang": "ja"
+    },
+    "fa064621": {
+      "original": "Sets the `IP_MULTICAST_TTL` socket option. While TTL generally stands for\n\"Time to Live\", in this context it specifies the number of IP hops that a\npacket is allowed to travel through, specifically for multicast traffic. Each\nrouter or gateway that forwards a packet decrements the TTL. If the TTL is\ndecremented to 0 by a router, it will not be forwarded.\n\nThe `ttl` argument may be between 0 and 255\\. The default on most systems is `1`.\n\nThis method throws `EBADF` if called on an unbound socket.",
+      "translated": "`IP_MULTICAST_TTL` ソケットオプションを設定する。TTL は一般に「Time to Live」を表すが、この文脈では、特にマルチキャストトラフィックについて、パケットが通過できる IP ホップ数を指定する。パケットを転送する各ルーターやゲートウェイは TTL をデクリメントする。ルーターによって TTL が 0 にデクリメントされた場合、それ以上転送されない。\n\n`ttl` 引数は 0 から 255 の間でよい。ほとんどのシステムでの既定は `1` である。\n\nこのメソッドは、バインドされていないソケットで呼ばれた場合 `EBADF` を投げる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.setMulticastTTL",
+      "lang": "ja"
+    },
+    "9ac6549f": {
+      "original": "Sets the `SO_RCVBUF` socket option. Sets the maximum socket receive buffer\nin bytes.\n\nThis method throws `ERR_SOCKET_BUFFER_SIZE` if called on an unbound socket.",
+      "translated": "`SO_RCVBUF` ソケットオプションを設定する。ソケット受信バッファの最大値をバイト単位で設定する。\n\nこのメソッドは、バインドされていないソケットで呼ばれた場合 `ERR_SOCKET_BUFFER_SIZE` を投げる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.setRecvBufferSize",
+      "lang": "ja"
+    },
+    "6a5eebcc": {
+      "original": "Sets the `SO_SNDBUF` socket option. Sets the maximum socket send buffer\nin bytes.\n\nThis method throws `ERR_SOCKET_BUFFER_SIZE` if called on an unbound socket.",
+      "translated": "`SO_SNDBUF` ソケットオプションを設定する。ソケット送信バッファの最大値をバイト単位で設定する。\n\nこのメソッドは、バインドされていないソケットで呼ばれた場合 `ERR_SOCKET_BUFFER_SIZE` を投げる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.setSendBufferSize",
+      "lang": "ja"
+    },
+    "c862f974": {
+      "original": "Sets the `IP_TTL` socket option. While TTL generally stands for \"Time to Live\",\nin this context it specifies the number of IP hops that a packet is allowed to\ntravel through. Each router or gateway that forwards a packet decrements the\nTTL. If the TTL is decremented to 0 by a router, it will not be forwarded.\nChanging TTL values is typically done for network probes or when multicasting.\n\nThe `ttl` argument may be between 1 and 255\\. The default on most systems\nis 64.\n\nThis method throws `EBADF` if called on an unbound socket.",
+      "translated": "`IP_TTL` ソケットオプションを設定する。TTL は一般に「Time to Live」を表すが、この文脈では、パケットが通過できる IP ホップ数を指定する。パケットを転送する各ルーターやゲートウェイは TTL をデクリメントする。ルーターによって TTL が 0 にデクリメントされた場合、それ以上転送されない。TTL 値の変更は通常、ネットワークプローブのときやマルチキャストのときに行われる。\n\n`ttl` 引数は 1 から 255 の間でよい。ほとんどのシステムでの既定は 64 である。\n\nこのメソッドは、バインドされていないソケットで呼ばれた場合 `EBADF` を投げる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.setTTL",
+      "lang": "ja"
+    },
+    "0ac0370f": {
+      "original": "By default, binding a socket will cause it to block the Node.js process from\nexiting as long as the socket is open. The `socket.unref()` method can be used\nto exclude the socket from the reference counting that keeps the Node.js\nprocess active, allowing the process to exit even if the socket is still\nlistening.\n\nCalling `socket.unref()` multiple times will have no additional effect.\n\nThe `socket.unref()` method returns a reference to the socket so calls can be\nchained.",
+      "translated": "既定では、ソケットをバインドすると、ソケットが開いている限り Node.js プロセスの終了をブロックさせる。`socket.unref()` メソッドを使うと、Node.js プロセスをアクティブに保つ参照カウントからソケットを除外でき、ソケットがまだリッスンしていてもプロセスが終了できるようになる。\n\n`socket.unref()` を複数回呼んでも追加の効果はない。\n\n`socket.unref()` メソッドはソケットへの参照を返すため、呼び出しをチェーンできる。",
+      "symbol": "@types/node/dgram.d.ts#dgram.Socket.unref",
+      "lang": "ja"
+    },
     "f5cc1097": {
       "original": "The `node:diagnostics_channel` module provides an API to create named channels\nto report arbitrary message data for diagnostics purposes.\n\nIt can be accessed using:\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n```\n\nIt is intended that a module writer wanting to report diagnostics messages\nwill create one or many top-level channels to report messages through.\nChannels may also be acquired at runtime but it is not encouraged\ndue to the additional overhead of doing so. Channels may be exported for\nconvenience, but as long as the name is known it can be acquired anywhere.\n\nIf you intend for your module to produce diagnostics data for others to\nconsume it is recommended that you include documentation of what named\nchannels are used along with the shape of the message data. Channel names\nshould generally include the module name to avoid collisions with data from\nother modules.",
       "translated": "`node:diagnostics_channel` モジュールは、診断目的で任意のメッセージデータを報告するための名前付きチャネルを作成する API を提供する。\n\n次のようにアクセスできる:\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n```\n\n診断メッセージを報告したいモジュール作成者は、メッセージを報告する 1 つ以上のトップレベルチャネルを作成することが意図されている。チャネルは実行時にも取得できるが、それに伴う追加のオーバーヘッドのため推奨されない。チャネルは便宜のためエクスポートできるが、名前が分かっていればどこでも取得できる。\n\nモジュールが他者に消費してもらうための診断データを生成することを意図する場合、どの名前付きチャネルが使われるか、およびメッセージデータの形をドキュメント化することが推奨される。チャネル名は、他のモジュールのデータとの衝突を避けるため、一般にモジュール名を含めるべきである。",
