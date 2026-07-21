@@ -2068,6 +2068,90 @@
       "symbol": "@types/node/child_process.d.ts#child_process.execFile",
       "lang": "ja"
     },
+    "320d0cd1": {
+      "original": "The name or path of the executable file to run.",
+      "translated": "実行する実行ファイルの名前またはパス。",
+      "symbol": "@types/node/child_process.d.ts#child_process.execFile",
+      "lang": "ja"
+    },
+    "21a1ca2d": {
+      "original": "Use `ExecFileOptions` instead.",
+      "translated": "代わりに `ExecFileOptions` を使うこと。",
+      "symbol": "@types/node/child_process.d.ts#child_process.ExecFileOptionsWithOtherEncoding",
+      "lang": "ja"
+    },
+    "f47cb68a": {
+      "original": "The `child_process.execFileSync()` method is generally identical to {@link execFile} with the exception that the method will not\nreturn until the child process has fully closed. When a timeout has been\nencountered and `killSignal` is sent, the method won't return until the process\nhas completely exited.\n\nIf the child process intercepts and handles the `SIGTERM` signal and\ndoes not exit, the parent process will still wait until the child process has\nexited.\n\nIf the process times out or has a non-zero exit code, this method will throw an `Error` that will include the full result of the underlying {@link spawnSync}.\n\n**If the `shell` option is enabled, do not pass unsanitized user input to this**\n**function. Any input containing shell metacharacters may be used to trigger**\n**arbitrary command execution.**",
+      "translated": "`child_process.execFileSync()` メソッドは概ね {@link execFile} と同一だが、子プロセスが完全に閉じるまでメソッドが返らない点が異なる。タイムアウトに遭遇して `killSignal` が送られた場合、プロセスが完全に終了するまでメソッドは返らない。\n\n子プロセスが `SIGTERM` シグナルをインターセプトして処理し終了しない場合でも、親プロセスは子プロセスが終了するまで待つ。\n\nプロセスがタイムアウトするか非ゼロの終了コードを持つ場合、このメソッドは、基盤となる {@link spawnSync} の完全な結果を含む `Error` を投げる。\n\n**`shell` オプションが有効な場合、サニタイズされていないユーザー入力をこの関数に渡さないこと。シェルのメタ文字を含む入力は、任意のコマンド実行をトリガーするために使われ得る。**",
+      "symbol": "@types/node/child_process.d.ts#child_process.execFileSync",
+      "lang": "ja"
+    },
+    "d61681e8": {
+      "original": "The `child_process.execSync()` method is generally identical to {@link exec} with the exception that the method will not return\nuntil the child process has fully closed. When a timeout has been encountered\nand `killSignal` is sent, the method won't return until the process has\ncompletely exited. If the child process intercepts and handles the `SIGTERM` signal and doesn't exit, the parent process will wait until the child process\nhas exited.\n\nIf the process times out or has a non-zero exit code, this method will throw.\nThe `Error` object will contain the entire result from {@link spawnSync}.\n\n**Never pass unsanitized user input to this function. Any input containing shell**\n**metacharacters may be used to trigger arbitrary command execution.**",
+      "translated": "`child_process.execSync()` メソッドは概ね {@link exec} と同一だが、子プロセスが完全に閉じるまでメソッドが返らない点が異なる。タイムアウトに遭遇して `killSignal` が送られた場合、プロセスが完全に終了するまでメソッドは返らない。子プロセスが `SIGTERM` シグナルをインターセプトして処理し終了しない場合、親プロセスは子プロセスが終了するまで待つ。\n\nプロセスがタイムアウトするか非ゼロの終了コードを持つ場合、このメソッドは投げる。`Error` オブジェクトは {@link spawnSync} からの結果全体を含む。\n\n**サニタイズされていないユーザー入力を決してこの関数に渡さないこと。シェルのメタ文字を含む入力は、任意のコマンド実行をトリガーするために使われ得る。**",
+      "symbol": "@types/node/child_process.d.ts#child_process.execSync",
+      "lang": "ja"
+    },
+    "6c1a7092": {
+      "original": "The stdout from the command.",
+      "translated": "コマンドからの stdout。",
+      "symbol": "@types/node/child_process.d.ts#child_process.execSync",
+      "lang": "ja"
+    },
+    "4d39feb6": {
+      "original": "The `child_process.fork()` method is a special case of {@link spawn} used specifically to spawn new Node.js processes.\nLike {@link spawn}, a `ChildProcess` object is returned. The\nreturned `ChildProcess` will have an additional communication channel\nbuilt-in that allows messages to be passed back and forth between the parent and\nchild. See `subprocess.send()` for details.\n\nKeep in mind that spawned Node.js child processes are\nindependent of the parent with exception of the IPC communication channel\nthat is established between the two. Each process has its own memory, with\ntheir own V8 instances. Because of the additional resource allocations\nrequired, spawning a large number of child Node.js processes is not\nrecommended.\n\nBy default, `child_process.fork()` will spawn new Node.js instances using the `process.execPath` of the parent process. The `execPath` property in the `options` object allows for an alternative\nexecution path to be used.\n\nNode.js processes launched with a custom `execPath` will communicate with the\nparent process using the file descriptor (fd) identified using the\nenvironment variable `NODE_CHANNEL_FD` on the child process.\n\nUnlike the [`fork(2)`](http://man7.org/linux/man-pages/man2/fork.2.html) POSIX system call, `child_process.fork()` does not clone the\ncurrent process.\n\nThe `shell` option available in {@link spawn} is not supported by `child_process.fork()` and will be ignored if set.\n\nIf the `signal` option is enabled, calling `.abort()` on the corresponding `AbortController` is similar to calling `.kill()` on the child process except\nthe error passed to the callback will be an `AbortError`:\n\n```js\nif (process.argv[2] === 'child') {\n  setTimeout(() => {\n    console.log(`Hello from ${process.argv[2]}!`);\n  }, 1_000);\n} else {\n  import { fork } from 'node:child_process';\n  const controller = new AbortController();\n  const { signal } = controller;\n  const child = fork(__filename, ['child'], { signal });\n  child.on('error', (err) => {\n    // This will be called with err being an AbortError if the controller aborts\n  });\n  controller.abort(); // Stops the child process\n}\n```",
+      "translated": "`child_process.fork()` メソッドは、新しい Node.js プロセスを生成するために特別に使われる {@link spawn} の特殊なケースである。{@link spawn} と同様に、`ChildProcess` オブジェクトが返される。返される `ChildProcess` は、親子間でメッセージをやり取りできる追加の通信チャネルを組み込みで持つ。詳細は `subprocess.send()` を参照。\n\n生成された Node.js の子プロセスは、両者の間に確立される IPC 通信チャネルを除いて親から独立している点に注意すること。各プロセスは独自の V8 インスタンスを持つ独自のメモリを持つ。必要な追加のリソース割り当てのため、大量の子 Node.js プロセスを生成することは推奨されない。\n\n既定では、`child_process.fork()` は親プロセスの `process.execPath` を使って新しい Node.js インスタンスを生成する。`options` オブジェクトの `execPath` プロパティを使うと、代替の実行パスを使える。\n\nカスタムの `execPath` で起動された Node.js プロセスは、子プロセスで環境変数 `NODE_CHANNEL_FD` を使って識別されるファイルディスクリプタ(fd)を使って親プロセスと通信する。\n\n[`fork(2)`](http://man7.org/linux/man-pages/man2/fork.2.html) POSIX システムコールとは異なり、`child_process.fork()` は現在のプロセスをクローンしない。\n\n{@link spawn} で利用できる `shell` オプションは `child_process.fork()` ではサポートされず、設定されても無視される。\n\n`signal` オプションが有効な場合、対応する `AbortController` で `.abort()` を呼ぶことは、コールバックに渡されるエラーが `AbortError` になる点を除いて、子プロセスで `.kill()` を呼ぶのに似ている:\n\n```js\nif (process.argv[2] === 'child') {\n  setTimeout(() => {\n    console.log(`Hello from ${process.argv[2]}!`);\n  }, 1_000);\n} else {\n  import { fork } from 'node:child_process';\n  const controller = new AbortController();\n  const { signal } = controller;\n  const child = fork(__filename, ['child'], { signal });\n  child.on('error', (err) => {\n    // This will be called with err being an AbortError if the controller aborts\n  });\n  controller.abort(); // Stops the child process\n}\n```",
+      "symbol": "@types/node/child_process.d.ts#child_process.fork",
+      "lang": "ja"
+    },
+    "71ab0eb5": {
+      "original": "The module to run in the child.",
+      "translated": "子で実行するモジュール。",
+      "symbol": "@types/node/child_process.d.ts#child_process.fork",
+      "lang": "ja"
+    },
+    "1bf69fd6": {
+      "original": "The signal value to be used when the spawned process will be killed by the abort signal.",
+      "translated": "生成されたプロセスが abort signal によって kill されるときに使うシグナル値。",
+      "symbol": "@types/node/child_process.d.ts#child_process.MessagingOptions.killSignal",
+      "lang": "ja"
+    },
+    "813cb34e": {
+      "original": "Specify the kind of serialization used for sending messages between processes.",
+      "translated": "プロセス間でメッセージを送るときに使うシリアライズの種類を指定する。",
+      "symbol": "@types/node/child_process.d.ts#child_process.MessagingOptions.serialization",
+      "lang": "ja"
+    },
+    "9017d26f": {
+      "original": "In milliseconds the maximum amount of time the process is allowed to run.",
+      "translated": "プロセスの実行が許可される最大時間(ミリ秒)。",
+      "symbol": "@types/node/child_process.d.ts#child_process.MessagingOptions.timeout",
+      "lang": "ja"
+    },
+    "d04abacf": {
+      "original": "List of string arguments.",
+      "translated": "文字列引数のリスト。",
+      "symbol": "@types/node/child_process.d.ts#child_process.spawn",
+      "lang": "ja"
+    },
+    "7e7fb4fa": {
+      "original": "The `child_process.spawn()` method spawns a new process using the given `command`, with command-line arguments in `args`. If omitted, `args` defaults\nto an empty array.\n\n**If the `shell` option is enabled, do not pass unsanitized user input to this**\n**function. Any input containing shell metacharacters may be used to trigger**\n**arbitrary command execution.**\n\nA third argument may be used to specify additional options, with these defaults:\n\n```js\nconst defaults = {\n  cwd: undefined,\n  env: process.env,\n};\n```\n\nUse `cwd` to specify the working directory from which the process is spawned.\nIf not given, the default is to inherit the current working directory. If given,\nbut the path does not exist, the child process emits an `ENOENT` error\nand exits immediately. `ENOENT` is also emitted when the command\ndoes not exist.\n\nUse `env` to specify environment variables that will be visible to the new\nprocess, the default is `process.env`.\n\n`undefined` values in `env` will be ignored.\n\nExample of running `ls -lh /usr`, capturing `stdout`, `stderr`, and the\nexit code:\n\n```js\nimport { spawn } from 'node:child_process';\nconst ls = spawn('ls', ['-lh', '/usr']);\n\nls.stdout.on('data', (data) => {\n  console.log(`stdout: ${data}`);\n});\n\nls.stderr.on('data', (data) => {\n  console.error(`stderr: ${data}`);\n});\n\nls.on('close', (code) => {\n  console.log(`child process exited with code ${code}`);\n});\n```\n\nExample: A very elaborate way to run `ps ax | grep ssh`\n\n```js\nimport { spawn } from 'node:child_process';\nconst ps = spawn('ps', ['ax']);\nconst grep = spawn('grep', ['ssh']);\n\nps.stdout.on('data', (data) => {\n  grep.stdin.write(data);\n});\n\nps.stderr.on('data', (data) => {\n  console.error(`ps stderr: ${data}`);\n});\n\nps.on('close', (code) => {\n  if (code !== 0) {\n    console.log(`ps process exited with code ${code}`);\n  }\n  grep.stdin.end();\n});\n\ngrep.stdout.on('data', (data) => {\n  console.log(data.toString());\n});\n\ngrep.stderr.on('data', (data) => {\n  console.error(`grep stderr: ${data}`);\n});\n\ngrep.on('close', (code) => {\n  if (code !== 0) {\n    console.log(`grep process exited with code ${code}`);\n  }\n});\n```\n\nExample of checking for failed `spawn`:\n\n```js\nimport { spawn } from 'node:child_process';\nconst subprocess = spawn('bad_command');\n\nsubprocess.on('error', (err) => {\n  console.error('Failed to start subprocess.');\n});\n```\n\nCertain platforms (macOS, Linux) will use the value of `argv[0]` for the process\ntitle while others (Windows, SunOS) will use `command`.\n\nNode.js overwrites `argv[0]` with `process.execPath` on startup, so `process.argv[0]` in a Node.js child process will not match the `argv0` parameter passed to `spawn` from the parent. Retrieve\nit with the `process.argv0` property instead.\n\nIf the `signal` option is enabled, calling `.abort()` on the corresponding `AbortController` is similar to calling `.kill()` on the child process except\nthe error passed to the callback will be an `AbortError`:\n\n```js\nimport { spawn } from 'node:child_process';\nconst controller = new AbortController();\nconst { signal } = controller;\nconst grep = spawn('grep', ['ssh'], { signal });\ngrep.on('error', (err) => {\n  // This will be called with err being an AbortError if the controller aborts\n});\ncontroller.abort(); // Stops the child process\n```",
+      "translated": "`child_process.spawn()` メソッドは、指定した `command` を使い、`args` のコマンドライン引数とともに新しいプロセスを生成する。省略された場合、`args` は既定で空配列になる。\n\n**`shell` オプションが有効な場合、サニタイズされていないユーザー入力をこの関数に渡さないこと。シェルのメタ文字を含む入力は、任意のコマンド実行をトリガーするために使われ得る。**\n\n第 3 引数を使って追加のオプションを指定できる。既定は次のとおり:\n\n```js\nconst defaults = {\n  cwd: undefined,\n  env: process.env,\n};\n```\n\nプロセスが生成される作業ディレクトリを指定するには `cwd` を使う。指定されない場合、既定はカレントワーキングディレクトリを継承することである。指定されたがパスが存在しない場合、子プロセスは `ENOENT` エラーを発行して即座に終了する。コマンドが存在しない場合にも `ENOENT` が発行される。\n\n新しいプロセスから見える環境変数を指定するには `env` を使う。既定は `process.env` である。\n\n`env` の `undefined` 値は無視される。\n\n`ls -lh /usr` を実行し、`stdout`・`stderr`・終了コードをキャプチャする例:\n\n```js\nimport { spawn } from 'node:child_process';\nconst ls = spawn('ls', ['-lh', '/usr']);\n\nls.stdout.on('data', (data) => {\n  console.log(`stdout: ${data}`);\n});\n\nls.stderr.on('data', (data) => {\n  console.error(`stderr: ${data}`);\n});\n\nls.on('close', (code) => {\n  console.log(`child process exited with code ${code}`);\n});\n```\n\n例: `ps ax | grep ssh` を実行する非常に手の込んだ方法\n\n```js\nimport { spawn } from 'node:child_process';\nconst ps = spawn('ps', ['ax']);\nconst grep = spawn('grep', ['ssh']);\n\nps.stdout.on('data', (data) => {\n  grep.stdin.write(data);\n});\n\nps.stderr.on('data', (data) => {\n  console.error(`ps stderr: ${data}`);\n});\n\nps.on('close', (code) => {\n  if (code !== 0) {\n    console.log(`ps process exited with code ${code}`);\n  }\n  grep.stdin.end();\n});\n\ngrep.stdout.on('data', (data) => {\n  console.log(data.toString());\n});\n\ngrep.stderr.on('data', (data) => {\n  console.error(`grep stderr: ${data}`);\n});\n\ngrep.on('close', (code) => {\n  if (code !== 0) {\n    console.log(`grep process exited with code ${code}`);\n  }\n});\n```\n\n失敗した `spawn` を確認する例:\n\n```js\nimport { spawn } from 'node:child_process';\nconst subprocess = spawn('bad_command');\n\nsubprocess.on('error', (err) => {\n  console.error('Failed to start subprocess.');\n});\n```\n\n特定のプラットフォーム(macOS・Linux)はプロセスタイトルに `argv[0]` の値を使い、他のもの(Windows・SunOS)は `command` を使う。\n\nNode.js は起動時に `argv[0]` を `process.execPath` で上書きするため、Node.js の子プロセスの `process.argv[0]` は、親から `spawn` に渡された `argv0` パラメーターと一致しない。代わりに `process.argv0` プロパティでそれを取得すること。\n\n`signal` オプションが有効な場合、対応する `AbortController` で `.abort()` を呼ぶことは、コールバックに渡されるエラーが `AbortError` になる点を除いて、子プロセスで `.kill()` を呼ぶのに似ている:\n\n```js\nimport { spawn } from 'node:child_process';\nconst controller = new AbortController();\nconst { signal } = controller;\nconst grep = spawn('grep', ['ssh'], { signal });\ngrep.on('error', (err) => {\n  // This will be called with err being an AbortError if the controller aborts\n});\ncontroller.abort(); // Stops the child process\n```",
+      "symbol": "@types/node/child_process.d.ts#child_process.spawn",
+      "lang": "ja"
+    },
+    "2835547b": {
+      "original": "The command to run.",
+      "translated": "実行するコマンド。",
+      "symbol": "@types/node/child_process.d.ts#child_process.spawn",
+      "lang": "ja"
+    },
+    "1130d754": {
+      "original": "The `child_process.spawnSync()` method is generally identical to {@link spawn} with the exception that the function will not return\nuntil the child process has fully closed. When a timeout has been encountered\nand `killSignal` is sent, the method won't return until the process has\ncompletely exited. If the process intercepts and handles the `SIGTERM` signal\nand doesn't exit, the parent process will wait until the child process has\nexited.\n\n**If the `shell` option is enabled, do not pass unsanitized user input to this**\n**function. Any input containing shell metacharacters may be used to trigger**\n**arbitrary command execution.**",
+      "translated": "`child_process.spawnSync()` メソッドは概ね {@link spawn} と同一だが、子プロセスが完全に閉じるまで関数が返らない点が異なる。タイムアウトに遭遇して `killSignal` が送られた場合、プロセスが完全に終了するまでメソッドは返らない。プロセスが `SIGTERM` シグナルをインターセプトして処理し終了しない場合、親プロセスは子プロセスが終了するまで待つ。\n\n**`shell` オプションが有効な場合、サニタイズされていないユーザー入力をこの関数に渡さないこと。シェルのメタ文字を含む入力は、任意のコマンド実行をトリガーするために使われ得る。**",
+      "symbol": "@types/node/child_process.d.ts#child_process.spawnSync",
+      "lang": "ja"
+    },
     "03a04b1b": {
       "original": "The `node:crypto` module provides cryptographic functionality that includes a\nset of wrappers for OpenSSL's hash, HMAC, cipher, decipher, sign, and verify\nfunctions.\n\n```js\nconst { createHmac } = await import('node:crypto');\n\nconst secret = 'abcdefg';\nconst hash = createHmac('sha256', secret)\n               .update('I love cupcakes')\n               .digest('hex');\nconsole.log(hash);\n// Prints:\n//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e\n```",
       "translated": "`node:crypto` モジュールは、OpenSSL の hash・HMAC・cipher・decipher・sign・verify 関数に対する一連のラッパーを含む暗号機能を提供する。\n\n```js\nconst { createHmac } = await import('node:crypto');\n\nconst secret = 'abcdefg';\nconst hash = createHmac('sha256', secret)\n               .update('I love cupcakes')\n               .digest('hex');\nconsole.log(hash);\n// Prints:\n//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e\n```",
