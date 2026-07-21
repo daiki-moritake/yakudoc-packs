@@ -166,6 +166,12 @@
       "symbol": "@types/node/net.d.ts#net.ServerOpts.pauseOnConnect",
       "lang": "ja"
     },
+    "50870638": {
+      "original": "Fulfills with the resolved path upon success.",
+      "translated": "成功時に解決されたパスで履行される。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.realpath",
+      "lang": "ja"
+    },
     "51538543": {
       "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating readable by group.",
       "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。グループによる読み取り可能を示すファイルモード。",
@@ -6230,6 +6236,162 @@
       "original": "Opens a `FileHandle`.\n\nRefer to the POSIX [`open(2)`](http://man7.org/linux/man-pages/man2/open.2.html) documentation for more detail.\n\nSome characters (`< > : \" / \\ | ? *`) are reserved under Windows as documented\nby [Naming Files, Paths, and Namespaces](https://docs.microsoft.com/en-us/windows/desktop/FileIO/naming-a-file). Under NTFS, if the filename contains\na colon, Node.js will open a file system stream, as described by [this MSDN page](https://docs.microsoft.com/en-us/windows/desktop/FileIO/using-streams).",
       "translated": "`FileHandle` を開く。\n\n詳細は POSIX の [`open(2)`](http://man7.org/linux/man-pages/man2/open.2.html) ドキュメントを参照。\n\n一部の文字(`< > : \" / \\ | ? *`)は、[Naming Files, Paths, and Namespaces](https://docs.microsoft.com/en-us/windows/desktop/FileIO/naming-a-file) に記載されているとおり、Windows では予約されている。NTFS では、ファイル名にコロンが含まれる場合、[この MSDN ページ](https://docs.microsoft.com/en-us/windows/desktop/FileIO/using-streams)で説明されているとおり、Node.js はファイルシステムストリームを開く。",
       "symbol": "@types/node/fs/promises.d.ts#fs/promises.open",
+      "lang": "ja"
+    },
+    "1ed77f8f": {
+      "original": "Sets the file mode (permission and sticky bits) if the file is created.",
+      "translated": "ファイルが作成された場合、ファイルモード(権限とスティッキービット)を設定する。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.open",
+      "lang": "ja"
+    },
+    "6f08dc8b": {
+      "original": "Asynchronously open a directory for iterative scanning. See the POSIX [`opendir(3)`](http://man7.org/linux/man-pages/man3/opendir.3.html) documentation for more detail.\n\nCreates an `fs.Dir`, which contains all further functions for reading from\nand cleaning up the directory.\n\nThe `encoding` option sets the encoding for the `path` while opening the\ndirectory and subsequent read operations.\n\nExample using async iteration:\n\n```js\nimport { opendir } from 'node:fs/promises';\n\ntry {\n  const dir = await opendir('./');\n  for await (const dirent of dir)\n    console.log(dirent.name);\n} catch (err) {\n  console.error(err);\n}\n```\n\nWhen using the async iterator, the `fs.Dir` object will be automatically\nclosed after the iterator exits.",
+      "translated": "反復的なスキャンのためにディレクトリを非同期に開く。詳細は POSIX の [`opendir(3)`](http://man7.org/linux/man-pages/man3/opendir.3.html) ドキュメントを参照。\n\nディレクトリからの読み取りとクリーンアップのためのすべての関数を含む `fs.Dir` を作成する。\n\n`encoding` オプションは、ディレクトリを開くときと以降の読み取り操作における `path` のエンコーディングを設定する。\n\n非同期反復を使う例:\n\n```js\nimport { opendir } from 'node:fs/promises';\n\ntry {\n  const dir = await opendir('./');\n  for await (const dirent of dir)\n    console.log(dirent.name);\n} catch (err) {\n  console.error(err);\n}\n```\n\n非同期イテレーターを使う場合、`fs.Dir` オブジェクトはイテレーターが終了した後に自動的に閉じられる。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.opendir",
+      "lang": "ja"
+    },
+    "0a474b68": {
+      "original": "Fulfills with an {fs.Dir}.",
+      "translated": "{fs.Dir} で履行される。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.opendir",
+      "lang": "ja"
+    },
+    "9c7f06bb": {
+      "original": "A path to a directory. If a URL is provided, it must use the `file:` protocol.",
+      "translated": "ディレクトリへのパス。URL を指定する場合、`file:` プロトコルを使わなければならない。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.readdir",
+      "lang": "ja"
+    },
+    "73c1046e": {
+      "original": "Fulfills with an array of the names of the files in the directory excluding `'.'` and `'..'`.",
+      "translated": "`'.'` と `'..'` を除くディレクトリ内のファイル名の配列で履行される。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.readdir",
+      "lang": "ja"
+    },
+    "761f1b43": {
+      "original": "Reads the contents of a directory.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use for\nthe filenames. If the `encoding` is set to `'buffer'`, the filenames returned\nwill be passed as `Buffer` objects.\n\nIf `options.withFileTypes` is set to `true`, the returned array will contain `fs.Dirent` objects.\n\n```js\nimport { readdir } from 'node:fs/promises';\n\ntry {\n  const files = await readdir(path);\n  for (const file of files)\n    console.log(file);\n} catch (err) {\n  console.error(err);\n}\n```",
+      "translated": "ディレクトリの内容を読み取る。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、またはファイル名に使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。`encoding` が `'buffer'` に設定された場合、返されるファイル名は `Buffer` オブジェクトとして渡される。\n\n`options.withFileTypes` が `true` に設定された場合、返される配列は `fs.Dirent` オブジェクトを含む。\n\n```js\nimport { readdir } from 'node:fs/promises';\n\ntry {\n  const files = await readdir(path);\n  for (const file of files)\n    console.log(file);\n} catch (err) {\n  console.error(err);\n}\n```",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.readdir",
+      "lang": "ja"
+    },
+    "5f8aeaf9": {
+      "original": "A path to a file. If a URL is provided, it must use the `file:` protocol.\nIf a `FileHandle` is provided, the underlying file will _not_ be closed automatically.",
+      "translated": "ファイルへのパス。URL を指定する場合、`file:` プロトコルを使わなければならない。`FileHandle` を指定した場合、基盤となるファイルは自動的には_閉じられない_。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.readFile",
+      "lang": "ja"
+    },
+    "ff94b550": {
+      "original": "Asynchronously reads the entire contents of a file.\n\nIf no encoding is specified (using `options.encoding`), the data is returned\nas a `Buffer` object. Otherwise, the data will be a string.\n\nIf `options` is a string, then it specifies the encoding.\n\nWhen the `path` is a directory, the behavior of `fsPromises.readFile()` is\nplatform-specific. On macOS, Linux, and Windows, the promise will be rejected\nwith an error. On FreeBSD, a representation of the directory's contents will be\nreturned.\n\nAn example of reading a `package.json` file located in the same directory of the\nrunning code:\n\n```js\nimport { readFile } from 'node:fs/promises';\ntry {\n  const filePath = new URL('./package.json', import.meta.url);\n  const contents = await readFile(filePath, { encoding: 'utf8' });\n  console.log(contents);\n} catch (err) {\n  console.error(err.message);\n}\n```\n\nIt is possible to abort an ongoing `readFile` using an `AbortSignal`. If a\nrequest is aborted the promise returned is rejected with an `AbortError`:\n\n```js\nimport { readFile } from 'node:fs/promises';\n\ntry {\n  const controller = new AbortController();\n  const { signal } = controller;\n  const promise = readFile(fileName, { signal });\n\n  // Abort the request before the promise settles.\n  controller.abort();\n\n  await promise;\n} catch (err) {\n  // When a request is aborted - err is an AbortError\n  console.error(err);\n}\n```\n\nAborting an ongoing request does not abort individual operating\nsystem requests but rather the internal buffering `fs.readFile` performs.\n\nAny specified `FileHandle` has to support reading.",
+      "translated": "ファイルの内容全体を非同期に読み取る。\n\n(`options.encoding` を使って)エンコーディングが指定されない場合、データは `Buffer` オブジェクトとして返される。そうでなければ、データは文字列になる。\n\n`options` が文字列の場合、エンコーディングを指定する。\n\n`path` がディレクトリの場合、`fsPromises.readFile()` の挙動はプラットフォーム固有である。macOS・Linux・Windows では、promise はエラーで拒否される。FreeBSD ではディレクトリの内容の表現が返される。\n\n実行中のコードと同じディレクトリにある `package.json` ファイルを読む例:\n\n```js\nimport { readFile } from 'node:fs/promises';\ntry {\n  const filePath = new URL('./package.json', import.meta.url);\n  const contents = await readFile(filePath, { encoding: 'utf8' });\n  console.log(contents);\n} catch (err) {\n  console.error(err.message);\n}\n```\n\n`AbortSignal` を使って進行中の `readFile` を中断できる。リクエストが中断された場合、返される promise は `AbortError` で拒否される:\n\n```js\nimport { readFile } from 'node:fs/promises';\n\ntry {\n  const controller = new AbortController();\n  const { signal } = controller;\n  const promise = readFile(fileName, { signal });\n\n  // Abort the request before the promise settles.\n  controller.abort();\n\n  await promise;\n} catch (err) {\n  // When a request is aborted - err is an AbortError\n  console.error(err);\n}\n```\n\n進行中のリクエストを中断しても、個々のオペレーティングシステムのリクエストは中断されず、`fs.readFile` が行う内部バッファリングが中断される。\n\n指定した `FileHandle` は読み取りをサポートしていなければならない。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.readFile",
+      "lang": "ja"
+    },
+    "2169b136": {
+      "original": "Fulfills with the contents of the file.",
+      "translated": "ファイルの内容で履行される。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.readFile",
+      "lang": "ja"
+    },
+    "9c5d0323": {
+      "original": "Fulfills with the `linkString` upon success.",
+      "translated": "成功時に `linkString` で履行される。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.readlink",
+      "lang": "ja"
+    },
+    "f1be62b3": {
+      "original": "Reads the contents of the symbolic link referred to by `path`. See the POSIX [`readlink(2)`](http://man7.org/linux/man-pages/man2/readlink.2.html) documentation for more detail. The promise is\nfulfilled with the`linkString` upon success.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use for\nthe link path returned. If the `encoding` is set to `'buffer'`, the link path\nreturned will be passed as a `Buffer` object.",
+      "translated": "`path` が参照するシンボリックリンクの内容を読み取る。詳細は POSIX の [`readlink(2)`](http://man7.org/linux/man-pages/man2/readlink.2.html) ドキュメントを参照。promise は成功時に `linkString` で履行される。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、または返されるリンクパスに使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。`encoding` が `'buffer'` に設定された場合、返されるリンクパスは `Buffer` オブジェクトとして渡される。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.readlink",
+      "lang": "ja"
+    },
+    "1f1e1855": {
+      "original": "Determines the actual location of `path` using the same semantics as the `fs.realpath.native()` function.\n\nOnly paths that can be converted to UTF8 strings are supported.\n\nThe optional `options` argument can be a string specifying an encoding, or an\nobject with an `encoding` property specifying the character encoding to use for\nthe path. If the `encoding` is set to `'buffer'`, the path returned will be\npassed as a `Buffer` object.\n\nOn Linux, when Node.js is linked against musl libc, the procfs file system must\nbe mounted on `/proc` in order for this function to work. Glibc does not have\nthis restriction.",
+      "translated": "`fs.realpath.native()` 関数と同じ意味論を使って、`path` の実際の場所を判定する。\n\nUTF8 文字列に変換できるパスのみがサポートされる。\n\n省略可能な `options` 引数は、エンコーディングを指定する文字列、またはパスに使う文字エンコーディングを指定する `encoding` プロパティを持つオブジェクトでよい。`encoding` が `'buffer'` に設定された場合、返されるパスは `Buffer` オブジェクトとして渡される。\n\nLinux では、Node.js が musl libc とリンクされている場合、この関数が動作するには procfs ファイルシステムが `/proc` にマウントされていなければならない。Glibc にはこの制限はない。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.realpath",
+      "lang": "ja"
+    },
+    "c4df2ee0": {
+      "original": "Renames `oldPath` to `newPath`.",
+      "translated": "`oldPath` を `newPath` にリネームする。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.rename",
+      "lang": "ja"
+    },
+    "16389ff6": {
+      "original": "Removes files and directories (modeled on the standard POSIX `rm` utility).",
+      "translated": "ファイルとディレクトリを削除する(標準の POSIX `rm` ユーティリティをモデルにしている)。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.rm",
+      "lang": "ja"
+    },
+    "15214a57": {
+      "original": "Removes the directory identified by `path`.\n\nUsing `fsPromises.rmdir()` on a file (not a directory) results in the\npromise being rejected with an `ENOENT` error on Windows and an `ENOTDIR` error on POSIX.\n\nTo get a behavior similar to the `rm -rf` Unix command, use `fsPromises.rm()` with options `{ recursive: true, force: true }`.",
+      "translated": "`path` で識別されるディレクトリを削除する。\n\nファイル(ディレクトリではない)に対して `fsPromises.rmdir()` を使うと、Windows では `ENOENT` エラー、POSIX では `ENOTDIR` エラーで promise が拒否される。\n\n`rm -rf` の Unix コマンドに似た挙動を得るには、オプション `{ recursive: true, force: true }` を指定して `fsPromises.rm()` を使うこと。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.rmdir",
+      "lang": "ja"
+    },
+    "3ca5adc9": {
+      "original": "Fulfills with the {fs.Stats} object for the given `path`.",
+      "translated": "指定した `path` の {fs.Stats} オブジェクトで履行される。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.stat",
+      "lang": "ja"
+    },
+    "e25e07b1": {
+      "original": "Fulfills with the {fs.StatFs} object for the given `path`.",
+      "translated": "指定した `path` の {fs.StatFs} オブジェクトで履行される。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.statfs",
+      "lang": "ja"
+    },
+    "c2774ce1": {
+      "original": "Creates a symbolic link.\n\nThe `type` argument is only used on Windows platforms and can be one of `'dir'`, `'file'`, or `'junction'`. If the `type` argument is not a string, Node.js will\nautodetect `target` type and use `'file'` or `'dir'`. If the `target` does not\nexist, `'file'` will be used. Windows junction points require the destination\npath to be absolute. When using `'junction'`, the `target` argument will\nautomatically be normalized to absolute path. Junction points on NTFS volumes\ncan only point to directories.",
+      "translated": "シンボリックリンクを作成する。\n\n`type` 引数は Windows プラットフォームでのみ使われ、`'dir'`・`'file'`・`'junction'` のいずれかであり得る。`type` 引数が文字列でない場合、Node.js は `target` の型を自動検出し、`'file'` または `'dir'` を使う。`target` が存在しない場合、`'file'` が使われる。Windows のジャンクションポイントは宛先パスが絶対であることを要求する。`'junction'` を使う場合、`target` 引数は自動的に絶対パスに正規化される。NTFS ボリューム上のジャンクションポイントはディレクトリのみを指すことができる。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.symlink",
+      "lang": "ja"
+    },
+    "05432b5b": {
+      "original": "Truncates (shortens or extends the length) of the content at `path` to `len` bytes.",
+      "translated": "`path` の内容を `len` バイトに切り詰める(長さを短くまたは長くする)。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.truncate",
+      "lang": "ja"
+    },
+    "a6d5c7ac": {
+      "original": "If `path` refers to a symbolic link, then the link is removed without affecting\nthe file or directory to which that link refers. If the `path` refers to a file\npath that is not a symbolic link, the file is deleted. See the POSIX [`unlink(2)`](http://man7.org/linux/man-pages/man2/unlink.2.html) documentation for more detail.",
+      "translated": "`path` がシンボリックリンクを参照する場合、そのリンクが参照するファイルやディレクトリに影響を与えずにリンクが削除される。`path` がシンボリックリンクでないファイルパスを参照する場合、そのファイルが削除される。詳細は POSIX の [`unlink(2)`](http://man7.org/linux/man-pages/man2/unlink.2.html) ドキュメントを参照。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.unlink",
+      "lang": "ja"
+    },
+    "1b67d2c6": {
+      "original": "Change the file system timestamps of the object referenced by `path`.\n\nThe `atime` and `mtime` arguments follow these rules:\n\n* Values can be either numbers representing Unix epoch time, `Date`s, or a\nnumeric string like `'123456789.0'`.\n* If the value can not be converted to a number, or is `NaN`, `Infinity`, or `-Infinity`, an `Error` will be thrown.",
+      "translated": "`path` が参照するオブジェクトのファイルシステムタイムスタンプを変更する。\n\n`atime` と `mtime` 引数は次の規則に従う:\n\n* 値は、Unix エポック時刻を表す数値、`Date`、または `'123456789.0'` のような数値文字列のいずれかでよい。\n* 値を数値に変換できない場合、または `NaN`・`Infinity`・`-Infinity` の場合、`Error` が投げられる。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.utimes",
+      "lang": "ja"
+    },
+    "b3c96e99": {
+      "original": "of objects with the properties:",
+      "translated": "次のプロパティを持つオブジェクトの:",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.watch",
+      "lang": "ja"
+    },
+    "ce552993": {
+      "original": "Returns an async iterator that watches for changes on `filename`, where `filename`is either a file or a directory.\n\n```js\nimport { watch } from 'node:fs/promises';\n\nconst ac = new AbortController();\nconst { signal } = ac;\nsetTimeout(() => ac.abort(), 10000);\n\n(async () => {\n  try {\n    const watcher = watch(__filename, { signal });\n    for await (const event of watcher)\n      console.log(event);\n  } catch (err) {\n    if (err.name === 'AbortError')\n      return;\n    throw err;\n  }\n})();\n```\n\nOn most platforms, `'rename'` is emitted whenever a filename appears or\ndisappears in the directory.\n\nAll the `caveats` for `fs.watch()` also apply to `fsPromises.watch()`.",
+      "translated": "`filename` の変更を監視する非同期イテレーターを返す。ここで `filename` はファイルまたはディレクトリである。\n\n```js\nimport { watch } from 'node:fs/promises';\n\nconst ac = new AbortController();\nconst { signal } = ac;\nsetTimeout(() => ac.abort(), 10000);\n\n(async () => {\n  try {\n    const watcher = watch(__filename, { signal });\n    for await (const event of watcher)\n      console.log(event);\n  } catch (err) {\n    if (err.name === 'AbortError')\n      return;\n    throw err;\n  }\n})();\n```\n\nほとんどのプラットフォームでは、ディレクトリ内にファイル名が現れたり消えたりするたびに `'rename'` が発行される。\n\n`fs.watch()` のすべての `注意点` は `fsPromises.watch()` にも適用される。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.watch",
+      "lang": "ja"
+    },
+    "d9c9bd1e": {
+      "original": "Asynchronously writes data to a file, replacing the file if it already exists. `data` can be a string, a buffer, an\n[AsyncIterable](https://tc39.github.io/ecma262/#sec-asynciterable-interface), or an\n[Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) object.\n\nThe `encoding` option is ignored if `data` is a buffer.\n\nIf `options` is a string, then it specifies the encoding.\n\nThe `mode` option only affects the newly created file. See `fs.open()` for more details.\n\nAny specified `FileHandle` has to support writing.\n\nIt is unsafe to use `fsPromises.writeFile()` multiple times on the same file\nwithout waiting for the promise to be settled.\n\nSimilarly to `fsPromises.readFile` \\- `fsPromises.writeFile` is a convenience\nmethod that performs multiple `write` calls internally to write the buffer\npassed to it. For performance sensitive code consider using `fs.createWriteStream()` or `filehandle.createWriteStream()`.\n\nIt is possible to use an `AbortSignal` to cancel an `fsPromises.writeFile()`.\nCancelation is \"best effort\", and some amount of data is likely still\nto be written.\n\n```js\nimport { writeFile } from 'node:fs/promises';\nimport { Buffer } from 'node:buffer';\n\ntry {\n  const controller = new AbortController();\n  const { signal } = controller;\n  const data = new Uint8Array(Buffer.from('Hello Node.js'));\n  const promise = writeFile('message.txt', data, { signal });\n\n  // Abort the request before the promise settles.\n  controller.abort();\n\n  await promise;\n} catch (err) {\n  // When a request is aborted - err is an AbortError\n  console.error(err);\n}\n```\n\nAborting an ongoing request does not abort individual operating\nsystem requests but rather the internal buffering `fs.writeFile` performs.",
+      "translated": "ファイルにデータを非同期に書き込む。ファイルがすでに存在する場合は置き換える。`data` は文字列・バッファ・[AsyncIterable](https://tc39.github.io/ecma262/#sec-asynciterable-interface)・[Iterable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) オブジェクトでよい。\n\n`data` がバッファの場合、`encoding` オプションは無視される。\n\n`options` が文字列の場合、エンコーディングを指定する。\n\n`mode` オプションは新しく作成されたファイルにのみ影響する。詳細は `fs.open()` を参照。\n\n指定した `FileHandle` は書き込みをサポートしていなければならない。\n\npromise が完了するのを待たずに同じファイルに対して `fsPromises.writeFile()` を複数回使うのは安全でない。\n\n`fsPromises.readFile` と同様に、`fsPromises.writeFile` は渡されたバッファを書き込むために内部的に複数の `write` 呼び出しを行う便宜メソッドである。性能が重要なコードでは `fs.createWriteStream()` または `filehandle.createWriteStream()` の使用を検討すること。\n\n`AbortSignal` を使って `fsPromises.writeFile()` をキャンセルできる。キャンセルは「ベストエフォート」であり、ある程度のデータはそれでも書き込まれる可能性が高い。\n\n```js\nimport { writeFile } from 'node:fs/promises';\nimport { Buffer } from 'node:buffer';\n\ntry {\n  const controller = new AbortController();\n  const { signal } = controller;\n  const data = new Uint8Array(Buffer.from('Hello Node.js'));\n  const promise = writeFile('message.txt', data, { signal });\n\n  // Abort the request before the promise settles.\n  controller.abort();\n\n  await promise;\n} catch (err) {\n  // When a request is aborted - err is an AbortError\n  console.error(err);\n}\n```\n\n進行中のリクエストを中断しても、個々のオペレーティングシステムのリクエストは中断されず、`fs.writeFile` が行う内部バッファリングが中断される。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.writeFile",
+      "lang": "ja"
+    },
+    "60a30555": {
+      "original": "filename or `FileHandle`",
+      "translated": "ファイル名または `FileHandle`",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.writeFile",
+      "lang": "ja"
+    },
+    "b25fe9f2": {
+      "original": "If all data is successfully written to the file, and `flush`\nis `true`, `filehandle.sync()` is used to flush the data.",
+      "translated": "すべてのデータがファイルに正常に書き込まれ、`flush` が `true` の場合、データをフラッシュするために `filehandle.sync()` が使われる。",
+      "symbol": "@types/node/fs/promises.d.ts#fs/promises.writeFile.options.flush",
       "lang": "ja"
     },
     "f175d510": {
