@@ -112,6 +112,12 @@
       "symbol": "@types/node/util.d.ts#util.TextDecoder.ignoreBOM",
       "lang": "ja"
     },
+    "28506766": {
+      "original": "A value indicating whether the `_` variable has been assigned.",
+      "translated": "`_` 変数が代入されているかどうかを示す値。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.underscoreAssigned",
+      "lang": "ja"
+    },
     "31243655": {
       "original": "All workers are created using [`child_process.fork()`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options), the returned object\nfrom this function is stored as `.process`. In a worker, the global `process` is stored.\n\nSee: [Child Process module](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options).\n\nWorkers will call `process.exit(0)` if the `'disconnect'` event occurs\non `process` and `.exitedAfterDisconnect` is not `true`. This protects against\naccidental disconnection.",
       "translated": "すべてのワーカーは [`child_process.fork()`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options) を使って作成され、この関数から返されたオブジェクトが `.process` として格納される。ワーカーでは、グローバルな `process` が格納される。\n\n[Child Process module](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options) を参照。\n\nワーカーは、`process` で `'disconnect'` イベントが発生し `.exitedAfterDisconnect` が `true` でない場合、`process.exit(0)` を呼ぶ。これは偶発的な切断から保護する。",
@@ -12050,6 +12056,108 @@
       "original": "The `replServer.displayPrompt()` method readies the REPL instance for input\nfrom the user, printing the configured `prompt` to a new line in the `output` and resuming the `input` to accept new input.\n\nWhen multi-line input is being entered, an ellipsis is printed rather than the\n'prompt'.\n\nWhen `preserveCursor` is `true`, the cursor placement will not be reset to `0`.\n\nThe `replServer.displayPrompt` method is primarily intended to be called from\nwithin the action function for commands registered using the `replServer.defineCommand()` method.",
       "translated": "`replServer.displayPrompt()` メソッドは、REPL インスタンスをユーザーからの入力に備えさせ、構成された `prompt` を `output` の新しい行に出力し、新しい入力を受け付けるために `input` を再開する。\n\n複数行入力が入力されているとき、'prompt' ではなく省略記号が出力される。\n\n`preserveCursor` が `true` の場合、カーソル位置は `0` にリセットされない。\n\n`replServer.displayPrompt` メソッドは主に、`replServer.defineCommand()` メソッドを使って登録されたコマンドの action 関数内から呼ばれることを意図している。",
       "symbol": "@types/node/repl.d.ts#repl.REPLServer.displayPrompt",
+      "lang": "ja"
+    },
+    "5def6db9": {
+      "original": "A value indicating whether the REPL is currently in \"editor mode\".",
+      "translated": "REPL が現在「エディターモード」にあるかどうかを示す値。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.editorMode",
+      "lang": "ja"
+    },
+    "747a46c8": {
+      "original": "Specified in the REPL options, this is the function to be used when evaluating each\ngiven line of input. If not specified in the REPL options, this is an async wrapper\nfor the JavaScript `eval()` function.",
+      "translated": "REPL オプションで指定された、指定された各入力行を評価するときに使う関数。REPL オプションで指定されない場合、これは JavaScript の `eval()` 関数の async ラッパーである。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.eval",
+      "lang": "ja"
+    },
+    "e1417e92": {
+      "original": "Specified in the REPL options, this is a value indicating whether the default `writer`\nfunction should output the result of a command if it evaluates to `undefined`.",
+      "translated": "REPL オプションで指定された、コマンドが `undefined` に評価された場合に既定の `writer` 関数がその結果を出力すべきかどうかを示す値。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.ignoreUndefined",
+      "lang": "ja"
+    },
+    "f42d0340": {
+      "original": "since v14.3.0 - Use `input` instead.",
+      "translated": "v14.3.0 以降 - 代わりに `input` を使うこと。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.inputStream",
+      "lang": "ja"
+    },
+    "db05dd6a": {
+      "original": "The last evaluation result from the REPL (assigned to the `_` variable inside of the REPL).",
+      "translated": "REPL からの最後の評価結果(REPL 内の `_` 変数に代入される)。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.last",
+      "lang": "ja"
+    },
+    "5b6baa48": {
+      "original": "The last error raised inside the REPL (assigned to the `_error` variable inside of the REPL).",
+      "translated": "REPL 内で発生した最後のエラー(REPL 内の `_error` 変数に代入される)。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.lastError",
+      "lang": "ja"
+    },
+    "bdf14344": {
+      "original": "since v14.3.0 - Use `output` instead.",
+      "translated": "v14.3.0 以降 - 代わりに `output` を使うこと。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.outputStream",
+      "lang": "ja"
+    },
+    "b0b857fb": {
+      "original": "Specified in the REPL options, this is a flag that specifies whether the default `eval`\nfunction should execute all JavaScript commands in strict mode or default (sloppy) mode.\nPossible values are:\n- `repl.REPL_MODE_SLOPPY` - evaluates expressions in sloppy mode.\n- `repl.REPL_MODE_STRICT` - evaluates expressions in strict mode. This is equivalent to\n   prefacing every repl statement with `'use strict'`.",
+      "translated": "REPL オプションで指定された、既定の `eval` 関数がすべての JavaScript コマンドを strict モードで実行するか既定の(sloppy)モードで実行するかを指定するフラグ。可能な値は次のとおり:\n- `repl.REPL_MODE_SLOPPY` - 式を sloppy モードで評価する。\n- `repl.REPL_MODE_STRICT` - 式を strict モードで評価する。これはすべての repl 文の前に `'use strict'` を付けるのと同等である。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.replMode",
+      "lang": "ja"
+    },
+    "f78d0870": {
+      "original": "called when history writes are ready or upon error",
+      "translated": "履歴の書き込みが準備できたとき、またはエラー時に呼ばれる",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.setupHistory",
+      "lang": "ja"
+    },
+    "57eef2ad": {
+      "original": "Initializes a history log file for the REPL instance. When executing the\nNode.js binary and using the command-line REPL, a history file is initialized\nby default. However, this is not the case when creating a REPL\nprogrammatically. Use this method to initialize a history log file when working\nwith REPL instances programmatically.",
+      "translated": "REPL インスタンスの履歴ログファイルを初期化する。Node.js バイナリを実行してコマンドライン REPL を使う場合、履歴ファイルは既定で初期化される。ただし、REPL をプログラムから作成する場合はそうならない。プログラムから REPL インスタンスを扱う場合に履歴ログファイルを初期化するには、このメソッドを使う。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.setupHistory",
+      "lang": "ja"
+    },
+    "f8e82091": {
+      "original": "the path to the history file",
+      "translated": "履歴ファイルへのパス",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.setupHistory",
+      "lang": "ja"
+    },
+    "8fcaa816": {
+      "original": "A value indicating whether the `_error` variable has been assigned.",
+      "translated": "`_error` 変数が代入されているかどうかを示す値。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.underscoreErrAssigned",
+      "lang": "ja"
+    },
+    "1a00d479": {
+      "original": "Specified in the REPL options, this is a value indicating whether the default\n`writer` function should include ANSI color styling to REPL output.",
+      "translated": "REPL オプションで指定された、既定の `writer` 関数が REPL 出力に ANSI カラースタイルを含めるべきかどうかを示す値。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.useColors",
+      "lang": "ja"
+    },
+    "434b7c5f": {
+      "original": "Specified in the REPL options, this is a value indicating whether the default `eval`\nfunction will use the JavaScript `global` as the context as opposed to creating a new\nseparate context for the REPL instance.",
+      "translated": "REPL オプションで指定された、既定の `eval` 関数が、REPL インスタンス用の新しい別のコンテキストを作成するのではなく、JavaScript の `global` をコンテキストとして使うかどうかを示す値。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.useGlobal",
+      "lang": "ja"
+    },
+    "c046e8a3": {
+      "original": "Specified in the REPL options, this is the function to invoke to format the output of\neach command before writing to `outputStream`. If not specified in the REPL options,\nthis will be a wrapper for `util.inspect`.",
+      "translated": "REPL オプションで指定された、各コマンドの出力を `outputStream` に書き込む前に整形するために呼ぶ関数。REPL オプションで指定されない場合、これは `util.inspect` のラッパーになる。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.writer",
+      "lang": "ja"
+    },
+    "e671461d": {
+      "original": "The `repl.start()` method creates and starts a {@link REPLServer} instance.\n\nIf `options` is a string, then it specifies the input prompt:\n\n```js\nimport repl from 'node:repl';\n\n// a Unix style prompt\nrepl.start('$ ');\n```",
+      "translated": "`repl.start()` メソッドは {@link REPLServer} インスタンスを作成して起動する。\n\n`options` が文字列の場合、入力プロンプトを指定する:\n\n```js\nimport repl from 'node:repl';\n\n// a Unix style prompt\nrepl.start('$ ');\n```",
+      "symbol": "@types/node/repl.d.ts#repl.start",
+      "lang": "ja"
+    },
+    "7a7d64bf": {
+      "original": "This is the default \"writer\" value, if none is passed in the REPL options,\nand it can be overridden by custom print functions.",
+      "translated": "これは、REPL オプションで何も渡されない場合の既定の「writer」値で、カスタムの print 関数でオーバーライドできる。",
+      "symbol": "@types/node/repl.d.ts#repl.writer",
       "lang": "ja"
     },
     "3c357592": {
