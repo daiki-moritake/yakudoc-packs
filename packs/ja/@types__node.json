@@ -40,6 +40,12 @@
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.ProcessFeatures.typescript",
       "lang": "ja"
     },
+    "15479105": {
+      "original": "Helper to unsubscribe a collection of functions from the corresponding channels.\nThis is the same as calling `channel.unsubscribe(onMessage)` on each channel\nindividually.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nchannels.unsubscribe({\n  start(message) {\n    // Handle start message\n  },\n  end(message) {\n    // Handle end message\n  },\n  asyncStart(message) {\n    // Handle asyncStart message\n  },\n  asyncEnd(message) {\n    // Handle asyncEnd message\n  },\n  error(message) {\n    // Handle error message\n  },\n});\n```",
+      "translated": "関数のコレクションを対応するチャネルから購読解除するヘルパー。これは各チャネルに対して個別に `channel.unsubscribe(onMessage)` を呼ぶのと同じである。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nchannels.unsubscribe({\n  start(message) {\n    // Handle start message\n  },\n  end(message) {\n    // Handle end message\n  },\n  asyncStart(message) {\n    // Handle asyncStart message\n  },\n  asyncEnd(message) {\n    // Handle asyncEnd message\n  },\n  error(message) {\n    // Handle error message\n  },\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.unsubscribe",
+      "lang": "ja"
+    },
     "16431935": {
       "original": "This is a readable stream which contains data written to `process.stdout` inside the worker thread. If `stdout: true` was not passed to the `Worker` constructor, then data is piped to the\nparent thread's `process.stdout` stream.",
       "translated": "これは、ワーカースレッド内で `process.stdout` に書き込まれたデータを含む readable ストリームである。`stdout: true` が `Worker` コンストラクターに渡されなかった場合、データは親スレッドの `process.stdout` ストリームにパイプされる。",
@@ -3626,6 +3632,108 @@
       "original": "Set of `TracingChannel Channels` subscribers",
       "translated": "`TracingChannel Channels` の購読者のセット",
       "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.subscribe",
+      "lang": "ja"
+    },
+    "f5592b4e": {
+      "original": "callback using function to wrap a trace around",
+      "translated": "トレースでラップする対象の、function を使うコールバック",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.traceCallback",
+      "lang": "ja"
+    },
+    "63d163e0": {
+      "original": "Trace a callback-receiving function call. This will always produce a `start event` and `end event` around the synchronous portion of the\nfunction execution, and will produce a `asyncStart event` and `asyncEnd event` around the callback execution. It may also produce an `error event` if the given function throws an error or\nthe returned\npromise rejects. This will run the given function using `channel.runStores(context, ...)` on the `start` channel which ensures all\nevents should have any bound stores set to match this trace context.\n\nThe `position` will be -1 by default to indicate the final argument should\nbe used as the callback.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nchannels.traceCallback((arg1, callback) => {\n  // Do something\n  callback(null, 'result');\n}, 1, {\n  some: 'thing',\n}, thisArg, arg1, callback);\n```\n\nThe callback will also be run with `channel.runStores(context, ...)` which\nenables context loss recovery in some cases.\n\nTo ensure only correct trace graphs are formed, events will only be published if subscribers are present prior to starting the trace. Subscriptions\nwhich are added after the trace begins will not receive future events from that trace, only future traces will be seen.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\nimport { AsyncLocalStorage } from 'node:async_hooks';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\nconst myStore = new AsyncLocalStorage();\n\n// The start channel sets the initial store data to something\n// and stores that store data value on the trace context object\nchannels.start.bindStore(myStore, (data) => {\n  const span = new Span(data);\n  data.span = span;\n  return span;\n});\n\n// Then asyncStart can restore from that data it stored previously\nchannels.asyncStart.bindStore(myStore, (data) => {\n  return data.span;\n});\n```",
+      "translated": "コールバックを受け取る関数呼び出しをトレースする。これは常に、関数実行の同期部分の周辺に `start イベント`と `end イベント`を生成し、コールバック実行の周辺に `asyncStart イベント`と `asyncEnd イベント`を生成する。指定した関数がエラーを投げるか、返された promise が拒否された場合、`error イベント`も生成することがある。これは指定した関数を `start` チャネルで `channel.runStores(context, ...)` を使って実行し、すべてのイベントがこのトレースコンテキストに一致するようバインドされたストアを持つことを保証する。\n\n`position` は既定で -1 で、最後の引数をコールバックとして使うべきことを示す。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nchannels.traceCallback((arg1, callback) => {\n  // Do something\n  callback(null, 'result');\n}, 1, {\n  some: 'thing',\n}, thisArg, arg1, callback);\n```\n\nコールバックも `channel.runStores(context, ...)` で実行され、これにより場合によってはコンテキスト喪失からの回復が可能になる。\n\n正しいトレースグラフのみが形成されることを保証するため、イベントはトレース開始前に購読者が存在する場合にのみ publish される。トレース開始後に追加された購読は、そのトレースの以降のイベントを受け取らず、以降のトレースのみが見える。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\nimport { AsyncLocalStorage } from 'node:async_hooks';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\nconst myStore = new AsyncLocalStorage();\n\n// The start channel sets the initial store data to something\n// and stores that store data value on the trace context object\nchannels.start.bindStore(myStore, (data) => {\n  const span = new Span(data);\n  data.span = span;\n  return span;\n});\n\n// Then asyncStart can restore from that data it stored previously\nchannels.asyncStart.bindStore(myStore, (data) => {\n  return data.span;\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.traceCallback",
+      "lang": "ja"
+    },
+    "826c4935": {
+      "original": "Zero-indexed argument position of expected callback",
+      "translated": "期待されるコールバックの、ゼロ始まりの引数位置",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.traceCallback",
+      "lang": "ja"
+    },
+    "05417658": {
+      "original": "Chained from promise returned by the given function",
+      "translated": "指定した関数が返す promise からチェーンされる",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.tracePromise",
+      "lang": "ja"
+    },
+    "023911fd": {
+      "original": "Promise-returning function to wrap a trace around",
+      "translated": "トレースでラップする対象の、promise を返す関数",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.tracePromise",
+      "lang": "ja"
+    },
+    "6e8ca325": {
+      "original": "Shared object to correlate trace events through",
+      "translated": "トレースイベントを相関させるための共有オブジェクト",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.tracePromise",
+      "lang": "ja"
+    },
+    "b638219b": {
+      "original": "Trace a promise-returning function call. This will always produce a `start event` and `end event` around the synchronous portion of the\nfunction execution, and will produce an `asyncStart event` and `asyncEnd event` when a promise continuation is reached. It may also\nproduce an `error event` if the given function throws an error or the\nreturned promise rejects. This will run the given function using `channel.runStores(context, ...)` on the `start` channel which ensures all\nevents should have any bound stores set to match this trace context.\n\nTo ensure only correct trace graphs are formed, events will only be published if subscribers are present prior to starting the trace. Subscriptions\nwhich are added after the trace begins will not receive future events from that trace, only future traces will be seen.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nchannels.tracePromise(async () => {\n  // Do something\n}, {\n  some: 'thing',\n});\n```",
+      "translated": "promise を返す関数呼び出しをトレースする。これは常に、関数実行の同期部分の周辺に `start イベント`と `end イベント`を生成し、promise の継続に達したときに `asyncStart イベント`と `asyncEnd イベント`を生成する。指定した関数がエラーを投げるか、返された promise が拒否された場合、`error イベント`も生成することがある。これは指定した関数を `start` チャネルで `channel.runStores(context, ...)` を使って実行し、すべてのイベントがこのトレースコンテキストに一致するようバインドされたストアを持つことを保証する。\n\n正しいトレースグラフのみが形成されることを保証するため、イベントはトレース開始前に購読者が存在する場合にのみ publish される。トレース開始後に追加された購読は、そのトレースの以降のイベントを受け取らず、以降のトレースのみが見える。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nchannels.tracePromise(async () => {\n  // Do something\n}, {\n  some: 'thing',\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.tracePromise",
+      "lang": "ja"
+    },
+    "baf7bb58": {
+      "original": "Function to wrap a trace around",
+      "translated": "トレースでラップする対象の関数",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.traceSync",
+      "lang": "ja"
+    },
+    "e86ef5fe": {
+      "original": "Optional arguments to pass to the function",
+      "translated": "関数に渡す省略可能な引数",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.traceSync",
+      "lang": "ja"
+    },
+    "0599912f": {
+      "original": "Shared object to correlate events through",
+      "translated": "イベントを相関させるための共有オブジェクト",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.traceSync",
+      "lang": "ja"
+    },
+    "f9d0ea2f": {
+      "original": "The receiver to be used for the function call",
+      "translated": "関数呼び出しに使われるレシーバー",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.traceSync",
+      "lang": "ja"
+    },
+    "12a4ab04": {
+      "original": "The return value of the given function",
+      "translated": "指定した関数の戻り値",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.traceSync",
+      "lang": "ja"
+    },
+    "decf0577": {
+      "original": "Trace a synchronous function call. This will always produce a `start event` and `end event` around the execution and may produce an `error event` if the given function throws an error.\nThis will run the given function using `channel.runStores(context, ...)` on the `start` channel which ensures all\nevents should have any bound stores set to match this trace context.\n\nTo ensure only correct trace graphs are formed, events will only be published if subscribers are present prior to starting the trace. Subscriptions\nwhich are added after the trace begins will not receive future events from that trace, only future traces will be seen.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nchannels.traceSync(() => {\n  // Do something\n}, {\n  some: 'thing',\n});\n```",
+      "translated": "同期関数呼び出しをトレースする。これは常に、実行の周辺に `start イベント`と `end イベント`を生成し、指定した関数がエラーを投げた場合は `error イベント`を生成することがある。これは指定した関数を `start` チャネルで `channel.runStores(context, ...)` を使って実行し、すべてのイベントがこのトレースコンテキストに一致するようバインドされたストアを持つことを保証する。\n\n正しいトレースグラフのみが形成されることを保証するため、イベントはトレース開始前に購読者が存在する場合にのみ publish される。トレース開始後に追加された購読は、そのトレースの以降のイベントを受け取らず、以降のトレースのみが見える。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nchannels.traceSync(() => {\n  // Do something\n}, {\n  some: 'thing',\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.traceSync",
+      "lang": "ja"
+    },
+    "b1e8da7d": {
+      "original": "`true` if all handlers were successfully unsubscribed, and `false` otherwise.",
+      "translated": "すべてのハンドラの購読が正常に解除された場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.unsubscribe",
+      "lang": "ja"
+    },
+    "82c4c48d": {
+      "original": "`true` if the handler was found, `false` otherwise.",
+      "translated": "ハンドラが見つかった場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.unsubscribe",
+      "lang": "ja"
+    },
+    "4f4cdc6c": {
+      "original": "Remove a message handler previously registered to this channel with {@link subscribe}.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nfunction onMessage(message, name) {\n  // Received data\n}\n\ndiagnostics_channel.subscribe('my-channel', onMessage);\n\ndiagnostics_channel.unsubscribe('my-channel', onMessage);\n```",
+      "translated": "{@link subscribe} でこのチャネルに以前登録されたメッセージハンドラを削除する。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nfunction onMessage(message, name) {\n  // Received data\n}\n\ndiagnostics_channel.subscribe('my-channel', onMessage);\n\ndiagnostics_channel.unsubscribe('my-channel', onMessage);\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.unsubscribe",
+      "lang": "ja"
+    },
+    "163ec4d3": {
+      "original": "The previous subscribed handler to remove",
+      "translated": "削除する、以前購読されたハンドラ",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.unsubscribe",
       "lang": "ja"
     },
     "d6ed006e": {
