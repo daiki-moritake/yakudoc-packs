@@ -286,6 +286,12 @@
       "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.checkHost",
       "lang": "ja"
     },
+    "70843797": {
+      "original": "A callback function that is invoked with the user's input in response to the `query`.",
+      "translated": "`query` に対するユーザーの入力とともに呼び出されるコールバック関数。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.question",
+      "lang": "ja"
+    },
     "73585146": {
       "original": "Enables or disables the return of query results as arrays.",
       "translated": "クエリ結果を配列として返すことを有効または無効にする。",
@@ -12146,6 +12152,174 @@
       "original": "Most of the time the unhandledRejection will be an Error, but this should not be relied upon\nas *anything* can be thrown/rejected, it is therefore unsafe to assume that the value is an Error.",
       "translated": "ほとんどの場合、unhandledRejection は Error だが、_あらゆるもの_が throw/reject され得るため、これに依存すべきではない。したがって、値が Error であると仮定するのは安全でない。",
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.UnhandledRejectionListener",
+      "lang": "ja"
+    },
+    "fcdca2b9": {
+      "original": "The `node:readline` module provides an interface for reading data from a [Readable](https://nodejs.org/docs/latest-v22.x/api/stream.html#readable-streams) stream\n(such as [`process.stdin`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdin)) one line at a time.\n\nTo use the promise-based APIs:\n\n```js\nimport * as readline from 'node:readline/promises';\n```\n\nTo use the callback and sync APIs:\n\n```js\nimport * as readline from 'node:readline';\n```\n\nThe following simple example illustrates the basic use of the `node:readline` module.\n\n```js\nimport * as readline from 'node:readline/promises';\nimport { stdin as input, stdout as output } from 'node:process';\n\nconst rl = readline.createInterface({ input, output });\n\nconst answer = await rl.question('What do you think of Node.js? ');\n\nconsole.log(`Thank you for your valuable feedback: ${answer}`);\n\nrl.close();\n```\n\nOnce this code is invoked, the Node.js application will not terminate until the `readline.Interface` is closed because the interface waits for data to be\nreceived on the `input` stream.",
+      "translated": "`node:readline` モジュールは、[Readable](https://nodejs.org/docs/latest-v22.x/api/stream.html#readable-streams) ストリーム(たとえば [`process.stdin`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdin))からデータを 1 行ずつ読み取るためのインターフェイスを提供する。\n\nPromise ベースの API を使うには:\n\n```js\nimport * as readline from 'node:readline/promises';\n```\n\nコールバックおよび同期 API を使うには:\n\n```js\nimport * as readline from 'node:readline';\n```\n\n次の簡単な例は、`node:readline` モジュールの基本的な使い方を示す。\n\n```js\nimport * as readline from 'node:readline/promises';\nimport { stdin as input, stdout as output } from 'node:process';\n\nconst rl = readline.createInterface({ input, output });\n\nconst answer = await rl.question('What do you think of Node.js? ');\n\nconsole.log(`Thank you for your valuable feedback: ${answer}`);\n\nrl.close();\n```\n\nこのコードが呼び出されると、`readline.Interface` が閉じられるまで Node.js アプリケーションは終了しない。これは、インターフェイスが `input` ストリームでデータを受信するのを待つためである。",
+      "symbol": "@types/node/readline.d.ts#readline",
+      "lang": "ja"
+    },
+    "049ef39e": {
+      "original": "`false` if `stream` wishes for the calling code to wait for the `'drain'` event to be emitted before continuing to write additional data; otherwise `true`.",
+      "translated": "呼び出し元のコードが追加のデータを書き込む前に `'drain'` イベントが発行されるのを待つべき場合は `false`、そうでなければ `true`。",
+      "symbol": "@types/node/readline.d.ts#readline.clearLine",
+      "lang": "ja"
+    },
+    "ee45ec8f": {
+      "original": "Invoked once the operation completes.",
+      "translated": "操作が完了すると一度呼び出される。",
+      "symbol": "@types/node/readline.d.ts#readline.clearLine",
+      "lang": "ja"
+    },
+    "bdf4998f": {
+      "original": "The `readline.clearLine()` method clears current line of given [TTY](https://nodejs.org/docs/latest-v22.x/api/tty.html) stream\nin a specified direction identified by `dir`.",
+      "translated": "`readline.clearLine()` メソッドは、指定された [TTY](https://nodejs.org/docs/latest-v22.x/api/tty.html) ストリームの現在の行を、`dir` で指定された方向にクリアする。",
+      "symbol": "@types/node/readline.d.ts#readline.clearLine",
+      "lang": "ja"
+    },
+    "310bd319": {
+      "original": "The `readline.clearScreenDown()` method clears the given [TTY](https://nodejs.org/docs/latest-v22.x/api/tty.html) stream from\nthe current position of the cursor down.",
+      "translated": "`readline.clearScreenDown()` メソッドは、指定された [TTY](https://nodejs.org/docs/latest-v22.x/api/tty.html) ストリームを、カーソルの現在位置から下方向にクリアする。",
+      "symbol": "@types/node/readline.d.ts#readline.clearScreenDown",
+      "lang": "ja"
+    },
+    "7a4b61de": {
+      "original": "The `readline.createInterface()` method creates a new `readline.Interface` instance.\n\n```js\nimport readline from 'node:readline';\nconst rl = readline.createInterface({\n  input: process.stdin,\n  output: process.stdout,\n});\n```\n\nOnce the `readline.Interface` instance is created, the most common case is to\nlisten for the `'line'` event:\n\n```js\nrl.on('line', (line) => {\n  console.log(`Received: ${line}`);\n});\n```\n\nIf `terminal` is `true` for this instance then the `output` stream will get\nthe best compatibility if it defines an `output.columns` property and emits\na `'resize'` event on the `output` if or when the columns ever change\n(`process.stdout` does this automatically when it is a TTY).\n\nWhen creating a `readline.Interface` using `stdin` as input, the program\nwill not terminate until it receives an [EOF character](https://en.wikipedia.org/wiki/End-of-file#EOF_character). To exit without\nwaiting for user input, call `process.stdin.unref()`.",
+      "translated": "`readline.createInterface()` メソッドは、新しい `readline.Interface` インスタンスを作成する。\n\n```js\nimport readline from 'node:readline';\nconst rl = readline.createInterface({\n  input: process.stdin,\n  output: process.stdout,\n});\n```\n\n`readline.Interface` インスタンスが作成されると、最も一般的なケースは `'line'` イベントをリッスンすることである:\n\n```js\nrl.on('line', (line) => {\n  console.log(`Received: ${line}`);\n});\n```\n\nこのインスタンスで `terminal` が `true` の場合、`output` ストリームは `output.columns` プロパティを定義し、列数が変化したときに `output` で `'resize'` イベントを発行すると、最も高い互換性が得られる(`process.stdout` が TTY のときは自動的にこれを行う)。\n\n`stdin` を入力として `readline.Interface` を作成すると、[EOF 文字](https://en.wikipedia.org/wiki/End-of-file#EOF_character)を受信するまでプログラムは終了しない。ユーザー入力を待たずに終了するには、`process.stdin.unref()` を呼ぶ。",
+      "symbol": "@types/node/readline.d.ts#readline.createInterface",
+      "lang": "ja"
+    },
+    "acdd200c": {
+      "original": "The `readline.cursorTo()` method moves cursor to the specified position in a\ngiven [TTY](https://nodejs.org/docs/latest-v22.x/api/tty.html) `stream`.",
+      "translated": "`readline.cursorTo()` メソッドは、指定された [TTY](https://nodejs.org/docs/latest-v22.x/api/tty.html) `stream` 内の指定された位置にカーソルを移動する。",
+      "symbol": "@types/node/readline.d.ts#readline.cursorTo",
+      "lang": "ja"
+    },
+    "5d3c5a0e": {
+      "original": "The `readline.emitKeypressEvents()` method causes the given `Readable` stream to begin emitting `'keypress'` events corresponding to received input.\n\nOptionally, `interface` specifies a `readline.Interface` instance for which\nautocompletion is disabled when copy-pasted input is detected.\n\nIf the `stream` is a `TTY`, then it must be in raw mode.\n\nThis is automatically called by any readline instance on its `input` if the `input` is a terminal. Closing the `readline` instance does not stop\nthe `input` from emitting `'keypress'` events.\n\n```js\nreadline.emitKeypressEvents(process.stdin);\nif (process.stdin.isTTY)\n  process.stdin.setRawMode(true);\n```\n\n## Example: Tiny CLI\n\nThe following example illustrates the use of `readline.Interface` class to\nimplement a small command-line interface:\n\n```js\nimport readline from 'node:readline';\nconst rl = readline.createInterface({\n  input: process.stdin,\n  output: process.stdout,\n  prompt: 'OHAI> ',\n});\n\nrl.prompt();\n\nrl.on('line', (line) => {\n  switch (line.trim()) {\n    case 'hello':\n      console.log('world!');\n      break;\n    default:\n      console.log(`Say what? I might have heard '${line.trim()}'`);\n      break;\n  }\n  rl.prompt();\n}).on('close', () => {\n  console.log('Have a great day!');\n  process.exit(0);\n});\n```\n\n## Example: Read file stream line-by-Line\n\nA common use case for `readline` is to consume an input file one line at a\ntime. The easiest way to do so is leveraging the `fs.ReadStream` API as\nwell as a `for await...of` loop:\n\n```js\nimport fs from 'node:fs';\nimport readline from 'node:readline';\n\nasync function processLineByLine() {\n  const fileStream = fs.createReadStream('input.txt');\n\n  const rl = readline.createInterface({\n    input: fileStream,\n    crlfDelay: Infinity,\n  });\n  // Note: we use the crlfDelay option to recognize all instances of CR LF\n  // ('\\r\\n') in input.txt as a single line break.\n\n  for await (const line of rl) {\n    // Each line in input.txt will be successively available here as `line`.\n    console.log(`Line from file: ${line}`);\n  }\n}\n\nprocessLineByLine();\n```\n\nAlternatively, one could use the `'line'` event:\n\n```js\nimport fs from 'node:fs';\nimport readline from 'node:readline';\n\nconst rl = readline.createInterface({\n  input: fs.createReadStream('sample.txt'),\n  crlfDelay: Infinity,\n});\n\nrl.on('line', (line) => {\n  console.log(`Line from file: ${line}`);\n});\n```\n\nCurrently, `for await...of` loop can be a bit slower. If `async` / `await` flow and speed are both essential, a mixed approach can be applied:\n\n```js\nimport { once } from 'node:events';\nimport { createReadStream } from 'node:fs';\nimport { createInterface } from 'node:readline';\n\n(async function processLineByLine() {\n  try {\n    const rl = createInterface({\n      input: createReadStream('big-file.txt'),\n      crlfDelay: Infinity,\n    });\n\n    rl.on('line', (line) => {\n      // Process the line.\n    });\n\n    await once(rl, 'close');\n\n    console.log('File processed.');\n  } catch (err) {\n    console.error(err);\n  }\n})();\n```",
+      "translated": "`readline.emitKeypressEvents()` メソッドは、指定された `Readable` ストリームに、受信した入力に対応する `'keypress'` イベントの発行を開始させる。\n\n任意で、`interface` は、コピー&ペーストされた入力が検出されたときに自動補完を無効化する `readline.Interface` インスタンスを指定する。\n\n`stream` が `TTY` の場合、raw モードでなければならない。\n\nこれは、`input` がターミナルの場合、任意の readline インスタンスがその `input` に対して自動的に呼ぶ。`readline` インスタンスを閉じても、`input` の `'keypress'` イベントの発行は停止しない。\n\n```js\nreadline.emitKeypressEvents(process.stdin);\nif (process.stdin.isTTY)\n  process.stdin.setRawMode(true);\n```\n\n## 例: 小さな CLI\n\n次の例は、`readline.Interface` クラスを使って小さなコマンドラインインターフェイスを実装する方法を示す:\n\n```js\nimport readline from 'node:readline';\nconst rl = readline.createInterface({\n  input: process.stdin,\n  output: process.stdout,\n  prompt: 'OHAI> ',\n});\n\nrl.prompt();\n\nrl.on('line', (line) => {\n  switch (line.trim()) {\n    case 'hello':\n      console.log('world!');\n      break;\n    default:\n      console.log(`Say what? I might have heard '${line.trim()}'`);\n      break;\n  }\n  rl.prompt();\n}).on('close', () => {\n  console.log('Have a great day!');\n  process.exit(0);\n});\n```\n\n## 例: ファイルストリームを 1 行ずつ読む\n\n`readline` の一般的なユースケースは、入力ファイルを 1 行ずつ処理することである。最も簡単な方法は、`fs.ReadStream` API と `for await...of` ループを活用することである:\n\n```js\nimport fs from 'node:fs';\nimport readline from 'node:readline';\n\nasync function processLineByLine() {\n  const fileStream = fs.createReadStream('input.txt');\n\n  const rl = readline.createInterface({\n    input: fileStream,\n    crlfDelay: Infinity,\n  });\n  // Note: we use the crlfDelay option to recognize all instances of CR LF\n  // ('\\r\\n') in input.txt as a single line break.\n\n  for await (const line of rl) {\n    // Each line in input.txt will be successively available here as `line`.\n    console.log(`Line from file: ${line}`);\n  }\n}\n\nprocessLineByLine();\n```\n\nあるいは、`'line'` イベントを使うこともできる:\n\n```js\nimport fs from 'node:fs';\nimport readline from 'node:readline';\n\nconst rl = readline.createInterface({\n  input: fs.createReadStream('sample.txt'),\n  crlfDelay: Infinity,\n});\n\nrl.on('line', (line) => {\n  console.log(`Line from file: ${line}`);\n});\n```\n\n現時点では、`for await...of` ループは少し遅くなることがある。`async` / `await` のフローと速度の両方が不可欠な場合は、混合アプローチを適用できる:\n\n```js\nimport { once } from 'node:events';\nimport { createReadStream } from 'node:fs';\nimport { createInterface } from 'node:readline';\n\n(async function processLineByLine() {\n  try {\n    const rl = createInterface({\n      input: createReadStream('big-file.txt'),\n      crlfDelay: Infinity,\n    });\n\n    rl.on('line', (line) => {\n      // Process the line.\n    });\n\n    await once(rl, 'close');\n\n    console.log('File processed.');\n  } catch (err) {\n    console.error(err);\n  }\n})();\n```",
+      "symbol": "@types/node/readline.d.ts#readline.emitKeypressEvents",
+      "lang": "ja"
+    },
+    "81aa3d2d": {
+      "original": "Instances of the `readline.Interface` class are constructed using the `readline.createInterface()` method. Every instance is associated with a\nsingle `input` [Readable](https://nodejs.org/docs/latest-v22.x/api/stream.html#readable-streams) stream and a single `output` [Writable](https://nodejs.org/docs/latest-v22.x/api/stream.html#writable-streams) stream.\nThe `output` stream is used to print prompts for user input that arrives on,\nand is read from, the `input` stream.",
+      "translated": "`readline.Interface` クラスのインスタンスは、`readline.createInterface()` メソッドを使って構築される。各インスタンスは、単一の `input` [Readable](https://nodejs.org/docs/latest-v22.x/api/stream.html#readable-streams) ストリームと単一の `output` [Writable](https://nodejs.org/docs/latest-v22.x/api/stream.html#writable-streams) ストリームに関連付けられる。`output` ストリームは、`input` ストリームに到達してそこから読み取られるユーザー入力のためのプロンプトを表示するために使われる。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface",
+      "lang": "ja"
+    },
+    "da66723d": {
+      "original": "NOTE: According to the documentation:\n\n> Instances of the `readline.Interface` class are constructed using the\n> `readline.createInterface()` method.",
+      "translated": "注意: ドキュメントによれば:\n\n> `readline.Interface` クラスのインスタンスは、`readline.createInterface()` メソッドを使って構築される。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface",
+      "lang": "ja"
+    },
+    "c4c480bc": {
+      "original": "Alias for `rl.close()`.",
+      "translated": "`rl.close()` のエイリアス。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.[Symbol.dispose]",
+      "lang": "ja"
+    },
+    "7d656f91": {
+      "original": "The `rl.close()` method closes the `Interface` instance and\nrelinquishes control over the `input` and `output` streams. When called,\nthe `'close'` event will be emitted.\n\nCalling `rl.close()` does not immediately stop other events (including `'line'`)\nfrom being emitted by the `Interface` instance.",
+      "translated": "`rl.close()` メソッドは、`Interface` インスタンスを閉じ、`input` ストリームと `output` ストリームに対する制御を放棄する。呼び出されると、`'close'` イベントが発行される。\n\n`rl.close()` を呼んでも、`Interface` インスタンスによる他のイベント(`'line'` を含む)の発行がただちに停止するわけではない。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.close",
+      "lang": "ja"
+    },
+    "dd2e601a": {
+      "original": "The cursor position relative to `rl.line`.\n\nThis will track where the current cursor lands in the input string, when\nreading input from a TTY stream. The position of cursor determines the\nportion of the input string that will be modified as input is processed,\nas well as the column where the terminal caret will be rendered.",
+      "translated": "`rl.line` を基準としたカーソル位置。\n\nこれは、TTY ストリームから入力を読み取る際に、現在のカーソルが入力文字列のどこに位置するかを追跡する。カーソル位置は、入力の処理に伴って変更される入力文字列の部分と、ターミナルのキャレットが描画される列を決定する。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.cursor",
+      "lang": "ja"
+    },
+    "6e4f536e": {
+      "original": "Returns the real position of the cursor in relation to the input\nprompt + string. Long input (wrapping) strings, as well as multiple\nline prompts are included in the calculations.",
+      "translated": "入力プロンプト + 文字列を基準としたカーソルの実際の位置を返す。長い入力(折り返し)文字列や複数行プロンプトも計算に含まれる。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.getCursorPos",
+      "lang": "ja"
+    },
+    "43ca1a28": {
+      "original": "The `rl.getPrompt()` method returns the current prompt used by `rl.prompt()`.",
+      "translated": "`rl.getPrompt()` メソッドは、`rl.prompt()` で使われる現在のプロンプトを返す。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.getPrompt",
+      "lang": "ja"
+    },
+    "cafdb215": {
+      "original": "the current prompt string",
+      "translated": "現在のプロンプト文字列",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.getPrompt",
+      "lang": "ja"
+    },
+    "182e3540": {
+      "original": "The current input data being processed by node.\n\nThis can be used when collecting input from a TTY stream to retrieve the\ncurrent value that has been processed thus far, prior to the `line` event\nbeing emitted. Once the `line` event has been emitted, this property will\nbe an empty string.\n\nBe aware that modifying the value during the instance runtime may have\nunintended consequences if `rl.cursor` is not also controlled.\n\n**If not using a TTY stream for input, use the `'line'` event.**\n\nOne possible use case would be as follows:\n\n```js\nconst values = ['lorem ipsum', 'dolor sit amet'];\nconst rl = readline.createInterface(process.stdin);\nconst showResults = debounce(() => {\n  console.log(\n    '\\n',\n    values.filter((val) => val.startsWith(rl.line)).join(' '),\n  );\n}, 300);\nprocess.stdin.on('keypress', (c, k) => {\n  showResults();\n});\n```",
+      "translated": "node が処理中の現在の入力データ。\n\nこれは、TTY ストリームから入力を収集する際に、`line` イベントが発行される前の、これまでに処理された現在の値を取得するために使える。`line` イベントが発行されると、このプロパティは空文字列になる。\n\nインスタンスの実行時にこの値を変更すると、`rl.cursor` も併せて制御しない限り、意図しない結果を招く可能性があることに注意すること。\n\n**入力に TTY ストリームを使わない場合は、`'line'` イベントを使うこと。**\n\n考えられるユースケースの 1 つは次のとおり:\n\n```js\nconst values = ['lorem ipsum', 'dolor sit amet'];\nconst rl = readline.createInterface(process.stdin);\nconst showResults = debounce(() => {\n  console.log(\n    '\\n',\n    values.filter((val) => val.startsWith(rl.line)).join(' '),\n  );\n}, 300);\nprocess.stdin.on('keypress', (c, k) => {\n  showResults();\n});\n```",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.line",
+      "lang": "ja"
+    },
+    "7d0fda54": {
+      "original": "The `rl.pause()` method pauses the `input` stream, allowing it to be resumed\nlater if necessary.\n\nCalling `rl.pause()` does not immediately pause other events (including `'line'`) from being emitted by the `Interface` instance.",
+      "translated": "`rl.pause()` メソッドは、`input` ストリームを一時停止し、必要に応じて後で再開できるようにする。\n\n`rl.pause()` を呼んでも、`Interface` インスタンスによる他のイベント(`'line'` を含む)の発行がただちに一時停止するわけではない。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.pause",
+      "lang": "ja"
+    },
+    "44b9b550": {
+      "original": "If `true`, prevents the cursor placement from being reset to `0`.",
+      "translated": "`true` の場合、カーソル位置が `0` にリセットされるのを防ぐ。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.prompt",
+      "lang": "ja"
+    },
+    "7af73b54": {
+      "original": "The `rl.prompt()` method writes the `Interface` instances configured`prompt` to a new line in `output` in order to provide a user with a new\nlocation at which to provide input.\n\nWhen called, `rl.prompt()` will resume the `input` stream if it has been\npaused.\n\nIf the `Interface` was created with `output` set to `null` or `undefined` the prompt is not written.",
+      "translated": "`rl.prompt()` メソッドは、`Interface` インスタンスに構成された `prompt` を `output` の新しい行に書き込み、ユーザーが入力を提供する新しい位置を提供する。\n\n呼び出されると、`rl.prompt()` は一時停止されていた `input` ストリームを再開する。\n\n`Interface` が `output` を `null` または `undefined` に設定して作成された場合、プロンプトは書き込まれない。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.prompt",
+      "lang": "ja"
+    },
+    "8b21a6c0": {
+      "original": "A statement or query to write to `output`, prepended to the prompt.",
+      "translated": "`output` に書き込む文、またはクエリ。プロンプトの前に付加される。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.question",
+      "lang": "ja"
+    },
+    "c0796b3e": {
+      "original": "The `rl.question()` method displays the `query` by writing it to the `output`,\nwaits for user input to be provided on `input`, then invokes the `callback` function passing the provided input as the first argument.\n\nWhen called, `rl.question()` will resume the `input` stream if it has been\npaused.\n\nIf the `Interface` was created with `output` set to `null` or `undefined` the `query` is not written.\n\nThe `callback` function passed to `rl.question()` does not follow the typical\npattern of accepting an `Error` object or `null` as the first argument.\nThe `callback` is called with the provided answer as the only argument.\n\nAn error will be thrown if calling `rl.question()` after `rl.close()`.\n\nExample usage:\n\n```js\nrl.question('What is your favorite food? ', (answer) => {\n  console.log(`Oh, so your favorite food is ${answer}`);\n});\n```\n\nUsing an `AbortController` to cancel a question.\n\n```js\nconst ac = new AbortController();\nconst signal = ac.signal;\n\nrl.question('What is your favorite food? ', { signal }, (answer) => {\n  console.log(`Oh, so your favorite food is ${answer}`);\n});\n\nsignal.addEventListener('abort', () => {\n  console.log('The food question timed out');\n}, { once: true });\n\nsetTimeout(() => ac.abort(), 10000);\n```",
+      "translated": "`rl.question()` メソッドは、`query` を `output` に書き込むことで表示し、`input` でユーザー入力が提供されるのを待ち、提供された入力を第 1 引数として `callback` 関数を呼び出す。\n\n呼び出されると、`rl.question()` は一時停止されていた `input` ストリームを再開する。\n\n`Interface` が `output` を `null` または `undefined` に設定して作成された場合、`query` は書き込まれない。\n\n`rl.question()` に渡される `callback` 関数は、第 1 引数として `Error` オブジェクトや `null` を受け付ける典型的なパターンには従わない。`callback` は、提供された回答を唯一の引数として呼び出される。\n\n`rl.close()` の後に `rl.question()` を呼ぶとエラーが投げられる。\n\n使用例:\n\n```js\nrl.question('What is your favorite food? ', (answer) => {\n  console.log(`Oh, so your favorite food is ${answer}`);\n});\n```\n\n`AbortController` を使って質問をキャンセルする:\n\n```js\nconst ac = new AbortController();\nconst signal = ac.signal;\n\nrl.question('What is your favorite food? ', { signal }, (answer) => {\n  console.log(`Oh, so your favorite food is ${answer}`);\n});\n\nsignal.addEventListener('abort', () => {\n  console.log('The food question timed out');\n}, { once: true });\n\nsetTimeout(() => ac.abort(), 10000);\n```",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.question",
+      "lang": "ja"
+    },
+    "542937f3": {
+      "original": "The `rl.resume()` method resumes the `input` stream if it has been paused.",
+      "translated": "`rl.resume()` メソッドは、一時停止されていた `input` ストリームを再開する。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.resume",
+      "lang": "ja"
+    },
+    "2447d71f": {
+      "original": "The `rl.setPrompt()` method sets the prompt that will be written to `output` whenever `rl.prompt()` is called.",
+      "translated": "`rl.setPrompt()` メソッドは、`rl.prompt()` が呼ばれるたびに `output` に書き込まれるプロンプトを設定する。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.setPrompt",
+      "lang": "ja"
+    },
+    "109ea91b": {
+      "original": "The `rl.write()` method will write either `data` or a key sequence identified\nby `key` to the `output`. The `key` argument is supported only if `output` is\na `TTY` text terminal. See `TTY keybindings` for a list of key\ncombinations.\n\nIf `key` is specified, `data` is ignored.\n\nWhen called, `rl.write()` will resume the `input` stream if it has been\npaused.\n\nIf the `Interface` was created with `output` set to `null` or `undefined` the `data` and `key` are not written.\n\n```js\nrl.write('Delete this!');\n// Simulate Ctrl+U to delete the line written previously\nrl.write(null, { ctrl: true, name: 'u' });\n```\n\nThe `rl.write()` method will write the data to the `readline` `Interface`'s `input` _as if it were provided by the user_.",
+      "translated": "`rl.write()` メソッドは、`data` か、`key` で識別されるキーシーケンスのいずれかを `output` に書き込む。`key` 引数は、`output` が `TTY` テキストターミナルの場合にのみサポートされる。キーの組み合わせの一覧は `TTY keybindings` を参照。\n\n`key` が指定された場合、`data` は無視される。\n\n呼び出されると、`rl.write()` は一時停止されていた `input` ストリームを再開する。\n\n`Interface` が `output` を `null` または `undefined` に設定して作成された場合、`data` と `key` は書き込まれない。\n\n```js\nrl.write('Delete this!');\n// Simulate Ctrl+U to delete the line written previously\nrl.write(null, { ctrl: true, name: 'u' });\n```\n\n`rl.write()` メソッドは、_あたかもユーザーによって提供されたかのように_、`readline` `Interface` の `input` にデータを書き込む。",
+      "symbol": "@types/node/readline.d.ts#readline.Interface.write",
+      "lang": "ja"
+    },
+    "8145b16a": {
+      "original": "The `readline.moveCursor()` method moves the cursor _relative_ to its current\nposition in a given [TTY](https://nodejs.org/docs/latest-v22.x/api/tty.html) `stream`.",
+      "translated": "`readline.moveCursor()` メソッドは、指定された [TTY](https://nodejs.org/docs/latest-v22.x/api/tty.html) `stream` 内で、カーソルを現在位置を基準として_相対的に_移動する。",
+      "symbol": "@types/node/readline.d.ts#readline.moveCursor",
+      "lang": "ja"
+    },
+    "318abeef": {
+      "original": "An optional function used for Tab autocompletion.",
+      "translated": "Tab 自動補完に使う省略可能な関数。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.completer",
+      "lang": "ja"
+    },
+    "83b763ee": {
+      "original": "If the delay between `\\r` and `\\n` exceeds `crlfDelay` milliseconds,\nboth `\\r` and `\\n` will be treated as separate end-of-line input.\n`crlfDelay` will be coerced to a number no less than `100`.\nIt can be set to `Infinity`, in which case\n`\\r` followed by `\\n` will always be considered a single newline\n(which may be reasonable for [reading files](https://nodejs.org/docs/latest-v22.x/api/readline.html#example-read-file-stream-line-by-line) with `\\r\\n` line delimiter).",
+      "translated": "`\\r` と `\\n` の間の遅延が `crlfDelay` ミリ秒を超えると、`\\r` と `\\n` の両方が別々の行末入力として扱われる。`crlfDelay` は `100` 以上の数値に強制変換される。`Infinity` に設定でき、その場合 `\\r` に続く `\\n` は常に単一の改行と見なされる(`\\r\\n` 行区切りの[ファイルを読む](https://nodejs.org/docs/latest-v22.x/api/readline.html#example-read-file-stream-line-by-line)場合には妥当かもしれない)。",
+      "symbol": "@types/node/readline.d.ts#readline.ReadLineOptions.crlfDelay",
       "lang": "ja"
     },
     "5502a6b0": {
