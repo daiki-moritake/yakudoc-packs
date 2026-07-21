@@ -2152,6 +2152,174 @@
       "symbol": "@types/node/child_process.d.ts#child_process.spawnSync",
       "lang": "ja"
     },
+    "dbc49833": {
+      "original": "Clusters of Node.js processes can be used to run multiple instances of Node.js\nthat can distribute workloads among their application threads. When process isolation\nis not needed, use the [`worker_threads`](https://nodejs.org/docs/latest-v22.x/api/worker_threads.html)\nmodule instead, which allows running multiple application threads within a single Node.js instance.\n\nThe cluster module allows easy creation of child processes that all share\nserver ports.\n\n```js\nimport cluster from 'node:cluster';\nimport http from 'node:http';\nimport { availableParallelism } from 'node:os';\nimport process from 'node:process';\n\nconst numCPUs = availableParallelism();\n\nif (cluster.isPrimary) {\n  console.log(`Primary ${process.pid} is running`);\n\n  // Fork workers.\n  for (let i = 0; i < numCPUs; i++) {\n    cluster.fork();\n  }\n\n  cluster.on('exit', (worker, code, signal) => {\n    console.log(`worker ${worker.process.pid} died`);\n  });\n} else {\n  // Workers can share any TCP connection\n  // In this case it is an HTTP server\n  http.createServer((req, res) => {\n    res.writeHead(200);\n    res.end('hello world\\n');\n  }).listen(8000);\n\n  console.log(`Worker ${process.pid} started`);\n}\n```\n\nRunning Node.js will now share port 8000 between the workers:\n\n```console\n$ node server.js\nPrimary 3596 is running\nWorker 4324 started\nWorker 4520 started\nWorker 6056 started\nWorker 5644 started\n```\n\nOn Windows, it is not yet possible to set up a named pipe server in a worker.",
+      "translated": "Node.js プロセスのクラスターは、アプリケーションスレッド間でワークロードを分散できる複数の Node.js インスタンスを実行するために使える。プロセスの隔離が不要な場合は、代わりに [`worker_threads`](https://nodejs.org/docs/latest-v22.x/api/worker_threads.html) モジュールを使う。これは単一の Node.js インスタンス内で複数のアプリケーションスレッドを実行できる。\n\ncluster モジュールは、すべてがサーバーポートを共有する子プロセスを簡単に作成できるようにする。\n\n```js\nimport cluster from 'node:cluster';\nimport http from 'node:http';\nimport { availableParallelism } from 'node:os';\nimport process from 'node:process';\n\nconst numCPUs = availableParallelism();\n\nif (cluster.isPrimary) {\n  console.log(`Primary ${process.pid} is running`);\n\n  // Fork workers.\n  for (let i = 0; i < numCPUs; i++) {\n    cluster.fork();\n  }\n\n  cluster.on('exit', (worker, code, signal) => {\n    console.log(`worker ${worker.process.pid} died`);\n  });\n} else {\n  // Workers can share any TCP connection\n  // In this case it is an HTTP server\n  http.createServer((req, res) => {\n    res.writeHead(200);\n    res.end('hello world\\n');\n  }).listen(8000);\n\n  console.log(`Worker ${process.pid} started`);\n}\n```\n\nNode.js を実行すると、ワーカー間でポート 8000 が共有される:\n\n```console\n$ node server.js\nPrimary 3596 is running\nWorker 4324 started\nWorker 4520 started\nWorker 6056 started\nWorker 5644 started\n```\n\nWindows では、ワーカー内で名前付きパイプサーバーをまだ設定できない。",
+      "symbol": "@types/node/cluster.d.ts#cluster",
+      "lang": "ja"
+    },
+    "52c3cd8a": {
+      "original": "The `addressType` is one of:\n\n* `4` (TCPv4)\n* `6` (TCPv6)\n* `-1` (Unix domain socket)\n* `'udp4'` or `'udp6'` (UDPv4 or UDPv6)",
+      "translated": "`addressType` は次のいずれかである:\n\n* `4`(TCPv4)\n* `6`(TCPv6)\n* `-1`(Unix ドメインソケット)\n* `'udp4'` または `'udp6'`(UDPv4 または UDPv6)",
+      "symbol": "@types/node/cluster.d.ts#cluster.Address.addressType",
+      "lang": "ja"
+    },
+    "e23dcdfa": {
+      "original": "Key/value pairs to add to worker process environment.",
+      "translated": "ワーカープロセスの環境に追加するキーと値のペア。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.fork",
+      "lang": "ja"
+    },
+    "5f620e67": {
+      "original": "Spawn a new worker process.\n\nThis can only be called from the primary process.",
+      "translated": "新しいワーカープロセスを生成する。\n\nこれはプライマリプロセスからのみ呼べる。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.fork",
+      "lang": "ja"
+    },
+    "22d4cb1c": {
+      "original": "since v16.0.0 - use isPrimary.",
+      "translated": "v16.0.0 以降 - isPrimary を使うこと。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.isMaster",
+      "lang": "ja"
+    },
+    "325c41b1": {
+      "original": "True if the process is a primary. This is determined by the `process.env.NODE_UNIQUE_ID`. If `process.env.NODE_UNIQUE_ID`\nis undefined, then `isPrimary` is `true`.",
+      "translated": "プロセスがプライマリの場合は true。これは `process.env.NODE_UNIQUE_ID` によって決定される。`process.env.NODE_UNIQUE_ID` が undefined の場合、`isPrimary` は `true` である。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.isPrimary",
+      "lang": "ja"
+    },
+    "027b866d": {
+      "original": "True if the process is not a primary (it is the negation of `cluster.isPrimary`).",
+      "translated": "プロセスがプライマリでない場合は true(`cluster.isPrimary` の否定である)。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.isWorker",
+      "lang": "ja"
+    },
+    "471af699": {
+      "original": "The scheduling policy, either `cluster.SCHED_RR` for round-robin or `cluster.SCHED_NONE` to leave it to the operating system. This is a\nglobal setting and effectively frozen once either the first worker is spawned, or [`.setupPrimary()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clustersetupprimarysettings)\nis called, whichever comes first.\n\n`SCHED_RR` is the default on all operating systems except Windows. Windows will change to `SCHED_RR` once libuv is able to effectively distribute\nIOCP handles without incurring a large performance hit.\n\n`cluster.schedulingPolicy` can also be set through the `NODE_CLUSTER_SCHED_POLICY` environment variable. Valid values are `'rr'` and `'none'`.",
+      "translated": "スケジューリングポリシー。ラウンドロビンの `cluster.SCHED_RR`、またはオペレーティングシステムに任せる `cluster.SCHED_NONE` のいずれか。これはグローバル設定で、最初のワーカーが生成されるか [`.setupPrimary()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clustersetupprimarysettings) が呼ばれるか、いずれか早い方の時点で実質的に固定される。\n\n`SCHED_RR` は Windows を除くすべてのオペレーティングシステムでの既定である。libuv が大きなパフォーマンスの低下を招かずに IOCP ハンドルを効果的に分散できるようになれば、Windows も `SCHED_RR` に変わる。\n\n`cluster.schedulingPolicy` は `NODE_CLUSTER_SCHED_POLICY` 環境変数を通じても設定できる。有効な値は `'rr'` と `'none'` である。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.schedulingPolicy",
+      "lang": "ja"
+    },
+    "d7ff8ec0": {
+      "original": "After calling [`.setupPrimary()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clustersetupprimarysettings)\n(or [`.fork()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clusterforkenv)) this settings object will contain\nthe settings, including the default values.\n\nThis object is not intended to be changed or set manually.",
+      "translated": "[`.setupPrimary()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clustersetupprimarysettings)(または [`.fork()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clusterforkenv))を呼んだ後、この settings オブジェクトは既定値を含む設定を含む。\n\nこのオブジェクトは手動で変更・設定することを意図していない。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.settings",
+      "lang": "ja"
+    },
+    "fcbbadb6": {
+      "original": "since v16.0.0 - use [`.setupPrimary()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clustersetupprimarysettings) instead.",
+      "translated": "v16.0.0 以降 - 代わりに [`.setupPrimary()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clustersetupprimarysettings) を使うこと。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.setupMaster",
+      "lang": "ja"
+    },
+    "229cabc2": {
+      "original": "`setupPrimary` is used to change the default 'fork' behavior. Once called, the settings will be present in `cluster.settings`.\n\nAny settings changes only affect future calls to [`.fork()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clusterforkenv)\nand have no effect on workers that are already running.\n\nThe only attribute of a worker that cannot be set via `.setupPrimary()` is the `env` passed to\n[`.fork()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clusterforkenv).\n\nThe defaults above apply to the first call only; the defaults for later calls are the current values at the time of\n`cluster.setupPrimary()` is called.\n\n```js\nimport cluster from 'node:cluster';\n\ncluster.setupPrimary({\n  exec: 'worker.js',\n  args: ['--use', 'https'],\n  silent: true,\n});\ncluster.fork(); // https worker\ncluster.setupPrimary({\n  exec: 'worker.js',\n  args: ['--use', 'http'],\n});\ncluster.fork(); // http worker\n```\n\nThis can only be called from the primary process.",
+      "translated": "`setupPrimary` は既定の 'fork' 挙動を変えるために使う。いったん呼ばれると、設定は `cluster.settings` に存在する。\n\n設定の変更は、以降の [`.fork()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clusterforkenv) の呼び出しにのみ影響し、すでに実行中のワーカーには影響しない。\n\n`.setupPrimary()` を介して設定できないワーカーの唯一の属性は、[`.fork()`](https://nodejs.org/docs/latest-v22.x/api/cluster.html#clusterforkenv) に渡される `env` である。\n\n上記の既定は最初の呼び出しにのみ適用される。以降の呼び出しの既定は、`cluster.setupPrimary()` が呼ばれた時点の現在の値である。\n\n```js\nimport cluster from 'node:cluster';\n\ncluster.setupPrimary({\n  exec: 'worker.js',\n  args: ['--use', 'https'],\n  silent: true,\n});\ncluster.fork(); // https worker\ncluster.setupPrimary({\n  exec: 'worker.js',\n  args: ['--use', 'http'],\n});\ncluster.fork(); // http worker\n```\n\nこれはプライマリプロセスからのみ呼べる。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.setupPrimary",
+      "lang": "ja"
+    },
+    "7257c8ee": {
+      "original": "A reference to the current worker object. Not available in the primary process.\n\n```js\nimport cluster from 'node:cluster';\n\nif (cluster.isPrimary) {\n  console.log('I am primary');\n  cluster.fork();\n  cluster.fork();\n} else if (cluster.isWorker) {\n  console.log(`I am worker #${cluster.worker.id}`);\n}\n```",
+      "translated": "現在のワーカーオブジェクトへの参照。プライマリプロセスでは利用できない。\n\n```js\nimport cluster from 'node:cluster';\n\nif (cluster.isPrimary) {\n  console.log('I am primary');\n  cluster.fork();\n  cluster.fork();\n} else if (cluster.isWorker) {\n  console.log(`I am worker #${cluster.worker.id}`);\n}\n```",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.worker",
+      "lang": "ja"
+    },
+    "9bf682ee": {
+      "original": "A hash that stores the active worker objects, keyed by `id` field. This makes it easy to loop through all the workers. It is only available in the primary process.\n\nA worker is removed from `cluster.workers` after the worker has disconnected _and_ exited. The order between these two events cannot be determined in advance. However, it\nis guaranteed that the removal from the `cluster.workers` list happens before the last `'disconnect'` or `'exit'` event is emitted.\n\n```js\nimport cluster from 'node:cluster';\n\nfor (const worker of Object.values(cluster.workers)) {\n  worker.send('big announcement to all workers');\n}\n```",
+      "translated": "アクティブなワーカーオブジェクトを `id` フィールドをキーとして格納するハッシュ。これによりすべてのワーカーを簡単にループできる。プライマリプロセスでのみ利用できる。\n\nワーカーは、切断_かつ_終了した後に `cluster.workers` から削除される。これら 2 つのイベントの順序は事前には決定できない。ただし、`cluster.workers` リストからの削除は、最後の `'disconnect'` または `'exit'` イベントが発行される前に起こることが保証される。\n\n```js\nimport cluster from 'node:cluster';\n\nfor (const worker of Object.values(cluster.workers)) {\n  worker.send('big announcement to all workers');\n}\n```",
+      "symbol": "@types/node/cluster.d.ts#cluster.Cluster.workers",
+      "lang": "ja"
+    },
+    "7ee371af": {
+      "original": "String arguments passed to worker.",
+      "translated": "ワーカーに渡される文字列引数。",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.args",
+      "lang": "ja"
+    },
+    "b9447986": {
+      "original": "Current working directory of the worker process.",
+      "translated": "ワーカープロセスのカレントワーキングディレクトリ。",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.cwd",
+      "lang": "ja"
+    },
+    "d8c1d4be": {
+      "original": "File path to worker file.",
+      "translated": "ワーカーファイルへのファイルパス。",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.exec",
+      "lang": "ja"
+    },
+    "00d2f268": {
+      "original": "List of string arguments passed to the Node.js executable.",
+      "translated": "Node.js 実行ファイルに渡される文字列引数のリスト。",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.execArgv",
+      "lang": "ja"
+    },
+    "652ed4ba": {
+      "original": "Sets the group identity of the process. (See [`setgid(2)`](https://man7.org/linux/man-pages/man2/setgid.2.html).)",
+      "translated": "プロセスのグループ識別子を設定する。([`setgid(2)`](https://man7.org/linux/man-pages/man2/setgid.2.html) を参照。)",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.gid",
+      "lang": "ja"
+    },
+    "5dbf2d2b": {
+      "original": "Sets inspector port of worker. This can be a number, or a function that takes no arguments and returns a number.\nBy default each worker gets its own port, incremented from the primary's `process.debugPort`.",
+      "translated": "ワーカーの inspector ポートを設定する。これは数値、または引数を取らず数値を返す関数でよい。既定では、各ワーカーはプライマリの `process.debugPort` からインクリメントされた独自のポートを得る。",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.inspectPort",
+      "lang": "ja"
+    },
+    "1e2e036c": {
+      "original": "Specify the kind of serialization used for sending messages between processes. Possible values are `'json'` and `'advanced'`.\nSee [Advanced serialization for `child_process`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#advanced-serialization) for more details.",
+      "translated": "プロセス間でメッセージを送るときに使うシリアライズの種類を指定する。可能な値は `'json'` と `'advanced'` である。詳細は [Advanced serialization for `child_process`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#advanced-serialization) を参照。",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.serialization",
+      "lang": "ja"
+    },
+    "659b6a62": {
+      "original": "Whether or not to send output to parent's stdio.",
+      "translated": "出力を親の stdio に送るかどうか。",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.silent",
+      "lang": "ja"
+    },
+    "9261e205": {
+      "original": "Configures the stdio of forked processes. Because the cluster module relies on IPC to function, this configuration must\ncontain an `'ipc'` entry. When this option is provided, it overrides `silent`. See [`child_prcess.spawn()`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processspawncommand-args-options)'s\n[`stdio`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#optionsstdio).",
+      "translated": "fork されたプロセスの stdio を構成する。cluster モジュールは機能するために IPC に依存するため、この構成には `'ipc'` エントリを含めなければならない。このオプションが指定された場合、`silent` を上書きする。[`child_prcess.spawn()`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processspawncommand-args-options) の [`stdio`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#optionsstdio) を参照。",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.stdio",
+      "lang": "ja"
+    },
+    "eb297bcd": {
+      "original": "Sets the user identity of the process. (See [`setuid(2)`](https://man7.org/linux/man-pages/man2/setuid.2.html).)",
+      "translated": "プロセスのユーザー識別子を設定する。([`setuid(2)`](https://man7.org/linux/man-pages/man2/setuid.2.html) を参照。)",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.uid",
+      "lang": "ja"
+    },
+    "da040755": {
+      "original": "Hide the forked processes console window that would normally be created on Windows systems.",
+      "translated": "Windows システムで通常作成される、fork されたプロセスのコンソールウィンドウを隠す。",
+      "symbol": "@types/node/cluster.d.ts#cluster.ClusterSettings.windowsHide",
+      "lang": "ja"
+    },
+    "95adad78": {
+      "original": "A `Worker` object contains all public information and method about a worker.\nIn the primary it can be obtained using `cluster.workers`. In a worker\nit can be obtained using `cluster.worker`.",
+      "translated": "`Worker` オブジェクトは、ワーカーに関するすべての公開情報とメソッドを含む。プライマリでは `cluster.workers` を使って取得でき、ワーカーでは `cluster.worker` を使って取得できる。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker",
+      "lang": "ja"
+    },
+    "a80b9908": {
+      "original": "A reference to `worker`.",
+      "translated": "`worker` への参照。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.disconnect",
+      "lang": "ja"
+    },
+    "f6dfb0dc": {
+      "original": "In a worker, this function will close all servers, wait for the `'close'` event\non those servers, and then disconnect the IPC channel.\n\nIn the primary, an internal message is sent to the worker causing it to call `.disconnect()` on itself.\n\nCauses `.exitedAfterDisconnect` to be set.\n\nAfter a server is closed, it will no longer accept new connections,\nbut connections may be accepted by any other listening worker. Existing\nconnections will be allowed to close as usual. When no more connections exist,\nsee `server.close()`, the IPC channel to the worker will close allowing it\nto die gracefully.\n\nThe above applies _only_ to server connections, client connections are not\nautomatically closed by workers, and disconnect does not wait for them to close\nbefore exiting.\n\nIn a worker, `process.disconnect` exists, but it is not this function;\nit is `disconnect()`.\n\nBecause long living server connections may block workers from disconnecting, it\nmay be useful to send a message, so application specific actions may be taken to\nclose them. It also may be useful to implement a timeout, killing a worker if\nthe `'disconnect'` event has not been emitted after some time.\n\n```js\nimport net from 'node:net';\n\nif (cluster.isPrimary) {\n  const worker = cluster.fork();\n  let timeout;\n\n  worker.on('listening', (address) => {\n    worker.send('shutdown');\n    worker.disconnect();\n    timeout = setTimeout(() => {\n      worker.kill();\n    }, 2000);\n  });\n\n  worker.on('disconnect', () => {\n    clearTimeout(timeout);\n  });\n\n} else if (cluster.isWorker) {\n  const server = net.createServer((socket) => {\n    // Connections never end\n  });\n\n  server.listen(8000);\n\n  process.on('message', (msg) => {\n    if (msg === 'shutdown') {\n      // Initiate graceful close of any connections to server\n    }\n  });\n}\n```",
+      "translated": "ワーカーでは、この関数はすべてのサーバーを閉じ、それらのサーバーで `'close'` イベントを待ってから、IPC チャネルを切断する。\n\nプライマリでは、内部メッセージがワーカーに送られ、ワーカーが自身に対して `.disconnect()` を呼ぶ。\n\n`.exitedAfterDisconnect` が設定される。\n\nサーバーが閉じられた後、それはもう新しい接続を受け付けないが、接続は他のリッスン中のワーカーによって受け付けられることがある。既存の接続は通常どおり閉じることが許される。接続がもう存在しなくなると(`server.close()` を参照)、ワーカーへの IPC チャネルが閉じられ、ワーカーが穏やかに終了できるようになる。\n\n上記はサーバー接続に_のみ_適用される。クライアント接続はワーカーによって自動的に閉じられず、disconnect はそれらが閉じるのを待たずに終了する。\n\nワーカーでは `process.disconnect` が存在するが、それはこの関数ではなく `disconnect()` である。\n\n長寿命のサーバー接続はワーカーの切断をブロックすることがあるため、メッセージを送って、それらを閉じるためのアプリケーション固有のアクションを取れるようにすると役立つことがある。また、一定時間後に `'disconnect'` イベントが発行されていない場合にワーカーを kill するタイムアウトを実装することも役立つことがある。\n\n```js\nimport net from 'node:net';\n\nif (cluster.isPrimary) {\n  const worker = cluster.fork();\n  let timeout;\n\n  worker.on('listening', (address) => {\n    worker.send('shutdown');\n    worker.disconnect();\n    timeout = setTimeout(() => {\n      worker.kill();\n    }, 2000);\n  });\n\n  worker.on('disconnect', () => {\n    clearTimeout(timeout);\n  });\n\n} else if (cluster.isWorker) {\n  const server = net.createServer((socket) => {\n    // Connections never end\n  });\n\n  server.listen(8000);\n\n  process.on('message', (msg) => {\n    if (msg === 'shutdown') {\n      // Initiate graceful close of any connections to server\n    }\n  });\n}\n```",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.disconnect",
+      "lang": "ja"
+    },
+    "a8d18b6a": {
+      "original": "This property is `true` if the worker exited due to `.disconnect()`.\nIf the worker exited any other way, it is `false`. If the\nworker has not exited, it is `undefined`.\n\nThe boolean `worker.exitedAfterDisconnect` allows distinguishing between\nvoluntary and accidental exit, the primary may choose not to respawn a worker\nbased on this value.\n\n```js\ncluster.on('exit', (worker, code, signal) => {\n  if (worker.exitedAfterDisconnect === true) {\n    console.log('Oh, it was just voluntary – no need to worry');\n  }\n});\n\n// kill worker\nworker.kill();\n```",
+      "translated": "このプロパティは、ワーカーが `.disconnect()` のために終了した場合は `true` である。ワーカーが他の方法で終了した場合は `false` である。ワーカーが終了していない場合は `undefined` である。\n\n真偽値 `worker.exitedAfterDisconnect` により、自発的な終了と偶発的な終了を区別でき、プライマリはこの値に基づいてワーカーを再生成しないことを選べる。\n\n```js\ncluster.on('exit', (worker, code, signal) => {\n  if (worker.exitedAfterDisconnect === true) {\n    console.log('Oh, it was just voluntary – no need to worry');\n  }\n});\n\n// kill worker\nworker.kill();\n```",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.exitedAfterDisconnect",
+      "lang": "ja"
+    },
     "03a04b1b": {
       "original": "The `node:crypto` module provides cryptographic functionality that includes a\nset of wrappers for OpenSSL's hash, HMAC, cipher, decipher, sign, and verify\nfunctions.\n\n```js\nconst { createHmac } = await import('node:crypto');\n\nconst secret = 'abcdefg';\nconst hash = createHmac('sha256', secret)\n               .update('I love cupcakes')\n               .digest('hex');\nconsole.log(hash);\n// Prints:\n//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e\n```",
       "translated": "`node:crypto` モジュールは、OpenSSL の hash・HMAC・cipher・decipher・sign・verify 関数に対する一連のラッパーを含む暗号機能を提供する。\n\n```js\nconst { createHmac } = await import('node:crypto');\n\nconst secret = 'abcdefg';\nconst hash = createHmac('sha256', secret)\n               .update('I love cupcakes')\n               .digest('hex');\nconsole.log(hash);\n// Prints:\n//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e\n```",
