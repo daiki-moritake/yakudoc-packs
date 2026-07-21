@@ -100,6 +100,12 @@
       "symbol": "@types/node/stream.d.ts#stream.Stream.Readable.unshift",
       "lang": "ja"
     },
+    "24267582": {
+      "original": "Indicates a recoverable error that a `REPLServer` can use to support multi-line input.",
+      "translated": "`REPLServer` が複数行入力をサポートするために使える、回復可能なエラーを示す。",
+      "symbol": "@types/node/repl.d.ts#repl.Recoverable",
+      "lang": "ja"
+    },
     "26287846": {
       "original": "The value will be `true` if the decoding result will include the byte order\nmark.",
       "translated": "デコード結果にバイトオーダーマークが含まれる場合、値は `true` になる。",
@@ -11876,6 +11882,174 @@
       "original": "Most of the time the unhandledRejection will be an Error, but this should not be relied upon\nas *anything* can be thrown/rejected, it is therefore unsafe to assume that the value is an Error.",
       "translated": "ほとんどの場合、unhandledRejection は Error だが、_あらゆるもの_が throw/reject され得るため、これに依存すべきではない。したがって、値が Error であると仮定するのは安全でない。",
       "symbol": "@types/node/process.d.ts#process.global.NodeJS.UnhandledRejectionListener",
+      "lang": "ja"
+    },
+    "5502a6b0": {
+      "original": "The `node:repl` module provides a Read-Eval-Print-Loop (REPL) implementation\nthat is available both as a standalone program or includible in other\napplications. It can be accessed using:\n\n```js\nimport repl from 'node:repl';\n```",
+      "translated": "`node:repl` モジュールは、スタンドアロンプログラムとしても、他のアプリケーションに組み込めるものとしても利用できる Read-Eval-Print-Loop(REPL)実装を提供する。次のようにアクセスできる:\n\n```js\nimport repl from 'node:repl';\n```",
+      "symbol": "@types/node/repl.d.ts#repl",
+      "lang": "ja"
+    },
+    "affb3d15": {
+      "original": "A flag passed in the REPL options. Evaluates expressions in sloppy mode.",
+      "translated": "REPL オプションに渡されるフラグ。式を sloppy モードで評価する。",
+      "symbol": "@types/node/repl.d.ts#repl.REPL_MODE_SLOPPY",
+      "lang": "ja"
+    },
+    "4d2383af": {
+      "original": "A flag passed in the REPL options. Evaluates expressions in strict mode.\nThis is equivalent to prefacing every repl statement with `'use strict'`.",
+      "translated": "REPL オプションに渡されるフラグ。式を strict モードで評価する。これはすべての repl 文の前に `'use strict'` を付けるのと同等である。",
+      "symbol": "@types/node/repl.d.ts#repl.REPL_MODE_STRICT",
+      "lang": "ja"
+    },
+    "20c0db42": {
+      "original": "The function to execute, optionally accepting a single string argument.",
+      "translated": "実行する関数。任意で単一の文字列引数を受け付ける。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLCommand.action",
+      "lang": "ja"
+    },
+    "a9fdf036": {
+      "original": "Help text to be displayed when `.help` is entered.",
+      "translated": "`.help` が入力されたときに表示されるヘルプテキスト。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLCommand.help",
+      "lang": "ja"
+    },
+    "526edf60": {
+      "original": "Stop evaluating the current piece of code when `SIGINT` is received, i.e. `Ctrl+C` is\npressed. This cannot be used together with a custom `eval` function.",
+      "translated": "`SIGINT` を受信したとき、すなわち `Ctrl+C` が押されたときに、現在のコード片の評価を停止する。これはカスタムの `eval` 関数と併用できない。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.breakEvalOnSigint",
+      "lang": "ja"
+    },
+    "13aaf884": {
+      "original": "An optional function used for custom Tab auto completion.",
+      "translated": "カスタムの Tab 自動補完に使う省略可能な関数。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.completer",
+      "lang": "ja"
+    },
+    "65e1a4ff": {
+      "original": "The function to be used when evaluating each given line of input.\n**Default:** an async wrapper for the JavaScript `eval()` function. An `eval` function can\nerror with `repl.Recoverable` to indicate the input was incomplete and prompt for\nadditional lines. See the [custom evaluation functions](https://nodejs.org/dist/latest-v22.x/docs/api/repl.html#custom-evaluation-functions)\nsection for more details.",
+      "translated": "指定された各入力行を評価するときに使う関数。**既定値:** JavaScript の `eval()` 関数の async ラッパー。`eval` 関数は、入力が不完全であることを示して追加の行を促すために `repl.Recoverable` でエラーにできる。詳細は [custom evaluation functions](https://nodejs.org/dist/latest-v22.x/docs/api/repl.html#custom-evaluation-functions) セクションを参照。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.eval",
+      "lang": "ja"
+    },
+    "3abdb4a3": {
+      "original": "If `true`, specifies that the default writer will not output the return value of a\ncommand if it evaluates to `undefined`.",
+      "translated": "`true` の場合、コマンドが `undefined` に評価された場合に既定の writer がその戻り値を出力しないことを指定する。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.ignoreUndefined",
+      "lang": "ja"
+    },
+    "48476ebc": {
+      "original": "The `Readable` stream from which REPL input will be read.",
+      "translated": "REPL 入力を読み取る `Readable` ストリーム。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.input",
+      "lang": "ja"
+    },
+    "6340c37c": {
+      "original": "The `Writable` stream to which REPL output will be written.",
+      "translated": "REPL 出力を書き込む `Writable` ストリーム。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.output",
+      "lang": "ja"
+    },
+    "a7bf197c": {
+      "original": "Defines if the repl prints output previews or not.",
+      "translated": "repl が出力プレビューを表示するかどうかを定義する。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.preview",
+      "lang": "ja"
+    },
+    "92ef405a": {
+      "original": "The input prompt to display.",
+      "translated": "表示する入力プロンプト。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.prompt",
+      "lang": "ja"
+    },
+    "a5f1a7af": {
+      "original": "A flag that specifies whether the default evaluator executes all JavaScript commands in\nstrict mode or default (sloppy) mode.\nAccepted values are:\n- `repl.REPL_MODE_SLOPPY` - evaluates expressions in sloppy mode.\n- `repl.REPL_MODE_STRICT` - evaluates expressions in strict mode. This is equivalent to\n  prefacing every repl statement with `'use strict'`.",
+      "translated": "既定の評価器がすべての JavaScript コマンドを strict モードで実行するか既定の(sloppy)モードで実行するかを指定するフラグ。受け付けられる値は次のとおり:\n- `repl.REPL_MODE_SLOPPY` - 式を sloppy モードで評価する。\n- `repl.REPL_MODE_STRICT` - 式を strict モードで評価する。これはすべての repl 文の前に `'use strict'` を付けるのと同等である。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.replMode",
+      "lang": "ja"
+    },
+    "6dc85c21": {
+      "original": "If `true`, specifies that the output should be treated as a TTY terminal, and have\nANSI/VT100 escape codes written to it.\nDefault: checking the value of the `isTTY` property on the output stream upon\ninstantiation.",
+      "translated": "`true` の場合、出力を TTY ターミナルとして扱い、ANSI/VT100 エスケープコードを書き込むことを指定する。既定: インスタンス化時に出力ストリームの `isTTY` プロパティの値を確認する。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.terminal",
+      "lang": "ja"
+    },
+    "c266d4cd": {
+      "original": "If `true`, specifies that the default `writer` function should include ANSI color\nstyling to REPL output. If a custom `writer` function is provided then this has no\neffect.",
+      "translated": "`true` の場合、既定の `writer` 関数が REPL 出力に ANSI カラースタイルを含めることを指定する。カスタムの `writer` 関数が提供された場合、これは効果がない。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.useColors",
+      "lang": "ja"
+    },
+    "c7168e11": {
+      "original": "If `true`, specifies that the default evaluation function will use the JavaScript\n`global` as the context as opposed to creating a new separate context for the REPL\ninstance. The node CLI REPL sets this value to `true`.",
+      "translated": "`true` の場合、既定の評価関数が、REPL インスタンス用の新しい別のコンテキストを作成するのではなく、JavaScript の `global` をコンテキストとして使うことを指定する。node CLI REPL はこの値を `true` に設定する。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.useGlobal",
+      "lang": "ja"
+    },
+    "c179b04d": {
+      "original": "The function to invoke to format the output of each command before writing to `output`.",
+      "translated": "各コマンドの出力を `output` に書き込む前に整形するために呼ぶ関数。",
+      "symbol": "@types/node/repl.d.ts#repl.ReplOptions.writer",
+      "lang": "ja"
+    },
+    "2e02f6c8": {
+      "original": "Instances of `repl.REPLServer` are created using the {@link start} method\nor directly using the JavaScript `new` keyword.\n\n```js\nimport repl from 'node:repl';\n\nconst options = { useColors: true };\n\nconst firstInstance = repl.start(options);\nconst secondInstance = new repl.REPLServer(options);\n```",
+      "translated": "`repl.REPLServer` のインスタンスは、{@link start} メソッドを使うか、JavaScript の `new` キーワードを使って直接作成される。\n\n```js\nimport repl from 'node:repl';\n\nconst options = { useColors: true };\n\nconst firstInstance = repl.start(options);\nconst secondInstance = new repl.REPLServer(options);\n```",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer",
+      "lang": "ja"
+    },
+    "535377b9": {
+      "original": "NOTE: According to the documentation:\n\n> Instances of `repl.REPLServer` are created using the `repl.start()` method and\n> _should not_ be created directly using the JavaScript `new` keyword.\n\n`REPLServer` cannot be subclassed due to implementation specifics in NodeJS.",
+      "translated": "注意: ドキュメントによれば:\n\n> `repl.REPLServer` のインスタンスは `repl.start()` メソッドを使って作成され、JavaScript の `new` キーワードを使って直接作成す_べきではない_。\n\n`REPLServer` は NodeJS の実装の詳細のためサブクラス化できない。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer",
+      "lang": "ja"
+    },
+    "2a287fef": {
+      "original": "The `replServer.clearBufferedCommand()` method clears any command that has been\nbuffered but not yet executed. This method is primarily intended to be\ncalled from within the action function for commands registered using the `replServer.defineCommand()` method.",
+      "translated": "`replServer.clearBufferedCommand()` メソッドは、バッファリングされたがまだ実行されていないコマンドをクリアする。このメソッドは主に、`replServer.defineCommand()` メソッドを使って登録されたコマンドの action 関数内から呼ばれることを意図している。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.clearBufferedCommand",
+      "lang": "ja"
+    },
+    "83f9f799": {
+      "original": "The commands registered via `replServer.defineCommand()`.",
+      "translated": "`replServer.defineCommand()` を介して登録されたコマンド。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.commands",
+      "lang": "ja"
+    },
+    "0253d2c3": {
+      "original": "Specified in the REPL options, this is the function to use for custom Tab auto-completion.",
+      "translated": "REPL オプションで指定された、カスタムの Tab 自動補完に使う関数。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.completer",
+      "lang": "ja"
+    },
+    "4827db97": {
+      "original": "The `vm.Context` provided to the `eval` function to be used for JavaScript\nevaluation.",
+      "translated": "JavaScript の評価に使われる、`eval` 関数に提供される `vm.Context`。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.context",
+      "lang": "ja"
+    },
+    "0ff0615a": {
+      "original": "The `replServer.defineCommand()` method is used to add new `.`\\-prefixed commands\nto the REPL instance. Such commands are invoked by typing a `.` followed by the `keyword`. The `cmd` is either a `Function` or an `Object` with the following\nproperties:\n\nThe following example shows two new commands added to the REPL instance:\n\n```js\nimport repl from 'node:repl';\n\nconst replServer = repl.start({ prompt: '> ' });\nreplServer.defineCommand('sayhello', {\n  help: 'Say hello',\n  action(name) {\n    this.clearBufferedCommand();\n    console.log(`Hello, ${name}!`);\n    this.displayPrompt();\n  },\n});\nreplServer.defineCommand('saybye', function saybye() {\n  console.log('Goodbye!');\n  this.close();\n});\n```\n\nThe new commands can then be used from within the REPL instance:\n\n```console\n> .sayhello Node.js User\nHello, Node.js User!\n> .saybye\nGoodbye!\n```",
+      "translated": "`replServer.defineCommand()` メソッドは、`.` プレフィックス付きの新しいコマンドを REPL インスタンスに追加するために使う。そのようなコマンドは、`.` に続けて `keyword` を入力することで呼び出される。`cmd` は `Function`、または次のプロパティを持つ `Object` のいずれかである:\n\n次の例は、REPL インスタンスに追加された 2 つの新しいコマンドを示す:\n\n```js\nimport repl from 'node:repl';\n\nconst replServer = repl.start({ prompt: '> ' });\nreplServer.defineCommand('sayhello', {\n  help: 'Say hello',\n  action(name) {\n    this.clearBufferedCommand();\n    console.log(`Hello, ${name}!`);\n    this.displayPrompt();\n  },\n});\nreplServer.defineCommand('saybye', function saybye() {\n  console.log('Goodbye!');\n  this.close();\n});\n```\n\n新しいコマンドは REPL インスタンス内から使える:\n\n```console\n> .sayhello Node.js User\nHello, Node.js User!\n> .saybye\nGoodbye!\n```",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.defineCommand",
+      "lang": "ja"
+    },
+    "550d7f1b": {
+      "original": "The command keyword (_without_ a leading `.` character).",
+      "translated": "コマンドのキーワード(先頭の `.` 文字_なし_)。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.defineCommand",
+      "lang": "ja"
+    },
+    "7fd4cdb9": {
+      "original": "The function to invoke when the command is processed.",
+      "translated": "コマンドが処理されるときに呼ぶ関数。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.defineCommand",
+      "lang": "ja"
+    },
+    "f5a9c49b": {
+      "original": "The `replServer.displayPrompt()` method readies the REPL instance for input\nfrom the user, printing the configured `prompt` to a new line in the `output` and resuming the `input` to accept new input.\n\nWhen multi-line input is being entered, an ellipsis is printed rather than the\n'prompt'.\n\nWhen `preserveCursor` is `true`, the cursor placement will not be reset to `0`.\n\nThe `replServer.displayPrompt` method is primarily intended to be called from\nwithin the action function for commands registered using the `replServer.defineCommand()` method.",
+      "translated": "`replServer.displayPrompt()` メソッドは、REPL インスタンスをユーザーからの入力に備えさせ、構成された `prompt` を `output` の新しい行に出力し、新しい入力を受け付けるために `input` を再開する。\n\n複数行入力が入力されているとき、'prompt' ではなく省略記号が出力される。\n\n`preserveCursor` が `true` の場合、カーソル位置は `0` にリセットされない。\n\n`replServer.displayPrompt` メソッドは主に、`replServer.defineCommand()` メソッドを使って登録されたコマンドの action 関数内から呼ばれることを意図している。",
+      "symbol": "@types/node/repl.d.ts#repl.REPLServer.displayPrompt",
       "lang": "ja"
     },
     "3c357592": {
