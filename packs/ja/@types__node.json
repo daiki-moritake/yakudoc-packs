@@ -1222,6 +1222,84 @@
       "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.copyBytesFrom",
       "lang": "ja"
     },
+    "f2f4a36e": {
+      "original": "The starting offset within `view`.",
+      "translated": "`view` 内の開始オフセット。",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.copyBytesFrom",
+      "lang": "ja"
+    },
+    "23f33747": {
+      "original": "A string to encode.",
+      "translated": "エンコードする文字列。",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.from",
+      "lang": "ja"
+    },
+    "204797f4": {
+      "original": "Allocates a new `Buffer` using an `array` of bytes in the range `0` – `255`.\nArray entries outside that range will be truncated to fit into it.\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Creates a new Buffer containing the UTF-8 bytes of the string 'buffer'.\nconst buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);\n```\n\nIf `array` is an `Array`-like object (that is, one with a `length` property of\ntype `number`), it is treated as if it is an array, unless it is a `Buffer` or\na `Uint8Array`. This means all other `TypedArray` variants get treated as an\n`Array`. To create a `Buffer` from the bytes backing a `TypedArray`, use\n`Buffer.copyBytesFrom()`.\n\nA `TypeError` will be thrown if `array` is not an `Array` or another type\nappropriate for `Buffer.from()` variants.\n\n`Buffer.from(array)` and `Buffer.from(string)` may also use the internal\n`Buffer` pool like `Buffer.allocUnsafe()` does.",
+      "translated": "`0` ～ `255` の範囲のバイトの `array` を使って新しい `Buffer` を割り当てる。その範囲外の配列エントリは範囲に収まるよう切り詰められる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Creates a new Buffer containing the UTF-8 bytes of the string 'buffer'.\nconst buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);\n```\n\n`array` が `Array` のようなオブジェクト(すなわち `number` 型の `length` プロパティを持つもの)の場合、`Buffer` や `Uint8Array` でない限り、配列であるかのように扱われる。これは、他のすべての `TypedArray` バリアントが `Array` として扱われることを意味する。`TypedArray` の裏付けとなるバイトから `Buffer` を作成するには、`Buffer.copyBytesFrom()` を使う。\n\n`array` が `Array` でも、`Buffer.from()` バリアントに適した他の型でもない場合、`TypeError` が投げられる。\n\n`Buffer.from(array)` と `Buffer.from(string)` も、`Buffer.allocUnsafe()` と同様に内部 `Buffer` プールを使うことがある。",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.from",
+      "lang": "ja"
+    },
+    "abaa73cd": {
+      "original": "An `ArrayBuffer`, `SharedArrayBuffer`, for example the\n`.buffer` property of a `TypedArray`.",
+      "translated": "`ArrayBuffer`・`SharedArrayBuffer`。たとえば `TypedArray` の `.buffer` プロパティ。",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.from",
+      "lang": "ja"
+    },
+    "548a390c": {
+      "original": "Creates a new `Buffer` containing `string`. The `encoding` parameter identifies\nthe character encoding to be used when converting `string` into bytes.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from('this is a tést');\nconst buf2 = Buffer.from('7468697320697320612074c3a97374', 'hex');\n\nconsole.log(buf1.toString());\n// Prints: this is a tést\nconsole.log(buf2.toString());\n// Prints: this is a tést\nconsole.log(buf1.toString('latin1'));\n// Prints: this is a tÃ©st\n```\n\nA `TypeError` will be thrown if `string` is not a string or another type\nappropriate for `Buffer.from()` variants.\n\n`Buffer.from(string)` may also use the internal `Buffer` pool like\n`Buffer.allocUnsafe()` does.",
+      "translated": "`string` を含む新しい `Buffer` を作成する。`encoding` パラメーターは、`string` をバイトに変換するときに使う文字エンコーディングを識別する。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf1 = Buffer.from('this is a tést');\nconst buf2 = Buffer.from('7468697320697320612074c3a97374', 'hex');\n\nconsole.log(buf1.toString());\n// Prints: this is a tést\nconsole.log(buf2.toString());\n// Prints: this is a tést\nconsole.log(buf1.toString('latin1'));\n// Prints: this is a tÃ©st\n```\n\n`string` が文字列でも、`Buffer.from()` バリアントに適した他の型でもない場合、`TypeError` が投げられる。\n\n`Buffer.from(string)` も、`Buffer.allocUnsafe()` と同様に内部 `Buffer` プールを使うことがある。",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.from",
+      "lang": "ja"
+    },
+    "1d2d3306": {
+      "original": "Index of first byte to expose. **Default:** `0`.",
+      "translated": "公開する最初のバイトのインデックス。**既定値:** `0`。",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.from",
+      "lang": "ja"
+    },
+    "d97ca68d": {
+      "original": "Number of bytes to expose. **Default:**\n`arrayBuffer.byteLength - byteOffset`.",
+      "translated": "公開するバイト数。**既定値:** `arrayBuffer.byteLength - byteOffset`。",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.from",
+      "lang": "ja"
+    },
+    "e84ff43d": {
+      "original": "The encoding of `string`. **Default:** `'utf8'`.",
+      "translated": "`string` のエンコーディング。**既定値:** `'utf8'`。",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.from",
+      "lang": "ja"
+    },
+    "51b7d7a6": {
+      "original": "This creates a view of the `ArrayBuffer` without copying the underlying\nmemory. For example, when passed a reference to the `.buffer` property of a\n`TypedArray` instance, the newly created `Buffer` will share the same\nallocated memory as the `TypedArray`'s underlying `ArrayBuffer`.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst arr = new Uint16Array(2);\n\narr[0] = 5000;\narr[1] = 4000;\n\n// Shares memory with `arr`.\nconst buf = Buffer.from(arr.buffer);\n\nconsole.log(buf);\n// Prints: <Buffer 88 13 a0 0f>\n\n// Changing the original Uint16Array changes the Buffer also.\narr[1] = 6000;\n\nconsole.log(buf);\n// Prints: <Buffer 88 13 70 17>\n```\n\nThe optional `byteOffset` and `length` arguments specify a memory range within\nthe `arrayBuffer` that will be shared by the `Buffer`.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst ab = new ArrayBuffer(10);\nconst buf = Buffer.from(ab, 0, 2);\n\nconsole.log(buf.length);\n// Prints: 2\n```\n\nA `TypeError` will be thrown if `arrayBuffer` is not an `ArrayBuffer` or a\n`SharedArrayBuffer` or another type appropriate for `Buffer.from()`\nvariants.\n\nIt is important to remember that a backing `ArrayBuffer` can cover a range\nof memory that extends beyond the bounds of a `TypedArray` view. A new\n`Buffer` created using the `buffer` property of a `TypedArray` may extend\nbeyond the range of the `TypedArray`:\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst arrA = Uint8Array.from([0x63, 0x64, 0x65, 0x66]); // 4 elements\nconst arrB = new Uint8Array(arrA.buffer, 1, 2); // 2 elements\nconsole.log(arrA.buffer === arrB.buffer); // true\n\nconst buf = Buffer.from(arrB.buffer);\nconsole.log(buf);\n// Prints: <Buffer 63 64 65 66>\n```",
+      "translated": "これは基盤となるメモリをコピーせずに `ArrayBuffer` のビューを作成する。たとえば、`TypedArray` インスタンスの `.buffer` プロパティへの参照が渡された場合、新しく作成された `Buffer` は `TypedArray` の基盤となる `ArrayBuffer` と同じ割り当て済みメモリを共有する。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst arr = new Uint16Array(2);\n\narr[0] = 5000;\narr[1] = 4000;\n\n// Shares memory with `arr`.\nconst buf = Buffer.from(arr.buffer);\n\nconsole.log(buf);\n// Prints: <Buffer 88 13 a0 0f>\n\n// Changing the original Uint16Array changes the Buffer also.\narr[1] = 6000;\n\nconsole.log(buf);\n// Prints: <Buffer 88 13 70 17>\n```\n\n省略可能な `byteOffset` と `length` 引数は、`Buffer` が共有する `arrayBuffer` 内のメモリ範囲を指定する。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst ab = new ArrayBuffer(10);\nconst buf = Buffer.from(ab, 0, 2);\n\nconsole.log(buf.length);\n// Prints: 2\n```\n\n`arrayBuffer` が `ArrayBuffer` でも `SharedArrayBuffer` でも、`Buffer.from()` バリアントに適した他の型でもない場合、`TypeError` が投げられる。\n\n裏付けとなる `ArrayBuffer` は `TypedArray` ビューの境界を超えて広がるメモリ範囲をカバーできることを覚えておくことが重要である。`TypedArray` の `buffer` プロパティを使って作成された新しい `Buffer` は、`TypedArray` の範囲を超えて広がることがある:\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst arrA = Uint8Array.from([0x63, 0x64, 0x65, 0x66]); // 4 elements\nconst arrB = new Uint8Array(arrA.buffer, 1, 2); // 2 elements\nconsole.log(arrA.buffer === arrB.buffer); // true\n\nconst buf = Buffer.from(arrB.buffer);\nconsole.log(buf);\n// Prints: <Buffer 63 64 65 66>\n```",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.from",
+      "lang": "ja"
+    },
+    "92105f79": {
+      "original": "Creates a new Buffer using the passed {data}",
+      "translated": "渡された {data} を使って新しい Buffer を作成する",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.of",
+      "lang": "ja"
+    },
+    "5e900a05": {
+      "original": "to create a new Buffer",
+      "translated": "新しい Buffer を作成する",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.BufferConstructor.of",
+      "lang": "ja"
+    },
+    "7dc2ff6c": {
+      "original": "This is intended for internal use, and will be removed once `@types/node` no longer supports\nTypeScript versions earlier than 5.7.",
+      "translated": "これは内部使用を意図しており、`@types/node` が TypeScript 5.7 より前のバージョンをサポートしなくなったら削除される。",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.global.NonSharedBuffer",
+      "lang": "ja"
+    },
+    "17e668d9": {
+      "original": "Use `Buffer.allocUnsafeSlow()` instead.",
+      "translated": "代わりに `Buffer.allocUnsafeSlow()` を使うこと。",
+      "symbol": "@types/node/buffer.buffer.d.ts#buffer.SlowBuffer",
+      "lang": "ja"
+    },
     "d72894a9": {
       "original": "`Buffer` objects are used to represent a fixed-length sequence of bytes. Many\nNode.js APIs support `Buffer`s.\n\nThe `Buffer` class is a subclass of JavaScript's [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) class and\nextends it with methods that cover additional use cases. Node.js APIs accept\nplain [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) s wherever `Buffer`s are supported as well.\n\nWhile the `Buffer` class is available within the global scope, it is still\nrecommended to explicitly reference it via an import or require statement.\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Creates a zero-filled Buffer of length 10.\nconst buf1 = Buffer.alloc(10);\n\n// Creates a Buffer of length 10,\n// filled with bytes which all have the value `1`.\nconst buf2 = Buffer.alloc(10, 1);\n\n// Creates an uninitialized buffer of length 10.\n// This is faster than calling Buffer.alloc() but the returned\n// Buffer instance might contain old data that needs to be\n// overwritten using fill(), write(), or other functions that fill the Buffer's\n// contents.\nconst buf3 = Buffer.allocUnsafe(10);\n\n// Creates a Buffer containing the bytes [1, 2, 3].\nconst buf4 = Buffer.from([1, 2, 3]);\n\n// Creates a Buffer containing the bytes [1, 1, 1, 1] – the entries\n// are all truncated using `(value &#x26; 255)` to fit into the range 0–255.\nconst buf5 = Buffer.from([257, 257.5, -255, '1']);\n\n// Creates a Buffer containing the UTF-8-encoded bytes for the string 'tést':\n// [0x74, 0xc3, 0xa9, 0x73, 0x74] (in hexadecimal notation)\n// [116, 195, 169, 115, 116] (in decimal notation)\nconst buf6 = Buffer.from('tést');\n\n// Creates a Buffer containing the Latin-1 bytes [0x74, 0xe9, 0x73, 0x74].\nconst buf7 = Buffer.from('tést', 'latin1');\n```",
       "translated": "`Buffer` オブジェクトは、固定長のバイト列を表すために使われる。多くの Node.js API が `Buffer` をサポートする。\n\n`Buffer` クラスは JavaScript の [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) クラスのサブクラスで、追加のユースケースをカバーするメソッドで拡張している。Node.js API は、`Buffer` がサポートされる場所ではプレーンな [`Uint8Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) も受け付ける。\n\n`Buffer` クラスはグローバルスコープ内で利用できるが、それでも import または require 文で明示的に参照することが推奨される。\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Creates a zero-filled Buffer of length 10.\nconst buf1 = Buffer.alloc(10);\n\n// Creates a Buffer of length 10,\n// filled with bytes which all have the value `1`.\nconst buf2 = Buffer.alloc(10, 1);\n\n// Creates an uninitialized buffer of length 10.\n// This is faster than calling Buffer.alloc() but the returned\n// Buffer instance might contain old data that needs to be\n// overwritten using fill(), write(), or other functions that fill the Buffer's\n// contents.\nconst buf3 = Buffer.allocUnsafe(10);\n\n// Creates a Buffer containing the bytes [1, 2, 3].\nconst buf4 = Buffer.from([1, 2, 3]);\n\n// Creates a Buffer containing the bytes [1, 1, 1, 1] – the entries\n// are all truncated using `(value &#x26; 255)` to fit into the range 0–255.\nconst buf5 = Buffer.from([257, 257.5, -255, '1']);\n\n// Creates a Buffer containing the UTF-8-encoded bytes for the string 'tést':\n// [0x74, 0xc3, 0xa9, 0x73, 0x74] (in hexadecimal notation)\n// [116, 195, 169, 115, 116] (in decimal notation)\nconst buf6 = Buffer.from('tést');\n\n// Creates a Buffer containing the Latin-1 bytes [0x74, 0xe9, 0x73, 0x74].\nconst buf7 = Buffer.from('tést', 'latin1');\n```",
