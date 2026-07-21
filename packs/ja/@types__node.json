@@ -3448,6 +3448,186 @@
       "symbol": "@types/node/crypto.d.ts#crypto.X509Certificate.verify",
       "lang": "ja"
     },
+    "f5cc1097": {
+      "original": "The `node:diagnostics_channel` module provides an API to create named channels\nto report arbitrary message data for diagnostics purposes.\n\nIt can be accessed using:\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n```\n\nIt is intended that a module writer wanting to report diagnostics messages\nwill create one or many top-level channels to report messages through.\nChannels may also be acquired at runtime but it is not encouraged\ndue to the additional overhead of doing so. Channels may be exported for\nconvenience, but as long as the name is known it can be acquired anywhere.\n\nIf you intend for your module to produce diagnostics data for others to\nconsume it is recommended that you include documentation of what named\nchannels are used along with the shape of the message data. Channel names\nshould generally include the module name to avoid collisions with data from\nother modules.",
+      "translated": "`node:diagnostics_channel` モジュールは、診断目的で任意のメッセージデータを報告するための名前付きチャネルを作成する API を提供する。\n\n次のようにアクセスできる:\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n```\n\n診断メッセージを報告したいモジュール作成者は、メッセージを報告する 1 つ以上のトップレベルチャネルを作成することが意図されている。チャネルは実行時にも取得できるが、それに伴う追加のオーバーヘッドのため推奨されない。チャネルは便宜のためエクスポートできるが、名前が分かっていればどこでも取得できる。\n\nモジュールが他者に消費してもらうための診断データを生成することを意図する場合、どの名前付きチャネルが使われるか、およびメッセージデータの形をドキュメント化することが推奨される。チャネル名は、他のモジュールのデータとの衝突を避けるため、一般にモジュール名を含めるべきである。",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel",
+      "lang": "ja"
+    },
+    "852286c1": {
+      "original": "The named channel object",
+      "translated": "名前付きチャネルオブジェクト",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.channel",
+      "lang": "ja"
+    },
+    "b28f6954": {
+      "original": "This is the primary entry-point for anyone wanting to publish to a named\nchannel. It produces a channel object which is optimized to reduce overhead at\npublish time as much as possible.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channel = diagnostics_channel.channel('my-channel');\n```",
+      "translated": "これは、名前付きチャネルに publish したい人にとっての主要なエントリポイントである。publish 時のオーバーヘッドをできるだけ減らすよう最適化されたチャネルオブジェクトを生成する。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channel = diagnostics_channel.channel('my-channel');\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.channel",
+      "lang": "ja"
+    },
+    "1a0c244c": {
+      "original": "The class `Channel` represents an individual named channel within the data\npipeline. It is used to track subscribers and to publish messages when there\nare subscribers present. It exists as a separate object to avoid channel\nlookups at publish time, enabling very fast publish speeds and allowing\nfor heavy use while incurring very minimal cost. Channels are created with {@link channel}, constructing a channel directly\nwith `new Channel(name)` is not supported.",
+      "translated": "`Channel` クラスは、データパイプライン内の個々の名前付きチャネルを表す。購読者を追跡し、購読者が存在するときにメッセージを publish するために使われる。publish 時のチャネル検索を避けるために別オブジェクトとして存在し、非常に高速な publish 速度を可能にし、ごくわずかなコストで頻繁な使用を許容する。チャネルは {@link channel} で作成され、`new Channel(name)` で直接チャネルを構築することはサポートされていない。",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel",
+      "lang": "ja"
+    },
+    "1eb2fcd6": {
+      "original": "The store to which to bind the context data",
+      "translated": "コンテキストデータをバインドする対象のストア",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.bindStore",
+      "lang": "ja"
+    },
+    "32434b07": {
+      "original": "Transform context data before setting the store context",
+      "translated": "ストアのコンテキストを設定する前にコンテキストデータを変換する",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.bindStore",
+      "lang": "ja"
+    },
+    "4df6dd9e": {
+      "original": "When `channel.runStores(context, ...)` is called, the given context data\nwill be applied to any store bound to the channel. If the store has already been\nbound the previous `transform` function will be replaced with the new one.\nThe `transform` function may be omitted to set the given context data as the\ncontext directly.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\nimport { AsyncLocalStorage } from 'node:async_hooks';\n\nconst store = new AsyncLocalStorage();\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nchannel.bindStore(store, (data) => {\n  return { data };\n});\n```",
+      "translated": "`channel.runStores(context, ...)` が呼ばれると、指定したコンテキストデータがチャネルにバインドされた任意のストアに適用される。ストアがすでにバインドされている場合、以前の `transform` 関数は新しいものに置き換えられる。`transform` 関数を省略すると、指定したコンテキストデータをコンテキストとして直接設定できる。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\nimport { AsyncLocalStorage } from 'node:async_hooks';\n\nconst store = new AsyncLocalStorage();\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nchannel.bindStore(store, (data) => {\n  return { data };\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.bindStore",
+      "lang": "ja"
+    },
+    "f810569a": {
+      "original": "Check if there are active subscribers to this channel. This is helpful if\nthe message you want to send might be expensive to prepare.\n\nThis API is optional but helpful when trying to publish messages from very\nperformance-sensitive code.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nif (channel.hasSubscribers) {\n  // There are subscribers, prepare and publish message\n}\n```",
+      "translated": "このチャネルにアクティブな購読者がいるかどうかを確認する。これは、送りたいメッセージの準備がコストの高いものであり得る場合に役立つ。\n\nこの API は省略可能だが、非常に性能に敏感なコードからメッセージを publish しようとするときに役立つ。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nif (channel.hasSubscribers) {\n  // There are subscribers, prepare and publish message\n}\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.hasSubscribers",
+      "lang": "ja"
+    },
+    "8a91a0b2": {
+      "original": "Publish a message to any subscribers to the channel. This will trigger\nmessage handlers synchronously so they will execute within the same context.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nchannel.publish({\n  some: 'message',\n});\n```",
+      "translated": "チャネルの購読者にメッセージを publish する。これはメッセージハンドラを同期的にトリガーするため、それらは同じコンテキスト内で実行される。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nchannel.publish({\n  some: 'message',\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.publish",
+      "lang": "ja"
+    },
+    "4aa1e511": {
+      "original": "The message to send to the channel subscribers",
+      "translated": "チャネルの購読者に送るメッセージ",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.publish",
+      "lang": "ja"
+    },
+    "a2aab496": {
+      "original": "Applies the given data to any AsyncLocalStorage instances bound to the channel\nfor the duration of the given function, then publishes to the channel within\nthe scope of that data is applied to the stores.\n\nIf a transform function was given to `channel.bindStore(store)` it will be\napplied to transform the message data before it becomes the context value for\nthe store. The prior storage context is accessible from within the transform\nfunction in cases where context linking is required.\n\nThe context applied to the store should be accessible in any async code which\ncontinues from execution which began during the given function, however\nthere are some situations in which `context loss` may occur.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\nimport { AsyncLocalStorage } from 'node:async_hooks';\n\nconst store = new AsyncLocalStorage();\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nchannel.bindStore(store, (message) => {\n  const parent = store.getStore();\n  return new Span(message, parent);\n});\nchannel.runStores({ some: 'message' }, () => {\n  store.getStore(); // Span({ some: 'message' })\n});\n```",
+      "translated": "指定した関数の実行中、チャネルにバインドされた任意の AsyncLocalStorage インスタンスに指定したデータを適用し、そのデータがストアに適用されたスコープ内でチャネルに publish する。\n\n`channel.bindStore(store)` に transform 関数が指定された場合、メッセージデータがストアのコンテキスト値になる前に、それを変換するために適用される。コンテキストのリンクが必要な場合、以前のストレージコンテキストは transform 関数内からアクセスできる。\n\nストアに適用されたコンテキストは、指定した関数中に始まった実行から継続する任意の非同期コードでアクセスできるはずだが、`コンテキストの喪失`が起こり得る状況もいくつかある。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\nimport { AsyncLocalStorage } from 'node:async_hooks';\n\nconst store = new AsyncLocalStorage();\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nchannel.bindStore(store, (message) => {\n  const parent = store.getStore();\n  return new Span(message, parent);\n});\nchannel.runStores({ some: 'message' }, () => {\n  store.getStore(); // Span({ some: 'message' })\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.runStores",
+      "lang": "ja"
+    },
+    "1034e9cf": {
+      "original": "Handler to run within the entered storage context",
+      "translated": "入ったストレージコンテキスト内で実行するハンドラ",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.runStores",
+      "lang": "ja"
+    },
+    "c740fdba": {
+      "original": "Message to send to subscribers and bind to stores",
+      "translated": "購読者に送りストアにバインドするメッセージ",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.runStores",
+      "lang": "ja"
+    },
+    "55c74636": {
+      "original": "Register a message handler to subscribe to this channel. This message handler\nwill be run synchronously whenever a message is published to the channel. Any\nerrors thrown in the message handler will trigger an `'uncaughtException'`.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nchannel.subscribe((message, name) => {\n  // Received data\n});\n```",
+      "translated": "このチャネルを購読するためにメッセージハンドラを登録する。このメッセージハンドラは、チャネルにメッセージが publish されるたびに同期的に実行される。メッセージハンドラで投げられたエラーは `'uncaughtException'` をトリガーする。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nchannel.subscribe((message, name) => {\n  // Received data\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.subscribe",
+      "lang": "ja"
+    },
+    "1901e9bf": {
+      "original": "`true` if the store was found, `false` otherwise.",
+      "translated": "ストアが見つかった場合は `true`、そうでなければ `false`。",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.unbindStore",
+      "lang": "ja"
+    },
+    "d3036b19": {
+      "original": "Remove a message handler previously registered to this channel with `channel.bindStore(store)`.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\nimport { AsyncLocalStorage } from 'node:async_hooks';\n\nconst store = new AsyncLocalStorage();\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nchannel.bindStore(store);\nchannel.unbindStore(store);\n```",
+      "translated": "`channel.bindStore(store)` でこのチャネルに以前登録されたメッセージハンドラを削除する。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\nimport { AsyncLocalStorage } from 'node:async_hooks';\n\nconst store = new AsyncLocalStorage();\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nchannel.bindStore(store);\nchannel.unbindStore(store);\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.unbindStore",
+      "lang": "ja"
+    },
+    "c18e5b90": {
+      "original": "The store to unbind from the channel.",
+      "translated": "チャネルからバインドを解除するストア。",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.unbindStore",
+      "lang": "ja"
+    },
+    "3907edda": {
+      "original": "Remove a message handler previously registered to this channel with `channel.subscribe(onMessage)`.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nfunction onMessage(message, name) {\n  // Received data\n}\n\nchannel.subscribe(onMessage);\n\nchannel.unsubscribe(onMessage);\n```",
+      "translated": "`channel.subscribe(onMessage)` でこのチャネルに以前登録されたメッセージハンドラを削除する。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channel = diagnostics_channel.channel('my-channel');\n\nfunction onMessage(message, name) {\n  // Received data\n}\n\nchannel.subscribe(onMessage);\n\nchannel.unsubscribe(onMessage);\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.Channel.unsubscribe",
+      "lang": "ja"
+    },
+    "fa8eba1b": {
+      "original": "Check if there are active subscribers to the named channel. This is helpful if\nthe message you want to send might be expensive to prepare.\n\nThis API is optional but helpful when trying to publish messages from very\nperformance-sensitive code.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nif (diagnostics_channel.hasSubscribers('my-channel')) {\n  // There are subscribers, prepare and publish message\n}\n```",
+      "translated": "名前付きチャネルにアクティブな購読者がいるかどうかを確認する。これは、送りたいメッセージの準備がコストの高いものであり得る場合に役立つ。\n\nこの API は省略可能だが、非常に性能に敏感なコードからメッセージを publish しようとするときに役立つ。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nif (diagnostics_channel.hasSubscribers('my-channel')) {\n  // There are subscribers, prepare and publish message\n}\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.hasSubscribers",
+      "lang": "ja"
+    },
+    "a8eb9c50": {
+      "original": "If there are active subscribers",
+      "translated": "アクティブな購読者がいるかどうか",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.hasSubscribers",
+      "lang": "ja"
+    },
+    "8303510a": {
+      "original": "The channel name",
+      "translated": "チャネル名",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.hasSubscribers",
+      "lang": "ja"
+    },
+    "881e3461": {
+      "original": "Register a message handler to subscribe to this channel. This message handler\nwill be run synchronously whenever a message is published to the channel. Any\nerrors thrown in the message handler will trigger an `'uncaughtException'`.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\ndiagnostics_channel.subscribe('my-channel', (message, name) => {\n  // Received data\n});\n```",
+      "translated": "このチャネルを購読するためにメッセージハンドラを登録する。このメッセージハンドラは、チャネルにメッセージが publish されるたびに同期的に実行される。メッセージハンドラで投げられたエラーは `'uncaughtException'` をトリガーする。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\ndiagnostics_channel.subscribe('my-channel', (message, name) => {\n  // Received data\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.subscribe",
+      "lang": "ja"
+    },
+    "0c0ce722": {
+      "original": "The handler to receive channel messages",
+      "translated": "チャネルメッセージを受け取るハンドラ",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.subscribe",
+      "lang": "ja"
+    },
+    "2552b1fc": {
+      "original": "Channel name or object containing all the `TracingChannel Channels`",
+      "translated": "チャネル名、またはすべての `TracingChannel Channels` を含むオブジェクト",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.tracingChannel",
+      "lang": "ja"
+    },
+    "b1dbbd60": {
+      "original": "Collection of channels to trace with",
+      "translated": "トレースに使うチャネルのコレクション",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.tracingChannel",
+      "lang": "ja"
+    },
+    "f442101d": {
+      "original": "Creates a `TracingChannel` wrapper for the given `TracingChannel Channels`. If a name is given, the corresponding tracing\nchannels will be created in the form of `tracing:${name}:${eventType}` where `eventType` corresponds to the types of `TracingChannel Channels`.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channelsByName = diagnostics_channel.tracingChannel('my-channel');\n\n// or...\n\nconst channelsByCollection = diagnostics_channel.tracingChannel({\n  start: diagnostics_channel.channel('tracing:my-channel:start'),\n  end: diagnostics_channel.channel('tracing:my-channel:end'),\n  asyncStart: diagnostics_channel.channel('tracing:my-channel:asyncStart'),\n  asyncEnd: diagnostics_channel.channel('tracing:my-channel:asyncEnd'),\n  error: diagnostics_channel.channel('tracing:my-channel:error'),\n});\n```",
+      "translated": "指定した `TracingChannel Channels` のための `TracingChannel` ラッパーを作成する。名前が指定された場合、対応するトレーシングチャネルが `tracing:${name}:${eventType}` の形で作成される。ここで `eventType` は `TracingChannel Channels` の型に対応する。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channelsByName = diagnostics_channel.tracingChannel('my-channel');\n\n// or...\n\nconst channelsByCollection = diagnostics_channel.tracingChannel({\n  start: diagnostics_channel.channel('tracing:my-channel:start'),\n  end: diagnostics_channel.channel('tracing:my-channel:end'),\n  asyncStart: diagnostics_channel.channel('tracing:my-channel:asyncStart'),\n  asyncEnd: diagnostics_channel.channel('tracing:my-channel:asyncEnd'),\n  error: diagnostics_channel.channel('tracing:my-channel:error'),\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.tracingChannel",
+      "lang": "ja"
+    },
+    "0f144cd5": {
+      "original": "The class `TracingChannel` is a collection of `TracingChannel Channels` which\ntogether express a single traceable action. It is used to formalize and\nsimplify the process of producing events for tracing application flow. {@link tracingChannel} is used to construct a `TracingChannel`. As with `Channel` it is recommended to create and reuse a\nsingle `TracingChannel` at the top-level of the file rather than creating them\ndynamically.",
+      "translated": "`TracingChannel` クラスは、`TracingChannel Channels` のコレクションで、これらが一体となって単一のトレース可能なアクションを表現する。アプリケーションフローのトレース用イベントを生成する処理を形式化・簡素化するために使われる。`TracingChannel` の構築には {@link tracingChannel} を使う。`Channel` と同様に、動的に作成するのではなく、ファイルのトップレベルで単一の `TracingChannel` を作成して再利用することが推奨される。",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel",
+      "lang": "ja"
+    },
+    "e1b7198f": {
+      "original": "`true` if any of the individual channels has a subscriber, `false` if not.\n\nThis is a helper method available on a {@link TracingChannel} instance to check\nif any of the [TracingChannel Channels](https://nodejs.org/api/diagnostics_channel.html#tracingchannel-channels) have subscribers.\nA `true` is returned if any of them have at least one subscriber, a `false` is returned otherwise.\n\n```js\nconst diagnostics_channel = require('node:diagnostics_channel');\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nif (channels.hasSubscribers) {\n  // Do something\n}\n```",
+      "translated": "個々のチャネルのいずれかに購読者がいる場合は `true`、そうでなければ `false`。\n\nこれは {@link TracingChannel} インスタンスで利用できるヘルパーメソッドで、[TracingChannel Channels](https://nodejs.org/api/diagnostics_channel.html#tracingchannel-channels) のいずれかに購読者がいるかどうかを確認する。いずれかに少なくとも 1 つの購読者がいる場合は `true` が返され、そうでなければ `false` が返される。\n\n```js\nconst diagnostics_channel = require('node:diagnostics_channel');\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nif (channels.hasSubscribers) {\n  // Do something\n}\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.hasSubscribers",
+      "lang": "ja"
+    },
+    "b932a917": {
+      "original": "Helper to subscribe a collection of functions to the corresponding channels.\nThis is the same as calling `channel.subscribe(onMessage)` on each channel\nindividually.\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nchannels.subscribe({\n  start(message) {\n    // Handle start message\n  },\n  end(message) {\n    // Handle end message\n  },\n  asyncStart(message) {\n    // Handle asyncStart message\n  },\n  asyncEnd(message) {\n    // Handle asyncEnd message\n  },\n  error(message) {\n    // Handle error message\n  },\n});\n```",
+      "translated": "関数のコレクションを対応するチャネルに購読するヘルパー。これは各チャネルに対して個別に `channel.subscribe(onMessage)` を呼ぶのと同じである。\n\n```js\nimport diagnostics_channel from 'node:diagnostics_channel';\n\nconst channels = diagnostics_channel.tracingChannel('my-channel');\n\nchannels.subscribe({\n  start(message) {\n    // Handle start message\n  },\n  end(message) {\n    // Handle end message\n  },\n  asyncStart(message) {\n    // Handle asyncStart message\n  },\n  asyncEnd(message) {\n    // Handle asyncEnd message\n  },\n  error(message) {\n    // Handle error message\n  },\n});\n```",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.subscribe",
+      "lang": "ja"
+    },
+    "2a1f2721": {
+      "original": "Set of `TracingChannel Channels` subscribers",
+      "translated": "`TracingChannel Channels` の購読者のセット",
+      "symbol": "@types/node/diagnostics_channel.d.ts#diagnostics_channel.TracingChannel.subscribe",
+      "lang": "ja"
+    },
     "d6ed006e": {
       "original": "The `node:dns` module enables name resolution. For example, use it to look up IP\naddresses of host names.\n\nAlthough named for the [Domain Name System (DNS)](https://en.wikipedia.org/wiki/Domain_Name_System), it does not always use the\nDNS protocol for lookups. {@link lookup} uses the operating system\nfacilities to perform name resolution. It may not need to perform any network\ncommunication. To perform name resolution the way other applications on the same\nsystem do, use {@link lookup}.\n\n```js\nimport dns from 'node:dns';\n\ndns.lookup('example.org', (err, address, family) => {\n  console.log('address: %j family: IPv%s', address, family);\n});\n// address: \"93.184.216.34\" family: IPv4\n```\n\nAll other functions in the `node:dns` module connect to an actual DNS server to\nperform name resolution. They will always use the network to perform DNS\nqueries. These functions do not use the same set of configuration files used by {@link lookup} (e.g. `/etc/hosts`). Use these functions to always perform\nDNS queries, bypassing other name-resolution facilities.\n\n```js\nimport dns from 'node:dns';\n\ndns.resolve4('archive.org', (err, addresses) => {\n  if (err) throw err;\n\n  console.log(`addresses: ${JSON.stringify(addresses)}`);\n\n  addresses.forEach((a) => {\n    dns.reverse(a, (err, hostnames) => {\n      if (err) {\n        throw err;\n      }\n      console.log(`reverse for ${a}: ${JSON.stringify(hostnames)}`);\n    });\n  });\n});\n```\n\nSee the [Implementation considerations section](https://nodejs.org/docs/latest-v22.x/api/dns.html#implementation-considerations) for more information.",
       "translated": "`node:dns` モジュールは名前解決を可能にする。たとえば、ホスト名の IP アドレスを調べるために使う。\n\n[Domain Name System(DNS)](https://en.wikipedia.org/wiki/Domain_Name_System)にちなんで名付けられているが、ルックアップに常に DNS プロトコルを使うわけではない。{@link lookup} は名前解決を実行するためにオペレーティングシステムの機能を使う。ネットワーク通信をまったく行う必要がないこともある。同じシステム上の他のアプリケーションと同じ方法で名前解決を行うには、{@link lookup} を使う。\n\n```js\nimport dns from 'node:dns';\n\ndns.lookup('example.org', (err, address, family) => {\n  console.log('address: %j family: IPv%s', address, family);\n});\n// address: \"93.184.216.34\" family: IPv4\n```\n\n`node:dns` モジュールの他のすべての関数は、名前解決を実行するために実際の DNS サーバーに接続する。それらは DNS クエリを実行するために常にネットワークを使う。これらの関数は、{@link lookup} が使うのと同じ構成ファイルのセット(たとえば `/etc/hosts`)を使わない。他の名前解決機能をバイパスして常に DNS クエリを実行するには、これらの関数を使う。\n\n```js\nimport dns from 'node:dns';\n\ndns.resolve4('archive.org', (err, addresses) => {\n  if (err) throw err;\n\n  console.log(`addresses: ${JSON.stringify(addresses)}`);\n\n  addresses.forEach((a) => {\n    dns.reverse(a, (err, hostnames) => {\n      if (err) {\n        throw err;\n      }\n      console.log(`reverse for ${a}: ${JSON.stringify(hostnames)}`);\n    });\n  });\n});\n```\n\n詳細は [Implementation considerations セクション](https://nodejs.org/docs/latest-v22.x/api/dns.html#implementation-considerations)を参照。",
