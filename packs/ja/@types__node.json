@@ -106,6 +106,12 @@
       "symbol": "@types/node/util.d.ts#util.TextDecoder.ignoreBOM",
       "lang": "ja"
     },
+    "31243655": {
+      "original": "All workers are created using [`child_process.fork()`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options), the returned object\nfrom this function is stored as `.process`. In a worker, the global `process` is stored.\n\nSee: [Child Process module](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options).\n\nWorkers will call `process.exit(0)` if the `'disconnect'` event occurs\non `process` and `.exitedAfterDisconnect` is not `true`. This protects against\naccidental disconnection.",
+      "translated": "すべてのワーカーは [`child_process.fork()`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options) を使って作成され、この関数から返されたオブジェクトが `.process` として格納される。ワーカーでは、グローバルな `process` が格納される。\n\n[Child Process module](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options) を参照。\n\nワーカーは、`process` で `'disconnect'` イベントが発生し `.exitedAfterDisconnect` が `true` でない場合、`process.exit(0)` を呼ぶ。これは偶発的な切断から保護する。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.process",
+      "lang": "ja"
+    },
     "31944169": {
       "original": "Like `url.fileURLToPath(...)` except that instead of returning a string\nrepresentation of the path, a `Buffer` is returned. This conversion is\nhelpful when the input URL contains percent-encoded segments that are\nnot valid UTF-8 / Unicode sequences.",
       "translated": "`url.fileURLToPath(...)` と同様だが、パスの文字列表現を返す代わりに `Buffer` を返す。この変換は、入力 URL が有効な UTF-8 / Unicode 列でないパーセントエンコードされたセグメントを含む場合に役立つ。",
@@ -2318,6 +2324,48 @@
       "original": "This property is `true` if the worker exited due to `.disconnect()`.\nIf the worker exited any other way, it is `false`. If the\nworker has not exited, it is `undefined`.\n\nThe boolean `worker.exitedAfterDisconnect` allows distinguishing between\nvoluntary and accidental exit, the primary may choose not to respawn a worker\nbased on this value.\n\n```js\ncluster.on('exit', (worker, code, signal) => {\n  if (worker.exitedAfterDisconnect === true) {\n    console.log('Oh, it was just voluntary – no need to worry');\n  }\n});\n\n// kill worker\nworker.kill();\n```",
       "translated": "このプロパティは、ワーカーが `.disconnect()` のために終了した場合は `true` である。ワーカーが他の方法で終了した場合は `false` である。ワーカーが終了していない場合は `undefined` である。\n\n真偽値 `worker.exitedAfterDisconnect` により、自発的な終了と偶発的な終了を区別でき、プライマリはこの値に基づいてワーカーを再生成しないことを選べる。\n\n```js\ncluster.on('exit', (worker, code, signal) => {\n  if (worker.exitedAfterDisconnect === true) {\n    console.log('Oh, it was just voluntary – no need to worry');\n  }\n});\n\n// kill worker\nworker.kill();\n```",
       "symbol": "@types/node/cluster.d.ts#cluster.Worker.exitedAfterDisconnect",
+      "lang": "ja"
+    },
+    "7937286c": {
+      "original": "Each new worker is given its own unique id, this id is stored in the `id`.\n\nWhile a worker is alive, this is the key that indexes it in `cluster.workers`.",
+      "translated": "各新しいワーカーには独自の一意な id が与えられ、この id は `id` に格納される。\n\nワーカーが生きている間、これは `cluster.workers` でワーカーをインデックスするキーである。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.id",
+      "lang": "ja"
+    },
+    "75dabaf9": {
+      "original": "This function returns `true` if the worker is connected to its primary via its\nIPC channel, `false` otherwise. A worker is connected to its primary after it\nhas been created. It is disconnected after the `'disconnect'` event is emitted.",
+      "translated": "この関数は、ワーカーが IPC チャネルを介してプライマリに接続されている場合は `true`、そうでなければ `false` を返す。ワーカーは作成された後にプライマリに接続される。`'disconnect'` イベントが発行された後に切断される。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.isConnected",
+      "lang": "ja"
+    },
+    "c3ca27cb": {
+      "original": "This function returns `true` if the worker's process has terminated (either\nbecause of exiting or being signaled). Otherwise, it returns `false`.\n\n```js\nimport cluster from 'node:cluster';\nimport http from 'node:http';\nimport { availableParallelism } from 'node:os';\nimport process from 'node:process';\n\nconst numCPUs = availableParallelism();\n\nif (cluster.isPrimary) {\n  console.log(`Primary ${process.pid} is running`);\n\n  // Fork workers.\n  for (let i = 0; i < numCPUs; i++) {\n    cluster.fork();\n  }\n\n  cluster.on('fork', (worker) => {\n    console.log('worker is dead:', worker.isDead());\n  });\n\n  cluster.on('exit', (worker, code, signal) => {\n    console.log('worker is dead:', worker.isDead());\n  });\n} else {\n  // Workers can share any TCP connection. In this case, it is an HTTP server.\n  http.createServer((req, res) => {\n    res.writeHead(200);\n    res.end(`Current process\\n ${process.pid}`);\n    process.kill(process.pid);\n  }).listen(8000);\n}\n```",
+      "translated": "この関数は、ワーカーのプロセスが(終了またはシグナルを受けて)終了した場合は `true` を返す。そうでなければ `false` を返す。\n\n```js\nimport cluster from 'node:cluster';\nimport http from 'node:http';\nimport { availableParallelism } from 'node:os';\nimport process from 'node:process';\n\nconst numCPUs = availableParallelism();\n\nif (cluster.isPrimary) {\n  console.log(`Primary ${process.pid} is running`);\n\n  // Fork workers.\n  for (let i = 0; i < numCPUs; i++) {\n    cluster.fork();\n  }\n\n  cluster.on('fork', (worker) => {\n    console.log('worker is dead:', worker.isDead());\n  });\n\n  cluster.on('exit', (worker, code, signal) => {\n    console.log('worker is dead:', worker.isDead());\n  });\n} else {\n  // Workers can share any TCP connection. In this case, it is an HTTP server.\n  http.createServer((req, res) => {\n    res.writeHead(200);\n    res.end(`Current process\\n ${process.pid}`);\n    process.kill(process.pid);\n  }).listen(8000);\n}\n```",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.isDead",
+      "lang": "ja"
+    },
+    "849d528b": {
+      "original": "Name of the kill signal to send to the worker process.",
+      "translated": "ワーカープロセスに送る kill シグナルの名前。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.kill",
+      "lang": "ja"
+    },
+    "9c60d7c9": {
+      "original": "This function will kill the worker. In the primary worker, it does this by\ndisconnecting the `worker.process`, and once disconnected, killing with `signal`. In the worker, it does it by killing the process with `signal`.\n\nThe `kill()` function kills the worker process without waiting for a graceful\ndisconnect, it has the same behavior as `worker.process.kill()`.\n\nThis method is aliased as `worker.destroy()` for backwards compatibility.\n\nIn a worker, `process.kill()` exists, but it is not this function;\nit is [`kill()`](https://nodejs.org/docs/latest-v22.x/api/process.html#processkillpid-signal).",
+      "translated": "この関数はワーカーを kill する。プライマリでは、`worker.process` を切断し、切断されたら `signal` で kill することでこれを行う。ワーカーでは、`signal` でプロセスを kill することでこれを行う。\n\n`kill()` 関数は、穏やかな切断を待たずにワーカープロセスを kill する。`worker.process.kill()` と同じ挙動である。\n\nこのメソッドは後方互換性のため `worker.destroy()` としてエイリアスされている。\n\nワーカーでは `process.kill()` が存在するが、それはこの関数ではなく [`kill()`](https://nodejs.org/docs/latest-v22.x/api/process.html#processkillpid-signal) である。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.kill",
+      "lang": "ja"
+    },
+    "7ee12f80": {
+      "original": "Send a message to a worker or primary, optionally with a handle.\n\nIn the primary, this sends a message to a specific worker. It is identical to [`ChildProcess.send()`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#subprocesssendmessage-sendhandle-options-callback).\n\nIn a worker, this sends a message to the primary. It is identical to `process.send()`.\n\nThis example will echo back all messages from the primary:\n\n```js\nif (cluster.isPrimary) {\n  const worker = cluster.fork();\n  worker.send('hi there');\n\n} else if (cluster.isWorker) {\n  process.on('message', (msg) => {\n    process.send(msg);\n  });\n}\n```",
+      "translated": "ワーカーまたはプライマリにメッセージを送る。任意でハンドルも送れる。\n\nプライマリでは、これは特定のワーカーにメッセージを送る。[`ChildProcess.send()`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#subprocesssendmessage-sendhandle-options-callback) と同一である。\n\nワーカーでは、これはプライマリにメッセージを送る。`process.send()` と同一である。\n\nこの例は、プライマリからのすべてのメッセージをエコーバックする:\n\n```js\nif (cluster.isPrimary) {\n  const worker = cluster.fork();\n  worker.send('hi there');\n\n} else if (cluster.isWorker) {\n  process.on('message', (msg) => {\n    process.send(msg);\n  });\n}\n```",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.send",
+      "lang": "ja"
+    },
+    "fdd89995": {
+      "original": "The `options` argument, if present, is an object used to parameterize the sending of certain types of handles.",
+      "translated": "`options` 引数は、存在する場合、特定の種類のハンドルの送信をパラメーター化するために使うオブジェクトである。",
+      "symbol": "@types/node/cluster.d.ts#cluster.Worker.send",
       "lang": "ja"
     },
     "03a04b1b": {
