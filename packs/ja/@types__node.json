@@ -142,6 +142,12 @@
       "symbol": "@types/node/url.d.ts#url.fileURLToPathBuffer",
       "lang": "ja"
     },
+    "34398496": {
+      "original": "This function is used to create a mock function.\n\nThe following example creates a mock function that increments a counter by one\non each invocation. The `times` option is used to modify the mock behavior such\nthat the first two invocations add two to the counter instead of one.\n\n```js\ntest('mocks a counting function', (t) => {\n  let cnt = 0;\n\n  function addOne() {\n    cnt++;\n    return cnt;\n  }\n\n  function addTwo() {\n    cnt += 2;\n    return cnt;\n  }\n\n  const fn = t.mock.fn(addOne, addTwo, { times: 2 });\n\n  assert.strictEqual(fn(), 2);\n  assert.strictEqual(fn(), 4);\n  assert.strictEqual(fn(), 5);\n  assert.strictEqual(fn(), 6);\n});\n```",
+      "translated": "この関数は、モック関数を作成するために使われる。\n\n次の例は、呼び出しごとにカウンターを 1 増やすモック関数を作成する。`times` オプションを使ってモックの挙動を変更し、最初の 2 回の呼び出しではカウンターに 1 ではなく 2 を加えるようにしている。\n\n```js\ntest('mocks a counting function', (t) => {\n  let cnt = 0;\n\n  function addOne() {\n    cnt++;\n    return cnt;\n  }\n\n  function addTwo() {\n    cnt += 2;\n    return cnt;\n  }\n\n  const fn = t.mock.fn(addOne, addTwo, { times: 2 });\n\n  assert.strictEqual(fn(), 2);\n  assert.strictEqual(fn(), 4);\n  assert.strictEqual(fn(), 5);\n  assert.strictEqual(fn(), 6);\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.fn",
+      "lang": "ja"
+    },
     "34979629": {
       "original": "The certificate issuer, described in the same terms as the `subject`.",
       "translated": "証明書の issuer。`subject` と同じ用語で記述される。",
@@ -152,6 +158,12 @@
       "original": "An object whose key-value pairs represent the assertions for the module to import",
       "translated": "インポートするモジュールのアサーションを表すキーと値のペアを持つオブジェクト",
       "symbol": "@types/node/module.d.ts#module.Module.ResolveHookContext.importAttributes",
+      "lang": "ja"
+    },
+    "38872192": {
+      "original": "If `true`, `object[methodName]` is treated as a getter.\nThis option cannot be used with the `setter` option.",
+      "translated": "`true` の場合、`object[methodName]` はゲッターとして扱われる。このオプションは `setter` オプションと併用できない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockMethodOptions.getter",
       "lang": "ja"
     },
     "41126723": {
@@ -176,6 +188,12 @@
       "original": "Constant for fs.Stats mode property for determining access permissions for a file. File mode indicating readable, writable and executable by others.",
       "translated": "ファイルのアクセス権限を判定するための fs.Stats mode プロパティ用の定数。その他による読み取り・書き込み・実行が可能なことを示すファイルモード。",
       "symbol": "@types/node/fs.d.ts#fs.constants.S_IRWXO",
+      "lang": "ja"
+    },
+    "46411341": {
+      "original": "Configuration options for the suite. This supports the same options as {@link test}.",
+      "translated": "スイートの構成オプション。これは {@link test} と同じオプションをサポートする。",
+      "symbol": "@types/node/test.d.ts#node:test.test.suite",
       "lang": "ja"
     },
     "47302309": {
@@ -15764,6 +15782,528 @@
       "original": "This function is used to change the behavior of an existing mock.\n\nThe following example creates a mock function using `t.mock.fn()`, calls the\nmock function, and then changes the mock implementation to a different function.\n\n```js\ntest('changes a mock behavior', (t) => {\n  let cnt = 0;\n\n  function addOne() {\n    cnt++;\n    return cnt;\n  }\n\n  function addTwo() {\n    cnt += 2;\n    return cnt;\n  }\n\n  const fn = t.mock.fn(addOne);\n\n  assert.strictEqual(fn(), 1);\n  fn.mock.mockImplementation(addTwo);\n  assert.strictEqual(fn(), 3);\n  assert.strictEqual(fn(), 5);\n});\n```",
       "translated": "この関数は、既存のモックの挙動を変更するために使われる。\n\n次の例は、`t.mock.fn()` を使ってモック関数を作成し、そのモック関数を呼び、その後モックの実装を別の関数に変更する。\n\n```js\ntest('changes a mock behavior', (t) => {\n  let cnt = 0;\n\n  function addOne() {\n    cnt++;\n    return cnt;\n  }\n\n  function addTwo() {\n    cnt += 2;\n    return cnt;\n  }\n\n  const fn = t.mock.fn(addOne);\n\n  assert.strictEqual(fn(), 1);\n  fn.mock.mockImplementation(addTwo);\n  assert.strictEqual(fn(), 3);\n  assert.strictEqual(fn(), 5);\n});\n```",
       "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.mockImplementation",
+      "lang": "ja"
+    },
+    "4cc3631e": {
+      "original": "The function to be used as the mock's implementation for the invocation number specified by `onCall`.",
+      "translated": "`onCall` で指定された呼び出し回数に対して、モックの実装として使われる関数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.mockImplementationOnce",
+      "lang": "ja"
+    },
+    "8aae9d5f": {
+      "original": "The invocation number that will use `implementation`. If the specified invocation has already occurred then an exception is thrown.",
+      "translated": "`implementation` を使う呼び出し回数。指定された呼び出しが既に発生している場合は、例外が投げられる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.mockImplementationOnce",
+      "lang": "ja"
+    },
+    "c4502649": {
+      "original": "This function is used to change the behavior of an existing mock for a single\ninvocation. Once invocation `onCall` has occurred, the mock will revert to\nwhatever behavior it would have used had `mockImplementationOnce()` not been\ncalled.\n\nThe following example creates a mock function using `t.mock.fn()`, calls the\nmock function, changes the mock implementation to a different function for the\nnext invocation, and then resumes its previous behavior.\n\n```js\ntest('changes a mock behavior once', (t) => {\n  let cnt = 0;\n\n  function addOne() {\n    cnt++;\n    return cnt;\n  }\n\n  function addTwo() {\n    cnt += 2;\n    return cnt;\n  }\n\n  const fn = t.mock.fn(addOne);\n\n  assert.strictEqual(fn(), 1);\n  fn.mock.mockImplementationOnce(addTwo);\n  assert.strictEqual(fn(), 3);\n  assert.strictEqual(fn(), 4);\n});\n```",
+      "translated": "この関数は、既存のモックの挙動を単一の呼び出しに対して変更するために使われる。呼び出し `onCall` が発生すると、モックは `mockImplementationOnce()` が呼ばれなかった場合に使っていたであろう挙動に戻る。\n\n次の例は、`t.mock.fn()` を使ってモック関数を作成し、そのモック関数を呼び、次の呼び出しに対してモックの実装を別の関数に変更し、その後以前の挙動を再開する。\n\n```js\ntest('changes a mock behavior once', (t) => {\n  let cnt = 0;\n\n  function addOne() {\n    cnt++;\n    return cnt;\n  }\n\n  function addTwo() {\n    cnt += 2;\n    return cnt;\n  }\n\n  const fn = t.mock.fn(addOne);\n\n  assert.strictEqual(fn(), 1);\n  fn.mock.mockImplementationOnce(addTwo);\n  assert.strictEqual(fn(), 3);\n  assert.strictEqual(fn(), 4);\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.mockImplementationOnce",
+      "lang": "ja"
+    },
+    "7daefec7": {
+      "original": "Resets the call history of the mock function.",
+      "translated": "モック関数の呼び出し履歴をリセットする。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.resetCalls",
+      "lang": "ja"
+    },
+    "a8a58780": {
+      "original": "Resets the implementation of the mock function to its original behavior. The\nmock can still be used after calling this function.",
+      "translated": "モック関数の実装を元の挙動にリセットする。この関数を呼んだ後もモックは使い続けられる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.restore",
+      "lang": "ja"
+    },
+    "23e01a06": {
+      "original": "The number of times that the mock will use the behavior of `implementation`.\nOnce the mock function has been called `times` times,\nit will automatically restore the behavior of `original`.\nThis value must be an integer greater than zero.",
+      "translated": "モックが `implementation` の挙動を使う回数。モック関数が `times` 回呼ばれると、自動的に `original` の挙動を復元する。この値はゼロより大きい整数でなければならない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionOptions.times",
+      "lang": "ja"
+    },
+    "5fd074f7": {
+      "original": "If `true`, `object[methodName]` is treated as a setter.\nThis option cannot be used with the `getter` option.",
+      "translated": "`true` の場合、`object[methodName]` はセッターとして扱われる。このオプションは `getter` オプションと併用できない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockMethodOptions.setter",
+      "lang": "ja"
+    },
+    "c2262afb": {
+      "original": "Resets the implementation of the mock module.",
+      "translated": "モックモジュールの実装をリセットする。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockModuleContext.restore",
+      "lang": "ja"
+    },
+    "96f96b3a": {
+      "original": "If false, each call to `require()` or `import()` generates a new mock module.\nIf true, subsequent calls will return the same module mock, and the mock module is inserted into the CommonJS cache.",
+      "translated": "false の場合、`require()` または `import()` を呼ぶたびに新しいモックモジュールが生成される。true の場合、以降の呼び出しは同じモジュールモックを返し、モックモジュールが CommonJS キャッシュに挿入される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockModuleOptions.cache",
+      "lang": "ja"
+    },
+    "de406f17": {
+      "original": "The value to use as the mocked module's default export.\n\nIf this value is not provided, ESM mocks do not include a default export.\nIf the mock is a CommonJS or builtin module, this setting is used as the value of `module.exports`.\nIf this value is not provided, CJS and builtin mocks use an empty object as the value of `module.exports`.",
+      "translated": "モックされたモジュールのデフォルトエクスポートとして使う値。\n\nこの値が指定されない場合、ESM モックにはデフォルトエクスポートが含まれない。モックが CommonJS または組み込みモジュールの場合、この設定は `module.exports` の値として使われる。この値が指定されない場合、CJS および組み込みモックは `module.exports` の値として空オブジェクトを使う。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockModuleOptions.defaultExport",
+      "lang": "ja"
+    },
+    "7471db42": {
+      "original": "An object whose keys and values are used to create the named exports of the mock module.\n\nIf the mock is a CommonJS or builtin module, these values are copied onto `module.exports`.\nTherefore, if a mock is created with both named exports and a non-object default export,\nthe mock will throw an exception when used as a CJS or builtin module.",
+      "translated": "そのキーと値がモックモジュールの名前付きエクスポートを作成するために使われるオブジェクト。\n\nモックが CommonJS または組み込みモジュールの場合、これらの値は `module.exports` にコピーされる。したがって、名前付きエクスポートとオブジェクトでないデフォルトエクスポートの両方でモックが作成された場合、そのモックは CJS または組み込みモジュールとして使われたときに例外を投げる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockModuleOptions.namedExports",
+      "lang": "ja"
+    },
+    "393dc8fb": {
+      "original": "The number of times that the property was accessed (read or written).",
+      "translated": "プロパティがアクセスされた(読み取りまたは書き込み)回数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockPropertyContext.accessCount",
+      "lang": "ja"
+    },
+    "082bf53c": {
+      "original": "This function returns the number of times that the property was accessed.\nThis function is more efficient than checking `ctx.accesses.length` because\n`ctx.accesses` is a getter that creates a copy of the internal access tracking array.",
+      "translated": "この関数は、プロパティがアクセスされた回数を返す。`ctx.accesses` は内部のアクセス追跡配列のコピーを作成するゲッターであるため、この関数は `ctx.accesses.length` を確認するより効率的である。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockPropertyContext.accessCount",
+      "lang": "ja"
+    },
+    "cf8cee9e": {
+      "original": "A getter that returns a copy of the internal array used to track accesses (get/set) to\nthe mocked property. Each entry in the array is an object with the following properties:",
+      "translated": "モックされたプロパティへのアクセス(get/set)を追跡するために使われる内部配列のコピーを返すゲッター。配列内の各エントリは、次のプロパティを持つオブジェクトである:",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockPropertyContext.accesses",
+      "lang": "ja"
+    },
+    "04f4782a": {
+      "original": "The new value to be set as the mocked property value.",
+      "translated": "モックされたプロパティ値として設定される新しい値。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockPropertyContext.mockImplementation",
+      "lang": "ja"
+    },
+    "7f35cec3": {
+      "original": "This function is used to change the value returned by the mocked property getter.",
+      "translated": "この関数は、モックされたプロパティのゲッターが返す値を変更するために使われる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockPropertyContext.mockImplementation",
+      "lang": "ja"
+    },
+    "fd2e2f70": {
+      "original": "The invocation number that will use `value`. If\nthe specified invocation has already occurred then an exception is thrown.\n**Default:** The number of the next invocation.",
+      "translated": "`value` を使う呼び出し回数。指定された呼び出しが既に発生している場合は、例外が投げられる。**既定値:** 次の呼び出しの回数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockPropertyContext.mockImplementationOnce",
+      "lang": "ja"
+    },
+    "684b9c9d": {
+      "original": "The value to be used as the mock's\nimplementation for the invocation number specified by `onAccess`.",
+      "translated": "`onAccess` で指定された呼び出し回数に対して、モックの実装として使われる値。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockPropertyContext.mockImplementationOnce",
+      "lang": "ja"
+    },
+    "b0daf916": {
+      "original": "This function is used to change the behavior of an existing mock for a single\ninvocation. Once invocation `onAccess` has occurred, the mock will revert to\nwhatever behavior it would have used had `mockImplementationOnce()` not been\ncalled.\n\nThe following example creates a mock function using `t.mock.property()`, calls the\nmock property, changes the mock implementation to a different value for the\nnext invocation, and then resumes its previous behavior.\n\n```js\ntest('changes a mock behavior once', (t) => {\n  const obj = { foo: 1 };\n\n  assert.strictEqual(obj.foo, 5);\n  prop.mock.mockImplementationOnce(25);\n  assert.strictEqual(obj.foo, 25);\n  assert.strictEqual(obj.foo, 5);\n});\n```",
+      "translated": "この関数は、既存のモックの挙動を単一の呼び出しに対して変更するために使われる。呼び出し `onAccess` が発生すると、モックは `mockImplementationOnce()` が呼ばれなかった場合に使っていたであろう挙動に戻る。\n\n次の例は、`t.mock.property()` を使ってモック関数を作成し、そのモックプロパティを呼び、次の呼び出しに対してモックの実装を別の値に変更し、その後以前の挙動を再開する。\n\n```js\ntest('changes a mock behavior once', (t) => {\n  const obj = { foo: 1 };\n\n  assert.strictEqual(obj.foo, 5);\n  prop.mock.mockImplementationOnce(25);\n  assert.strictEqual(obj.foo, 25);\n  assert.strictEqual(obj.foo, 5);\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockPropertyContext.mockImplementationOnce",
+      "lang": "ja"
+    },
+    "5686c00c": {
+      "original": "Resets the access history of the mocked property.",
+      "translated": "モックされたプロパティのアクセス履歴をリセットする。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockPropertyContext.resetAccesses",
+      "lang": "ja"
+    },
+    "b3007e19": {
+      "original": "Resets the implementation of the mock property to its original behavior. The\nmock can still be used after calling this function.",
+      "translated": "モックプロパティの実装を元の挙動にリセットする。この関数を呼んだ後もモックは使い続けられる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockPropertyContext.restore",
+      "lang": "ja"
+    },
+    "f52eb7fc": {
+      "original": "Mocking timers is a technique commonly used in software testing to simulate and\ncontrol the behavior of timers, such as `setInterval` and `setTimeout`,\nwithout actually waiting for the specified time intervals.\n\nThe MockTimers API also allows for mocking of the `Date` constructor and\n`setImmediate`/`clearImmediate` functions.\n\nThe `MockTracker` provides a top-level `timers` export\nwhich is a `MockTimers` instance.",
+      "translated": "タイマーのモックは、`setInterval` や `setTimeout` などのタイマーの挙動を、指定された時間間隔を実際に待たずにシミュレートして制御するために、ソフトウェアテストで一般的に使われる手法である。\n\nMockTimers API は、`Date` コンストラクターと `setImmediate`/`clearImmediate` 関数のモックも可能にする。\n\n`MockTracker` は、`MockTimers` インスタンスであるトップレベルの `timers` エクスポートを提供する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTimers",
+      "lang": "ja"
+    },
+    "5ad9a977": {
+      "original": "Calls {@link MockTimers.reset ()}.",
+      "translated": "{@link MockTimers.reset ()} を呼ぶ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTimers.[Symbol.dispose]",
+      "lang": "ja"
+    },
+    "f60bc145": {
+      "original": "Enables timer mocking for the specified timers.\n\n**Note:** When you enable mocking for a specific timer, its associated\nclear function will also be implicitly mocked.\n\n**Note:** Mocking `Date` will affect the behavior of the mocked timers\nas they use the same internal clock.\n\nExample usage without setting initial time:\n\n```js\nimport { mock } from 'node:test';\nmock.timers.enable({ apis: ['setInterval', 'Date'], now: 1234 });\n```\n\nThe above example enables mocking for the `Date` constructor, `setInterval` timer and\nimplicitly mocks the `clearInterval` function. Only the `Date` constructor from `globalThis`,\n`setInterval` and `clearInterval` functions from `node:timers`, `node:timers/promises`, and `globalThis` will be mocked.\n\nExample usage with initial time set\n\n```js\nimport { mock } from 'node:test';\nmock.timers.enable({ apis: ['Date'], now: 1000 });\n```\n\nExample usage with initial Date object as time set\n\n```js\nimport { mock } from 'node:test';\nmock.timers.enable({ apis: ['Date'], now: new Date() });\n```\n\nAlternatively, if you call `mock.timers.enable()` without any parameters:\n\nAll timers (`'setInterval'`, `'clearInterval'`, `'Date'`, `'setImmediate'`, `'clearImmediate'`, `'setTimeout'`, and `'clearTimeout'`)\nwill be mocked.\n\nThe `setInterval`, `clearInterval`, `setTimeout`, and `clearTimeout` functions from `node:timers`, `node:timers/promises`,\nand `globalThis` will be mocked.\nThe `Date` constructor from `globalThis` will be mocked.\n\nIf there is no initial epoch set, the initial date will be based on 0 in the Unix epoch. This is `January 1st, 1970, 00:00:00 UTC`. You can\nset an initial date by passing a now property to the `.enable()` method. This value will be used as the initial date for the mocked Date\nobject. It can either be a positive integer, or another Date object.",
+      "translated": "指定されたタイマーのタイマーモックを有効化する。\n\n**注意:** 特定のタイマーのモックを有効化すると、それに関連するクリア関数も暗黙的にモックされる。\n\n**注意:** `Date` をモックすると、モックされたタイマーは同じ内部クロックを使うため、その挙動に影響する。\n\n初期時刻を設定しない使用例:\n\n```js\nimport { mock } from 'node:test';\nmock.timers.enable({ apis: ['setInterval', 'Date'], now: 1234 });\n```\n\n上記の例は、`Date` コンストラクターと `setInterval` タイマーのモックを有効化し、暗黙的に `clearInterval` 関数をモックする。`globalThis` の `Date` コンストラクター、`node:timers`・`node:timers/promises`・`globalThis` の `setInterval` と `clearInterval` 関数のみがモックされる。\n\n初期時刻を設定する使用例\n\n```js\nimport { mock } from 'node:test';\nmock.timers.enable({ apis: ['Date'], now: 1000 });\n```\n\n初期 Date オブジェクトを時刻として設定する使用例\n\n```js\nimport { mock } from 'node:test';\nmock.timers.enable({ apis: ['Date'], now: new Date() });\n```\n\nあるいは、パラメーターなしで `mock.timers.enable()` を呼ぶと:\n\nすべてのタイマー(`'setInterval'`・`'clearInterval'`・`'Date'`・`'setImmediate'`・`'clearImmediate'`・`'setTimeout'`・`'clearTimeout'`)がモックされる。\n\n`node:timers`・`node:timers/promises`・`globalThis` の `setInterval`・`clearInterval`・`setTimeout`・`clearTimeout` 関数がモックされる。`globalThis` の `Date` コンストラクターがモックされる。\n\n初期エポックが設定されていない場合、初期日付は Unix エポックの 0 に基づく。これは `1970 年 1 月 1 日 00:00:00 UTC` である。`.enable()` メソッドに now プロパティを渡すことで初期日付を設定できる。この値は、モックされた Date オブジェクトの初期日付として使われる。正の整数か、別の Date オブジェクトのいずれかにできる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTimers.enable",
+      "lang": "ja"
+    },
+    "5296cd37": {
+      "original": "This function restores the default behavior of all mocks that were previously\ncreated by this `MockTimers` instance and disassociates the mocks\nfrom the `MockTracker` instance.\n\n**Note:** After each test completes, this function is called on\nthe test context's `MockTracker`.\n\n```js\nimport { mock } from 'node:test';\nmock.timers.reset();\n```",
+      "translated": "この関数は、この `MockTimers` インスタンスによって以前に作成されたすべてのモックの既定の挙動を復元し、それらのモックを `MockTracker` インスタンスから切り離す。\n\n**注意:** 各テストの完了後、この関数はテストコンテキストの `MockTracker` で呼ばれる。\n\n```js\nimport { mock } from 'node:test';\nmock.timers.reset();\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTimers.reset",
+      "lang": "ja"
+    },
+    "fe3966e1": {
+      "original": "Triggers all pending mocked timers immediately. If the `Date` object is also\nmocked, it will also advance the `Date` object to the furthest timer's time.\n\nThe example below triggers all pending timers immediately,\ncausing them to execute without any delay.\n\n```js\nimport assert from 'node:assert';\nimport { test } from 'node:test';\n\ntest('runAll functions following the given order', (context) => {\n  context.mock.timers.enable({ apis: ['setTimeout', 'Date'] });\n  const results = [];\n  setTimeout(() => results.push(1), 9999);\n\n  // Notice that if both timers have the same timeout,\n  // the order of execution is guaranteed\n  setTimeout(() => results.push(3), 8888);\n  setTimeout(() => results.push(2), 8888);\n\n  assert.deepStrictEqual(results, []);\n\n  context.mock.timers.runAll();\n  assert.deepStrictEqual(results, [3, 2, 1]);\n  // The Date object is also advanced to the furthest timer's time\n  assert.strictEqual(Date.now(), 9999);\n});\n```\n\n**Note:** The `runAll()` function is specifically designed for\ntriggering timers in the context of timer mocking.\nIt does not have any effect on real-time system\nclocks or actual timers outside of the mocking environment.",
+      "translated": "保留中のすべてのモックタイマーをただちにトリガーする。`Date` オブジェクトもモックされている場合、`Date` オブジェクトを最も遠いタイマーの時刻まで進める。\n\n下記の例は、保留中のすべてのタイマーをただちにトリガーし、遅延なく実行させる。\n\n```js\nimport assert from 'node:assert';\nimport { test } from 'node:test';\n\ntest('runAll functions following the given order', (context) => {\n  context.mock.timers.enable({ apis: ['setTimeout', 'Date'] });\n  const results = [];\n  setTimeout(() => results.push(1), 9999);\n\n  // Notice that if both timers have the same timeout,\n  // the order of execution is guaranteed\n  setTimeout(() => results.push(3), 8888);\n  setTimeout(() => results.push(2), 8888);\n\n  assert.deepStrictEqual(results, []);\n\n  context.mock.timers.runAll();\n  assert.deepStrictEqual(results, [3, 2, 1]);\n  // The Date object is also advanced to the furthest timer's time\n  assert.strictEqual(Date.now(), 9999);\n});\n```\n\n**注意:** `runAll()` 関数は、タイマーモックのコンテキストでタイマーをトリガーするために特別に設計されている。実時間のシステムクロックや、モック環境外の実際のタイマーには一切影響しない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTimers.runAll",
+      "lang": "ja"
+    },
+    "c60e022d": {
+      "original": "You can use the `.setTime()` method to manually move the mocked date to another time. This method only accepts a positive integer.\nNote: This method will execute any mocked timers that are in the past from the new time.\nIn the below example we are setting a new time for the mocked date.\n```js\nimport assert from 'node:assert';\nimport { test } from 'node:test';\ntest('sets the time of a date object', (context) => {\n  // Optionally choose what to mock\n  context.mock.timers.enable({ apis: ['Date'], now: 100 });\n  assert.strictEqual(Date.now(), 100);\n  // Advance in time will also advance the date\n  context.mock.timers.setTime(1000);\n  context.mock.timers.tick(200);\n  assert.strictEqual(Date.now(), 1200);\n});\n```",
+      "translated": "`.setTime()` メソッドを使って、モックされた日付を手動で別の時刻に移動できる。このメソッドは正の整数のみを受け付ける。注意: このメソッドは、新しい時刻から見て過去にあるモックタイマーをすべて実行する。下記の例では、モックされた日付に新しい時刻を設定している。\n```js\nimport assert from 'node:assert';\nimport { test } from 'node:test';\ntest('sets the time of a date object', (context) => {\n  // Optionally choose what to mock\n  context.mock.timers.enable({ apis: ['Date'], now: 100 });\n  assert.strictEqual(Date.now(), 100);\n  // Advance in time will also advance the date\n  context.mock.timers.setTime(1000);\n  context.mock.timers.tick(200);\n  assert.strictEqual(Date.now(), 1200);\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTimers.setTime",
+      "lang": "ja"
+    },
+    "afc78eb4": {
+      "original": "Advances time for all mocked timers.\n\n**Note:** This diverges from how `setTimeout` in Node.js behaves and accepts\nonly positive numbers. In Node.js, `setTimeout` with negative numbers is\nonly supported for web compatibility reasons.\n\nThe following example mocks a `setTimeout` function and\nby using `.tick` advances in\ntime triggering all pending timers.\n\n```js\nimport assert from 'node:assert';\nimport { test } from 'node:test';\n\ntest('mocks setTimeout to be executed synchronously without having to actually wait for it', (context) => {\n  const fn = context.mock.fn();\n\n  context.mock.timers.enable({ apis: ['setTimeout'] });\n\n  setTimeout(fn, 9999);\n\n  assert.strictEqual(fn.mock.callCount(), 0);\n\n  // Advance in time\n  context.mock.timers.tick(9999);\n\n  assert.strictEqual(fn.mock.callCount(), 1);\n});\n```\n\nAlternativelly, the `.tick` function can be called many times\n\n```js\nimport assert from 'node:assert';\nimport { test } from 'node:test';\n\ntest('mocks setTimeout to be executed synchronously without having to actually wait for it', (context) => {\n  const fn = context.mock.fn();\n  context.mock.timers.enable({ apis: ['setTimeout'] });\n  const nineSecs = 9000;\n  setTimeout(fn, nineSecs);\n\n  const twoSeconds = 3000;\n  context.mock.timers.tick(twoSeconds);\n  context.mock.timers.tick(twoSeconds);\n  context.mock.timers.tick(twoSeconds);\n\n  assert.strictEqual(fn.mock.callCount(), 1);\n});\n```\n\nAdvancing time using `.tick` will also advance the time for any `Date` object\ncreated after the mock was enabled (if `Date` was also set to be mocked).\n\n```js\nimport assert from 'node:assert';\nimport { test } from 'node:test';\n\ntest('mocks setTimeout to be executed synchronously without having to actually wait for it', (context) => {\n  const fn = context.mock.fn();\n\n  context.mock.timers.enable({ apis: ['setTimeout', 'Date'] });\n  setTimeout(fn, 9999);\n\n  assert.strictEqual(fn.mock.callCount(), 0);\n  assert.strictEqual(Date.now(), 0);\n\n  // Advance in time\n  context.mock.timers.tick(9999);\n  assert.strictEqual(fn.mock.callCount(), 1);\n  assert.strictEqual(Date.now(), 9999);\n});\n```",
+      "translated": "すべてのモックタイマーの時刻を進める。\n\n**注意:** これは Node.js の `setTimeout` の挙動とは異なり、正の数のみを受け付ける。Node.js では、負の数を伴う `setTimeout` は Web 互換性の理由でのみサポートされている。\n\n次の例は、`setTimeout` 関数をモックし、`.tick` を使って時刻を進めることで、保留中のすべてのタイマーをトリガーする。\n\n```js\nimport assert from 'node:assert';\nimport { test } from 'node:test';\n\ntest('mocks setTimeout to be executed synchronously without having to actually wait for it', (context) => {\n  const fn = context.mock.fn();\n\n  context.mock.timers.enable({ apis: ['setTimeout'] });\n\n  setTimeout(fn, 9999);\n\n  assert.strictEqual(fn.mock.callCount(), 0);\n\n  // Advance in time\n  context.mock.timers.tick(9999);\n\n  assert.strictEqual(fn.mock.callCount(), 1);\n});\n```\n\nあるいは、`.tick` 関数を何度も呼ぶこともできる\n\n```js\nimport assert from 'node:assert';\nimport { test } from 'node:test';\n\ntest('mocks setTimeout to be executed synchronously without having to actually wait for it', (context) => {\n  const fn = context.mock.fn();\n  context.mock.timers.enable({ apis: ['setTimeout'] });\n  const nineSecs = 9000;\n  setTimeout(fn, nineSecs);\n\n  const twoSeconds = 3000;\n  context.mock.timers.tick(twoSeconds);\n  context.mock.timers.tick(twoSeconds);\n  context.mock.timers.tick(twoSeconds);\n\n  assert.strictEqual(fn.mock.callCount(), 1);\n});\n```\n\n`.tick` を使って時刻を進めると、モックが有効化された後に作成された任意の `Date` オブジェクトの時刻も進む(`Date` もモック対象に設定されている場合)。\n\n```js\nimport assert from 'node:assert';\nimport { test } from 'node:test';\n\ntest('mocks setTimeout to be executed synchronously without having to actually wait for it', (context) => {\n  const fn = context.mock.fn();\n\n  context.mock.timers.enable({ apis: ['setTimeout', 'Date'] });\n  setTimeout(fn, 9999);\n\n  assert.strictEqual(fn.mock.callCount(), 0);\n  assert.strictEqual(Date.now(), 0);\n\n  // Advance in time\n  context.mock.timers.tick(9999);\n  assert.strictEqual(fn.mock.callCount(), 1);\n  assert.strictEqual(Date.now(), 9999);\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTimers.tick",
+      "lang": "ja"
+    },
+    "f01abe80": {
+      "original": "The `MockTracker` class is used to manage mocking functionality. The test runner\nmodule provides a top level `mock` export which is a `MockTracker` instance.\nEach test also provides its own `MockTracker` instance via the test context's `mock` property.",
+      "translated": "`MockTracker` クラスは、モック機能を管理するために使われる。テストランナーモジュールは、`MockTracker` インスタンスであるトップレベルの `mock` エクスポートを提供する。各テストも、テストコンテキストの `mock` プロパティを介して独自の `MockTracker` インスタンスを提供する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker",
+      "lang": "ja"
+    },
+    "10bea651": {
+      "original": "An optional function to create a mock on.",
+      "translated": "モックを作成する対象の省略可能な関数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.fn",
+      "lang": "ja"
+    },
+    "964951b1": {
+      "original": "An optional function used as the mock implementation for `original`. This is useful for creating mocks that exhibit one behavior for a specified number of calls and\nthen restore the behavior of `original`.",
+      "translated": "`original` のモック実装として使われる省略可能な関数。これは、指定された回数だけ 1 つの挙動を示し、その後 `original` の挙動を復元するモックを作成するのに役立つ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.fn",
+      "lang": "ja"
+    },
+    "256beb89": {
+      "original": "Optional configuration options for the mock function.",
+      "translated": "モック関数の省略可能な構成オプション。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.fn",
+      "lang": "ja"
+    },
+    "a8b5d311": {
+      "original": "The mocked function. The mocked function contains a special `mock` property, which is an instance of {@link MockFunctionContext}, and can be used for inspecting and changing the\nbehavior of the mocked function.",
+      "translated": "モックされた関数。モックされた関数には、{@link MockFunctionContext} のインスタンスである特別な `mock` プロパティが含まれ、モックされた関数の挙動の検査や変更に使える。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.fn",
+      "lang": "ja"
+    },
+    "563ffe1d": {
+      "original": "This function is syntax sugar for `MockTracker.method` with `options.getter` set to `true`.",
+      "translated": "この関数は、`options.getter` を `true` に設定した `MockTracker.method` のシンタックスシュガーである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.getter",
+      "lang": "ja"
+    },
+    "dc9e515c": {
+      "original": "An optional function used as the mock implementation for `object[methodName]`.",
+      "translated": "`object[methodName]` のモック実装として使われる省略可能な関数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.method",
+      "lang": "ja"
+    },
+    "fe24092e": {
+      "original": "Optional configuration options for the mock method.",
+      "translated": "モックメソッドの省略可能な構成オプション。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.method",
+      "lang": "ja"
+    },
+    "e3d41069": {
+      "original": "The identifier of the method on `object` to mock. If `object[methodName]` is not a function, an error is thrown.",
+      "translated": "モックする `object` 上のメソッドの識別子。`object[methodName]` が関数でない場合、エラーが投げられる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.method",
+      "lang": "ja"
+    },
+    "20468ea9": {
+      "original": "The mocked method. The mocked method contains a special `mock` property, which is an instance of {@link MockFunctionContext}, and can be used for inspecting and changing the\nbehavior of the mocked method.",
+      "translated": "モックされたメソッド。モックされたメソッドには、{@link MockFunctionContext} のインスタンスである特別な `mock` プロパティが含まれ、モックされたメソッドの挙動の検査や変更に使える。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.method",
+      "lang": "ja"
+    },
+    "fb853b4d": {
+      "original": "The object whose method is being mocked.",
+      "translated": "メソッドがモックされるオブジェクト。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.method",
+      "lang": "ja"
+    },
+    "2d450f42": {
+      "original": "This function is used to create a mock on an existing object method. The\nfollowing example demonstrates how a mock is created on an existing object\nmethod.\n\n```js\ntest('spies on an object method', (t) => {\n  const number = {\n    value: 5,\n    subtract(a) {\n      return this.value - a;\n    },\n  };\n\n  t.mock.method(number, 'subtract');\n  assert.strictEqual(number.subtract.mock.calls.length, 0);\n  assert.strictEqual(number.subtract(3), 2);\n  assert.strictEqual(number.subtract.mock.calls.length, 1);\n\n  const call = number.subtract.mock.calls[0];\n\n  assert.deepStrictEqual(call.arguments, [3]);\n  assert.strictEqual(call.result, 2);\n  assert.strictEqual(call.error, undefined);\n  assert.strictEqual(call.target, undefined);\n  assert.strictEqual(call.this, number);\n});\n```",
+      "translated": "この関数は、既存のオブジェクトメソッドにモックを作成するために使われる。次の例は、既存のオブジェクトメソッドにモックが作成される様子を示す。\n\n```js\ntest('spies on an object method', (t) => {\n  const number = {\n    value: 5,\n    subtract(a) {\n      return this.value - a;\n    },\n  };\n\n  t.mock.method(number, 'subtract');\n  assert.strictEqual(number.subtract.mock.calls.length, 0);\n  assert.strictEqual(number.subtract(3), 2);\n  assert.strictEqual(number.subtract.mock.calls.length, 1);\n\n  const call = number.subtract.mock.calls[0];\n\n  assert.deepStrictEqual(call.arguments, [3]);\n  assert.strictEqual(call.result, 2);\n  assert.strictEqual(call.error, undefined);\n  assert.strictEqual(call.target, undefined);\n  assert.strictEqual(call.this, number);\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.method",
+      "lang": "ja"
+    },
+    "3b4def0d": {
+      "original": "A string identifying the module to mock.",
+      "translated": "モックするモジュールを識別する文字列。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.module",
+      "lang": "ja"
+    },
+    "f5d86c4c": {
+      "original": "Optional configuration options for the mock module.",
+      "translated": "モックモジュールの省略可能な構成オプション。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.module",
+      "lang": "ja"
+    },
+    "2a2d2036": {
+      "original": "This function is used to mock the exports of ECMAScript modules, CommonJS modules, and Node.js builtin modules.\nAny references to the original module prior to mocking are not impacted.\n\nOnly available through the [--experimental-test-module-mocks](https://nodejs.org/api/cli.html#--experimental-test-module-mocks) flag.",
+      "translated": "この関数は、ECMAScript モジュール・CommonJS モジュール・Node.js 組み込みモジュールのエクスポートをモックするために使われる。モック前の元のモジュールへの参照は影響を受けない。\n\n[--experimental-test-module-mocks](https://nodejs.org/api/cli.html#--experimental-test-module-mocks) フラグを通じてのみ利用できる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.module",
+      "lang": "ja"
+    },
+    "66d502f7": {
+      "original": "A proxy to the mocked object. The mocked object contains a\nspecial `mock` property, which is an instance of [`MockPropertyContext`](https://nodejs.org/docs/latest-v22.x/api/test.html#class-mockpropertycontext),\nand can be used for inspecting and changing the behavior of the mocked property.",
+      "translated": "モックされたオブジェクトへのプロキシ。モックされたオブジェクトには、[`MockPropertyContext`](https://nodejs.org/docs/latest-v22.x/api/test.html#class-mockpropertycontext) のインスタンスである特別な `mock` プロパティが含まれ、モックされたプロパティの挙動の検査や変更に使える。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.property",
+      "lang": "ja"
+    },
+    "07fb5827": {
+      "original": "An optional value used as the mock value\nfor `object[propertyName]`. **Default:** The original property value.",
+      "translated": "`object[propertyName]` のモック値として使われる省略可能な値。**既定値:** 元のプロパティ値。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.property",
+      "lang": "ja"
+    },
+    "a45cbbd4": {
+      "original": "Creates a mock for a property value on an object. This allows you to track and control access to a specific property,\nincluding how many times it is read (getter) or written (setter), and to restore the original value after mocking.\n\n```js\ntest('mocks a property value', (t) => {\n  const obj = { foo: 42 };\n  const prop = t.mock.property(obj, 'foo', 100);\n\n  assert.strictEqual(obj.foo, 100);\n  assert.strictEqual(prop.mock.accessCount(), 1);\n  assert.strictEqual(prop.mock.accesses[0].type, 'get');\n  assert.strictEqual(prop.mock.accesses[0].value, 100);\n\n  obj.foo = 200;\n  assert.strictEqual(prop.mock.accessCount(), 2);\n  assert.strictEqual(prop.mock.accesses[1].type, 'set');\n  assert.strictEqual(prop.mock.accesses[1].value, 200);\n\n  prop.mock.restore();\n  assert.strictEqual(obj.foo, 42);\n});\n```",
+      "translated": "オブジェクト上のプロパティ値のモックを作成する。これにより、特定のプロパティへのアクセス(読み取り(ゲッター)や書き込み(セッター)が何回行われたかを含む)を追跡・制御し、モック後に元の値を復元できる。\n\n```js\ntest('mocks a property value', (t) => {\n  const obj = { foo: 42 };\n  const prop = t.mock.property(obj, 'foo', 100);\n\n  assert.strictEqual(obj.foo, 100);\n  assert.strictEqual(prop.mock.accessCount(), 1);\n  assert.strictEqual(prop.mock.accesses[0].type, 'get');\n  assert.strictEqual(prop.mock.accesses[0].value, 100);\n\n  obj.foo = 200;\n  assert.strictEqual(prop.mock.accessCount(), 2);\n  assert.strictEqual(prop.mock.accesses[1].type, 'set');\n  assert.strictEqual(prop.mock.accesses[1].value, 200);\n\n  prop.mock.restore();\n  assert.strictEqual(obj.foo, 42);\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.property",
+      "lang": "ja"
+    },
+    "e0f173b0": {
+      "original": "The identifier of the property on `object` to mock.",
+      "translated": "モックする `object` 上のプロパティの識別子。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.property",
+      "lang": "ja"
+    },
+    "1912b354": {
+      "original": "The object whose value is being mocked.",
+      "translated": "値がモックされるオブジェクト。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.property",
+      "lang": "ja"
+    },
+    "13f16ce3": {
+      "original": "This function restores the default behavior of all mocks that were previously\ncreated by this `MockTracker` and disassociates the mocks from the `MockTracker` instance. Once disassociated, the mocks can still be used, but the `MockTracker` instance can no longer be\nused to reset their behavior or\notherwise interact with them.\n\nAfter each test completes, this function is called on the test context's `MockTracker`. If the global `MockTracker` is used extensively, calling this\nfunction manually is recommended.",
+      "translated": "この関数は、この `MockTracker` によって以前に作成されたすべてのモックの既定の挙動を復元し、それらのモックを `MockTracker` インスタンスから切り離す。切り離された後もモックは使い続けられるが、`MockTracker` インスタンスは、それらの挙動をリセットしたり、その他の方法で操作したりするためには使えなくなる。\n\n各テストの完了後、この関数はテストコンテキストの `MockTracker` で呼ばれる。グローバルな `MockTracker` を多用する場合、この関数を手動で呼ぶことが推奨される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.reset",
+      "lang": "ja"
+    },
+    "ce3d8497": {
+      "original": "This function restores the default behavior of all mocks that were previously\ncreated by this `MockTracker`. Unlike `mock.reset()`, `mock.restoreAll()` does\nnot disassociate the mocks from the `MockTracker` instance.",
+      "translated": "この関数は、この `MockTracker` によって以前に作成されたすべてのモックの既定の挙動を復元する。`mock.reset()` とは異なり、`mock.restoreAll()` はモックを `MockTracker` インスタンスから切り離さない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.restoreAll",
+      "lang": "ja"
+    },
+    "734d4e51": {
+      "original": "This function is syntax sugar for `MockTracker.method` with `options.setter` set to `true`.",
+      "translated": "この関数は、`options.setter` を `true` に設定した `MockTracker.method` のシンタックスシュガーである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockTracker.setter",
+      "lang": "ja"
+    },
+    "310b8143": {
+      "original": "Shorthand for marking a test as `only`. This is the same as calling {@link test} with `options.only` set to `true`.",
+      "translated": "テストを `only` としてマークするための省略記法。これは、`options.only` を `true` に設定して {@link test} を呼ぶのと同じである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.only",
+      "lang": "ja"
+    },
+    "46f28418": {
+      "original": "**Note:** `shard` is used to horizontally parallelize test running across\nmachines or processes, ideal for large-scale executions across varied\nenvironments. It's incompatible with `watch` mode, tailored for rapid\ncode iteration by automatically rerunning tests on file changes.\n\n```js\nimport { tap } from 'node:test/reporters';\nimport { run } from 'node:test';\nimport process from 'node:process';\nimport path from 'node:path';\n\nrun({ files: [path.resolve('./tests/test.js')] })\n  .compose(tap)\n  .pipe(process.stdout);\n```",
+      "translated": "**注意:** `shard` は、マシンやプロセスをまたいでテスト実行を水平方向に並列化するために使われ、多様な環境にまたがる大規模な実行に理想的である。これは、ファイル変更時に自動的にテストを再実行することで迅速なコードイテレーションに合わせて調整された `watch` モードとは互換性がない。\n\n```js\nimport { tap } from 'node:test/reporters';\nimport { run } from 'node:test';\nimport process from 'node:process';\nimport path from 'node:path';\n\nrun({ files: [path.resolve('./tests/test.js')] })\n  .compose(tap)\n  .pipe(process.stdout);\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.run",
+      "lang": "ja"
+    },
+    "2686a8fb": {
+      "original": "Configuration options for running tests.",
+      "translated": "テスト実行の構成オプション。",
+      "symbol": "@types/node/test.d.ts#node:test.test.run",
+      "lang": "ja"
+    },
+    "f7902862": {
+      "original": "An array of CLI flags to pass to each test file when spawning the\nsubprocesses. This option has no effect when `isolation` is `'none'`.",
+      "translated": "サブプロセスをスポーンするときに各テストファイルに渡す CLI フラグの配列。このオプションは `isolation` が `'none'` の場合は効果がない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.argv",
+      "lang": "ja"
+    },
+    "b373aeeb": {
+      "original": "Require a minimum percent of covered branches. If code\ncoverage does not reach the threshold specified, the process will exit with code `1`.",
+      "translated": "カバーされた分岐の最小割合を要求する。コードカバレッジが指定されたしきい値に達しない場合、プロセスはコード `1` で終了する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.branchCoverage",
+      "lang": "ja"
+    },
+    "afe7a11b": {
+      "original": "If a number is provided, then that many test processes would run in parallel, where each process corresponds to one test file.\nIf `true`, it would run `os.availableParallelism() - 1` test files in parallel. If `false`, it would only run one test file at a time.",
+      "translated": "数値が指定された場合、その数だけのテストプロセスが並列で実行され、各プロセスは 1 つのテストファイルに対応する。`true` の場合、`os.availableParallelism() - 1` 個のテストファイルを並列で実行する。`false` の場合、一度に 1 つのテストファイルのみを実行する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.concurrency",
+      "lang": "ja"
+    },
+    "f91418ad": {
+      "original": "enable [code coverage](https://nodejs.org/docs/latest-v22.x/api/test.html#collecting-code-coverage) collection.",
+      "translated": "[コードカバレッジ](https://nodejs.org/docs/latest-v22.x/api/test.html#collecting-code-coverage)の収集を有効化する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.coverage",
+      "lang": "ja"
+    },
+    "f65eced1": {
+      "original": "Excludes specific files from code coverage\nusing a glob pattern, which can match both absolute and relative file paths.\nThis property is only applicable when `coverage` was set to `true`.\nIf both `coverageExcludeGlobs` and `coverageIncludeGlobs` are provided,\nfiles must meet **both** criteria to be included in the coverage report.",
+      "translated": "glob パターンを使って特定のファイルをコードカバレッジから除外する。パターンは絶対パスと相対パスの両方に一致できる。このプロパティは `coverage` が `true` に設定されている場合にのみ適用される。`coverageExcludeGlobs` と `coverageIncludeGlobs` の両方が指定された場合、カバレッジレポートに含まれるにはファイルが**両方**の条件を満たす必要がある。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.coverageExcludeGlobs",
+      "lang": "ja"
+    },
+    "0668032d": {
+      "original": "Includes specific files in code coverage\nusing a glob pattern, which can match both absolute and relative file paths.\nThis property is only applicable when `coverage` was set to `true`.\nIf both `coverageExcludeGlobs` and `coverageIncludeGlobs` are provided,\nfiles must meet **both** criteria to be included in the coverage report.",
+      "translated": "glob パターンを使って特定のファイルをコードカバレッジに含める。パターンは絶対パスと相対パスの両方に一致できる。このプロパティは `coverage` が `true` に設定されている場合にのみ適用される。`coverageExcludeGlobs` と `coverageIncludeGlobs` の両方が指定された場合、カバレッジレポートに含まれるにはファイルが**両方**の条件を満たす必要がある。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.coverageIncludeGlobs",
+      "lang": "ja"
+    },
+    "a12f49ac": {
+      "original": "An array of CLI flags to pass to the `node` executable when\nspawning the subprocesses. This option has no effect when `isolation` is `'none`'.",
+      "translated": "サブプロセスをスポーンするときに `node` 実行可能ファイルに渡す CLI フラグの配列。このオプションは `isolation` が `'none'` の場合は効果がない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.execArgv",
+      "lang": "ja"
+    },
+    "17caa343": {
+      "original": "An array containing the list of files to run.\n**Default:** Same as [running tests from the command line](https://nodejs.org/docs/latest-v22.x/api/test.html#running-tests-from-the-command-line).",
+      "translated": "実行するファイルのリストを含む配列。**既定値:** [コマンドラインからのテスト実行](https://nodejs.org/docs/latest-v22.x/api/test.html#running-tests-from-the-command-line)と同じ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.files",
+      "lang": "ja"
+    },
+    "4bf42eee": {
+      "original": "Configures the test runner to exit the process once all known\ntests have finished executing even if the event loop would\notherwise remain active.",
+      "translated": "既知のすべてのテストの実行が完了したら、イベントループが本来アクティブなままであってもプロセスを終了するようテストランナーを構成する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.forceExit",
+      "lang": "ja"
+    },
+    "8d932921": {
+      "original": "Require a minimum percent of covered functions. If code\ncoverage does not reach the threshold specified, the process will exit with code `1`.",
+      "translated": "カバーされた関数の最小割合を要求する。コードカバレッジが指定されたしきい値に達しない場合、プロセスはコード `1` で終了する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.functionCoverage",
+      "lang": "ja"
+    },
+    "07fc6e25": {
+      "original": "An array containing the list of glob patterns to match test files.\nThis option cannot be used together with `files`.\n**Default:** Same as [running tests from the command line](https://nodejs.org/docs/latest-v22.x/api/test.html#running-tests-from-the-command-line).",
+      "translated": "テストファイルに一致させる glob パターンのリストを含む配列。このオプションは `files` と併用できない。**既定値:** [コマンドラインからのテスト実行](https://nodejs.org/docs/latest-v22.x/api/test.html#running-tests-from-the-command-line)と同じ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.globPatterns",
+      "lang": "ja"
+    },
+    "c106e5e9": {
+      "original": "Sets inspector port of test child process.\nThis can be a number, or a function that takes no arguments and returns a\nnumber. If a nullish value is provided, each process gets its own port,\nincremented from the primary's `process.debugPort`. This option is ignored\nif the `isolation` option is set to `'none'` as no child processes are\nspawned.",
+      "translated": "テスト子プロセスのインスペクターポートを設定する。これは数値、または引数を取らず数値を返す関数にできる。nullish な値が指定された場合、各プロセスはプライマリの `process.debugPort` から増分した独自のポートを取得する。子プロセスがスポーンされないため、`isolation` オプションが `'none'` に設定されている場合、このオプションは無視される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.inspectPort",
+      "lang": "ja"
+    },
+    "b72a340b": {
+      "original": "Configures the type of test isolation. If set to\n`'process'`, each test file is run in a separate child process. If set to\n`'none'`, all test files run in the current process.",
+      "translated": "テスト分離の種類を構成する。`'process'` に設定された場合、各テストファイルは別々の子プロセスで実行される。`'none'` に設定された場合、すべてのテストファイルが現在のプロセスで実行される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.isolation",
+      "lang": "ja"
+    },
+    "6d5b133d": {
+      "original": "Require a minimum percent of covered lines. If code\ncoverage does not reach the threshold specified, the process will exit with code `1`.",
+      "translated": "カバーされた行の最小割合を要求する。コードカバレッジが指定されたしきい値に達しない場合、プロセスはコード `1` で終了する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.lineCoverage",
+      "lang": "ja"
+    },
+    "24bf31d6": {
+      "original": "If truthy, the test context will only run tests that have the `only` option set",
+      "translated": "truthy の場合、テストコンテキストは `only` オプションが設定されたテストのみを実行する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.only",
+      "lang": "ja"
+    },
+    "18934d24": {
+      "original": "A function that accepts the `TestsStream` instance and can be used to setup listeners before any tests are run.",
+      "translated": "`TestsStream` インスタンスを受け取り、テストが実行される前にリスナーをセットアップするために使える関数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.setup",
+      "lang": "ja"
+    },
+    "6717e896": {
+      "original": "Running tests in a specific shard.",
+      "translated": "特定のシャードでテストを実行する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.shard",
+      "lang": "ja"
+    },
+    "6b8f5aeb": {
+      "original": "Allows aborting an in-progress test execution.",
+      "translated": "進行中のテスト実行を中止できるようにする。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.signal",
+      "lang": "ja"
+    },
+    "6efb9f27": {
+      "original": "If provided, only run tests whose name matches the provided pattern.\nStrings are interpreted as JavaScript regular expressions.",
+      "translated": "指定された場合、名前が指定されたパターンに一致するテストのみを実行する。文字列は JavaScript の正規表現として解釈される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.testNamePatterns",
+      "lang": "ja"
+    },
+    "a54f412b": {
+      "original": "A String, RegExp or a RegExp Array, that can be used to exclude running tests whose\nname matches the provided pattern. Test name patterns are interpreted as JavaScript\nregular expressions. For each test that is executed, any corresponding test hooks,\nsuch as `beforeEach()`, are also run.",
+      "translated": "名前が指定されたパターンに一致するテストの実行を除外するために使える、String・RegExp・RegExp 配列。テスト名パターンは JavaScript の正規表現として解釈される。実行される各テストについて、`beforeEach()` などの対応するテストフックも実行される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.testSkipPatterns",
+      "lang": "ja"
+    },
+    "25b580c7": {
+      "original": "The number of milliseconds after which the test execution will fail.\nIf unspecified, subtests inherit this value from their parent.",
+      "translated": "これを過ぎるとテスト実行が失敗するミリ秒数。指定されない場合、サブテストはこの値を親から継承する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.timeout",
+      "lang": "ja"
+    },
+    "b9532b44": {
+      "original": "Whether to run in watch mode or not.",
+      "translated": "watch モードで実行するかどうか。",
+      "symbol": "@types/node/test.d.ts#node:test.test.RunOptions.watch",
+      "lang": "ja"
+    },
+    "57c34613": {
+      "original": "Shorthand for skipping a test. This is the same as calling {@link test} with `options.skip` set to `true`.",
+      "translated": "テストをスキップするための省略記法。これは、`options.skip` を `true` に設定して {@link test} を呼ぶのと同じである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.skip",
+      "lang": "ja"
+    },
+    "329584cc": {
+      "original": "An array of synchronous functions used as the default serializers for snapshot tests.",
+      "translated": "スナップショットテストの既定のシリアライザーとして使われる同期関数の配列。",
+      "symbol": "@types/node/test.d.ts#node:test.test.snapshot.setDefaultSnapshotSerializers",
+      "lang": "ja"
+    },
+    "5bf1f30a": {
+      "original": "This function is used to customize the default serialization mechanism used by the test runner.\n\nBy default, the test runner performs serialization by calling `JSON.stringify(value, null, 2)` on the provided value.\n`JSON.stringify()` does have limitations regarding circular structures and supported data types.\nIf a more robust serialization mechanism is required, this function should be used to specify a list of custom serializers.\n\nSerializers are called in order, with the output of the previous serializer passed as input to the next.\nThe final result must be a string value.",
+      "translated": "この関数は、テストランナーが使う既定のシリアライズ機構をカスタマイズするために使われる。\n\n既定では、テストランナーは指定された値に対して `JSON.stringify(value, null, 2)` を呼ぶことでシリアライズを実行する。`JSON.stringify()` には、循環構造やサポートされるデータ型に関する制限がある。より堅牢なシリアライズ機構が必要な場合、この関数を使ってカスタムシリアライザーのリストを指定すべきである。\n\nシリアライザーは順に呼ばれ、前のシリアライザーの出力が次のシリアライザーへの入力として渡される。最終結果は文字列値でなければならない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.snapshot.setDefaultSnapshotSerializers",
+      "lang": "ja"
+    },
+    "254044a6": {
+      "original": "A function used to compute the location of the snapshot file.\nThe function receives the path of the test file as its only argument. If the\ntest is not associated with a file (for example in the REPL), the input is\nundefined. `fn()` must return a string specifying the location of the snapshot file.",
+      "translated": "スナップショットファイルの場所を計算するために使われる関数。この関数は、テストファイルのパスを唯一の引数として受け取る。テストがファイルに関連付けられていない場合(たとえば REPL では)、入力は undefined になる。`fn()` は、スナップショットファイルの場所を指定する文字列を返さなければならない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.snapshot.setResolveSnapshotPath",
+      "lang": "ja"
+    },
+    "329a3560": {
+      "original": "This function is used to set a custom resolver for the location of the snapshot file used for snapshot testing.\nBy default, the snapshot filename is the same as the entry point filename with `.snapshot` appended.",
+      "translated": "この関数は、スナップショットテストで使われるスナップショットファイルの場所のカスタムリゾルバーを設定するために使われる。既定では、スナップショットのファイル名はエントリポイントのファイル名に `.snapshot` を付加したものになる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.snapshot.setResolveSnapshotPath",
+      "lang": "ja"
+    },
+    "ba806c88": {
+      "original": "Immediately fulfilled with `undefined`.",
+      "translated": "ただちに `undefined` でフルフィルされる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.suite",
+      "lang": "ja"
+    },
+    "6f5ee469": {
+      "original": "The `suite()` function is imported from the `node:test` module.",
+      "translated": "`suite()` 関数は `node:test` モジュールからインポートされる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.suite",
+      "lang": "ja"
+    },
+    "ff2d45d3": {
+      "original": "The name of the suite, which is displayed when reporting test results.\nDefaults to the `name` property of `fn`, or `'<anonymous>'` if `fn` does not have a name.",
+      "translated": "スイートの名前。テスト結果の報告時に表示される。既定では `fn` の `name` プロパティ、または `fn` に名前がない場合は `'<anonymous>'` になる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.suite",
+      "lang": "ja"
+    },
+    "59134c9f": {
+      "original": "The suite function declaring nested tests and suites. The first argument to this function is a {@link SuiteContext} object.",
+      "translated": "入れ子のテストとスイートを宣言するスイート関数。この関数の第 1 引数は {@link SuiteContext} オブジェクトである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.suite",
+      "lang": "ja"
+    },
+    "3a3755e9": {
+      "original": "Shorthand for marking a suite as `only`. This is the same as calling {@link suite} with `options.only` set to `true`.",
+      "translated": "スイートを `only` としてマークするための省略記法。これは、`options.only` を `true` に設定して {@link suite} を呼ぶのと同じである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.suite.only",
+      "lang": "ja"
+    },
+    "1fb692a8": {
+      "original": "Shorthand for skipping a suite. This is the same as calling {@link suite} with `options.skip` set to `true`.",
+      "translated": "スイートをスキップするための省略記法。これは、`options.skip` を `true` に設定して {@link suite} を呼ぶのと同じである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.suite.skip",
       "lang": "ja"
     },
     "cbc8fad9": {
