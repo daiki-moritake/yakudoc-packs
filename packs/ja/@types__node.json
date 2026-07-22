@@ -226,6 +226,12 @@
       "symbol": "@types/node/net.d.ts#net.ServerOpts.pauseOnConnect",
       "lang": "ja"
     },
+    "50784191": {
+      "original": "Location to set breakpoint in.",
+      "translated": "ブレークポイントを設定する位置。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointParameterType.location",
+      "lang": "ja"
+    },
     "50870638": {
       "original": "Fulfills with the resolved path upon success.",
       "translated": "成功時に解決されたパスで履行される。",
@@ -9914,6 +9920,600 @@
       "original": "The `node:inspector/promises` module provides an API for interacting with the V8\ninspector.",
       "translated": "`node:inspector/promises` モジュールは、V8 インスペクターと対話するための API を提供する。",
       "symbol": "@types/node/inspector.d.ts#inspector/promises",
+      "lang": "ja"
+    },
+    "7f2e15a7": {
+      "original": "Console message.",
+      "translated": "コンソールメッセージ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Console.ConsoleMessage",
+      "lang": "ja"
+    },
+    "5ad0e06c": {
+      "original": "Column number in the resource that generated this message (1-based).",
+      "translated": "このメッセージを生成したリソース内の列番号(1 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Console.ConsoleMessage.column",
+      "lang": "ja"
+    },
+    "5b78ef13": {
+      "original": "Message severity.",
+      "translated": "メッセージの重大度。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Console.ConsoleMessage.level",
+      "lang": "ja"
+    },
+    "cd7df572": {
+      "original": "Line number in the resource that generated this message (1-based).",
+      "translated": "このメッセージを生成したリソース内の行番号(1 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Console.ConsoleMessage.line",
+      "lang": "ja"
+    },
+    "f38b5e7e": {
+      "original": "Message source.",
+      "translated": "メッセージのソース。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Console.ConsoleMessage.source",
+      "lang": "ja"
+    },
+    "5df3badf": {
+      "original": "Message text.",
+      "translated": "メッセージのテキスト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Console.ConsoleMessage.text",
+      "lang": "ja"
+    },
+    "2684463e": {
+      "original": "URL of the message origin.",
+      "translated": "メッセージ発生元の URL。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Console.ConsoleMessage.url",
+      "lang": "ja"
+    },
+    "9ecb99e9": {
+      "original": "Console message that has been added.",
+      "translated": "追加されたコンソールメッセージ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Console.MessageAddedEventDataType.message",
+      "lang": "ja"
+    },
+    "e619efbd": {
+      "original": "Breakpoint identifier.",
+      "translated": "ブレークポイント識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.BreakpointId",
+      "lang": "ja"
+    },
+    "b3ae4135": {
+      "original": "Breakpoint unique identifier.",
+      "translated": "ブレークポイントの一意な識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.BreakpointResolvedEventDataType.breakpointId",
+      "lang": "ja"
+    },
+    "d29613ea": {
+      "original": "Actual breakpoint location.",
+      "translated": "実際のブレークポイントの位置。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.BreakpointResolvedEventDataType.location",
+      "lang": "ja"
+    },
+    "76e1dd17": {
+      "original": "JavaScript call frame. Array of call frames form the call stack.",
+      "translated": "JavaScript コールフレーム。コールフレームの配列がコールスタックを形成する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.CallFrame",
+      "lang": "ja"
+    },
+    "2dc937f2": {
+      "original": "Call frame identifier. This identifier is only valid while the virtual machine is paused.",
+      "translated": "コールフレーム識別子。この識別子は、仮想マシンが一時停止している間のみ有効である。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.CallFrame.callFrameId",
+      "lang": "ja"
+    },
+    "da36a0ef": {
+      "original": "Name of the JavaScript function called on this call frame.",
+      "translated": "このコールフレームで呼ばれた JavaScript 関数の名前。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.CallFrame.functionName",
+      "lang": "ja"
+    },
+    "aab16260": {
+      "original": "The value being returned, if the function is at return point.",
+      "translated": "関数が return ポイントにある場合に、返される値。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.CallFrame.returnValue",
+      "lang": "ja"
+    },
+    "fdc03719": {
+      "original": "Scope chain for this call frame.",
+      "translated": "このコールフレームのスコープチェーン。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.CallFrame.scopeChain",
+      "lang": "ja"
+    },
+    "66fdad0e": {
+      "original": "<code>this</code> object for this call frame.",
+      "translated": "このコールフレームの <code>this</code> オブジェクト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.CallFrame.this",
+      "lang": "ja"
+    },
+    "0c9aa904": {
+      "original": "Call frame identifier.",
+      "translated": "コールフレーム識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.CallFrameId",
+      "lang": "ja"
+    },
+    "0fb1bfff": {
+      "original": "Location to continue to.",
+      "translated": "継続する先の位置。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ContinueToLocationParameterType.location",
+      "lang": "ja"
+    },
+    "84ee0a17": {
+      "original": "Unique identifier of the debugger.",
+      "translated": "デバッガーの一意な識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.EnableReturnType.debuggerId",
+      "lang": "ja"
+    },
+    "6db845b8": {
+      "original": "Specifies whether command line API should be available to the evaluated expression, defaults to false.",
+      "translated": "評価される式にコマンドライン API を利用可能にするかどうかを指定する。既定は false。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.EvaluateOnCallFrameParameterType.includeCommandLineAPI",
+      "lang": "ja"
+    },
+    "4eeadf83": {
+      "original": "String object group name to put result into (allows rapid releasing resulting object handles using <code>releaseObjectGroup</code>).",
+      "translated": "結果を入れる文字列オブジェクトグループ名(<code>releaseObjectGroup</code> を使って結果のオブジェクトハンドルを迅速に解放できるようになる)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.EvaluateOnCallFrameParameterType.objectGroup",
+      "lang": "ja"
+    },
+    "1f71c3f0": {
+      "original": "Whether to throw an exception if side effect cannot be ruled out during evaluation.",
+      "translated": "評価中に副作用を排除できない場合に例外を投げるかどうか。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.EvaluateOnCallFrameParameterType.throwOnSideEffect",
+      "lang": "ja"
+    },
+    "07902aa0": {
+      "original": "Object wrapper for the evaluation result.",
+      "translated": "評価結果のオブジェクトラッパー。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.EvaluateOnCallFrameReturnType.result",
+      "lang": "ja"
+    },
+    "845067c2": {
+      "original": "End of range to search possible breakpoint locations in (excluding). When not specified, end of scripts is used as end of range.",
+      "translated": "可能なブレークポイント位置を検索する範囲の終端(除外)。指定されない場合、スクリプトの終端が範囲の終端として使われる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.GetPossibleBreakpointsParameterType.end",
+      "lang": "ja"
+    },
+    "6e0f2e72": {
+      "original": "Only consider locations which are in the same (non-nested) function as start.",
+      "translated": "start と同じ(入れ子でない)関数内にある位置のみを考慮する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.GetPossibleBreakpointsParameterType.restrictToFunction",
+      "lang": "ja"
+    },
+    "5ac77e19": {
+      "original": "Start of range to search possible breakpoint locations in.",
+      "translated": "可能なブレークポイント位置を検索する範囲の開始。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.GetPossibleBreakpointsParameterType.start",
+      "lang": "ja"
+    },
+    "d497b53b": {
+      "original": "List of the possible breakpoint locations.",
+      "translated": "可能なブレークポイント位置のリスト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.GetPossibleBreakpointsReturnType.locations",
+      "lang": "ja"
+    },
+    "5d4c030e": {
+      "original": "Id of the script to get source for.",
+      "translated": "ソースを取得するスクリプトの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.GetScriptSourceParameterType.scriptId",
+      "lang": "ja"
+    },
+    "102c2242": {
+      "original": "Script source.",
+      "translated": "スクリプトのソース。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.GetScriptSourceReturnType.scriptSource",
+      "lang": "ja"
+    },
+    "146a8274": {
+      "original": "Location in the source code.",
+      "translated": "ソースコード内の位置。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.Location",
+      "lang": "ja"
+    },
+    "dc42e24a": {
+      "original": "Column number in the script (0-based).",
+      "translated": "スクリプト内の列番号(0 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.Location.columnNumber",
+      "lang": "ja"
+    },
+    "c235b58b": {
+      "original": "Line number in the script (0-based).",
+      "translated": "スクリプト内の行番号(0 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.Location.lineNumber",
+      "lang": "ja"
+    },
+    "95f11609": {
+      "original": "Script identifier as reported in the <code>Debugger.scriptParsed</code>.",
+      "translated": "<code>Debugger.scriptParsed</code> で報告されたスクリプト識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.Location.scriptId",
+      "lang": "ja"
+    },
+    "2fe33ea7": {
+      "original": "Just scheduled async call will have this stack trace as parent stack during async execution. This field is available only after <code>Debugger.stepInto</code> call with <code>breakOnAsynCall</code> flag.",
+      "translated": "スケジュールされたばかりの async 呼び出しは、async 実行中にこのスタックトレースを親スタックとして持つ。このフィールドは、<code>breakOnAsynCall</code> フラグ付きの <code>Debugger.stepInto</code> 呼び出しの後にのみ利用できる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.PausedEventDataType.asyncCallStackTraceId",
+      "lang": "ja"
+    },
+    "26fa845b": {
+      "original": "Call stack the virtual machine stopped on.",
+      "translated": "仮想マシンが停止したコールスタック。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.PausedEventDataType.callFrames",
+      "lang": "ja"
+    },
+    "a1e21d34": {
+      "original": "Object containing break-specific auxiliary properties.",
+      "translated": "ブレーク固有の補助プロパティを含むオブジェクト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.PausedEventDataType.data",
+      "lang": "ja"
+    },
+    "e92fb025": {
+      "original": "Hit breakpoints IDs",
+      "translated": "ヒットしたブレークポイントの ID",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.PausedEventDataType.hitBreakpoints",
+      "lang": "ja"
+    },
+    "06f32981": {
+      "original": "Pause reason.",
+      "translated": "一時停止の理由。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.PausedEventDataType.reason",
+      "lang": "ja"
+    },
+    "9aace6a9": {
+      "original": "Debugger will pause when async call with given stack trace is started.",
+      "translated": "指定されたスタックトレースを持つ async 呼び出しが開始されると、デバッガーは一時停止する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.PauseOnAsyncCallParameterType.parentStackTraceId",
+      "lang": "ja"
+    },
+    "15535ce7": {
+      "original": "Call frame identifier to evaluate on.",
+      "translated": "評価対象のコールフレーム識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.RestartFrameParameterType.callFrameId",
+      "lang": "ja"
+    },
+    "5997f613": {
+      "original": "New stack trace.",
+      "translated": "新しいスタックトレース。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.RestartFrameReturnType.callFrames",
+      "lang": "ja"
+    },
+    "ecfa44fa": {
+      "original": "Scope description.",
+      "translated": "スコープの説明。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.Scope",
+      "lang": "ja"
+    },
+    "914a77c7": {
+      "original": "Location in the source code where scope ends",
+      "translated": "スコープが終わるソースコード内の位置",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.Scope.endLocation",
+      "lang": "ja"
+    },
+    "2450e2fe": {
+      "original": "Object representing the scope. For <code>global</code> and <code>with</code> scopes it represents the actual object; for the rest of the scopes, it is artificial transient object enumerating scope variables as its properties.",
+      "translated": "スコープを表すオブジェクト。<code>global</code> および <code>with</code> スコープの場合は実際のオブジェクトを表す。それ以外のスコープの場合は、スコープ変数をプロパティとして列挙する人工的な一時オブジェクトである。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.Scope.object",
+      "lang": "ja"
+    },
+    "68a3ba70": {
+      "original": "Location in the source code where scope starts",
+      "translated": "スコープが始まるソースコード内の位置",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.Scope.startLocation",
+      "lang": "ja"
+    },
+    "14b19a5a": {
+      "original": "Scope type.",
+      "translated": "スコープの種類。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.Scope.type",
+      "lang": "ja"
+    },
+    "49c65a03": {
+      "original": "Length of the last line of the script.",
+      "translated": "スクリプトの最終行の長さ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.endColumn",
+      "lang": "ja"
+    },
+    "716dbcd5": {
+      "original": "Last line of the script.",
+      "translated": "スクリプトの最終行。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.endLine",
+      "lang": "ja"
+    },
+    "830e21b1": {
+      "original": "Specifies script creation context.",
+      "translated": "スクリプト作成コンテキストを指定する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.executionContextId",
+      "lang": "ja"
+    },
+    "fd9bb878": {
+      "original": "Content hash of the script.",
+      "translated": "スクリプトの内容ハッシュ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.hash",
+      "lang": "ja"
+    },
+    "b63e8cd2": {
+      "original": "True, if this script has sourceURL.",
+      "translated": "このスクリプトが sourceURL を持つ場合は True。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.hasSourceURL",
+      "lang": "ja"
+    },
+    "8a2964d8": {
+      "original": "True, if this script is generated as a result of the live edit operation.",
+      "translated": "このスクリプトがライブ編集操作の結果として生成された場合は True。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.isLiveEdit",
+      "lang": "ja"
+    },
+    "59afc6c5": {
+      "original": "True, if this script is ES6 module.",
+      "translated": "このスクリプトが ES6 モジュールの場合は True。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.isModule",
+      "lang": "ja"
+    },
+    "ce855773": {
+      "original": "This script length.",
+      "translated": "このスクリプトの長さ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.length",
+      "lang": "ja"
+    },
+    "db0ece11": {
+      "original": "Identifier of the script parsed.",
+      "translated": "パースされたスクリプトの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.scriptId",
+      "lang": "ja"
+    },
+    "109d0639": {
+      "original": "URL of source map associated with script (if any).",
+      "translated": "スクリプトに関連付けられたソースマップの URL(存在する場合)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.sourceMapURL",
+      "lang": "ja"
+    },
+    "0cbda11f": {
+      "original": "JavaScript top stack frame of where the script parsed event was triggered if available.",
+      "translated": "利用可能な場合、スクリプトパースイベントがトリガーされた場所の JavaScript 最上位スタックフレーム。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.stackTrace",
+      "lang": "ja"
+    },
+    "f45cb5ab": {
+      "original": "Column offset of the script within the resource with given URL.",
+      "translated": "指定された URL を持つリソース内でのスクリプトの列オフセット。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.startColumn",
+      "lang": "ja"
+    },
+    "364273b9": {
+      "original": "Line offset of the script within the resource with given URL (for script tags).",
+      "translated": "指定された URL を持つリソース内でのスクリプトの行オフセット(script タグ用)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.startLine",
+      "lang": "ja"
+    },
+    "0894d5f1": {
+      "original": "URL or name of the script parsed (if any).",
+      "translated": "パースされたスクリプトの URL または名前(存在する場合)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.ScriptParsedEventDataType.url",
+      "lang": "ja"
+    },
+    "7151d5ed": {
+      "original": "If true, search is case sensitive.",
+      "translated": "true の場合、検索は大文字・小文字を区別する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SearchInContentParameterType.caseSensitive",
+      "lang": "ja"
+    },
+    "bab9a3b2": {
+      "original": "If true, treats string parameter as regex.",
+      "translated": "true の場合、文字列パラメーターを正規表現として扱う。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SearchInContentParameterType.isRegex",
+      "lang": "ja"
+    },
+    "f2f5024a": {
+      "original": "String to search for.",
+      "translated": "検索する文字列。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SearchInContentParameterType.query",
+      "lang": "ja"
+    },
+    "a4c67e28": {
+      "original": "Id of the script to search in.",
+      "translated": "検索対象のスクリプトの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SearchInContentParameterType.scriptId",
+      "lang": "ja"
+    },
+    "c27c59f1": {
+      "original": "List of search matches.",
+      "translated": "検索マッチのリスト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SearchInContentReturnType.result",
+      "lang": "ja"
+    },
+    "61e6c755": {
+      "original": "Search match for resource.",
+      "translated": "リソースの検索マッチ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SearchMatch",
+      "lang": "ja"
+    },
+    "1737b4b3": {
+      "original": "Line with match content.",
+      "translated": "マッチした内容を含む行。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SearchMatch.lineContent",
+      "lang": "ja"
+    },
+    "3c5cd88f": {
+      "original": "Line number in resource content.",
+      "translated": "リソース内容の行番号。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SearchMatch.lineNumber",
+      "lang": "ja"
+    },
+    "5338b1aa": {
+      "original": "Maximum depth of async call stacks. Setting to <code>0</code> will effectively disable collecting async call stacks (default).",
+      "translated": "async コールスタックの最大深さ。<code>0</code> に設定すると、実質的に async コールスタックの収集が無効になる(既定)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetAsyncCallStackDepthParameterType.maxDepth",
+      "lang": "ja"
+    },
+    "609bf3d7": {
+      "original": "Array of regexps that will be used to check script url for blackbox state.",
+      "translated": "スクリプト URL のブラックボックス状態を確認するために使われる正規表現の配列。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBlackboxPatternsParameterType.patterns",
+      "lang": "ja"
+    },
+    "02c521d9": {
+      "original": "Offset in the line to set breakpoint at.",
+      "translated": "ブレークポイントを設定する行内のオフセット。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointByUrlParameterType.columnNumber",
+      "lang": "ja"
+    },
+    "cf38ce94": {
+      "original": "Expression to use as a breakpoint condition. When specified, debugger will only stop on the breakpoint if this expression evaluates to true.",
+      "translated": "ブレークポイントの条件として使う式。指定された場合、デバッガーはこの式が true に評価された場合にのみブレークポイントで停止する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointByUrlParameterType.condition",
+      "lang": "ja"
+    },
+    "bcb3b2d4": {
+      "original": "Line number to set breakpoint at.",
+      "translated": "ブレークポイントを設定する行番号。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointByUrlParameterType.lineNumber",
+      "lang": "ja"
+    },
+    "c3f42f3b": {
+      "original": "Script hash of the resources to set breakpoint on.",
+      "translated": "ブレークポイントを設定するリソースのスクリプトハッシュ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointByUrlParameterType.scriptHash",
+      "lang": "ja"
+    },
+    "db3122c5": {
+      "original": "URL of the resources to set breakpoint on.",
+      "translated": "ブレークポイントを設定するリソースの URL。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointByUrlParameterType.url",
+      "lang": "ja"
+    },
+    "45843d25": {
+      "original": "Regex pattern for the URLs of the resources to set breakpoints on. Either <code>url</code> or <code>urlRegex</code> must be specified.",
+      "translated": "ブレークポイントを設定するリソースの URL の正規表現パターン。<code>url</code> または <code>urlRegex</code> のいずれかを指定する必要がある。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointByUrlParameterType.urlRegex",
+      "lang": "ja"
+    },
+    "2039f1b1": {
+      "original": "Id of the created breakpoint for further reference.",
+      "translated": "後で参照するための、作成されたブレークポイントの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointByUrlReturnType.breakpointId",
+      "lang": "ja"
+    },
+    "57289f53": {
+      "original": "List of the locations this breakpoint resolved into upon addition.",
+      "translated": "追加時にこのブレークポイントが解決された位置のリスト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointByUrlReturnType.locations",
+      "lang": "ja"
+    },
+    "83d141d7": {
+      "original": "Location this breakpoint resolved into.",
+      "translated": "このブレークポイントが解決された位置。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointReturnType.actualLocation",
+      "lang": "ja"
+    },
+    "e2ad4f42": {
+      "original": "New value for breakpoints active state.",
+      "translated": "ブレークポイントのアクティブ状態の新しい値。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetBreakpointsActiveParameterType.active",
+      "lang": "ja"
+    },
+    "dcab9c0b": {
+      "original": "Pause on exceptions mode.",
+      "translated": "例外での一時停止モード。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetPauseOnExceptionsParameterType.state",
+      "lang": "ja"
+    },
+    "606d24c0": {
+      "original": "New return value.",
+      "translated": "新しい戻り値。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetReturnValueParameterType.newValue",
+      "lang": "ja"
+    },
+    "a925fb7f": {
+      "original": "If true the change will not actually be applied. Dry run may be used to get result description without actually modifying the code.",
+      "translated": "true の場合、変更は実際には適用されない。dry run は、実際にコードを変更せずに結果の説明を取得するために使える。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetScriptSourceParameterType.dryRun",
+      "lang": "ja"
+    },
+    "2f43598d": {
+      "original": "Id of the script to edit.",
+      "translated": "編集するスクリプトの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetScriptSourceParameterType.scriptId",
+      "lang": "ja"
+    },
+    "45d1c2c6": {
+      "original": "New content of the script.",
+      "translated": "スクリプトの新しい内容。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetScriptSourceParameterType.scriptSource",
+      "lang": "ja"
+    },
+    "c1673e0d": {
+      "original": "Async stack trace, if any.",
+      "translated": "async スタックトレース(存在する場合)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetScriptSourceReturnType.asyncStackTrace",
+      "lang": "ja"
+    },
+    "e0832aa2": {
+      "original": "New stack trace in case editing has happened while VM was stopped.",
+      "translated": "VM が停止している間に編集が行われた場合の新しいスタックトレース。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetScriptSourceReturnType.callFrames",
+      "lang": "ja"
+    },
+    "1675ea39": {
+      "original": "Exception details if any.",
+      "translated": "例外の詳細(存在する場合)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetScriptSourceReturnType.exceptionDetails",
+      "lang": "ja"
+    },
+    "480253d4": {
+      "original": "Whether current call stack  was modified after applying the changes.",
+      "translated": "変更適用後に現在のコールスタックが変更されたかどうか。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetScriptSourceReturnType.stackChanged",
+      "lang": "ja"
+    },
+    "0a30464d": {
+      "original": "New value for skip pauses state.",
+      "translated": "一時停止スキップ状態の新しい値。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetSkipAllPausesParameterType.skip",
+      "lang": "ja"
+    },
+    "93e82685": {
+      "original": "Id of callframe that holds variable.",
+      "translated": "変数を保持するコールフレームの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetVariableValueParameterType.callFrameId",
+      "lang": "ja"
+    },
+    "a6105792": {
+      "original": "New variable value.",
+      "translated": "新しい変数値。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetVariableValueParameterType.newValue",
+      "lang": "ja"
+    },
+    "51816c90": {
+      "original": "0-based number of scope as was listed in scope chain. Only 'local', 'closure' and 'catch' scope types are allowed. Other scopes could be manipulated manually.",
+      "translated": "スコープチェーンにリストされたスコープの 0 始まりの番号。'local'・'closure'・'catch' のスコープ種別のみが許可される。他のスコープは手動で操作できる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetVariableValueParameterType.scopeNumber",
+      "lang": "ja"
+    },
+    "05b95733": {
+      "original": "Variable name.",
+      "translated": "変数名。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.SetVariableValueParameterType.variableName",
+      "lang": "ja"
+    },
+    "ca14bae7": {
+      "original": "Debugger will issue additional Debugger.paused notification if any async task is scheduled before next pause.",
+      "translated": "次の一時停止の前に async タスクがスケジュールされた場合、デバッガーは追加の Debugger.paused 通知を発行する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Debugger.StepIntoParameterType.breakOnAsyncCall",
+      "lang": "ja"
+    },
+    "bf6e7066": {
+      "original": "Heap snapshot object id to be accessible by means of $x command line API.",
+      "translated": "$x コマンドライン API でアクセス可能にするヒープスナップショットオブジェクト ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.AddInspectedHeapObjectParameterType.heapObjectId",
+      "lang": "ja"
+    },
+    "fcb5ff70": {
+      "original": "Identifier of the object to get heap object id for.",
+      "translated": "ヒープオブジェクト ID を取得するオブジェクトの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.GetHeapObjectIdParameterType.objectId",
+      "lang": "ja"
+    },
+    "e1dd10e3": {
+      "original": "Id of the heap snapshot object corresponding to the passed remote object id.",
+      "translated": "渡されたリモートオブジェクト ID に対応するヒープスナップショットオブジェクトの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.GetHeapObjectIdReturnType.heapSnapshotObjectId",
       "lang": "ja"
     },
     "78a6ad93": {
