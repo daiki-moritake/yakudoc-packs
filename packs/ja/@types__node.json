@@ -808,6 +808,12 @@
       "symbol": "@types/node/assert.d.ts#assert.assert.throws",
       "lang": "ja"
     },
+    "513fe1f7": {
+      "original": "In strict assertion mode, non-strict methods behave like their corresponding\nstrict methods. For example, `assert.deepEqual()` will behave like\n`assert.deepStrictEqual()`.\n\nIn strict assertion mode, error messages for objects display a diff. In legacy\nassertion mode, error messages for objects display the objects, often truncated.\n\nTo use strict assertion mode:\n\n```js\nimport { strict as assert } from 'node:assert';\n```\n\n```js\nimport assert from 'node:assert/strict';\n```\n\nExample error diff:\n\n```js\nimport { strict as assert } from 'node:assert';\n\nassert.deepEqual([[[1, 2, 3]], 4, 5], [[[1, 2, '3']], 4, 5]);\n// AssertionError: Expected inputs to be strictly deep-equal:\n// + actual - expected ... Lines skipped\n//\n//   [\n//     [\n// ...\n//       2,\n// +     3\n// -     '3'\n//     ],\n// ...\n//     5\n//   ]\n```\n\nTo deactivate the colors, use the `NO_COLOR` or `NODE_DISABLE_COLORS`\nenvironment variables. This will also deactivate the colors in the REPL. For\nmore on color support in terminal environments, read the tty\n[`getColorDepth()`](https://nodejs.org/docs/latest-v22.x/api/tty.html#writestreamgetcolordepthenv) documentation.",
+      "translated": "strict アサーションモードでは、非 strict メソッドは対応する strict メソッドと同じように振る舞う。たとえば、`assert.deepEqual()` は `assert.deepStrictEqual()` のように振る舞う。\n\nstrict アサーションモードでは、オブジェクトのエラーメッセージは差分を表示する。レガシーアサーションモードでは、オブジェクトのエラーメッセージはオブジェクトそのものを(しばしば切り詰めて)表示する。\n\nstrict アサーションモードを使うには:\n\n```js\nimport { strict as assert } from 'node:assert';\n```\n\n```js\nimport assert from 'node:assert/strict';\n```\n\nエラー差分の例:\n\n```js\nimport { strict as assert } from 'node:assert';\n\nassert.deepEqual([[[1, 2, 3]], 4, 5], [[[1, 2, '3']], 4, 5]);\n// AssertionError: Expected inputs to be strictly deep-equal:\n// + actual - expected ... Lines skipped\n//\n//   [\n//     [\n// ...\n//       2,\n// +     3\n// -     '3'\n//     ],\n// ...\n//     5\n//   ]\n```\n\n色を無効にするには、`NO_COLOR` または `NODE_DISABLE_COLORS` 環境変数を使う。これにより REPL の色も無効になる。ターミナル環境での色サポートの詳細は、tty の [`getColorDepth()`](https://nodejs.org/docs/latest-v22.x/api/tty.html#writestreamgetcolordepthenv) ドキュメントを参照。",
+      "symbol": "@types/node/assert/strict.d.ts#assert/strict",
+      "lang": "ja"
+    },
     "0add63a1": {
       "original": "We strongly discourage the use of the `async_hooks` API.\nOther APIs that can cover most of its use cases include:\n\n* [`AsyncLocalStorage`](https://nodejs.org/docs/latest-v22.x/api/async_context.html#class-asynclocalstorage) tracks async context\n* [`process.getActiveResourcesInfo()`](https://nodejs.org/docs/latest-v22.x/api/process.html#processgetactiveresourcesinfo) tracks active resources\n\nThe `node:async_hooks` module provides an API to track asynchronous resources.\nIt can be accessed using:\n\n```js\nimport async_hooks from 'node:async_hooks';\n```",
       "translated": "`async_hooks` API の使用は強く推奨しない。そのユースケースの大半をカバーできる他の API には次がある:\n\n* [`AsyncLocalStorage`](https://nodejs.org/docs/latest-v22.x/api/async_context.html#class-asynclocalstorage) は非同期コンテキストを追跡する\n* [`process.getActiveResourcesInfo()`](https://nodejs.org/docs/latest-v22.x/api/process.html#processgetactiveresourcesinfo) はアクティブなリソースを追跡する\n\n`node:async_hooks` モジュールは、非同期リソースを追跡する API を提供する。次のようにアクセスできる:\n\n```js\nimport async_hooks from 'node:async_hooks';\n```",
@@ -2912,6 +2918,12 @@
       "original": "The `console.warn()` function is an alias for {@link error}.",
       "translated": "`console.warn()` 関数は {@link error} のエイリアスである。",
       "symbol": "@types/node/console.d.ts#node:console.global.Console.warn",
+      "lang": "ja"
+    },
+    "f8c47cfe": {
+      "original": "The `node:constants` module is deprecated. When requiring access to constants\nrelevant to specific Node.js builtin modules, developers should instead refer\nto the `constants` property exposed by the relevant module. For instance,\n`require('node:fs').constants` and `require('node:os').constants`.",
+      "translated": "`node:constants` モジュールは非推奨である。特定の Node.js 組み込みモジュールに関連する定数へのアクセスが必要な場合、開発者は代わりに、該当するモジュールが公開する `constants` プロパティを参照すべきである。たとえば、`require('node:fs').constants` や `require('node:os').constants` である。",
+      "symbol": "@types/node/constants.d.ts#constants",
       "lang": "ja"
     },
     "03a04b1b": {
@@ -17464,6 +17476,12 @@
       "symbol": "@types/node/stream/consumers.d.ts#stream/consumers.text",
       "lang": "ja"
     },
+    "1b8c9f6e": {
+      "original": "If true, removes the listeners registered by this function before the promise is fulfilled.",
+      "translated": "true の場合、Promise がフルフィルされる前に、この関数によって登録されたリスナーを削除する。",
+      "symbol": "@types/node/stream/promises.d.ts#stream/promises.FinishedOptions.cleanup",
+      "lang": "ja"
+    },
     "a9bc1227": {
       "original": "This Streams API interface provides a built-in byte length queuing\nstrategy that can be used when constructing streams.",
       "translated": "この Streams API インターフェイスは、ストリームを構築するときに使える組み込みのバイト長キューイング戦略を提供する。",
@@ -20306,6 +20324,12 @@
       "original": "`true` only if the `Tracing` object has been enabled.",
       "translated": "`Tracing` オブジェクトが有効化されている場合にのみ `true`。",
       "symbol": "@types/node/trace_events.d.ts#trace_events.Tracing.enabled",
+      "lang": "ja"
+    },
+    "33b3eb73": {
+      "original": "Returns a new `Buffer` which is the result of concatenating all the `Buffer` instances in the `list` together.\n\nIf the list has no items, or if the `totalLength` is 0, then a new zero-length `Buffer` is returned.\n\nIf `totalLength` is not provided, it is calculated from the `Buffer` instances\nin `list` by adding their lengths.\n\nIf `totalLength` is provided, it is coerced to an unsigned integer. If the\ncombined length of the `Buffer`s in `list` exceeds `totalLength`, the result is\ntruncated to `totalLength`.\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Create a single `Buffer` from a list of three `Buffer` instances.\n\nconst buf1 = Buffer.alloc(10);\nconst buf2 = Buffer.alloc(14);\nconst buf3 = Buffer.alloc(18);\nconst totalLength = buf1.length + buf2.length + buf3.length;\n\nconsole.log(totalLength);\n// Prints: 42\n\nconst bufA = Buffer.concat([buf1, buf2, buf3], totalLength);\n\nconsole.log(bufA);\n// Prints: <Buffer 00 00 00 00 ...>\nconsole.log(bufA.length);\n// Prints: 42\n```\n\n`Buffer.concat()` may also use the internal `Buffer` pool like `Buffer.allocUnsafe()` does.",
+      "translated": "`list` 内のすべての `Buffer` インスタンスを連結した結果である新しい `Buffer` を返す。\n\nリストに項目がない場合、または `totalLength` が 0 の場合、新しい長さ 0 の `Buffer` が返される。\n\n`totalLength` が指定されない場合、`list` 内の `Buffer` インスタンスの長さを合計して計算される。\n\n`totalLength` が指定された場合、符号なし整数に強制変換される。`list` 内の `Buffer` の合計長が `totalLength` を超える場合、結果は `totalLength` に切り詰められる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\n// Create a single `Buffer` from a list of three `Buffer` instances.\n\nconst buf1 = Buffer.alloc(10);\nconst buf2 = Buffer.alloc(14);\nconst buf3 = Buffer.alloc(18);\nconst totalLength = buf1.length + buf2.length + buf3.length;\n\nconsole.log(totalLength);\n// Prints: 42\n\nconst bufA = Buffer.concat([buf1, buf2, buf3], totalLength);\n\nconsole.log(bufA);\n// Prints: <Buffer 00 00 00 00 ...>\nconsole.log(bufA.length);\n// Prints: 42\n```\n\n`Buffer.concat()` も、`Buffer.allocUnsafe()` と同様に内部 `Buffer` プールを使うことがある。",
+      "symbol": "@types/node/ts5.6/buffer.buffer.d.ts#buffer.global.BufferConstructor.concat",
       "lang": "ja"
     },
     "90f855e8": {
