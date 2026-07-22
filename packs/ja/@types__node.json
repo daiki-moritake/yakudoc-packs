@@ -2644,6 +2644,198 @@
       "symbol": "@types/node/cluster.d.ts#cluster.Worker.send",
       "lang": "ja"
     },
+    "b45603aa": {
+      "original": "The `node:console` module provides a simple debugging console that is similar to\nthe JavaScript console mechanism provided by web browsers.\n\nThe module exports two specific components:\n\n* A `Console` class with methods such as `console.log()`, `console.error()`, and `console.warn()` that can be used to write to any Node.js stream.\n* A global `console` instance configured to write to [`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and\n[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr). The global `console` can be used without importing the `node:console` module.\n\n_**Warning**_: The global console object's methods are neither consistently\nsynchronous like the browser APIs they resemble, nor are they consistently\nasynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for\nmore information.\n\nExample using the global `console`:\n\n```js\nconsole.log('hello world');\n// Prints: hello world, to stdout\nconsole.log('hello %s', 'world');\n// Prints: hello world, to stdout\nconsole.error(new Error('Whoops, something bad happened'));\n// Prints error message and stack trace to stderr:\n//   Error: Whoops, something bad happened\n//     at [eval]:5:15\n//     at Script.runInThisContext (node:vm:132:18)\n//     at Object.runInThisContext (node:vm:309:38)\n//     at node:internal/process/execution:77:19\n//     at [eval]-wrapper:6:22\n//     at evalScript (node:internal/process/execution:76:60)\n//     at node:internal/main/eval_string:23:3\n\nconst name = 'Will Robinson';\nconsole.warn(`Danger ${name}! Danger!`);\n// Prints: Danger Will Robinson! Danger!, to stderr\n```\n\nExample using the `Console` class:\n\n```js\nconst out = getStreamSomehow();\nconst err = getStreamSomehow();\nconst myConsole = new console.Console(out, err);\n\nmyConsole.log('hello world');\n// Prints: hello world, to out\nmyConsole.log('hello %s', 'world');\n// Prints: hello world, to out\nmyConsole.error(new Error('Whoops, something bad happened'));\n// Prints: [Error: Whoops, something bad happened], to err\n\nconst name = 'Will Robinson';\nmyConsole.warn(`Danger ${name}! Danger!`);\n// Prints: Danger Will Robinson! Danger!, to err\n```",
+      "translated": "`node:console` モジュールは、Web ブラウザーが提供する JavaScript の console メカニズムに似た、シンプルなデバッグ用コンソールを提供する。\n\nこのモジュールは 2 つの特定のコンポーネントをエクスポートする:\n\n* 任意の Node.js ストリームへの書き込みに使える、`console.log()`・`console.error()`・`console.warn()` などのメソッドを持つ `Console` クラス。\n* [`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) と [`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) に書き込むよう構成されたグローバルな `console` インスタンス。グローバルな `console` は、`node:console` モジュールをインポートせずに使える。\n\n_**警告**_: グローバルな console オブジェクトのメソッドは、それが似ているブラウザー API のように一貫して同期的でもなければ、他のすべての Node.js ストリームのように一貫して非同期でもない。詳細は [`プロセス I/O についての注記`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) を参照。\n\nグローバルな `console` を使う例:\n\n```js\nconsole.log('hello world');\n// Prints: hello world, to stdout\nconsole.log('hello %s', 'world');\n// Prints: hello world, to stdout\nconsole.error(new Error('Whoops, something bad happened'));\n// Prints error message and stack trace to stderr:\n//   Error: Whoops, something bad happened\n//     at [eval]:5:15\n//     at Script.runInThisContext (node:vm:132:18)\n//     at Object.runInThisContext (node:vm:309:38)\n//     at node:internal/process/execution:77:19\n//     at [eval]-wrapper:6:22\n//     at evalScript (node:internal/process/execution:76:60)\n//     at node:internal/main/eval_string:23:3\n\nconst name = 'Will Robinson';\nconsole.warn(`Danger ${name}! Danger!`);\n// Prints: Danger Will Robinson! Danger!, to stderr\n```\n\n`Console` クラスを使う例:\n\n```js\nconst out = getStreamSomehow();\nconst err = getStreamSomehow();\nconst myConsole = new console.Console(out, err);\n\nmyConsole.log('hello world');\n// Prints: hello world, to out\nmyConsole.log('hello %s', 'world');\n// Prints: hello world, to out\nmyConsole.error(new Error('Whoops, something bad happened'));\n// Prints: [Error: Whoops, something bad happened], to err\n\nconst name = 'Will Robinson';\nmyConsole.warn(`Danger ${name}! Danger!`);\n// Prints: Danger Will Robinson! Danger!, to err\n```",
+      "symbol": "@types/node/console.d.ts#console",
+      "lang": "ja"
+    },
+    "0d5040ac": {
+      "original": "The `console` module provides a simple debugging console that is similar to the\nJavaScript console mechanism provided by web browsers.\n\nThe module exports two specific components:\n\n* A `Console` class with methods such as `console.log()`, `console.error()` and `console.warn()` that can be used to write to any Node.js stream.\n* A global `console` instance configured to write to [`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) and\n[`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr). The global `console` can be used without importing the `node:console` module.\n\n_**Warning**_: The global console object's methods are neither consistently\nsynchronous like the browser APIs they resemble, nor are they consistently\nasynchronous like all other Node.js streams. See the [`note on process I/O`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) for\nmore information.\n\nExample using the global `console`:\n\n```js\nconsole.log('hello world');\n// Prints: hello world, to stdout\nconsole.log('hello %s', 'world');\n// Prints: hello world, to stdout\nconsole.error(new Error('Whoops, something bad happened'));\n// Prints error message and stack trace to stderr:\n//   Error: Whoops, something bad happened\n//     at [eval]:5:15\n//     at Script.runInThisContext (node:vm:132:18)\n//     at Object.runInThisContext (node:vm:309:38)\n//     at node:internal/process/execution:77:19\n//     at [eval]-wrapper:6:22\n//     at evalScript (node:internal/process/execution:76:60)\n//     at node:internal/main/eval_string:23:3\n\nconst name = 'Will Robinson';\nconsole.warn(`Danger ${name}! Danger!`);\n// Prints: Danger Will Robinson! Danger!, to stderr\n```\n\nExample using the `Console` class:\n\n```js\nconst out = getStreamSomehow();\nconst err = getStreamSomehow();\nconst myConsole = new console.Console(out, err);\n\nmyConsole.log('hello world');\n// Prints: hello world, to out\nmyConsole.log('hello %s', 'world');\n// Prints: hello world, to out\nmyConsole.error(new Error('Whoops, something bad happened'));\n// Prints: [Error: Whoops, something bad happened], to err\n\nconst name = 'Will Robinson';\nmyConsole.warn(`Danger ${name}! Danger!`);\n// Prints: Danger Will Robinson! Danger!, to err\n```",
+      "translated": "`console` モジュールは、Web ブラウザーが提供する JavaScript の console メカニズムに似た、シンプルなデバッグ用コンソールを提供する。\n\nこのモジュールは 2 つの特定のコンポーネントをエクスポートする:\n\n* 任意の Node.js ストリームへの書き込みに使える、`console.log()`・`console.error()`・`console.warn()` などのメソッドを持つ `Console` クラス。\n* [`process.stdout`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstdout) と [`process.stderr`](https://nodejs.org/docs/latest-v22.x/api/process.html#processstderr) に書き込むよう構成されたグローバルな `console` インスタンス。グローバルな `console` は、`node:console` モジュールをインポートせずに使える。\n\n_**警告**_: グローバルな console オブジェクトのメソッドは、それが似ているブラウザー API のように一貫して同期的でもなければ、他のすべての Node.js ストリームのように一貫して非同期でもない。詳細は [`プロセス I/O についての注記`](https://nodejs.org/docs/latest-v22.x/api/process.html#a-note-on-process-io) を参照。\n\nグローバルな `console` を使う例:\n\n```js\nconsole.log('hello world');\n// Prints: hello world, to stdout\nconsole.log('hello %s', 'world');\n// Prints: hello world, to stdout\nconsole.error(new Error('Whoops, something bad happened'));\n// Prints error message and stack trace to stderr:\n//   Error: Whoops, something bad happened\n//     at [eval]:5:15\n//     at Script.runInThisContext (node:vm:132:18)\n//     at Object.runInThisContext (node:vm:309:38)\n//     at node:internal/process/execution:77:19\n//     at [eval]-wrapper:6:22\n//     at evalScript (node:internal/process/execution:76:60)\n//     at node:internal/main/eval_string:23:3\n\nconst name = 'Will Robinson';\nconsole.warn(`Danger ${name}! Danger!`);\n// Prints: Danger Will Robinson! Danger!, to stderr\n```\n\n`Console` クラスを使う例:\n\n```js\nconst out = getStreamSomehow();\nconst err = getStreamSomehow();\nconst myConsole = new console.Console(out, err);\n\nmyConsole.log('hello world');\n// Prints: hello world, to out\nmyConsole.log('hello %s', 'world');\n// Prints: hello world, to out\nmyConsole.error(new Error('Whoops, something bad happened'));\n// Prints: [Error: Whoops, something bad happened], to err\n\nconst name = 'Will Robinson';\nmyConsole.warn(`Danger ${name}! Danger!`);\n// Prints: Danger Will Robinson! Danger!, to err\n```",
+      "symbol": "@types/node/console.d.ts#node:console.global.console",
+      "lang": "ja"
+    },
+    "28491d81": {
+      "original": "`console.assert()` writes a message if `value` is [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) or omitted. It only\nwrites a message and does not otherwise affect execution. The output always\nstarts with `\"Assertion failed\"`. If provided, `message` is formatted using\n[`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args).\n\nIf `value` is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy), nothing happens.\n\n```js\nconsole.assert(true, 'does nothing');\n\nconsole.assert(false, 'Whoops %s work', 'didn\\'t');\n// Assertion failed: Whoops didn't work\n\nconsole.assert();\n// Assertion failed\n```",
+      "translated": "`console.assert()` は、`value` が [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) または省略された場合にメッセージを書き込む。メッセージを書き込むだけで、それ以外に実行に影響を与えない。出力は常に `\"Assertion failed\"` で始まる。`message` が指定された場合、[`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) を使ってフォーマットされる。\n\n`value` が [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) の場合、何も起こらない。\n\n```js\nconsole.assert(true, 'does nothing');\n\nconsole.assert(false, 'Whoops %s work', 'didn\\'t');\n// Assertion failed: Whoops didn't work\n\nconsole.assert();\n// Assertion failed\n```",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.assert",
+      "lang": "ja"
+    },
+    "5ba038ce": {
+      "original": "All arguments besides `value` are used as error message.",
+      "translated": "`value` 以外のすべての引数は、エラーメッセージとして使われる。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.assert",
+      "lang": "ja"
+    },
+    "fd724aa7": {
+      "original": "The value tested for being truthy.",
+      "translated": "truthy であるかどうかがテストされる値。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.assert",
+      "lang": "ja"
+    },
+    "87015d32": {
+      "original": "When `stdout` is a TTY, calling `console.clear()` will attempt to clear the\nTTY. When `stdout` is not a TTY, this method does nothing.\n\nThe specific operation of `console.clear()` can vary across operating systems\nand terminal types. For most Linux operating systems, `console.clear()` operates similarly to the `clear` shell command. On Windows, `console.clear()` will clear only the output in the\ncurrent terminal viewport for the Node.js\nbinary.",
+      "translated": "`stdout` が TTY の場合、`console.clear()` を呼ぶと TTY をクリアしようとする。`stdout` が TTY でない場合、このメソッドは何もしない。\n\n`console.clear()` の具体的な動作は、オペレーティングシステムやターミナルの種類によって異なる場合がある。ほとんどの Linux オペレーティングシステムでは、`console.clear()` は `clear` シェルコマンドと同様に動作する。Windows では、`console.clear()` は Node.js バイナリの現在のターミナルビューポート内の出力のみをクリアする。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.clear",
+      "lang": "ja"
+    },
+    "7de90bc1": {
+      "original": "Set color support for this `Console` instance. Setting to true enables coloring while inspecting\nvalues. Setting to `false` disables coloring while inspecting values. Setting to `'auto'` makes color\nsupport depend on the value of the `isTTY` property and the value returned by `getColorDepth()` on the\nrespective stream. This option can not be used, if `inspectOptions.colors` is set as well.",
+      "translated": "この `Console` インスタンスの色サポートを設定する。true に設定すると、値の検査中に色付けが有効になる。`false` に設定すると、値の検査中の色付けが無効になる。`'auto'` に設定すると、色サポートは各ストリームの `isTTY` プロパティの値と `getColorDepth()` が返す値に依存する。このオプションは、`inspectOptions.colors` も設定されている場合は使えない。",
+      "symbol": "@types/node/console.d.ts#node:console.global.console.ConsoleConstructorOptions.colorMode",
+      "lang": "ja"
+    },
+    "fa77d650": {
+      "original": "Set group indentation.",
+      "translated": "グループのインデントを設定する。",
+      "symbol": "@types/node/console.d.ts#node:console.global.console.ConsoleConstructorOptions.groupIndentation",
+      "lang": "ja"
+    },
+    "58b5c098": {
+      "original": "Ignore errors when writing to the underlying streams.",
+      "translated": "基盤となるストリームへの書き込み時のエラーを無視する。",
+      "symbol": "@types/node/console.d.ts#node:console.global.console.ConsoleConstructorOptions.ignoreErrors",
+      "lang": "ja"
+    },
+    "4d755888": {
+      "original": "Specifies options that are passed along to\n[`util.inspect()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilinspectobject-options).",
+      "translated": "[`util.inspect()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilinspectobject-options) に渡されるオプションを指定する。",
+      "symbol": "@types/node/console.d.ts#node:console.global.console.ConsoleConstructorOptions.inspectOptions",
+      "lang": "ja"
+    },
+    "dcc08579": {
+      "original": "Maintains an internal counter specific to `label` and outputs to `stdout` the\nnumber of times `console.count()` has been called with the given `label`.\n\n```js\n> console.count()\ndefault: 1\nundefined\n> console.count('default')\ndefault: 2\nundefined\n> console.count('abc')\nabc: 1\nundefined\n> console.count('xyz')\nxyz: 1\nundefined\n> console.count('abc')\nabc: 2\nundefined\n> console.count()\ndefault: 3\nundefined\n>\n```",
+      "translated": "`label` に固有の内部カウンターを保持し、指定された `label` で `console.count()` が呼ばれた回数を `stdout` に出力する。\n\n```js\n> console.count()\ndefault: 1\nundefined\n> console.count('default')\ndefault: 2\nundefined\n> console.count('abc')\nabc: 1\nundefined\n> console.count('xyz')\nxyz: 1\nundefined\n> console.count('abc')\nabc: 2\nundefined\n> console.count()\ndefault: 3\nundefined\n>\n```",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.count",
+      "lang": "ja"
+    },
+    "0d56f060": {
+      "original": "The display label for the counter.",
+      "translated": "カウンターの表示ラベル。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.count",
+      "lang": "ja"
+    },
+    "43929e25": {
+      "original": "Resets the internal counter specific to `label`.\n\n```js\n> console.count('abc');\nabc: 1\nundefined\n> console.countReset('abc');\nundefined\n> console.count('abc');\nabc: 1\nundefined\n>\n```",
+      "translated": "`label` に固有の内部カウンターをリセットする。\n\n```js\n> console.count('abc');\nabc: 1\nundefined\n> console.countReset('abc');\nundefined\n> console.count('abc');\nabc: 1\nundefined\n>\n```",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.countReset",
+      "lang": "ja"
+    },
+    "00f6a838": {
+      "original": "The `console.debug()` function is an alias for {@link log}.",
+      "translated": "`console.debug()` 関数は {@link log} のエイリアスである。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.debug",
+      "lang": "ja"
+    },
+    "0aa165c8": {
+      "original": "Uses [`util.inspect()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilinspectobject-options) on `obj` and prints the resulting string to `stdout`.\nThis function bypasses any custom `inspect()` function defined on `obj`.",
+      "translated": "`obj` に対して [`util.inspect()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilinspectobject-options) を使い、結果の文字列を `stdout` に出力する。この関数は、`obj` に定義された任意のカスタム `inspect()` 関数をバイパスする。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.dir",
+      "lang": "ja"
+    },
+    "65654a69": {
+      "original": "This method calls `console.log()` passing it the arguments received.\nThis method does not produce any XML formatting.",
+      "translated": "このメソッドは、受け取った引数を渡して `console.log()` を呼ぶ。このメソッドは XML フォーマットを一切生成しない。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.dirxml",
+      "lang": "ja"
+    },
+    "b2779419": {
+      "original": "Prints to `stderr` with newline. Multiple arguments can be passed, with the\nfirst used as the primary message and all additional used as substitution\nvalues similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html)\n(the arguments are all passed to [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args)).\n\n```js\nconst code = 5;\nconsole.error('error #%d', code);\n// Prints: error #5, to stderr\nconsole.error('error', code);\n// Prints: error 5, to stderr\n```\n\nIf formatting elements (e.g. `%d`) are not found in the first string then\n[`util.inspect()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilinspectobject-options) is called on each argument and the\nresulting string values are concatenated. See [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args)\nfor more information.",
+      "translated": "改行付きで `stderr` に出力する。複数の引数を渡すことができ、最初の引数がメインメッセージとして使われ、追加のすべての引数が [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html) に似た置換値として使われる(引数はすべて [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) に渡される)。\n\n```js\nconst code = 5;\nconsole.error('error #%d', code);\n// Prints: error #5, to stderr\nconsole.error('error', code);\n// Prints: error 5, to stderr\n```\n\n最初の文字列にフォーマット要素(たとえば `%d`)が見つからない場合、各引数に対して [`util.inspect()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilinspectobject-options) が呼ばれ、結果の文字列値が連結される。詳細は [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) を参照。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.error",
+      "lang": "ja"
+    },
+    "165fa5ff": {
+      "original": "Increases indentation of subsequent lines by spaces for `groupIndentation` length.\n\nIf one or more `label`s are provided, those are printed first without the\nadditional indentation.",
+      "translated": "以降の行のインデントを、`groupIndentation` の長さぶんのスペースだけ増やす。\n\n1 つ以上の `label` が指定された場合、それらは追加のインデントなしで最初に出力される。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.group",
+      "lang": "ja"
+    },
+    "3a2346b0": {
+      "original": "An alias for {@link group}.",
+      "translated": "{@link group} のエイリアス。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.groupCollapsed",
+      "lang": "ja"
+    },
+    "acd8103e": {
+      "original": "Decreases indentation of subsequent lines by spaces for `groupIndentation` length.",
+      "translated": "以降の行のインデントを、`groupIndentation` の長さぶんのスペースだけ減らす。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.groupEnd",
+      "lang": "ja"
+    },
+    "70991e42": {
+      "original": "The `console.info()` function is an alias for {@link log}.",
+      "translated": "`console.info()` 関数は {@link log} のエイリアスである。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.info",
+      "lang": "ja"
+    },
+    "af6ade0d": {
+      "original": "Prints to `stdout` with newline. Multiple arguments can be passed, with the\nfirst used as the primary message and all additional used as substitution\nvalues similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html)\n(the arguments are all passed to [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args)).\n\n```js\nconst count = 5;\nconsole.log('count: %d', count);\n// Prints: count: 5, to stdout\nconsole.log('count:', count);\n// Prints: count: 5, to stdout\n```\n\nSee [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) for more information.",
+      "translated": "改行付きで `stdout` に出力する。複数の引数を渡すことができ、最初の引数がメインメッセージとして使われ、追加のすべての引数が [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html) に似た置換値として使われる(引数はすべて [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) に渡される)。\n\n```js\nconst count = 5;\nconsole.log('count: %d', count);\n// Prints: count: 5, to stdout\nconsole.log('count:', count);\n// Prints: count: 5, to stdout\n```\n\n詳細は [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) を参照。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.log",
+      "lang": "ja"
+    },
+    "ebd18cb2": {
+      "original": "This method does not display anything unless used in the inspector. The `console.profile()`\nmethod starts a JavaScript CPU profile with an optional label until {@link profileEnd}\nis called. The profile is then added to the Profile panel of the inspector.\n\n```js\nconsole.profile('MyLabel');\n// Some code\nconsole.profileEnd('MyLabel');\n// Adds the profile 'MyLabel' to the Profiles panel of the inspector.\n```",
+      "translated": "このメソッドは、インスペクターで使われない限り何も表示しない。`console.profile()` メソッドは、{@link profileEnd} が呼ばれるまで、任意のラベル付きで JavaScript CPU プロファイルを開始する。プロファイルはその後、インスペクターの Profile パネルに追加される。\n\n```js\nconsole.profile('MyLabel');\n// Some code\nconsole.profileEnd('MyLabel');\n// Adds the profile 'MyLabel' to the Profiles panel of the inspector.\n```",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.profile",
+      "lang": "ja"
+    },
+    "ed8b1901": {
+      "original": "This method does not display anything unless used in the inspector. Stops the current\nJavaScript CPU profiling session if one has been started and prints the report to the\nProfiles panel of the inspector. See {@link profile} for an example.\n\nIf this method is called without a label, the most recently started profile is stopped.",
+      "translated": "このメソッドは、インスペクターで使われない限り何も表示しない。開始されている場合は現在の JavaScript CPU プロファイリングセッションを停止し、レポートをインスペクターの Profiles パネルに出力する。例は {@link profile} を参照。\n\nこのメソッドがラベルなしで呼ばれた場合、最後に開始されたプロファイルが停止される。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.profileEnd",
+      "lang": "ja"
+    },
+    "8242b22b": {
+      "original": "Alternate properties for constructing the table.",
+      "translated": "テーブルを構築するための代替プロパティ。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.table",
+      "lang": "ja"
+    },
+    "ccf2e50a": {
+      "original": "Try to construct a table with the columns of the properties of `tabularData` (or use `properties`) and rows of `tabularData` and log it. Falls back to just\nlogging the argument if it can't be parsed as tabular.\n\n```js\n// These can't be parsed as tabular data\nconsole.table(Symbol());\n// Symbol()\n\nconsole.table(undefined);\n// undefined\n\nconsole.table([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }]);\n// ┌─────────┬─────┬─────┐\n// │ (index) │  a  │  b  │\n// ├─────────┼─────┼─────┤\n// │    0    │  1  │ 'Y' │\n// │    1    │ 'Z' │  2  │\n// └─────────┴─────┴─────┘\n\nconsole.table([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }], ['a']);\n// ┌─────────┬─────┐\n// │ (index) │  a  │\n// ├─────────┼─────┤\n// │    0    │  1  │\n// │    1    │ 'Z' │\n// └─────────┴─────┘\n```",
+      "translated": "`tabularData` のプロパティの列(または `properties` を使う)と `tabularData` の行でテーブルを構築しようとし、それをログ出力する。表形式としてパースできない場合は、引数を単にログ出力するだけにフォールバックする。\n\n```js\n// These can't be parsed as tabular data\nconsole.table(Symbol());\n// Symbol()\n\nconsole.table(undefined);\n// undefined\n\nconsole.table([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }]);\n// ┌─────────┬─────┬─────┐\n// │ (index) │  a  │  b  │\n// ├─────────┼─────┼─────┤\n// │    0    │  1  │ 'Y' │\n// │    1    │ 'Z' │  2  │\n// └─────────┴─────┴─────┘\n\nconsole.table([{ a: 1, b: 'Y' }, { a: 'Z', b: 2 }], ['a']);\n// ┌─────────┬─────┐\n// │ (index) │  a  │\n// ├─────────┼─────┤\n// │    0    │  1  │\n// │    1    │ 'Z' │\n// └─────────┴─────┘\n```",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.table",
+      "lang": "ja"
+    },
+    "8c0bac69": {
+      "original": "Starts a timer that can be used to compute the duration of an operation. Timers\nare identified by a unique `label`. Use the same `label` when calling {@link timeEnd} to stop the timer and output the elapsed time in\nsuitable time units to `stdout`. For example, if the elapsed\ntime is 3869ms, `console.timeEnd()` displays \"3.869s\".",
+      "translated": "操作の所要時間を計算するために使えるタイマーを開始する。タイマーは一意の `label` で識別される。タイマーを停止して経過時間を適切な時間単位で `stdout` に出力するには、{@link timeEnd} を呼ぶときに同じ `label` を使う。たとえば、経過時間が 3869 ミリ秒の場合、`console.timeEnd()` は「3.869s」を表示する。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.time",
+      "lang": "ja"
+    },
+    "e85d1989": {
+      "original": "Stops a timer that was previously started by calling {@link time} and\nprints the result to `stdout`:\n\n```js\nconsole.time('bunch-of-stuff');\n// Do a bunch of stuff.\nconsole.timeEnd('bunch-of-stuff');\n// Prints: bunch-of-stuff: 225.438ms\n```",
+      "translated": "以前に {@link time} を呼んで開始したタイマーを停止し、結果を `stdout` に出力する:\n\n```js\nconsole.time('bunch-of-stuff');\n// Do a bunch of stuff.\nconsole.timeEnd('bunch-of-stuff');\n// Prints: bunch-of-stuff: 225.438ms\n```",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.timeEnd",
+      "lang": "ja"
+    },
+    "9966eb42": {
+      "original": "For a timer that was previously started by calling {@link time}, prints\nthe elapsed time and other `data` arguments to `stdout`:\n\n```js\nconsole.time('process');\nconst value = expensiveProcess1(); // Returns 42\nconsole.timeLog('process', value);\n// Prints \"process: 365.227ms 42\".\ndoExpensiveProcess2(value);\nconsole.timeEnd('process');\n```",
+      "translated": "以前に {@link time} を呼んで開始したタイマーについて、経過時間とその他の `data` 引数を `stdout` に出力する:\n\n```js\nconsole.time('process');\nconst value = expensiveProcess1(); // Returns 42\nconsole.timeLog('process', value);\n// Prints \"process: 365.227ms 42\".\ndoExpensiveProcess2(value);\nconsole.timeEnd('process');\n```",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.timeLog",
+      "lang": "ja"
+    },
+    "cbb65272": {
+      "original": "This method does not display anything unless used in the inspector. The `console.timeStamp()`\nmethod adds an event with the label `'label'` to the Timeline panel of the inspector.",
+      "translated": "このメソッドは、インスペクターで使われない限り何も表示しない。`console.timeStamp()` メソッドは、ラベル `'label'` を持つイベントをインスペクターの Timeline パネルに追加する。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.timeStamp",
+      "lang": "ja"
+    },
+    "75bb83be": {
+      "original": "Prints to `stderr` the string `'Trace: '`, followed by the [`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args)\nformatted message and stack trace to the current position in the code.\n\n```js\nconsole.trace('Show me');\n// Prints: (stack trace will vary based on where trace is called)\n//  Trace: Show me\n//    at repl:2:9\n//    at REPLServer.defaultEval (repl.js:248:27)\n//    at bound (domain.js:287:14)\n//    at REPLServer.runBound [as eval] (domain.js:300:12)\n//    at REPLServer.<anonymous> (repl.js:412:12)\n//    at emitOne (events.js:82:20)\n//    at REPLServer.emit (events.js:169:7)\n//    at REPLServer.Interface._onLine (readline.js:210:10)\n//    at REPLServer.Interface._line (readline.js:549:8)\n//    at REPLServer.Interface._ttyWrite (readline.js:826:14)\n```",
+      "translated": "文字列 `'Trace: '` に続けて、[`util.format()`](https://nodejs.org/docs/latest-v22.x/api/util.html#utilformatformat-args) でフォーマットされたメッセージとコード上の現在位置までのスタックトレースを `stderr` に出力する。\n\n```js\nconsole.trace('Show me');\n// Prints: (stack trace will vary based on where trace is called)\n//  Trace: Show me\n//    at repl:2:9\n//    at REPLServer.defaultEval (repl.js:248:27)\n//    at bound (domain.js:287:14)\n//    at REPLServer.runBound [as eval] (domain.js:300:12)\n//    at REPLServer.<anonymous> (repl.js:412:12)\n//    at emitOne (events.js:82:20)\n//    at REPLServer.emit (events.js:169:7)\n//    at REPLServer.Interface._onLine (readline.js:210:10)\n//    at REPLServer.Interface._line (readline.js:549:8)\n//    at REPLServer.Interface._ttyWrite (readline.js:826:14)\n```",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.trace",
+      "lang": "ja"
+    },
+    "8c68056a": {
+      "original": "The `console.warn()` function is an alias for {@link error}.",
+      "translated": "`console.warn()` 関数は {@link error} のエイリアスである。",
+      "symbol": "@types/node/console.d.ts#node:console.global.Console.warn",
+      "lang": "ja"
+    },
     "03a04b1b": {
       "original": "The `node:crypto` module provides cryptographic functionality that includes a\nset of wrappers for OpenSSL's hash, HMAC, cipher, decipher, sign, and verify\nfunctions.\n\n```js\nconst { createHmac } = await import('node:crypto');\n\nconst secret = 'abcdefg';\nconst hash = createHmac('sha256', secret)\n               .update('I love cupcakes')\n               .digest('hex');\nconsole.log(hash);\n// Prints:\n//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e\n```",
       "translated": "`node:crypto` モジュールは、OpenSSL の hash・HMAC・cipher・decipher・sign・verify 関数に対する一連のラッパーを含む暗号機能を提供する。\n\n```js\nconst { createHmac } = await import('node:crypto');\n\nconst secret = 'abcdefg';\nconst hash = createHmac('sha256', secret)\n               .update('I love cupcakes')\n               .digest('hex');\nconsole.log(hash);\n// Prints:\n//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e\n```",
@@ -4994,6 +5186,144 @@
       "original": "If the IPv6 family was specified, but no IPv6 addresses were found, then return IPv4 mapped IPv6 addresses. It is not supported\non some operating systems (e.g. FreeBSD 10.1).",
       "translated": "IPv6 ファミリーが指定されたが IPv6 アドレスが見つからなかった場合、IPv4 マップされた IPv6 アドレスを返す。一部のオペレーティングシステム(たとえば FreeBSD 10.1)ではサポートされない。",
       "symbol": "@types/node/dns.d.ts#dns.V4MAPPED",
+      "lang": "ja"
+    },
+    "d8333642": {
+      "original": "The `dns.promises` API provides an alternative set of asynchronous DNS methods\nthat return `Promise` objects rather than using callbacks. The API is accessible\nvia `import { promises as dnsPromises } from 'node:dns'` or `import dnsPromises from 'node:dns/promises'`.",
+      "translated": "`dns.promises` API は、コールバックを使う代わりに `Promise` オブジェクトを返す、代替の非同期 DNS メソッド群を提供する。この API は `import { promises as dnsPromises } from 'node:dns'` または `import dnsPromises from 'node:dns/promises'` を介してアクセスできる。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises",
+      "lang": "ja"
+    },
+    "145201e1": {
+      "original": "Get the default value for `verbatim` in {@link lookup} and [dnsPromises.lookup()](https://nodejs.org/docs/latest-v20.x/api/dns.html#dnspromiseslookuphostname-options).\nThe value could be:\n\n* `ipv4first`: for `verbatim` defaulting to `false`.\n* `verbatim`: for `verbatim` defaulting to `true`.",
+      "translated": "{@link lookup} と [dnsPromises.lookup()](https://nodejs.org/docs/latest-v20.x/api/dns.html#dnspromiseslookuphostname-options) における `verbatim` の既定値を取得する。値は次のいずれかになる:\n\n* `ipv4first`: `verbatim` の既定値が `false` の場合。\n* `verbatim`: `verbatim` の既定値が `true` の場合。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.getDefaultResultOrder",
+      "lang": "ja"
+    },
+    "151dc997": {
+      "original": "Resolves a host name (e.g. `'nodejs.org'`) into the first found A (IPv4) or\nAAAA (IPv6) record. All `option` properties are optional. If `options` is an\ninteger, then it must be `4` or `6` – if `options` is not provided, then IPv4\nand IPv6 addresses are both returned if found.\n\nWith the `all` option set to `true`, the `Promise` is resolved with `addresses` being an array of objects with the properties `address` and `family`.\n\nOn error, the `Promise` is rejected with an [`Error`](https://nodejs.org/docs/latest-v20.x/api/errors.html#class-error) object, where `err.code` is the error code.\nKeep in mind that `err.code` will be set to `'ENOTFOUND'` not only when\nthe host name does not exist but also when the lookup fails in other ways\nsuch as no available file descriptors.\n\n[`dnsPromises.lookup()`](https://nodejs.org/docs/latest-v20.x/api/dns.html#dnspromiseslookuphostname-options) does not necessarily have anything to do with the DNS\nprotocol. The implementation uses an operating system facility that can\nassociate names with addresses and vice versa. This implementation can have\nsubtle but important consequences on the behavior of any Node.js program. Please\ntake some time to consult the [Implementation considerations section](https://nodejs.org/docs/latest-v20.x/api/dns.html#implementation-considerations) before\nusing `dnsPromises.lookup()`.\n\nExample usage:\n\n```js\nimport dns from 'node:dns';\nconst dnsPromises = dns.promises;\nconst options = {\n  family: 6,\n  hints: dns.ADDRCONFIG | dns.V4MAPPED,\n};\n\ndnsPromises.lookup('example.com', options).then((result) => {\n  console.log('address: %j family: IPv%s', result.address, result.family);\n  // address: \"2606:2800:220:1:248:1893:25c8:1946\" family: IPv6\n});\n\n// When options.all is true, the result will be an Array.\noptions.all = true;\ndnsPromises.lookup('example.com', options).then((result) => {\n  console.log('addresses: %j', result);\n  // addresses: [{\"address\":\"2606:2800:220:1:248:1893:25c8:1946\",\"family\":6}]\n});\n```",
+      "translated": "ホスト名(たとえば `'nodejs.org'`)を、最初に見つかった A(IPv4)または AAAA(IPv6)レコードに解決する。すべての `option` プロパティは省略可能である。`options` が整数の場合、それは `4` または `6` でなければならない。`options` が指定されない場合、IPv4 と IPv6 のアドレスが両方とも(見つかれば)返される。\n\n`all` オプションを `true` に設定すると、`Promise` は、`address` と `family` のプロパティを持つオブジェクトの配列である `addresses` で解決される。\n\nエラー時、`Promise` は [`Error`](https://nodejs.org/docs/latest-v20.x/api/errors.html#class-error) オブジェクトで拒否され、その `err.code` がエラーコードになる。`err.code` は、ホスト名が存在しない場合だけでなく、利用可能なファイルディスクリプターがないなど、その他の理由でルックアップが失敗した場合にも `'ENOTFOUND'` に設定される点に注意すること。\n\n[`dnsPromises.lookup()`](https://nodejs.org/docs/latest-v20.x/api/dns.html#dnspromiseslookuphostname-options) は、必ずしも DNS プロトコルと関係があるわけではない。実装は、名前とアドレスを相互に関連付けられるオペレーティングシステムの機能を使う。この実装は、あらゆる Node.js プログラムの挙動に微妙だが重要な影響を及ぼすことがある。`dnsPromises.lookup()` を使う前に、[実装上の考慮事項のセクション](https://nodejs.org/docs/latest-v20.x/api/dns.html#implementation-considerations)を参照する時間を取ること。\n\n使用例:\n\n```js\nimport dns from 'node:dns';\nconst dnsPromises = dns.promises;\nconst options = {\n  family: 6,\n  hints: dns.ADDRCONFIG | dns.V4MAPPED,\n};\n\ndnsPromises.lookup('example.com', options).then((result) => {\n  console.log('address: %j family: IPv%s', result.address, result.family);\n  // address: \"2606:2800:220:1:248:1893:25c8:1946\" family: IPv6\n});\n\n// When options.all is true, the result will be an Array.\noptions.all = true;\ndnsPromises.lookup('example.com', options).then((result) => {\n  console.log('addresses: %j', result);\n  // addresses: [{\"address\":\"2606:2800:220:1:248:1893:25c8:1946\",\"family\":6}]\n});\n```",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.lookup",
+      "lang": "ja"
+    },
+    "2b07c085": {
+      "original": "Resolves the given `address` and `port` into a host name and service using\nthe operating system's underlying `getnameinfo` implementation.\n\nIf `address` is not a valid IP address, a `TypeError` will be thrown.\nThe `port` will be coerced to a number. If it is not a legal port, a `TypeError` will be thrown.\n\nOn error, the `Promise` is rejected with an [`Error`](https://nodejs.org/docs/latest-v20.x/api/errors.html#class-error) object, where `err.code` is the error code.\n\n```js\nimport dnsPromises from 'node:dns';\ndnsPromises.lookupService('127.0.0.1', 22).then((result) => {\n  console.log(result.hostname, result.service);\n  // Prints: localhost ssh\n});\n```",
+      "translated": "指定された `address` と `port` を、オペレーティングシステムの基盤となる `getnameinfo` 実装を使ってホスト名とサービスに解決する。\n\n`address` が有効な IP アドレスでない場合、`TypeError` が投げられる。`port` は数値に強制変換される。正当なポートでない場合、`TypeError` が投げられる。\n\nエラー時、`Promise` は [`Error`](https://nodejs.org/docs/latest-v20.x/api/errors.html#class-error) オブジェクトで拒否され、その `err.code` がエラーコードになる。\n\n```js\nimport dnsPromises from 'node:dns';\ndnsPromises.lookupService('127.0.0.1', 22).then((result) => {\n  console.log(result.hostname, result.service);\n  // Prints: localhost ssh\n});\n```",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.lookupService",
+      "lang": "ja"
+    },
+    "398a95d8": {
+      "original": "Uses the DNS protocol to resolve a host name (e.g. `'nodejs.org'`) into an array\nof the resource records. When successful, the `Promise` is resolved with an\narray of resource records. The type and structure of individual results vary\nbased on `rrtype`:\n\n<omitted>\n\nOn error, the `Promise` is rejected with an [`Error`](https://nodejs.org/docs/latest-v20.x/api/errors.html#class-error) object, where `err.code`\nis one of the [DNS error codes](https://nodejs.org/docs/latest-v20.x/api/dns.html#error-codes).",
+      "translated": "DNS プロトコルを使って、ホスト名(たとえば `'nodejs.org'`)をリソースレコードの配列に解決する。成功すると、`Promise` はリソースレコードの配列で解決される。個々の結果の型と構造は `rrtype` によって異なる:\n\n<omitted>\n\nエラー時、`Promise` は [`Error`](https://nodejs.org/docs/latest-v20.x/api/errors.html#class-error) オブジェクトで拒否され、その `err.code` は [DNS エラーコード](https://nodejs.org/docs/latest-v20.x/api/dns.html#error-codes)のいずれかになる。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolve",
+      "lang": "ja"
+    },
+    "36441df0": {
+      "original": "Uses the DNS protocol to resolve IPv4 addresses (`A` records) for the `hostname`. On success, the `Promise` is resolved with an array of IPv4\naddresses (e.g. `['74.125.79.104', '74.125.79.105', '74.125.79.106']`).",
+      "translated": "DNS プロトコルを使って、`hostname` の IPv4 アドレス(`A` レコード)を解決する。成功すると、`Promise` は IPv4 アドレスの配列(たとえば `['74.125.79.104', '74.125.79.105', '74.125.79.106']`)で解決される。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolve4",
+      "lang": "ja"
+    },
+    "ef33ab89": {
+      "original": "Uses the DNS protocol to resolve IPv6 addresses (`AAAA` records) for the `hostname`. On success, the `Promise` is resolved with an array of IPv6\naddresses.",
+      "translated": "DNS プロトコルを使って、`hostname` の IPv6 アドレス(`AAAA` レコード)を解決する。成功すると、`Promise` は IPv6 アドレスの配列で解決される。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolve6",
+      "lang": "ja"
+    },
+    "deed7728": {
+      "original": "Uses the DNS protocol to resolve all records (also known as `ANY` or `*` query).\nOn success, the `Promise` is resolved with an array containing various types of\nrecords. Each object has a property `type` that indicates the type of the\ncurrent record. And depending on the `type`, additional properties will be\npresent on the object:\n\n<omitted>\n\nHere is an example of the result object:\n\n```js\n[ { type: 'A', address: '127.0.0.1', ttl: 299 },\n  { type: 'CNAME', value: 'example.com' },\n  { type: 'MX', exchange: 'alt4.aspmx.l.example.com', priority: 50 },\n  { type: 'NS', value: 'ns1.example.com' },\n  { type: 'TXT', entries: [ 'v=spf1 include:_spf.example.com ~all' ] },\n  { type: 'SOA',\n    nsname: 'ns1.example.com',\n    hostmaster: 'admin.example.com',\n    serial: 156696742,\n    refresh: 900,\n    retry: 900,\n    expire: 1800,\n    minttl: 60 } ]\n```",
+      "translated": "DNS プロトコルを使って、すべてのレコードを解決する(`ANY` または `*` クエリとも呼ばれる)。成功すると、`Promise` はさまざまな種類のレコードを含む配列で解決される。各オブジェクトは、現在のレコードの種類を示す `type` プロパティを持つ。そして `type` に応じて、追加のプロパティがオブジェクトに存在する:\n\n<omitted>\n\n結果オブジェクトの例を次に示す:\n\n```js\n[ { type: 'A', address: '127.0.0.1', ttl: 299 },\n  { type: 'CNAME', value: 'example.com' },\n  { type: 'MX', exchange: 'alt4.aspmx.l.example.com', priority: 50 },\n  { type: 'NS', value: 'ns1.example.com' },\n  { type: 'TXT', entries: [ 'v=spf1 include:_spf.example.com ~all' ] },\n  { type: 'SOA',\n    nsname: 'ns1.example.com',\n    hostmaster: 'admin.example.com',\n    serial: 156696742,\n    refresh: 900,\n    retry: 900,\n    expire: 1800,\n    minttl: 60 } ]\n```",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolveAny",
+      "lang": "ja"
+    },
+    "cfed9675": {
+      "original": "Uses the DNS protocol to resolve `CAA` records for the `hostname`. On success,\nthe `Promise` is resolved with an array of objects containing available\ncertification authority authorization records available for the `hostname` (e.g. `[{critical: 0, iodef: 'mailto:pki@example.com'},{critical: 128, issue: 'pki.example.com'}]`).",
+      "translated": "DNS プロトコルを使って、`hostname` の `CAA` レコードを解決する。成功すると、`Promise` は、`hostname` に対して利用可能な認証局承認レコードを含むオブジェクトの配列(たとえば `[{critical: 0, iodef: 'mailto:pki@example.com'},{critical: 128, issue: 'pki.example.com'}]`)で解決される。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolveCaa",
+      "lang": "ja"
+    },
+    "a4f25acd": {
+      "original": "Uses the DNS protocol to resolve `CNAME` records for the `hostname`. On success,\nthe `Promise` is resolved with an array of canonical name records available for\nthe `hostname` (e.g. `['bar.example.com']`).",
+      "translated": "DNS プロトコルを使って、`hostname` の `CNAME` レコードを解決する。成功すると、`Promise` は、`hostname` に対して利用可能な正規名レコードの配列(たとえば `['bar.example.com']`)で解決される。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolveCname",
+      "lang": "ja"
+    },
+    "53a68761": {
+      "original": "Uses the DNS protocol to resolve mail exchange records (`MX` records) for the `hostname`. On success, the `Promise` is resolved with an array of objects\ncontaining both a `priority` and `exchange` property (e.g.`[{priority: 10, exchange: 'mx.example.com'}, ...]`).",
+      "translated": "DNS プロトコルを使って、`hostname` のメール交換レコード(`MX` レコード)を解決する。成功すると、`Promise` は、`priority` と `exchange` の両方のプロパティを含むオブジェクトの配列(たとえば `[{priority: 10, exchange: 'mx.example.com'}, ...]`)で解決される。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolveMx",
+      "lang": "ja"
+    },
+    "fa450b8c": {
+      "original": "Uses the DNS protocol to resolve regular expression-based records (`NAPTR` records) for the `hostname`. On success, the `Promise` is resolved with an array\nof objects with the following properties:\n\n* `flags`\n* `service`\n* `regexp`\n* `replacement`\n* `order`\n* `preference`\n\n```js\n{\n  flags: 's',\n  service: 'SIP+D2U',\n  regexp: '',\n  replacement: '_sip._udp.example.com',\n  order: 30,\n  preference: 100\n}\n```",
+      "translated": "DNS プロトコルを使って、`hostname` の正規表現ベースのレコード(`NAPTR` レコード)を解決する。成功すると、`Promise` は、次のプロパティを持つオブジェクトの配列で解決される:\n\n* `flags`\n* `service`\n* `regexp`\n* `replacement`\n* `order`\n* `preference`\n\n```js\n{\n  flags: 's',\n  service: 'SIP+D2U',\n  regexp: '',\n  replacement: '_sip._udp.example.com',\n  order: 30,\n  preference: 100\n}\n```",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolveNaptr",
+      "lang": "ja"
+    },
+    "b607c05b": {
+      "original": "Uses the DNS protocol to resolve name server records (`NS` records) for the `hostname`. On success, the `Promise` is resolved with an array of name server\nrecords available for `hostname` (e.g.`['ns1.example.com', 'ns2.example.com']`).",
+      "translated": "DNS プロトコルを使って、`hostname` のネームサーバーレコード(`NS` レコード)を解決する。成功すると、`Promise` は、`hostname` に対して利用可能なネームサーバーレコードの配列(たとえば `['ns1.example.com', 'ns2.example.com']`)で解決される。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolveNs",
+      "lang": "ja"
+    },
+    "3044a0a1": {
+      "original": "Uses the DNS protocol to resolve pointer records (`PTR` records) for the `hostname`. On success, the `Promise` is resolved with an array of strings\ncontaining the reply records.",
+      "translated": "DNS プロトコルを使って、`hostname` のポインターレコード(`PTR` レコード)を解決する。成功すると、`Promise` は応答レコードを含む文字列の配列で解決される。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolvePtr",
+      "lang": "ja"
+    },
+    "f008c1c4": {
+      "original": "An independent resolver for DNS requests.\n\nCreating a new resolver uses the default server settings. Setting\nthe servers used for a resolver using [`resolver.setServers()`](https://nodejs.org/docs/latest-v20.x/api/dns.html#dnspromisessetserversservers) does not affect\nother resolvers:\n\n```js\nimport { promises } from 'node:dns';\nconst resolver = new promises.Resolver();\nresolver.setServers(['4.4.4.4']);\n\n// This request will use the server at 4.4.4.4, independent of global settings.\nresolver.resolve4('example.org').then((addresses) => {\n  // ...\n});\n\n// Alternatively, the same code can be written using async-await style.\n(async function() {\n  const addresses = await resolver.resolve4('example.org');\n})();\n```\n\nThe following methods from the `dnsPromises` API are available:\n\n* `resolver.getServers()`\n* `resolver.resolve()`\n* `resolver.resolve4()`\n* `resolver.resolve6()`\n* `resolver.resolveAny()`\n* `resolver.resolveCaa()`\n* `resolver.resolveCname()`\n* `resolver.resolveMx()`\n* `resolver.resolveNaptr()`\n* `resolver.resolveNs()`\n* `resolver.resolvePtr()`\n* `resolver.resolveSoa()`\n* `resolver.resolveSrv()`\n* `resolver.resolveTxt()`\n* `resolver.reverse()`\n* `resolver.setServers()`",
+      "translated": "DNS リクエストのための独立したリゾルバー。\n\n新しいリゾルバーを作成すると、既定のサーバー設定が使われる。[`resolver.setServers()`](https://nodejs.org/docs/latest-v20.x/api/dns.html#dnspromisessetserversservers) を使ってリゾルバーが使うサーバーを設定しても、他のリゾルバーには影響しない:\n\n```js\nimport { promises } from 'node:dns';\nconst resolver = new promises.Resolver();\nresolver.setServers(['4.4.4.4']);\n\n// This request will use the server at 4.4.4.4, independent of global settings.\nresolver.resolve4('example.org').then((addresses) => {\n  // ...\n});\n\n// Alternatively, the same code can be written using async-await style.\n(async function() {\n  const addresses = await resolver.resolve4('example.org');\n})();\n```\n\n`dnsPromises` API の次のメソッドが利用できる:\n\n* `resolver.getServers()`\n* `resolver.resolve()`\n* `resolver.resolve4()`\n* `resolver.resolve6()`\n* `resolver.resolveAny()`\n* `resolver.resolveCaa()`\n* `resolver.resolveCname()`\n* `resolver.resolveMx()`\n* `resolver.resolveNaptr()`\n* `resolver.resolveNs()`\n* `resolver.resolvePtr()`\n* `resolver.resolveSoa()`\n* `resolver.resolveSrv()`\n* `resolver.resolveTxt()`\n* `resolver.reverse()`\n* `resolver.setServers()`",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.Resolver",
+      "lang": "ja"
+    },
+    "39bc05cf": {
+      "original": "Uses the DNS protocol to resolve a start of authority record (`SOA` record) for\nthe `hostname`. On success, the `Promise` is resolved with an object with the\nfollowing properties:\n\n* `nsname`\n* `hostmaster`\n* `serial`\n* `refresh`\n* `retry`\n* `expire`\n* `minttl`\n\n```js\n{\n  nsname: 'ns.example.com',\n  hostmaster: 'root.example.com',\n  serial: 2013101809,\n  refresh: 10000,\n  retry: 2400,\n  expire: 604800,\n  minttl: 3600\n}\n```",
+      "translated": "DNS プロトコルを使って、`hostname` の権威の開始レコード(`SOA` レコード)を解決する。成功すると、`Promise` は、次のプロパティを持つオブジェクトで解決される:\n\n* `nsname`\n* `hostmaster`\n* `serial`\n* `refresh`\n* `retry`\n* `expire`\n* `minttl`\n\n```js\n{\n  nsname: 'ns.example.com',\n  hostmaster: 'root.example.com',\n  serial: 2013101809,\n  refresh: 10000,\n  retry: 2400,\n  expire: 604800,\n  minttl: 3600\n}\n```",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolveSoa",
+      "lang": "ja"
+    },
+    "3568e467": {
+      "original": "Uses the DNS protocol to resolve service records (`SRV` records) for the `hostname`. On success, the `Promise` is resolved with an array of objects with\nthe following properties:\n\n* `priority`\n* `weight`\n* `port`\n* `name`\n\n```js\n{\n  priority: 10,\n  weight: 5,\n  port: 21223,\n  name: 'service.example.com'\n}\n```",
+      "translated": "DNS プロトコルを使って、`hostname` のサービスレコード(`SRV` レコード)を解決する。成功すると、`Promise` は、次のプロパティを持つオブジェクトの配列で解決される:\n\n* `priority`\n* `weight`\n* `port`\n* `name`\n\n```js\n{\n  priority: 10,\n  weight: 5,\n  port: 21223,\n  name: 'service.example.com'\n}\n```",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolveSrv",
+      "lang": "ja"
+    },
+    "676b8738": {
+      "original": "Uses the DNS protocol to resolve certificate associations (`TLSA` records) for\nthe `hostname`. On success, the `Promise` is resolved with an array of objectsAdd commentMore actions\nwith these properties:\n\n* `certUsage`\n* `selector`\n* `match`\n* `data`\n\n```js\n{\n  certUsage: 3,\n  selector: 1,\n  match: 1,\n  data: [ArrayBuffer]\n}\n```",
+      "translated": "DNS プロトコルを使って、`hostname` の証明書関連付け(`TLSA` レコード)を解決する。成功すると、`Promise` は、次のプロパティを持つオブジェクトの配列で解決される:\n\n* `certUsage`\n* `selector`\n* `match`\n* `data`\n\n```js\n{\n  certUsage: 3,\n  selector: 1,\n  match: 1,\n  data: [ArrayBuffer]\n}\n```",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolveTlsa",
+      "lang": "ja"
+    },
+    "03e4d120": {
+      "original": "Uses the DNS protocol to resolve text queries (`TXT` records) for the `hostname`. On success, the `Promise` is resolved with a two-dimensional array\nof the text records available for `hostname` (e.g.`[ ['v=spf1 ip4:0.0.0.0 ', '~all' ] ]`). Each sub-array contains TXT chunks of\none record. Depending on the use case, these could be either joined together or\ntreated separately.",
+      "translated": "DNS プロトコルを使って、`hostname` のテキストクエリ(`TXT` レコード)を解決する。成功すると、`Promise` は、`hostname` に対して利用可能なテキストレコードの二次元配列(たとえば `[ ['v=spf1 ip4:0.0.0.0 ', '~all' ] ]`)で解決される。各サブ配列は 1 つのレコードの TXT チャンクを含む。ユースケースに応じて、これらを結合するか、別々に扱うことができる。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.resolveTxt",
+      "lang": "ja"
+    },
+    "64549f6a": {
+      "original": "Performs a reverse DNS query that resolves an IPv4 or IPv6 address to an\narray of host names.\n\nOn error, the `Promise` is rejected with an [`Error`](https://nodejs.org/docs/latest-v20.x/api/errors.html#class-error) object, where `err.code`\nis one of the [DNS error codes](https://nodejs.org/docs/latest-v20.x/api/dns.html#error-codes).",
+      "translated": "IPv4 または IPv6 アドレスをホスト名の配列に解決する逆引き DNS クエリを実行する。\n\nエラー時、`Promise` は [`Error`](https://nodejs.org/docs/latest-v20.x/api/errors.html#class-error) オブジェクトで拒否され、その `err.code` は [DNS エラーコード](https://nodejs.org/docs/latest-v20.x/api/dns.html#error-codes)のいずれかになる。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.reverse",
+      "lang": "ja"
+    },
+    "6c42b8cb": {
+      "original": "Set the default value of `order` in `dns.lookup()` and `{@link lookup}`. The value could be:\n\n* `ipv4first`: sets default `order` to `ipv4first`.\n* `ipv6first`: sets default `order` to `ipv6first`.\n* `verbatim`: sets default `order` to `verbatim`.\n\nThe default is `verbatim` and [dnsPromises.setDefaultResultOrder()](https://nodejs.org/docs/latest-v20.x/api/dns.html#dnspromisessetdefaultresultorderorder)\nhave higher priority than [`--dns-result-order`](https://nodejs.org/docs/latest-v20.x/api/cli.html#--dns-result-orderorder).\nWhen using [worker threads](https://nodejs.org/docs/latest-v20.x/api/worker_threads.html), [`dnsPromises.setDefaultResultOrder()`](https://nodejs.org/docs/latest-v20.x/api/dns.html#dnspromisessetdefaultresultorderorder)\nfrom the main thread won't affect the default dns orders in workers.",
+      "translated": "`dns.lookup()` と `{@link lookup}` における `order` の既定値を設定する。値は次のいずれかになる:\n\n* `ipv4first`: 既定の `order` を `ipv4first` に設定する。\n* `ipv6first`: 既定の `order` を `ipv6first` に設定する。\n* `verbatim`: 既定の `order` を `verbatim` に設定する。\n\n既定は `verbatim` であり、[dnsPromises.setDefaultResultOrder()](https://nodejs.org/docs/latest-v20.x/api/dns.html#dnspromisessetdefaultresultorderorder) は [`--dns-result-order`](https://nodejs.org/docs/latest-v20.x/api/cli.html#--dns-result-orderorder) より優先度が高い。[worker threads](https://nodejs.org/docs/latest-v20.x/api/worker_threads.html) を使う場合、メインスレッドからの [`dnsPromises.setDefaultResultOrder()`](https://nodejs.org/docs/latest-v20.x/api/dns.html#dnspromisessetdefaultresultorderorder) は worker 内の既定の dns 順序に影響しない。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.setDefaultResultOrder",
+      "lang": "ja"
+    },
+    "828af00d": {
+      "original": "array of `RFC 5952` formatted addresses",
+      "translated": "`RFC 5952` 形式のアドレスの配列",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.setServers",
+      "lang": "ja"
+    },
+    "f9eba841": {
+      "original": "Sets the IP address and port of servers to be used when performing DNS\nresolution. The `servers` argument is an array of [RFC 5952](https://tools.ietf.org/html/rfc5952#section-6) formatted\naddresses. If the port is the IANA default DNS port (53) it can be omitted.\n\n```js\ndnsPromises.setServers([\n  '4.4.4.4',\n  '[2001:4860:4860::8888]',\n  '4.4.4.4:1053',\n  '[2001:4860:4860::8888]:1053',\n]);\n```\n\nAn error will be thrown if an invalid address is provided.\n\nThe `dnsPromises.setServers()` method must not be called while a DNS query is in\nprogress.\n\nThis method works much like [resolve.conf](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).\nThat is, if attempting to resolve with the first server provided results in a `NOTFOUND` error, the `resolve()` method will _not_ attempt to resolve with\nsubsequent servers provided. Fallback DNS servers will only be used if the\nearlier ones time out or result in some other error.",
+      "translated": "DNS 解決を実行するときに使うサーバーの IP アドレスとポートを設定する。`servers` 引数は [RFC 5952](https://tools.ietf.org/html/rfc5952#section-6) 形式のアドレスの配列である。ポートが IANA 既定の DNS ポート(53)の場合は省略できる。\n\n```js\ndnsPromises.setServers([\n  '4.4.4.4',\n  '[2001:4860:4860::8888]',\n  '4.4.4.4:1053',\n  '[2001:4860:4860::8888]:1053',\n]);\n```\n\n無効なアドレスが指定された場合、エラーが投げられる。\n\n`dnsPromises.setServers()` メソッドは、DNS クエリの進行中に呼んではならない。\n\nこのメソッドは [resolve.conf](https://man7.org/linux/man-pages/man5/resolv.conf.5.html) とほぼ同様に機能する。すなわち、指定された最初のサーバーで解決を試みて `NOTFOUND` エラーになった場合、`resolve()` メソッドは指定された後続のサーバーで解決を試み_ない_。フォールバック DNS サーバーは、先行するサーバーがタイムアウトするか、その他のエラーになった場合にのみ使われる。",
+      "symbol": "@types/node/dns/promises.d.ts#dns/promises.setServers",
       "lang": "ja"
     },
     "d0c99abf": {
@@ -9404,6 +9734,144 @@
       "original": "Closes all connections connected to this server which are not sending a request or waiting for a response.",
       "translated": "このサーバーに接続されているコネクションのうち、リクエストを送信中でもレスポンスを待機中でもないすべてのコネクションを閉じる。",
       "symbol": "@types/node/https.d.ts#https.Server.closeIdleConnections",
+      "lang": "ja"
+    },
+    "1212cdae": {
+      "original": "The `node:inspector` module provides an API for interacting with the V8\ninspector.",
+      "translated": "`node:inspector` モジュールは、V8 インスペクターと対話するための API を提供する。",
+      "symbol": "@types/node/inspector.d.ts#inspector",
+      "lang": "ja"
+    },
+    "3500029b": {
+      "original": "Deactivate the inspector. Blocks until there are no active connections.",
+      "translated": "インスペクターを無効化する。アクティブな接続がなくなるまでブロックする。",
+      "symbol": "@types/node/inspector.d.ts#inspector.close",
+      "lang": "ja"
+    },
+    "ade8dde8": {
+      "original": "An object to send messages to the remote inspector console.",
+      "translated": "リモートインスペクターコンソールにメッセージを送るためのオブジェクト。",
+      "symbol": "@types/node/inspector.d.ts#inspector.console",
+      "lang": "ja"
+    },
+    "75090feb": {
+      "original": "This feature is only available with the `--experimental-network-inspection` flag enabled.\n\nBroadcasts the `Network.dataReceived` event to connected frontends, or buffers the data if\n`Network.streamResourceContent` command was not invoked for the given request yet.\n\nAlso enables `Network.getResponseBody` command to retrieve the response data.",
+      "translated": "この機能は `--experimental-network-inspection` フラグが有効な場合にのみ利用できる。\n\n`Network.dataReceived` イベントを接続中のフロントエンドにブロードキャストする。指定されたリクエストに対してまだ `Network.streamResourceContent` コマンドが呼ばれていない場合は、データをバッファリングする。\n\nまた、レスポンスデータを取得するための `Network.getResponseBody` コマンドを有効にする。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Network.dataReceived",
+      "lang": "ja"
+    },
+    "be68fea3": {
+      "original": "This feature is only available with the `--experimental-network-inspection` flag enabled.\n\nEnables `Network.getRequestPostData` command to retrieve the request data.",
+      "translated": "この機能は `--experimental-network-inspection` フラグが有効な場合にのみ利用できる。\n\nリクエストデータを取得するための `Network.getRequestPostData` コマンドを有効にする。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Network.dataSent",
+      "lang": "ja"
+    },
+    "7d6247ff": {
+      "original": "This feature is only available with the `--experimental-network-inspection` flag enabled.\n\nBroadcasts the `Network.loadingFailed` event to connected frontends. This event indicates that\nHTTP request has failed to load.",
+      "translated": "この機能は `--experimental-network-inspection` フラグが有効な場合にのみ利用できる。\n\n`Network.loadingFailed` イベントを接続中のフロントエンドにブロードキャストする。このイベントは、HTTP リクエストの読み込みに失敗したことを示す。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Network.loadingFailed",
+      "lang": "ja"
+    },
+    "20a66646": {
+      "original": "This feature is only available with the `--experimental-network-inspection` flag enabled.\n\nBroadcasts the `Network.loadingFinished` event to connected frontends. This event indicates that\nHTTP request has finished loading.",
+      "translated": "この機能は `--experimental-network-inspection` フラグが有効な場合にのみ利用できる。\n\n`Network.loadingFinished` イベントを接続中のフロントエンドにブロードキャストする。このイベントは、HTTP リクエストの読み込みが完了したことを示す。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Network.loadingFinished",
+      "lang": "ja"
+    },
+    "62c84f09": {
+      "original": "This feature is only available with the `--experimental-network-inspection` flag enabled.\n\nBroadcasts the `Network.requestWillBeSent` event to connected frontends. This event indicates that\nthe application is about to send an HTTP request.",
+      "translated": "この機能は `--experimental-network-inspection` フラグが有効な場合にのみ利用できる。\n\n`Network.requestWillBeSent` イベントを接続中のフロントエンドにブロードキャストする。このイベントは、アプリケーションが HTTP リクエストを送信しようとしていることを示す。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Network.requestWillBeSent",
+      "lang": "ja"
+    },
+    "816c72b2": {
+      "original": "This feature is only available with the `--experimental-network-inspection` flag enabled.\n\nBroadcasts the `Network.responseReceived` event to connected frontends. This event indicates that\nHTTP response is available.",
+      "translated": "この機能は `--experimental-network-inspection` フラグが有効な場合にのみ利用できる。\n\n`Network.responseReceived` イベントを接続中のフロントエンドにブロードキャストする。このイベントは、HTTP レスポンスが利用可能であることを示す。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Network.responseReceived",
+      "lang": "ja"
+    },
+    "1575e563": {
+      "original": "This feature is only available with the `--experimental-inspector-network-resource` flag enabled.\n\nThe inspector.NetworkResources.put method is used to provide a response for a loadNetworkResource\nrequest issued via the Chrome DevTools Protocol (CDP).\nThis is typically triggered when a source map is specified by URL, and a DevTools frontend—such as\nChrome—requests the resource to retrieve the source map.\n\nThis method allows developers to predefine the resource content to be served in response to such CDP requests.\n\n```js\nconst inspector = require('node:inspector');\n// By preemptively calling put to register the resource, a source map can be resolved when\n// a loadNetworkResource request is made from the frontend.\nasync function setNetworkResources() {\n  const mapUrl = 'http://localhost:3000/dist/app.js.map';\n  const tsUrl = 'http://localhost:3000/src/app.ts';\n  const distAppJsMap = await fetch(mapUrl).then((res) => res.text());\n  const srcAppTs = await fetch(tsUrl).then((res) => res.text());\n  inspector.NetworkResources.put(mapUrl, distAppJsMap);\n  inspector.NetworkResources.put(tsUrl, srcAppTs);\n};\nsetNetworkResources().then(() => {\n  require('./dist/app');\n});\n```\n\nFor more details, see the official CDP documentation: [Network.loadNetworkResource](https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-loadNetworkResource)",
+      "translated": "この機能は `--experimental-inspector-network-resource` フラグが有効な場合にのみ利用できる。\n\ninspector.NetworkResources.put メソッドは、Chrome DevTools Protocol(CDP)を介して発行された loadNetworkResource リクエストに対するレスポンスを提供するために使われる。これは通常、ソースマップが URL で指定され、Chrome などの DevTools フロントエンドがソースマップを取得するためにリソースを要求したときにトリガーされる。\n\nこのメソッドにより、開発者はそのような CDP リクエストに応じて提供されるリソースの内容を事前に定義できる。\n\n```js\nconst inspector = require('node:inspector');\n// By preemptively calling put to register the resource, a source map can be resolved when\n// a loadNetworkResource request is made from the frontend.\nasync function setNetworkResources() {\n  const mapUrl = 'http://localhost:3000/dist/app.js.map';\n  const tsUrl = 'http://localhost:3000/src/app.ts';\n  const distAppJsMap = await fetch(mapUrl).then((res) => res.text());\n  const srcAppTs = await fetch(tsUrl).then((res) => res.text());\n  inspector.NetworkResources.put(mapUrl, distAppJsMap);\n  inspector.NetworkResources.put(tsUrl, srcAppTs);\n};\nsetNetworkResources().then(() => {\n  require('./dist/app');\n});\n```\n\n詳細は、公式の CDP ドキュメントを参照: [Network.loadNetworkResource](https://chromedevtools.github.io/devtools-protocol/tot/Network/#method-loadNetworkResource)",
+      "symbol": "@types/node/inspector.d.ts#inspector.NetworkResources.put",
+      "lang": "ja"
+    },
+    "6c6b9cbf": {
+      "original": "Activate inspector on host and port. Equivalent to `node --inspect=[[host:]port]`, but can be done programmatically after node has\nstarted.\n\nIf wait is `true`, will block until a client has connected to the inspect port\nand flow control has been passed to the debugger client.\n\nSee the [security warning](https://nodejs.org/docs/latest-v22.x/api/cli.html#warning-binding-inspector-to-a-public-ipport-combination-is-insecure)\nregarding the `host` parameter usage.",
+      "translated": "指定したホストとポートでインスペクターを有効化する。`node --inspect=[[host:]port]` と同等だが、node の起動後にプログラムから実行できる。\n\nwait が `true` の場合、クライアントが inspect ポートに接続し、フロー制御がデバッガークライアントに渡されるまでブロックする。\n\n`host` パラメーターの使用に関しては、[セキュリティ警告](https://nodejs.org/docs/latest-v22.x/api/cli.html#warning-binding-inspector-to-a-public-ipport-combination-is-insecure)を参照。",
+      "symbol": "@types/node/inspector.d.ts#inspector.open",
+      "lang": "ja"
+    },
+    "bed9d4b1": {
+      "original": "Block until a client has connected. Defaults to what was specified on the CLI.",
+      "translated": "クライアントが接続するまでブロックする。既定値は CLI で指定されたもの。",
+      "symbol": "@types/node/inspector.d.ts#inspector.open",
+      "lang": "ja"
+    },
+    "a55379ed": {
+      "original": "Disposable that calls `inspector.close()`.",
+      "translated": "`inspector.close()` を呼ぶ Disposable。",
+      "symbol": "@types/node/inspector.d.ts#inspector.open",
+      "lang": "ja"
+    },
+    "bd11725b": {
+      "original": "Host to listen on for inspector connections. Defaults to what was specified on the CLI.",
+      "translated": "インスペクター接続をリッスンするホスト。既定値は CLI で指定されたもの。",
+      "symbol": "@types/node/inspector.d.ts#inspector.open",
+      "lang": "ja"
+    },
+    "e6f70284": {
+      "original": "Port to listen on for inspector connections. Defaults to what was specified on the CLI.",
+      "translated": "インスペクター接続をリッスンするポート。既定値は CLI で指定されたもの。",
+      "symbol": "@types/node/inspector.d.ts#inspector.open",
+      "lang": "ja"
+    },
+    "76f9543a": {
+      "original": "Create a new instance of the inspector.Session class.\nThe inspector session needs to be connected through `session.connect()` before the messages can be dispatched to the inspector backend.",
+      "translated": "inspector.Session クラスの新しいインスタンスを作成する。インスペクターセッションは、メッセージをインスペクターバックエンドにディスパッチできるようになる前に、`session.connect()` を通じて接続する必要がある。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Session",
+      "lang": "ja"
+    },
+    "922aaccc": {
+      "original": "The `inspector.Session` is used for dispatching messages to the V8 inspector\nback-end and receiving message responses and notifications.",
+      "translated": "`inspector.Session` は、V8 インスペクターバックエンドへメッセージをディスパッチし、メッセージのレスポンスと通知を受信するために使われる。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Session",
+      "lang": "ja"
+    },
+    "1215765f": {
+      "original": "Connects a session to the inspector back-end.",
+      "translated": "セッションをインスペクターバックエンドに接続する。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Session.connect",
+      "lang": "ja"
+    },
+    "13f7fe87": {
+      "original": "Connects a session to the inspector back-end.\nAn exception will be thrown if this API was not called on a Worker thread.",
+      "translated": "セッションをインスペクターバックエンドに接続する。この API が Worker スレッド上で呼ばれなかった場合は、例外が投げられる。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Session.connectToMainThread",
+      "lang": "ja"
+    },
+    "25ba98e2": {
+      "original": "Immediately close the session. All pending message callbacks will be called with an error.\n`session.connect()` will need to be called to be able to send messages again.\nReconnected session will lose all inspector state, such as enabled agents or configured breakpoints.",
+      "translated": "セッションをただちに閉じる。保留中のすべてのメッセージコールバックはエラーとともに呼ばれる。再びメッセージを送るには `session.connect()` を呼ぶ必要がある。再接続したセッションは、有効化されたエージェントや構成済みのブレークポイントなど、すべてのインスペクター状態を失う。",
+      "symbol": "@types/node/inspector.d.ts#inspector.Session.disconnect",
+      "lang": "ja"
+    },
+    "733157d4": {
+      "original": "Return the URL of the active inspector, or `undefined` if there is none.\n\n```console\n$ node --inspect -p 'inspector.url()'\nDebugger listening on ws://127.0.0.1:9229/166e272e-7a30-4d09-97ce-f1c012b43c34\nFor help, see: https://nodejs.org/en/docs/inspector\nws://127.0.0.1:9229/166e272e-7a30-4d09-97ce-f1c012b43c34\n\n$ node --inspect=localhost:3000 -p 'inspector.url()'\nDebugger listening on ws://localhost:3000/51cf8d0e-3c36-4c59-8efd-54519839e56a\nFor help, see: https://nodejs.org/en/docs/inspector\nws://localhost:3000/51cf8d0e-3c36-4c59-8efd-54519839e56a\n\n$ node -p 'inspector.url()'\nundefined\n```",
+      "translated": "アクティブなインスペクターの URL を返す。存在しない場合は `undefined` を返す。\n\n```console\n$ node --inspect -p 'inspector.url()'\nDebugger listening on ws://127.0.0.1:9229/166e272e-7a30-4d09-97ce-f1c012b43c34\nFor help, see: https://nodejs.org/en/docs/inspector\nws://127.0.0.1:9229/166e272e-7a30-4d09-97ce-f1c012b43c34\n\n$ node --inspect=localhost:3000 -p 'inspector.url()'\nDebugger listening on ws://localhost:3000/51cf8d0e-3c36-4c59-8efd-54519839e56a\nFor help, see: https://nodejs.org/en/docs/inspector\nws://localhost:3000/51cf8d0e-3c36-4c59-8efd-54519839e56a\n\n$ node -p 'inspector.url()'\nundefined\n```",
+      "symbol": "@types/node/inspector.d.ts#inspector.url",
+      "lang": "ja"
+    },
+    "ad4b48bc": {
+      "original": "Blocks until a client (existing or connected later) has sent `Runtime.runIfWaitingForDebugger` command.\n\nAn exception will be thrown if there is no active inspector.",
+      "translated": "クライアント(既存または後で接続したもの)が `Runtime.runIfWaitingForDebugger` コマンドを送るまでブロックする。\n\nアクティブなインスペクターがない場合は、例外が投げられる。",
+      "symbol": "@types/node/inspector.d.ts#inspector.waitForDebugger",
+      "lang": "ja"
+    },
+    "6a364e00": {
+      "original": "The `node:inspector/promises` module provides an API for interacting with the V8\ninspector.",
+      "translated": "`node:inspector/promises` モジュールは、V8 インスペクターと対話するための API を提供する。",
+      "symbol": "@types/node/inspector.d.ts#inspector/promises",
       "lang": "ja"
     },
     "78a6ad93": {
@@ -15518,6 +15986,144 @@
       "original": "`true` only if the `Tracing` object has been enabled.",
       "translated": "`Tracing` オブジェクトが有効化されている場合にのみ `true`。",
       "symbol": "@types/node/trace_events.d.ts#trace_events.Tracing.enabled",
+      "lang": "ja"
+    },
+    "90f855e8": {
+      "original": "The `node:tty` module provides the `tty.ReadStream` and `tty.WriteStream` classes. In most cases, it will not be necessary or possible to use this module\ndirectly. However, it can be accessed using:\n\n```js\nimport tty from 'node:tty';\n```\n\nWhen Node.js detects that it is being run with a text terminal (\"TTY\")\nattached, `process.stdin` will, by default, be initialized as an instance of `tty.ReadStream` and both `process.stdout` and `process.stderr` will, by\ndefault, be instances of `tty.WriteStream`. The preferred method of determining\nwhether Node.js is being run within a TTY context is to check that the value of\nthe `process.stdout.isTTY` property is `true`:\n\n```console\n$ node -p -e \"Boolean(process.stdout.isTTY)\"\ntrue\n$ node -p -e \"Boolean(process.stdout.isTTY)\" | cat\nfalse\n```\n\nIn most cases, there should be little to no reason for an application to\nmanually create instances of the `tty.ReadStream` and `tty.WriteStream` classes.",
+      "translated": "`node:tty` モジュールは、`tty.ReadStream` クラスと `tty.WriteStream` クラスを提供する。ほとんどの場合、このモジュールを直接使う必要はなく、また使えない。ただし、次のようにアクセスできる:\n\n```js\nimport tty from 'node:tty';\n```\n\nNode.js が、テキストターミナル(「TTY」)が接続された状態で実行されていることを検出すると、既定では `process.stdin` が `tty.ReadStream` のインスタンスとして初期化され、`process.stdout` と `process.stderr` の両方が既定で `tty.WriteStream` のインスタンスになる。Node.js が TTY コンテキスト内で実行されているかどうかを判定する推奨方法は、`process.stdout.isTTY` プロパティの値が `true` であることを確認することである:\n\n```console\n$ node -p -e \"Boolean(process.stdout.isTTY)\"\ntrue\n$ node -p -e \"Boolean(process.stdout.isTTY)\" | cat\nfalse\n```\n\nほとんどの場合、アプリケーションが `tty.ReadStream` クラスや `tty.WriteStream` クラスのインスタンスを手動で作成する理由はほとんど、あるいはまったくないはずである。",
+      "symbol": "@types/node/tty.d.ts#tty",
+      "lang": "ja"
+    },
+    "2feef510": {
+      "original": "-1 - to the left from cursor\n 0 - the entire line\n 1 - to the right from cursor",
+      "translated": "-1 - カーソルから左方向へ\n 0 - 行全体\n 1 - カーソルから右方向へ",
+      "symbol": "@types/node/tty.d.ts#tty.Direction",
+      "lang": "ja"
+    },
+    "a1416102": {
+      "original": "A numeric file descriptor",
+      "translated": "数値のファイルディスクリプター",
+      "symbol": "@types/node/tty.d.ts#tty.isatty",
+      "lang": "ja"
+    },
+    "cfc39e69": {
+      "original": "The `tty.isatty()` method returns `true` if the given `fd` is associated with\na TTY and `false` if it is not, including whenever `fd` is not a non-negative\ninteger.",
+      "translated": "`tty.isatty()` メソッドは、指定された `fd` が TTY に関連付けられている場合は `true` を、そうでない場合は `false` を返す。`fd` が非負の整数でない場合も含めて `false` を返す。",
+      "symbol": "@types/node/tty.d.ts#tty.isatty",
+      "lang": "ja"
+    },
+    "3a1096cd": {
+      "original": "Represents the readable side of a TTY. In normal circumstances `process.stdin` will be the only `tty.ReadStream` instance in a Node.js\nprocess and there should be no reason to create additional instances.",
+      "translated": "TTY の読み取り側を表す。通常の状況では、`process.stdin` が Node.js プロセス内で唯一の `tty.ReadStream` インスタンスであり、追加のインスタンスを作成する理由はないはずである。",
+      "symbol": "@types/node/tty.d.ts#tty.ReadStream",
+      "lang": "ja"
+    },
+    "b11ed89d": {
+      "original": "A `boolean` that is `true` if the TTY is currently configured to operate as a\nraw device.\n\nThis flag is always `false` when a process starts, even if the terminal is\noperating in raw mode. Its value will change with subsequent calls to `setRawMode`.",
+      "translated": "TTY が現在 raw デバイスとして動作するよう構成されている場合に `true` になる `boolean`。\n\nこのフラグは、ターミナルが raw モードで動作している場合でも、プロセス開始時は常に `false` である。その値は、以降の `setRawMode` の呼び出しに応じて変化する。",
+      "symbol": "@types/node/tty.d.ts#tty.ReadStream.isRaw",
+      "lang": "ja"
+    },
+    "55416fb3": {
+      "original": "A `boolean` that is always `true` for `tty.ReadStream` instances.",
+      "translated": "`tty.ReadStream` インスタンスに対して常に `true` になる `boolean`。",
+      "symbol": "@types/node/tty.d.ts#tty.ReadStream.isTTY",
+      "lang": "ja"
+    },
+    "aa585997": {
+      "original": "Allows configuration of `tty.ReadStream` so that it operates as a raw device.\n\nWhen in raw mode, input is always available character-by-character, not\nincluding modifiers. Additionally, all special processing of characters by the\nterminal is disabled, including echoing input\ncharacters. Ctrl+C will no longer cause a `SIGINT` when\nin this mode.",
+      "translated": "`tty.ReadStream` を raw デバイスとして動作するよう構成できる。\n\nraw モードでは、入力は常に、修飾キーを含まず 1 文字ずつ利用可能になる。さらに、入力文字のエコー表示を含め、ターミナルによる文字の特別な処理がすべて無効化される。このモードでは Ctrl+C を押しても `SIGINT` が発生しなくなる。",
+      "symbol": "@types/node/tty.d.ts#tty.ReadStream.setRawMode",
+      "lang": "ja"
+    },
+    "6f15fdcc": {
+      "original": "If `true`, configures the `tty.ReadStream` to operate as a raw device. If `false`, configures the `tty.ReadStream` to operate in its default mode. The `readStream.isRaw`\nproperty will be set to the resulting mode.",
+      "translated": "`true` の場合、`tty.ReadStream` を raw デバイスとして動作するよう構成する。`false` の場合、`tty.ReadStream` を既定のモードで動作するよう構成する。`readStream.isRaw` プロパティは、結果として得られたモードに設定される。",
+      "symbol": "@types/node/tty.d.ts#tty.ReadStream.setRawMode",
+      "lang": "ja"
+    },
+    "f128a15d": {
+      "original": "The read stream instance.",
+      "translated": "読み取りストリームのインスタンス。",
+      "symbol": "@types/node/tty.d.ts#tty.ReadStream.setRawMode",
+      "lang": "ja"
+    },
+    "f262d060": {
+      "original": "Represents the writable side of a TTY. In normal circumstances, `process.stdout` and `process.stderr` will be the only`tty.WriteStream` instances created for a Node.js process and there\nshould be no reason to create additional instances.",
+      "translated": "TTY の書き込み側を表す。通常の状況では、`process.stdout` と `process.stderr` が Node.js プロセス用に作成される唯一の `tty.WriteStream` インスタンスであり、追加のインスタンスを作成する理由はないはずである。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream",
+      "lang": "ja"
+    },
+    "7da394b7": {
+      "original": "`writeStream.clearLine()` clears the current line of this `WriteStream` in a\ndirection identified by `dir`.",
+      "translated": "`writeStream.clearLine()` は、この `WriteStream` の現在の行を、`dir` で識別される方向にクリアする。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.clearLine",
+      "lang": "ja"
+    },
+    "c9ae76d6": {
+      "original": "`writeStream.clearScreenDown()` clears this `WriteStream` from the current\ncursor down.",
+      "translated": "`writeStream.clearScreenDown()` は、この `WriteStream` を現在のカーソル位置から下方向にクリアする。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.clearScreenDown",
+      "lang": "ja"
+    },
+    "563c030e": {
+      "original": "A `number` specifying the number of columns the TTY currently has. This property\nis updated whenever the `'resize'` event is emitted.",
+      "translated": "TTY が現在持つ列数を指定する `number`。このプロパティは、`'resize'` イベントが発行されるたびに更新される。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.columns",
+      "lang": "ja"
+    },
+    "31530a9f": {
+      "original": "`writeStream.cursorTo()` moves this `WriteStream`'s cursor to the specified\nposition.",
+      "translated": "`writeStream.cursorTo()` は、この `WriteStream` のカーソルを指定された位置に移動する。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.cursorTo",
+      "lang": "ja"
+    },
+    "a570f183": {
+      "original": "An object containing the environment variables to check. This enables simulating the usage of a specific terminal.",
+      "translated": "チェックする環境変数を含むオブジェクト。これにより、特定のターミナルの使用をシミュレートできる。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.getColorDepth",
+      "lang": "ja"
+    },
+    "90ebf24d": {
+      "original": "Returns:\n\n* `1` for 2,\n* `4` for 16,\n* `8` for 256,\n* `24` for 16,777,216 colors supported.\n\nUse this to determine what colors the terminal supports. Due to the nature of\ncolors in terminals it is possible to either have false positives or false\nnegatives. It depends on process information and the environment variables that\nmay lie about what terminal is used.\nIt is possible to pass in an `env` object to simulate the usage of a specific\nterminal. This can be useful to check how specific environment settings behave.\n\nTo enforce a specific color support, use one of the below environment settings.\n\n* 2 colors: `FORCE_COLOR = 0` (Disables colors)\n* 16 colors: `FORCE_COLOR = 1`\n* 256 colors: `FORCE_COLOR = 2`\n* 16,777,216 colors: `FORCE_COLOR = 3`\n\nDisabling color support is also possible by using the `NO_COLOR` and `NODE_DISABLE_COLORS` environment variables.",
+      "translated": "次を返す:\n\n* 2 色の場合 `1`\n* 16 色の場合 `4`\n* 256 色の場合 `8`\n* 16,777,216 色をサポートする場合 `24`\n\nこれを使ってターミナルがサポートする色を判定する。ターミナルにおける色の性質上、偽陽性または偽陰性が生じる可能性がある。これは、プロセス情報と、どのターミナルが使われているかについて偽の情報を持つ可能性のある環境変数に依存する。特定のターミナルの使用をシミュレートするために `env` オブジェクトを渡すことができる。これは、特定の環境設定がどう振る舞うかを確認するのに役立つ。\n\n特定の色サポートを強制するには、以下の環境設定のいずれかを使う。\n\n* 2 色: `FORCE_COLOR = 0`(色を無効化する)\n* 16 色: `FORCE_COLOR = 1`\n* 256 色: `FORCE_COLOR = 2`\n* 16,777,216 色: `FORCE_COLOR = 3`\n\n`NO_COLOR` および `NODE_DISABLE_COLORS` 環境変数を使って色サポートを無効化することも可能である。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.getColorDepth",
+      "lang": "ja"
+    },
+    "c1d5bb8f": {
+      "original": "`writeStream.getWindowSize()` returns the size of the TTY\ncorresponding to this `WriteStream`. The array is of the type `[numColumns, numRows]` where `numColumns` and `numRows` represent the number\nof columns and rows in the corresponding TTY.",
+      "translated": "`writeStream.getWindowSize()` は、この `WriteStream` に対応する TTY のサイズを返す。配列は `[numColumns, numRows]` の型で、`numColumns` と `numRows` は対応する TTY の列数と行数を表す。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.getWindowSize",
+      "lang": "ja"
+    },
+    "2714b16a": {
+      "original": "Returns `true` if the `writeStream` supports at least as many colors as provided\nin `count`. Minimum support is 2 (black and white).\n\nThis has the same false positives and negatives as described in `writeStream.getColorDepth()`.\n\n```js\nprocess.stdout.hasColors();\n// Returns true or false depending on if `stdout` supports at least 16 colors.\nprocess.stdout.hasColors(256);\n// Returns true or false depending on if `stdout` supports at least 256 colors.\nprocess.stdout.hasColors({ TMUX: '1' });\n// Returns true.\nprocess.stdout.hasColors(2 ** 24, { TMUX: '1' });\n// Returns false (the environment setting pretends to support 2 ** 8 colors).\n```",
+      "translated": "`writeStream` が `count` で指定された数以上の色をサポートする場合に `true` を返す。最小サポートは 2(白黒)である。\n\nこれは `writeStream.getColorDepth()` で説明したのと同じ偽陽性・偽陰性を持つ。\n\n```js\nprocess.stdout.hasColors();\n// Returns true or false depending on if `stdout` supports at least 16 colors.\nprocess.stdout.hasColors(256);\n// Returns true or false depending on if `stdout` supports at least 256 colors.\nprocess.stdout.hasColors({ TMUX: '1' });\n// Returns true.\nprocess.stdout.hasColors(2 ** 24, { TMUX: '1' });\n// Returns false (the environment setting pretends to support 2 ** 8 colors).\n```",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.hasColors",
+      "lang": "ja"
+    },
+    "58b5986e": {
+      "original": "The number of colors that are requested (minimum 2).",
+      "translated": "要求される色数(最小 2)。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.hasColors",
+      "lang": "ja"
+    },
+    "e2ef2b48": {
+      "original": "A `boolean` that is always `true`.",
+      "translated": "常に `true` になる `boolean`。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.isTTY",
+      "lang": "ja"
+    },
+    "f661d59b": {
+      "original": "`writeStream.moveCursor()` moves this `WriteStream`'s cursor _relative_ to its\ncurrent position.",
+      "translated": "`writeStream.moveCursor()` は、この `WriteStream` のカーソルを現在位置を基準として_相対的に_移動する。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.moveCursor",
+      "lang": "ja"
+    },
+    "57b31dda": {
+      "original": "A `number` specifying the number of rows the TTY currently has. This property\nis updated whenever the `'resize'` event is emitted.",
+      "translated": "TTY が現在持つ行数を指定する `number`。このプロパティは、`'resize'` イベントが発行されるたびに更新される。",
+      "symbol": "@types/node/tty.d.ts#tty.WriteStream.rows",
       "lang": "ja"
     },
     "fc22a5ac": {
