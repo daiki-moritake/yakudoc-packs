@@ -88,6 +88,12 @@
       "symbol": "@types/node/crypto.d.ts#crypto.constants.defaultCoreCipherList",
       "lang": "ja"
     },
+    "21950260": {
+      "original": "When called, the active `Immediate` object will not require the Node.js event\nloop to remain active. If there is no other activity keeping the event loop\nrunning, the process may exit before the `Immediate` object's callback is\ninvoked. Calling `immediate.unref()` multiple times will have no effect.",
+      "translated": "呼び出されると、アクティブな `Immediate` オブジェクトは Node.js イベントループがアクティブなままであることを要求しなくなる。イベントループを実行し続ける他のアクティビティがない場合、`Immediate` オブジェクトのコールバックが呼ばれる前にプロセスが終了する可能性がある。`immediate.unref()` を複数回呼んでも効果はない。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Immediate.unref",
+      "lang": "ja"
+    },
     "22326939": {
       "original": "Specifies the column number offset that is displayed in stack traces produced by this script.",
       "translated": "このスクリプトが生成するスタックトレースに表示される列番号のオフセットを指定する。",
@@ -116,6 +122,12 @@
       "original": "A value indicating whether the `_` variable has been assigned.",
       "translated": "`_` 変数が代入されているかどうかを示す値。",
       "symbol": "@types/node/repl.d.ts#repl.REPLServer.underscoreAssigned",
+      "lang": "ja"
+    },
+    "29215511": {
+      "original": "Returns `true` if error mode is \"fatal\", and `false` otherwise.",
+      "translated": "エラーモードが「fatal」の場合は `true` を、そうでなければ `false` を返す。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.TextDecoderStream.fatal",
       "lang": "ja"
     },
     "31243655": {
@@ -14986,6 +14998,210 @@
       "symbol": "@types/node/stream/consumers.d.ts#stream/consumers.text",
       "lang": "ja"
     },
+    "a9bc1227": {
+      "original": "This Streams API interface provides a built-in byte length queuing\nstrategy that can be used when constructing streams.",
+      "translated": "この Streams API インターフェイスは、ストリームを構築するときに使える組み込みのバイト長キューイング戦略を提供する。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ByteLengthQueuingStrategy",
+      "lang": "ja"
+    },
+    "ac4ad2e6": {
+      "original": "`ByteLengthQueuingStrategy` class is a global reference for `import { ByteLengthQueuingStrategy } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-bytelengthqueuingstrategy",
+      "translated": "`ByteLengthQueuingStrategy` クラスは、`import { ByteLengthQueuingStrategy } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-bytelengthqueuingstrategy",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.ByteLengthQueuingStrategy",
+      "lang": "ja"
+    },
+    "1f10a032": {
+      "original": "`CountQueuingStrategy` class is a global reference for `import { CountQueuingStrategy } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-countqueuingstrategy",
+      "translated": "`CountQueuingStrategy` クラスは、`import { CountQueuingStrategy } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-countqueuingstrategy",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.CountQueuingStrategy",
+      "lang": "ja"
+    },
+    "2e8e8837": {
+      "original": "`ReadableByteStreamController` class is a global reference for `import { ReadableByteStreamController } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-readablebytestreamcontroller",
+      "translated": "`ReadableByteStreamController` クラスは、`import { ReadableByteStreamController } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-readablebytestreamcontroller",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.ReadableByteStreamController",
+      "lang": "ja"
+    },
+    "c90698b1": {
+      "original": "`ReadableStream` class is a global reference for `import { ReadableStream } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-readablestream",
+      "translated": "`ReadableStream` クラスは、`import { ReadableStream } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-readablestream",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.ReadableStream",
+      "lang": "ja"
+    },
+    "fbe8ec70": {
+      "original": "`ReadableStreamBYOBReader` class is a global reference for `import { ReadableStreamBYOBReader } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-readablestreambyobreader",
+      "translated": "`ReadableStreamBYOBReader` クラスは、`import { ReadableStreamBYOBReader } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-readablestreambyobreader",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.ReadableStreamBYOBReader",
+      "lang": "ja"
+    },
+    "0ff592ee": {
+      "original": "`ReadableStreamBYOBRequest` class is a global reference for `import { ReadableStreamBYOBRequest } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-readablestreambyobrequest",
+      "translated": "`ReadableStreamBYOBRequest` クラスは、`import { ReadableStreamBYOBRequest } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-readablestreambyobrequest",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.ReadableStreamBYOBRequest",
+      "lang": "ja"
+    },
+    "2e57ceb1": {
+      "original": "`ReadableStreamDefaultController` class is a global reference for `import { ReadableStreamDefaultController } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-readablestreamdefaultcontroller",
+      "translated": "`ReadableStreamDefaultController` クラスは、`import { ReadableStreamDefaultController } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-readablestreamdefaultcontroller",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.ReadableStreamDefaultController",
+      "lang": "ja"
+    },
+    "c9d35e4f": {
+      "original": "`ReadableStreamDefaultReader` class is a global reference for `import { ReadableStreamDefaultReader } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-readablestreamdefaultreader",
+      "translated": "`ReadableStreamDefaultReader` クラスは、`import { ReadableStreamDefaultReader } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-readablestreamdefaultreader",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.ReadableStreamDefaultReader",
+      "lang": "ja"
+    },
+    "791a22f2": {
+      "original": "`TextDecoderStream` class is a global reference for `import { TextDecoderStream } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-textdecoderstream",
+      "translated": "`TextDecoderStream` クラスは、`import { TextDecoderStream } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-textdecoderstream",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.TextDecoderStream",
+      "lang": "ja"
+    },
+    "abdba25f": {
+      "original": "`TextEncoderStream` class is a global reference for `import { TextEncoderStream } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-textencoderstream",
+      "translated": "`TextEncoderStream` クラスは、`import { TextEncoderStream } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-textencoderstream",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.TextEncoderStream",
+      "lang": "ja"
+    },
+    "a484ab33": {
+      "original": "`TransformStream` class is a global reference for `import { TransformStream } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-transformstream",
+      "translated": "`TransformStream` クラスは、`import { TransformStream } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-transformstream",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.TransformStream",
+      "lang": "ja"
+    },
+    "953ef2f9": {
+      "original": "`TransformStreamDefaultController` class is a global reference for `import { TransformStreamDefaultController } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-transformstreamdefaultcontroller",
+      "translated": "`TransformStreamDefaultController` クラスは、`import { TransformStreamDefaultController } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-transformstreamdefaultcontroller",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.TransformStreamDefaultController",
+      "lang": "ja"
+    },
+    "99bc4c95": {
+      "original": "`WritableStream` class is a global reference for `import { WritableStream } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-writablestream",
+      "translated": "`WritableStream` クラスは、`import { WritableStream } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-writablestream",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.WritableStream",
+      "lang": "ja"
+    },
+    "69ba3417": {
+      "original": "`WritableStreamDefaultController` class is a global reference for `import { WritableStreamDefaultController } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-writablestreamdefaultcontroller",
+      "translated": "`WritableStreamDefaultController` クラスは、`import { WritableStreamDefaultController } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-writablestreamdefaultcontroller",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.WritableStreamDefaultController",
+      "lang": "ja"
+    },
+    "dc8715f1": {
+      "original": "`WritableStreamDefaultWriter` class is a global reference for `import { WritableStreamDefaultWriter } from 'node:stream/web'`.\nhttps://nodejs.org/api/globals.html#class-writablestreamdefaultwriter",
+      "translated": "`WritableStreamDefaultWriter` クラスは、`import { WritableStreamDefaultWriter } from 'node:stream/web'` へのグローバル参照である。\nhttps://nodejs.org/api/globals.html#class-writablestreamdefaultwriter",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.global.WritableStreamDefaultWriter",
+      "lang": "ja"
+    },
+    "033bf14a": {
+      "original": "Creates a new ByteLengthQueuingStrategy with the provided high water\nmark.\n\nNote that the provided high water mark will not be validated ahead of\ntime. Instead, if it is negative, NaN, or not a number, the resulting\nByteLengthQueuingStrategy will cause the corresponding stream\nconstructor to throw.",
+      "translated": "指定された high water mark で新しい ByteLengthQueuingStrategy を作成する。\n\n指定された high water mark は事前に検証されないことに注意すること。代わりに、それが負・NaN・数値でない場合、結果の ByteLengthQueuingStrategy は対応するストリームコンストラクターに例外を投げさせる。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.QueuingStrategyInit.highWaterMark",
+      "lang": "ja"
+    },
+    "d38637aa": {
+      "original": "This Streams API interface represents a readable stream of byte data.",
+      "translated": "この Streams API インターフェイスは、バイトデータの読み取り可能なストリームを表す。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ReadableStream",
+      "lang": "ja"
+    },
+    "f8df6345": {
+      "original": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBReader)",
+      "translated": "[MDN リファレンス](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBReader)",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ReadableStreamBYOBReader",
+      "lang": "ja"
+    },
+    "53e55f14": {
+      "original": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBReader/read)",
+      "translated": "[MDN リファレンス](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBReader/read)",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ReadableStreamBYOBReader.read",
+      "lang": "ja"
+    },
+    "b4ab27ac": {
+      "original": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBReader/releaseLock)",
+      "translated": "[MDN リファレンス](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBReader/releaseLock)",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ReadableStreamBYOBReader.releaseLock",
+      "lang": "ja"
+    },
+    "575db577": {
+      "original": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBRequest)",
+      "translated": "[MDN リファレンス](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBRequest)",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ReadableStreamBYOBRequest",
+      "lang": "ja"
+    },
+    "94364a50": {
+      "original": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBRequest/respond)",
+      "translated": "[MDN リファレンス](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBRequest/respond)",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ReadableStreamBYOBRequest.respond",
+      "lang": "ja"
+    },
+    "aa6a7368": {
+      "original": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBRequest/respondWithNewView)",
+      "translated": "[MDN リファレンス](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBRequest/respondWithNewView)",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ReadableStreamBYOBRequest.respondWithNewView",
+      "lang": "ja"
+    },
+    "1facb8a6": {
+      "original": "[MDN Reference](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBRequest/view)",
+      "translated": "[MDN リファレンス](https://developer.mozilla.org/docs/Web/API/ReadableStreamBYOBRequest/view)",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ReadableStreamBYOBRequest.view",
+      "lang": "ja"
+    },
+    "bb7cb8e5": {
+      "original": "Creates a ReadableStreamBYOBReader and locks the stream to the new reader.\n\nThis call behaves the same way as the no-argument variant, except that it only works on readable byte streams, i.e. streams which were constructed specifically with the ability to handle \"bring your own buffer\" reading. The returned BYOB reader provides the ability to directly read individual chunks from the stream via its read() method, into developer-supplied buffers, allowing more precise control over allocation.",
+      "translated": "ReadableStreamBYOBReader を作成し、ストリームを新しいリーダーにロックする。\n\nこの呼び出しは、引数なしのバリアントと同じように振る舞うが、読み取り可能なバイトストリーム、すなわち「bring your own buffer」読み取りを処理する能力を備えて特別に構築されたストリームでのみ機能する点が異なる。返される BYOB リーダーは、その read() メソッドを介して、開発者が用意したバッファーに個々のチャンクをストリームから直接読み取る能力を提供し、割り当てをより正確に制御できるようにする。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ReadableStreamGetReaderOptions.mode",
+      "lang": "ja"
+    },
+    "887fc515": {
+      "original": "Provides a convenient, chainable way of piping this readable stream\nthrough a transform stream (or any other { writable, readable }\npair). It simply pipes the stream into the writable side of the\nsupplied pair, and returns the readable side for further use.\n\nPiping a stream will lock it for the duration of the pipe, preventing\nany other consumer from acquiring a reader.",
+      "translated": "この読み取り可能なストリームを transform ストリーム(または他の任意の { writable, readable } ペア)を通じてパイプする、便利で連鎖可能な方法を提供する。単にストリームを指定されたペアの書き込み可能側にパイプし、さらに使うために読み取り可能側を返す。\n\nストリームをパイプすると、パイプの間そのストリームはロックされ、他のコンシューマーがリーダーを取得できなくなる。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.ReadableWritablePair.writable",
+      "lang": "ja"
+    },
+    "01bd577c": {
+      "original": "Pipes this readable stream to a given writable stream destination.\nThe way in which the piping process behaves under various error\nconditions can be customized with a number of passed options. It\nreturns a promise that fulfills when the piping process completes\nsuccessfully, or rejects if any errors were encountered.\n\nPiping a stream will lock it for the duration of the pipe, preventing\nany other consumer from acquiring a reader.\n\nErrors and closures of the source and destination streams propagate\nas follows:\n\nAn error in this source readable stream will abort destination,\nunless preventAbort is truthy. The returned promise will be rejected\nwith the source's error, or with any error that occurs during\naborting the destination.\n\nAn error in destination will cancel this source readable stream,\nunless preventCancel is truthy. The returned promise will be rejected\nwith the destination's error, or with any error that occurs during\ncanceling the source.\n\nWhen this source readable stream closes, destination will be closed,\nunless preventClose is truthy. The returned promise will be fulfilled\nonce this process completes, unless an error is encountered while\nclosing the destination, in which case it will be rejected with that\nerror.\n\nIf destination starts out closed or closing, this source readable\nstream will be canceled, unless preventCancel is true. The returned\npromise will be rejected with an error indicating piping to a closed\nstream failed, or with any error that occurs during canceling the\nsource.\n\nThe signal option can be set to an AbortSignal to allow aborting an\nongoing pipe operation via the corresponding AbortController. In this\ncase, this source readable stream will be canceled, and destination\naborted, unless the respective options preventCancel or preventAbort\nare set.",
+      "translated": "この読み取り可能なストリームを、指定された書き込み可能なストリームの宛先にパイプする。パイプ処理がさまざまなエラー条件下でどう振る舞うかは、渡される多数のオプションでカスタマイズできる。パイプ処理が正常に完了すると解決され、エラーが発生した場合は拒否される Promise を返す。\n\nストリームをパイプすると、パイプの間そのストリームはロックされ、他のコンシューマーがリーダーを取得できなくなる。\n\nソースおよび宛先ストリームのエラーとクローズは、次のように伝播する:\n\nこのソース読み取り可能ストリームでのエラーは、preventAbort が truthy でない限り、宛先を中止する。返される Promise は、ソースのエラー、または宛先の中止中に発生した任意のエラーで拒否される。\n\n宛先でのエラーは、preventCancel が truthy でない限り、このソース読み取り可能ストリームをキャンセルする。返される Promise は、宛先のエラー、またはソースのキャンセル中に発生した任意のエラーで拒否される。\n\nこのソース読み取り可能ストリームが閉じると、preventClose が truthy でない限り、宛先が閉じられる。返される Promise は、この処理が完了するとフルフィルされるが、宛先を閉じる際にエラーが発生した場合はそのエラーで拒否される。\n\n宛先が最初から閉じているか閉じかけている場合、preventCancel が true でない限り、このソース読み取り可能ストリームはキャンセルされる。返される Promise は、閉じたストリームへのパイプが失敗したことを示すエラー、またはソースのキャンセル中に発生した任意のエラーで拒否される。\n\nsignal オプションを AbortSignal に設定すると、対応する AbortController を介して進行中のパイプ操作を中止できる。この場合、それぞれのオプション preventCancel または preventAbort が設定されていない限り、このソース読み取り可能ストリームはキャンセルされ、宛先は中止される。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.StreamPipeOptions.preventClose",
+      "lang": "ja"
+    },
+    "2b11edfa": {
+      "original": "Returns encoding's name, lower cased.",
+      "translated": "エンコーディングの名前を小文字で返す。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.TextDecoderStream.encoding",
+      "lang": "ja"
+    },
+    "71b4d85e": {
+      "original": "Returns `true` if ignore BOM flag is set, and `false` otherwise.",
+      "translated": "ignore BOM フラグが設定されている場合は `true` を、そうでなければ `false` を返す。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.TextDecoderStream.ignoreBOM",
+      "lang": "ja"
+    },
+    "6e1cd99c": {
+      "original": "Returns \"utf-8\".",
+      "translated": "\"utf-8\" を返す。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.TextEncoderStream.encoding",
+      "lang": "ja"
+    },
+    "b998a4c9": {
+      "original": "This Streams API interface provides a standard abstraction for writing\nstreaming data to a destination, known as a sink. This object comes with\nbuilt-in back pressure and queuing.",
+      "translated": "この Streams API インターフェイスは、シンクと呼ばれる宛先へストリーミングデータを書き込むための標準的な抽象化を提供する。このオブジェクトには、組み込みのバックプレッシャーとキューイングが備わっている。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.WritableStream",
+      "lang": "ja"
+    },
+    "858e3124": {
+      "original": "This Streams API interface represents a controller allowing control of a\nWritableStream's state. When constructing a WritableStream, the\nunderlying sink is given a corresponding WritableStreamDefaultController\ninstance to manipulate.",
+      "translated": "この Streams API インターフェイスは、WritableStream の状態を制御できるコントローラーを表す。WritableStream を構築するとき、基盤となるシンクには、操作のための対応する WritableStreamDefaultController インスタンスが与えられる。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.WritableStreamDefaultController",
+      "lang": "ja"
+    },
+    "ca848dd8": {
+      "original": "This Streams API interface is the object returned by\nWritableStream.getWriter() and once created locks the < writer to the\nWritableStream ensuring that no other streams can write to the underlying\nsink.",
+      "translated": "この Streams API インターフェイスは、WritableStream.getWriter() が返すオブジェクトであり、作成されると writer を WritableStream にロックして、他のストリームが基盤となるシンクに書き込めないようにする。",
+      "symbol": "@types/node/stream/web.d.ts#stream/web.WritableStreamDefaultWriter",
+      "lang": "ja"
+    },
     "af170917": {
       "original": "The `node:string_decoder` module provides an API for decoding `Buffer` objects\ninto strings in a manner that preserves encoded multi-byte UTF-8 and UTF-16\ncharacters. It can be accessed using:\n\n```js\nimport { StringDecoder } from 'node:string_decoder';\n```\n\nThe following example shows the basic use of the `StringDecoder` class.\n\n```js\nimport { StringDecoder } from 'node:string_decoder';\nconst decoder = new StringDecoder('utf8');\n\nconst cent = Buffer.from([0xC2, 0xA2]);\nconsole.log(decoder.write(cent)); // Prints: ¢\n\nconst euro = Buffer.from([0xE2, 0x82, 0xAC]);\nconsole.log(decoder.write(euro)); // Prints: €\n```\n\nWhen a `Buffer` instance is written to the `StringDecoder` instance, an\ninternal buffer is used to ensure that the decoded string does not contain\nany incomplete multibyte characters. These are held in the buffer until the\nnext call to `stringDecoder.write()` or until `stringDecoder.end()` is called.\n\nIn the following example, the three UTF-8 encoded bytes of the European Euro\nsymbol (`€`) are written over three separate operations:\n\n```js\nimport { StringDecoder } from 'node:string_decoder';\nconst decoder = new StringDecoder('utf8');\n\ndecoder.write(Buffer.from([0xE2]));\ndecoder.write(Buffer.from([0x82]));\nconsole.log(decoder.end(Buffer.from([0xAC]))); // Prints: €\n```",
       "translated": "`node:string_decoder` モジュールは、`Buffer` オブジェクトを、エンコードされたマルチバイトの UTF-8 および UTF-16 文字を保持する形で文字列へデコードするための API を提供する。次のようにアクセスできる:\n\n```js\nimport { StringDecoder } from 'node:string_decoder';\n```\n\n次の例は、`StringDecoder` クラスの基本的な使い方を示す。\n\n```js\nimport { StringDecoder } from 'node:string_decoder';\nconst decoder = new StringDecoder('utf8');\n\nconst cent = Buffer.from([0xC2, 0xA2]);\nconsole.log(decoder.write(cent)); // Prints: ¢\n\nconst euro = Buffer.from([0xE2, 0x82, 0xAC]);\nconsole.log(decoder.write(euro)); // Prints: €\n```\n\n`Buffer` インスタンスが `StringDecoder` インスタンスに書き込まれると、デコードされた文字列に不完全なマルチバイト文字が含まれないよう、内部バッファが使われる。これらは、次に `stringDecoder.write()` が呼ばれるか、`stringDecoder.end()` が呼ばれるまでバッファ内に保持される。\n\n次の例では、ヨーロッパのユーロ記号(`€`)を表す 3 つの UTF-8 エンコードバイトが、3 つの別々の操作にわたって書き込まれる:\n\n```js\nimport { StringDecoder } from 'node:string_decoder';\nconst decoder = new StringDecoder('utf8');\n\ndecoder.write(Buffer.from([0xE2]));\ndecoder.write(Buffer.from([0x82]));\nconsole.log(decoder.end(Buffer.from([0xAC]))); // Prints: €\n```",
@@ -15008,6 +15224,216 @@
       "original": "The bytes to decode.",
       "translated": "デコードするバイト。",
       "symbol": "@types/node/string_decoder.d.ts#string_decoder.StringDecoder.write",
+      "lang": "ja"
+    },
+    "cbc8fad9": {
+      "original": "The `timer` module exposes a global API for scheduling functions to\nbe called at some future period of time. Because the timer functions are\nglobals, there is no need to import `node:timers` to use the API.\n\nThe timer functions within Node.js implement a similar API as the timers API\nprovided by Web Browsers but use a different internal implementation that is\nbuilt around the Node.js [Event Loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#setimmediate-vs-settimeout).",
+      "translated": "`timer` モジュールは、関数を将来のある時点で呼び出すようスケジュールするためのグローバル API を公開する。タイマー関数はグローバルなので、この API を使うために `node:timers` をインポートする必要はない。\n\nNode.js のタイマー関数は、Web ブラウザーが提供するタイマー API に似た API を実装するが、Node.js の [イベントループ](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#setimmediate-vs-settimeout) を中心に構築された、異なる内部実装を使う。",
+      "symbol": "@types/node/timers.d.ts#timers",
+      "lang": "ja"
+    },
+    "1c688a8e": {
+      "original": "An `Immediate` object as returned by `setImmediate()`.",
+      "translated": "`setImmediate()` が返す `Immediate` オブジェクト。",
+      "symbol": "@types/node/timers.d.ts#timers.global.clearImmediate",
+      "lang": "ja"
+    },
+    "b8944ac3": {
+      "original": "Cancels an `Immediate` object created by `setImmediate()`.",
+      "translated": "`setImmediate()` で作成された `Immediate` オブジェクトをキャンセルする。",
+      "symbol": "@types/node/timers.d.ts#timers.global.clearImmediate",
+      "lang": "ja"
+    },
+    "bedc9719": {
+      "original": "A `Timeout` object as returned by `setInterval()`\nor the primitive of the `Timeout` object as a string or a number.",
+      "translated": "`setInterval()` が返す `Timeout` オブジェクト、または `Timeout` オブジェクトのプリミティブ(文字列または数値として)。",
+      "symbol": "@types/node/timers.d.ts#timers.global.clearInterval",
+      "lang": "ja"
+    },
+    "65e835f3": {
+      "original": "Cancels a `Timeout` object created by `setInterval()`.",
+      "translated": "`setInterval()` で作成された `Timeout` オブジェクトをキャンセルする。",
+      "symbol": "@types/node/timers.d.ts#timers.global.clearInterval",
+      "lang": "ja"
+    },
+    "f0c5873c": {
+      "original": "A `Timeout` object as returned by `setTimeout()`\nor the primitive of the `Timeout` object as a string or a number.",
+      "translated": "`setTimeout()` が返す `Timeout` オブジェクト、または `Timeout` オブジェクトのプリミティブ(文字列または数値として)。",
+      "symbol": "@types/node/timers.d.ts#timers.global.clearTimeout",
+      "lang": "ja"
+    },
+    "350e4b37": {
+      "original": "Cancels a `Timeout` object created by `setTimeout()`.",
+      "translated": "`setTimeout()` で作成された `Timeout` オブジェクトをキャンセルする。",
+      "symbol": "@types/node/timers.d.ts#timers.global.clearTimeout",
+      "lang": "ja"
+    },
+    "be37cdbe": {
+      "original": "This object is created internally and is returned from `setImmediate()`. It\ncan be passed to `clearImmediate()` in order to cancel the scheduled\nactions.\n\nBy default, when an immediate is scheduled, the Node.js event loop will continue\nrunning as long as the immediate is active. The `Immediate` object returned by\n`setImmediate()` exports both `immediate.ref()` and `immediate.unref()`\nfunctions that can be used to control this default behavior.",
+      "translated": "このオブジェクトは内部で作成され、`setImmediate()` から返される。スケジュールされたアクションをキャンセルするために `clearImmediate()` に渡すことができる。\n\n既定では、immediate がスケジュールされると、その immediate がアクティブである限り Node.js イベントループは実行を続ける。`setImmediate()` が返す `Immediate` オブジェクトは、この既定の挙動を制御するために使える `immediate.ref()` と `immediate.unref()` の両方の関数をエクスポートする。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Immediate",
+      "lang": "ja"
+    },
+    "790da630": {
+      "original": "Cancels the immediate. This is similar to calling `clearImmediate()`.",
+      "translated": "immediate をキャンセルする。これは `clearImmediate()` を呼ぶのに似ている。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Immediate.[Symbol.dispose]",
+      "lang": "ja"
+    },
+    "a3808086": {
+      "original": "If true, the `Immediate` object will keep the Node.js event loop active.",
+      "translated": "true の場合、`Immediate` オブジェクトは Node.js イベントループをアクティブに保つ。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Immediate.hasRef",
+      "lang": "ja"
+    },
+    "e61f64a9": {
+      "original": "a reference to `immediate`",
+      "translated": "`immediate` への参照",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Immediate.ref",
+      "lang": "ja"
+    },
+    "67bdf662": {
+      "original": "When called, requests that the Node.js event loop _not_ exit so long as the\n`Immediate` is active. Calling `immediate.ref()` multiple times will have no\neffect.\n\nBy default, all `Immediate` objects are \"ref'ed\", making it normally unnecessary\nto call `immediate.ref()` unless `immediate.unref()` had been called previously.",
+      "translated": "呼び出されると、`Immediate` がアクティブである限り Node.js イベントループが終了_しない_よう要求する。`immediate.ref()` を複数回呼んでも効果はない。\n\n既定では、すべての `Immediate` オブジェクトは「ref された」状態であり、以前に `immediate.unref()` が呼ばれていない限り、通常 `immediate.ref()` を呼ぶ必要はない。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Immediate.ref",
+      "lang": "ja"
+    },
+    "fc4ec0ae": {
+      "original": "This object is created internally and is returned from `setTimeout()` and\n`setInterval()`. It can be passed to either `clearTimeout()` or\n`clearInterval()` in order to cancel the scheduled actions.\n\nBy default, when a timer is scheduled using either `setTimeout()` or\n`setInterval()`, the Node.js event loop will continue running as long as the\ntimer is active. Each of the `Timeout` objects returned by these functions\nexport both `timeout.ref()` and `timeout.unref()` functions that can be used to\ncontrol this default behavior.",
+      "translated": "このオブジェクトは内部で作成され、`setTimeout()` と `setInterval()` から返される。スケジュールされたアクションをキャンセルするために `clearTimeout()` または `clearInterval()` のいずれかに渡すことができる。\n\n既定では、`setTimeout()` または `setInterval()` のいずれかを使ってタイマーがスケジュールされると、そのタイマーがアクティブである限り Node.js イベントループは実行を続ける。これらの関数が返す各 `Timeout` オブジェクトは、この既定の挙動を制御するために使える `timeout.ref()` と `timeout.unref()` の両方の関数をエクスポートする。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Timeout",
+      "lang": "ja"
+    },
+    "95f7685b": {
+      "original": "Coerce a `Timeout` to a primitive. The primitive can be used to\nclear the `Timeout`. The primitive can only be used in the\nsame thread where the timeout was created. Therefore, to use it\nacross `worker_threads` it must first be passed to the correct\nthread. This allows enhanced compatibility with browser\n`setTimeout()` and `setInterval()` implementations.",
+      "translated": "`Timeout` をプリミティブに強制変換する。プリミティブは `Timeout` をクリアするために使える。プリミティブは、タイムアウトが作成されたのと同じスレッド内でのみ使える。したがって、`worker_threads` をまたいで使うには、まず正しいスレッドに渡す必要がある。これにより、ブラウザーの `setTimeout()` と `setInterval()` の実装との互換性が向上する。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Timeout.[Symbol.toPrimitive]",
+      "lang": "ja"
+    },
+    "ed5b6061": {
+      "original": "a reference to `timeout`",
+      "translated": "`timeout` への参照",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Timeout.close",
+      "lang": "ja"
+    },
+    "9609f6a0": {
+      "original": "Cancels the timeout.",
+      "translated": "タイムアウトをキャンセルする。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Timeout.close",
+      "lang": "ja"
+    },
+    "126cb7cc": {
+      "original": "Use `clearTimeout()` instead.",
+      "translated": "代わりに `clearTimeout()` を使うこと。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Timeout.close",
+      "lang": "ja"
+    },
+    "be25551e": {
+      "original": "If true, the `Timeout` object will keep the Node.js event loop active.",
+      "translated": "true の場合、`Timeout` オブジェクトは Node.js イベントループをアクティブに保つ。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Timeout.hasRef",
+      "lang": "ja"
+    },
+    "d9f8c820": {
+      "original": "When called, requests that the Node.js event loop _not_ exit so long as the\n`Timeout` is active. Calling `timeout.ref()` multiple times will have no effect.\n\nBy default, all `Timeout` objects are \"ref'ed\", making it normally unnecessary\nto call `timeout.ref()` unless `timeout.unref()` had been called previously.",
+      "translated": "呼び出されると、`Timeout` がアクティブである限り Node.js イベントループが終了_しない_よう要求する。`timeout.ref()` を複数回呼んでも効果はない。\n\n既定では、すべての `Timeout` オブジェクトは「ref された」状態であり、以前に `timeout.unref()` が呼ばれていない限り、通常 `timeout.ref()` を呼ぶ必要はない。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Timeout.ref",
+      "lang": "ja"
+    },
+    "23e1721c": {
+      "original": "Sets the timer's start time to the current time, and reschedules the timer to\ncall its callback at the previously specified duration adjusted to the current\ntime. This is useful for refreshing a timer without allocating a new\nJavaScript object.\n\nUsing this on a timer that has already called its callback will reactivate the\ntimer.",
+      "translated": "タイマーの開始時刻を現在時刻に設定し、以前に指定された時間を現在時刻に合わせて調整して、そのコールバックを呼ぶようタイマーを再スケジュールする。これは、新しい JavaScript オブジェクトを割り当てずにタイマーを更新するのに役立つ。\n\n既にコールバックを呼んだタイマーに対してこれを使うと、そのタイマーが再びアクティブになる。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Timeout.refresh",
+      "lang": "ja"
+    },
+    "0b10083a": {
+      "original": "When called, the active `Timeout` object will not require the Node.js event loop\nto remain active. If there is no other activity keeping the event loop running,\nthe process may exit before the `Timeout` object's callback is invoked. Calling\n`timeout.unref()` multiple times will have no effect.",
+      "translated": "呼び出されると、アクティブな `Timeout` オブジェクトは Node.js イベントループがアクティブなままであることを要求しなくなる。イベントループを実行し続ける他のアクティビティがない場合、`Timeout` オブジェクトのコールバックが呼ばれる前にプロセスが終了する可能性がある。`timeout.unref()` を複数回呼んでも効果はない。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Timeout.unref",
+      "lang": "ja"
+    },
+    "447dd741": {
+      "original": "Use `NodeJS.Timeout` instead.",
+      "translated": "代わりに `NodeJS.Timeout` を使うこと。",
+      "symbol": "@types/node/timers.d.ts#timers.global.NodeJS.Timer",
+      "lang": "ja"
+    },
+    "f381d806": {
+      "original": "Function to be queued.",
+      "translated": "キューに入れる関数。",
+      "symbol": "@types/node/timers.d.ts#timers.global.queueMicrotask",
+      "lang": "ja"
+    },
+    "e6de6981": {
+      "original": "The `queueMicrotask()` method queues a microtask to invoke `callback`. If\n`callback` throws an exception, the `process` object `'uncaughtException'`\nevent will be emitted.\n\nThe microtask queue is managed by V8 and may be used in a similar manner to\nthe `process.nextTick()` queue, which is managed by Node.js. The\n`process.nextTick()` queue is always processed before the microtask queue\nwithin each turn of the Node.js event loop.",
+      "translated": "`queueMicrotask()` メソッドは、`callback` を呼び出すマイクロタスクをキューに入れる。`callback` が例外を投げた場合、`process` オブジェクトの `'uncaughtException'` イベントが発行される。\n\nマイクロタスクキューは V8 によって管理され、Node.js によって管理される `process.nextTick()` キューと同様の方法で使える。`process.nextTick()` キューは、Node.js イベントループの各ターン内で常にマイクロタスクキューより先に処理される。",
+      "symbol": "@types/node/timers.d.ts#timers.global.queueMicrotask",
+      "lang": "ja"
+    },
+    "84afd62d": {
+      "original": "for use with `clearImmediate()`",
+      "translated": "`clearImmediate()` と併用するため",
+      "symbol": "@types/node/timers.d.ts#timers.global.setImmediate",
+      "lang": "ja"
+    },
+    "a4354a73": {
+      "original": "Optional arguments to pass when the `callback` is called.",
+      "translated": "`callback` が呼ばれるときに渡す省略可能な引数。",
+      "symbol": "@types/node/timers.d.ts#timers.global.setImmediate",
+      "lang": "ja"
+    },
+    "f50c0e47": {
+      "original": "Schedules the \"immediate\" execution of the `callback` after I/O events'\ncallbacks.\n\nWhen multiple calls to `setImmediate()` are made, the `callback` functions are\nqueued for execution in the order in which they are created. The entire callback\nqueue is processed every event loop iteration. If an immediate timer is queued\nfrom inside an executing callback, that timer will not be triggered until the\nnext event loop iteration.\n\nIf `callback` is not a function, a `TypeError` will be thrown.\n\nThis method has a custom variant for promises that is available using\n`timersPromises.setImmediate()`.",
+      "translated": "I/O イベントのコールバックの後に、`callback` の「即時」実行をスケジュールする。\n\n`setImmediate()` が複数回呼ばれると、`callback` 関数は作成された順に実行のためキューに入れられる。コールバックキュー全体は、イベントループの反復ごとに処理される。実行中のコールバックの内部から immediate タイマーがキューに入れられた場合、そのタイマーは次のイベントループの反復までトリガーされない。\n\n`callback` が関数でない場合、`TypeError` が投げられる。\n\nこのメソッドには、`timersPromises.setImmediate()` を使って利用できる Promise 用のカスタムバリアントがある。",
+      "symbol": "@types/node/timers.d.ts#timers.global.setImmediate",
+      "lang": "ja"
+    },
+    "ec60605a": {
+      "original": "The function to call at the end of this turn of\nthe Node.js [Event Loop](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#setimmediate-vs-settimeout)",
+      "translated": "Node.js の [イベントループ](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#setimmediate-vs-settimeout) のこのターンの最後に呼ぶ関数",
+      "symbol": "@types/node/timers.d.ts#timers.global.setImmediate",
+      "lang": "ja"
+    },
+    "b4ce8113": {
+      "original": "for use with `clearInterval()`",
+      "translated": "`clearInterval()` と併用するため",
+      "symbol": "@types/node/timers.d.ts#timers.global.setInterval",
+      "lang": "ja"
+    },
+    "09b14929": {
+      "original": "Schedules repeated execution of `callback` every `delay` milliseconds.\n\nWhen `delay` is larger than `2147483647` or less than `1` or `NaN`, the `delay`\nwill be set to `1`. Non-integer delays are truncated to an integer.\n\nIf `callback` is not a function, a `TypeError` will be thrown.\n\nThis method has a custom variant for promises that is available using\n`timersPromises.setInterval()`.",
+      "translated": "`delay` ミリ秒ごとに `callback` を繰り返し実行するようスケジュールする。\n\n`delay` が `2147483647` より大きい、`1` 未満、または `NaN` の場合、`delay` は `1` に設定される。整数でない遅延は整数に切り捨てられる。\n\n`callback` が関数でない場合、`TypeError` が投げられる。\n\nこのメソッドには、`timersPromises.setInterval()` を使って利用できる Promise 用のカスタムバリアントがある。",
+      "symbol": "@types/node/timers.d.ts#timers.global.setInterval",
+      "lang": "ja"
+    },
+    "44963abf": {
+      "original": "The function to call when the timer elapses.",
+      "translated": "タイマーが経過したときに呼ぶ関数。",
+      "symbol": "@types/node/timers.d.ts#timers.global.setInterval",
+      "lang": "ja"
+    },
+    "a95bd11b": {
+      "original": "The number of milliseconds to wait before calling the\n`callback`. **Default:** `1`.",
+      "translated": "`callback` を呼ぶ前に待機するミリ秒数。**既定値:** `1`。",
+      "symbol": "@types/node/timers.d.ts#timers.global.setInterval",
+      "lang": "ja"
+    },
+    "4a6819cc": {
+      "original": "for use with `clearTimeout()`",
+      "translated": "`clearTimeout()` と併用するため",
+      "symbol": "@types/node/timers.d.ts#timers.global.setTimeout",
+      "lang": "ja"
+    },
+    "bfe08e60": {
+      "original": "Schedules execution of a one-time `callback` after `delay` milliseconds.\n\nThe `callback` will likely not be invoked in precisely `delay` milliseconds.\nNode.js makes no guarantees about the exact timing of when callbacks will fire,\nnor of their ordering. The callback will be called as close as possible to the\ntime specified.\n\nWhen `delay` is larger than `2147483647` or less than `1` or `NaN`, the `delay`\nwill be set to `1`. Non-integer delays are truncated to an integer.\n\nIf `callback` is not a function, a `TypeError` will be thrown.\n\nThis method has a custom variant for promises that is available using\n`timersPromises.setTimeout()`.",
+      "translated": "`delay` ミリ秒後に一度限りの `callback` を実行するようスケジュールする。\n\n`callback` は、正確に `delay` ミリ秒後に呼ばれるとは限らない。Node.js は、コールバックが発火する正確なタイミングやその順序を保証しない。コールバックは、指定された時刻にできるだけ近いタイミングで呼ばれる。\n\n`delay` が `2147483647` より大きい、`1` 未満、または `NaN` の場合、`delay` は `1` に設定される。整数でない遅延は整数に切り捨てられる。\n\n`callback` が関数でない場合、`TypeError` が投げられる。\n\nこのメソッドには、`timersPromises.setTimeout()` を使って利用できる Promise 用のカスタムバリアントがある。",
+      "symbol": "@types/node/timers.d.ts#timers.global.setTimeout",
+      "lang": "ja"
+    },
+    "f64fb30a": {
+      "original": "Set to `false` to indicate that the scheduled `Timeout`\nshould not require the Node.js event loop to remain active.",
+      "translated": "スケジュールされた `Timeout` が Node.js イベントループをアクティブなままであることを要求すべきでないことを示すには、`false` に設定する。",
+      "symbol": "@types/node/timers.d.ts#timers.TimerOptions.ref",
       "lang": "ja"
     },
     "42a9b008": {
@@ -18890,6 +19316,372 @@
       "original": "Additional data to send in the first worker message.",
       "translated": "最初のワーカーメッセージで送信する追加データ。",
       "symbol": "@types/node/worker_threads.d.ts#worker_threads.WorkerOptions.transferList",
+      "lang": "ja"
+    },
+    "bb2455eb": {
+      "original": "The `node:zlib` module provides compression functionality implemented using\nGzip, Deflate/Inflate, and Brotli.\n\nTo access it:\n\n```js\nimport zlib from 'node:zlib';\n```\n\nCompression and decompression are built around the Node.js\n[Streams API](https://nodejs.org/docs/latest-v22.x/api/stream.html).\n\nCompressing or decompressing a stream (such as a file) can be accomplished by\npiping the source stream through a `zlib` `Transform` stream into a destination\nstream:\n\n```js\nimport { createGzip } from 'node:zlib';\nimport { pipeline } from 'node:stream';\nimport {\n  createReadStream,\n  createWriteStream,\n} from 'node:fs';\n\nconst gzip = createGzip();\nconst source = createReadStream('input.txt');\nconst destination = createWriteStream('input.txt.gz');\n\npipeline(source, gzip, destination, (err) => {\n  if (err) {\n    console.error('An error occurred:', err);\n    process.exitCode = 1;\n  }\n});\n\n// Or, Promisified\n\nimport { promisify } from 'node:util';\nconst pipe = promisify(pipeline);\n\nasync function do_gzip(input, output) {\n  const gzip = createGzip();\n  const source = createReadStream(input);\n  const destination = createWriteStream(output);\n  await pipe(source, gzip, destination);\n}\n\ndo_gzip('input.txt', 'input.txt.gz')\n  .catch((err) => {\n    console.error('An error occurred:', err);\n    process.exitCode = 1;\n  });\n```\n\nIt is also possible to compress or decompress data in a single step:\n\n```js\nimport { deflate, unzip } from 'node:zlib';\n\nconst input = '.................................';\ndeflate(input, (err, buffer) => {\n  if (err) {\n    console.error('An error occurred:', err);\n    process.exitCode = 1;\n  }\n  console.log(buffer.toString('base64'));\n});\n\nconst buffer = Buffer.from('eJzT0yMAAGTvBe8=', 'base64');\nunzip(buffer, (err, buffer) => {\n  if (err) {\n    console.error('An error occurred:', err);\n    process.exitCode = 1;\n  }\n  console.log(buffer.toString());\n});\n\n// Or, Promisified\n\nimport { promisify } from 'node:util';\nconst do_unzip = promisify(unzip);\n\ndo_unzip(buffer)\n  .then((buf) => console.log(buf.toString()))\n  .catch((err) => {\n    console.error('An error occurred:', err);\n    process.exitCode = 1;\n  });\n```",
+      "translated": "`node:zlib` モジュールは、Gzip・Deflate/Inflate・Brotli を使って実装された圧縮機能を提供する。\n\nアクセスするには:\n\n```js\nimport zlib from 'node:zlib';\n```\n\n圧縮と解凍は、Node.js の [Streams API](https://nodejs.org/docs/latest-v22.x/api/stream.html) を中心に構築されている。\n\nストリーム(たとえばファイル)の圧縮または解凍は、ソースストリームを `zlib` `Transform` ストリームを通じて宛先ストリームへパイプすることで実現できる:\n\n```js\nimport { createGzip } from 'node:zlib';\nimport { pipeline } from 'node:stream';\nimport {\n  createReadStream,\n  createWriteStream,\n} from 'node:fs';\n\nconst gzip = createGzip();\nconst source = createReadStream('input.txt');\nconst destination = createWriteStream('input.txt.gz');\n\npipeline(source, gzip, destination, (err) => {\n  if (err) {\n    console.error('An error occurred:', err);\n    process.exitCode = 1;\n  }\n});\n\n// Or, Promisified\n\nimport { promisify } from 'node:util';\nconst pipe = promisify(pipeline);\n\nasync function do_gzip(input, output) {\n  const gzip = createGzip();\n  const source = createReadStream(input);\n  const destination = createWriteStream(output);\n  await pipe(source, gzip, destination);\n}\n\ndo_gzip('input.txt', 'input.txt.gz')\n  .catch((err) => {\n    console.error('An error occurred:', err);\n    process.exitCode = 1;\n  });\n```\n\nデータを 1 ステップで圧縮または解凍することも可能である:\n\n```js\nimport { deflate, unzip } from 'node:zlib';\n\nconst input = '.................................';\ndeflate(input, (err, buffer) => {\n  if (err) {\n    console.error('An error occurred:', err);\n    process.exitCode = 1;\n  }\n  console.log(buffer.toString('base64'));\n});\n\nconst buffer = Buffer.from('eJzT0yMAAGTvBe8=', 'base64');\nunzip(buffer, (err, buffer) => {\n  if (err) {\n    console.error('An error occurred:', err);\n    process.exitCode = 1;\n  }\n  console.log(buffer.toString());\n});\n\n// Or, Promisified\n\nimport { promisify } from 'node:util';\nconst do_unzip = promisify(unzip);\n\ndo_unzip(buffer)\n  .then((buf) => console.log(buf.toString()))\n  .catch((err) => {\n    console.error('An error occurred:', err);\n    process.exitCode = 1;\n  });\n```",
+      "symbol": "@types/node/zlib.d.ts#zlib",
+      "lang": "ja"
+    },
+    "880ee8fd": {
+      "original": "Compress a chunk of data with `BrotliCompress`.",
+      "translated": "`BrotliCompress` でデータのチャンクを圧縮する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.brotliCompressSync",
+      "lang": "ja"
+    },
+    "5bf31954": {
+      "original": "Decompress a chunk of data with `BrotliDecompress`.",
+      "translated": "`BrotliDecompress` でデータのチャンクを解凍する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.brotliDecompressSync",
+      "lang": "ja"
+    },
+    "301d1cbf": {
+      "original": "Limits output size when using [convenience methods](https://nodejs.org/docs/latest-v22.x/api/zlib.html#convenience-methods).",
+      "translated": "[便利メソッド](https://nodejs.org/docs/latest-v22.x/api/zlib.html#convenience-methods)を使うときの出力サイズを制限する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.BrotliOptions.maxOutputLength",
+      "lang": "ja"
+    },
+    "5c3c873c": {
+      "original": "Each key is a `constants.BROTLI_*` constant.",
+      "translated": "各キーは `constants.BROTLI_*` 定数である。",
+      "symbol": "@types/node/zlib.d.ts#zlib.BrotliOptions.params",
+      "lang": "ja"
+    },
+    "01b140fe": {
+      "original": "A 32-bit unsigned integer containing the checksum.",
+      "translated": "チェックサムを含む 32 ビット符号なし整数。",
+      "symbol": "@types/node/zlib.d.ts#zlib.crc32",
+      "lang": "ja"
+    },
+    "b343e3a8": {
+      "original": "An optional starting value. It must be a 32-bit unsigned integer.",
+      "translated": "省略可能な開始値。32 ビット符号なし整数でなければならない。",
+      "symbol": "@types/node/zlib.d.ts#zlib.crc32",
+      "lang": "ja"
+    },
+    "477ba758": {
+      "original": "Computes a 32-bit [Cyclic Redundancy Check](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) checksum of `data`.\nIf `value` is specified, it is used as the starting value of the checksum, otherwise, 0 is used as the starting value.",
+      "translated": "`data` の 32 ビット [巡回冗長検査(CRC)](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) チェックサムを計算する。`value` が指定された場合、それがチェックサムの開始値として使われる。そうでなければ、0 が開始値として使われる。",
+      "symbol": "@types/node/zlib.d.ts#zlib.crc32",
+      "lang": "ja"
+    },
+    "1ef87422": {
+      "original": "When `data` is a string, it will be encoded as UTF-8 before being used for computation.",
+      "translated": "`data` が文字列の場合、計算に使われる前に UTF-8 としてエンコードされる。",
+      "symbol": "@types/node/zlib.d.ts#zlib.crc32",
+      "lang": "ja"
+    },
+    "c87a881a": {
+      "original": "Creates and returns a new `BrotliCompress` object.",
+      "translated": "新しい `BrotliCompress` オブジェクトを作成して返す。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createBrotliCompress",
+      "lang": "ja"
+    },
+    "dea40fcf": {
+      "original": "Creates and returns a new `BrotliDecompress` object.",
+      "translated": "新しい `BrotliDecompress` オブジェクトを作成して返す。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createBrotliDecompress",
+      "lang": "ja"
+    },
+    "785a8121": {
+      "original": "Creates and returns a new `Deflate` object.",
+      "translated": "新しい `Deflate` オブジェクトを作成して返す。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createDeflate",
+      "lang": "ja"
+    },
+    "4171319d": {
+      "original": "Creates and returns a new `DeflateRaw` object.\n\nAn upgrade of zlib from 1.2.8 to 1.2.11 changed behavior when `windowBits` is set to 8 for raw deflate streams. zlib would automatically set `windowBits` to 9 if was initially set to 8. Newer\nversions of zlib will throw an exception,\nso Node.js restored the original behavior of upgrading a value of 8 to 9,\nsince passing `windowBits = 9` to zlib actually results in a compressed stream\nthat effectively uses an 8-bit window only.",
+      "translated": "新しい `DeflateRaw` オブジェクトを作成して返す。\n\nzlib を 1.2.8 から 1.2.11 にアップグレードした際、raw deflate ストリームで `windowBits` が 8 に設定されているときの挙動が変わった。zlib は、当初 8 に設定されていた場合 `windowBits` を自動的に 9 に設定していた。新しいバージョンの zlib は例外を投げるため、Node.js は値 8 を 9 にアップグレードする元の挙動を復元した。zlib に `windowBits = 9` を渡すと、実際には実質的に 8 ビットのウィンドウのみを使う圧縮ストリームになるためである。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createDeflateRaw",
+      "lang": "ja"
+    },
+    "fcfa7b60": {
+      "original": "Creates and returns a new `Gunzip` object.",
+      "translated": "新しい `Gunzip` オブジェクトを作成して返す。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createGunzip",
+      "lang": "ja"
+    },
+    "ff84161c": {
+      "original": "Creates and returns a new `Gzip` object.\nSee `example`.",
+      "translated": "新しい `Gzip` オブジェクトを作成して返す。`example` を参照。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createGzip",
+      "lang": "ja"
+    },
+    "476436d5": {
+      "original": "Creates and returns a new `Inflate` object.",
+      "translated": "新しい `Inflate` オブジェクトを作成して返す。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createInflate",
+      "lang": "ja"
+    },
+    "4df3b1e0": {
+      "original": "Creates and returns a new `InflateRaw` object.",
+      "translated": "新しい `InflateRaw` オブジェクトを作成して返す。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createInflateRaw",
+      "lang": "ja"
+    },
+    "03b80d46": {
+      "original": "Creates and returns a new `Unzip` object.",
+      "translated": "新しい `Unzip` オブジェクトを作成して返す。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createUnzip",
+      "lang": "ja"
+    },
+    "cdadbbcd": {
+      "original": "Creates and returns a new `ZstdCompress` object.",
+      "translated": "新しい `ZstdCompress` オブジェクトを作成して返す。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createZstdCompress",
+      "lang": "ja"
+    },
+    "b22c358e": {
+      "original": "Creates and returns a new `ZstdDecompress` object.",
+      "translated": "新しい `ZstdDecompress` オブジェクトを作成して返す。",
+      "symbol": "@types/node/zlib.d.ts#zlib.createZstdDecompress",
+      "lang": "ja"
+    },
+    "b17b0022": {
+      "original": "Compress a chunk of data with `DeflateRaw`.",
+      "translated": "`DeflateRaw` でデータのチャンクを圧縮する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.deflateRawSync",
+      "lang": "ja"
+    },
+    "d5cc5391": {
+      "original": "Compress a chunk of data with `Deflate`.",
+      "translated": "`Deflate` でデータのチャンクを圧縮する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.deflateSync",
+      "lang": "ja"
+    },
+    "66682d92": {
+      "original": "Decompress a chunk of data with `Gunzip`.",
+      "translated": "`Gunzip` でデータのチャンクを解凍する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.gunzipSync",
+      "lang": "ja"
+    },
+    "e67ba0a7": {
+      "original": "Compress a chunk of data with `Gzip`.",
+      "translated": "`Gzip` でデータのチャンクを圧縮する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.gzipSync",
+      "lang": "ja"
+    },
+    "c60add25": {
+      "original": "Decompress a chunk of data with `InflateRaw`.",
+      "translated": "`InflateRaw` でデータのチャンクを解凍する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.inflateRawSync",
+      "lang": "ja"
+    },
+    "f1fb0731": {
+      "original": "Decompress a chunk of data with `Inflate`.",
+      "translated": "`Inflate` でデータのチャンクを解凍する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.inflateSync",
+      "lang": "ja"
+    },
+    "5dd78b20": {
+      "original": "Decompress a chunk of data with `Unzip`.",
+      "translated": "`Unzip` でデータのチャンクを解凍する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.unzipSync",
+      "lang": "ja"
+    },
+    "5847d0bb": {
+      "original": "Use `constants.Z_BEST_COMPRESSION`",
+      "translated": "`constants.Z_BEST_COMPRESSION` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_BEST_COMPRESSION",
+      "lang": "ja"
+    },
+    "8c688768": {
+      "original": "Use `constants.Z_BEST_SPEED`",
+      "translated": "`constants.Z_BEST_SPEED` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_BEST_SPEED",
+      "lang": "ja"
+    },
+    "a9b1e7b3": {
+      "original": "Use `constants.Z_BLOCK`",
+      "translated": "`constants.Z_BLOCK` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_BLOCK",
+      "lang": "ja"
+    },
+    "fe4bb904": {
+      "original": "Use `constants.Z_BUF_ERROR`",
+      "translated": "`constants.Z_BUF_ERROR` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_BUF_ERROR",
+      "lang": "ja"
+    },
+    "dd95a940": {
+      "original": "Use `constants.Z_DATA_ERROR`",
+      "translated": "`constants.Z_DATA_ERROR` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_DATA_ERROR",
+      "lang": "ja"
+    },
+    "affda617": {
+      "original": "Use `constants.Z_DEFAULT_COMPRESSION`",
+      "translated": "`constants.Z_DEFAULT_COMPRESSION` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_DEFAULT_COMPRESSION",
+      "lang": "ja"
+    },
+    "5cd416a5": {
+      "original": "Use `constants.Z_DEFAULT_STRATEGY`",
+      "translated": "`constants.Z_DEFAULT_STRATEGY` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_DEFAULT_STRATEGY",
+      "lang": "ja"
+    },
+    "ccb4c5fc": {
+      "original": "Use `constants.Z_ERRNO`",
+      "translated": "`constants.Z_ERRNO` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_ERRNO",
+      "lang": "ja"
+    },
+    "8088cda7": {
+      "original": "Use `constants.Z_FILTERED`",
+      "translated": "`constants.Z_FILTERED` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_FILTERED",
+      "lang": "ja"
+    },
+    "ceb1c4d8": {
+      "original": "Use `constants.Z_FINISH`",
+      "translated": "`constants.Z_FINISH` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_FINISH",
+      "lang": "ja"
+    },
+    "c11d18ff": {
+      "original": "Use `constants.Z_FIXED`",
+      "translated": "`constants.Z_FIXED` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_FIXED",
+      "lang": "ja"
+    },
+    "12da0e30": {
+      "original": "Use `constants.Z_FULL_FLUSH`",
+      "translated": "`constants.Z_FULL_FLUSH` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_FULL_FLUSH",
+      "lang": "ja"
+    },
+    "d711af1c": {
+      "original": "Use `constants.Z_HUFFMAN_ONLY`",
+      "translated": "`constants.Z_HUFFMAN_ONLY` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_HUFFMAN_ONLY",
+      "lang": "ja"
+    },
+    "1b2e96af": {
+      "original": "Use `constants.Z_MEM_ERROR`",
+      "translated": "`constants.Z_MEM_ERROR` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_MEM_ERROR",
+      "lang": "ja"
+    },
+    "a6680306": {
+      "original": "Use `constants.Z_NEED_DICT`",
+      "translated": "`constants.Z_NEED_DICT` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_NEED_DICT",
+      "lang": "ja"
+    },
+    "8bb4e8ae": {
+      "original": "Use `constants.Z_NO_COMPRESSION`",
+      "translated": "`constants.Z_NO_COMPRESSION` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_NO_COMPRESSION",
+      "lang": "ja"
+    },
+    "2defd970": {
+      "original": "Use `constants.Z_NO_FLUSH`",
+      "translated": "`constants.Z_NO_FLUSH` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_NO_FLUSH",
+      "lang": "ja"
+    },
+    "75b16a33": {
+      "original": "Use `constants.Z_OK`",
+      "translated": "`constants.Z_OK` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_OK",
+      "lang": "ja"
+    },
+    "3fd26150": {
+      "original": "Use `constants.Z_PARTIAL_FLUSH`",
+      "translated": "`constants.Z_PARTIAL_FLUSH` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_PARTIAL_FLUSH",
+      "lang": "ja"
+    },
+    "045c3507": {
+      "original": "Use `constants.Z_RLE`",
+      "translated": "`constants.Z_RLE` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_RLE",
+      "lang": "ja"
+    },
+    "426edb88": {
+      "original": "Use `constants.Z_STREAM_END`",
+      "translated": "`constants.Z_STREAM_END` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_STREAM_END",
+      "lang": "ja"
+    },
+    "eb8dc32c": {
+      "original": "Use `constants.Z_STREAM_ERROR`",
+      "translated": "`constants.Z_STREAM_ERROR` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_STREAM_ERROR",
+      "lang": "ja"
+    },
+    "fe9080f3": {
+      "original": "Use `constants.Z_SYNC_FLUSH`",
+      "translated": "`constants.Z_SYNC_FLUSH` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_SYNC_FLUSH",
+      "lang": "ja"
+    },
+    "187719c2": {
+      "original": "Use `constants.Z_VERSION_ERROR`",
+      "translated": "`constants.Z_VERSION_ERROR` を使うこと",
+      "symbol": "@types/node/zlib.d.ts#zlib.Z_VERSION_ERROR",
+      "lang": "ja"
+    },
+    "40dfa156": {
+      "original": "Use bytesWritten instead.",
+      "translated": "代わりに bytesWritten を使うこと。",
+      "symbol": "@types/node/zlib.d.ts#zlib.Zlib.bytesRead",
+      "lang": "ja"
+    },
+    "390a97c8": {
+      "original": "deflate/inflate only, empty dictionary by default",
+      "translated": "deflate/inflate のみ、既定では空の辞書",
+      "symbol": "@types/node/zlib.d.ts#zlib.ZlibOptions.dictionary",
+      "lang": "ja"
+    },
+    "c6abaf3e": {
+      "original": "If `true`, returns an object with `buffer` and `engine`.",
+      "translated": "`true` の場合、`buffer` と `engine` を持つオブジェクトを返す。",
+      "symbol": "@types/node/zlib.d.ts#zlib.ZlibOptions.info",
+      "lang": "ja"
+    },
+    "c93820f8": {
+      "original": "compression only",
+      "translated": "圧縮のみ",
+      "symbol": "@types/node/zlib.d.ts#zlib.ZlibOptions.level",
+      "lang": "ja"
+    },
+    "c3a1c96d": {
+      "original": "Limits output size when using convenience methods.",
+      "translated": "便利メソッドを使うときの出力サイズを制限する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.ZlibOptions.maxOutputLength",
+      "lang": "ja"
+    },
+    "d12b0b2b": {
+      "original": "Compress a chunk of data with `ZstdCompress`.",
+      "translated": "`ZstdCompress` でデータのチャンクを圧縮する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.zstdCompressSync",
+      "lang": "ja"
+    },
+    "ad175601": {
+      "original": "Decompress a chunk of data with `ZstdDecompress`.",
+      "translated": "`ZstdDecompress` でデータのチャンクを解凍する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.zstdDecompressSync",
+      "lang": "ja"
+    },
+    "9e9f5ad5": {
+      "original": "Optional dictionary used to improve compression efficiency when compressing or decompressing data that\nshares common patterns with the dictionary.",
+      "translated": "辞書と共通のパターンを共有するデータの圧縮または解凍時に、圧縮効率を改善するために使われる省略可能な辞書。",
+      "symbol": "@types/node/zlib.d.ts#zlib.ZstdOptions.dictionary",
+      "lang": "ja"
+    },
+    "2126f2a3": {
+      "original": "Limits output size when using\n[convenience methods](https://nodejs.org/docs/latest-v22.x/api/zlib.html#convenience-methods).",
+      "translated": "[便利メソッド](https://nodejs.org/docs/latest-v22.x/api/zlib.html#convenience-methods)を使うときの出力サイズを制限する。",
+      "symbol": "@types/node/zlib.d.ts#zlib.ZstdOptions.maxOutputLength",
+      "lang": "ja"
+    },
+    "4438a9ca": {
+      "original": "Key-value object containing indexed\n[Zstd parameters](https://nodejs.org/docs/latest-v22.x/api/zlib.html#zstd-constants).",
+      "translated": "インデックス付きの [Zstd パラメーター](https://nodejs.org/docs/latest-v22.x/api/zlib.html#zstd-constants)を含むキーと値のオブジェクト。",
+      "symbol": "@types/node/zlib.d.ts#zlib.ZstdOptions.params",
       "lang": "ja"
     }
   }
