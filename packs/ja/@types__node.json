@@ -292,6 +292,12 @@
       "symbol": "@types/node/async_hooks.d.ts#async_hooks.AsyncLocalStorage.exit",
       "lang": "ja"
     },
+    "60586480": {
+      "original": "JavaScript script line number (0-based).",
+      "translated": "JavaScript スクリプトの行番号(0 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFrame.lineNumber",
+      "lang": "ja"
+    },
     "62027729": {
       "original": "Number of bytes to skip before starting to read. Must satisfy `0 <= offset <= buf.length - 1`.",
       "translated": "読み始める前にスキップするバイト数。`0 <= offset <= buf.length - 1` を満たさなければならない。",
@@ -404,6 +410,12 @@
       "original": "Indicates whether or not the test run is considered\nsuccessful or not. If any error condition occurs, such as a failing test or\nunmet coverage threshold, this value will be set to `false`.",
       "translated": "テスト実行が成功と見なされるかどうかを示す。失敗したテストやカバレッジしきい値の未達など、いずれかのエラー条件が発生した場合、この値は `false` に設定される。",
       "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.success",
+      "lang": "ja"
+    },
+    "91264702": {
+      "original": "Included category filters.",
+      "translated": "含めるカテゴリーフィルター。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.NodeTracing.TraceConfig.includedCategories",
       "lang": "ja"
     },
     "91766456": {
@@ -10514,6 +10526,594 @@
       "original": "Id of the heap snapshot object corresponding to the passed remote object id.",
       "translated": "渡されたリモートオブジェクト ID に対応するヒープスナップショットオブジェクトの ID。",
       "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.GetHeapObjectIdReturnType.heapSnapshotObjectId",
+      "lang": "ja"
+    },
+    "cafd825c": {
+      "original": "Return the sampling profile being collected.",
+      "translated": "収集中のサンプリングプロファイルを返す。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.GetSamplingProfileReturnType.profile",
+      "lang": "ja"
+    },
+    "ff293c69": {
+      "original": "Heap snapshot object id.",
+      "translated": "ヒープスナップショットオブジェクト ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.HeapSnapshotObjectId",
+      "lang": "ja"
+    },
+    "9105d0e8": {
+      "original": "An array of triplets. Each triplet describes a fragment. The first integer is the fragment index, the second integer is a total count of objects for the fragment, the third integer is a total size of the objects for the fragment.",
+      "translated": "三つ組の配列。各三つ組はフラグメントを記述する。最初の整数はフラグメントのインデックス、2 番目の整数はフラグメントのオブジェクトの総数、3 番目の整数はフラグメントのオブジェクトの総サイズである。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.HeapStatsUpdateEventDataType.statsUpdate",
+      "lang": "ja"
+    },
+    "499bd272": {
+      "original": "Sampling Heap Profile node. Holds callsite information, allocation statistics and child nodes.",
+      "translated": "サンプリングヒーププロファイルのノード。呼び出し箇所情報・割り当て統計・子ノードを保持する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.SamplingHeapProfileNode",
+      "lang": "ja"
+    },
+    "aa540588": {
+      "original": "Child nodes.",
+      "translated": "子ノード。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.SamplingHeapProfileNode.children",
+      "lang": "ja"
+    },
+    "f542c04c": {
+      "original": "Allocations size in bytes for the node excluding children.",
+      "translated": "子を除くノードの割り当てサイズ(バイト単位)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.SamplingHeapProfileNode.selfSize",
+      "lang": "ja"
+    },
+    "e885bf6c": {
+      "original": "Average sample interval in bytes. Poisson distribution is used for the intervals. The default value is 32768 bytes.",
+      "translated": "平均サンプル間隔(バイト単位)。間隔にはポアソン分布が使われる。既定値は 32768 バイト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.StartSamplingParameterType.samplingInterval",
+      "lang": "ja"
+    },
+    "8e4d095d": {
+      "original": "Recorded sampling heap profile.",
+      "translated": "記録されたサンプリングヒーププロファイル。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.StopSamplingReturnType.profile",
+      "lang": "ja"
+    },
+    "3234b775": {
+      "original": "If true 'reportHeapSnapshotProgress' events will be generated while snapshot is being taken when the tracking is stopped.",
+      "translated": "true の場合、トラッキングが停止されてスナップショットが取得される間、'reportHeapSnapshotProgress' イベントが生成される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.StopTrackingHeapObjectsParameterType.reportProgress",
+      "lang": "ja"
+    },
+    "0bd4ae82": {
+      "original": "If true 'reportHeapSnapshotProgress' events will be generated while snapshot is being taken.",
+      "translated": "true の場合、スナップショットが取得される間、'reportHeapSnapshotProgress' イベントが生成される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.HeapProfiler.TakeHeapSnapshotParameterType.reportProgress",
+      "lang": "ja"
+    },
+    "e535db76": {
+      "original": "Handle of the stream to close.",
+      "translated": "閉じるストリームのハンドル。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.IO.CloseParameterType.handle",
+      "lang": "ja"
+    },
+    "13e8c04c": {
+      "original": "Handle of the stream to read.",
+      "translated": "読み取るストリームのハンドル。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.IO.ReadParameterType.handle",
+      "lang": "ja"
+    },
+    "bb6fd15c": {
+      "original": "Seek to the specified offset before reading (if not specified, proceed with offset\nfollowing the last read). Some types of streams may only support sequential reads.",
+      "translated": "読み取り前に指定されたオフセットにシークする(指定されない場合、最後の読み取りに続くオフセットで進める)。一部の種類のストリームは順次読み取りのみをサポートする場合がある。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.IO.ReadParameterType.offset",
+      "lang": "ja"
+    },
+    "c957a657": {
+      "original": "Maximum number of bytes to read (left upon the agent discretion if not specified).",
+      "translated": "読み取る最大バイト数(指定されない場合はエージェントの裁量に委ねられる)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.IO.ReadParameterType.size",
+      "lang": "ja"
+    },
+    "3c628b71": {
+      "original": "Data that were read.",
+      "translated": "読み取られたデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.IO.ReadReturnType.data",
+      "lang": "ja"
+    },
+    "1b61f5fe": {
+      "original": "Set if the end-of-file condition occurred while reading.",
+      "translated": "読み取り中にファイル終端条件が発生した場合に設定される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.IO.ReadReturnType.eof",
+      "lang": "ja"
+    },
+    "b95c44de": {
+      "original": "Data that was received.",
+      "translated": "受信したデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.DataReceivedEventDataType.data",
+      "lang": "ja"
+    },
+    "08dbcf35": {
+      "original": "Data chunk length.",
+      "translated": "データチャンクの長さ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.DataReceivedEventDataType.dataLength",
+      "lang": "ja"
+    },
+    "efc3e56a": {
+      "original": "Actual bytes received (might be less than dataLength for compressed encodings).",
+      "translated": "実際に受信したバイト数(圧縮エンコーディングの場合は dataLength より少ないことがある)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.DataReceivedEventDataType.encodedDataLength",
+      "lang": "ja"
+    },
+    "6c1a13d3": {
+      "original": "Identifier of the network request to get content for.",
+      "translated": "内容を取得するネットワークリクエストの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.GetRequestPostDataParameterType.requestId",
+      "lang": "ja"
+    },
+    "de7aebe2": {
+      "original": "Request body string, omitting files from multipart requests",
+      "translated": "リクエストボディの文字列。multipart リクエストのファイルは省略される",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.GetRequestPostDataReturnType.postData",
+      "lang": "ja"
+    },
+    "c46831d4": {
+      "original": "True, if content was sent as base64.",
+      "translated": "内容が base64 として送られた場合は True。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.GetResponseBodyReturnType.base64Encoded",
+      "lang": "ja"
+    },
+    "26b00e78": {
+      "original": "Response body.",
+      "translated": "レスポンスボディ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.GetResponseBodyReturnType.body",
+      "lang": "ja"
+    },
+    "2b5574dc": {
+      "original": "Request / response headers as keys / values of JSON object.",
+      "translated": "JSON オブジェクトのキー / 値としてのリクエスト / レスポンスヘッダー。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.Headers",
+      "lang": "ja"
+    },
+    "7a5c6c5a": {
+      "original": "Information about the request initiator.",
+      "translated": "リクエストの発端に関する情報。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.Initiator",
+      "lang": "ja"
+    },
+    "b3dea112": {
+      "original": "Initiator column number, set for Parser type or for Script type (when script is importing\nmodule) (0-based).",
+      "translated": "発端の列番号。Parser 型の場合、または Script 型(スクリプトがモジュールをインポートしている場合)に設定される(0 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.Initiator.columnNumber",
+      "lang": "ja"
+    },
+    "aaf7f437": {
+      "original": "Initiator line number, set for Parser type or for Script type (when script is importing\nmodule) (0-based).",
+      "translated": "発端の行番号。Parser 型の場合、または Script 型(スクリプトがモジュールをインポートしている場合)に設定される(0 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.Initiator.lineNumber",
+      "lang": "ja"
+    },
+    "0022b26a": {
+      "original": "Set if another request triggered this request (e.g. preflight).",
+      "translated": "別のリクエストがこのリクエストをトリガーした場合(たとえば preflight)に設定される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.Initiator.requestId",
+      "lang": "ja"
+    },
+    "f274dfce": {
+      "original": "Initiator JavaScript stack trace, set for Script only.\nRequires the Debugger domain to be enabled.",
+      "translated": "発端の JavaScript スタックトレース。Script の場合にのみ設定される。Debugger ドメインが有効になっている必要がある。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.Initiator.stack",
+      "lang": "ja"
+    },
+    "7f063dda": {
+      "original": "Type of this initiator.",
+      "translated": "この発端の種類。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.Initiator.type",
+      "lang": "ja"
+    },
+    "6fa82d68": {
+      "original": "Initiator URL, set for Parser type or for Script type (when script is importing module) or for SignedExchange type.",
+      "translated": "発端の URL。Parser 型の場合、Script 型(スクリプトがモジュールをインポートしている場合)、または SignedExchange 型の場合に設定される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.Initiator.url",
+      "lang": "ja"
+    },
+    "d0e4554d": {
+      "original": "Error message.",
+      "translated": "エラーメッセージ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.LoadingFailedEventDataType.errorText",
+      "lang": "ja"
+    },
+    "7f3169ef": {
+      "original": "URL of the resource to get content for.",
+      "translated": "内容を取得するリソースの URL。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.LoadNetworkResourceParameterType.url",
+      "lang": "ja"
+    },
+    "cf3d5a76": {
+      "original": "Monotonically increasing time in seconds since an arbitrary point in the past.",
+      "translated": "過去の任意の時点から単調増加する秒単位の時刻。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.MonotonicTime",
+      "lang": "ja"
+    },
+    "d47d297b": {
+      "original": "HTTP request data.",
+      "translated": "HTTP リクエストデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.Request",
+      "lang": "ja"
+    },
+    "a8680f2c": {
+      "original": "Unique request identifier.",
+      "translated": "一意なリクエスト識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.RequestId",
+      "lang": "ja"
+    },
+    "2cb01bdc": {
+      "original": "Request initiator.",
+      "translated": "リクエストの発端。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.RequestWillBeSentEventDataType.initiator",
+      "lang": "ja"
+    },
+    "dfce2764": {
+      "original": "Request data.",
+      "translated": "リクエストデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.RequestWillBeSentEventDataType.request",
+      "lang": "ja"
+    },
+    "4d56e7c8": {
+      "original": "Request identifier.",
+      "translated": "リクエスト識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.RequestWillBeSentEventDataType.requestId",
+      "lang": "ja"
+    },
+    "e0128210": {
+      "original": "Timestamp.",
+      "translated": "タイムスタンプ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.RequestWillBeSentEventDataType.timestamp",
+      "lang": "ja"
+    },
+    "4c0533e0": {
+      "original": "Resource type as it was perceived by the rendering engine.",
+      "translated": "レンダリングエンジンが認識したリソースの種類。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.ResourceType",
+      "lang": "ja"
+    },
+    "2adb97ba": {
+      "original": "HTTP response data.",
+      "translated": "HTTP レスポンスデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.Response",
+      "lang": "ja"
+    },
+    "5a12d850": {
+      "original": "Response data.",
+      "translated": "レスポンスデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.ResponseReceivedEventDataType.response",
+      "lang": "ja"
+    },
+    "4cb34f95": {
+      "original": "Resource type.",
+      "translated": "リソースの種類。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.ResponseReceivedEventDataType.type",
+      "lang": "ja"
+    },
+    "6252d612": {
+      "original": "Identifier of the request to stream.",
+      "translated": "ストリーミングするリクエストの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.StreamResourceContentParameterType.requestId",
+      "lang": "ja"
+    },
+    "ca206648": {
+      "original": "Data that has been buffered until streaming is enabled.",
+      "translated": "ストリーミングが有効になるまでバッファリングされたデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.StreamResourceContentReturnType.bufferedData",
+      "lang": "ja"
+    },
+    "533e8991": {
+      "original": "UTC time in seconds, counted from January 1, 1970.",
+      "translated": "UTC 時刻(秒単位)。1970 年 1 月 1 日から数える。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Network.TimeSinceEpoch",
+      "lang": "ja"
+    },
+    "63c78d0f": {
+      "original": "A list of supported tracing categories.",
+      "translated": "サポートされているトレースカテゴリーのリスト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.NodeTracing.GetCategoriesReturnType.categories",
+      "lang": "ja"
+    },
+    "a6a36ca6": {
+      "original": "Controls how the trace buffer stores data.",
+      "translated": "トレースバッファがデータを格納する方法を制御する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.NodeTracing.TraceConfig.recordMode",
+      "lang": "ja"
+    },
+    "34238ca9": {
+      "original": "Identifier assigned to the session used to send/receive messages.",
+      "translated": "メッセージの送受信に使われるセッションに割り当てられた識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.NodeWorker.AttachedToWorkerEventDataType.sessionId",
+      "lang": "ja"
+    },
+    "54ed45db": {
+      "original": "Detached session identifier.",
+      "translated": "デタッチされたセッションの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.NodeWorker.DetachedFromWorkerEventDataType.sessionId",
+      "lang": "ja"
+    },
+    "dbc86b64": {
+      "original": "Whether to new workers should be paused until the frontend sends `Runtime.runIfWaitingForDebugger`\nmessage to run them.",
+      "translated": "新しい worker を、フロントエンドが実行のために `Runtime.runIfWaitingForDebugger` メッセージを送るまで一時停止すべきかどうか。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.NodeWorker.EnableParameterType.waitForDebuggerOnStart",
+      "lang": "ja"
+    },
+    "76a595b5": {
+      "original": "Identifier of a session which sends a message.",
+      "translated": "メッセージを送るセッションの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.NodeWorker.ReceivedMessageFromWorkerEventDataType.sessionId",
+      "lang": "ja"
+    },
+    "ae26a112": {
+      "original": "Identifier of the session.",
+      "translated": "セッションの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.NodeWorker.SendMessageToWorkerParameterType.sessionId",
+      "lang": "ja"
+    },
+    "28df0701": {
+      "original": "Unique identifier of attached debugging session.",
+      "translated": "アタッチされたデバッグセッションの一意な識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.NodeWorker.SessionID",
+      "lang": "ja"
+    },
+    "b908baf6": {
+      "original": "Location of console.profileEnd().",
+      "translated": "console.profileEnd() の位置。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ConsoleProfileFinishedEventDataType.location",
+      "lang": "ja"
+    },
+    "40334a38": {
+      "original": "Location of console.profile().",
+      "translated": "console.profile() の位置。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ConsoleProfileStartedEventDataType.location",
+      "lang": "ja"
+    },
+    "852497af": {
+      "original": "Profile title passed as an argument to console.profile().",
+      "translated": "console.profile() に引数として渡されたプロファイルのタイトル。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ConsoleProfileStartedEventDataType.title",
+      "lang": "ja"
+    },
+    "6f3605e4": {
+      "original": "Coverage data for a source range.",
+      "translated": "ソース範囲のカバレッジデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.CoverageRange",
+      "lang": "ja"
+    },
+    "a22be83c": {
+      "original": "Collected execution count of the source range.",
+      "translated": "ソース範囲の収集された実行回数。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.CoverageRange.count",
+      "lang": "ja"
+    },
+    "144d9bf5": {
+      "original": "JavaScript script source offset for the range end.",
+      "translated": "範囲終端の JavaScript スクリプトソースオフセット。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.CoverageRange.endOffset",
+      "lang": "ja"
+    },
+    "61e0b70b": {
+      "original": "JavaScript script source offset for the range start.",
+      "translated": "範囲開始の JavaScript スクリプトソースオフセット。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.CoverageRange.startOffset",
+      "lang": "ja"
+    },
+    "65b2137f": {
+      "original": "Coverage data for a JavaScript function.",
+      "translated": "JavaScript 関数のカバレッジデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.FunctionCoverage",
+      "lang": "ja"
+    },
+    "284c8a11": {
+      "original": "Whether coverage data for this function has block granularity.",
+      "translated": "この関数のカバレッジデータがブロック粒度を持つかどうか。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.FunctionCoverage.isBlockCoverage",
+      "lang": "ja"
+    },
+    "e8256181": {
+      "original": "Source ranges inside the function with coverage data.",
+      "translated": "カバレッジデータを持つ関数内のソース範囲。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.FunctionCoverage.ranges",
+      "lang": "ja"
+    },
+    "35f933c8": {
+      "original": "Specifies a number of samples attributed to a certain source position.",
+      "translated": "特定のソース位置に帰属するサンプル数を指定する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.PositionTickInfo",
+      "lang": "ja"
+    },
+    "0008a75b": {
+      "original": "Source line number (1-based).",
+      "translated": "ソースの行番号(1 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.PositionTickInfo.line",
+      "lang": "ja"
+    },
+    "7611dde6": {
+      "original": "Number of samples attributed to the source line.",
+      "translated": "ソース行に帰属するサンプル数。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.PositionTickInfo.ticks",
+      "lang": "ja"
+    },
+    "dc99f6bb": {
+      "original": "Profile.",
+      "translated": "プロファイル。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.Profile",
+      "lang": "ja"
+    },
+    "36b7379c": {
+      "original": "Profiling end timestamp in microseconds.",
+      "translated": "プロファイリング終了タイムスタンプ(マイクロ秒)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.Profile.endTime",
+      "lang": "ja"
+    },
+    "05e32d44": {
+      "original": "The list of profile nodes. First item is the root node.",
+      "translated": "プロファイルノードのリスト。最初の項目はルートノードである。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.Profile.nodes",
+      "lang": "ja"
+    },
+    "4f4cb693": {
+      "original": "Ids of samples top nodes.",
+      "translated": "サンプルの最上位ノードの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.Profile.samples",
+      "lang": "ja"
+    },
+    "ee9ba3ef": {
+      "original": "Profiling start timestamp in microseconds.",
+      "translated": "プロファイリング開始タイムスタンプ(マイクロ秒)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.Profile.startTime",
+      "lang": "ja"
+    },
+    "9e0662b7": {
+      "original": "Time intervals between adjacent samples in microseconds. The first delta is relative to the profile startTime.",
+      "translated": "隣接するサンプル間の時間間隔(マイクロ秒)。最初のデルタはプロファイルの startTime を基準とする。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.Profile.timeDeltas",
+      "lang": "ja"
+    },
+    "28bfa546": {
+      "original": "Profile node. Holds callsite information, execution statistics and child nodes.",
+      "translated": "プロファイルノード。呼び出し箇所情報・実行統計・子ノードを保持する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ProfileNode",
+      "lang": "ja"
+    },
+    "5367918f": {
+      "original": "Function location.",
+      "translated": "関数の位置。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ProfileNode.callFrame",
+      "lang": "ja"
+    },
+    "769a2d2b": {
+      "original": "Child node ids.",
+      "translated": "子ノードの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ProfileNode.children",
+      "lang": "ja"
+    },
+    "89a5f7fa": {
+      "original": "The reason of being not optimized. The function may be deoptimized or marked as don't optimize.",
+      "translated": "最適化されていない理由。関数は最適化解除されたか、最適化しないとマークされている可能性がある。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ProfileNode.deoptReason",
+      "lang": "ja"
+    },
+    "d15caa29": {
+      "original": "Number of samples where this node was on top of the call stack.",
+      "translated": "このノードがコールスタックの最上位にあったサンプルの数。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ProfileNode.hitCount",
+      "lang": "ja"
+    },
+    "7feb2095": {
+      "original": "Unique id of the node.",
+      "translated": "ノードの一意な ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ProfileNode.id",
+      "lang": "ja"
+    },
+    "1575eabe": {
+      "original": "An array of source position ticks.",
+      "translated": "ソース位置ティックの配列。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ProfileNode.positionTicks",
+      "lang": "ja"
+    },
+    "f1e7ec1c": {
+      "original": "Coverage data for a JavaScript script.",
+      "translated": "JavaScript スクリプトのカバレッジデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ScriptCoverage",
+      "lang": "ja"
+    },
+    "8d89ea79": {
+      "original": "Functions contained in the script that has coverage data.",
+      "translated": "カバレッジデータを持つスクリプトに含まれる関数。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.ScriptCoverage.functions",
+      "lang": "ja"
+    },
+    "f70aaa82": {
+      "original": "New sampling interval in microseconds.",
+      "translated": "新しいサンプリング間隔(マイクロ秒)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.SetSamplingIntervalParameterType.interval",
+      "lang": "ja"
+    },
+    "c29357d5": {
+      "original": "Collect accurate call counts beyond simple 'covered' or 'not covered'.",
+      "translated": "単純な「カバーされた」「カバーされていない」を超えて、正確な呼び出し回数を収集する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.StartPreciseCoverageParameterType.callCount",
+      "lang": "ja"
+    },
+    "d0fc2356": {
+      "original": "Collect block-based coverage.",
+      "translated": "ブロックベースのカバレッジを収集する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.StartPreciseCoverageParameterType.detailed",
+      "lang": "ja"
+    },
+    "2e5ed0d2": {
+      "original": "Recorded profile.",
+      "translated": "記録されたプロファイル。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.StopReturnType.profile",
+      "lang": "ja"
+    },
+    "586cfb1d": {
+      "original": "Coverage data for the current isolate.",
+      "translated": "現在の isolate のカバレッジデータ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Profiler.TakePreciseCoverageReturnType.result",
+      "lang": "ja"
+    },
+    "0c5cd745": {
+      "original": "Identifier of the promise.",
+      "translated": "promise の識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.AwaitPromiseParameterType.promiseObjectId",
+      "lang": "ja"
+    },
+    "91c9d14f": {
+      "original": "Exception details if stack strace is available.",
+      "translated": "スタックトレースが利用可能な場合の例外の詳細。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.AwaitPromiseReturnType.exceptionDetails",
+      "lang": "ja"
+    },
+    "7429384c": {
+      "original": "Promise result. Will contain rejected value if promise was rejected.",
+      "translated": "promise の結果。promise が拒否された場合は拒否された値を含む。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.AwaitPromiseReturnType.result",
+      "lang": "ja"
+    },
+    "8a0aedca": {
+      "original": "Represents function call argument. Either remote object id <code>objectId</code>, primitive <code>value</code>, unserializable primitive value or neither of (for undefined) them should be specified.",
+      "translated": "関数呼び出し引数を表す。リモートオブジェクト id <code>objectId</code>、プリミティブ <code>value</code>、シリアライズ不可能なプリミティブ値、またはそのいずれでもない(undefined の場合)のいずれかを指定すべきである。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallArgument",
+      "lang": "ja"
+    },
+    "61161e06": {
+      "original": "Remote object handle.",
+      "translated": "リモートオブジェクトハンドル。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallArgument.objectId",
+      "lang": "ja"
+    },
+    "e0ed33d1": {
+      "original": "Primitive value which can not be JSON-stringified.",
+      "translated": "JSON 文字列化できないプリミティブ値。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallArgument.unserializableValue",
+      "lang": "ja"
+    },
+    "d31ab64f": {
+      "original": "Primitive value or serializable javascript object.",
+      "translated": "プリミティブ値、またはシリアライズ可能な JavaScript オブジェクト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallArgument.value",
+      "lang": "ja"
+    },
+    "7b85cc9d": {
+      "original": "Stack entry for runtime errors and assertions.",
+      "translated": "ランタイムエラーとアサーションのためのスタックエントリ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFrame",
+      "lang": "ja"
+    },
+    "e42eef0f": {
+      "original": "JavaScript script column number (0-based).",
+      "translated": "JavaScript スクリプトの列番号(0 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFrame.columnNumber",
+      "lang": "ja"
+    },
+    "c755e4cd": {
+      "original": "JavaScript function name.",
+      "translated": "JavaScript 関数名。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFrame.functionName",
       "lang": "ja"
     },
     "78a6ad93": {
