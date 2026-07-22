@@ -370,6 +370,12 @@
       "symbol": "@types/node/module.d.ts#module.global.NodeModule",
       "lang": "ja"
     },
+    "90096242": {
+      "original": "Indicates whether or not the test run is considered\nsuccessful or not. If any error condition occurs, such as a failing test or\nunmet coverage threshold, this value will be set to `false`.",
+      "translated": "テスト実行が成功と見なされるかどうかを示す。失敗したテストやカバレッジしきい値の未達など、いずれかのエラー条件が発生した場合、この値は `false` に設定される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.success",
+      "lang": "ja"
+    },
     "91766456": {
       "original": "**Strict assertion mode**\n\nAn alias of {@link notStrictEqual}.\n\n**Legacy assertion mode**\n\n> Stability: 3 - Legacy: Use {@link notStrictEqual} instead.\n\nTests shallow, coercive inequality with the [`!=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality). `NaN` is\nspecially handled and treated as being identical if both sides are `NaN`.\n\n```js\nimport assert from 'node:assert';\n\nassert.notEqual(1, 2);\n// OK\n\nassert.notEqual(1, 1);\n// AssertionError: 1 != 1\n\nassert.notEqual(1, '1');\n// AssertionError: 1 != '1'\n```\n\nIf the values are equal, an `AssertionError` is thrown with a `message` property set equal to the value of the `message` parameter. If the `message` parameter is undefined, a default error\nmessage is assigned. If the `message` parameter is an instance of an `Error` then it will be thrown instead of the `AssertionError`.",
       "translated": "**strict アサーションモード**\n\n{@link notStrictEqual} のエイリアス。\n\n**レガシーアサーションモード**\n\n> Stability: 3 - レガシー: 代わりに {@link notStrictEqual} を使うこと。\n\n[`!=` 演算子](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality)を使って、浅く強制的な不等価性をテストする。`NaN` は特別に扱われ、両辺が `NaN` の場合は同一とみなされる。\n\n```js\nimport assert from 'node:assert';\n\nassert.notEqual(1, 2);\n// OK\n\nassert.notEqual(1, 1);\n// AssertionError: 1 != 1\n\nassert.notEqual(1, '1');\n// AssertionError: 1 != '1'\n```\n\n値が等しい場合、`message` パラメーターの値に等しい `message` プロパティを持つ `AssertionError` が投げられる。`message` パラメーターが undefined の場合、既定のエラーメッセージが割り当てられる。`message` パラメーターが `Error` のインスタンスの場合、`AssertionError` の代わりにそれが投げられる。",
@@ -15224,6 +15230,540 @@
       "original": "The bytes to decode.",
       "translated": "デコードするバイト。",
       "symbol": "@types/node/string_decoder.d.ts#string_decoder.StringDecoder.write",
+      "lang": "ja"
+    },
+    "cd5fb674": {
+      "original": "The `node:test` module facilitates the creation of JavaScript tests.\nTo access it:\n\n```js\nimport test from 'node:test';\n```\n\nThis module is only available under the `node:` scheme. The following will not\nwork:\n\n```js\nimport test from 'node:test';\n```\n\nTests created via the `test` module consist of a single function that is\nprocessed in one of three ways:\n\n1. A synchronous function that is considered failing if it throws an exception,\nand is considered passing otherwise.\n2. A function that returns a `Promise` that is considered failing if the `Promise` rejects, and is considered passing if the `Promise` fulfills.\n3. A function that receives a callback function. If the callback receives any\ntruthy value as its first argument, the test is considered failing. If a\nfalsy value is passed as the first argument to the callback, the test is\nconsidered passing. If the test function receives a callback function and\nalso returns a `Promise`, the test will fail.\n\nThe following example illustrates how tests are written using the `test` module.\n\n```js\ntest('synchronous passing test', (t) => {\n  // This test passes because it does not throw an exception.\n  assert.strictEqual(1, 1);\n});\n\ntest('synchronous failing test', (t) => {\n  // This test fails because it throws an exception.\n  assert.strictEqual(1, 2);\n});\n\ntest('asynchronous passing test', async (t) => {\n  // This test passes because the Promise returned by the async\n  // function is settled and not rejected.\n  assert.strictEqual(1, 1);\n});\n\ntest('asynchronous failing test', async (t) => {\n  // This test fails because the Promise returned by the async\n  // function is rejected.\n  assert.strictEqual(1, 2);\n});\n\ntest('failing test using Promises', (t) => {\n  // Promises can be used directly as well.\n  return new Promise((resolve, reject) => {\n    setImmediate(() => {\n      reject(new Error('this will cause the test to fail'));\n    });\n  });\n});\n\ntest('callback passing test', (t, done) => {\n  // done() is the callback function. When the setImmediate() runs, it invokes\n  // done() with no arguments.\n  setImmediate(done);\n});\n\ntest('callback failing test', (t, done) => {\n  // When the setImmediate() runs, done() is invoked with an Error object and\n  // the test fails.\n  setImmediate(() => {\n    done(new Error('callback failure'));\n  });\n});\n```\n\nIf any tests fail, the process exit code is set to `1`.",
+      "translated": "`node:test` モジュールは、JavaScript テストの作成を容易にする。アクセスするには:\n\n```js\nimport test from 'node:test';\n```\n\nこのモジュールは `node:` スキームの下でのみ利用できる。次は機能しない:\n\n```js\nimport test from 'node:test';\n```\n\n`test` モジュールを介して作成されたテストは、次の 3 つの方法のいずれかで処理される単一の関数で構成される:\n\n1. 例外を投げた場合は失敗、そうでなければ成功と見なされる同期関数。\n2. `Promise` を返す関数。`Promise` が拒否された場合は失敗、`Promise` がフルフィルされた場合は成功と見なされる。\n3. コールバック関数を受け取る関数。コールバックが第 1 引数として truthy な値を受け取った場合、テストは失敗と見なされる。コールバックの第 1 引数に falsy な値が渡された場合、テストは成功と見なされる。テスト関数がコールバック関数を受け取りつつ `Promise` も返す場合、テストは失敗する。\n\n次の例は、`test` モジュールを使ってテストを書く方法を示す。\n\n```js\ntest('synchronous passing test', (t) => {\n  // This test passes because it does not throw an exception.\n  assert.strictEqual(1, 1);\n});\n\ntest('synchronous failing test', (t) => {\n  // This test fails because it throws an exception.\n  assert.strictEqual(1, 2);\n});\n\ntest('asynchronous passing test', async (t) => {\n  // This test passes because the Promise returned by the async\n  // function is settled and not rejected.\n  assert.strictEqual(1, 1);\n});\n\ntest('asynchronous failing test', async (t) => {\n  // This test fails because the Promise returned by the async\n  // function is rejected.\n  assert.strictEqual(1, 2);\n});\n\ntest('failing test using Promises', (t) => {\n  // Promises can be used directly as well.\n  return new Promise((resolve, reject) => {\n    setImmediate(() => {\n      reject(new Error('this will cause the test to fail'));\n    });\n  });\n});\n\ntest('callback passing test', (t, done) => {\n  // done() is the callback function. When the setImmediate() runs, it invokes\n  // done() with no arguments.\n  setImmediate(done);\n});\n\ntest('callback failing test', (t, done) => {\n  // When the setImmediate() runs, done() is invoked with an Error object and\n  // the test fails.\n  setImmediate(() => {\n    done(new Error('callback failure'));\n  });\n});\n```\n\nいずれかのテストが失敗した場合、プロセスの終了コードは `1` に設定される。",
+      "symbol": "@types/node/test.d.ts#node:test",
+      "lang": "ja"
+    },
+    "312f2175": {
+      "original": "Configuration options for the test.",
+      "translated": "テストの構成オプション。",
+      "symbol": "@types/node/test.d.ts#node:test.test",
+      "lang": "ja"
+    },
+    "9b675395": {
+      "original": "Fulfilled with `undefined` once the test completes, or immediately if the test runs within a suite.",
+      "translated": "テストが完了すると `undefined` でフルフィルされる。テストがスイート内で実行される場合はただちにフルフィルされる。",
+      "symbol": "@types/node/test.d.ts#node:test.test",
+      "lang": "ja"
+    },
+    "b600109a": {
+      "original": "The `test()` function is the value imported from the `test` module. Each\ninvocation of this function results in reporting the test to the `TestsStream`.\n\nThe `TestContext` object passed to the `fn` argument can be used to perform\nactions related to the current test. Examples include skipping the test, adding\nadditional diagnostic information, or creating subtests.\n\n`test()` returns a `Promise` that fulfills once the test completes.\nif `test()` is called within a suite, it fulfills immediately.\nThe return value can usually be discarded for top level tests.\nHowever, the return value from subtests should be used to prevent the parent\ntest from finishing first and cancelling the subtest\nas shown in the following example.\n\n```js\ntest('top level test', async (t) => {\n  // The setTimeout() in the following subtest would cause it to outlive its\n  // parent test if 'await' is removed on the next line. Once the parent test\n  // completes, it will cancel any outstanding subtests.\n  await t.test('longer running subtest', async (t) => {\n    return new Promise((resolve, reject) => {\n      setTimeout(resolve, 1000);\n    });\n  });\n});\n```\n\nThe `timeout` option can be used to fail the test if it takes longer than `timeout` milliseconds to complete. However, it is not a reliable mechanism for\ncanceling tests because a running test might block the application thread and\nthus prevent the scheduled cancellation.",
+      "translated": "`test()` 関数は、`test` モジュールからインポートされる値である。この関数を呼び出すたびに、テストが `TestsStream` に報告される。\n\n`fn` 引数に渡される `TestContext` オブジェクトは、現在のテストに関連するアクションを実行するために使える。例としては、テストのスキップ、追加の診断情報の付加、サブテストの作成などがある。\n\n`test()` は、テストが完了するとフルフィルされる `Promise` を返す。`test()` がスイート内で呼ばれた場合は、ただちにフルフィルされる。トップレベルのテストでは、通常、戻り値を破棄してよい。ただし、次の例に示すように、親テストが先に完了してサブテストをキャンセルするのを防ぐため、サブテストの戻り値は使うべきである。\n\n```js\ntest('top level test', async (t) => {\n  // The setTimeout() in the following subtest would cause it to outlive its\n  // parent test if 'await' is removed on the next line. Once the parent test\n  // completes, it will cancel any outstanding subtests.\n  await t.test('longer running subtest', async (t) => {\n    return new Promise((resolve, reject) => {\n      setTimeout(resolve, 1000);\n    });\n  });\n});\n```\n\n`timeout` オプションは、テストの完了に `timeout` ミリ秒より長くかかる場合にテストを失敗させるために使える。ただし、実行中のテストがアプリケーションスレッドをブロックし、スケジュールされたキャンセルを妨げる可能性があるため、これはテストをキャンセルする信頼できる仕組みではない。",
+      "symbol": "@types/node/test.d.ts#node:test.test",
+      "lang": "ja"
+    },
+    "bf07f6dc": {
+      "original": "The function under test. The first argument to this function is a {@link TestContext} object.\nIf the test uses callbacks, the callback function is passed as the second argument.",
+      "translated": "テスト対象の関数。この関数の第 1 引数は {@link TestContext} オブジェクトである。テストがコールバックを使う場合、コールバック関数が第 2 引数として渡される。",
+      "symbol": "@types/node/test.d.ts#node:test.test",
+      "lang": "ja"
+    },
+    "fd50ce0c": {
+      "original": "The name of the test, which is displayed when reporting test results.\nDefaults to the `name` property of `fn`, or `'<anonymous>'` if `fn` does not have a name.",
+      "translated": "テストの名前。テスト結果の報告時に表示される。既定では `fn` の `name` プロパティ、または `fn` に名前がない場合は `'<anonymous>'` になる。",
+      "symbol": "@types/node/test.d.ts#node:test.test",
+      "lang": "ja"
+    },
+    "f7ee084a": {
+      "original": "This function creates a hook that runs after executing a suite.\n\n```js\ndescribe('tests', async () => {\n  after(() => console.log('finished running tests'));\n  it('is a subtest', () => {\n    assert.ok('some relevant assertion here');\n  });\n});\n```",
+      "translated": "この関数は、スイートの実行後に実行されるフックを作成する。\n\n```js\ndescribe('tests', async () => {\n  after(() => console.log('finished running tests'));\n  it('is a subtest', () => {\n    assert.ok('some relevant assertion here');\n  });\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.after",
+      "lang": "ja"
+    },
+    "f6d4c5c9": {
+      "original": "This function creates a hook that runs after each test in the current suite.\nThe `afterEach()` hook is run even if the test fails.\n\n```js\ndescribe('tests', async () => {\n  afterEach(() => console.log('finished running a test'));\n  it('is a subtest', () => {\n    assert.ok('some relevant assertion here');\n  });\n});\n```",
+      "translated": "この関数は、現在のスイート内の各テストの後に実行されるフックを作成する。`afterEach()` フックは、テストが失敗しても実行される。\n\n```js\ndescribe('tests', async () => {\n  afterEach(() => console.log('finished running a test'));\n  it('is a subtest', () => {\n    assert.ok('some relevant assertion here');\n  });\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.afterEach",
+      "lang": "ja"
+    },
+    "14df5b71": {
+      "original": "An object whose methods are used to configure available assertions on the\n`TestContext` objects in the current process. The methods from `node:assert`\nand snapshot testing functions are available by default.\n\nIt is possible to apply the same configuration to all files by placing common\nconfiguration code in a module\npreloaded with `--require` or `--import`.",
+      "translated": "そのメソッドが、現在のプロセス内の `TestContext` オブジェクトで利用可能なアサーションを構成するために使われるオブジェクト。既定では、`node:assert` のメソッドとスナップショットテスト関数が利用できる。\n\n共通の構成コードを `--require` または `--import` でプリロードするモジュールに配置することで、すべてのファイルに同じ構成を適用できる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.assert",
+      "lang": "ja"
+    },
+    "d4103e58": {
+      "original": "Defines a new assertion function with the provided name and function. If an\nassertion already exists with the same name, it is overwritten.",
+      "translated": "指定された名前と関数で新しいアサーション関数を定義する。同じ名前のアサーションが既に存在する場合は、上書きされる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.assert.register",
+      "lang": "ja"
+    },
+    "0492bd94": {
+      "original": "An array of synchronous functions used to serialize `value` into a string.\n`value` is passed as the only argument to the first serializer function.\nThe return value of each serializer is passed as input to the next serializer.\nOnce all serializers have run, the resulting value is coerced to a string.\n\nIf no serializers are provided, the test runner's default serializers are used.",
+      "translated": "`value` を文字列にシリアライズするために使われる同期関数の配列。`value` は最初のシリアライザー関数の唯一の引数として渡される。各シリアライザーの戻り値は、次のシリアライザーへの入力として渡される。すべてのシリアライザーが実行されると、結果の値は文字列に強制変換される。\n\nシリアライザーが指定されない場合、テストランナーの既定のシリアライザーが使われる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.AssertSnapshotOptions.serializers",
+      "lang": "ja"
+    },
+    "bbefd76e": {
+      "original": "The hook function. If the hook uses callbacks, the callback function is passed as the second argument.",
+      "translated": "フック関数。フックがコールバックを使う場合、コールバック関数が第 2 引数として渡される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.before",
+      "lang": "ja"
+    },
+    "0c875a92": {
+      "original": "This function creates a hook that runs before executing a suite.\n\n```js\ndescribe('tests', async () => {\n  before(() => console.log('about to run some test'));\n  it('is a subtest', () => {\n    assert.ok('some relevant assertion here');\n  });\n});\n```",
+      "translated": "この関数は、スイートの実行前に実行されるフックを作成する。\n\n```js\ndescribe('tests', async () => {\n  before(() => console.log('about to run some test'));\n  it('is a subtest', () => {\n    assert.ok('some relevant assertion here');\n  });\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.before",
+      "lang": "ja"
+    },
+    "4c132d08": {
+      "original": "This function creates a hook that runs before each test in the current suite.\n\n```js\ndescribe('tests', async () => {\n  beforeEach(() => console.log('about to run a test'));\n  it('is a subtest', () => {\n    assert.ok('some relevant assertion here');\n  });\n});\n```",
+      "translated": "この関数は、現在のスイート内の各テストの前に実行されるフックを作成する。\n\n```js\ndescribe('tests', async () => {\n  beforeEach(() => console.log('about to run a test'));\n  it('is a subtest', () => {\n    assert.ok('some relevant assertion here');\n  });\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.beforeEach",
+      "lang": "ja"
+    },
+    "eb5cc8c5": {
+      "original": "The column number where the test is defined, or\n`undefined` if the test was run through the REPL.",
+      "translated": "テストが定義されている列番号。テストが REPL を通じて実行された場合は `undefined`。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.LocationInfo.column",
+      "lang": "ja"
+    },
+    "32a35b43": {
+      "original": "The path of the test file, `undefined` if test was run through the REPL.",
+      "translated": "テストファイルのパス。テストが REPL を通じて実行された場合は `undefined`。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.LocationInfo.file",
+      "lang": "ja"
+    },
+    "7257eb94": {
+      "original": "The line number where the test is defined, or `undefined` if the test was run through the REPL.",
+      "translated": "テストが定義されている行番号。テストが REPL を通じて実行された場合は `undefined`。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.LocationInfo.line",
+      "lang": "ja"
+    },
+    "6944a1c6": {
+      "original": "Additional execution metadata.",
+      "translated": "追加の実行メタデータ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestComplete.details",
+      "lang": "ja"
+    },
+    "97d781f5": {
+      "original": "The duration of the test in milliseconds.",
+      "translated": "テストの所要時間(ミリ秒)。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestComplete.details.duration_ms",
+      "lang": "ja"
+    },
+    "601969d6": {
+      "original": "An error wrapping the error thrown by the test if it did not pass.",
+      "translated": "テストが成功しなかった場合に、テストが投げたエラーをラップするエラー。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestComplete.details.error",
+      "lang": "ja"
+    },
+    "cee77a41": {
+      "original": "Whether the test passed or not.",
+      "translated": "テストが成功したかどうか。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestComplete.details.passed",
+      "lang": "ja"
+    },
+    "b2bf0972": {
+      "original": "The type of the test, used to denote whether this is a suite.",
+      "translated": "テストの種類。これがスイートかどうかを示すために使われる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestComplete.details.type",
+      "lang": "ja"
+    },
+    "72b2b810": {
+      "original": "The test name.",
+      "translated": "テスト名。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestComplete.name",
+      "lang": "ja"
+    },
+    "ec57fe57": {
+      "original": "Present if `context.skip` is called.",
+      "translated": "`context.skip` が呼ばれた場合に存在する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestComplete.skip",
+      "lang": "ja"
+    },
+    "cbf9430a": {
+      "original": "The ordinal number of the test.",
+      "translated": "テストの序数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestComplete.testNumber",
+      "lang": "ja"
+    },
+    "5ea4fa6f": {
+      "original": "Present if `context.todo` is called.",
+      "translated": "`context.todo` が呼ばれた場合に存在する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestComplete.todo",
+      "lang": "ja"
+    },
+    "7bd8ee7f": {
+      "original": "An object containing the coverage report.",
+      "translated": "カバレッジレポートを含むオブジェクト。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary",
+      "lang": "ja"
+    },
+    "d50ecf47": {
+      "original": "An array of coverage reports for individual files.",
+      "translated": "個々のファイルのカバレッジレポートの配列。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files",
+      "lang": "ja"
+    },
+    "a71a65b4": {
+      "original": "An array of branches representing branch coverage.",
+      "translated": "分岐カバレッジを表す分岐の配列。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.branches",
+      "lang": "ja"
+    },
+    "827f6610": {
+      "original": "The number of times the branch was taken.",
+      "translated": "分岐が実行された回数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.branches.count",
+      "lang": "ja"
+    },
+    "92fbeb61": {
+      "original": "The line number where the branch is defined.",
+      "translated": "分岐が定義されている行番号。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.branches.line",
+      "lang": "ja"
+    },
+    "ebd67e8d": {
+      "original": "The number of covered branches.",
+      "translated": "カバーされた分岐の数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.coveredBranchCount",
+      "lang": "ja"
+    },
+    "f6bfcfc3": {
+      "original": "The percentage of branches covered.",
+      "translated": "カバーされた分岐の割合。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.coveredBranchPercent",
+      "lang": "ja"
+    },
+    "fc1da130": {
+      "original": "The number of covered functions.",
+      "translated": "カバーされた関数の数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.coveredFunctionCount",
+      "lang": "ja"
+    },
+    "9a93b55a": {
+      "original": "The percentage of functions covered.",
+      "translated": "カバーされた関数の割合。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.coveredFunctionPercent",
+      "lang": "ja"
+    },
+    "63632c62": {
+      "original": "The number of covered lines.",
+      "translated": "カバーされた行の数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.coveredLineCount",
+      "lang": "ja"
+    },
+    "915e29ba": {
+      "original": "The percentage of lines covered.",
+      "translated": "カバーされた行の割合。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.coveredLinePercent",
+      "lang": "ja"
+    },
+    "fa159921": {
+      "original": "An array of functions representing function coverage.",
+      "translated": "関数カバレッジを表す関数の配列。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.functions",
+      "lang": "ja"
+    },
+    "ef5c7abf": {
+      "original": "The number of times the function was called.",
+      "translated": "関数が呼ばれた回数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.functions.count",
+      "lang": "ja"
+    },
+    "fa3e1f3c": {
+      "original": "The line number where the function is defined.",
+      "translated": "関数が定義されている行番号。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.functions.line",
+      "lang": "ja"
+    },
+    "01c3b9df": {
+      "original": "The name of the function.",
+      "translated": "関数の名前。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.functions.name",
+      "lang": "ja"
+    },
+    "c326f54c": {
+      "original": "An array of lines representing line numbers and the number of times they were covered.",
+      "translated": "行番号とそれがカバーされた回数を表す行の配列。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.lines",
+      "lang": "ja"
+    },
+    "055f77dc": {
+      "original": "The number of times the line was covered.",
+      "translated": "行がカバーされた回数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.lines.count",
+      "lang": "ja"
+    },
+    "669c8a55": {
+      "original": "The line number.",
+      "translated": "行番号。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.lines.line",
+      "lang": "ja"
+    },
+    "804cc5a1": {
+      "original": "The absolute path of the file.",
+      "translated": "ファイルの絶対パス。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.path",
+      "lang": "ja"
+    },
+    "fea420cb": {
+      "original": "The total number of branches.",
+      "translated": "分岐の総数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.totalBranchCount",
+      "lang": "ja"
+    },
+    "4f4ffef6": {
+      "original": "The total number of functions.",
+      "translated": "関数の総数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.totalFunctionCount",
+      "lang": "ja"
+    },
+    "f1ba8f5b": {
+      "original": "The total number of lines.",
+      "translated": "行の総数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.files.totalLineCount",
+      "lang": "ja"
+    },
+    "814c5cb6": {
+      "original": "An object containing whether or not the coverage for\neach coverage type.",
+      "translated": "各カバレッジ種別のカバレッジが達成されたかどうかを含むオブジェクト。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.thresholds",
+      "lang": "ja"
+    },
+    "c16c9968": {
+      "original": "The branch coverage threshold.",
+      "translated": "分岐カバレッジのしきい値。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.thresholds.branch",
+      "lang": "ja"
+    },
+    "63de05e7": {
+      "original": "The function coverage threshold.",
+      "translated": "関数カバレッジのしきい値。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.thresholds.function",
+      "lang": "ja"
+    },
+    "5325b636": {
+      "original": "The line coverage threshold.",
+      "translated": "行カバレッジのしきい値。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.thresholds.line",
+      "lang": "ja"
+    },
+    "8e3f0966": {
+      "original": "An object containing a summary of coverage for all files.",
+      "translated": "すべてのファイルのカバレッジの要約を含むオブジェクト。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.totals",
+      "lang": "ja"
+    },
+    "267ad51f": {
+      "original": "The working directory when code coverage began. This\nis useful for displaying relative path names in case\nthe tests changed the working directory of the Node.js process.",
+      "translated": "コードカバレッジが開始されたときの作業ディレクトリ。これは、テストが Node.js プロセスの作業ディレクトリを変更した場合に、相対パス名を表示するのに役立つ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestCoverage.summary.workingDirectory",
+      "lang": "ja"
+    },
+    "ccb520f6": {
+      "original": "The test type. Either `'suite'` or `'test'`.",
+      "translated": "テストの種類。`'suite'` または `'test'` のいずれか。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestDequeue.type",
+      "lang": "ja"
+    },
+    "8921ecc9": {
+      "original": "The severity level of the diagnostic message.\nPossible values are:\n* `'info'`: Informational messages.\n* `'warn'`: Warnings.\n* `'error'`: Errors.",
+      "translated": "診断メッセージの重大度レベル。可能な値は次のとおり:\n* `'info'`: 情報メッセージ。\n* `'warn'`: 警告。\n* `'error'`: エラー。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestDiagnostic.level",
+      "lang": "ja"
+    },
+    "bf666b8f": {
+      "original": "The diagnostic message.",
+      "translated": "診断メッセージ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestDiagnostic.message",
+      "lang": "ja"
+    },
+    "029b1cf8": {
+      "original": "The nesting level of the test.",
+      "translated": "テストの入れ子レベル。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestDiagnostic.nesting",
+      "lang": "ja"
+    },
+    "4bb3e462": {
+      "original": "An error wrapping the error thrown by the test.",
+      "translated": "テストが投げたエラーをラップするエラー。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestFail.details.error",
+      "lang": "ja"
+    },
+    "3bbfdce6": {
+      "original": "The number of subtests that have ran.",
+      "translated": "実行されたサブテストの数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestPlan.count",
+      "lang": "ja"
+    },
+    "e2f2e28f": {
+      "original": "The path of the test file.",
+      "translated": "テストファイルのパス。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestStderr.file",
+      "lang": "ja"
+    },
+    "903024ba": {
+      "original": "The message written to `stderr`.",
+      "translated": "`stderr` に書き込まれたメッセージ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestStderr.message",
+      "lang": "ja"
+    },
+    "32dd6e93": {
+      "original": "The message written to `stdout`.",
+      "translated": "`stdout` に書き込まれたメッセージ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestStdout.message",
+      "lang": "ja"
+    },
+    "bd3edadb": {
+      "original": "An object containing the counts of various test results.",
+      "translated": "さまざまなテスト結果の件数を含むオブジェクト。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.counts",
+      "lang": "ja"
+    },
+    "f0a9b060": {
+      "original": "The total number of cancelled tests.",
+      "translated": "キャンセルされたテストの総数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.counts.cancelled",
+      "lang": "ja"
+    },
+    "9c7df2c1": {
+      "original": "The total number of passed tests.",
+      "translated": "成功したテストの総数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.counts.passed",
+      "lang": "ja"
+    },
+    "ce4844ad": {
+      "original": "The total number of skipped tests.",
+      "translated": "スキップされたテストの総数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.counts.skipped",
+      "lang": "ja"
+    },
+    "bc007ead": {
+      "original": "The total number of suites run.",
+      "translated": "実行されたスイートの総数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.counts.suites",
+      "lang": "ja"
+    },
+    "af6e69fe": {
+      "original": "The total number of tests run, excluding suites.",
+      "translated": "実行されたテストの総数(スイートを除く)。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.counts.tests",
+      "lang": "ja"
+    },
+    "6bcb8f9a": {
+      "original": "The total number of TODO tests.",
+      "translated": "TODO テストの総数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.counts.todo",
+      "lang": "ja"
+    },
+    "a0cd8007": {
+      "original": "The total number of top level tests and suites.",
+      "translated": "トップレベルのテストとスイートの総数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.counts.topLevel",
+      "lang": "ja"
+    },
+    "6190f862": {
+      "original": "The duration of the test run in milliseconds.",
+      "translated": "テスト実行の所要時間(ミリ秒)。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.duration_ms",
+      "lang": "ja"
+    },
+    "631d40e9": {
+      "original": "The path of the test file that generated the\nsummary. If the summary corresponds to multiple files, this value is\n`undefined`.",
+      "translated": "要約を生成したテストファイルのパス。要約が複数のファイルに対応する場合、この値は `undefined` になる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.EventData.TestSummary.file",
+      "lang": "ja"
+    },
+    "7de88947": {
+      "original": "The hook function. The first argument is the context in which the hook is called.\nIf the hook uses callbacks, the callback function is passed as the second argument.",
+      "translated": "フック関数。第 1 引数は、フックが呼ばれるコンテキストである。フックがコールバックを使う場合、コールバック関数が第 2 引数として渡される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.HookFn",
+      "lang": "ja"
+    },
+    "4d7514e3": {
+      "original": "Configuration options for hooks.",
+      "translated": "フックの構成オプション。",
+      "symbol": "@types/node/test.d.ts#node:test.test.HookOptions",
+      "lang": "ja"
+    },
+    "6c810647": {
+      "original": "Allows aborting an in-progress hook.",
+      "translated": "進行中のフックを中止できるようにする。",
+      "symbol": "@types/node/test.d.ts#node:test.test.HookOptions.signal",
+      "lang": "ja"
+    },
+    "5dda9401": {
+      "original": "A number of milliseconds the hook will fail after. If unspecified, subtests inherit this\nvalue from their parent.",
+      "translated": "フックが失敗するまでのミリ秒数。指定されない場合、サブテストはこの値を親から継承する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.HookOptions.timeout",
+      "lang": "ja"
+    },
+    "705fa405": {
+      "original": "An array of the arguments passed to the mock function.",
+      "translated": "モック関数に渡された引数の配列。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionCall.arguments",
+      "lang": "ja"
+    },
+    "79d1807a": {
+      "original": "If the mocked function threw then this property contains the thrown value.",
+      "translated": "モックされた関数がスローした場合、このプロパティにはスローされた値が含まれる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionCall.error",
+      "lang": "ja"
+    },
+    "a7ad0231": {
+      "original": "The value returned by the mocked function.\n\nIf the mocked function threw, it will be `undefined`.",
+      "translated": "モックされた関数が返した値。\n\nモックされた関数がスローした場合、`undefined` になる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionCall.result",
+      "lang": "ja"
+    },
+    "aa6d461b": {
+      "original": "An `Error` object whose stack can be used to determine the callsite of the mocked function invocation.",
+      "translated": "スタックを使ってモックされた関数呼び出しの呼び出し箇所を特定できる `Error` オブジェクト。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionCall.stack",
+      "lang": "ja"
+    },
+    "b6fed7cf": {
+      "original": "If the mocked function is a constructor, this field contains the class being constructed.\nOtherwise this will be `undefined`.",
+      "translated": "モックされた関数がコンストラクターの場合、このフィールドには構築されるクラスが含まれる。そうでなければ `undefined` になる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionCall.target",
+      "lang": "ja"
+    },
+    "c4d072f4": {
+      "original": "The mocked function's `this` value.",
+      "translated": "モックされた関数の `this` の値。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionCall.this",
+      "lang": "ja"
+    },
+    "fcbf4bee": {
+      "original": "The `MockFunctionContext` class is used to inspect or manipulate the behavior of\nmocks created via the `MockTracker` APIs.",
+      "translated": "`MockFunctionContext` クラスは、`MockTracker` API を介して作成されたモックの挙動を検査または操作するために使われる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext",
+      "lang": "ja"
+    },
+    "8201c001": {
+      "original": "The number of times that this mock has been invoked.",
+      "translated": "このモックが呼び出された回数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.callCount",
+      "lang": "ja"
+    },
+    "70d64e7e": {
+      "original": "This function returns the number of times that this mock has been invoked. This\nfunction is more efficient than checking `ctx.calls.length` because `ctx.calls` is a getter that creates a copy of the internal call tracking array.",
+      "translated": "この関数は、このモックが呼び出された回数を返す。`ctx.calls` は内部の呼び出し追跡配列のコピーを作成するゲッターであるため、この関数は `ctx.calls.length` を確認するより効率的である。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.callCount",
+      "lang": "ja"
+    },
+    "ddd66e26": {
+      "original": "A getter that returns a copy of the internal array used to track calls to the\nmock. Each entry in the array is an object with the following properties.",
+      "translated": "モックへの呼び出しを追跡するために使われる内部配列のコピーを返すゲッター。配列内の各エントリは、次のプロパティを持つオブジェクトである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.calls",
+      "lang": "ja"
+    },
+    "79cb5a18": {
+      "original": "The function to be used as the mock's new implementation.",
+      "translated": "モックの新しい実装として使われる関数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.mockImplementation",
+      "lang": "ja"
+    },
+    "89e476ea": {
+      "original": "This function is used to change the behavior of an existing mock.\n\nThe following example creates a mock function using `t.mock.fn()`, calls the\nmock function, and then changes the mock implementation to a different function.\n\n```js\ntest('changes a mock behavior', (t) => {\n  let cnt = 0;\n\n  function addOne() {\n    cnt++;\n    return cnt;\n  }\n\n  function addTwo() {\n    cnt += 2;\n    return cnt;\n  }\n\n  const fn = t.mock.fn(addOne);\n\n  assert.strictEqual(fn(), 1);\n  fn.mock.mockImplementation(addTwo);\n  assert.strictEqual(fn(), 3);\n  assert.strictEqual(fn(), 5);\n});\n```",
+      "translated": "この関数は、既存のモックの挙動を変更するために使われる。\n\n次の例は、`t.mock.fn()` を使ってモック関数を作成し、そのモック関数を呼び、その後モックの実装を別の関数に変更する。\n\n```js\ntest('changes a mock behavior', (t) => {\n  let cnt = 0;\n\n  function addOne() {\n    cnt++;\n    return cnt;\n  }\n\n  function addTwo() {\n    cnt += 2;\n    return cnt;\n  }\n\n  const fn = t.mock.fn(addOne);\n\n  assert.strictEqual(fn(), 1);\n  fn.mock.mockImplementation(addTwo);\n  assert.strictEqual(fn(), 3);\n  assert.strictEqual(fn(), 5);\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.MockFunctionContext.mockImplementation",
       "lang": "ja"
     },
     "cbc8fad9": {
