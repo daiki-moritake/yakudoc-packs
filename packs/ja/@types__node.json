@@ -76,6 +76,12 @@
       "symbol": "@types/node/crypto.d.ts#crypto.Certificate.verifySpkac",
       "lang": "ja"
     },
+    "20206820": {
+      "original": "Buffer.readBigUInt64LE",
+      "translated": "`Buffer.readBigUInt64LE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readBigUint64LE",
+      "lang": "ja"
+    },
     "21295107": {
       "original": "The `v8.stopCoverage()` method allows the user to stop the coverage collection\nstarted by `NODE_V8_COVERAGE`, so that V8 can release the execution count\nrecords and optimize code. This can be used in conjunction with {@link takeCoverage} if the user wants to collect the coverage on demand.",
       "translated": "`v8.stopCoverage()` メソッドは、`NODE_V8_COVERAGE` が開始したカバレッジ収集をユーザーが停止できるようにし、V8 が実行回数のレコードを解放してコードを最適化できるようにする。ユーザーがオンデマンドでカバレッジを収集したい場合、{@link takeCoverage} と併せて使える。",
@@ -122,6 +128,12 @@
       "original": "The value will be `true` if the decoding result will include the byte order\nmark.",
       "translated": "デコード結果にバイトオーダーマークが含まれる場合、値は `true` になる。",
       "symbol": "@types/node/util.d.ts#util.TextDecoder.ignoreBOM",
+      "lang": "ja"
+    },
+    "26504381": {
+      "original": "Buffer.readUIntBE",
+      "translated": "`Buffer.readUIntBE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUintBE",
       "lang": "ja"
     },
     "28506766": {
@@ -1720,6 +1732,12 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readBigInt64LE",
       "lang": "ja"
     },
+    "5bf21d42": {
+      "original": "Buffer.readBigUInt64BE",
+      "translated": "`Buffer.readBigUInt64BE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readBigUint64BE",
+      "lang": "ja"
+    },
     "f76fca86": {
       "original": "Number of bytes to skip before starting to read. Must satisfy: `0 <= offset <= buf.length - 8`.",
       "translated": "読み始める前にスキップするバイト数。`0 <= offset <= buf.length - 8` を満たさなければならない。",
@@ -1810,10 +1828,22 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readIntLE",
       "lang": "ja"
     },
+    "cc8dd07b": {
+      "original": "Buffer.readUInt16BE",
+      "translated": "`Buffer.readUInt16BE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUint16BE",
+      "lang": "ja"
+    },
     "fb721635": {
       "original": "Reads an unsigned, big-endian 16-bit integer from `buf` at the specified`offset`.\n\nThis function is also available under the `readUint16BE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56]);\n\nconsole.log(buf.readUInt16BE(0).toString(16));\n// Prints: 1234\nconsole.log(buf.readUInt16BE(1).toString(16));\n// Prints: 3456\n```",
       "translated": "`buf` の指定した `offset` から符号なしビッグエンディアンの 16 ビット整数を読む。\n\nこの関数は `readUint16BE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56]);\n\nconsole.log(buf.readUInt16BE(0).toString(16));\n// Prints: 1234\nconsole.log(buf.readUInt16BE(1).toString(16));\n// Prints: 3456\n```",
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt16BE",
+      "lang": "ja"
+    },
+    "b8398bc9": {
+      "original": "Buffer.readUInt16LE",
+      "translated": "`Buffer.readUInt16LE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUint16LE",
       "lang": "ja"
     },
     "62d907e1": {
@@ -1828,10 +1858,22 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt16LE",
       "lang": "ja"
     },
+    "7c9ee3c4": {
+      "original": "Buffer.readUInt32BE",
+      "translated": "`Buffer.readUInt32BE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUint32BE",
+      "lang": "ja"
+    },
     "ef962d5e": {
       "original": "Reads an unsigned, big-endian 32-bit integer from `buf` at the specified`offset`.\n\nThis function is also available under the `readUint32BE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78]);\n\nconsole.log(buf.readUInt32BE(0).toString(16));\n// Prints: 12345678\n```",
       "translated": "`buf` の指定した `offset` から符号なしビッグエンディアンの 32 ビット整数を読む。\n\nこの関数は `readUint32BE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78]);\n\nconsole.log(buf.readUInt32BE(0).toString(16));\n// Prints: 12345678\n```",
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt32BE",
+      "lang": "ja"
+    },
+    "a3211bc3": {
+      "original": "Buffer.readUInt32LE",
+      "translated": "`Buffer.readUInt32LE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUint32LE",
       "lang": "ja"
     },
     "92e86846": {
@@ -1846,6 +1888,12 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUInt32LE",
       "lang": "ja"
     },
+    "837ad57e": {
+      "original": "Buffer.readUInt8",
+      "translated": "`Buffer.readUInt8` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUint8",
+      "lang": "ja"
+    },
     "e6ac7426": {
       "original": "Reads an unsigned 8-bit integer from `buf` at the specified `offset`.\n\nThis function is also available under the `readUint8` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([1, -2]);\n\nconsole.log(buf.readUInt8(0));\n// Prints: 1\nconsole.log(buf.readUInt8(1));\n// Prints: 254\nconsole.log(buf.readUInt8(2));\n// Throws ERR_OUT_OF_RANGE.\n```",
       "translated": "`buf` の指定した `offset` から符号なし 8 ビット整数を読む。\n\nこの関数は `readUint8` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([1, -2]);\n\nconsole.log(buf.readUInt8(0));\n// Prints: 1\nconsole.log(buf.readUInt8(1));\n// Prints: 254\nconsole.log(buf.readUInt8(2));\n// Throws ERR_OUT_OF_RANGE.\n```",
@@ -1856,6 +1904,12 @@
       "original": "Reads `byteLength` number of bytes from `buf` at the specified `offset` and interprets the result as an unsigned big-endian integer supporting\nup to 48 bits of accuracy.\n\nThis function is also available under the `readUintBE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);\n\nconsole.log(buf.readUIntBE(0, 6).toString(16));\n// Prints: 1234567890ab\nconsole.log(buf.readUIntBE(1, 6).toString(16));\n// Throws ERR_OUT_OF_RANGE.\n```",
       "translated": "`buf` の指定した `offset` から `byteLength` バイトを読み、結果を最大 48 ビットの精度をサポートする符号なしビッグエンディアン整数として解釈する。\n\nこの関数は `readUintBE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);\n\nconsole.log(buf.readUIntBE(0, 6).toString(16));\n// Prints: 1234567890ab\nconsole.log(buf.readUIntBE(1, 6).toString(16));\n// Throws ERR_OUT_OF_RANGE.\n```",
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUIntBE",
+      "lang": "ja"
+    },
+    "dee43455": {
+      "original": "Buffer.readUIntLE",
+      "translated": "`Buffer.readUIntLE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.readUintLE",
       "lang": "ja"
     },
     "26ae22fa": {
@@ -1990,10 +2044,22 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigInt64LE",
       "lang": "ja"
     },
+    "b0245b02": {
+      "original": "Buffer.writeBigUInt64BE",
+      "translated": "`Buffer.writeBigUInt64BE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigUint64BE",
+      "lang": "ja"
+    },
     "552dbe0b": {
       "original": "Writes `value` to `buf` at the specified `offset` as big-endian.\n\nThis function is also available under the `writeBigUint64BE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeBigUInt64BE(0xdecafafecacefaden, 0);\n\nconsole.log(buf);\n// Prints: <Buffer de ca fa fe ca ce fa de>\n```",
       "translated": "`value` を `buf` の指定した `offset` にビッグエンディアンで書き込む。\n\nこの関数は `writeBigUint64BE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(8);\n\nbuf.writeBigUInt64BE(0xdecafafecacefaden, 0);\n\nconsole.log(buf);\n// Prints: <Buffer de ca fa fe ca ce fa de>\n```",
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigUInt64BE",
+      "lang": "ja"
+    },
+    "5a398d3d": {
+      "original": "Buffer.writeBigUInt64LE",
+      "translated": "`Buffer.writeBigUInt64LE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeBigUint64LE",
       "lang": "ja"
     },
     "bf0f0cdf": {
@@ -2074,10 +2140,22 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeIntLE",
       "lang": "ja"
     },
+    "13389dfb": {
+      "original": "Buffer.writeUInt16BE",
+      "translated": "`Buffer.writeUInt16BE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUint16BE",
+      "lang": "ja"
+    },
     "05cc5447": {
       "original": "Writes `value` to `buf` at the specified `offset` as big-endian. The `value` must be a valid unsigned 16-bit integer. Behavior is undefined when `value`is anything other than an\nunsigned 16-bit integer.\n\nThis function is also available under the `writeUint16BE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(4);\n\nbuf.writeUInt16BE(0xdead, 0);\nbuf.writeUInt16BE(0xbeef, 2);\n\nconsole.log(buf);\n// Prints: <Buffer de ad be ef>\n```",
       "translated": "`value` を `buf` の指定した `offset` にビッグエンディアンで書き込む。`value` は有効な符号なし 16 ビット整数でなければならない。`value` が符号なし 16 ビット整数以外の場合の挙動は未定義である。\n\nこの関数は `writeUint16BE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(4);\n\nbuf.writeUInt16BE(0xdead, 0);\nbuf.writeUInt16BE(0xbeef, 2);\n\nconsole.log(buf);\n// Prints: <Buffer de ad be ef>\n```",
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUInt16BE",
+      "lang": "ja"
+    },
+    "2e33bb71": {
+      "original": "Buffer.writeUInt16LE",
+      "translated": "`Buffer.writeUInt16LE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUint16LE",
       "lang": "ja"
     },
     "ef153066": {
@@ -2092,10 +2170,22 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUInt16LE",
       "lang": "ja"
     },
+    "a0330aed": {
+      "original": "Buffer.writeUInt32BE",
+      "translated": "`Buffer.writeUInt32BE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUint32BE",
+      "lang": "ja"
+    },
     "ba2de36c": {
       "original": "Writes `value` to `buf` at the specified `offset` as big-endian. The `value` must be a valid unsigned 32-bit integer. Behavior is undefined when `value`is anything other than an\nunsigned 32-bit integer.\n\nThis function is also available under the `writeUint32BE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(4);\n\nbuf.writeUInt32BE(0xfeedface, 0);\n\nconsole.log(buf);\n// Prints: <Buffer fe ed fa ce>\n```",
       "translated": "`value` を `buf` の指定した `offset` にビッグエンディアンで書き込む。`value` は有効な符号なし 32 ビット整数でなければならない。`value` が符号なし 32 ビット整数以外の場合の挙動は未定義である。\n\nこの関数は `writeUint32BE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(4);\n\nbuf.writeUInt32BE(0xfeedface, 0);\n\nconsole.log(buf);\n// Prints: <Buffer fe ed fa ce>\n```",
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUInt32BE",
+      "lang": "ja"
+    },
+    "25a49eef": {
+      "original": "Buffer.writeUInt32LE",
+      "translated": "`Buffer.writeUInt32LE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUint32LE",
       "lang": "ja"
     },
     "29427f91": {
@@ -2110,6 +2200,12 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUInt32LE",
       "lang": "ja"
     },
+    "601901d8": {
+      "original": "Buffer.writeUInt8",
+      "translated": "`Buffer.writeUInt8` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUint8",
+      "lang": "ja"
+    },
     "d060866b": {
       "original": "Number of bytes to skip before starting to write. Must satisfy `0 <= offset <= buf.length - 1`.",
       "translated": "書き込み始める前にスキップするバイト数。`0 <= offset <= buf.length - 1` を満たさなければならない。",
@@ -2122,10 +2218,22 @@
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUInt8",
       "lang": "ja"
     },
+    "f592c26b": {
+      "original": "Buffer.writeUIntBE",
+      "translated": "`Buffer.writeUIntBE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUintBE",
+      "lang": "ja"
+    },
     "76549f0b": {
       "original": "Writes `byteLength` bytes of `value` to `buf` at the specified `offset`as big-endian. Supports up to 48 bits of accuracy. Behavior is undefined\nwhen `value` is anything other than an unsigned integer.\n\nThis function is also available under the `writeUintBE` alias.\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(6);\n\nbuf.writeUIntBE(0x1234567890ab, 0, 6);\n\nconsole.log(buf);\n// Prints: <Buffer 12 34 56 78 90 ab>\n```",
       "translated": "`value` の `byteLength` バイトを `buf` の指定した `offset` にビッグエンディアンで書き込む。最大 48 ビットの精度をサポートする。`value` が符号なし整数以外の場合の挙動は未定義である。\n\nこの関数は `writeUintBE` というエイリアスでも利用できる。\n\n```js\nimport { Buffer } from 'node:buffer';\n\nconst buf = Buffer.allocUnsafe(6);\n\nbuf.writeUIntBE(0x1234567890ab, 0, 6);\n\nconsole.log(buf);\n// Prints: <Buffer 12 34 56 78 90 ab>\n```",
       "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUIntBE",
+      "lang": "ja"
+    },
+    "2150f2df": {
+      "original": "Buffer.writeUIntLE",
+      "translated": "`Buffer.writeUIntLE` のエイリアス。",
+      "symbol": "@types/node/buffer.d.ts#buffer.global.Buffer.writeUintLE",
       "lang": "ja"
     },
     "ee34fc47": {
