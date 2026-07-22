@@ -166,6 +166,12 @@
       "symbol": "@types/node/test.d.ts#node:test.test.MockMethodOptions.getter",
       "lang": "ja"
     },
+    "39382894": {
+      "original": "This method polls a `condition` function until that function either returns\nsuccessfully or the operation times out.",
+      "translated": "このメソッドは、`condition` 関数が正常に返るか操作がタイムアウトするまで、その関数をポーリングする。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.waitFor",
+      "lang": "ja"
+    },
     "41126723": {
       "original": "If `value` is provided, removes all name-value pairs\nwhere name is `name` and value is `value`.\n\nIf `value` is not provided, removes all name-value pairs whose name is `name`.",
       "translated": "`value` が指定された場合、name が `name` かつ value が `value` であるすべての名前と値のペアを削除する。\n\n`value` が指定されない場合、name が `name` であるすべての名前と値のペアを削除する。",
@@ -16304,6 +16310,378 @@
       "original": "Shorthand for skipping a suite. This is the same as calling {@link suite} with `options.skip` set to `true`.",
       "translated": "スイートをスキップするための省略記法。これは、`options.skip` を `true` に設定して {@link suite} を呼ぶのと同じである。",
       "symbol": "@types/node/test.d.ts#node:test.test.suite.skip",
+      "lang": "ja"
+    },
+    "619cfc18": {
+      "original": "Shorthand for marking a suite as `TODO`. This is the same as calling {@link suite} with `options.todo` set to `true`.",
+      "translated": "スイートを `TODO` としてマークするための省略記法。これは、`options.todo` を `true` に設定して {@link suite} を呼ぶのと同じである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.suite.todo",
+      "lang": "ja"
+    },
+    "b723b6dd": {
+      "original": "An instance of `SuiteContext` is passed to each suite function in order to\ninteract with the test runner. However, the `SuiteContext` constructor is not\nexposed as part of the API.",
+      "translated": "`SuiteContext` のインスタンスは、テストランナーと対話するために各スイート関数に渡される。ただし、`SuiteContext` コンストラクターは API の一部としては公開されていない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.SuiteContext",
+      "lang": "ja"
+    },
+    "84acaf97": {
+      "original": "The absolute path of the test file that created the current suite. If a test file imports\nadditional modules that generate suites, the imported suites will return the path of the root test file.",
+      "translated": "現在のスイートを作成したテストファイルの絶対パス。テストファイルがスイートを生成する追加モジュールをインポートする場合、インポートされたスイートはルートテストファイルのパスを返す。",
+      "symbol": "@types/node/test.d.ts#node:test.test.SuiteContext.filePath",
+      "lang": "ja"
+    },
+    "e1d1ae20": {
+      "original": "The name of the suite.",
+      "translated": "スイートの名前。",
+      "symbol": "@types/node/test.d.ts#node:test.test.SuiteContext.name",
+      "lang": "ja"
+    },
+    "6c5d5a40": {
+      "original": "Can be used to abort test subtasks when the test has been aborted.",
+      "translated": "テストが中止されたときにテストのサブタスクを中止するために使える。",
+      "symbol": "@types/node/test.d.ts#node:test.test.SuiteContext.signal",
+      "lang": "ja"
+    },
+    "eed2d9d2": {
+      "original": "The type of a suite test function. The argument to this function is a {@link SuiteContext} object.",
+      "translated": "スイートテスト関数の型。この関数の引数は {@link SuiteContext} オブジェクトである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.SuiteFn",
+      "lang": "ja"
+    },
+    "1c367bd5": {
+      "original": "An instance of `TestContext` is passed to each test function in order to\ninteract with the test runner. However, the `TestContext` constructor is not\nexposed as part of the API.",
+      "translated": "`TestContext` のインスタンスは、テストランナーと対話するために各テスト関数に渡される。ただし、`TestContext` コンストラクターは API の一部としては公開されていない。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext",
+      "lang": "ja"
+    },
+    "e41544d7": {
+      "original": "This function is used to create a hook that runs after the current test finishes.",
+      "translated": "この関数は、現在のテストが完了した後に実行されるフックを作成するために使われる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.after",
+      "lang": "ja"
+    },
+    "5ea2dabb": {
+      "original": "This function is used to create a hook running after each subtest of the current test.",
+      "translated": "この関数は、現在のテストの各サブテストの後に実行されるフックを作成するために使われる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.afterEach",
+      "lang": "ja"
+    },
+    "97d8033e": {
+      "original": "An object containing assertion methods bound to the test context.\nThe top-level functions from the `node:assert` module are exposed here for the purpose of creating test plans.\n\n**Note:** Some of the functions from `node:assert` contain type assertions. If these are called via the\nTestContext `assert` object, then the context parameter in the test's function signature **must be explicitly typed**\n(ie. the parameter must have a type annotation), otherwise an error will be raised by the TypeScript compiler:\n```ts\nimport { test, type TestContext } from 'node:test';\n\n// The test function's context parameter must have a type annotation.\ntest('example', (t: TestContext) => {\n  t.assert.deepStrictEqual(actual, expected);\n});\n\n// Omitting the type annotation will result in a compilation error.\ntest('example', t => {\n  t.assert.deepStrictEqual(actual, expected); // Error: 't' needs an explicit type annotation.\n});\n```",
+      "translated": "テストコンテキストにバインドされたアサーションメソッドを含むオブジェクト。`node:assert` モジュールのトップレベル関数が、テストプランを作成する目的でここに公開されている。\n\n**注意:** `node:assert` の一部の関数は型アサーションを含む。これらが TestContext の `assert` オブジェクトを介して呼ばれる場合、テストの関数シグネチャ内の context パラメーターは**明示的に型付けされていなければならない**(すなわちパラメーターに型注釈が必要)。そうでないと、TypeScript コンパイラーによってエラーが発生する:\n```ts\nimport { test, type TestContext } from 'node:test';\n\n// The test function's context parameter must have a type annotation.\ntest('example', (t: TestContext) => {\n  t.assert.deepStrictEqual(actual, expected);\n});\n\n// Omitting the type annotation will result in a compilation error.\ntest('example', t => {\n  t.assert.deepStrictEqual(actual, expected); // Error: 't' needs an explicit type annotation.\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.assert",
+      "lang": "ja"
+    },
+    "dc4f4246": {
+      "original": "Configuration options for the hook.",
+      "translated": "フックの構成オプション。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.before",
+      "lang": "ja"
+    },
+    "f687ed82": {
+      "original": "The hook function. The first argument to this function is a `TestContext` object.\nIf the hook uses callbacks, the callback function is passed as the second argument.",
+      "translated": "フック関数。この関数の第 1 引数は `TestContext` オブジェクトである。フックがコールバックを使う場合、コールバック関数が第 2 引数として渡される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.before",
+      "lang": "ja"
+    },
+    "4aacf74d": {
+      "original": "This function is used to create a hook running before subtest of the current test.",
+      "translated": "この関数は、現在のテストのサブテストの前に実行されるフックを作成するために使われる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.before",
+      "lang": "ja"
+    },
+    "1c02c23c": {
+      "original": "This function is used to create a hook running before each subtest of the current test.",
+      "translated": "この関数は、現在のテストの各サブテストの前に実行されるフックを作成するために使われる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.beforeEach",
+      "lang": "ja"
+    },
+    "88fd853d": {
+      "original": "Message to be reported.",
+      "translated": "報告するメッセージ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.diagnostic",
+      "lang": "ja"
+    },
+    "d491ae5a": {
+      "original": "This function is used to write diagnostics to the output. Any diagnostic\ninformation is included at the end of the test's results. This function does\nnot return a value.\n\n```js\ntest('top level test', (t) => {\n  t.diagnostic('A diagnostic message');\n});\n```",
+      "translated": "この関数は、診断を出力に書き込むために使われる。すべての診断情報はテスト結果の末尾に含まれる。この関数は値を返さない。\n\n```js\ntest('top level test', (t) => {\n  t.diagnostic('A diagnostic message');\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.diagnostic",
+      "lang": "ja"
+    },
+    "5efc3c89": {
+      "original": "The absolute path of the test file that created the current test. If a test file imports\nadditional modules that generate tests, the imported tests will return the path of the root test file.",
+      "translated": "現在のテストを作成したテストファイルの絶対パス。テストファイルがテストを生成する追加モジュールをインポートする場合、インポートされたテストはルートテストファイルのパスを返す。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.filePath",
+      "lang": "ja"
+    },
+    "73b2eadd": {
+      "original": "The name of the test and each of its ancestors, separated by `>`.",
+      "translated": "テストとその各祖先の名前を `>` で区切ったもの。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.fullName",
+      "lang": "ja"
+    },
+    "4e487703": {
+      "original": "Each test provides its own MockTracker instance.",
+      "translated": "各テストは独自の MockTracker インスタンスを提供する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.mock",
+      "lang": "ja"
+    },
+    "ed62e682": {
+      "original": "The name of the test.",
+      "translated": "テストの名前。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.name",
+      "lang": "ja"
+    },
+    "47fee1e6": {
+      "original": "This function is used to set the number of assertions and subtests that are expected to run\nwithin the test. If the number of assertions and subtests that run does not match the\nexpected count, the test will fail.\n\n> Note: To make sure assertions are tracked, `t.assert` must be used instead of `assert` directly.\n\n```js\ntest('top level test', (t) => {\n  t.plan(2);\n  t.assert.ok('some relevant assertion here');\n  t.test('subtest', () => {});\n});\n```\n\nWhen working with asynchronous code, the `plan` function can be used to ensure that the\ncorrect number of assertions are run:\n\n```js\ntest('planning with streams', (t, done) => {\n  function* generate() {\n    yield 'a';\n    yield 'b';\n    yield 'c';\n  }\n  const expected = ['a', 'b', 'c'];\n  t.plan(expected.length);\n  const stream = Readable.from(generate());\n  stream.on('data', (chunk) => {\n    t.assert.strictEqual(chunk, expected.shift());\n  });\n\n  stream.on('end', () => {\n    done();\n  });\n});\n```\n\nWhen using the `wait` option, you can control how long the test will wait for the expected assertions.\nFor example, setting a maximum wait time ensures that the test will wait for asynchronous assertions\nto complete within the specified timeframe:\n\n```js\ntest('plan with wait: 2000 waits for async assertions', (t) => {\n  t.plan(1, { wait: 2000 }); // Waits for up to 2 seconds for the assertion to complete.\n\n  const asyncActivity = () => {\n    setTimeout(() => {\n         *       t.assert.ok(true, 'Async assertion completed within the wait time');\n    }, 1000); // Completes after 1 second, within the 2-second wait time.\n  };\n\n  asyncActivity(); // The test will pass because the assertion is completed in time.\n});\n```\n\nNote: If a `wait` timeout is specified, it begins counting down only after the test function finishes executing.",
+      "translated": "この関数は、テスト内で実行されると期待されるアサーションとサブテストの数を設定するために使われる。実行されるアサーションとサブテストの数が期待される数と一致しない場合、テストは失敗する。\n\n> 注意: アサーションが確実に追跡されるようにするには、`assert` を直接使うのではなく `t.assert` を使う必要がある。\n\n```js\ntest('top level test', (t) => {\n  t.plan(2);\n  t.assert.ok('some relevant assertion here');\n  t.test('subtest', () => {});\n});\n```\n\n非同期コードを扱う場合、`plan` 関数を使って正しい数のアサーションが実行されることを保証できる:\n\n```js\ntest('planning with streams', (t, done) => {\n  function* generate() {\n    yield 'a';\n    yield 'b';\n    yield 'c';\n  }\n  const expected = ['a', 'b', 'c'];\n  t.plan(expected.length);\n  const stream = Readable.from(generate());\n  stream.on('data', (chunk) => {\n    t.assert.strictEqual(chunk, expected.shift());\n  });\n\n  stream.on('end', () => {\n    done();\n  });\n});\n```\n\n`wait` オプションを使うと、期待されるアサーションをテストがどれだけ待つかを制御できる。たとえば、最大待機時間を設定すると、指定された時間枠内で非同期アサーションが完了するのをテストが待つことが保証される:\n\n```js\ntest('plan with wait: 2000 waits for async assertions', (t) => {\n  t.plan(1, { wait: 2000 }); // Waits for up to 2 seconds for the assertion to complete.\n\n  const asyncActivity = () => {\n    setTimeout(() => {\n         *       t.assert.ok(true, 'Async assertion completed within the wait time');\n    }, 1000); // Completes after 1 second, within the 2-second wait time.\n  };\n\n  asyncActivity(); // The test will pass because the assertion is completed in time.\n});\n```\n\n注意: `wait` タイムアウトが指定された場合、カウントダウンはテスト関数の実行が終了した後にのみ始まる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.plan",
+      "lang": "ja"
+    },
+    "0d4ff28c": {
+      "original": "If `shouldRunOnlyTests` is truthy, the test context will only run tests that\nhave the `only` option set. Otherwise, all tests are run. If Node.js was not\nstarted with the `--test-only` command-line option, this function is a\nno-op.\n\n```js\ntest('top level test', (t) => {\n  // The test context can be set to run subtests with the 'only' option.\n  t.runOnly(true);\n  return Promise.all([\n    t.test('this subtest is now skipped'),\n    t.test('this subtest is run', { only: true }),\n  ]);\n});\n```",
+      "translated": "`shouldRunOnlyTests` が truthy の場合、テストコンテキストは `only` オプションが設定されたテストのみを実行する。そうでなければ、すべてのテストが実行される。Node.js が `--test-only` コマンドラインオプションで起動されていない場合、この関数は何もしない。\n\n```js\ntest('top level test', (t) => {\n  // The test context can be set to run subtests with the 'only' option.\n  t.runOnly(true);\n  return Promise.all([\n    t.test('this subtest is now skipped'),\n    t.test('this subtest is run', { only: true }),\n  ]);\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.runOnly",
+      "lang": "ja"
+    },
+    "f8ce09aa": {
+      "original": "Whether or not to run `only` tests.",
+      "translated": "`only` テストを実行するかどうか。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.runOnly",
+      "lang": "ja"
+    },
+    "9f655787": {
+      "original": "Optional skip message.",
+      "translated": "省略可能なスキップメッセージ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.skip",
+      "lang": "ja"
+    },
+    "e393432a": {
+      "original": "This function causes the test's output to indicate the test as skipped. If `message` is provided, it is included in the output. Calling `skip()` does\nnot terminate execution of the test function. This function does not return a\nvalue.\n\n```js\ntest('top level test', (t) => {\n  // Make sure to return here as well if the test contains additional logic.\n  t.skip('this is skipped');\n});\n```",
+      "translated": "この関数は、テストの出力にそのテストがスキップされたことを示させる。`message` が指定された場合、それが出力に含まれる。`skip()` を呼んでもテスト関数の実行は終了しない。この関数は値を返さない。\n\n```js\ntest('top level test', (t) => {\n  // Make sure to return here as well if the test contains additional logic.\n  t.skip('this is skipped');\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.skip",
+      "lang": "ja"
+    },
+    "526fba28": {
+      "original": "A {@link Promise} resolved with `undefined` once the test completes.",
+      "translated": "テストが完了すると `undefined` で解決される {@link Promise}。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.test",
+      "lang": "ja"
+    },
+    "967f9b45": {
+      "original": "The function under test. This first argument to this function is a {@link TestContext} object.\nIf the test uses callbacks, the callback function is passed as the second argument.",
+      "translated": "テスト対象の関数。この関数の第 1 引数は {@link TestContext} オブジェクトである。テストがコールバックを使う場合、コールバック関数が第 2 引数として渡される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.test",
+      "lang": "ja"
+    },
+    "c415c9a9": {
+      "original": "This function is used to create subtests under the current test. This function behaves in\nthe same fashion as the top level {@link test} function.",
+      "translated": "この関数は、現在のテストの下にサブテストを作成するために使われる。この関数は、トップレベルの {@link test} 関数と同じように振る舞う。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.test",
+      "lang": "ja"
+    },
+    "2569958a": {
+      "original": "Optional `TODO` message.",
+      "translated": "省略可能な `TODO` メッセージ。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.todo",
+      "lang": "ja"
+    },
+    "3fb0faed": {
+      "original": "This function adds a `TODO` directive to the test's output. If `message` is\nprovided, it is included in the output. Calling `todo()` does not terminate\nexecution of the test function. This function does not return a value.\n\n```js\ntest('top level test', (t) => {\n  // This test is marked as `TODO`\n  t.todo('this is a todo');\n});\n```",
+      "translated": "この関数は、テストの出力に `TODO` ディレクティブを追加する。`message` が指定された場合、それが出力に含まれる。`todo()` を呼んでもテスト関数の実行は終了しない。この関数は値を返さない。\n\n```js\ntest('top level test', (t) => {\n  // This test is marked as `TODO`\n  t.todo('this is a todo');\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.todo",
+      "lang": "ja"
+    },
+    "14de73b8": {
+      "original": "An assertion function that is invoked\nperiodically until it completes successfully or the defined polling timeout\nelapses. Successful completion is defined as not throwing or rejecting. This\nfunction does not accept any arguments, and is allowed to return any value.",
+      "translated": "正常に完了するか、定義されたポーリングタイムアウトが経過するまで定期的に呼び出されるアサーション関数。正常完了は、スローも拒否もしないことと定義される。この関数は引数を受け取らず、任意の値を返してよい。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.waitFor",
+      "lang": "ja"
+    },
+    "b49e498c": {
+      "original": "An optional configuration object for the polling operation.",
+      "translated": "ポーリング操作の省略可能な構成オブジェクト。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.waitFor",
+      "lang": "ja"
+    },
+    "47ffdf96": {
+      "original": "Fulfilled with the value returned by `condition`.",
+      "translated": "`condition` が返した値でフルフィルされる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContext.waitFor",
+      "lang": "ja"
+    },
+    "86e26012": {
+      "original": "A custom assertion function registered with `assert.register()`.",
+      "translated": "`assert.register()` で登録されたカスタムアサーション関数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextAssert",
+      "lang": "ja"
+    },
+    "33879d73": {
+      "original": "A value to serialize to a string. If Node.js was started with\nthe [`--test-update-snapshots`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--test-update-snapshots)\nflag, the serialized value is written to\n`path`. Otherwise, the serialized value is compared to the contents of the\nexisting snapshot file.",
+      "translated": "文字列にシリアライズする値。Node.js が [`--test-update-snapshots`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--test-update-snapshots) フラグで起動された場合、シリアライズされた値は `path` に書き込まれる。そうでなければ、シリアライズされた値は既存のスナップショットファイルの内容と比較される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextAssert.fileSnapshot",
+      "lang": "ja"
+    },
+    "2e21d974": {
+      "original": "Optional configuration options.",
+      "translated": "省略可能な構成オプション。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextAssert.fileSnapshot",
+      "lang": "ja"
+    },
+    "f362b6e2": {
+      "original": "The file where the serialized `value` is written.",
+      "translated": "シリアライズされた `value` が書き込まれるファイル。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextAssert.fileSnapshot",
+      "lang": "ja"
+    },
+    "9f3a7056": {
+      "original": "This function serializes `value` and writes it to the file specified by `path`.\n\n```js\ntest('snapshot test with default serialization', (t) => {\n  t.assert.fileSnapshot({ value1: 1, value2: 2 }, './snapshots/snapshot.json');\n});\n```\n\nThis function differs from `context.assert.snapshot()` in the following ways:\n\n* The snapshot file path is explicitly provided by the user.\n* Each snapshot file is limited to a single snapshot value.\n* No additional escaping is performed by the test runner.\n\nThese differences allow snapshot files to better support features such as syntax\nhighlighting.",
+      "translated": "この関数は `value` をシリアライズし、`path` で指定されたファイルに書き込む。\n\n```js\ntest('snapshot test with default serialization', (t) => {\n  t.assert.fileSnapshot({ value1: 1, value2: 2 }, './snapshots/snapshot.json');\n});\n```\n\nこの関数は、次の点で `context.assert.snapshot()` と異なる:\n\n* スナップショットファイルのパスがユーザーによって明示的に指定される。\n* 各スナップショットファイルは単一のスナップショット値に制限される。\n* テストランナーによる追加のエスケープが行われない。\n\nこれらの違いにより、スナップショットファイルは構文ハイライトなどの機能をよりよくサポートできる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextAssert.fileSnapshot",
+      "lang": "ja"
+    },
+    "a65df675": {
+      "original": "A value to serialize to a string. If Node.js was started with\nthe [`--test-update-snapshots`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--test-update-snapshots)\nflag, the serialized value is written to\nthe snapshot file. Otherwise, the serialized value is compared to the\ncorresponding value in the existing snapshot file.",
+      "translated": "文字列にシリアライズする値。Node.js が [`--test-update-snapshots`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--test-update-snapshots) フラグで起動された場合、シリアライズされた値はスナップショットファイルに書き込まれる。そうでなければ、シリアライズされた値は既存のスナップショットファイル内の対応する値と比較される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextAssert.snapshot",
+      "lang": "ja"
+    },
+    "3c7d982d": {
+      "original": "This function implements assertions for snapshot testing.\n```js\ntest('snapshot test with default serialization', (t) => {\n  t.assert.snapshot({ value1: 1, value2: 2 });\n});\n\ntest('snapshot test with custom serialization', (t) => {\n  t.assert.snapshot({ value3: 3, value4: 4 }, {\n    serializers: [(value) => JSON.stringify(value)]\n  });\n});\n```",
+      "translated": "この関数は、スナップショットテストのアサーションを実装する。\n```js\ntest('snapshot test with default serialization', (t) => {\n  t.assert.snapshot({ value1: 1, value2: 2 });\n});\n\ntest('snapshot test with custom serialization', (t) => {\n  t.assert.snapshot({ value3: 3, value4: 4 }, {\n    serializers: [(value) => JSON.stringify(value)]\n  });\n});\n```",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextAssert.snapshot",
+      "lang": "ja"
+    },
+    "c1e481d7": {
+      "original": "The hook function. The first argument is a `TestContext` object.\nIf the hook uses callbacks, the callback function is passed as the second argument.",
+      "translated": "フック関数。第 1 引数は `TestContext` オブジェクトである。フックがコールバックを使う場合、コールバック関数が第 2 引数として渡される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextHookFn",
+      "lang": "ja"
+    },
+    "3dff2e96": {
+      "original": "The wait time for the plan:\n* If `true`, the plan waits indefinitely for all assertions and subtests to run.\n* If `false`, the plan performs an immediate check after the test function completes,\nwithout waiting for any pending assertions or subtests.\nAny assertions or subtests that complete after this check will not be counted towards the plan.\n* If a number, it specifies the maximum wait time in milliseconds\nbefore timing out while waiting for expected assertions and subtests to be matched.\nIf the timeout is reached, the test will fail.",
+      "translated": "プランの待機時間:\n* `true` の場合、プランはすべてのアサーションとサブテストが実行されるのを無期限に待つ。\n* `false` の場合、プランはテスト関数の完了後に、保留中のアサーションやサブテストを待たずにただちにチェックを行う。このチェック後に完了したアサーションやサブテストはプランにカウントされない。\n* 数値の場合、期待されるアサーションとサブテストが一致するのを待つ際のタイムアウトまでの最大待機時間(ミリ秒)を指定する。タイムアウトに達した場合、テストは失敗する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextPlanOptions.wait",
+      "lang": "ja"
+    },
+    "f8c22508": {
+      "original": "The number of milliseconds to wait after an unsuccessful\ninvocation of `condition` before trying again.",
+      "translated": "`condition` の呼び出しが失敗した後、再試行する前に待機するミリ秒数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextWaitForOptions.interval",
+      "lang": "ja"
+    },
+    "e2d885cb": {
+      "original": "The poll timeout in milliseconds. If `condition` has not\nsucceeded by the time this elapses, an error occurs.",
+      "translated": "ポーリングタイムアウト(ミリ秒)。これが経過するまでに `condition` が成功しなかった場合、エラーが発生する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestContextWaitForOptions.timeout",
+      "lang": "ja"
+    },
+    "bee49be3": {
+      "original": "The type of a function passed to {@link test}. The first argument to this function is a {@link TestContext} object.\nIf the test uses callbacks, the callback function is passed as the second argument.",
+      "translated": "{@link test} に渡される関数の型。この関数の第 1 引数は {@link TestContext} オブジェクトである。テストがコールバックを使う場合、コールバック関数が第 2 引数として渡される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestFn",
+      "lang": "ja"
+    },
+    "5e38bca0": {
+      "original": "If a number is provided, then that many tests would run in parallel.\nIf truthy, it would run (number of cpu cores - 1) tests in parallel.\nFor subtests, it will be `Infinity` tests in parallel.\nIf falsy, it would only run one test at a time.\nIf unspecified, subtests inherit this value from their parent.",
+      "translated": "数値が指定された場合、その数だけのテストが並列で実行される。truthy の場合、(CPU コア数 - 1)個のテストを並列で実行する。サブテストの場合、`Infinity` 個のテストを並列で実行する。falsy の場合、一度に 1 つのテストのみを実行する。指定されない場合、サブテストはこの値を親から継承する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestOptions.concurrency",
+      "lang": "ja"
+    },
+    "9e463ccb": {
+      "original": "If truthy, and the test context is configured to run `only` tests, then this test will be\nrun. Otherwise, the test is skipped.",
+      "translated": "truthy であり、かつテストコンテキストが `only` テストを実行するよう構成されている場合、このテストは実行される。そうでなければ、テストはスキップされる。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestOptions.only",
+      "lang": "ja"
+    },
+    "899b81e6": {
+      "original": "The number of assertions and subtests expected to be run in the test.\nIf the number of assertions run in the test does not match the number\nspecified in the plan, the test will fail.",
+      "translated": "テスト内で実行されると期待されるアサーションとサブテストの数。テスト内で実行されるアサーションの数がプランで指定された数と一致しない場合、テストは失敗する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestOptions.plan",
+      "lang": "ja"
+    },
+    "226ca442": {
+      "original": "Allows aborting an in-progress test.",
+      "translated": "進行中のテストを中止できるようにする。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestOptions.signal",
+      "lang": "ja"
+    },
+    "ec2252d6": {
+      "original": "If truthy, the test is skipped. If a string is provided, that string is displayed in the\ntest results as the reason for skipping the test.",
+      "translated": "truthy の場合、テストはスキップされる。文字列が指定された場合、その文字列がテスト結果にスキップの理由として表示される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestOptions.skip",
+      "lang": "ja"
+    },
+    "c6fcf186": {
+      "original": "A number of milliseconds the test will fail after. If unspecified, subtests inherit this\nvalue from their parent.",
+      "translated": "これを過ぎるとテストが失敗するミリ秒数。指定されない場合、サブテストはこの値を親から継承する。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestOptions.timeout",
+      "lang": "ja"
+    },
+    "56574c41": {
+      "original": "If truthy, the test marked as `TODO`. If a string is provided, that string is displayed in\nthe test results as the reason why the test is `TODO`.",
+      "translated": "truthy の場合、テストは `TODO` としてマークされる。文字列が指定された場合、その文字列がテスト結果にテストが `TODO` である理由として表示される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestOptions.todo",
+      "lang": "ja"
+    },
+    "c9c93254": {
+      "original": "A positive integer between 1 and `total` that specifies the index of the shard to run.",
+      "translated": "実行するシャードのインデックスを指定する、1 から `total` までの正の整数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestShard.index",
+      "lang": "ja"
+    },
+    "b9e001ff": {
+      "original": "A positive integer that specifies the total number of shards to split the test files to.",
+      "translated": "テストファイルを分割するシャードの総数を指定する正の整数。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestShard.total",
+      "lang": "ja"
+    },
+    "2bd24e27": {
+      "original": "A successful call to `run()` will return a new `TestsStream` object, streaming a series of events representing the execution of the tests.\n\nSome of the events are guaranteed to be emitted in the same order as the tests are defined, while others are emitted in the order that the tests execute.",
+      "translated": "`run()` の呼び出しが成功すると、新しい `TestsStream` オブジェクトが返され、テストの実行を表す一連のイベントがストリーミングされる。\n\n一部のイベントはテストが定義されたのと同じ順序で発行されることが保証され、他のイベントはテストが実行される順序で発行される。",
+      "symbol": "@types/node/test.d.ts#node:test.test.TestsStream",
+      "lang": "ja"
+    },
+    "8413ea22": {
+      "original": "Shorthand for marking a test as `TODO`. This is the same as calling {@link test} with `options.todo` set to `true`.",
+      "translated": "テストを `TODO` としてマークするための省略記法。これは、`options.todo` を `true` に設定して {@link test} を呼ぶのと同じである。",
+      "symbol": "@types/node/test.d.ts#node:test.test.todo",
+      "lang": "ja"
+    },
+    "483d7a8c": {
+      "original": "The `node:test/reporters` module exposes the builtin-reporters for `node:test`.\nTo access it:\n\n```js\nimport test from 'node:test/reporters';\n```\n\nThis module is only available under the `node:` scheme. The following will not\nwork:\n\n```js\nimport test from 'node:test/reporters';\n```",
+      "translated": "`node:test/reporters` モジュールは、`node:test` の組み込みレポーターを公開する。アクセスするには:\n\n```js\nimport test from 'node:test/reporters';\n```\n\nこのモジュールは `node:` スキームの下でのみ利用できる。次は機能しない:\n\n```js\nimport test from 'node:test/reporters';\n```",
+      "symbol": "@types/node/test.d.ts#node:test/reporters",
+      "lang": "ja"
+    },
+    "ced39ffe": {
+      "original": "The `dot` reporter outputs the test results in a compact format,\nwhere each passing test is represented by a `.`,\nand each failing test is represented by a `X`.",
+      "translated": "`dot` レポーターは、テスト結果をコンパクトな形式で出力する。成功した各テストは `.` で、失敗した各テストは `X` で表される。",
+      "symbol": "@types/node/test.d.ts#node:test/reporters.dot",
+      "lang": "ja"
+    },
+    "c96b1a5e": {
+      "original": "The `junit` reporter outputs test results in a jUnit XML format.",
+      "translated": "`junit` レポーターは、テスト結果を jUnit XML 形式で出力する。",
+      "symbol": "@types/node/test.d.ts#node:test/reporters.junit",
+      "lang": "ja"
+    },
+    "925b7f36": {
+      "original": "The `lcov` reporter outputs test coverage when used with the\n[`--experimental-test-coverage`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--experimental-test-coverage) flag.",
+      "translated": "`lcov` レポーターは、[`--experimental-test-coverage`](https://nodejs.org/docs/latest-v22.x/api/cli.html#--experimental-test-coverage) フラグと併用したときにテストカバレッジを出力する。",
+      "symbol": "@types/node/test.d.ts#node:test/reporters.lcov",
+      "lang": "ja"
+    },
+    "9fcdadea": {
+      "original": "The `spec` reporter outputs the test results in a human-readable format.",
+      "translated": "`spec` レポーターは、テスト結果を人間が読みやすい形式で出力する。",
+      "symbol": "@types/node/test.d.ts#node:test/reporters.spec",
+      "lang": "ja"
+    },
+    "3a86cbba": {
+      "original": "The `tap` reporter outputs the test results in the [TAP](https://testanything.org/) format.",
+      "translated": "`tap` レポーターは、テスト結果を [TAP](https://testanything.org/) 形式で出力する。",
+      "symbol": "@types/node/test.d.ts#node:test/reporters.tap",
       "lang": "ja"
     },
     "cbc8fad9": {
