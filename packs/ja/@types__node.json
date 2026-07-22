@@ -34,6 +34,12 @@
       "symbol": "@types/node/perf_hooks.d.ts#perf_hooks.PerformanceEntry.name",
       "lang": "ja"
     },
+    "12964279": {
+      "original": "String representation of the object.",
+      "translated": "オブジェクトの文字列表現。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RemoteObject.description",
+      "lang": "ja"
+    },
     "14610749": {
       "original": "A value that is `\"strip\"` by default,\n`\"transform\"` if Node.js is run with `--experimental-transform-types`, and `false` if\nNode.js is run with `--no-experimental-strip-types`.",
       "translated": "既定では `\"strip\"`、Node.js を `--experimental-transform-types` 付きで実行した場合は `\"transform\"`、`--no-experimental-strip-types` 付きで実行した場合は `false` になる値。",
@@ -134,6 +140,12 @@
       "original": "All workers are created using [`child_process.fork()`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options), the returned object\nfrom this function is stored as `.process`. In a worker, the global `process` is stored.\n\nSee: [Child Process module](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options).\n\nWorkers will call `process.exit(0)` if the `'disconnect'` event occurs\non `process` and `.exitedAfterDisconnect` is not `true`. This protects against\naccidental disconnection.",
       "translated": "すべてのワーカーは [`child_process.fork()`](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options) を使って作成され、この関数から返されたオブジェクトが `.process` として格納される。ワーカーでは、グローバルな `process` が格納される。\n\n[Child Process module](https://nodejs.org/docs/latest-v22.x/api/child_process.html#child_processforkmodulepath-args-options) を参照。\n\nワーカーは、`process` で `'disconnect'` イベントが発生し `.exitedAfterDisconnect` が `true` でない場合、`process.exit(0)` を呼ぶ。これは偶発的な切断から保護する。",
       "symbol": "@types/node/cluster.d.ts#cluster.Worker.process",
+      "lang": "ja"
+    },
+    "31355359": {
+      "original": "True if this property shows up during enumeration of the properties on the corresponding object.",
+      "translated": "このプロパティが対応するオブジェクトのプロパティの列挙中に現れる場合は True。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor.enumerable",
       "lang": "ja"
     },
     "31944169": {
@@ -11114,6 +11126,594 @@
       "original": "JavaScript function name.",
       "translated": "JavaScript 関数名。",
       "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFrame.functionName",
+      "lang": "ja"
+    },
+    "87608bbf": {
+      "original": "JavaScript script id.",
+      "translated": "JavaScript スクリプト ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFrame.scriptId",
+      "lang": "ja"
+    },
+    "780bd398": {
+      "original": "JavaScript script name or url.",
+      "translated": "JavaScript スクリプト名または url。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFrame.url",
+      "lang": "ja"
+    },
+    "1646532f": {
+      "original": "Call arguments. All call arguments must belong to the same JavaScript world as the target object.",
+      "translated": "呼び出し引数。すべての呼び出し引数は、対象オブジェクトと同じ JavaScript ワールドに属している必要がある。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFunctionOnParameterType.arguments",
+      "lang": "ja"
+    },
+    "d052a0c3": {
+      "original": "Specifies execution context which global object will be used to call function on. Either executionContextId or objectId should be specified.",
+      "translated": "関数を呼び出すためにグローバルオブジェクトが使われる実行コンテキストを指定する。executionContextId または objectId のいずれかを指定すべきである。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFunctionOnParameterType.executionContextId",
+      "lang": "ja"
+    },
+    "8643cee9": {
+      "original": "Declaration of the function to call.",
+      "translated": "呼び出す関数の宣言。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFunctionOnParameterType.functionDeclaration",
+      "lang": "ja"
+    },
+    "f147b09f": {
+      "original": "Symbolic group name that can be used to release multiple objects. If objectGroup is not specified and objectId is, objectGroup will be inherited from object.",
+      "translated": "複数のオブジェクトを解放するために使えるシンボリックグループ名。objectGroup が指定されず objectId が指定された場合、objectGroup はオブジェクトから継承される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFunctionOnParameterType.objectGroup",
+      "lang": "ja"
+    },
+    "80e51f38": {
+      "original": "Identifier of the object to call function on. Either objectId or executionContextId should be specified.",
+      "translated": "関数を呼び出す対象のオブジェクトの識別子。objectId または executionContextId のいずれかを指定すべきである。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFunctionOnParameterType.objectId",
+      "lang": "ja"
+    },
+    "e1bdd815": {
+      "original": "Whether the result is expected to be a JSON object which should be sent by value.",
+      "translated": "結果が、値渡しで送られるべき JSON オブジェクトであると期待されるかどうか。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFunctionOnParameterType.returnByValue",
+      "lang": "ja"
+    },
+    "80eb5df0": {
+      "original": "Call result.",
+      "translated": "呼び出し結果。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CallFunctionOnReturnType.result",
+      "lang": "ja"
+    },
+    "69e325c5": {
+      "original": "Specifies in which execution context to perform script run. If the parameter is omitted the evaluation will be performed in the context of the inspected page.",
+      "translated": "スクリプト実行を行う実行コンテキストを指定する。パラメーターが省略された場合、評価は検査対象ページのコンテキストで実行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CompileScriptParameterType.executionContextId",
+      "lang": "ja"
+    },
+    "03428616": {
+      "original": "Expression to compile.",
+      "translated": "コンパイルする式。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CompileScriptParameterType.expression",
+      "lang": "ja"
+    },
+    "8920f7c8": {
+      "original": "Specifies whether the compiled script should be persisted.",
+      "translated": "コンパイルされたスクリプトを永続化すべきかどうかを指定する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CompileScriptParameterType.persistScript",
+      "lang": "ja"
+    },
+    "02084a90": {
+      "original": "Source url to be set for the script.",
+      "translated": "スクリプトに設定するソース url。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CompileScriptParameterType.sourceURL",
+      "lang": "ja"
+    },
+    "f645192c": {
+      "original": "Id of the script.",
+      "translated": "スクリプトの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.CompileScriptReturnType.scriptId",
+      "lang": "ja"
+    },
+    "8cd1b656": {
+      "original": "Call arguments.",
+      "translated": "呼び出し引数。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ConsoleAPICalledEventDataType.args",
+      "lang": "ja"
+    },
+    "78b521e7": {
+      "original": "Console context descriptor for calls on non-default console context (not console.*): 'anonymous#unique-logger-id' for call on unnamed context, 'name#unique-logger-id' for call on named context.",
+      "translated": "既定でないコンソールコンテキスト(console.* 以外)での呼び出しのためのコンソールコンテキスト記述子: 無名コンテキストでの呼び出しには 'anonymous#unique-logger-id'、名前付きコンテキストでの呼び出しには 'name#unique-logger-id'。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ConsoleAPICalledEventDataType.context",
+      "lang": "ja"
+    },
+    "725487b5": {
+      "original": "Identifier of the context where the call was made.",
+      "translated": "呼び出しが行われたコンテキストの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ConsoleAPICalledEventDataType.executionContextId",
+      "lang": "ja"
+    },
+    "561704dd": {
+      "original": "Stack trace captured when the call was made.",
+      "translated": "呼び出しが行われたときに取得されたスタックトレース。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ConsoleAPICalledEventDataType.stackTrace",
+      "lang": "ja"
+    },
+    "411e915d": {
+      "original": "Call timestamp.",
+      "translated": "呼び出しのタイムスタンプ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ConsoleAPICalledEventDataType.timestamp",
+      "lang": "ja"
+    },
+    "811e5841": {
+      "original": "Type of the call.",
+      "translated": "呼び出しの種類。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ConsoleAPICalledEventDataType.type",
+      "lang": "ja"
+    },
+    "90cbf8a0": {
+      "original": "Preview of the key. Specified for map-like collection entries.",
+      "translated": "キーのプレビュー。map ライクなコレクションエントリに対して指定される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EntryPreview.key",
+      "lang": "ja"
+    },
+    "54e384b2": {
+      "original": "Preview of the value.",
+      "translated": "値のプレビュー。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EntryPreview.value",
+      "lang": "ja"
+    },
+    "9462eed2": {
+      "original": "Whether execution should <code>await</code> for resulting value and return once awaited promise is resolved.",
+      "translated": "実行が結果の値を <code>await</code> し、await された promise が解決されたら返すべきかどうか。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateParameterType.awaitPromise",
+      "lang": "ja"
+    },
+    "3cb11624": {
+      "original": "Specifies in which execution context to perform evaluation. If the parameter is omitted the evaluation will be performed in the context of the inspected page.",
+      "translated": "評価を行う実行コンテキストを指定する。パラメーターが省略された場合、評価は検査対象ページのコンテキストで実行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateParameterType.contextId",
+      "lang": "ja"
+    },
+    "2d32dbfe": {
+      "original": "Expression to evaluate.",
+      "translated": "評価する式。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateParameterType.expression",
+      "lang": "ja"
+    },
+    "ee61839b": {
+      "original": "Whether preview should be generated for the result.",
+      "translated": "結果に対してプレビューを生成すべきかどうか。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateParameterType.generatePreview",
+      "lang": "ja"
+    },
+    "eb9fd456": {
+      "original": "Determines whether Command Line API should be available during the evaluation.",
+      "translated": "評価中にコマンドライン API を利用可能にするかどうかを決定する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateParameterType.includeCommandLineAPI",
+      "lang": "ja"
+    },
+    "dfed8bb3": {
+      "original": "Symbolic group name that can be used to release multiple objects.",
+      "translated": "複数のオブジェクトを解放するために使えるシンボリックグループ名。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateParameterType.objectGroup",
+      "lang": "ja"
+    },
+    "19e12ce6": {
+      "original": "Whether the result is expected to be a JSON object that should be sent by value.",
+      "translated": "結果が、値渡しで送られるべき JSON オブジェクトであると期待されるかどうか。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateParameterType.returnByValue",
+      "lang": "ja"
+    },
+    "52f9d963": {
+      "original": "In silent mode exceptions thrown during evaluation are not reported and do not pause execution. Overrides <code>setPauseOnException</code> state.",
+      "translated": "silent モードでは、評価中に投げられた例外は報告されず、実行を一時停止しない。<code>setPauseOnException</code> の状態を上書きする。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateParameterType.silent",
+      "lang": "ja"
+    },
+    "0cd6cde5": {
+      "original": "Whether execution should be treated as initiated by user in the UI.",
+      "translated": "実行を UI でユーザーによって開始されたものとして扱うべきかどうか。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateParameterType.userGesture",
+      "lang": "ja"
+    },
+    "2de4e54b": {
+      "original": "Exception details.",
+      "translated": "例外の詳細。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateReturnType.exceptionDetails",
+      "lang": "ja"
+    },
+    "2f077940": {
+      "original": "Evaluation result.",
+      "translated": "評価結果。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.EvaluateReturnType.result",
+      "lang": "ja"
+    },
+    "d929f205": {
+      "original": "Detailed information about exception (or error) that was thrown during script compilation or execution.",
+      "translated": "スクリプトのコンパイルまたは実行中に投げられた例外(またはエラー)に関する詳細情報。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionDetails",
+      "lang": "ja"
+    },
+    "5d86bee6": {
+      "original": "Column number of the exception location (0-based).",
+      "translated": "例外発生位置の列番号(0 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionDetails.columnNumber",
+      "lang": "ja"
+    },
+    "786d1d0a": {
+      "original": "Exception object if available.",
+      "translated": "利用可能な場合の例外オブジェクト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionDetails.exception",
+      "lang": "ja"
+    },
+    "6408e663": {
+      "original": "Exception id.",
+      "translated": "例外 ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionDetails.exceptionId",
+      "lang": "ja"
+    },
+    "e2d85f43": {
+      "original": "Identifier of the context where exception happened.",
+      "translated": "例外が発生したコンテキストの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionDetails.executionContextId",
+      "lang": "ja"
+    },
+    "1c052db0": {
+      "original": "Line number of the exception location (0-based).",
+      "translated": "例外発生位置の行番号(0 始まり)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionDetails.lineNumber",
+      "lang": "ja"
+    },
+    "e994f9ef": {
+      "original": "Script ID of the exception location.",
+      "translated": "例外発生位置のスクリプト ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionDetails.scriptId",
+      "lang": "ja"
+    },
+    "c3e63804": {
+      "original": "JavaScript stack trace if available.",
+      "translated": "利用可能な場合の JavaScript スタックトレース。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionDetails.stackTrace",
+      "lang": "ja"
+    },
+    "e31a3a54": {
+      "original": "Exception text, which should be used together with exception object when available.",
+      "translated": "例外テキスト。利用可能な場合は例外オブジェクトと併せて使うべきである。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionDetails.text",
+      "lang": "ja"
+    },
+    "c000191e": {
+      "original": "URL of the exception location, to be used when the script was not reported.",
+      "translated": "例外発生位置の URL。スクリプトが報告されなかった場合に使われる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionDetails.url",
+      "lang": "ja"
+    },
+    "d1c9586c": {
+      "original": "The id of revoked exception, as reported in <code>exceptionThrown</code>.",
+      "translated": "<code>exceptionThrown</code> で報告された、取り消された例外の ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionRevokedEventDataType.exceptionId",
+      "lang": "ja"
+    },
+    "40c430e8": {
+      "original": "Reason describing why exception was revoked.",
+      "translated": "例外が取り消された理由を説明する理由。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionRevokedEventDataType.reason",
+      "lang": "ja"
+    },
+    "1e80bb77": {
+      "original": "Timestamp of the exception.",
+      "translated": "例外のタイムスタンプ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExceptionThrownEventDataType.timestamp",
+      "lang": "ja"
+    },
+    "a24fdb62": {
+      "original": "A newly created execution context.",
+      "translated": "新しく作成された実行コンテキスト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExecutionContextCreatedEventDataType.context",
+      "lang": "ja"
+    },
+    "d0297ffa": {
+      "original": "Description of an isolated world.",
+      "translated": "隔離されたワールドの記述。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExecutionContextDescription",
+      "lang": "ja"
+    },
+    "a8d0db69": {
+      "original": "Embedder-specific auxiliary data.",
+      "translated": "組み込み側固有の補助データ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExecutionContextDescription.auxData",
+      "lang": "ja"
+    },
+    "9316213a": {
+      "original": "Unique id of the execution context. It can be used to specify in which execution context script evaluation should be performed.",
+      "translated": "実行コンテキストの一意な ID。どの実行コンテキストでスクリプト評価を行うべきかを指定するために使える。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExecutionContextDescription.id",
+      "lang": "ja"
+    },
+    "3a428bad": {
+      "original": "Human readable name describing given context.",
+      "translated": "指定されたコンテキストを説明する人間が読める名前。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExecutionContextDescription.name",
+      "lang": "ja"
+    },
+    "2701dc68": {
+      "original": "Execution context origin.",
+      "translated": "実行コンテキストのオリジン。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExecutionContextDescription.origin",
+      "lang": "ja"
+    },
+    "3f7de0ae": {
+      "original": "Id of the destroyed context",
+      "translated": "破棄されたコンテキストの ID",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExecutionContextDestroyedEventDataType.executionContextId",
+      "lang": "ja"
+    },
+    "3fa03a8c": {
+      "original": "Id of an execution context.",
+      "translated": "実行コンテキストの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ExecutionContextId",
+      "lang": "ja"
+    },
+    "c92e88e7": {
+      "original": "If true, returns accessor properties (with getter/setter) only; internal properties are not returned either.",
+      "translated": "true の場合、アクセサープロパティ(getter/setter を持つもの)のみを返す。内部プロパティも返されない。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.GetPropertiesParameterType.accessorPropertiesOnly",
+      "lang": "ja"
+    },
+    "a8f20ccc": {
+      "original": "Whether preview should be generated for the results.",
+      "translated": "結果に対してプレビューを生成すべきかどうか。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.GetPropertiesParameterType.generatePreview",
+      "lang": "ja"
+    },
+    "6f276b86": {
+      "original": "Identifier of the object to return properties for.",
+      "translated": "プロパティを返す対象のオブジェクトの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.GetPropertiesParameterType.objectId",
+      "lang": "ja"
+    },
+    "bcbcc17b": {
+      "original": "If true, returns properties belonging only to the element itself, not to its prototype chain.",
+      "translated": "true の場合、プロトタイプチェーンではなく、要素自体に属するプロパティのみを返す。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.GetPropertiesParameterType.ownProperties",
+      "lang": "ja"
+    },
+    "99c568e2": {
+      "original": "Internal object properties (only of the element itself).",
+      "translated": "内部オブジェクトプロパティ(要素自体のもののみ)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.GetPropertiesReturnType.internalProperties",
+      "lang": "ja"
+    },
+    "d65903cf": {
+      "original": "Object properties.",
+      "translated": "オブジェクトのプロパティ。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.GetPropertiesReturnType.result",
+      "lang": "ja"
+    },
+    "979eacac": {
+      "original": "Specifies in which execution context to lookup global scope variables.",
+      "translated": "グローバルスコープ変数を検索する実行コンテキストを指定する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.GlobalLexicalScopeNamesParameterType.executionContextId",
+      "lang": "ja"
+    },
+    "1485eb1b": {
+      "original": "Object internal property descriptor. This property isn't normally visible in JavaScript code.",
+      "translated": "オブジェクトの内部プロパティ記述子。このプロパティは通常 JavaScript コードでは見えない。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.InternalPropertyDescriptor",
+      "lang": "ja"
+    },
+    "feee5063": {
+      "original": "Conventional property name.",
+      "translated": "慣例的なプロパティ名。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.InternalPropertyDescriptor.name",
+      "lang": "ja"
+    },
+    "f9bf333a": {
+      "original": "Object containing abbreviated remote object value.",
+      "translated": "省略されたリモートオブジェクト値を含むオブジェクト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ObjectPreview",
+      "lang": "ja"
+    },
+    "e5dc61b4": {
+      "original": "List of the entries. Specified for <code>map</code> and <code>set</code> subtype values only.",
+      "translated": "エントリのリスト。<code>map</code> および <code>set</code> サブタイプの値に対してのみ指定される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ObjectPreview.entries",
+      "lang": "ja"
+    },
+    "43cbd44d": {
+      "original": "True iff some of the properties or entries of the original object did not fit.",
+      "translated": "元のオブジェクトのプロパティまたはエントリの一部が収まりきらなかった場合にのみ True。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ObjectPreview.overflow",
+      "lang": "ja"
+    },
+    "1cf15f49": {
+      "original": "List of the properties.",
+      "translated": "プロパティのリスト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ObjectPreview.properties",
+      "lang": "ja"
+    },
+    "f92461d0": {
+      "original": "Object property descriptor.",
+      "translated": "オブジェクトのプロパティ記述子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor",
+      "lang": "ja"
+    },
+    "fedde636": {
+      "original": "True if the type of this property descriptor may be changed and if the property may be deleted from the corresponding object.",
+      "translated": "このプロパティ記述子の型を変更でき、かつ対応するオブジェクトからプロパティを削除できる場合は True。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor.configurable",
+      "lang": "ja"
+    },
+    "fd3b7c34": {
+      "original": "A function which serves as a getter for the property, or <code>undefined</code> if there is no getter (accessor descriptors only).",
+      "translated": "プロパティのゲッターとして機能する関数。ゲッターがない場合は <code>undefined</code>(アクセサー記述子のみ)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor.get",
+      "lang": "ja"
+    },
+    "5241d1af": {
+      "original": "True if the property is owned for the object.",
+      "translated": "プロパティがそのオブジェクトに所有されている場合は True。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor.isOwn",
+      "lang": "ja"
+    },
+    "5584c871": {
+      "original": "Property name or symbol description.",
+      "translated": "プロパティ名またはシンボルの説明。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor.name",
+      "lang": "ja"
+    },
+    "4f9d213d": {
+      "original": "A function which serves as a setter for the property, or <code>undefined</code> if there is no setter (accessor descriptors only).",
+      "translated": "プロパティのセッターとして機能する関数。セッターがない場合は <code>undefined</code>(アクセサー記述子のみ)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor.set",
+      "lang": "ja"
+    },
+    "e41d0b26": {
+      "original": "Property symbol object, if the property is of the <code>symbol</code> type.",
+      "translated": "プロパティが <code>symbol</code> 型の場合の、プロパティのシンボルオブジェクト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor.symbol",
+      "lang": "ja"
+    },
+    "aabcb78f": {
+      "original": "The value associated with the property.",
+      "translated": "プロパティに関連付けられた値。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor.value",
+      "lang": "ja"
+    },
+    "f86c28f1": {
+      "original": "True if the result was thrown during the evaluation.",
+      "translated": "評価中に結果が投げられた場合は True。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor.wasThrown",
+      "lang": "ja"
+    },
+    "edacd1d2": {
+      "original": "True if the value associated with the property may be changed (data descriptors only).",
+      "translated": "プロパティに関連付けられた値を変更できる場合は True(データ記述子のみ)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyDescriptor.writable",
+      "lang": "ja"
+    },
+    "872509a0": {
+      "original": "Property name.",
+      "translated": "プロパティ名。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyPreview.name",
+      "lang": "ja"
+    },
+    "b0013ddc": {
+      "original": "Object type. Accessor means that the property itself is an accessor property.",
+      "translated": "オブジェクトの型。Accessor は、プロパティ自体がアクセサープロパティであることを意味する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyPreview.type",
+      "lang": "ja"
+    },
+    "b7b0ee75": {
+      "original": "User-friendly property value string.",
+      "translated": "ユーザーフレンドリーなプロパティ値の文字列。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyPreview.value",
+      "lang": "ja"
+    },
+    "432d3057": {
+      "original": "Nested value preview.",
+      "translated": "入れ子の値のプレビュー。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.PropertyPreview.valuePreview",
+      "lang": "ja"
+    },
+    "2d03a1b7": {
+      "original": "Identifier of the prototype to return objects for.",
+      "translated": "オブジェクトを返す対象のプロトタイプの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.QueryObjectsParameterType.prototypeObjectId",
+      "lang": "ja"
+    },
+    "cd9c187c": {
+      "original": "Array with objects.",
+      "translated": "オブジェクトを含む配列。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.QueryObjectsReturnType.objects",
+      "lang": "ja"
+    },
+    "5f204713": {
+      "original": "Symbolic object group name.",
+      "translated": "シンボリックオブジェクトグループ名。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ReleaseObjectGroupParameterType.objectGroup",
+      "lang": "ja"
+    },
+    "91ea35f6": {
+      "original": "Identifier of the object to release.",
+      "translated": "解放するオブジェクトの識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ReleaseObjectParameterType.objectId",
+      "lang": "ja"
+    },
+    "bc5ca9dd": {
+      "original": "Mirror object referencing original JavaScript object.",
+      "translated": "元の JavaScript オブジェクトを参照するミラーオブジェクト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RemoteObject",
+      "lang": "ja"
+    },
+    "4450652e": {
+      "original": "Object class (constructor) name. Specified for <code>object</code> type values only.",
+      "translated": "オブジェクトのクラス(コンストラクター)名。<code>object</code> 型の値に対してのみ指定される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RemoteObject.className",
+      "lang": "ja"
+    },
+    "6fe868f6": {
+      "original": "Unique object identifier (for non-primitive values).",
+      "translated": "一意なオブジェクト識別子(非プリミティブ値用)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RemoteObject.objectId",
+      "lang": "ja"
+    },
+    "ff8b9646": {
+      "original": "Preview containing abbreviated property values. Specified for <code>object</code> type values only.",
+      "translated": "省略されたプロパティ値を含むプレビュー。<code>object</code> 型の値に対してのみ指定される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RemoteObject.preview",
+      "lang": "ja"
+    },
+    "dfba2339": {
+      "original": "Object subtype hint. Specified for <code>object</code> type values only.",
+      "translated": "オブジェクトサブタイプのヒント。<code>object</code> 型の値に対してのみ指定される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RemoteObject.subtype",
+      "lang": "ja"
+    },
+    "ea6151dc": {
+      "original": "Object type.",
+      "translated": "オブジェクトの型。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RemoteObject.type",
+      "lang": "ja"
+    },
+    "ad4dee5f": {
+      "original": "Primitive value which can not be JSON-stringified does not have <code>value</code>, but gets this property.",
+      "translated": "JSON 文字列化できないプリミティブ値は <code>value</code> を持たず、代わりにこのプロパティを取得する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RemoteObject.unserializableValue",
+      "lang": "ja"
+    },
+    "4aded886": {
+      "original": "Remote object value in case of primitive values or JSON values (if it was requested).",
+      "translated": "プリミティブ値または JSON 値の場合の、リモートオブジェクト値(要求された場合)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RemoteObject.value",
+      "lang": "ja"
+    },
+    "2c562f30": {
+      "original": "Unique object identifier.",
+      "translated": "一意なオブジェクト識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RemoteObjectId",
+      "lang": "ja"
+    },
+    "a4413fb4": {
+      "original": "Id of the script to run.",
+      "translated": "実行するスクリプトの ID。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RunScriptParameterType.scriptId",
+      "lang": "ja"
+    },
+    "dc11edaf": {
+      "original": "Run result.",
+      "translated": "実行結果。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.RunScriptReturnType.result",
+      "lang": "ja"
+    },
+    "e8b42f4a": {
+      "original": "Unique script identifier.",
+      "translated": "一意なスクリプト識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.ScriptId",
+      "lang": "ja"
+    },
+    "f37a6323": {
+      "original": "Call frames for assertions or error messages.",
+      "translated": "アサーションまたはエラーメッセージのためのコールフレーム。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.StackTrace",
       "lang": "ja"
     },
     "78a6ad93": {
