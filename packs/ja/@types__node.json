@@ -436,6 +436,12 @@
       "symbol": "@types/node/assert.d.ts#assert.assert.notEqual",
       "lang": "ja"
     },
+    "94071579": {
+      "original": "Does nothing.",
+      "translated": "何もしない。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
     "94250677": {
       "original": "The `actual` property on the error instance.",
       "translated": "エラーインスタンスの `actual` プロパティ。",
@@ -11714,6 +11720,636 @@
       "original": "Call frames for assertions or error messages.",
       "translated": "アサーションまたはエラーメッセージのためのコールフレーム。",
       "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.StackTrace",
+      "lang": "ja"
+    },
+    "5a68574e": {
+      "original": "String label of this stack trace. For async traces this may be a name of the function that initiated the async call.",
+      "translated": "このスタックトレースの文字列ラベル。async トレースの場合、これは async 呼び出しを開始した関数の名前であることがある。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.StackTrace.description",
+      "lang": "ja"
+    },
+    "8b2d5636": {
+      "original": "Asynchronous JavaScript stack trace that preceded this stack, if available.",
+      "translated": "利用可能な場合、このスタックに先行する非同期 JavaScript スタックトレース。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.StackTrace.parent",
+      "lang": "ja"
+    },
+    "88462fe3": {
+      "original": "If <code>debuggerId</code> is set stack trace comes from another debugger and can be resolved there. This allows to track cross-debugger calls. See <code>Runtime.StackTrace</code> and <code>Debugger.paused</code> for usages.",
+      "translated": "<code>debuggerId</code> が設定されている場合、スタックトレースは別のデバッガーから来ており、そちらで解決できる。これにより、デバッガーをまたぐ呼び出しを追跡できる。使用例は <code>Runtime.StackTrace</code> と <code>Debugger.paused</code> を参照。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.StackTraceId",
+      "lang": "ja"
+    },
+    "8992808d": {
+      "original": "Number of milliseconds since epoch.",
+      "translated": "エポックからのミリ秒数。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.Timestamp",
+      "lang": "ja"
+    },
+    "2cf87431": {
+      "original": "Unique identifier of current debugger.",
+      "translated": "現在のデバッガーの一意な識別子。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.UniqueDebuggerId",
+      "lang": "ja"
+    },
+    "47baa9af": {
+      "original": "Primitive value which cannot be JSON-stringified.",
+      "translated": "JSON 文字列化できないプリミティブ値。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Runtime.UnserializableValue",
+      "lang": "ja"
+    },
+    "ccab5a1d": {
+      "original": "Description of the protocol domain.",
+      "translated": "プロトコルドメインの記述。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Schema.Domain",
+      "lang": "ja"
+    },
+    "0f0ae1e2": {
+      "original": "Domain name.",
+      "translated": "ドメイン名。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Schema.Domain.name",
+      "lang": "ja"
+    },
+    "b165584a": {
+      "original": "Domain version.",
+      "translated": "ドメインのバージョン。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Schema.Domain.version",
+      "lang": "ja"
+    },
+    "1f3c1717": {
+      "original": "List of supported domains.",
+      "translated": "サポートされているドメインのリスト。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Schema.GetDomainsReturnType.domains",
+      "lang": "ja"
+    },
+    "9a51490c": {
+      "original": "Contains an bucket of collected trace events.",
+      "translated": "収集されたトレースイベントのバケットを含む。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "64c1a023": {
+      "original": "Emitted when any notification from the V8 Inspector is received.",
+      "translated": "V8 Inspector からの任意の通知を受信したときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "d093b734": {
+      "original": "Fired when breakpoint is resolved to an actual script and location.",
+      "translated": "ブレークポイントが実際のスクリプトと位置に解決されたときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "b3da176b": {
+      "original": "Fired when data chunk was received over the network.",
+      "translated": "ネットワーク経由でデータチャンクを受信したときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "c5f95709": {
+      "original": "Fired when HTTP response is available.",
+      "translated": "HTTP レスポンスが利用可能になったときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "3e7181f2": {
+      "original": "Fired when page is about to send HTTP request.",
+      "translated": "ページが HTTP リクエストを送信しようとするときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "a3c3b20f": {
+      "original": "Fired when the virtual machine resumed execution.",
+      "translated": "仮想マシンが実行を再開したときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "1614179f": {
+      "original": "Fired when the virtual machine stopped on breakpoint or exception or any other stop criteria.",
+      "translated": "仮想マシンがブレークポイント・例外・その他の停止条件で停止したときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "48d528f9": {
+      "original": "Fired when virtual machine fails to parse the script.",
+      "translated": "仮想マシンがスクリプトのパースに失敗したときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "32a5e7ef": {
+      "original": "Fired when virtual machine parses script. This event is also fired for all known and uncollected scripts upon enabling debugger.",
+      "translated": "仮想マシンがスクリプトをパースしたときに発行される。このイベントは、デバッガーの有効化時に、既知かつ未収集のすべてのスクリプトに対しても発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "289f8017": {
+      "original": "If heap objects tracking has been started then backend may send update for one or more fragments",
+      "translated": "ヒープオブジェクトのトラッキングが開始されている場合、バックエンドは 1 つ以上のフラグメントの更新を送ることがある",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "47d2e6c7": {
+      "original": "If heap objects tracking has been started then backend regularly sends a current value for last seen object id and corresponding timestamp. If the were changes in the heap since last event then one or more heapStatsUpdate events will be sent before a new lastSeenObjectId event.",
+      "translated": "ヒープオブジェクトのトラッキングが開始されている場合、バックエンドは、最後に見たオブジェクト ID と対応するタイムスタンプの現在の値を定期的に送る。前回のイベント以降にヒープに変更があった場合、新しい lastSeenObjectId イベントの前に 1 つ以上の heapStatsUpdate イベントが送られる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "fd39b76f": {
+      "original": "Issued when all executionContexts were cleared in browser",
+      "translated": "ブラウザーですべての executionContexts がクリアされたときに発行される",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "636b2457": {
+      "original": "Issued when attached to a worker.",
+      "translated": "worker にアタッチされたときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "0e7cd48d": {
+      "original": "Issued when console API was called.",
+      "translated": "コンソール API が呼ばれたときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "ccb2acad": {
+      "original": "Issued when detached from the worker.",
+      "translated": "worker からデタッチされたときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "6dbc5e73": {
+      "original": "Issued when exception was thrown and unhandled.",
+      "translated": "例外が投げられ、処理されなかったときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "201363a7": {
+      "original": "Issued when execution context is destroyed.",
+      "translated": "実行コンテキストが破棄されたときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "443a0d7d": {
+      "original": "Issued when new console message is added.",
+      "translated": "新しいコンソールメッセージが追加されたときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "ae6f0024": {
+      "original": "Issued when new execution context is created.",
+      "translated": "新しい実行コンテキストが作成されたときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "4965528f": {
+      "original": "Issued when object should be inspected (for example, as a result of inspect() command line API call).",
+      "translated": "オブジェクトを検査すべきとき(たとえば inspect() コマンドライン API 呼び出しの結果として)に発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "fc1207a7": {
+      "original": "Issued when unhandled exception was revoked.",
+      "translated": "未処理の例外が取り消されたときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "b3dd7981": {
+      "original": "Notifies about a new protocol message received from the session\n(session ID is provided in attachedToWorker notification).",
+      "translated": "セッションから受信した新しいプロトコルメッセージについて通知する(セッション ID は attachedToWorker 通知で提供される)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "48b5741e": {
+      "original": "Sent when new profile recording is started using console.profile() call.",
+      "translated": "console.profile() 呼び出しを使って新しいプロファイル記録が開始されたときに送られる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "8b5e6fce": {
+      "original": "Signals that tracing is stopped and there is no trace buffers pending flush, all data were\ndelivered via dataCollected events.",
+      "translated": "トレースが停止し、フラッシュ待ちのトレースバッファがなく、すべてのデータが dataCollected イベントを介して配信されたことを通知する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "684ce9a0": {
+      "original": "This event is fired instead of `Runtime.executionContextDestroyed` when\nenabled.\nIt is fired when the Node process finished all code execution and is\nwaiting for all frontends to disconnect.",
+      "translated": "有効な場合、`Runtime.executionContextDestroyed` の代わりにこのイベントが発行される。Node プロセスがすべてのコード実行を終え、すべてのフロントエンドの切断を待っているときに発行される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "e600e91c": {
+      "original": "This event is fired when the runtime is waiting for the debugger. For\nexample, when inspector.waitingForDebugger is called",
+      "translated": "ランタイムがデバッガーを待っているときにこのイベントが発行される。たとえば、inspector.waitingForDebugger が呼ばれたとき。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.addListener",
+      "lang": "ja"
+    },
+    "9aa38023": {
+      "original": "Activates / deactivates all breakpoints on the page.",
+      "translated": "ページ上のすべてのブレークポイントを有効化 / 無効化する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "a35c942a": {
+      "original": "Add handler to promise with given promise object id.",
+      "translated": "指定された promise オブジェクト ID を持つ promise にハンドラーを追加する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "f0ed1aff": {
+      "original": "Calls function with given declaration on the given object. Object group of the result is inherited from the target object.",
+      "translated": "指定されたオブジェクトに対して、指定された宣言の関数を呼ぶ。結果のオブジェクトグループは対象オブジェクトから継承される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "c3f8e8f8": {
+      "original": "Changes CPU profiler sampling interval. Must be called before CPU profiles recording started.",
+      "translated": "CPU プロファイラーのサンプリング間隔を変更する。CPU プロファイルの記録が開始される前に呼ぶ必要がある。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "8c7c3de7": {
+      "original": "Changes return value in top frame. Available only at return break position.",
+      "translated": "最上位フレームの戻り値を変更する。return ブレーク位置でのみ利用できる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "c61770b4": {
+      "original": "Changes value of variable in a callframe. Object-based scopes are not supported and must be mutated manually.",
+      "translated": "コールフレーム内の変数の値を変更する。オブジェクトベースのスコープはサポートされておらず、手動で変更する必要がある。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "2f016bf8": {
+      "original": "Collect coverage data for the current isolate, and resets execution counters. Precise code coverage needs to have started.",
+      "translated": "現在の isolate のカバレッジデータを収集し、実行カウンターをリセットする。精密なコードカバレッジが開始されている必要がある。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "e1895322": {
+      "original": "Collect coverage data for the current isolate. The coverage data may be incomplete due to garbage collection.",
+      "translated": "現在の isolate のカバレッジデータを収集する。ガベージコレクションのため、カバレッジデータは不完全な場合がある。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "2bd6e64b": {
+      "original": "Compiles expression.",
+      "translated": "式をコンパイルする。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "7e3bf8aa": {
+      "original": "Continues execution until specific location is reached.",
+      "translated": "特定の位置に達するまで実行を継続する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "6b3da1c9": {
+      "original": "Defines pause on exceptions state. Can be set to stop on all exceptions, uncaught exceptions or no exceptions. Initial pause on exceptions state is <code>none</code>.",
+      "translated": "例外での一時停止状態を定義する。すべての例外・未捕捉例外・例外なしで停止するよう設定できる。初期の例外一時停止状態は <code>none</code> である。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "041a360c": {
+      "original": "Detached from the worker with given sessionId.",
+      "translated": "指定された sessionId の worker からデタッチされた。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "7d0ec4ec": {
+      "original": "Detaches from all running workers and disables attaching to new workers as they are started.",
+      "translated": "実行中のすべての worker からデタッチし、新しい worker が開始されてもアタッチしないよう無効化する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "75b42276": {
+      "original": "Disable NodeRuntime events",
+      "translated": "NodeRuntime イベントを無効化する",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "45ff5d37": {
+      "original": "Disable precise code coverage. Disabling releases unnecessary execution count records and allows executing optimized code.",
+      "translated": "精密なコードカバレッジを無効化する。無効化すると、不要な実行カウント記録が解放され、最適化コードの実行が可能になる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "b46d27e4": {
+      "original": "Disables console domain, prevents further console messages from being reported to the client.",
+      "translated": "console ドメインを無効化し、以降のコンソールメッセージがクライアントに報告されないようにする。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "83d89528": {
+      "original": "Disables debugger for given page.",
+      "translated": "指定されたページのデバッガーを無効化する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "271d47ae": {
+      "original": "Disables network tracking, prevents network events from being sent to the client.",
+      "translated": "ネットワークトラッキングを無効化し、ネットワークイベントがクライアントに送られないようにする。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "e9846153": {
+      "original": "Disables reporting of execution contexts creation.",
+      "translated": "実行コンテキスト作成の報告を無効化する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "7693d101": {
+      "original": "Discards collected exceptions and console API calls.",
+      "translated": "収集された例外とコンソール API 呼び出しを破棄する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "2bb68feb": {
+      "original": "Edits JavaScript source live.",
+      "translated": "JavaScript ソースをライブ編集する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "e230c0b4": {
+      "original": "Enable precise code coverage. Coverage data for JavaScript executed before enabling precise code coverage may be incomplete. Enabling prevents running optimized code and resets execution counters.",
+      "translated": "精密なコードカバレッジを有効化する。精密なコードカバレッジを有効化する前に実行された JavaScript のカバレッジデータは不完全な場合がある。有効化すると、最適化コードの実行が防がれ、実行カウンターがリセットされる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "d8303a04": {
+      "original": "Enable the `NodeRuntime.waitingForDisconnect`.",
+      "translated": "`NodeRuntime.waitingForDisconnect` を有効化する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "c37d2a20": {
+      "original": "Enable the NodeRuntime events except by `NodeRuntime.waitingForDisconnect`.",
+      "translated": "`NodeRuntime.waitingForDisconnect` を除く NodeRuntime イベントを有効化する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "5f27bac7": {
+      "original": "Enables console domain, sends the messages collected so far to the client by means of the <code>messageAdded</code> notification.",
+      "translated": "console ドメインを有効化し、これまでに収集されたメッセージを <code>messageAdded</code> 通知によってクライアントに送る。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "8d1a4dae": {
+      "original": "Enables console to refer to the node with given id via $x (see Command Line API for more details $x functions).",
+      "translated": "$x を介して指定された id のノードを参照できるようコンソールを有効化する($x 関数の詳細はコマンドライン API を参照)。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "5a41ab34": {
+      "original": "Enables debugger for the given page. Clients should not assume that the debugging has been enabled until the result for this command is received.",
+      "translated": "指定されたページのデバッガーを有効化する。クライアントは、このコマンドの結果を受け取るまでデバッグが有効になったと想定すべきではない。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "4cfa624e": {
+      "original": "Enables network tracking, network events will now be delivered to the client.",
+      "translated": "ネットワークトラッキングを有効化する。以降、ネットワークイベントがクライアントに配信される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "a96e4e94": {
+      "original": "Enables or disables async call stacks tracking.",
+      "translated": "async コールスタックのトラッキングを有効化または無効化する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "260a0751": {
+      "original": "Enables reporting of execution contexts creation by means of <code>executionContextCreated</code> event. When the reporting gets enabled the event will be sent immediately for each existing execution context.",
+      "translated": "<code>executionContextCreated</code> イベントによる実行コンテキスト作成の報告を有効化する。報告が有効化されると、既存の各実行コンテキストに対してイベントがただちに送られる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "b8ff7935": {
+      "original": "Enables streaming of the response for the given requestId.\nIf enabled, the dataReceived event contains the data that was received during streaming.",
+      "translated": "指定された requestId のレスポンスのストリーミングを有効化する。有効な場合、dataReceived イベントはストリーミング中に受信したデータを含む。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "7d26dcc3": {
+      "original": "Evaluates expression on a given call frame.",
+      "translated": "指定されたコールフレームで式を評価する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "a1998732": {
+      "original": "Evaluates expression on global object.",
+      "translated": "グローバルオブジェクトで式を評価する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "0069b898": {
+      "original": "Fetches the resource and returns the content.",
+      "translated": "リソースを取得し、その内容を返す。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "a3075146": {
+      "original": "Gets supported tracing categories.",
+      "translated": "サポートされているトレースカテゴリーを取得する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "3990fd86": {
+      "original": "Instructs the inspector to attach to running workers. Will also attach to new workers\nas they start",
+      "translated": "実行中の worker にアタッチするようインスペクターに指示する。新しい worker が開始されたときにもアタッチする",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "224c5748": {
+      "original": "Makes backend skip steps in the script in blackboxed ranges. VM will try leave blacklisted scripts by performing 'step in' several times, finally resorting to 'step out' if unsuccessful. Positions array contains positions where blackbox state is changed. First interval isn't blackboxed. Array should be sorted.",
+      "translated": "ブラックボックス化された範囲のスクリプト内のステップをバックエンドにスキップさせる。VM は 'step in' を数回実行することでブラックリスト化されたスクリプトから抜け出そうとし、成功しない場合は最終的に 'step out' に頼る。Positions 配列は、ブラックボックス状態が変化する位置を含む。最初の区間はブラックボックス化されない。配列はソートされているべきである。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "92e9dd9f": {
+      "original": "Makes page not interrupt on any pauses (breakpoint, exception, dom exception etc).",
+      "translated": "あらゆる一時停止(ブレークポイント・例外・dom 例外など)でページを中断させないようにする。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "06e97ea2": {
+      "original": "Posts a message to the inspector back-end. `callback` will be notified when\na response is received. `callback` is a function that accepts two optional\narguments: error and message-specific result.\n\n```js\nsession.post('Runtime.evaluate', { expression: '2 + 2' },\n             (error, { result }) => console.log(result));\n// Output: { type: 'number', value: 4, description: '4' }\n```\n\nThe latest version of the V8 inspector protocol is published on the\n[Chrome DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/v8/).\n\nNode.js inspector supports all the Chrome DevTools Protocol domains declared\nby V8. Chrome DevTools Protocol domain provides an interface for interacting\nwith one of the runtime agents used to inspect the application state and listen\nto the run-time events.",
+      "translated": "インスペクターバックエンドにメッセージを投稿する。レスポンスを受信すると `callback` に通知される。`callback` は、error とメッセージ固有の result という 2 つの省略可能な引数を受け取る関数である。\n\n```js\nsession.post('Runtime.evaluate', { expression: '2 + 2' },\n             (error, { result }) => console.log(result));\n// Output: { type: 'number', value: 4, description: '4' }\n```\n\nV8 インスペクタープロトコルの最新バージョンは、[Chrome DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/v8/) で公開されている。\n\nNode.js インスペクターは、V8 が宣言するすべての Chrome DevTools Protocol ドメインをサポートする。Chrome DevTools Protocol ドメインは、アプリケーションの状態を検査し実行時イベントをリッスンするために使われるランタイムエージェントの 1 つと対話するためのインターフェイスを提供する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "b1453831": {
+      "original": "Read a chunk of the stream",
+      "translated": "ストリームのチャンクを読み取る",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "d23f41e8": {
+      "original": "Releases all remote objects that belong to a given group.",
+      "translated": "指定されたグループに属するすべてのリモートオブジェクトを解放する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "7488eb98": {
+      "original": "Releases remote object with given id.",
+      "translated": "指定された id のリモートオブジェクトを解放する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "0755cc41": {
+      "original": "Removes JavaScript breakpoint.",
+      "translated": "JavaScript ブレークポイントを削除する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "13dd380d": {
+      "original": "Replace previous blackbox patterns with passed ones. Forces backend to skip stepping/pausing in scripts with url matching one of the patterns. VM will try to leave blackboxed script by performing 'step in' several times, finally resorting to 'step out' if unsuccessful.",
+      "translated": "以前のブラックボックスパターンを、渡されたものに置き換える。パターンのいずれかに一致する url を持つスクリプトでのステップ実行 / 一時停止をバックエンドにスキップさせる。VM は 'step in' を数回実行することでブラックボックス化されたスクリプトから抜け出そうとし、成功しない場合は最終的に 'step out' に頼る。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "2479bd97": {
+      "original": "Restarts particular call frame from the beginning.",
+      "translated": "特定のコールフレームを最初から再起動する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "91a27bc3": {
+      "original": "Resumes JavaScript execution.",
+      "translated": "JavaScript の実行を再開する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "c1fe88b0": {
+      "original": "Returns all let, const and class variables from global scope.",
+      "translated": "グローバルスコープのすべての let・const・class 変数を返す。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "608f6a06": {
+      "original": "Returns content served for the given request.",
+      "translated": "指定されたリクエストに対して提供された内容を返す。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "b9aede7e": {
+      "original": "Returns possible locations for breakpoint. scriptId in start and end range locations should be the same.",
+      "translated": "ブレークポイントの可能な位置を返す。start と end の範囲位置の scriptId は同じであるべきである。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "fe6b0707": {
+      "original": "Returns post data sent with the request. Returns an error when no data was sent with the request.",
+      "translated": "リクエストとともに送られた POST データを返す。リクエストとともにデータが送られなかった場合はエラーを返す。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "977bdbb3": {
+      "original": "Returns properties of a given object. Object group of the result is inherited from the target object.",
+      "translated": "指定されたオブジェクトのプロパティを返す。結果のオブジェクトグループは対象オブジェクトから継承される。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "86d8091a": {
+      "original": "Returns source for the script with given id.",
+      "translated": "指定された id のスクリプトのソースを返す。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "ce0c53a3": {
+      "original": "Returns stack trace with given <code>stackTraceId</code>.",
+      "translated": "指定された <code>stackTraceId</code> のスタックトレースを返す。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "c0d9e288": {
+      "original": "Returns supported domains.",
+      "translated": "サポートされているドメインを返す。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "c8d006fe": {
+      "original": "Runs script with given id in a given context.",
+      "translated": "指定された id のスクリプトを指定されたコンテキストで実行する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "5532eca4": {
+      "original": "Searches for given string in script content.",
+      "translated": "スクリプトの内容内で指定された文字列を検索する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "ff9bcb2c": {
+      "original": "Sends protocol message over session with given id.",
+      "translated": "指定された id のセッションを介してプロトコルメッセージを送る。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "f5344f8c": {
+      "original": "Sets JavaScript breakpoint at a given location.",
+      "translated": "指定された位置に JavaScript ブレークポイントを設定する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "37245bcc": {
+      "original": "Sets JavaScript breakpoint at given location specified either by URL or URL regex. Once this command is issued, all existing parsed scripts will have breakpoints resolved and returned in <code>locations</code> property. Further matching script parsing will result in subsequent <code>breakpointResolved</code> events issued. This logical breakpoint will survive page reloads.",
+      "translated": "URL または URL 正規表現のいずれかで指定された位置に JavaScript ブレークポイントを設定する。このコマンドが発行されると、既存のすべてのパース済みスクリプトでブレークポイントが解決され、<code>locations</code> プロパティで返される。以降に一致するスクリプトのパースでは、後続の <code>breakpointResolved</code> イベントが発行される。この論理ブレークポイントはページのリロード後も存続する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "db97310f": {
+      "original": "Start trace events collection.",
+      "translated": "トレースイベントの収集を開始する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "db383102": {
+      "original": "Steps into the function call.",
+      "translated": "関数呼び出しにステップインする。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "b59fe08e": {
+      "original": "Steps out of the function call.",
+      "translated": "関数呼び出しからステップアウトする。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "0df18e85": {
+      "original": "Steps over the statement.",
+      "translated": "文をステップオーバーする。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "95d4a787": {
+      "original": "Stop trace events collection. Remaining collected events will be sent as a sequence of\ndataCollected events followed by tracingComplete event.",
+      "translated": "トレースイベントの収集を停止する。残りの収集済みイベントは、一連の dataCollected イベントに続いて tracingComplete イベントとして送られる。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "4fe59b8d": {
+      "original": "Stops on the next JavaScript statement.",
+      "translated": "次の JavaScript 文で停止する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "3943fc8a": {
+      "original": "Tells inspected instance to run if it was waiting for debugger to attach.",
+      "translated": "検査対象インスタンスがデバッガーのアタッチを待っていた場合、実行するよう指示する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "161d3be8": {
+      "original": "This method is deprecated - use Debugger.stepInto with breakOnAsyncCall and Debugger.pauseOnAsyncTask instead. Steps into next scheduled async task if any is scheduled before next pause. Returns success when async task is actually scheduled, returns error if no task were scheduled or another scheduleStepIntoAsync was called.",
+      "translated": "このメソッドは非推奨である。代わりに breakOnAsyncCall 付きの Debugger.stepInto と Debugger.pauseOnAsyncTask を使うこと。次の一時停止の前に async タスクがスケジュールされている場合、次のスケジュール済み async タスクにステップインする。async タスクが実際にスケジュールされている場合は成功を返し、タスクがスケジュールされていない場合、または別の scheduleStepIntoAsync が呼ばれた場合はエラーを返す。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector.Session.post",
+      "lang": "ja"
+    },
+    "c95fb39f": {
+      "original": "Posts a message to the inspector back-end.\n\n```js\nimport { Session } from 'node:inspector/promises';\ntry {\n  const session = new Session();\n  session.connect();\n  const result = await session.post('Runtime.evaluate', { expression: '2 + 2' });\n  console.log(result);\n} catch (error) {\n  console.error(error);\n}\n// Output: { result: { type: 'number', value: 4, description: '4' } }\n```\n\nThe latest version of the V8 inspector protocol is published on the\n[Chrome DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/v8/).\n\nNode.js inspector supports all the Chrome DevTools Protocol domains declared\nby V8. Chrome DevTools Protocol domain provides an interface for interacting\nwith one of the runtime agents used to inspect the application state and listen\nto the run-time events.",
+      "translated": "インスペクターバックエンドにメッセージを投稿する。\n\n```js\nimport { Session } from 'node:inspector/promises';\ntry {\n  const session = new Session();\n  session.connect();\n  const result = await session.post('Runtime.evaluate', { expression: '2 + 2' });\n  console.log(result);\n} catch (error) {\n  console.error(error);\n}\n// Output: { result: { type: 'number', value: 4, description: '4' } }\n```\n\nV8 インスペクタープロトコルの最新バージョンは、[Chrome DevTools Protocol Viewer](https://chromedevtools.github.io/devtools-protocol/v8/) で公開されている。\n\nNode.js インスペクターは、V8 が宣言するすべての Chrome DevTools Protocol ドメインをサポートする。Chrome DevTools Protocol ドメインは、アプリケーションの状態を検査し実行時イベントをリッスンするために使われるランタイムエージェントの 1 つと対話するためのインターフェイスを提供する。",
+      "symbol": "@types/node/inspector.generated.d.ts#inspector/promises.Session.post",
       "lang": "ja"
     },
     "78a6ad93": {
